@@ -1,0 +1,38 @@
+# Default deny: keep everything excluded until the user explicitly allows paths.
+*
+
+# Example allowlist entries. Uncomment and narrow as needed.
+# !src/
+# !src/**
+# !docs/
+# !docs/**
+# !README.md
+# !pyproject.toml
+# !package.json
+
+# Hard exclusions. Do not remove without a manual privacy review.
+data/
+datasets/
+raw/
+checkpoints/
+outputs/
+wandb/
+logs/
+upload*/
+*.nii
+*.nii.gz
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.h5
+*.hdf5
+*.zip
+*.tar
+*.tar.gz
+.env*
+*secret*
+*token*
+*credential*
