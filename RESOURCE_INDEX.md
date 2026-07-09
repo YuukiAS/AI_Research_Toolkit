@@ -18,12 +18,12 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [D2](software/diagramming/d2/README.md) | `software` | 通用文本到图示渲染工具，适合把架构图、流程图和系统关系图写成可版本化的 D2 源文件。 | 适合 | `false` | SVG, PNG, PDF | `good` | `checked` |
 | [Graphviz](software/diagramming/graphviz/README.md) | `software` | 经典 DOT 图渲染工具，适合依赖图、有限状态机、流程图和 diagrams.py 后端渲染。 | 适合 | `false` | SVG, PNG, PDF | `good` | `checked` |
-| [Mermaid CLI](software/diagramming/mermaid-cli/README.md) | `software` | Mermaid 图表的命令行渲染器，适合从 Markdown/文档中的流程图、时序图、状态图生成 SVG/PNG/PDF。 | 部分适合 | `false` | SVG, PNG, PDF | `partial` | `failed` |
+| [Mermaid CLI](software/diagramming/mermaid-cli/README.md) | `software` | Mermaid 图表的命令行渲染器，适合从 Markdown/文档中的流程图、时序图、状态图生成 SVG/PNG/PDF。 | 部分适合 | `false` | SVG, PNG, PDF | `partial` | `checked` |
 | [Draw.io](software/diagramming/drawio/README.md) | `software` | 通用可编辑图示工具，用于维护 .drawio 文件并导出 SVG/PNG/PDF。 | 部分适合 | `false` | DrawIO, SVG, PNG, PDF | `partial` | `unknown` |
-| [PlantUML](software/diagramming/plantuml/README.md) | `software` | UML 和时序图渲染工具，适合接口流程、类图、状态机、组件关系图。 | 适合 | `false` | SVG, PNG, PDF | `good` | `failed` |
-| [Typst](software/diagramming/typst/README.md) | `software` | 轻量排版和技术文档渲染工具，可用于报告、图注、公式排版和小型说明页。 | 适合 | `false` | PDF, SVG, PNG | `good` | `failed` |
-| [Manim](software/diagramming/manim/README.md) | `software` | 数学动画和讲解视频生成工具，适合科研方法动画、几何/公式演示和短视频说明。 | 部分适合 | `false` | MP4, PNG, GIF | `partial` | `failed` |
-| [diagrams.py](software/diagramming/diagrams-py/README.md) | `software` | 用 Python 描述云架构和系统组件图，通常依赖 Graphviz 输出图像。 | 适合 | `false` | PNG, SVG, PDF | `good` | `failed` |
+| [PlantUML](software/diagramming/plantuml/README.md) | `software` | UML 和时序图渲染工具，适合接口流程、类图、状态机、组件关系图。 | 适合 | `false` | SVG, PNG, PDF | `good` | `checked` |
+| [Typst](software/diagramming/typst/README.md) | `software` | 轻量排版和技术文档渲染工具，可用于报告、图注、公式排版和小型说明页。 | 适合 | `false` | PDF, SVG, PNG | `good` | `checked` |
+| [Manim](software/diagramming/manim/README.md) | `software` | 数学动画和讲解视频生成工具，适合科研方法动画、几何/公式演示和短视频说明。 | 部分适合 | `false` | MP4, PNG, GIF | `partial` | `checked` |
+| [diagrams.py](software/diagramming/diagrams-py/README.md) | `software` | 用 Python 描述云架构和系统组件图，通常依赖 Graphviz 输出图像。 | 适合 | `false` | PNG, SVG, PDF | `good` | `checked` |
 | [Excalidraw](software/diagramming/excalidraw/README.md) | `software` | 手绘风格图示工具，适合概念草图、讲解图和快速视觉沟通。 | 部分适合 | `false` | SVG, PNG | `partial` | `unknown` |
 
 ## Scientific figure generation software

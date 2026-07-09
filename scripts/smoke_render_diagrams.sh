@@ -3,6 +3,7 @@ set -u
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT" || exit 1
+export PATH="$ROOT/bin:$ROOT/envs/npm-prefix/bin:$PATH"
 
 REPORT="smoke/smoke_render_report.txt"
 mkdir -p smoke/d2 smoke/graphviz smoke/mermaid smoke/plantuml smoke/typst smoke/manim

@@ -47,7 +47,7 @@ resources:
     local_path: software/diagramming/mermaid-cli
     upstream_path: software/diagramming/mermaid-cli/repo
     priority: core
-    install_status: failed
+    install_status: checked
     primary_commands:
       - 'mmdc --version'
       - 'mmdc -i input.mmd -o output.svg'
@@ -87,7 +87,7 @@ resources:
     local_path: software/diagramming/plantuml
     upstream_path: software/diagramming/plantuml/repo
     priority: core
-    install_status: failed
+    install_status: checked
     primary_commands:
       - 'plantuml -version'
       - 'java -jar plantuml.jar -version'
@@ -107,7 +107,7 @@ resources:
     local_path: software/diagramming/typst
     upstream_path: software/diagramming/typst/repo
     priority: recommended
-    install_status: failed
+    install_status: checked
     primary_commands:
       - 'typst --version'
       - 'typst compile input.typ output.pdf'
@@ -127,7 +127,7 @@ resources:
     local_path: software/diagramming/manim
     upstream_path: software/diagramming/manim/repo
     priority: recommended
-    install_status: failed
+    install_status: checked
     primary_commands:
       - 'manim --version'
     outputs:
@@ -146,7 +146,7 @@ resources:
     local_path: software/diagramming/diagrams-py
     upstream_path: software/diagramming/diagrams-py/repo
     priority: recommended
-    install_status: failed
+    install_status: checked
     primary_commands:
       - 'python -c "import diagrams"'
     outputs:

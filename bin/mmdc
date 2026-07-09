@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PUPPETEER_EXECUTABLE_PATH="${PUPPETEER_EXECUTABLE_PATH:-/usr/bin/chromium-browser}"
+
+for arg in "$@"; do
+  case "$arg" in
+    -h|--help|-V|--version|--puppeteerConfigFile|-p)
+      exec "$ROOT/envs/npm-prefix/bin/mmdc" "$@"
+      ;;
+  esac
+done
+
+for arg in "$@"; do
+  case "$arg" in
+    --puppeteerConfigFile=*|-p=*)
+      exec "$ROOT/envs/npm-prefix/bin/mmdc" "$@"
+      ;;
+  esac
+done
+
+if [ -f "$ROOT/scripts/mermaid-puppeteer-config.json" ]; then
+  exec "$ROOT/envs/npm-prefix/bin/mmdc" -p "$ROOT/scripts/mermaid-puppeteer-config.json" "$@"
+fi
+
+exec "$ROOT/envs/npm-prefix/bin/mmdc" "$@"

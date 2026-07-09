@@ -20,3 +20,6 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Repository-local installed binaries that should not be committed.
+/bin/plantuml.jar

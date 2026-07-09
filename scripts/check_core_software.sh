@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -u
 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PATH="$ROOT/bin:$ROOT/envs/npm-prefix/bin:$PATH"
+
 run_check() {
   local label="$1"
   shift
@@ -23,6 +26,9 @@ run_python_import() {
   local label="$1"
   local module="$2"
   local py="${PYTHON:-python}"
+  if [ -x "$ROOT/envs/python-tools/bin/python" ]; then
+    py="$ROOT/envs/python-tools/bin/python"
+  fi
   if ! command -v "$py" >/dev/null 2>&1; then
     printf '%s\tMISSING\t%s\n' "$label" "$py"
     return 0
