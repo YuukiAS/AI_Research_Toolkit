@@ -1,0 +1,22 @@
+# Keep upstream clones out of the root repository history.
+# Local wrapper docs beside each repo/ directory are tracked.
+**/repo/
+
+# Local environments and logs.
+/envs/**
+!/envs/
+!/envs/.gitkeep
+/logs/**
+!/logs/
+!/logs/.gitkeep
+
+# Generated smoke outputs. Keep only directory placeholders in Git.
+/smoke/**
+!/smoke/
+!/smoke/**/
+!/smoke/**/.gitkeep
+
+# Common local caches.
+__pycache__/
+*.pyc
+.DS_Store
