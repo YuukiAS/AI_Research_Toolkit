@@ -3,18 +3,14 @@
 ## Role
 数学动画和讲解视频生成工具，适合科研方法动画、几何/公式演示和短视频说明。
 
-## Upstream
-https://github.com/ManimCommunity/manim.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `manim`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-checked
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `manim --version`
-- `manim -ql scene.py SceneName`
+Use `bin/ai-research-toolkit list --id manim` for metadata, `bin/ai-research-toolkit status --id manim` for local clone state, and `bin/ai-research-toolkit sync --id manim` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-Manim 执行 Python 场景文件，只运行可信代码；服务器上可能依赖 LaTeX、Cairo 和 ffmpeg。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.

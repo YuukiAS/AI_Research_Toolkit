@@ -1,383 +1,403 @@
 resources:
   - id: d2
     name: D2
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/terrastruct/d2.git
     local_path: software/diagramming/d2
     upstream_path: software/diagramming/d2/repo
     priority: core
-    install_status: checked
+    lifecycle: active
+    support_status: verified
+    integration_status: standalone
+    default_ref: main
+    last_verified_commit: null
     primary_commands:
-      - 'd2 --version'
-      - 'd2 input.d2 output.svg'
+      - d2 --version
+      - d2 input.d2 output.svg
     outputs:
-      - 'SVG'
-      - 'PNG'
-      - 'PDF'
+      - SVG
+      - PNG
+      - PDF
     license: unknown
     requires_api_key: false
     headless_linux: good
+    superseded_by: null
+    provenance_note: Text-to-diagram renderer tracked as a standalone command-line tool.
+    derived_from: []
     notes: 通用文本到图示渲染工具，适合把架构图、流程图和系统关系图写成可版本化的 D2 源文件。
   - id: graphviz
     name: Graphviz
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://gitlab.com/graphviz/graphviz.git
     local_path: software/diagramming/graphviz
     upstream_path: software/diagramming/graphviz/repo
     priority: core
-    install_status: checked
+    lifecycle: active
+    support_status: verified
+    integration_status: standalone
+    default_ref: main
+    last_verified_commit: null
     primary_commands:
-      - 'dot -V'
-      - 'dot -Tsvg input.dot -o output.svg'
+      - dot -V
+      - dot -Tsvg input.dot -o output.svg
     outputs:
-      - 'SVG'
-      - 'PNG'
-      - 'PDF'
+      - SVG
+      - PNG
+      - PDF
     license: unknown
     requires_api_key: false
     headless_linux: good
+    superseded_by: null
+    provenance_note: DOT renderer used directly and as a backend for Python diagram tools.
+    derived_from: []
     notes: 经典 DOT 图渲染工具，适合依赖图、有限状态机、流程图和 diagrams.py 后端渲染。
   - id: mermaid-cli
     name: Mermaid CLI
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/mermaid-js/mermaid-cli.git
     local_path: software/diagramming/mermaid-cli
     upstream_path: software/diagramming/mermaid-cli/repo
     priority: core
-    install_status: checked
+    lifecycle: active
+    support_status: verified
+    integration_status: standalone
+    default_ref: master
+    last_verified_commit: null
     primary_commands:
-      - 'mmdc --version'
-      - 'mmdc -i input.mmd -o output.svg'
+      - mmdc --version
+      - mmdc -i input.mmd -o output.svg
     outputs:
-      - 'SVG'
-      - 'PNG'
-      - 'PDF'
+      - SVG
+      - PNG
+      - PDF
     license: unknown
     requires_api_key: false
     headless_linux: partial
+    superseded_by: null
+    provenance_note: Mermaid renderer; local rendering depends on a working headless Chromium.
+    derived_from: []
     notes: Mermaid 图表的命令行渲染器，适合从 Markdown/文档中的流程图、时序图、状态图生成 SVG/PNG/PDF。
   - id: drawio
     name: Draw.io
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/jgraph/drawio.git
     local_path: software/diagramming/drawio
     upstream_path: software/diagramming/drawio/repo
     priority: recommended
-    install_status: unknown
+    lifecycle: active
+    support_status: unverified
+    integration_status: standalone
+    default_ref: dev
+    last_verified_commit: null
     primary_commands:
-      - 'drawio --version'
+      - drawio --version
     outputs:
-      - 'DrawIO'
-      - 'SVG'
-      - 'PNG'
-      - 'PDF'
+      - DrawIO
+      - SVG
+      - PNG
+      - PDF
     license: unknown
     requires_api_key: false
     headless_linux: partial
+    superseded_by: null
+    provenance_note: Editable diagram application retained as a selectable external tool.
+    derived_from: []
     notes: 通用可编辑图示工具，用于维护 .drawio 文件并导出 SVG/PNG/PDF。
   - id: plantuml
     name: PlantUML
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/plantuml/plantuml.git
     local_path: software/diagramming/plantuml
     upstream_path: software/diagramming/plantuml/repo
     priority: core
-    install_status: checked
+    lifecycle: active
+    support_status: verified
+    integration_status: standalone
+    default_ref: master
+    last_verified_commit: null
     primary_commands:
-      - 'plantuml -version'
-      - 'java -jar plantuml.jar -version'
+      - plantuml -version
+      - java -jar plantuml.jar -version
     outputs:
-      - 'SVG'
-      - 'PNG'
-      - 'PDF'
+      - SVG
+      - PNG
+      - PDF
     license: unknown
     requires_api_key: false
     headless_linux: good
+    superseded_by: null
+    provenance_note: UML renderer tracked as a standalone command-line tool.
+    derived_from: []
     notes: UML 和时序图渲染工具，适合接口流程、类图、状态机、组件关系图。
   - id: typst
     name: Typst
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/typst/typst.git
     local_path: software/diagramming/typst
     upstream_path: software/diagramming/typst/repo
     priority: recommended
-    install_status: checked
+    lifecycle: active
+    support_status: verified
+    integration_status: standalone
+    default_ref: main
+    last_verified_commit: null
     primary_commands:
-      - 'typst --version'
-      - 'typst compile input.typ output.pdf'
+      - typst --version
+      - typst compile input.typ output.pdf
     outputs:
-      - 'PDF'
-      - 'SVG'
-      - 'PNG'
+      - PDF
+      - SVG
+      - PNG
     license: unknown
     requires_api_key: false
     headless_linux: good
+    superseded_by: null
+    provenance_note: Document and lightweight figure composition tool.
+    derived_from: []
     notes: 轻量排版和技术文档渲染工具，可用于报告、图注、公式排版和小型说明页。
   - id: manim
     name: Manim
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/ManimCommunity/manim.git
     local_path: software/diagramming/manim
     upstream_path: software/diagramming/manim/repo
     priority: recommended
-    install_status: checked
+    lifecycle: active
+    support_status: verified
+    integration_status: standalone
+    default_ref: main
+    last_verified_commit: null
     primary_commands:
-      - 'manim --version'
+      - manim --version
     outputs:
-      - 'MP4'
-      - 'PNG'
-      - 'GIF'
+      - MP4
+      - PNG
+      - GIF
     license: unknown
     requires_api_key: false
     headless_linux: partial
+    superseded_by: null
+    provenance_note: Animation tool retained as optional local software.
+    derived_from: []
     notes: 数学动画和讲解视频生成工具，适合科研方法动画、几何/公式演示和短视频说明。
   - id: diagrams-py
     name: diagrams.py
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/mingrammer/diagrams.git
     local_path: software/diagramming/diagrams-py
     upstream_path: software/diagramming/diagrams-py/repo
     priority: recommended
-    install_status: checked
+    lifecycle: active
+    support_status: verified
+    integration_status: standalone
+    default_ref: master
+    last_verified_commit: null
     primary_commands:
-      - 'python -c "import diagrams"'
+      - python -c "import diagrams"
     outputs:
-      - 'PNG'
-      - 'SVG'
-      - 'PDF'
+      - PNG
+      - SVG
+      - PDF
     license: unknown
     requires_api_key: false
     headless_linux: good
+    superseded_by: null
+    provenance_note: Python diagram library that depends on Graphviz for rendering.
+    derived_from: []
     notes: 用 Python 描述云架构和系统组件图，通常依赖 Graphviz 输出图像。
   - id: excalidraw
     name: Excalidraw
-    category: software/diagramming
     kind: software
+    resource_role: software
+    category: software/diagramming
     repo_url: https://github.com/excalidraw/excalidraw.git
     local_path: software/diagramming/excalidraw
     upstream_path: software/diagramming/excalidraw/repo
     priority: optional
-    install_status: unknown
+    lifecycle: active
+    support_status: unverified
+    integration_status: standalone
+    default_ref: master
+    last_verified_commit: null
     primary_commands:
-      - 'npm --version'
+      - npm --version
     outputs:
-      - 'SVG'
-      - 'PNG'
+      - SVG
+      - PNG
     license: unknown
     requires_api_key: false
     headless_linux: partial
+    superseded_by: null
+    provenance_note: Hand-drawn diagramming application retained as optional software.
+    derived_from: []
     notes: 手绘风格图示工具，适合概念草图、讲解图和快速视觉沟通。
   - id: paper2any
     name: Paper2Any
-    category: software/scientific-figure-generation
     kind: software
+    resource_role: software
+    category: software/scientific-figure-generation
     repo_url: https://github.com/OpenDCAI/Paper2Any.git
     local_path: software/scientific-figure-generation/Paper2Any
     upstream_path: software/scientific-figure-generation/Paper2Any/repo
     priority: core
-    install_status: unknown
-    primary_commands:
-      - 'TODO: inspect upstream README'
+    lifecycle: active
+    support_status: manual
+    integration_status: standalone
+    default_ref: main
+    last_verified_commit: 1ca1f658e811dcec4f9e3d951ce8dacd344d050c
+    primary_commands: []
     outputs:
-      - 'SVG'
-      - 'PNG'
-      - 'DrawIO'
-      - 'PPTX'
-      - 'PDF'
-      - 'Video'
+      - SVG
+      - PNG
+      - DrawIO
+      - PPTX
+      - PDF
+      - Video
     license: Apache-2.0
     requires_api_key: unknown
     headless_linux: partial
+    superseded_by: null
+    provenance_note: Existing upstream clone preserved in place; no upstream files are modified by the toolkit.
+    derived_from: []
     notes: 产品级 paper-to-anything 工具，覆盖论文到图、PPT、Draw.io、poster、video、rebuttal、citation、image playground 和 knowledge-base 工作流。
   - id: autofigure
     name: AutoFigure
-    category: software/scientific-figure-generation
     kind: software
+    resource_role: source-material
+    category: software/scientific-figure-generation
     repo_url: https://github.com/ResearAI/AutoFigure.git
     local_path: software/scientific-figure-generation/AutoFigure
     upstream_path: software/scientific-figure-generation/AutoFigure/repo
     priority: recommended
-    install_status: unknown
-    primary_commands:
-      - 'TODO: inspect upstream README'
+    lifecycle: active
+    support_status: unverified
+    integration_status: source-only
+    default_ref: main
+    last_verified_commit: null
+    primary_commands: []
     outputs:
-      - 'PNG'
-      - 'SVG'
-      - 'PDF'
+      - PNG
+      - SVG
+      - PDF
     license: unknown
     requires_api_key: unknown
     headless_linux: unknown
-    notes: 论文图或科研 illustration 自动生成参考工具，当前未 clone。
-  - id: autofigure-edit
-    name: AutoFigure-Edit
-    category: software/scientific-figure-generation
-    kind: software
-    repo_url: not specified
-    local_path: software/scientific-figure-generation/AutoFigure-Edit
-    upstream_path: software/scientific-figure-generation/AutoFigure-Edit/repo
-    priority: optional
-    install_status: unknown
-    primary_commands:
-      - 'TODO: repo URL not yet specified'
-    outputs:
-      - 'PNG'
-      - 'SVG'
-      - 'PDF'
-    license: unknown
-    requires_api_key: unknown
-    headless_linux: unknown
-    notes: 科研图编辑或 refinement 方向占位资源；当前只有资源名，没有确认 upstream URL。
+    superseded_by: null
+    provenance_note: Candidate upstream URL is recorded, but the resource has not been cloned or verified on this machine.
+    derived_from: []
+    notes: 论文图或科研 illustration 自动生成参考工具；当前作为 source-only 资源保留，默认 sync 不下载。
   - id: academic-figure-generator
     name: academic-figure-generator
-    category: software/scientific-figure-generation
     kind: software
+    resource_role: software
+    category: software/scientific-figure-generation
     repo_url: https://github.com/LigphiDonk/academic-figure-generator.git
     local_path: software/scientific-figure-generation/academic-figure-generator
     upstream_path: software/scientific-figure-generation/academic-figure-generator/repo
     priority: core
-    install_status: unknown
-    primary_commands:
-      - 'TODO: inspect upstream README'
+    lifecycle: active
+    support_status: manual
+    integration_status: standalone
+    default_ref: main
+    last_verified_commit: 0a2bec6bb56d6b47143a81909f8d818716bdcbab
+    primary_commands: []
     outputs:
-      - 'Prompt'
-      - 'PNG'
+      - Prompt
+      - PNG
     license: MIT
     requires_api_key: unknown
     headless_linux: partial
+    superseded_by: null
+    provenance_note: Existing upstream clone preserved in place; no upstream files are modified by the toolkit.
+    derived_from: []
     notes: 本地 FastAPI/React 应用，用于基于论文生成学术配图 prompt，并调用图像生成流程。
-  - id: crafter
-    name: Crafter
-    category: software/scientific-figure-generation
-    kind: software
-    repo_url: not specified
-    local_path: software/scientific-figure-generation/Crafter
-    upstream_path: software/scientific-figure-generation/Crafter/repo
-    priority: optional
-    install_status: unknown
-    primary_commands:
-      - 'TODO: repo URL not yet specified'
-    outputs:
-      - 'PNG'
-      - 'SVG'
-      - 'PDF'
-    license: unknown
-    requires_api_key: unknown
-    headless_linux: unknown
-    notes: 科研图生成或编辑工具占位资源；当前只有资源名，没有确认 upstream URL。
-  - id: livefigure
-    name: LiveFigure
-    category: software/scientific-figure-generation
-    kind: software
-    repo_url: not specified
-    local_path: software/scientific-figure-generation/LiveFigure
-    upstream_path: software/scientific-figure-generation/LiveFigure/repo
-    priority: optional
-    install_status: unknown
-    primary_commands:
-      - 'TODO: repo URL not yet specified'
-    outputs:
-      - 'PNG'
-      - 'SVG'
-      - 'PDF'
-    license: unknown
-    requires_api_key: unknown
-    headless_linux: unknown
-    notes: 动态或交互式科研图工具占位资源；当前只有资源名，没有确认 upstream URL。
-  - id: figureweave
-    name: FigureWeave
-    category: software/scientific-figure-generation
-    kind: software
-    repo_url: not specified
-    local_path: software/scientific-figure-generation/FigureWeave
-    upstream_path: software/scientific-figure-generation/FigureWeave/repo
-    priority: optional
-    install_status: unknown
-    primary_commands:
-      - 'TODO: repo URL not yet specified'
-    outputs:
-      - 'PNG'
-      - 'SVG'
-      - 'PDF'
-    license: unknown
-    requires_api_key: unknown
-    headless_linux: unknown
-    notes: 科研图组合、编排或编辑工具占位资源；当前只有资源名，没有确认 upstream URL。
-  - id: graphify
-    name: Graphify
-    category: software/code-knowledge-audit
-    kind: software
-    repo_url: not specified
-    local_path: software/code-knowledge-audit/graphify
-    upstream_path: software/code-knowledge-audit/graphify/repo
-    priority: recommended
-    install_status: unknown
-    primary_commands:
-      - 'TODO: repo URL not yet specified'
-    outputs:
-      - 'Knowledge graph'
-      - 'Audit report'
-    license: unknown
-    requires_api_key: unknown
-    headless_linux: unknown
-    notes: 代码/文档知识图谱与审计工具占位资源，用于后续整理代码库结构、依赖关系和文档覆盖。
   - id: figures4papers
     name: figures4papers
-    category: references/visual-examples
     kind: reference
+    resource_role: reference
+    category: references/visual-examples
     repo_url: https://github.com/ChenLiu-1996/figures4papers.git
     local_path: references/visual-examples/figures4papers
     upstream_path: references/visual-examples/figures4papers/repo
     priority: reference
-    install_status: not_applicable
-    primary_commands:
-      []
+    lifecycle: active
+    support_status: reference-only
+    integration_status: reference-only
+    default_ref: main
+    last_verified_commit: 05644a59219b85d824620b1ad3ceecb029fdbbe5
+    primary_commands: []
     outputs:
-      - 'Reference figures'
-      - 'Python examples'
+      - Reference figures
+      - Python examples
     license: unknown
     requires_api_key: false
     headless_linux: unknown
-    notes: 论文级 Python 作图样例仓库，用于学习顶会/期刊图表风格；包含 scientific-figure-making skill。
+    superseded_by: null
+    provenance_note: Existing upstream clone preserved as a visual reference repository.
+    derived_from: []
+    notes: 论文级 Python 作图样例仓库，用于学习顶会/期刊图表风格；包含 scientific-figure-making skill，但 Toolkit 不自动安装其中的 skill。
   - id: awesome-ai-research-writing
     name: awesome-ai-research-writing
-    category: references/prompt-resources
     kind: reference
+    resource_role: reference
+    category: references/prompt-resources
     repo_url: https://github.com/Leey21/awesome-ai-research-writing.git
     local_path: references/prompt-resources/awesome-ai-research-writing
     upstream_path: references/prompt-resources/awesome-ai-research-writing/repo
     priority: reference
-    install_status: not_applicable
-    primary_commands:
-      []
+    lifecycle: active
+    support_status: reference-only
+    integration_status: reference-only
+    default_ref: main
+    last_verified_commit: c07628b453309a1fb131ee105b2f01190162bc6c
+    primary_commands: []
     outputs:
-      - 'Prompts'
-      - 'Writing templates'
+      - Prompts
+      - Writing templates
     license: unknown
     requires_api_key: false
     headless_linux: unknown
+    superseded_by: null
+    provenance_note: Existing upstream clone preserved as a prompt and writing reference; contained skills are not active toolkit skills.
+    derived_from: []
     notes: AI 科研写作 prompt 和 agent skill 资源，用于论文写作、模板、引用、表格、caption、coauthoring 和 humanization。
   - id: awesome-autoresearch
     name: awesome-autoresearch
-    category: references/research-system-references
     kind: reference
+    resource_role: reference
+    category: references/research-system-references
     repo_url: https://github.com/webfuse-com/awesome-autoresearch.git
     local_path: references/research-system-references/awesome-autoresearch
     upstream_path: references/research-system-references/awesome-autoresearch/repo
     priority: reference
-    install_status: not_applicable
-    primary_commands:
-      []
+    lifecycle: active
+    support_status: reference-only
+    integration_status: reference-only
+    default_ref: main
+    last_verified_commit: b99fab177127bb13c8992fa9b84fe2b833083994
+    primary_commands: []
     outputs:
-      - 'Reference list'
+      - Reference list
     license: CC0-1.0
     requires_api_key: false
     headless_linux: unknown
+    superseded_by: null
+    provenance_note: Existing upstream clone preserved as an autoresearch systems reference.
+    derived_from: []
     notes: 自动科研系统参考列表，用于查找 autonomous improvement loops、research agents、benchmarks 和相关 writeup。

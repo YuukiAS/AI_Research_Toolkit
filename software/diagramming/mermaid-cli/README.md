@@ -1,20 +1,16 @@
 # Mermaid CLI
 
 ## Role
-Mermaid 图表的命令行渲染器，适合从 Markdown/文档中的流程图、时序图、状态图生成 SVG/PNG/PDF。
+Mermaid 命令行渲染工具，适合把 Markdown/文档中的图表输出为 SVG/PNG/PDF。
 
-## Upstream
-https://github.com/mermaid-js/mermaid-cli.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `mermaid-cli`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-checked
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `mmdc --version`
-- `mmdc -i examples/input.mmd -o examples/output.svg`
+Use `bin/ai-research-toolkit list --id mermaid-cli` for metadata, `bin/ai-research-toolkit status --id mermaid-cli` for local clone state, and `bin/ai-research-toolkit sync --id mermaid-cli` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-Mermaid CLI 读取显式输入文件；在服务器上通常依赖 Node 和 headless Chromium。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.

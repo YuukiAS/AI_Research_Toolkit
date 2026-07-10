@@ -9,6 +9,7 @@
 /logs/**
 !/logs/
 !/logs/.gitkeep
+/.local/**
 
 # Generated smoke outputs. Keep only directory placeholders in Git.
 /smoke/**

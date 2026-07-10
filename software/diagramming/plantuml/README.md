@@ -1,20 +1,16 @@
 # PlantUML
 
 ## Role
-UML 和时序图渲染工具，适合接口流程、类图、状态机、组件关系图。
+UML 和时序图渲染工具，适合接口流程、类图、状态机和组件关系图。
 
-## Upstream
-https://github.com/plantuml/plantuml.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `plantuml`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-checked
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `plantuml -version`
-- `plantuml -tsvg examples/input.puml`
+Use `bin/ai-research-toolkit list --id plantuml` for metadata, `bin/ai-research-toolkit status --id plantuml` for local clone state, and `bin/ai-research-toolkit sync --id plantuml` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-PlantUML 读取显式指定的 .puml 文件；避免引用外部 URL 或敏感本地文件。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.

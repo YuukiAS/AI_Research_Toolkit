@@ -1,20 +1,16 @@
 # Graphviz
 
 ## Role
-经典 DOT 图渲染工具，适合依赖图、有限状态机、流程图和 diagrams.py 后端渲染。
+DOT 图渲染工具，适合依赖图、有限状态机、流程图和 diagrams.py 后端渲染。
 
-## Upstream
-https://gitlab.com/graphviz/graphviz.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `graphviz`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-checked
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `dot -V`
-- `dot -Tsvg examples/input.dot -o examples/output.svg`
+Use `bin/ai-research-toolkit list --id graphviz` for metadata, `bin/ai-research-toolkit status --id graphviz` for local clone state, and `bin/ai-research-toolkit sync --id graphviz` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-Graphviz 只读取显式指定的 DOT 文件；不要把 raw data 或敏感目录作为输入。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.

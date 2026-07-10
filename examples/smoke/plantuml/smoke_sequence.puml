@@ -1,0 +1,5 @@
+@startuml
+User -> Toolkit: request render
+Toolkit -> Renderer: run command
+Renderer --> Toolkit: svg
+@enduml

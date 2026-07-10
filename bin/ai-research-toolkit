@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PY="$ROOT/.local/envs/toolkit/bin/python"
+
+if [ -x "$PY" ]; then
+  exec "$PY" "$ROOT/scripts/toolkit.py" "$@"
+fi
+
+exec python "$ROOT/scripts/toolkit.py" "$@"

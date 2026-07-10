@@ -3,18 +3,14 @@
 ## Role
 自动科研系统参考列表，用于查找 autonomous improvement loops、research agents、benchmarks 和相关 writeup。
 
-## Upstream
-https://github.com/webfuse-com/awesome-autoresearch.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `awesome-autoresearch`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-not_applicable
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `阅读 repo/README.md`
-- `按系统类型或 benchmark 查找参考`
+Use `bin/ai-research-toolkit list --id awesome-autoresearch` for metadata, `bin/ai-research-toolkit status --id awesome-autoresearch` for local clone state, and `bin/ai-research-toolkit sync --id awesome-autoresearch` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-主要作为参考阅读；不要把列表中的第三方工具直接用于敏感项目，除非完成独立安全检查。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.

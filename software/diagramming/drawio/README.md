@@ -1,20 +1,16 @@
 # Draw.io
 
 ## Role
-通用可编辑图示工具，用于维护 .drawio 文件并导出 SVG/PNG/PDF。
+可编辑通用图示工具，用于维护 .drawio 文件并导出图像或 PDF。
 
-## Upstream
-https://github.com/jgraph/drawio.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `drawio`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-unknown
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `drawio --version`
-- `drawio --export --format svg input.drawio`
+Use `bin/ai-research-toolkit list --id drawio` for metadata, `bin/ai-research-toolkit status --id drawio` for local clone state, and `bin/ai-research-toolkit sync --id drawio` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-Draw.io 操作显式指定的图文件；不要把项目目录整体导入。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.

@@ -1,0 +1,41 @@
+candidates:
+  - name: AutoFigure-Edit
+    possible_role: scientific figure editing or refinement tool
+    source_clues:
+      - Mentioned by prior toolkit planning notes without a confirmed upstream URL.
+    open_questions:
+      - Confirm the exact repository URL and license.
+      - Decide whether it is standalone software or source material.
+    added_date: 2026-07-09
+  - name: Crafter
+    possible_role: scientific figure generation or editing tool
+    source_clues:
+      - Mentioned by prior toolkit planning notes without a confirmed upstream URL.
+    open_questions:
+      - Confirm the exact repository URL and license.
+      - Decide whether it overlaps with existing scientific-figure-generation resources.
+    added_date: 2026-07-09
+  - name: LiveFigure
+    possible_role: dynamic or interactive scientific figure tool
+    source_clues:
+      - Mentioned by prior toolkit planning notes without a confirmed upstream URL.
+    open_questions:
+      - Confirm the exact repository URL and license.
+      - Decide expected outputs and headless Linux behavior.
+    added_date: 2026-07-09
+  - name: FigureWeave
+    possible_role: scientific figure composition or weaving tool
+    source_clues:
+      - Mentioned by prior toolkit planning notes without a confirmed upstream URL.
+    open_questions:
+      - Confirm the exact repository URL and license.
+      - Decide whether it should become software, source material, or reference.
+    added_date: 2026-07-09
+  - name: Graphify
+    possible_role: code and documentation knowledge graph or audit tool
+    source_clues:
+      - Mentioned by prior toolkit planning notes without a confirmed upstream URL.
+    open_questions:
+      - Confirm the exact repository URL and license.
+      - Review privacy behavior before any project scanning.
+    added_date: 2026-07-09

@@ -1,20 +1,16 @@
 # awesome-ai-research-writing
 
 ## Role
-AI 科研写作 prompt 和 agent skill 资源，用于论文写作、模板、引用、表格、caption、coauthoring 和 humanization。
+AI 科研写作 prompt 和 agent skill 参考资源；其中的 skill 不会成为 Toolkit 活动 skill。
 
-## Upstream
-https://github.com/Leey21/awesome-ai-research-writing.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `awesome-ai-research-writing`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-not_applicable
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `阅读 repo/README.md`
-- `按写作任务选择 prompt 或 skill`
+Use `bin/ai-research-toolkit list --id awesome-ai-research-writing` for metadata, `bin/ai-research-toolkit status --id awesome-ai-research-writing` for local clone state, and `bin/ai-research-toolkit sync --id awesome-ai-research-writing` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-使用 prompt 时不要粘贴 secrets、未公开评审意见、未脱敏合作者信息或敏感实验路径。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.

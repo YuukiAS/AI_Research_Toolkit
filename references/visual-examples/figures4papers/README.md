@@ -1,20 +1,16 @@
 # figures4papers
 
 ## Role
-论文级 Python 作图样例仓库，用于学习顶会/期刊图表风格；包含 scientific-figure-making skill。
+论文级 Python 作图样例仓库，用于学习顶会/期刊图表风格；其中的 skill 不会被 Toolkit 自动安装。
 
-## Upstream
-https://github.com/ChenLiu-1996/figures4papers.git
+## Source of truth
+Formal metadata is maintained in `inventory/resources.yaml` under id `figures4papers`. Do not duplicate repo URL, license, priority, lifecycle, support status, or headless status here. Regenerate public indexes with `bin/ai-research-toolkit generate`.
 
 ## Local layout
-`repo/` 是 upstream clone 或预留位置；外层 `README.md`、`install.md`、`notes.md`、`privacy.md`、`examples/` 是本 toolkit 的本地说明和示例，不写入 upstream repo 根目录。
-
-## Install status
-not_applicable
+`repo/` is an optional local upstream clone and is ignored by Git. Files outside `repo/` are Toolkit-owned notes, examples, wrappers, or install guidance. Fresh clones of this Toolkit do not need `repo/` to exist.
 
 ## Typical usage
-- `阅读 repo/README.md`
-- `参考 repo/figure_* 目录中的作图方式`
+Use `bin/ai-research-toolkit list --id figures4papers` for metadata, `bin/ai-research-toolkit status --id figures4papers` for local clone state, and `bin/ai-research-toolkit sync --id figures4papers` when this resource is eligible for explicit synchronization.
 
 ## Privacy and safety
-主要作为参考阅读；运行其中脚本前先检查输入路径，不要指向 raw data 或大型实验输出。
+Do not scan raw data, checkpoints, logs, submission archives, `.env*`, secrets, tokens, or credentials. External skills, prompts, and workflow files inside `repo/` are reference material only and are not installed automatically.
