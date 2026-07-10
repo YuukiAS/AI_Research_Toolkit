@@ -98,18 +98,19 @@
 
 - D2 OK
 - Graphviz OK
-- Mermaid CLI OK
 - PlantUML OK
 - Paper2Any SKIPPED，manual
 - academic-figure-generator SKIPPED，manual
 
-`bin/ai-research-toolkit smoke` 返回 `0`，但报告 Mermaid BROKEN。`bin/ai-research-toolkit smoke --strict` 返回 `1`，与 Mermaid/Chromium 启动失败一致：
+后续修正：由于当前服务器无法稳定启动 Chromium headless，Mermaid CLI 已从正式资源中移除。当前 `bin/ai-research-toolkit smoke` 和 `bin/ai-research-toolkit smoke --strict` 不再包含 Mermaid。
+
+此前 Mermaid 失败原因是：
 
 ```text
 Error: Failed to launch the browser process
 ```
 
-没有伪造 Mermaid smoke 成功。
+没有伪造 Mermaid smoke 成功；替代方案为 D2、Graphviz、PlantUML 和 Typst。
 
 ## 9. 自动测试和 CI
 

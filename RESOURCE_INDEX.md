@@ -8,7 +8,6 @@ Generated from inventory/resources.yaml. Do not edit by hand.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `d2` | D2 | `software` | `core` | `active` | `standalone` | `verified` | SVG, PNG, PDF |
 | `graphviz` | Graphviz | `software` | `core` | `active` | `standalone` | `verified` | SVG, PNG, PDF |
-| `mermaid-cli` | Mermaid CLI | `software` | `core` | `active` | `standalone` | `verified` | SVG, PNG, PDF |
 | `drawio` | Draw.io | `software` | `recommended` | `active` | `standalone` | `unverified` | DrawIO, SVG, PNG, PDF |
 | `plantuml` | PlantUML | `software` | `core` | `active` | `standalone` | `verified` | SVG, PNG, PDF |
 | `typst` | Typst | `software` | `recommended` | `active` | `standalone` | `verified` | PDF, SVG, PNG |

@@ -55,34 +55,6 @@ resources:
     provenance_note: DOT renderer used directly and as a backend for Python diagram tools.
     derived_from: []
     notes: 经典 DOT 图渲染工具，适合依赖图、有限状态机、流程图和 diagrams.py 后端渲染。
-  - id: mermaid-cli
-    name: Mermaid CLI
-    kind: software
-    resource_role: software
-    category: software/diagramming
-    repo_url: https://github.com/mermaid-js/mermaid-cli.git
-    local_path: software/diagramming/mermaid-cli
-    upstream_path: software/diagramming/mermaid-cli/repo
-    priority: core
-    lifecycle: active
-    support_status: verified
-    integration_status: standalone
-    default_ref: master
-    last_verified_commit: null
-    primary_commands:
-      - mmdc --version
-      - mmdc -i input.mmd -o output.svg
-    outputs:
-      - SVG
-      - PNG
-      - PDF
-    license: unknown
-    requires_api_key: false
-    headless_linux: partial
-    superseded_by: null
-    provenance_note: Mermaid renderer; local rendering depends on a working headless Chromium.
-    derived_from: []
-    notes: Mermaid 图表的命令行渲染器，适合从 Markdown/文档中的流程图、时序图、状态图生成 SVG/PNG/PDF。
   - id: drawio
     name: Draw.io
     kind: software

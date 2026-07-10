@@ -336,7 +336,6 @@ def smoke_definitions() -> dict[str, dict[str, str]]:
     return {
         "d2": {"src": "examples/smoke/d2/smoke_architecture.d2", "out": ".local/smoke/d2/smoke_architecture.svg", "cmd": "d2 {src} {out}"},
         "graphviz": {"src": "examples/smoke/graphviz/smoke_map.dot", "out": ".local/smoke/graphviz/smoke_map.svg", "cmd": "dot -Tsvg {src} -o {out}"},
-        "mermaid-cli": {"src": "examples/smoke/mermaid/smoke_flow.mmd", "out": ".local/smoke/mermaid/smoke_flow.svg", "cmd": "mmdc -i {src} -o {out}"},
         "plantuml": {"src": "examples/smoke/plantuml/smoke_sequence.puml", "out": ".local/smoke/plantuml/smoke_sequence.svg", "cmd": "plantuml -tsvg -o {out_parent} {src}"},
         "typst": {"src": "examples/smoke/typst/smoke_note.typ", "out": ".local/smoke/typst/smoke_note.pdf", "cmd": "typst compile {src} {out}"},
         "manim": {"src": "examples/smoke/manim/smoke_scene.py", "out": "", "cmd": "manim --version"},
@@ -345,7 +344,7 @@ def smoke_definitions() -> dict[str, dict[str, str]]:
 
 def smoke_resources(resources: list[dict[str, Any]], args: argparse.Namespace) -> list[dict[str, Any]]:
     defs = smoke_definitions()
-    selected_ids = list(defs) if args.all else ["d2", "graphviz", "mermaid-cli", "plantuml", "typst", "manim"]
+    selected_ids = list(defs) if args.all else ["d2", "graphviz", "plantuml", "typst", "manim"]
     if args.tool:
         selected_ids = [args.tool]
     results: list[dict[str, Any]] = []

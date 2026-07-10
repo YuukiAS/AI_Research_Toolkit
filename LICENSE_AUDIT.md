@@ -8,7 +8,6 @@ Unknown licenses require manual review before reusing upstream code directly.
 | --- | --- | --- | --- | --- | --- |
 | `d2` | D2 | https://github.com/terrastruct/d2.git | `unknown` | `` | do not reuse code directly before manual license check |
 | `graphviz` | Graphviz | https://gitlab.com/graphviz/graphviz.git | `unknown` | `` | do not reuse code directly before manual license check |
-| `mermaid-cli` | Mermaid CLI | https://github.com/mermaid-js/mermaid-cli.git | `unknown` | `` | do not reuse code directly before manual license check |
 | `drawio` | Draw.io | https://github.com/jgraph/drawio.git | `unknown` | `` | do not reuse code directly before manual license check |
 | `plantuml` | PlantUML | https://github.com/plantuml/plantuml.git | `unknown` | `` | do not reuse code directly before manual license check |
 | `typst` | Typst | https://github.com/typst/typst.git | `unknown` | `` | do not reuse code directly before manual license check |
