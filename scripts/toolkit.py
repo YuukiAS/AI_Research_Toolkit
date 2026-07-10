@@ -181,6 +181,11 @@ def validate_inventory() -> tuple[list[str], list[str]]:
             readme = local_dir / "README.md"
             if not readme.is_file():
                 errors.append(f"{rid}: resource README.md is required")
+            for name in ["install.md", "notes.md", "privacy.md"]:
+                if not (local_dir / name).is_file():
+                    errors.append(f"{rid}: resource {name} is required")
+            if not (local_dir / "examples").is_dir():
+                errors.append(f"{rid}: resource examples/ directory is required")
         upstream_dir = resource_path(r, "upstream_path") if "upstream_path" in r else None
         if upstream_dir and upstream_dir.exists() and not upstream_dir.is_dir():
             errors.append(f"{rid}: upstream_path exists but is not a directory")

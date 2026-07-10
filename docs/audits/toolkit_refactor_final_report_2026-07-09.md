@@ -26,6 +26,8 @@
 
 `RESOURCE_INDEX.md` 和 `LICENSE_AUDIT.md` 已改为 `bin/ai-research-toolkit generate` 生成文件。
 
+后续补充校验：`validate` 现在还要求每个正式资源外层存在 `README.md`、`install.md`、`notes.md`、`privacy.md` 和 `examples/`，但仍不要求 fresh clone 预先存在 ignored `repo/`。
+
 ## 3. Candidates 分离
 
 以下无确认 URL 的名称已从正式资源树移入 `inventory/candidates.yaml`，并删除原 formal placeholder 目录：

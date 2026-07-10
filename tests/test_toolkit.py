@@ -82,6 +82,10 @@ class ToolkitTest(unittest.TestCase):
         (self.root / "inventory").mkdir()
         (self.root / "software" / "demo").mkdir(parents=True)
         (self.root / "software" / "demo" / "README.md").write_text("# Demo\n", encoding="utf-8")
+        (self.root / "software" / "demo" / "install.md").write_text("# Install Demo\n", encoding="utf-8")
+        (self.root / "software" / "demo" / "notes.md").write_text("# Notes Demo\n", encoding="utf-8")
+        (self.root / "software" / "demo" / "privacy.md").write_text("# Privacy Demo\n", encoding="utf-8")
+        (self.root / "software" / "demo" / "examples").mkdir()
         (self.root / "inventory" / "candidates.yaml").write_text("candidates: []\n", encoding="utf-8")
         (self.root / "inventory" / "retired.yaml").write_text("retired_resources: []\n", encoding="utf-8")
 

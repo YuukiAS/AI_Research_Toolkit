@@ -2,20 +2,19 @@
 # Local wrapper docs beside each repo/ directory are tracked.
 **/repo/
 
-# Local environments and logs.
-/envs/**
-!/envs/
-!/envs/.gitkeep
-/logs/**
-!/logs/
-!/logs/.gitkeep
+# Legacy local environments and logs. Current local state lives under .local/.
+/envs/
+/logs/
 /.local/**
 
-# Generated smoke outputs. Keep only directory placeholders in Git.
-/smoke/**
-!/smoke/
-!/smoke/**/
-!/smoke/**/.gitkeep
+# Legacy generated smoke outputs. Current smoke outputs live under .local/smoke/.
+/smoke/
+
+# Test and tool caches.
+/.pytest_cache/
+/.mypy_cache/
+/.ruff_cache/
+/htmlcov/
 
 # Common local caches.
 __pycache__/
