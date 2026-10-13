@@ -17,6 +17,7 @@ v0.2 说必须自建一个 TypeScript 监督进程；**v0.3 撤回这个默认�
 | 先看什么 | 文件 |
 |---|---|
 | 为什么 v0.2 的 20 个关键假设会失败，具体怎样修 | [架构漏洞与修订](DECISION_AND_FAILURE_ATTACKS.md) |
+| 降级实现、插件路由、Codex/子代理、AGENTS、Asteria图形、CUHK Date语言、返修停止、跨机截图这八个核心问题的完整机制 | [开发执行与自我改进](DEVELOPMENT_EXECUTION_AND_LEARNING.md) |
 | 各角色谁能启动任务、修改测试、认定通过、处理返修，实际检查怎样返回 | [运行与信任合同](RUNTIME_AND_TRUST_CONTRACT.md) |
 | 六个仓库各自怎样跑正常任务、怎样用真实坏候选证明不降级、为什么不会过度重审 | [六项目正反验收与成本](SIX_REPO_ACCEPTANCE_AND_COST.md) |
 | 为什么应有产品任务负责人而不应再造 Bridge 状态机；Spec Kit 能复用什么、不能复用什么 | [产品归属与成熟替代](WHO_OWNS_THE_PRODUCT_AND_MATURE_ALTERNATIVES.md) |
