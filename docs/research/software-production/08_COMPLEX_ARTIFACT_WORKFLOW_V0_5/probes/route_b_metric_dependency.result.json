@@ -1,0 +1,34 @@
+{
+  "status": "HISTORICAL_PURE_FUNCTION_COUNTEREXAMPLE_REPRODUCED",
+  "source": {
+    "repository": "YuukiAS/CARE_Challenge",
+    "commit": "75a40e454de43b64e59a0b0b438ff57ef2bb8345",
+    "blob": "81b1c7e2708f3c8a3ba92ea79dae629936b73f2d",
+    "path": "scripts/training/route_B_round04/myops/B6/run_B6_joint.py",
+    "lines": [
+      112,
+      140
+    ],
+    "transcribed_function_sha256": "fd1ecf6e45dfc620071dc4a75be4ad36117ab0fd7065973e68315d76c15f716a"
+  },
+  "observations": {
+    "historical_perfect_and_empty_outputs_identical": true,
+    "historical_final_scar_score": 0.435,
+    "independent_perfect_dice": 1.0,
+    "independent_empty_dice": 0.0,
+    "same_case_after_reordering_scar_score": 0.445,
+    "historical_explicit_proxy_label_preserved": "local_same_split_proxy_not_hosted"
+  },
+  "limits": [
+    "Only the transcribed pure function was executed",
+    "No complete CARE model, runner, medical data, GPU or Slurm execution",
+    "Proxy label is explicit; not a finding of hosted-score misrepresentation",
+    "This does not establish that the proposed new workflow already detects such faults"
+  ],
+  "effects": {
+    "network": false,
+    "production_files_changed": false,
+    "paid_model_calls": 0,
+    "training_steps": 0
+  }
+}
