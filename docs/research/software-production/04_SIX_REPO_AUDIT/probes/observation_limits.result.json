@@ -1,0 +1,55 @@
+{
+  "schema": "read-only-source-observation-v1",
+  "source": {
+    "repository": "YuukiAS/Asteria",
+    "commit": "193c033659a7612a99442763077217b130e9b756",
+    "path": "scripts/validate-architecture-rc19.mjs",
+    "blob_sha": "491531c6c21887033909d41e776d654c861a9e7e",
+    "url": "https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/scripts/validate-architecture-rc19.mjs"
+  },
+  "node_version": "v22.16.0",
+  "git_version": "git version 2.47.3",
+  "route": {
+    "kind": "pure_function_observation_not_product_test",
+    "fragment_sha256": "6f2a1282c584796b2103cb727e821733ad8899cf7643a57dc84ddcfe2c7db5b5",
+    "cases": {
+      "measured_short": {
+        "observation": {"edgeCount":1,"avoidableEdgeCrossingCount":0,"longDetourCount":0,"nonMonotoneArchEdgeCount":0,"orthogonalMultiBendEdgeCount":0,"floatingRelationLabelCount":0,"simpleArchEdgeMaxRouteRatio":1.1,"archEdgeP95RouteRatio":1.1},
+        "listedConstraintsHold": true
+      },
+      "measured_long": {
+        "observation": {"edgeCount":1,"avoidableEdgeCrossingCount":0,"longDetourCount":1,"nonMonotoneArchEdgeCount":0,"orthogonalMultiBendEdgeCount":0,"floatingRelationLabelCount":0,"simpleArchEdgeMaxRouteRatio":2,"archEdgeP95RouteRatio":2},
+        "listedConstraintsHold": false
+      },
+      "no_measurement": {
+        "observation": {"edgeCount":1,"avoidableEdgeCrossingCount":0,"longDetourCount":0,"nonMonotoneArchEdgeCount":0,"orthogonalMultiBendEdgeCount":0,"floatingRelationLabelCount":0,"simpleArchEdgeMaxRouteRatio":0,"archEdgeP95RouteRatio":0},
+        "listedConstraintsHold": true
+      },
+      "nonfinite_measurement": {
+        "observation": {"edgeCount":1,"avoidableEdgeCrossingCount":0,"longDetourCount":0,"nonMonotoneArchEdgeCount":0,"orthogonalMultiBendEdgeCount":0,"floatingRelationLabelCount":0,"simpleArchEdgeMaxRouteRatio":0,"archEdgeP95RouteRatio":0},
+        "listedConstraintsHold": true
+      },
+      "geometric_crossing_witness": {
+        "observation": {"edgeCount":2,"avoidableEdgeCrossingCount":0,"longDetourCount":0,"nonMonotoneArchEdgeCount":0,"orthogonalMultiBendEdgeCount":0,"floatingRelationLabelCount":0,"simpleArchEdgeMaxRouteRatio":1,"archEdgeP95RouteRatio":1},
+        "listedConstraintsHold": true
+      }
+    },
+    "independent_straight_segment_crossing_witness": true,
+    "finding": "两个计数是常量；缺失或非有限测量被报告为零。长绕行正对照确实可触发已有条件，故不是全部检测失效。",
+    "limits": "见证输入不证明正式应用会产生同样对象；未运行整个 validator、浏览器或产品。"
+  },
+  "git": {
+    "kind": "fresh_temporary_git_repository",
+    "original_argv_shape": ["git","diff","--name-only","--","<protected-path>"],
+    "original_command_unstaged": ["src/architecture/trace.ts"],
+    "original_command_staged": [],
+    "explicit_cached_comparison": ["src/architecture/trace.ts"],
+    "original_command_committed": [],
+    "explicit_baseline_candidate_comparison": ["src/architecture/trace.ts"],
+    "finding": "原命令能看未暂存修改，但看不到暂存和已提交变更；基线到候选比较能看到已提交修改。",
+    "limits": "仅复现 Git 参数语义；未改任何真实仓库，未运行 Asteria 全套科学内容检查。"
+  },
+  "product_code_changed": false,
+  "real_gui_or_service_tested": false,
+  "production_system_implemented_or_validated": false
+}
