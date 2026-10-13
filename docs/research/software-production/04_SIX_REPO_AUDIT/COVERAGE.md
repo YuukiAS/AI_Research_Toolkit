@@ -2,6 +2,10 @@
 
 更新：2026-10-13。沿原六份账本续接；新增[完整架构v0.2](../05_PROPOSED_ARCHITECTURE_V0_2/README.md)、[事故补查](../05_PROPOSED_ARCHITECTURE_V0_2/INCIDENT_ADDENDUM.md)、[具体防护调用](../05_PROPOSED_ARCHITECTURE_V0_2/CONTROLS.md)和[Lucerna新功能全过程](../05_PROPOSED_ARCHITECTURE_V0_2/LUCERNA_FEATURE_WALKTHROUGH.md)。未重建项目、未重新运行产品任务；用户认可方向前不启动或要求其运行Critic。
 
+
+
+**当前架构阅读入口已更新为 [v0.3](../06_ARCHITECTURE_HARDENING_V0_3/README.md)**：本轮读了新版 Spec Kit 的真实恢复引擎和安全边界；六仓库固定源码树均未包含标准 Bridge Reviewed/Control/Persistent Run 安装目录，不能把 Bridge 可用源码冒充已经启用的生产协调。v0.3 撤回必须自研第二套状态机的结论；不改变本表六仓库事故来源和未穷尽限制。
+
 ## 1. 已完成的登记范围
 
 | 账本 | 固定源码/活动分支快照 | 已登记编号 | 当前完成内容 |
