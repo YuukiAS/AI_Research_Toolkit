@@ -1,11 +1,18 @@
 # 软件生产体系研究：当前有效入口
 
-本研究暂存于 AI_Research_Toolkit 的 research/software-production-decision-20261013 分支。最终正式代码归属未获用户决定；本仓库不因此成为软件生产系统本身。没有启动 Critic 或六个产品的实施。
+研究资料暂存于 AI_Research_Toolkit 的 research/software-production-decision-20261013 分支；未来正式代码归属未决定。未启动Critic，未实施生产系统，未改变六个产品、CARE或STAT5060。
 
-**当前应从 [研工台 v0.3 修订提案](06_ARCHITECTURE_HARDENING_V0_3/README.md)开始读。** 该版已核实六仓库当前标准 Bridge 运行器安装事实，核对新版 GitHub Spec Kit 的真正可恢复工作流引擎，并针对先前提案提出20项因果漏洞及明确修订；v0.2 仅保留原始范围、完整功能示例与历史比较。
+**最新阅读入口是 [v0.4：CARE事故与具体审查进程](07_CARE_AND_EXECUTABLE_REVIEW_V0_4/README.md)。** 这一轮补了40项跨SRR Lite、M8/M9、M10/Routes、ASE R1的具体实现/证据不一致，直接在CPU执行三个冻结源码反例，并将“内部独立审查”明确为由任务拥有者派发的新顶层Codex进程、独立实际观察执行器和受控结果消费，而不是另给主Codex一句“请自查”。
 
-想看六仓库每一个已记录问题的来源和当前具体脚本，从[六仓库246项证据账本](04_SIX_REPO_AUDIT/README.md)进入；历史晚期事故另见[Lucerna/Asteria补查](05_PROPOSED_ARCHITECTURE_V0_2/INCIDENT_ADDENDUM.md)。六库正反实际验收在[v0.3 专门设计](06_ARCHITECTURE_HARDENING_V0_3/SIX_REPO_ACCEPTANCE_AND_COST.md)中。
+- [40项CARE原始问题、根因和逐项反证](07_CARE_AND_EXECUTABLE_REVIEW_V0_4/CARE_FAILURE_LEDGER.md)
+- [审查进程、权限、实际CLI与具体插件派发](07_CARE_AND_EXECUTABLE_REVIEW_V0_4/INDEPENDENT_REVIEW_AND_DISPATCH.md)
+- [规则如何修进真实入口及审查者自身的验证](07_CARE_AND_EXECUTABLE_REVIEW_V0_4/RULE_EVOLUTION_AND_PROCESS_TESTS.md)
+- [本轮CPU源码反例及准确证据范围](07_CARE_AND_EXECUTABLE_REVIEW_V0_4/probes/README.md)
 
-本研究**没有证明系统已经可用**。原始历史尚未穷尽、当前主机权限/模型/审查可用性还没实测，不能把脚本设计、源代码查阅或这一分支的提交当产品 PASS。未经用户认可及所需独立审查，不做正式生产系统实现或用户机器高影响操作。
+此前 [v0.3](06_ARCHITECTURE_HARDENING_V0_3/README.md) 的产品任务与Bridge单次执行职责、成熟工具复用、六仓库适配仍有效；v0.4补足实际内部检查与调用者，不再从头设计另一个万能框架。
 
-早期提案及未批准审查包保留在 00–03 和 05 目录，供溯源；它们的“必须自建监督器”或“只需要一个可信验收核心”等判断以 v0.3 修订为准，不得从旧文件自动生成实现任务。
+六仓库已登记问题原始来源见 [246项账本](04_SIX_REPO_AUDIT/README.md)；晚期事故见 [Lucerna/Asteria补查](05_PROPOSED_ARCHITECTURE_V0_2/INCIDENT_ADDENDUM.md)。40项CARE条目不是40次独立实验，也不与246项相加宣称全部当前故障，更不等于已技术性防住。
+
+历史原始材料仍未穷尽。当前主机权限、独立模型审查的真实检测力、实际插件消费和跨平台持续收益尚未完成试点；本轮局部源码复现只证明这些具体失效本可以低成本发现，不能证明新系统已经能拦截所有问题。用户认可前不发Critic提示词，不把研究写入当生产实施或新费用授权。
+
+00–03和05保留历史提案用于溯源；不从其中已被修订的“只写规范”“只要可信验收器”或“强制自造中央监督器”结论自动生成执行任务。
