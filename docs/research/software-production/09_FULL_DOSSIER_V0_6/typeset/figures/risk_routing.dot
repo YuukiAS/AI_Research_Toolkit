@@ -1,0 +1,18 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.45", ranksep="0.55"];
+  node [shape=box, style="rounded,filled", fillcolor="#F8FAFC", color="#4A5568", fontname="Droid Sans Fallback", fontsize=13, margin="0.11,0.07"];
+  edge [color="#334155", arrowsize=0.75, fontname="Droid Sans Fallback", fontsize=11];
+  S [label="当前任务按风险分流", fillcolor="#E8F3FF"];
+  L [shape=diamond, label="影响范围\n与成本", fillcolor="#FFFFFF"];
+  X [label="明确单点小改\n主Codex + 局部相关回归"];
+  Y [label="完整新用户功能/科学方法\n专业设计/参考 → 主实现 → 第一条正式链 → 内部QA"];
+  Z [label="改变正式权限/算法架构/高成本与发布\n已有独立Planner/Critic或Bridge Control + 真隔离"];
+  Q [label="准入\n只验证本轮受影响的真实能力", fillcolor="#ECFDF5"];
+  U [shape=diamond, label="真正未解决事项", fillcolor="#FFFFFF"];
+  R [label="代码/工具/证据\n原任务自己修，按影响重查"];
+  P [label="需求/科学方向改变\nPlanner提案后再审"];
+  H [label="实质新目标/费用/私人权限\n向用户请一次必要授权"];
+  D [label="无阻塞\n核对并交付当前精确对象", fillcolor="#ECFDF5"];
+  S -> L; L -> X [label="小改"]; L -> Y [label="完整功能"]; L -> Z [label="高风险"];
+  X -> Q; Y -> Q; Z -> Q; Q -> U; U -> R; U -> P; U -> H; U -> D;
+}

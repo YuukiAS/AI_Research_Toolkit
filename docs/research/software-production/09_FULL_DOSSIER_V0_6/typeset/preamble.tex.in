@@ -1,0 +1,86 @@
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{unicode-math}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+
+\geometry{a4paper, margin=20mm, headheight=15pt, footskip=10mm}
+\setstretch{1.16}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.25em}
+\setlength{\emergencystretch}{3em}
+\sloppy
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmainfont[
+  Path=__RESOURCE_DIR__/fonts/texgyre-termes/,
+  Extension=.otf,
+  UprightFont=texgyretermes-regular,
+  BoldFont=texgyretermes-bold,
+  ItalicFont=texgyretermes-italic,
+  BoldItalicFont=texgyretermes-bolditalic
+]{texgyretermes-regular}
+
+\setmathfont[
+  Path=__RESOURCE_DIR__/fonts/texgyre-termes-math/,
+  Extension=.otf
+]{texgyretermes-math}
+
+\setmathfont[
+  Path=__RESOURCE_DIR__/fonts/newcomputermodern/,
+  Extension=.otf,
+  range={cal,bfcal}
+]{NewCMMath-Regular}
+
+\setCJKmainfont[
+  Path=__RESOURCE_DIR__/texmf/fonts/opentype/public/noto-cjk/,
+  Extension=.otf,
+  UprightFont=NotoSerifSC-Regular,
+  BoldFont=NotoSerifSC-Bold,
+  AutoFakeSlant=0.18
+]{NotoSerifSC-Regular}
+
+\setCJKsansfont[
+  Path=__RESOURCE_DIR__/texmf/fonts/opentype/public/noto-cjk/,
+  Extension=.otf,
+  UprightFont=NotoSansSC-Regular,
+  BoldFont=NotoSansSC-Bold,
+  AutoFakeSlant=0.18
+]{NotoSansSC-Regular}
+
+\setCJKmonofont[
+  Path=__RESOURCE_DIR__/texmf/fonts/opentype/public/noto-cjk/,
+  Extension=.otf,
+  UprightFont=NotoSansSC-Regular,
+  BoldFont=NotoSansSC-Bold
+]{NotoSansSC-Regular}
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{研工台复杂产物生产体系}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.5em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.35em}
+\titlespacing*{\subsubsection}{0pt}{0.7em}{0.25em}
+
+\AtBeginEnvironment{longtable}{\footnotesize\setlength{\tabcolsep}{3pt}}
+\renewcommand{\arraystretch}{1.16}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}

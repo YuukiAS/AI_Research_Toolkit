@@ -1,0 +1,20 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.45", ranksep="0.55"];
+  node [shape=box, style="rounded,filled", fillcolor="#F7F9FB", color="#4A5568", fontname="Droid Sans Fallback", fontsize=13, margin="0.11,0.07"];
+  edge [color="#334155", arrowsize=0.75, fontname="Droid Sans Fallback", fontsize=11];
+  U [label="用户一次任务\n与有效授权"];
+  A [label="研工台任务入口\n识别目标、事实和执行所有者", fillcolor="#E8F3FF"];
+  B [label="工作流与权限\nBridge已安装模式或项目现有Codex入口"];
+  C [label="专业派发\n实际加载AI Skills领域能力"];
+  E [label="主Codex\n必要时有限开发子代理", fillcolor="#FFF7E6"];
+  P [label="完整真实产物\n程序、网页、模型、论文"];
+  O [label="独立观察端\n用户动作或科学计算原始事实"];
+  V [label="独立要求与参考\n候选实施者不能单改"];
+  R [label="审查职责\n代码忠实性与完整产物质量", fillcolor="#F4ECFF"];
+  G [shape=diamond, label="必需结果\n是否真正被证明", fillcolor="#FFFFFF"];
+  F [label="归因并交回原职责\n代码、设计、观察器或环境", fillcolor="#FFF1F2"];
+  D [label="合法发布/交付入口\n核对真实目标", fillcolor="#ECFDF5"];
+  Q [label="实际用户收到当前版本\n或明确未交付原因", fillcolor="#ECFDF5"];
+  U -> A; A -> B; A -> C; B -> E; C -> E; E -> P; P -> O; A -> V; O -> R; V -> R; R -> G;
+  G -> F [label="否"]; F -> E; G -> D [label="是"]; D -> Q;
+}

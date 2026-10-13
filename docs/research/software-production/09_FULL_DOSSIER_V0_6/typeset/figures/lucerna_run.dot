@@ -1,0 +1,18 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.35", ranksep="0.45"];
+  node [shape=box, style="rounded,filled", fillcolor="#F8FAFC", color="#4A5568", fontname="Droid Sans Fallback", fontsize=12, margin="0.10,0.06"];
+  edge [color="#334155", arrowsize=0.7, fontname="Droid Sans Fallback", fontsize=10];
+  A [label="一次交办\nR2阈值提醒目标", fillcolor="#E8F3FF"];
+  B [label="冻结目标\n阈值、未知值、去重、保存/取消、旧服务"];
+  C [label="专业设计与文案\n真实托盘结构和自然中文状态"];
+  D [label="主Codex集成\nE1阈值逻辑 + E2设置交互"];
+  E [label="首条生产链\nCloudflareR2Provider → 聚合 → 通知"];
+  F [label="低成本回归\n正常、错误、重启、相邻服务"];
+  G [label="隔离原生观察\nexe/PID/窗口/动作/后置证据"];
+  H [label="独立审查/GPT Work\n完整候选与未知缺陷"];
+  I [label="用户或发布owner\n必要取舍、安装和真实版本核对", fillcolor="#ECFDF5"];
+  X [label="失败归因\n代码/设计/观察器/环境/授权", fillcolor="#FFF1F2"];
+  A -> B -> C -> D -> E -> F -> G -> H -> I;
+  E -> X [label="未接真实链"]; F -> X [label="旧行为断裂"]; G -> X [label="观察器或环境错"]; H -> X [label="整体质量缺陷"];
+  X -> D [label="代码/集成"]; X -> C [label="设计/文案"]; X -> G [label="观察器/环境"];
+}

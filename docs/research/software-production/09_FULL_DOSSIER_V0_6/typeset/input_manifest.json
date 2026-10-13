@@ -1,0 +1,135 @@
+{
+  "commit": "c9d651272bab15f9e7bc37e5179c5f73daae87bb",
+  "inputs": [
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/09_FULL_DOSSIER_V0_6/01_ARCHITECTURE_AND_COMPONENT_CONTRACT.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/09_FULL_DOSSIER_V0_6/02_INCIDENTS_AND_CAUSAL_COVERAGE.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/09_FULL_DOSSIER_V0_6/03_ALL_USER_QUESTIONS_AND_DECISIONS.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/09_FULL_DOSSIER_V0_6/04_LUCERNA_FULL_WORKED_RUN.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/04_SIX_REPO_AUDIT/LUCERNA.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/04_SIX_REPO_AUDIT/BOBBIO.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/04_SIX_REPO_AUDIT/MICA.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/04_SIX_REPO_AUDIT/SEMINARARC.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/04_SIX_REPO_AUDIT/ASTERIA.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/04_SIX_REPO_AUDIT/CUHK_DATE.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/04_SIX_REPO_AUDIT/problem-control-map.csv",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/05_PROPOSED_ARCHITECTURE_V0_2/INCIDENT_ADDENDUM.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/07_CARE_AND_EXECUTABLE_REVIEW_V0_4/CARE_FAILURE_LEDGER.md",
+    "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/docs/research/software-production/08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/CARE_LINEAGE_AND_CAUSAL_AUDIT.md"
+  ],
+  "counts": {
+    "L": {
+      "count": 33,
+      "first": "L01",
+      "last": "L33",
+      "missing": []
+    },
+    "B": {
+      "count": 32,
+      "first": "B01",
+      "last": "B32",
+      "missing": []
+    },
+    "M": {
+      "count": 46,
+      "first": "M01",
+      "last": "M46",
+      "missing": []
+    },
+    "S": {
+      "count": 32,
+      "first": "S01",
+      "last": "S32",
+      "missing": []
+    },
+    "A": {
+      "count": 47,
+      "first": "A01",
+      "last": "A47",
+      "missing": []
+    },
+    "C": {
+      "count": 56,
+      "first": "C01",
+      "last": "C56",
+      "missing": []
+    },
+    "LX": {
+      "count": 20,
+      "first": "LX01",
+      "last": "LX20",
+      "missing": []
+    },
+    "AX": {
+      "count": 5,
+      "first": "AX01",
+      "last": "AX05",
+      "missing": []
+    },
+    "CARE_C": {
+      "count": 40,
+      "first": "C01",
+      "last": "C40",
+      "missing": []
+    },
+    "CARE_LINEAGE": {
+      "count_including_meta": 53,
+      "specified追加登记_count_excluding_meta": 52,
+      "ids": [
+        "RB04-01",
+        "RB04-02",
+        "RB04-03",
+        "RB04-04",
+        "RB04-05",
+        "RB04-06",
+        "RB04-07",
+        "RB04-08",
+        "B7-01",
+        "B7-02",
+        "B7-03",
+        "B7-04",
+        "MM-01",
+        "MM-02",
+        "MM-03",
+        "MM-04",
+        "MM-05",
+        "MM-06",
+        "MM-07",
+        "MM-08",
+        "DG-01",
+        "DG-02",
+        "DG-03",
+        "DG-04",
+        "DG-05",
+        "DG-06",
+        "DG-07",
+        "DG-08",
+        "DG-09",
+        "PR-01",
+        "PR-02",
+        "PR-03",
+        "PR-04",
+        "PR-05",
+        "PR-06",
+        "PR-07",
+        "PR-08",
+        "RACE-01",
+        "RACE-02",
+        "RACE-03",
+        "RACE-04",
+        "RACE-05",
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-03",
+        "FLOW-04",
+        "FLOW-05",
+        "FLOW-06",
+        "FLOW-07",
+        "FLOW-08",
+        "DEPLOY-01",
+        "DEPLOY-02",
+        "META-01"
+      ]
+    },
+    "six_repo_total": 246
+  }
+}

@@ -1,0 +1,16 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.35", ranksep="0.45"];
+  node [shape=box, style="rounded,filled", fillcolor="#F8FAFC", color="#4A5568", fontname="Droid Sans Fallback", fontsize=12, margin="0.10,0.06"];
+  edge [color="#334155", arrowsize=0.7, fontname="Droid Sans Fallback", fontsize=10];
+  A [label="原科学/产品合同\n公式、数据、人群、阶段"];
+  B [label="独立参考\n数值、梯度、好/坏/缺测样本", fillcolor="#F4ECFF"];
+  C [label="首条真实forward/消费者\n数据loader、权重、loss或UI路径"];
+  D [label="廉价忠实性探针\n确认真实资源影响最终结果"];
+  E [label="正式训练/评价/原生验收\n只在前置链闭合后消耗高成本"];
+  F [shape=diamond, label="结果含义\n是否真实可判", fillcolor="#FFFFFF"];
+  G [label="正确负结果/NO_GO\n按合同诚实停止", fillcolor="#ECFDF5"];
+  H [label="实现或观察器返修\n不把假指标包装为通过", fillcolor="#FFF1F2"];
+  I [label="发布/交付声明\n只覆盖已证明范围", fillcolor="#ECFDF5"];
+  A -> B -> C -> D -> E -> F;
+  F -> G [label="科学负结果"]; F -> H [label="实现/测量不忠实"]; H -> C; F -> I [label="完整证明"];
+}
