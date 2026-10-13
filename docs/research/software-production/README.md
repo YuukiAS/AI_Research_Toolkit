@@ -2,7 +2,7 @@
 
 研究资料继续暂存在 `AI_Research_Toolkit` 的 `research/software-production-decision-20261013` 分支。未来正式代码归属未决定；本轮没有合并main、修改六产品/CARE/STAT5060/Bridge/插件、启动Critic或运行生产实施。
 
-**当前完整提案从 [研工台 v0.5](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/README.md) 阅读。** 这是面向软件、网页、深度学习和科研/统计复杂产物的连续交付流程，不仅是最终验收器。主实现可以使用有界子代理；专业阶段和独立审查由实际任务入口派发；验收标准、公开回归、独立参考和最终样本分时分权；AGENTS有维护、整理、淘汰和实际加载生命周期。
+**当前完整提案从 [研工台 v0.5](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/README.md) 阅读。** 先看[可运行架构图和权限设计](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/RUNNING_ARCHITECTURE.md)、[Lucerna完整开发交付演练](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/LUCERNA_RUN_TRACE.md)、[CARE多模型失败拦截演练](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/CARE_MODEL_RUN_TRACES.md)。 这是面向软件、网页、深度学习和科研/统计复杂产物的连续交付流程，不仅是最终验收器。主实现可以使用有界子代理；专业阶段和独立审查由实际任务入口派发；验收标准、公开回归、独立参考和最终样本分时分权；AGENTS有维护、整理、淘汰和实际加载生命周期。
 
 | 需要核对的内容 | 当前文件 |
 |---|---|
