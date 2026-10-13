@@ -1,0 +1,57 @@
+{
+  "kind": "LOCAL_SOURCE_COUNTEREXAMPLES_NOT_SYSTEM_ACCEPTANCE",
+  "historical_commit": "9517fe1738be5a03bc5d9115dade618ca3bc31b8",
+  "source": "https://github.com/YuukiAS/CARE_Challenge/blob/9517fe1738be5a03bc5d9115dade618ca3bc31b8/src/care_myocardium/training/care_ase_trainer.py",
+  "environment": {
+    "device": "cpu",
+    "torch": "2.10.0+cpu"
+  },
+  "input_scope": "tiny tensor and named-parameter surfaces",
+  "network": false,
+  "gpu": false,
+  "raw_medical_data": false,
+  "production_modified": false,
+  "findings": [
+    {
+      "id": "P01",
+      "ledger": "C34",
+      "input": [-1, 0, 1, 2, 3, 4, 5],
+      "observed": [-1, 0, 1, 2, 3, 0, 0],
+      "required_scar_target": 4,
+      "selected_scar_logit_channel_correct": true
+    },
+    {
+      "id": "P02",
+      "ledger": "C26",
+      "steps": [0, 1999, 2000, 5999, 6000, 9999, 10000, 13999],
+      "observed": ["A", "A", "B", "B", "C", "C", "C", "C"],
+      "required": ["A", "A", "B", "B", "B", "B", "C", "C"]
+    },
+    {
+      "id": "P03",
+      "ledger": "C27",
+      "step": 3000,
+      "phase": "B",
+      "observed": {
+        "encoder.stages.0.weight": false,
+        "encoder.stages.4.weight": false,
+        "encoder.stages.5.weight": false,
+        "low_mid_stages.0.weight": true,
+        "scar_branch.weight": true
+      },
+      "required": "upper two encoder stages trainable"
+    },
+    {
+      "id": "P04",
+      "ledger": "X01_NOT_COUNTED_AS_FORMAL_EVENT",
+      "observed_edema_gradients": [-0.1805550903081894, 0.12500250339508057],
+      "scope": "Mixed-batch stress only. Historical formal physical batch was 1; no claim this mixed case occurred during formal training."
+    }
+  ],
+  "not_proven": [
+    "full model outcome",
+    "current CARE failures",
+    "new workflow prevention",
+    "reviewer effectiveness"
+  ]
+}
