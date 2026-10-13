@@ -1,18 +1,14 @@
-# 复杂产物交付流程研究：当前有效入口
+# 复杂产物交付流程研究：当前阅读入口
 
-研究资料继续暂存在 `AI_Research_Toolkit` 的 `research/software-production-decision-20261013` 分支。未来正式代码归属未决定；本轮没有合并main、修改六产品/CARE/STAT5060/Bridge/插件、启动Critic或运行生产实施。
+**当前详细研究版本：[研工台 v0.6 四卷完整说明](09_FULL_DOSSIER_V0_6/README.md)。** 四卷分别为[组件运行架构](09_FULL_DOSSIER_V0_6/01_ARCHITECTURE_AND_COMPONENT_CONTRACT.md)、[六仓库与CARE事故归因](09_FULL_DOSSIER_V0_6/02_INCIDENTS_AND_CAUSAL_COVERAGE.md)、[本线程全部问题逐项答复](09_FULL_DOSSIER_V0_6/03_ALL_USER_QUESTIONS_AND_DECISIONS.md)、[Lucerna完整新功能演练](09_FULL_DOSSIER_V0_6/04_LUCERNA_FULL_WORKED_RUN.md)，另有[只负责把详细Markdown编译为20页以上中文PDF的Codex提示词](09_FULL_DOSSIER_V0_6/05_CODEX_PDF_BUILD_PROMPT.md)。
 
-**当前完整提案从 [研工台 v0.5](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/README.md) 阅读。** 先看[可运行架构图和权限设计](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/RUNNING_ARCHITECTURE.md)、[Lucerna完整开发交付演练](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/LUCERNA_RUN_TRACE.md)、[CARE多模型失败拦截演练](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/CARE_MODEL_RUN_TRACES.md)。 这是面向软件、网页、深度学习和科研/统计复杂产物的连续交付流程，不仅是最终验收器。主实现可以使用有界子代理；专业阶段和独立审查由实际任务入口派发；验收标准、公开回归、独立参考和最终样本分时分权；AGENTS有维护、整理、淘汰和实际加载生命周期。
+**v0.6内容已写入GitHub，但实际PDF仍需由排版任务编译并核验。** 现在没有部署研工台、没有运行正式产品试点或独立Critic，没有修改CARE与六个产品。六仓库246项、CARE前40项及新增52项均为“登记”，包括历史已修、检查盲区和风险边界，不能冒充相应数量独立事故。用户认可之前不自动启动架构实施或审查。
 
-| 需要核对的内容 | 当前文件 |
-|---|---|
-| 本线程原八问及后续全部追问如何处理 | [U01–U20逐问回答](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/USER_REQUIREMENTS.md) |
-| 系统到底是什么、各角色/进程、谁启动、子代理、几轮返修、冲突归谁、插件实际调用 | [工作流程与权限](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/WORKFLOW_AND_AUTHORITY.md) |
-| 验收做前还是做后、执行者可见范围、独立判定与反例隔离 | [验收时序与隔离](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/GATE_TIMELINE_AND_ISOLATION.md) |
-| CARE中间模型、多个Batch/Route/四lane/ASE和Agent-Flow的遗漏事故 | [模型谱系与因果审计](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/CARE_LINEAGE_AND_CAUSAL_AUDIT.md) |
-| 六项目具体入口、Asteria审美、CUHK语言、Lucerna完整新功能/跨机截图 | [六仓库归因与Lucerna运行示例](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/SIX_REPO_CAUSES_AND_LUCERNA_RUN.md) |
-| AGENTS怎样自动整理和退休，旧规则如何真的生效 | [规则生命周期](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/AGENTS_LIFECYCLE.md) |
-| 已经证实与尚待验证分别是什么 | [证据和剩余工作](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/EVIDENCE_AND_REMAINING_WORK.md) |
+---
+
+## 历史研究与原始证据
+
+此前[v0.5旧版研究](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/README.md)保存原架构演进、早期模型补查和研究定位，不再作为优先阅读入口。原本全部证据文件和详细问题台账继续可读。
 
 本轮新增的实际局部实验为 [Route B B6指标依赖反例](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/probes/route_b_metric_dependency.py) 和 [运行结果](08_COMPLEX_ARTIFACT_WORKFLOW_V0_5/probes/route_b_metric_dependency.result.json)：完美/空预测返回同一代理分数，换病例位置却改变分数。它只证明冻结历史纯函数的问题，不声称完整CARE训练或新工作流已经验证。
 
