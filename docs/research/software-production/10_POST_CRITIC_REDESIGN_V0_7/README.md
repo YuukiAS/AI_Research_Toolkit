@@ -10,7 +10,7 @@ GPT-6的REVISE也有准确的源码级阻塞：Reviewed正式review只能处于R
 
 所以当前推荐方案是：**使用现有Bridge/项目任务拥有唯一执行/状态，AI Skills负责专业Skill，项目正式脚本负责实际用户/科学观察，CI与实际受控平台负责阻断及发布，最多允许一个无状态的跨系统保证引用格式。** 不再计划做“研工台新常驻运行平台”。是否保留这个名称，用户可以在路线成熟后决定；不凭名字给仓库分发地位。
 
-## 已经实质修订的五份文件
+## 已经实质修订的六份文件
 
 1. **[00 架构重选与具体责任归属](00_DECISION_AND_ARCHITECTURE.md)**：删除第二状态机/十二中央运行职责；产品和科研两种成功语义但不另造两个CURRENT；与不建立公共系统、Bridge成熟模式、Spec Kit和项目本地CI对照。
 2. **[01 所有可取得的14项阻塞逐项处置](01_BLOCKER_DISPOSITIONS.md)**：GPT-5.6的4项P0、6项P1、2项P2；GPT-6的两项P1。逐项写接受、变更和真正有资格关闭的证据，不自我宣布PASS。
@@ -18,7 +18,7 @@ GPT-6的REVISE也有准确的源码级阻塞：Reviewed正式review只能处于R
 4. **[03 科学/产品不同结论、评审资格与六库项目本地验收](03_DOMAIN_EVIDENCE_AND_REVIEWER_QUALIFICATION.md)**：STAT5060的20%召回如何使评审器失格；六库/CARE专业脚本、实际消费与正确NO_GO；AGENTS与AI Skills维护边界、历史账本不虚假叠加。
 5. **[04 Lucerna通知新反例与PDF产物身份](04_ARTIFACT_AND_LUCERNA_CASE.md)**：现有NotificationGate通知show前标已发送、发送失败、过期被当恢复的源码序列；旧PDF已经生成、独立未渲染，原v0.6 README的过时声明已修。
 
-5. **[05 各项目真正的正常启动入口与最小接入成本](05_NORMAL_ENTRY_AND_ADOPTION_BOUNDARY.md)**：不能只说交Bridge，必须确知每个仓库是否已安装Reviewed/Control，专业Skill在原Executor提示与运行里由谁实际触发；Lite不谎称断线后自动接力，接入开销必须与纯本地改法对照。
+6. **[05 各项目真正的正常启动入口与最小接入成本](05_NORMAL_ENTRY_AND_ADOPTION_BOUNDARY.md)**：不能只说交Bridge，必须确知每个仓库是否已安装Reviewed/Control，专业Skill在原Executor提示与运行里由谁实际触发；Lite不谎称断线后自动接力，接入开销必须与纯本地改法对照。
 
 ## 对“两个REVISE＋一个REJECT”的证据限制
 
@@ -45,4 +45,4 @@ GPT-6的REVISE也有准确的源码级阻塞：Reviewed正式review只能处于R
 
 **四、是否真的比原方案轻。** 应先做受批准的小任务、Lucerna完整功能和CARE历史错误对照试点；只新增元数据/审查调用、没有改善第一轮用户P1和真实交付时间，就不建设任何新包。
 
-**当前状态：Planner revised proposal; independent re-review pending。** 第三份空审查需要真实原文；用户认可前不触发执行Kickoff、安装、额外费用和新工作流程。独立Critic下一轮完全可以否决本版。
+**当前状态：Planner已提交修订提案，等待真正独立复审。** 第三份空审查需要真实原文；用户认可前不触发执行Kickoff、安装、额外费用和新工作流程。独立Critic下一轮完全可以否决本版。
