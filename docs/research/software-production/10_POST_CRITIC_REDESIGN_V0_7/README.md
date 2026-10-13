@@ -18,6 +18,8 @@ GPT-6的REVISE也有准确的源码级阻塞：Reviewed正式review只能处于R
 4. **[03 科学/产品不同结论、评审资格与六库项目本地验收](03_DOMAIN_EVIDENCE_AND_REVIEWER_QUALIFICATION.md)**：STAT5060的20%召回如何使评审器失格；六库/CARE专业脚本、实际消费与正确NO_GO；AGENTS与AI Skills维护边界、历史账本不虚假叠加。
 5. **[04 Lucerna通知新反例与PDF产物身份](04_ARTIFACT_AND_LUCERNA_CASE.md)**：现有NotificationGate通知show前标已发送、发送失败、过期被当恢复的源码序列；旧PDF已经生成、独立未渲染，原v0.6 README的过时声明已修。
 
+5. **[05 各项目真正的正常启动入口与最小接入成本](05_NORMAL_ENTRY_AND_ADOPTION_BOUNDARY.md)**：不能只说交Bridge，必须确知每个仓库是否已安装Reviewed/Control，专业Skill在原Executor提示与运行里由谁实际触发；Lite不谎称断线后自动接力，接入开销必须与纯本地改法对照。
+
 ## 对“两个REVISE＋一个REJECT”的证据限制
 
 用户上传的v4.zip内部真实内容：
