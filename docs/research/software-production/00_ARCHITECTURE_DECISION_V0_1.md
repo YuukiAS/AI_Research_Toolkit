@@ -132,5 +132,6 @@
 
 - [01_EXECUTION_AND_TRUST_CONTRACT_V0_1.md](01_EXECUTION_AND_TRUST_CONTRACT_V0_1.md)：候选系统实际代码接口、运行/恢复与权限边界。
 - [02_FALSIFICATION_AND_ACCEPTANCE_PLAN_V0_1.md](02_FALSIFICATION_AND_ACCEPTANCE_PLAN_V0_1.md)：真实失败模式和正反验收，明确何时允许用户相信这条路线。
+- [03_INDEPENDENT_CRITIC_PACKAGE_V0_1.md](03_INDEPENDENT_CRITIC_PACKAGE_V0_1.md)：明确版本的独立架构审查对象、阻塞判定标准和可允许的下一步；审查本身仍未执行。
 
 本轮**不建立新的仓库、控制服务、插件、额外 Bridge 模式或正式生产流水线**，不运行 GUI/安装/收费探针，不变更任何现有产品和用户数据。正式代码化必须经独立 Critic、必要用户授权和真实环境验证。
