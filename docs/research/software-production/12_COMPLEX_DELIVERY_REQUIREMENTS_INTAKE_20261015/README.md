@@ -1,37 +1,34 @@
-# 复杂任务自动交付系统：独立研究问题与历史材料
+# 复杂任务自动交付系统研究：唯一入口
 
-**当前状态：仅供用户核对问题；尚不发送 GPT Pro，也没有任何架构或实施批准。** 产品名称、是否建立新仓库、如何接入 Codex、是否需要控制台、谁实际调度、谁实际验收，都没有预设答案。
+## 给 GPT Pro：只从这里开始
 
-此前的入口把旧 Planner 对21问的**回答**和用户的**问题**放进同一文档，容易把 GPT Pro 引导回旧方案。这种输入组织不适合独立架构研究。现已将旧问答拆开，默认研究输入只包含**用户要求、未解问题和来源记录**。
+**唯一入口： [PRO_INPUT/START_HERE.md](PRO_INPUT/START_HERE.md)**
 
-## 第一部分：给独立研究者的起始材料（不含任何历史设计答案）
+不要从本目录其他文件开始，不要先读 v0.6–v0.8，不要先读三位 Critic，也不要读聊天原话存档。
 
-请按以下顺序阅读。此阶段**不要提前阅读**v0.6–v0.8的既有方案、旧逐问回答、旧 Pro Prompt、三位 Critic 的路线建议或助手此前编制的执行决策树。
+GPT Pro 第一阶段只读 PRO_INPUT 目录里的四份正式输入：
 
-1. **[独立研究问题陈述（无答案）](12_NEUTRAL_PROBLEM_STATEMENT_NO_ANSWERS.md)**：要解决什么、存在何种用户体验和系统问题、哪些根本问题没有答案。不预设产品形态与实现路线。
-2. **[用户当前讨论的逐字原话](09_CURRENT_THREAD_USER_MESSAGES_VERBATIM.md)**：包括用户对旧答复污染研究输入的最新反对。旧“统一软件开发流程”线程的完整逐字聊天尚未取得，这一点不可隐藏。
-3. **[旧线程21问与最新12项追问——仅有问题](01_PRIOR_THREAD_21_QUESTIONS_AND_CURRENT_FOLLOWUPS.md)**：21问是历史 Planner 整理的**问题标题**，不是原聊天逐字转录；已经删除同页的旧回答。
-4. **[363条历史问题的纯来源索引](11_RAW_CASES_ONLY_NO_SOLUTION_MAPPINGS.csv)**：只有编号、项目、源位置、原有问题描述与原状态。历史状态尚未被本轮实机复核，不等于363个当前产品故障。
-5. **直接核查项目原始资料与代码**：按上述来源定位七项目真实情况，并在可用的官方材料中独立研究现实替代。不要用旧方案的根因猜测代替项目源码与真实用户产物。
+1. [用户要求：无方案](PRO_INPUT/01_USER_REQUIREMENTS_NO_SOLUTIONS.md)
+2. [待回答问题：无答案](PRO_INPUT/02_OPEN_QUESTIONS_NO_ANSWERS.md)
+3. [七项目363条历史问题纯来源索引](PRO_INPUT/03_HISTORICAL_FAILURES_SOURCE_INDEX.csv)
+4. [来源与证据边界](PRO_INPUT/04_SOURCE_BOUNDARIES.md)
 
-初步独立思考应回答：到底要做什么产品或组合、怎样真实介入 Windows/服务器 Codex、假完成谁发现并驱动真正返修、Slurm/真实平台等待和失败如何处理、为什么预计能减少用户和资源负担。可以形成多个候选，不要求立即确定“最优”。
+然后直接核实七项目、AI Skills、Bridge、Remote Compute 和官方一手资料，**先独立提出候选方案**。完成独立候选后，才按 START_HERE 的第二阶段要求读取 v0.6–v0.8 和 original_reviews，用旧方案与 Critic 作为反证。
 
-## 第二部分：独立形成候选思路以后，才读历史答案和批评（不得当作正确结论）
+## 本目录其他东西是什么？
 
-以下材料全部保留，**不是初始问题输入**：
+都是历史/审计材料，不是 GPT Pro 第一阶段输入：
 
-- [旧 v0.6 对21问的完整回答](../09_FULL_DOSSIER_V0_6/03_ALL_USER_QUESTIONS_AND_DECISIONS.md)、[v0.6–v0.8研究目录](../)、[三个 Critic 的原始意见](original_reviews/)：用于对照历史错误、遗漏和强反证，允许反驳；不得自动继承其建议。
-- [历史六软件+CARE问题原因归纳](02_ALL_PROJECT_FAILURE_FAMILIES_AND_CAUSAL_REQUIREMENTS.md)和[此前助手整理的75+8项详细要求](00_COMPLETE_USER_REQUIREMENTS.md)：属于**助手的二次加工**，其中夹杂程序选择、验收方式和可能的错误归因，不是用户原话，也不能当作必选架构。
-- [21项历史批评的归纳](03_THREE_CRITICS_21_BLOCKERS_AND_R1_PROMPT_AUDIT.md)、[以前的技术故障决策树](04_EXECUTION_ENTRY_SLURM_AND_REAL_REPAIR_DECISION_TREES.md)、[363条附带旧映射的索引](05_ALL_363_CASES_SOURCE_INDEX.csv)、[83条助手要求表](07_ALL_83_REQUIREMENT_COVERAGE_GATE.csv)：只供遗漏复核，绝不用于直接选执行组件或宣称防复发。
-- [旧 Pro 提示词（明确不批准）](08_PRIOR_PRO_RESEARCH_PROMPT_R1_NOT_APPROVED.md)和[已作废的另一份研究合同草稿](07_INDEPENDENT_PRO_RESEARCH_CONTRACT_DRAFT_NOT_APPROVED.md)：只作历史记录；目前不应该复制发送。
+- 00/02/03/04/05/07/08/10/12：之前助手或 Planner 的整理、解释、方案、检查表，可能带有旧答案和错误假设；
+- original_reviews/：三位 Critic 原始全文，只在第二阶段读；
+- archive/：聊天原话等审计存档，不给 GPT Pro 第一阶段读；
+- 09_FULL_DOSSIER_V0_6、10_POST_CRITIC_REDESIGN_V0_7、11_THREE_CRITIC_RECONCILIATION_V0_8：父目录中的历史架构版本，只在第二阶段读。
 
-在有自己的独立候选后，再逐项用历史评论攻击候选，验证是否重犯老错误。尤其要防止旧材料中存在的**跨项目组件误配**再次影响执行决策。
+## 当前状态
 
-## 发送前看什么？
+- 已经把“问题”和“旧回答”拆开；
+- 已经把363条历史记录做成不含旧解决方案/组件映射的纯来源索引；
+- 当前聊天逐字记录已移到 archive/，不再作为研究输入；
+- 尚未授权 GPT Pro 正式研究，也未授权任何产品实现、Windows 实机操作、Slurm 作业或付费实验。
 
-- [来源真实性与尚缺数据](06_SOURCES_AND_EVIDENCE_LIMITATIONS.md)
-- [发送前问题覆盖与审核状态](10_SEND_GATE_AND_OPEN_QUESTIONS.md)
-
-**目前未获用户确认覆盖充分，因此 GPT Pro 研究指令不得宣称准备发送。** 初期不需要先解决架构/Slurm接口等研究问题；这些恰好是下一轮独立研究应该回答的内容。用户只需核查问题是否完整、材料是否被错误归纳，不需要继续替助手制定方案。
-
-本次 GitHub 归档仍停留在原研究分支。没有改任何产品、Bridge 正式运行代码、权限或资源，也没有发起正式实施。
+如果要把材料发给 GPT Pro，**只给它这个 README 的 GitHub 路径，并要求严格执行 PRO_INPUT/START_HERE.md。**
