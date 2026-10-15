@@ -4,8 +4,8 @@ Status: **DRAFT FOR EXECUTION_READY_REVIEW / NOT AUTHORIZED TO RUN**
 Design topic: `software-production--delivery-assurance`  
 Proposal: `DELIVERY_ASSURANCE_PROPOSAL_R2_20261016.md`  
 Goal version: **R2**  
-Execution base: the final R1 package commit on `research/software-production-decision-20261013`  
-Planned execution branch after approval: `work/delivery-assurance-hook-probe-r1`  
+Execution base: the final R2 package commit on `research/software-production-decision-20261013`  
+Planned execution branch after approval: `work/delivery-assurance-hook-probe-r2`  
 Target production repos: **NONE**  
 Paid/external side effects: **NONE**
 
@@ -30,7 +30,7 @@ Paid/external side effects: **NONE**
 4. `YuukiAS/GPT_Codex_AI_Bridge_Kit@main:AGENTS.md`
 5. OpenAI 当前正式 Hook 文档：`https://developers.openai.com/codex/hooks`
 
-若任一关键来源已发生改变并影响 Stop/Interrupt/trust/identity 语义，停止执行并回 Planner，不凭 R1 旧假设继续。
+若任一关键来源已发生改变并影响 Stop/Interrupt/trust/identity 语义，停止执行并回 Planner，不凭 R2 审查前的旧假设继续。
 
 ## 允许的执行范围
 
