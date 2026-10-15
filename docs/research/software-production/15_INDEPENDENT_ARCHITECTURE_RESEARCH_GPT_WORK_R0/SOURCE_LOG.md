@@ -146,3 +146,7 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 ## P2｜独立候选冻结
 - 已写入并读回01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md，commit 1de00e03b0747ea5d761c7e0446d57ab60f97d47。四路线为A仅修现有入口、B原入口完成检查/续办适配、C显式托管owner、D只读旁观审查；每条覆盖入口、返修、Slurm、专业质量、观察、适配和淘汰条件。
 - 冻结前未读历史架构/评审目录。现开始第二阶段，按四个指定历史目录逐一完整读取并checkpoint，不触碰其他研究者输出。
+
+## H1 — v0.6 全文与派生材料反证
+历史读取固定在第一阶段冻结提交 1de00e03b0747ea5d761c7e0446d57ab60f97d47。完整读09目录8份根Markdown、typeset/input_manifest.json、build_workflow_dossier.py、preamble.tex.in、四份dot；合成本workflow_architecture_dossier_v0.6.md共135860字符，逐字相同四卷段落去重后读完全部独有内容（含246项映射、25补查、40+52及META边界）。未运行构建脚本；PDF二进制与渲染图未独立视觉复验，BUILD_REPORT的76页/73有效页仅作者声明。四卷是历史设计，不继承旧Critic启动/PDF执行要求。
+反证：v0.6十二职责虽多有必要，但调用者、身份、恢复权仍大量拟建；B若包揽义务解释、调度、参考/验收权就重新成为中央控制器。A不能只修散落脚本而不确保正常入口消费。Mica已有同路径反伪control仍多轮失败；冻结错误参考会稳定假绿。Asteria常量零与受保护diff漏洞已由本轮直接源码交叉确认，历史作者CPU实测不是本轮复跑。CARE的正例NO_GO、有效amendment、测试器越权1e-6、不等组loss分母，要求实现失败/科学否定/验证器失败分开。报告哈希变化不应重训、全测试全绿不等首条真实链成立。Lucerna LX02监测域依赖被监测WSL、LX07/08凭据跨资源事务、LX10原生隐藏旁路提示UI外完整生命周期；仅Stop后置不能防昂贵投入前错误。普通框架不能替代专业语义与真实设备隔离。363为登记集合非当前bug数，本文不声称复验所有历史源。
