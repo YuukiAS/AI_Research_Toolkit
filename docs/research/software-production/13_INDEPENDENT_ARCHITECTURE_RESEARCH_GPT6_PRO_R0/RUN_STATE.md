@@ -10,11 +10,11 @@ PHASE: DIRECT_SOURCE_RESEARCH
 WRITE_PREFLIGHT: PASS
 WRITE_PROOF_COMMIT: 04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8
 WRITE_PROOF_READBACK: VERIFIED
-COMPLETED_SOURCE_BATCHES: live contract; startup write/read; four frozen inputs; AI Skills; Bridge
-PENDING_SOURCE_BATCHES: Remote Compute; Lucerna; CUHK_Date; Bobbio; Mica; SeminarArc; Asteria; CARE; official sources; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: checkpoints/02_BRIDGE.md
-LAST_STABLE_COMMIT: e5efa23d8292bafe47c5f3a53b754930d1132aa6
-NEXT_ACTION: read back checkpoints/02_BRIDGE.md; inspect Remote_Compute_Infrastructure branches and current effective access/recovery/scheduler ownership, tests and failure records; checkpoint that repository before Lucerna
+COMPLETED_SOURCE_BATCHES: live contract; startup write/read; four frozen inputs; AI Skills; Bridge; Remote Compute
+PENDING_SOURCE_BATCHES: Lucerna; CUHK_Date; Bobbio; Mica; SeminarArc; Asteria; CARE; official sources; independent candidates; history challenge; final synthesis
+LAST_STABLE_ARTIFACT: checkpoints/03_REMOTE_COMPUTE.md
+LAST_STABLE_COMMIT: 888bb07a3e1b66650efe7fff97e3d1f3e32c2e6f
+NEXT_ACTION: read back checkpoints/03_REMOTE_COMPUTE.md; inspect Lucerna current effective sources, state propagation, development acceptance and failure records; checkpoint Lucerna before CUHK_Date
 
 ## 恢复与权限
 
