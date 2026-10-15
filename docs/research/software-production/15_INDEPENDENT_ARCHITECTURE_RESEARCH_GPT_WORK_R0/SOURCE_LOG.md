@@ -38,3 +38,12 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - Control 的真实机制可复用：route_findings 将 IMPLEMENTATION_BUG / VERIFIER_BUG / VERIFIER_CONTRACT_DRIFT / EVIDENCE_GAP / OPERATIONAL_FAILURE 分给不同 owner；科学选择需绑定 Planner 产物。receipt 验证拒绝 resume --last，要求确切 session/thread、scope、target；这证明校验合同，未证明任意 App 会话的运行适配器已存在。
 - 权限与恢复：一个 CODEX_HOME 一个机器身份；Host 不授予 Slurm 写操作；reviewed 及 persistent 使用既有状态/锁/心跳，不能再加第二控制面。main 的 launch preflight 会重新读取必读材料；测试文件使用临时仓库/假 Codex，属于机械回归，未在本轮执行。
 - 已知故障来源：README 0.10/0.11 与 AGENTS 明确 runtime identity、SSH_ASKPASS、长规则截断/控制文件未绑定、重复等待/旧 review 的修复边界。没有远端机器安装核验，不能把源码版本当运行版本。
+
+## R3｜Remote Compute
+- main=ca0bad392ce1295e76a07a5d8f9c9dd27d3f61d7；另有 Runtime v2 执行/交接分支。README 与根 AGENTS 指向 main 的当前基础设施 authority；并未把分支存在当生产部署事实。
+- 实读 README、根 AGENTS、codex/AGENTS、shared/contracts/HEALTH_STATES.md、docs/architecture/BRIDGE_SCHEDULING.md、scripts/bridge_scheduler_adapter_v2.sh；枚举测试入口 codex/tests、bridge/tests、scripts/tests、workstation 专属测试。
+- 实码/合同：scheduler adapter 查 Slurm 活体 inventory，区分 KNOWN/UNKNOWN/AMBIGUOUS，未知或重复 owner 不等于 peer 不存在；规范要求现存 Bridge 保留，禁止自动 cancel/relocate。horizon render 与显式 ensure/confirm-submit 分开。它是基础设施 Bridge 作业生命周期，不能冒充科研训练调度器。
+- 身份：README 记录 USERS/OVERFLOW 各自固定 CODEX_HOME 与 SQLite；换 repo 不换身份。别名 inversion ready 不代表客户端 alias 已交换。本轮没有 SSH/机器检查，具体机器映射仍需将来按真实 SSH config 验证。
+- 健康语义：必须有 vantage/observed_at/freshness/failure_domain；RUNNING、listener、state file 都不能等同可用；UNKNOWN 不得变失败并触发恢复。基础设施只提供状态/diagnose/bounded action，Lucerna 是桌面 UI owner。
+- 已知失败/权限来源：AGENTS 记载 apps/catalog 异常流量、不得由 CLI upgrade 迁移 identity 或另启 daemon；禁止动生产 tunnel/job，禁止从另一台 Windows 机器状态推断目标机。Windows 后台需真实桌面两周期无闪窗验证，静态源码无法证明。
+- 核心基础设施批次完成：AI Skills/Bridge/Remote Compute 的能力与运行证据已区分，未启动生产、Codex、Slurm 或 Windows 验收。
