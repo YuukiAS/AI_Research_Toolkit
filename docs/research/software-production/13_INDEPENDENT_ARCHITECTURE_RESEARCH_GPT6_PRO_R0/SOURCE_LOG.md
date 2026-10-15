@@ -5,24 +5,22 @@ OUTPUT_ROOT: docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 INPUT_BRANCH: research/software-production-decision-20261013
 
-## 启动写入预检与恢复
+## 写入与恢复
 
 WRITE_PREFLIGHT=PASS
-- STARTUP_WRITE_PROBE.md实际写入提交91b1dc946e89b5670c83192ab5d597d29df564c4；原读回blob cec34037bd2cf0dcab81f468db188dcad04be545。身份、输出路径、快照、状态、nonce完整一致；发生于研究之前。
-- 当前运行合同START_HERE.md blob 34fde56b79b7aca53af64370074cf55be23928d2。
-- 2026-10-15续接再次读回相同probe和输入checkpoint，未从头重读输入。RUN_STATE实际更新提交9c9cabf64b9c058f738cd9a0a0755b696984b904，并重新通过GitHub读回一致，证明恢复仍有写入能力。
-- 当前消息要求再做真实写入：只更新原探针、不重复创建文件，提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8；重新通过GitHub读回blob ae6a2252caf3333c3cfd25c9ed9d15358670e35b，所有身份字段、原nonce和RESUME_WRITE_NONCE=GPT6_PRO-20261015-resume-from-input-checkpoint-v2一致。WRITE_PREFLIGHT=PASS。SOURCE_LOG首次写入遇409后已重新读取当前文件、保留新增R01记录再合并，不覆盖其他进度，不读取其他研究者输出。
+- STARTUP_WRITE_PROBE.md初始提交91b1dc946e89b5670c83192ab5d597d29df564c4，读回blob cec34037bd2cf0dcab81f468db188dcad04be545；身份、路径、快照、状态、nonce一致。
+- 运行合同START_HERE.md当前blob 34fde56b79b7aca53af64370074cf55be23928d2。
+- 恢复RUN_STATE写入提交9c9cabf64b9c058f738cd9a0a0755b696984b904已读回。
+- 当前消息再次实际更新同一探针提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8，GitHub读回blob ae6a2252caf3333c3cfd25c9ed9d15358670e35b，含RESUME_WRITE_NONCE=GPT6_PRO-20261015-resume-from-input-checkpoint-v2，逐项一致；未重建文件或重启研究。日志一次409后重新读取并保留R01合并，合并提交94ae508716a8f8d6df8cf3c0e937345922944bf9。
 
 ## 已完成来源
 
-### INPUT — 四份冻结问题输入
+INPUT：四份冻结PRO_INPUT按顺序完整读完，61问、363条登记及边界。363=246+25+40+52，不是当前bug计数。分段展开CSV且补CARE C37。checkpoints/00_INPUT_FACTS.md，首次提交da3a090a80ec5f829b9a8322555f8aa4a733877d，续接读回blob f0509ff2b26364f930762e2d39347f21f10577f4。
 
-按顺序完整读取冻结提交中PRO_INPUT/01、02、03、04；61问、363条登记及边界全部读完。CSV分段展开截断并补CARE C37。363=246+25+40+52，不是363个当前bug。事实文件checkpoints/00_INPUT_FACTS.md，首次提交da3a090a80ec5f829b9a8322555f8aa4a733877d；续接读回blob f0509ff2b26364f930762e2d39347f21f10577f4。
+R01 AI_Skills_Collection：main 0d990b24fb7c7b46877347241800244f623b20c0，release 06d135d8a6ee62cd41abb40fc5771fcef7f8db25。branches/树、AGENTS相关段、README、release workflow SKILL全文、marketplace CI全文、workflow TODO前部事故。事实checkpoints/01_AI_SKILLS.md，提交9e49c78cb994a039e23ac9df77f2c950ea6fb800，已读回blob d757c521b546db6484d5717bf74bde6b1a5a6f79。技能分发与加载/真实消费不同；未获任意App线程外部控制权证据。
 
-### R01 — AI_Skills_Collection
+R02 GPT_Codex_AI_Bridge_Kit：main a7931fdfc6e3d71cf985351df075de17097795e6，release 9db19b0409816c22042a246b35a33e1d34fedd0a。branches/树、README前部、AGENTS 1–120、reviewed_runner的身份/锁/同步/实际执行/权限/重试段、CI全文；main测试仅搜索定位。checkpoints/02_BRIDGE.md，提交e5efa23d8292bafe47c5f3a53b754930d1132aa6。实际执行是codex exec，thread_id=None；拥有Review任务执行不等于接管普通App原线程；/proc进程验证不能冒充Windows实测。
 
-main 0d990b24fb7c7b46877347241800244f623b20c0；release 06d135d8a6ee62cd41abb40fc5771fcef7f8db25。实际读取分支/树、AGENTS相关段、README、release workflow SKILL全文、marketplace CI全文、workflow TODO前部真实事故。路径与事实详见checkpoints/01_AI_SKILLS.md，提交9e49c78cb994a039e23ac9df77f2c950ea6fb800。稳定入口跟release；技能提供规则/专业路由，没有获得任意App线程外部续执行权的证据；CI是安装/打包/回归入口而非专业质量的充分证明。
+## 边界
 
-## 记录原则
-
-只记实读来源；代码、历史运行记录、当前机器实测分开。每仓库立即事实checkpoint并更新日志和状态。候选冻结前不读Toolkit历史方案；任何时候不读其他研究者输出。checkpoint非审批点，立即继续。
+只记实读；代码、历史记录、当前实测分开。每仓库立即事实checkpoint并更新日志和状态；候选冻结前不读Toolkit历史方案；不读其他研究者输出。checkpoint非审批点。未执行Codex、Windows实机、Slurm、生产、付费或高成本动作。
