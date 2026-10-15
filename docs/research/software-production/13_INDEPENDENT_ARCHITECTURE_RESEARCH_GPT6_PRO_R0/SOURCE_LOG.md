@@ -5,16 +5,17 @@ OUTPUT_ROOT: docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 INPUT_BRANCH: research/software-production-decision-20261013
 
-## 写入与恢复
+## 恢复证明与完整日志保全
 
-WRITE_PREFLIGHT=PASS
-原探针提交91b1dc946e89b5670c83192ab5d597d29df564c4、读回cec34037bd2cf0dcab81f468db188dcad04be545。本次同一探针更新04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8、GitHub读回ae6a2252caf3333c3cfd25c9ed9d15358670e35b，身份/路径/快照/RESUME_WRITE_NONCE=GPT6_PRO-20261015-resume-from-input-checkpoint-v2一致；未重建/重启。合同START_HERE blob 34fde56b79b7aca53af64370074cf55be23928d2。早期409保留R01合并94ae508716a8f8d6df8cf3c0e937345922944bf9；恢复状态9c9cabf64b9c058f738cd9a0a0755b696984b904已读回。
+WRITE_PREFLIGHT=PASS。既有写入证明提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8及读回ae6a2252caf3333c3cfd25c9ed9d15358670e35b；本轮复用，不重建探针。2026-10-15从OFFICIAL_SOURCE_VERIFICATION恢复；当前合同START_HERE blob f06d84ed06669fb3a84593a64ba680e4c740a9f7；R10读回blob54e0a31860ca32e7a0bb48f4130a1fe5129b418a。
 
-## 来源索引
+为使继续读取无需重复长日志，早期探针、nonce、409协调及各批次原始叙述完整保全于本文件历史版本：commit 2989b4a51d5c544eac0ff30e4c56eb7d5a547d65，path与本文件相同。它和下列未改动的checkpoint均为本来源日志组成部分；没有删除研究事实。
 
-各checkpoint均为本日志组成部分，含实际文件、ref/commit、读取范围、目的、关键事实与边界；恢复不从头重读。
+## 冻结输入与十仓库（全部完成，不重读原仓库）
 
-| 批次 | 事实记录 | 首次提交 |
+各路径均相对OUTPUT_ROOT。每个checkpoint包含原文件/ref/commit、实际读取范围、事实与未验证边界。
+
+| 批次 | checkpoint | 首次提交 |
 |---|---|---|
 | INPUT：四冻结输入、61问、363历史登记 | checkpoints/00_INPUT_FACTS.md | da3a090a80ec5f829b9a8322555f8aa4a733877d |
 | R01 AI_Skills_Collection | checkpoints/01_AI_SKILLS.md | 9e49c78cb994a039e23ac9df77f2c950ea6fb800 |
@@ -27,17 +28,19 @@ WRITE_PREFLIGHT=PASS
 | R08 SeminarArc | checkpoints/08_SEMINARARC.md | 8df8b18a8ab0d5a84180ee42b0b15ccbe96e196f |
 | R09 Asteria | checkpoints/09_ASTERIA.md | b7c9ae384bed31ff55a1fdf4ffbee658b2a0aa21 |
 | R10 CARE_Challenge | checkpoints/10_CARE.md | 78eda260bc2dd04cf3e9cd3c3a58fe432f4d796e |
-| O11A 官方Codex接口、hook、目标与原生任务 | checkpoints/11A_OFFICIAL_CODEX.md | f3c437c1478d8644185bbdafc0b785d1fbf78fb5 |
-| O11B 官方GitHub交付门、权限与来源证明 | checkpoints/11B_OFFICIAL_GITHUB.md | 79dfe9b50bd35f9db44ad70762810ca11912b1da |
 
-INPUT–R09均已读回，R09 blob21b32cec2a350d7812d095dcc1ddddc026e1d7ec。R10 main75a40e454de43b64e59a0b0b438ff57ef2bb8345、develop184cc16bc00dbb4edce80e2c848bdaabae4f782e，分叉665/4；显式develop v3实验与main普通工作边界区分。已读v3精确线程续接实际Popen/身份/锁/事件代码，不能误报仓库只有提示词；也不等于任意Windows App线程接管。Slurm确定性finalizer、历史会计夹具、8月科学诊断/单层Docker事故已读；未运行。本批次写后立即读回。
+INPUT–R10均已读回。CARE当前来源区分main与develop；v3有真实精确线程Popen/锁/事件，不能误报只有提示词；也未证明任意Windows App接管。具体边界完整见10_CARE。
 
-## 本次恢复后的追加
+## 当前官方主题簇（2026-10-15）
 
-2026-10-15：从OFFICIAL_SOURCE_VERIFICATION恢复，未重读十仓库。当前合同blob f06d84ed06669fb3a84593a64ba680e4c740a9f7；R10读回blob54e0a31860ca32e7a0bb48f4130a1fe5129b418a。O11A已按提交f3c437c1478d8644185bbdafc0b785d1fbf78fb5读回，blob f4d789a8b268fc8bfdb948fdade691e35ebe9cfe。官方已存在同步Stop原线程续接、原生/goal、精确SDK/CLI续接；但hook信任/云本地差异、实验app-server及实际Windows可用性必须分别证明。codex mcp-server当前官方标记移除，不作为新候选。详细官方URL/定位见O11A。
+| 批次 | checkpoint及提交 | 读回blob | 关键事实 |
+|---|---|---|---|
+| O11A | checkpoints/11A_OFFICIAL_CODEX.md @ f3c437c1478d8644185bbdafc0b785d1fbf78fb5 | f4d789a8b268fc8bfdb948fdade691e35ebe9cfe | 同步Stop、原生goal、精确续接已存在；信任/云本地/实验传输/Windows环境分开；旧mcp-server已移除 |
+| O11B | checkpoints/11B_OFFICIAL_GITHUB.md @ 79dfe9b50bd35f9db44ad70762810ca11912b1da | 1e7d0aeaf348b4e27f5af09811b3d2ac05d81118 | 平台跳过/中性不等于领域通过；可信工作流、凭据、目标提交与产物绑定；未证明用户保护配置 |
+| O11C | checkpoints/11C_OFFICIAL_SLURM.md @ 3f9a343f72b45fe1dc819191aebb77f88f4c4a5f | d926ba8ce4bd9ba1754f906be26d686d1c9c0f68 | 作业状态/标志、提交不确定、数组/重排身份、账务、依赖、科学NO_GO；未运行集群命令 |
 
-O11B已按提交79dfe9b50bd35f9db44ad70762810ca11912b1da读回，blob1e7d0aeaf348b4e27f5af09811b3d2ac05d81118。核实跳过/中性检查可满足平台条件、检查来源/版本/目标提交绑定、合并队列事件、验收代码与凭据隔离、构建证明不等于质量。未查看十仓库的当前管理员保护配置，能力存在不等于用户已启用。具体官方URL/定位见O11B。
+每主题簇含完整去重官方URL、阅读位置及能力/部署/本轮实测区分。下一步专业工具后冻结01，之后才历史反证。
 
 ## 边界
 
-只写本人输出；冻结候选前不读Toolkit历史，永不读其他研究者产物。每仓库立即checkpoint、日志/状态并读回，非审批。历史报告/当前代码/本轮实测分开。没有Codex、实机、数据库、Slurm、生产、付费或高成本执行。
+只写本人OUTPUT_ROOT；永不读取/引用/比较其他研究者产物。候选冻结前不读历史架构。没有实机、Codex执行器、数据库、Slurm、生产、付费或高成本操作。checkpoint非审批，不以阶段性判断结束。
