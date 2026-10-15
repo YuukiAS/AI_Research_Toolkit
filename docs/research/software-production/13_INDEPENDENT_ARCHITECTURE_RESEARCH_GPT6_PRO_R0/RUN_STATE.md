@@ -10,12 +10,12 @@ PHASE: DIRECT_SOURCE_RESEARCH
 WRITE_PREFLIGHT: PASS
 WRITE_PROOF_COMMIT: 04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8
 WRITE_PROOF_READBACK: VERIFIED
-COMPLETED_SOURCE_BATCHES: frozen inputs; AI Skills; Bridge; Remote Compute; Lucerna; CUHK_Date; Bobbio
-PENDING_SOURCE_BATCHES: Mica-for-ChatGPT; SeminarArc; Asteria; CARE_Challenge; official sources; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: checkpoints/06_BOBBIO.md
-LAST_STABLE_COMMIT: f37d9f362f3547a178bfdfe16da791f21956c746
-NEXT_ACTION: read back checkpoints/06_BOBBIO.md then inspect Mica-for-ChatGPT branches, effective rules, actual desktop/user entry, continuity implementation, tests and failures; checkpoint before SeminarArc
+COMPLETED_SOURCE_BATCHES: frozen inputs; AI Skills; Bridge; Remote Compute; Lucerna; CUHK_Date; Bobbio; Mica-for-ChatGPT
+PENDING_SOURCE_BATCHES: SeminarArc; Asteria; CARE_Challenge; official sources; independent candidates; history challenge; final synthesis
+LAST_STABLE_ARTIFACT: checkpoints/07_MICA.md
+LAST_STABLE_COMMIT: 7d4fa716191c9f4e90966b094410ba9aa9696095
+NEXT_ACTION: read back checkpoints/07_MICA.md; inspect SeminarArc effective branch, rules, real user path, execution/recovery and acceptance evidence; checkpoint before Asteria
 
-## 恢复与权限
+## 边界
 
-不从头重读，按SOURCE_LOG及事实文件续接。只写本OUTPUT_ROOT；候选冻结前不读Toolkit历史方案；不读其他研究者输出。禁止Codex执行、Windows实机、数据库/Slurm/生产/付费/高成本动作。每仓库立即落盘并读回；checkpoint不是审批。
+从SOURCE_LOG/已完成事实文件续接，禁止整轮重读。只写本人输出；冻结候选前不读Toolkit历史，永不读其他研究者产物。禁止Codex执行、实机、数据库/Slurm/生产/付费/高成本操作。每仓库立即落盘并读回，非审批。
