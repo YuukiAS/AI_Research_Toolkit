@@ -7,11 +7,11 @@ OUTPUT_ROOT: docs/research/software-production/14_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_BRANCH: research/software-production-decision-20261013
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 STATUS: IN_PROGRESS
-PHASE: HISTORY_CHALLENGE_AND_REVISION
+PHASE: FINAL_SYNTHESIS
 WRITE_PREFLIGHT: PASS
-COMPLETED_SOURCE_BATCHES: current START_HERE contract and preflight; four frozen inputs; all ten required current repositories; official OpenAI Codex integration sources; GitHub source/review/artifact gates; official Slurm semantics; mature alternatives Temporal, Nextflow, Snakemake, MLflow, DVC, OpenTelemetry and Playwright; first-stage independent candidates written and read back in 01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md without reading historical architecture materials
-PENDING_SOURCE_BATCHES: historical challenge volumes 09_FULL_DOSSIER_V0_6, 10_POST_CRITIC_REDESIGN_V0_7, 11_THREE_CRITIC_RECONCILIATION_V0_8 and original_reviews; candidate revision; final synthesis
-LAST_STABLE_ARTIFACT: 01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md at commit 9baa8b87534578b6280e7f52588d008a6fe7ddbb; SOURCE_LOG.md official alternatives checkpoint at commit 527043a1a542aa37cc1961bc1775aa6dad9f6c09
-NEXT_ACTION: read only the four authorized historical material roots, treating them as adversarial evidence against the independent candidates; map each historical claim to current evidence, revise or reject candidates, and write 02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md before final synthesis
+COMPLETED_SOURCE_BATCHES: current START_HERE contract and recovery; four frozen PRO_INPUT files; all ten required current repositories; official OpenAI/GitHub/Slurm primary sources; mature alternatives; first-stage independent candidates written/read back before history; all authorized v0.6/v0.7/v0.8/original-review history materials challenged against current evidence; revised candidate written/read back in 02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md
+PENDING_SOURCE_BATCHES: final architecture synthesis only
+LAST_STABLE_ARTIFACT: 02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md at commit 943a6c7d4818088c0b0124e7ea54fbf2994b7ac5; SOURCE_LOG.md history checkpoint at commit 16f55635a22fff28dda413b51ce9cce9c40d57eb
+NEXT_ACTION: write the standalone final decision and architecture in 03_FINAL_ARCHITECTURE_RESEARCH.md, read it back, then update this file to STATUS: COMPLETE and read back both final artifacts
 
-This file is the recovery anchor. Update it at every required checkpoint. Never read or write another runner's OUTPUT_ROOT.
+This file is the recovery anchor. Never read or write another runner's OUTPUT_ROOT.
