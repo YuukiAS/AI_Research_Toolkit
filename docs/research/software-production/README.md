@@ -1,5 +1,9 @@
 # 复杂产物生产体系：当前研究与独立审查入口
 
+## 最新：先由用户阅读完整需求与历史问题（2026-10-15）
+
+**优先阅读 [复杂任务自动交付系统：完整需求、旧线程问题、三份原始审查及363条索引](12_COMPLEX_DELIVERY_REQUIREMENTS_INTAKE_20261015/README.md)。** 当前是研究需求归档与覆盖核对，**不代表 v0.8 已经通过审查，也不代表最新独立架构已确定**。用户要求先在 GitHub 查看全部要求、旧“统一软件开发流程”的21问和最新追问、真实问题来源与未验证边界；**在用户认为覆盖充分之前，不发送 GPT Pro 指令，不开始实施，不要求重复上传 ZIP**。三份 Critic 原始全文及旧 R1 Prompt 已在该目录可直接阅读。下面是截至 v0.8 的历史设计状态，不应作为最新已批准执行合同。
+
 **当前正式提案为 [v0.8：三位Critic全部已知阻塞回应](11_THREE_CRITIC_RECONCILIATION_V0_8/README.md)**，设计[正式Plan](11_THREE_CRITIC_RECONCILIATION_V0_8/00_PLAN_AND_ARCHITECTURE_V0_8.md)、[七项最小可执行机制与信任合同](11_THREE_CRITIC_RECONCILIATION_V0_8/01_EXECUTABLE_KERNEL_AND_PLAN.md)、[全部363条原源覆盖表](11_THREE_CRITIC_RECONCILIATION_V0_8/08_FULL_CASE_COVERAGE_MATRIX.csv)及[21个三份审查阻塞逐项处置](11_THREE_CRITIC_RECONCILIATION_V0_8/09_THREE_CRITIC_BLOCKER_DISPOSITION.md)均已入库。本轮用户重新上传的[GPT-5.5审查全文](11_THREE_CRITIC_RECONCILIATION_V0_8/reviews/GPT55_R1_ORIGINAL_USER_UPLOAD.md)已原文入库，不再缺失。**新提案尚未获独立PASS，不能开始正式实现或昂贵试验。**
 
 v0.8明确取消v0.6会与Bridge冲突的独立中央运行器，也纠正v0.7只剩抽象职责、缺最小真实检查入口的问题。候选方案是原项目/Bridge**唯一任务Owner**加一组按需调用、短命无状态的生产路径与证据检查；专业能力来自AI Skills与项目已有脚本；真正的强制依赖实际分权的CI/主机/资源入口。若不比直接修现有项目更有效，就不建设新公共包。必须接受下一轮独立Critic选择PASS、REVISE或REJECT。
