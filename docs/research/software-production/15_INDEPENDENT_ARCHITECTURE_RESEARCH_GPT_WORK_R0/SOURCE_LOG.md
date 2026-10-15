@@ -29,3 +29,12 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 验证边界：normal-entry reliability 单测主要 assertIn 规则字符串与触发示例，不能证明所有真实任务自动消费；TODO 有已加载 skill 仍选错环境/越权 fallback 的真实记录，也指向 qualification_candidate_replay_manifest 的 actual_consumption.proven，后者本轮未重放，不能据此保证其他任务。
 - 已知失败证据：AGENTS 8.3 记载私有写作 artifact 未完整读仍 PASS；workflow TODO 记载 Lucerna 01055 自报与 TODO/真实 DPI/视觉相矛盾。状态已注明发布/历史，不断言现在仍坏。
 - 研究含义：可复用专业内容、安装与路由；不能凭 manifest/规则把它宣称为可外部拦截完成、唤醒原任务的执行程序。未来探针应查实际技能调用及最终消费者；本轮未运行任何 replay。
+
+## R2｜Bridge
+- 分支/发行：main=a7931fdfc6e3d71cf985351df075de17097795e6（README 0.11.0 源码候选）；release=9db19b0409816c22042a246b35a33e1d34fedd0a（正式0.10.0）。不把 main 的 readiness/context 功能当已正式分发。
+- 实读：README 前230行、AGENTS 前145行；ai_bridge_kit/reviewed_runner.py 的 event identity / eligible_events / prompt / codex_command / run_codex_event / watcher_once；cli.py 的入口定位；agent_flow.py 的 role receipt、route_findings、transition 实码；persistent_run.py 函数清单；tests/test_reviewed_runner.py 前110行；release reviewed_runner 的 Codex 命令与线程字段。
+- 执行入口实证：main reviewed_runner.py:794–795 运行 codex exec -C <repo> -；事件记录 thread_id=None（624–625、879–880）。正式 release 同样 fresh exec / thread_id=None。它能继续仓库任务，但不是已证实续接 Windows App 原聊天。Lite main cli.py:673–712 同样以 exec 启动。
+- Reviewed watcher 按任务+state+review_round+plan_revision+implementation_commit 去重；校验 clean tree、状态、角色允许 diff、发布后才标事件完成；max_attempts_per_event 默认2。它遍历 eligible task，不能凭 branch 名称推断多 active task 的独占执行；外部 GPT 等待被独立处理。
+- Control 的真实机制可复用：route_findings 将 IMPLEMENTATION_BUG / VERIFIER_BUG / VERIFIER_CONTRACT_DRIFT / EVIDENCE_GAP / OPERATIONAL_FAILURE 分给不同 owner；科学选择需绑定 Planner 产物。receipt 验证拒绝 resume --last，要求确切 session/thread、scope、target；这证明校验合同，未证明任意 App 会话的运行适配器已存在。
+- 权限与恢复：一个 CODEX_HOME 一个机器身份；Host 不授予 Slurm 写操作；reviewed 及 persistent 使用既有状态/锁/心跳，不能再加第二控制面。main 的 launch preflight 会重新读取必读材料；测试文件使用临时仓库/假 Codex，属于机械回归，未在本轮执行。
+- 已知故障来源：README 0.10/0.11 与 AGENTS 明确 runtime identity、SSH_ASKPASS、长规则截断/控制文件未绑定、重复等待/旧 review 的修复边界。没有远端机器安装核验，不能把源码版本当运行版本。
