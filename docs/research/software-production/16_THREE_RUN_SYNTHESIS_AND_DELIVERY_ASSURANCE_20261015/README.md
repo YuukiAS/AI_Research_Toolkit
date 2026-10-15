@@ -184,3 +184,148 @@ Slurm/HPC 等长任务仍由现有持久 Owner 保存状态和后续义务，Cod
 5. 是否存在重新造 Persistent/Control/Program Run 能力的风险。
 
 该关系在读取 Bridge 最新规则和 Program Run 真实 TODO/代码前不预设答案。
+
+
+## 9. Bridge Program Run / Persistent Run / workflow-core 的真实关系（读取当前源后）
+
+本节基于 2026-10-15 实际读取的 Bridge `main` 和 AI Skills `main`，不是旧聊天推断。
+
+### 9.1 Program Run 当前并不是一个待实现的正式 TODO
+
+Bridge 当前仓库没有独立的 `TODO_PROGRAM_RUN.md`。在 Bridge 0.11.0 的当前设计材料中，Program Run 被明确标为：
+
+`EXCLUDED_PROGRAM_RUN`
+
+其含义是：当前 0.11.0 不做连续自主发现下一项目任务、长期项目决策、自动验收推进或项目级自主控制器，也不新增监视器、控制器、守护进程或任务状态机。
+
+因此不能把“Program Run”误解为 Bridge 已经准备实现、只差开工的正式能力。
+
+### 9.2 Persistent Run 不是 Program Run
+
+Bridge 当前的 Persistent Run 只解决“谁负责进程寿命”：
+
+- terminal-owned foreground process/orchestrator 需要在 Codex/SSH/terminal 断开后继续；
+- 当前唯一 backend 是 tmux；
+- 它保存/恢复 run/session、heartbeat、stage、checkpoint 等运行证据；
+- 它不决定产品是否合格，不自动审查，不自动选择下一个任务，不自动提交/取消 Slurm，也不因为心跳存在就宣布 Goal 完成。
+
+scheduler-owned 的 Slurm job 或已经 detached 的 service 不应因为运行时间长就再套 tmux；原生 owner 继续负责寿命。
+
+所以 Persistent Run 是“活着继续跑”的机制，不是“自己把复杂项目做完”的系统。
+
+### 9.3 本地自动验收曾经被考虑过，但已经从 Bridge 撤出
+
+Bridge 的 `docs/TODO_LOCAL_AUTONOMOUS_ACCEPTANCE_WORKFLOW.md` 已在 2026-10-12 标记：
+
+`CLOSED / RESCOPED TO AI_Skills workflow-core — NOT A BRIDGE KIT WORKFLOW`
+
+历史上它曾提出：
+
+GPT 冻结目标 → 本地 Codex Executor 实现 → fresh local Codex Reviewer 验真实产品 → 缺陷自动回 Executor → 重建 → 再验 → 用户只看到最终候选。
+
+这个需求本身仍然有效，但 Bridge 明确决定不再建立第四套 Local Review workflow、Reviewer 状态机、watcher 或 daemon。
+
+当前权责拆分为：
+
+- Bridge：执行基座、工作树/Git/运行身份/权限/恢复；
+- AI Skills `workflow-core`：交付准入与完成语义；
+- 领域 Skill/Plugin：真正的专业 QA；
+- Goal/Planner：必要时要求额外 fresh reviewer，但不是默认新工作流。
+
+### 9.4 AI Skills workflow-core 当前正拥有“用户不能成为第一 QA”这一要求
+
+AI Skills 当前 `docs/plugin-todos/workflow-core.md` 有正式 NEW 条目：
+
+`Final delivery must consume domain-owned self-QA before user-ready completion`
+
+它要求：
+
+- build/test/process PASS 不能单独产生 user-ready/release-ready；
+- artifact-dependent 任务必须把 exact final candidate 交给正确领域 owner 做真实 QA；
+- acceptance-relevant source/artifact 改变后，旧 acceptance 失效；
+- UI → Frontend Design；Presentation → Presentations；Research manuscript/report → Research Authoring/Writing；其他领域由对应能力负责；
+- 不为此新增 Bridge workflow、workflow-core state machine、watcher/daemon 或通用 quality scorer。
+
+这与本研究的“项目真实验收 + Stop Hook 返修”方向高度一致。
+
+### 9.5 当前推荐的最终归属
+
+基于上述真实边界，当前最合理的维护拓扑是：
+
+1. **Bridge Kit 作为唯一公共运行代码 owner**
+   - Codex 生命周期接入；
+   - repo/worktree/thread/runtime 身份；
+   - 交付证据的跨项目通用结构；
+   - Stop/精确 resume 等执行接线；
+   - 不拥有专业 QA 语义。
+
+2. **AI Skills workflow-core 作为交付准入 owner**
+   - 判断某类任务在最终 user-ready 前需要什么类别的领域 QA；
+   - 调用/要求正确领域 Skill；
+   - 不建立新的任务状态机。
+
+3. **各项目 repo 只保留薄适配和真实验收**
+   - 项目真实入口；
+   - 哪些已有检查对应哪些交付性质；
+   - 最终消费对象和失效规则；
+   - 不复制 Bridge 核心。
+
+4. **Persistent Run / CARE / Slurm owner 继续管理长期寿命**
+   - 普通 Stop Hook 不承担数小时/数天等待；
+   - 不再造第二个 daemon。
+
+5. **Lucerna/Project State Bridge 等只做投影**
+   - 展示真实 owner/事件；
+   - 不拥有新的 DONE。
+
+### 9.6 当前不建议新建 repo
+
+现在没有证据支持新建独立“Delivery Assurance”仓库。
+
+新建 repo 会立刻制造三个问题：
+
+- Bridge 和新 repo 谁拥有 thread/worktree/runtime/恢复；
+- workflow-core 和新 repo 谁决定 QA 是否足够；
+- 每个项目又要同时适配 Bridge、新 repo 和领域 Skill。
+
+这会重新形成三路独立研究共同否决的第二控制面。
+
+因此当前推荐：
+- 公共运行代码进入 Bridge；
+- 专业准入进入 AI Skills；
+- 项目只留薄适配；
+- 研究文档继续留在 AI Research Toolkit。
+
+只有未来出现一块跨项目公共代码，明确无法归入 Bridge、又不拥有任务状态/权限/专业判断，并且在多个真实项目证明长期独立维护更便宜，才重新评估新仓库。
+
+### 9.7 Program Run 如果未来重新提出，应位于更高层，而不是和本方案合并
+
+按 Bridge 0.11.0 对它的描述，Program Run 更像未来的“项目级自主经营者”：
+
+- 连续发现下一项目任务；
+- 做长期项目决策；
+- 自动推进项目级验收和后续任务；
+- 可能跨多个独立任务持续运行。
+
+而本研究的交付保障能力只解决：
+
+> “一个已经给定的任务，Codex 不得假完成；真实交付不合格时，应在合法 owner 内继续修到可交付。”
+
+因此二者不是同一个东西。
+
+若未来真的设计 Program Run，它应**消费**本交付保障能力作为每个任务的完成门，而不是自己重新实现候选绑定、领域 QA、Stop 返修、权限和 Slurm 逻辑。
+
+关系应是：
+
+```text
+未来 Program Run（若有）
+  选择/推进“下一件事”
+        ↓
+现有任务 Owner（Bridge / CARE / 项目）
+  执行“这一件事”
+        ↓
+交付保障 + workflow-core + 领域 QA
+  判断“这一件事是否真的完成”
+```
+
+当前任务只需要研究并验证最下面两层，不需要提前建设 Program Run。
