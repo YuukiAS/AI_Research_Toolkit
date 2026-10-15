@@ -59,10 +59,10 @@ Planned execution branch: `work/delivery-assurance-hook-probe-r2`
 
 自动 repair 预算固定为 1。用户 `Interrupt` 必须立即终止 Delivery Assurance 自动 continuation。第二次 Stop 仍失败、重复失败、低进展、身份不一致、candidate 不唯一、第二 writer 无法排除或另一个 Stop controller 无法隔离时，停止自动返修并记录非就绪结果；不要创建新的修复轮。
 
-P10/P11 会**故意**制造 Hook 未信任/禁用/timeout/error/malformed。此时 `scenario_observed_status=UNPROVEN|UNKNOWN` 只是被测故障状态；若外部 probe 证明没有 DA 假 PASS、没有额外 continuation、没有权限扩大或非预期写入/副作用，则该负例可以 `scenario_verdict=PASS`，不能仅因为故障被成功制造就把整个 run 判为 `NO_GO`。每个负例结束后必须恢复 trusted/enabled 正常配置并重新核对 Hook definition identity；恢复需要人工 trust 时停在 `HOOK_TRUST_REQUIRED`，禁止 bypass。正常配置无法建立/恢复，或负例出现 false DA PASS、额外 continuation、权限/写入副作用时，才判整个 Phase 1 `NO_GO`。
+P10/P11 会**故意**制造 Hook 未信任/禁用/timeout/error/malformed。此时 `scenario_observed_status=UNPROVEN|UNKNOWN` 只是被测故障状态；若外部 probe 证明没有 DA 假 PASS、没有额外 continuation、没有权限扩大或非预期写入/副作用，则该负例可以 `scenario_verdict=PASS`，不能仅因为故障被成功制造就把整个 run 判为 `NO_GO`。每个负例结束后必须恢复 trusted/enabled 正常配置并重新核对 Hook definition identity；恢复需要人工 trust 时停在 `HOOK_TRUST_REQUIRED`，禁止 bypass。正常配置无法建立/恢复，或负例出现 false DA PASS、额外 continuation、权限/写入副作用时，才令 `phase1_verdict=NO_GO`。
 
 Hook 自动生成的 continuation 只允许诊断和原任务内返修，**不产生任何新增用户授权**。若 probe 故意要求一个原 Goal 未授权的外部副作用，只能证明它被拒绝/保持未授权，不能真的执行。
 
-若主链不成立、正常 trusted/enabled 配置无法建立/恢复，或决定性安全负例没有按预期 fail closed，结论写 `NO_GO`，保留证据后停止。不要新增 daemon、大系统、第二 scheduler 或更宽权限来挽救实验，也不要直接进入生产 Bridge/AI Skills 实现。
+若主链不成立、正常 trusted/enabled 配置无法建立/恢复，或决定性安全负例没有按预期 fail closed，写 `phase1_verdict=NO_GO`，保留证据后停止。不要新增 daemon、大系统、第二 scheduler 或更宽权限来挽救实验，也不要直接进入生产 Bridge/AI Skills 实现。
 
 Phase 1 GO 也只证明 Hook 接缝成立。完成后停止并把结果交回 Planner/Critic；不要自动开始 Phase 2。
