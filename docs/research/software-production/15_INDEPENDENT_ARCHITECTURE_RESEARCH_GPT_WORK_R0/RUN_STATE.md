@@ -11,8 +11,8 @@ STATUS: IN_PROGRESS
 PHASE: REPOSITORY_RESEARCH
 COMPLETED_SOURCE_BATCHES: none
 PENDING_SOURCE_BATCHES: PRO_INPUT; core infrastructure; product group A; product group B; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / R1｜AI Skills
-NEXT_ACTION: 核查 GPT_Codex_AI_Bridge_Kit 的分支、AGENTS、Lite/Reviewed/Control 真实状态与恢复入口。
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md / R2｜Bridge
+NEXT_ACTION: 核查 Remote_Compute_Infrastructure 的真实站点规则、Slurm 入口与恢复；然后进入 Lucerna。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -24,3 +24,5 @@ RESUMED_AT: 2026-10-15
 CHECKPOINT: P1｜冻结输入完整读取
 
 CHECKPOINT: R1｜AI Skills
+
+CHECKPOINT: R2｜Bridge
