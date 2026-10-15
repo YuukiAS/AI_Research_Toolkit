@@ -8,8 +8,10 @@
 - v0.6 四卷与完整21问：09_FULL_DOSSIER_V0_6/，审查冻结对象 dcc8b073c84174ede5c277776fdc31c01a9b943e。
 - v0.7 根本改向：10_POST_CRITIC_REDESIGN_V0_7/。
 - v0.8 三位Critic后修订：11_THREE_CRITIC_RECONCILIATION_V0_8/，冻结提案 e0b98d327231407054074f3450e364b730b7cbe3；提示词后续提交 ba04b055912bb1ec63b43041e8ccc1db8e83ad16；该版未PASS、未实现。
-- 三位Critic本轮用户上传原文：本对话附件 v4(1).zip / KeelArc_Independent_Architecture_Research_R1.zip；已经实际在本轮本地解包阅读：GPT-5.5（215行，REVISE）、GPT-5.6（646行，REJECT）、GPT-6 independent_architecture_review_R1（491行）及 decision（REVISE）、claim_review、planner_revision_prompt。**本项目03完整整理了全部21项阻塞及原分歧，原始 GPT-5.5 已在下方 GitHub 镜像；其余原始完整逐字文件尚未在 GitHub 镜像，不得声称已经镜像。**
-- GPT-5.5全文：https://github.com/YuukiAS/AI_Research_Toolkit/blob/research/software-production-decision-20261013/docs/research/software-production/11_THREE_CRITIC_RECONCILIATION_V0_8/reviews/GPT55_R1_ORIGINAL_USER_UPLOAD.md
+- 三位 Critic 本轮用户上传原文：原 ZIP 内六份 Markdown 已完整转存于本目录 `original_reviews/`，且逐份对照工具读取内容与 GitHub 文件一致。三位判决分别为 GPT-5.5 REVISE、GPT-5.6 REJECT、GPT-6 REVISE（其余 GPT-6 文件属于同一次审查，不能计作其他 Critic）。换行字节可能已标准化。
+- 三位原始审查 Markdown 全文目录：https://github.com/YuukiAS/AI_Research_Toolkit/tree/research/software-production-decision-20261013/docs/research/software-production/12_COMPLEX_DELIVERY_REQUIREMENTS_INTAKE_20261015/original_reviews
+- GPT-5.5 旧归档：https://github.com/YuukiAS/AI_Research_Toolkit/blob/research/software-production-decision-20261013/docs/research/software-production/11_THREE_CRITIC_RECONCILIATION_V0_8/reviews/GPT55_R1_ORIGINAL_USER_UPLOAD.md
+- 早先生成的 GPT Pro R1 提示词已作为**未批准历史草稿**存储在本目录 `08_PRIOR_PRO_RESEARCH_PROMPT_R1_NOT_APPROVED.md`，不能直接发送。
 - v0.8原始363行完整表：https://github.com/YuukiAS/AI_Research_Toolkit/blob/research/software-production-decision-20261013/docs/research/software-production/11_THREE_CRITIC_RECONCILIATION_V0_8/08_FULL_CASE_COVERAGE_MATRIX.csv
 - 新档案05只做逐项来源索引与不可信映射隔离；所有保护状态仍未由正常入口验证。
 
@@ -60,7 +62,7 @@
 ## E. 当前绝不能宣称已取得的来源
 
 1. 标题“统一软件开发流程”旧 ChatGPT 线程**完整逐字导出**。本轮已检索到有关历史要求摘要，并直接读到了研究仓库第三卷21问，但无法把第三卷冒充用户旧线程完整原话。当前01文档明确这一边界。
-2. GPT-5.6 与 GPT-6 审查原文的 GitHub 完整镜像。03已按真实本轮 ZIP 读取并列全21阻塞，但原文尚须在研究资料链中以能独立阅读的形式保存（无须再要求用户重复上传）。
+2. GPT-5.5、GPT-5.6、GPT-6 原始完整审查已在 GitHub 归档；未能取得完整逐字原文的是旧 ChatGPT 线程“统一软件开发流程”，目前只有21问研究整理和可检索的部分用户要求。不能声称旧线程全量逐字导出已闭合。
 3. 全部363行的真正当前分支源码逐条重放、由领域审查者重新校准的根因分类。现05保留历史来源而不信旧错误映射。
 4. 当前 Windows Codex App 版本、Hooks/SDK/App Server 真实运行证明、与原生会话交接防双执行验证。
 5. 当前 Longleaf 作业权限、分区资源、用户 CODEX_HOME、自动机受权身份、是否能监测全部账户作业的实机证明。
