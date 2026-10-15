@@ -106,3 +106,10 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 科学边界：真实完整架构、真实pretrained来源、训练量、case/label/preprocess/decode一致；summary/slot/文件hash不证明机制消费，causal effect需同checkpoint同cases实际干预到最终labels。scar/edema/center/T2子组不能由composite/emptyGT掩盖；faithful充分训练后仍负面可形成adequate negative，最终科学停止/升级归Planner/用户，不能无限工程返修追PASS。
 - 现有controller/finalizer/validator/workboard应复用，不能建立第二Slurm owner。controller operation complete与科学promotion/hosted metric完全分开，route文档已明确禁止未经授权upload、M11、跨route merge。本轮无SSH/Slurm/API调用或私有数据读取。
 - R9静态发现补充：validate-architecture-rc19.mjs的routeGestalt把avoidableEdgeCrossingCount和floatingRelationLabelCount写死为0；changedProtectedTruthFiles仅git diff工作区，不能覆盖staged/committed基线变化。这是当前所读脚本的具体覆盖缺口，不能将其报告的零解释成真实测量。RC15所读原文重点是connector/contact/route质量，不以未读公式缺陷扩大该特定来源。
+
+## E1｜Codex 官方接口
+- 2026-10-15核实官方[Hooks](https://learn.chatgpt.com/docs/hooks)、[Config basics](https://learn.chatgpt.com/docs/config-file/config-basic)、[App Server](https://learn.chatgpt.com/docs/app-server)、[SDK](https://learn.chatgpt.com/docs/codex-sdk)、[noninteractive](https://learn.chatgpt.com/docs/non-interactive-mode)、[plugin packaging](https://developers.openai.com/plugins/build/plugins)。
+- 官方当前将hooks/goals列Stable。同步Stop的block会生成继续prompt；异步hook不唤醒idle且session结束取消未完hook。信任、宿主支持与机器安装须另验，不能用历史“hooks实验”作为当下结论，也不能把Stable解释成不可绕过OS安全边界。transcript格式非稳定API。
+- app-server已有read/resume/turn start/steer、事件、instructionSources；stable surface与experimentalApi opt-in分开，dynamicTools/processspawn等不能混为稳定。SDK支持按id恢复；exec JSONL公开事件。但文档不证明旁路进程安全接管已打开App的任意活跃线程，Bridge现有fresh exec也未利用这项能力。
+- 官方plugin文档一般描述Work hooks，但Hooks/Plugins更具体地区分本地编排与cloud orchestration；云编排不支持本地/plugin command hooks，仅特定企业admin MCP hooks。此差异必须按目标宿主验证，不能宣称一个插件覆盖所有Work/App/server。
+- 本轮仅读资料，未启动执行器、设置hooks或续任意任务。优先验证当前原入口同步hook的同任务短返修；长Slurm等待必须依赖既有持久owner，不能靠asynchook保活。
