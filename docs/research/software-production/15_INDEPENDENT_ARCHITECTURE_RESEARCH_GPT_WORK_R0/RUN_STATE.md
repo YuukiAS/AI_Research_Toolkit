@@ -11,8 +11,8 @@ STATUS: IN_PROGRESS
 PHASE: REPOSITORY_RESEARCH
 COMPLETED_SOURCE_BATCHES: none
 PENDING_SOURCE_BATCHES: PRO_INPUT; core infrastructure; product group A; product group B; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / R8｜SeminarArc
-NEXT_ACTION: 核查 Asteria 的科学语义、跨渲染一致性与最终产物消费。
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md / R9｜Asteria
+NEXT_ACTION: 核查 CARE_Challenge 的真实科学合同、Slurm与恢复/NO_GO证据。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -38,3 +38,5 @@ CHECKPOINT: R6｜Bobbio
 CHECKPOINT: R7｜Mica
 
 CHECKPOINT: R8｜SeminarArc
+
+CHECKPOINT: R9｜Asteria
