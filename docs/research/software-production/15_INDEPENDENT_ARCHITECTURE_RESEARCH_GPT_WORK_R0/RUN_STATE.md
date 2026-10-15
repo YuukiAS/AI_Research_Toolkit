@@ -11,8 +11,8 @@ STATUS: IN_PROGRESS
 PHASE: REPOSITORY_RESEARCH
 COMPLETED_SOURCE_BATCHES: none
 PENDING_SOURCE_BATCHES: PRO_INPUT; core infrastructure; product group A; product group B; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / R3｜Remote Compute
-NEXT_ACTION: 核查 Lucerna 的当前开发分支、AGENTS、用户入口、真实验收代码与失败材料。
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md / R4｜Lucerna
+NEXT_ACTION: 核查 CUHK_Date 的有效分支、当前 AGENTS、网页认证/多身份入口、验收与失败归因。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -28,3 +28,5 @@ CHECKPOINT: R1｜AI Skills
 CHECKPOINT: R2｜Bridge
 
 CHECKPOINT: R3｜Remote Compute
+
+CHECKPOINT: R4｜Lucerna
