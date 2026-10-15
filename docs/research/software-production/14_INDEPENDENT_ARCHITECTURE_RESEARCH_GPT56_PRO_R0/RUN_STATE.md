@@ -7,11 +7,11 @@ OUTPUT_ROOT: docs/research/software-production/14_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_BRANCH: research/software-production-decision-20261013
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 STATUS: IN_PROGRESS
-PHASE: INPUT_READING
+PHASE: CORE_INFRASTRUCTURE_READING
 WRITE_PREFLIGHT: PASS
-COMPLETED_SOURCE_BATCHES: current START_HERE contract and recovery anchors verified; exclusive OUTPUT_ROOT ownership verified; write access proof commit 39f86bc75fd2c9265835178a8d80043d1a3213c4 fetched and read-back consistency confirmed
-PENDING_SOURCE_BATCHES: four frozen PRO_INPUT files; core infrastructure; product group A; product group B; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: RUN_STATE.md and SOURCE_LOG.md recovery anchors with WRITE_PREFLIGHT=PASS
-NEXT_ACTION: read only PRO_INPUT/01_USER_REQUIREMENTS_NO_SOLUTIONS.md, 02_OPEN_QUESTIONS_NO_ANSWERS.md, 03_HISTORICAL_FAILURES_SOURCE_INDEX.csv, and 04_SOURCE_BOUNDARIES.md at INPUT_SNAPSHOT_COMMIT in order; then checkpoint before opening implementation repositories
+COMPLETED_SOURCE_BATCHES: current START_HERE contract and preflight; all four frozen PRO_INPUT files at the exact snapshot commit; frozen-input facts checkpointed in SOURCE_LOG
+PENDING_SOURCE_BATCHES: AI Skills; GPT Codex AI Bridge Kit; Remote Compute Infrastructure; Lucerna; CUHK_Date; Bobbio; Mica; SeminarArc; Asteria; CARE; official/mature alternatives; independent candidates; history challenge; final synthesis
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md Checkpoint 1 at commit 9853d8172d4e1dcd06e96ba7acd095a26dad0d03
+NEXT_ACTION: inspect YuukiAS/AI_Skills_Collection current repository state, identify the effective branch/ref and read current rules, purpose, user entrypoint, tests/acceptance, known failure evidence, and execution/recovery/permission mechanisms; immediately checkpoint that repository before moving to GPT_Codex_AI_Bridge_Kit
 
 This file is the recovery anchor. Update it at every required checkpoint. Never read or write another runner's OUTPUT_ROOT.
