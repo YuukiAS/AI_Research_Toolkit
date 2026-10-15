@@ -10,12 +10,12 @@ PHASE: OFFICIAL_SOURCE_VERIFICATION
 WRITE_PREFLIGHT: PASS
 WRITE_PROOF_COMMIT: 04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8
 WRITE_PROOF_READBACK: VERIFIED
-COMPLETED_SOURCE_BATCHES: four frozen inputs; all ten required repositories; current official Codex control surfaces
-PENDING_SOURCE_BATCHES: GitHub gates; Slurm; professional validation; freeze independent candidates; history challenge; final report
-LAST_STABLE_ARTIFACT: checkpoints/11A_OFFICIAL_CODEX.md
-LAST_STABLE_COMMIT: f3c437c1478d8644185bbdafc0b785d1fbf78fb5
-LAST_STABLE_READBACK_BLOB: f4d789a8b268fc8bfdb948fdade691e35ebe9cfe
-NEXT_ACTION: verify current official GitHub protected delivery and trusted check semantics; checkpoint 11B then Slurm and professional tools; use own repository checkpoints (not source repositories) to freeze 01 before any history reading
+COMPLETED_SOURCE_BATCHES: four frozen inputs; all ten required repositories; official Codex; official GitHub
+PENDING_SOURCE_BATCHES: Slurm; professional validation; freeze independent candidates; history challenge; final report
+LAST_STABLE_ARTIFACT: checkpoints/11B_OFFICIAL_GITHUB.md
+LAST_STABLE_COMMIT: 79dfe9b50bd35f9db44ad70762810ca11912b1da
+LAST_STABLE_READBACK_BLOB: 1e7d0aeaf348b4e27f5af09811b3d2ac05d81118
+NEXT_ACTION: verify official Slurm identity/state/accounting/dependency/preemption semantics; checkpoint 11C; verify professional tools; restore own checkpoint facts without rereading ten source repositories; freeze 01 before history
 
 ## 恢复与权限
 
