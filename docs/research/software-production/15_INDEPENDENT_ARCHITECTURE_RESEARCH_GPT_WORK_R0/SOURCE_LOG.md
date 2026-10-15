@@ -130,3 +130,9 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - [Playwright extensions](https://playwright.dev/docs/chrome-extensions)要求persistent Chromium context，Chrome/Edge移除某些sideload flags，官方推荐bundled Chromium。这不直接推翻Mica既有Edge测试记录，但使它成为版本/安装机制待核项，不可机械搬旧启动脚本。
 - [Windows UIAutomation](https://learn.microsoft.com/en-us/dotnet/framework/ui-automation/ui-automation-overview)提供可访问性树/controls，适合补原生外壳；[Android UIAutomator](https://developer.android.com/training/testing/other-components/ui-automator)可进程外操作App/systemUI，当前2.4新DSL仍underdevelopment；用项目已验证版本，不为研究追新。
 - 推论：Lucerna/Bobbio需WebView+OS+真实依赖三层，Mica需扩展+livehost，CUHK/Asteria复用Playwright，SeminarArc复用UIAutomator/Compose。不存在一个DOM工具足以覆盖所有真实用户入口。未安装/运行工具。
+
+## E5｜领域基础库
+- [Zotero API](https://www.zotero.org/support/dev/web_api/v3/basics)有versioned Web/local入口；本轮local_api详情页读取internal error，未推断未读写接口。Bobbio应维持Zotero authority/运行时本地授权，不能另造数据库与全局key。
+- [PyTorch checkpoint](https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html)区分推理权重与训练optimizer/epoch恢复；[reproducibility](https://docs.pytorch.org/docs/main/notes/randomness.html)为随机性边界官方参考。保留CARE具体sampling/AMP/scheduler等合同，不能通用保存权重即算续训等价。
+- [ELK](https://eclipse.dev/elk/)已有ports/层级布局，输出位置而不负责render；可作为Asteria几何求解替代试验，不替代科学语义、公式和美学。
+- 推论：成熟库先替换机械重复，专业正确性仍由项目源/用户任务及真实消费验证；本轮未做库迁移或性能实验。
