@@ -55,3 +55,12 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 权限实码：governance script 会写临时文件、启动进程、对专用 sentinel 调 Stop-Process、访问桌面；名字叫 regression 不代表无副作用，本轮没有执行。根 AGENTS 明确可编辑 hooks 只是辅助，不能证明 OS isolation；需 agent-unwritable bounded entry 与真实负测。
 - 已核历史：01047 重复卡片自报被独立截图推翻、01055 未闭 TODO/无真实 DPI仍自报完工；handler/窗口最终隐藏不证明真正按钮因果；key 验证不证明激活；原生反复截图干扰用户。它们解释为何必须读实际对象和动作后置状态，不等于当前 main 这些 bug 全未修。
 - 适配边界：应复用现有 PID/commit/window/capture 辅助并消费结构化 static/runtime/coverage 分量；需要真实隔离桌面/安装/DPI/通知及 provider 往返才可宣称完整。当前研究没有资格宣称 Windows 已通过。
+
+## R5｜CUHK Date
+- main=9f25c7754d3c80d0be74f5b71016320f55753ae6；另有 fix/search-indexing-canonical-20261015=7586b9bd97750efd2e0b8916d1b894ca19460d5f 专项分支。以 main README/当前产品合同导航的全局产品为本次来源，不把专项分支当整个最新产品。
+- 实读 AGENTS 前200行、README 前115行、package.json 前140行；2026-09-24 真实注册与 false-green harness 修复原始任务前110行；scripts/registration-critical-path-hosted.ts 的 UI/password/结果逻辑定位；树定位 web app/API/backend/persistence/matching 与测试。
+- 正常产品：Meet at CU，网页注册/学生身份/问卷/配对；README 记载已接受0.5.25、registration/questionnaire LIVE，Matching inactive_pilot_ready、真实 opt-in/publication 仍暂停。这是仓库记录，未访问生产确认，不得研究中启动。
+- 真实事故来源：引导已设同一密码，UI 422 same_password；生产者用随机新密码或 evaluate(fetch) 绕表单得假绿。当前脚本已定位可见 getByRole/fill/click 的完整注册入口。必须按消费者路径与同一语义验收，不能 API 成功替代 UI。
+- 当前验收/恢复规则：verify:registration-critical-path-hosted、verify:gpt-work-parent-delivery；serial persona、disposable rehearsal/final batch 分离、票据 claim/finalize、同 persona recovery、expected prestate、source+Web/API deployment identity。产品错误、工具中断、身份污染分开处理；不能因一个工具失败放弃安全的其他覆盖。
+- 专业边界：简体/香港繁体自然性、305/320宽与冷载状态闪烁、照片实际像素/双方访问、隐私和匹配科学语义；内部 audit 字段不得流进普通文案。合成审查不等于真实 Matching 上线授权。
+- 研究含义：项目已有较多可复用入口，通用层应调用/归因，避免另造 persona/token/CI 体系。已接受用户状态必须恢复，报告、截图或数据库未消费 token 不能单独证明可交付。未执行 hosted 脚本。
