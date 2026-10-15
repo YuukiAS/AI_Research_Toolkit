@@ -8,11 +8,11 @@ INPUT_BRANCH: research/software-production-decision-20261013
 ## 写入与恢复
 
 WRITE_PREFLIGHT=PASS
-原探针提交91b1dc946e89b5670c83192ab5d597d29df564c4、读回cec34037bd2cf0dcab81f468db188dcad04be545。本次同一探针更新提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8、GitHub读回ae6a2252caf3333c3cfd25c9ed9d15358670e35b，身份/路径/快照/RESUME_WRITE_NONCE=GPT6_PRO-20261015-resume-from-input-checkpoint-v2一致。未重建/重启。合同START_HERE blob 34fde56b79b7aca53af64370074cf55be23928d2。一次409已保留R01合并94ae508716a8f8d6df8cf3c0e937345922944bf9；恢复状态9c9cabf64b9c058f738cd9a0a0755b696984b904已读回。
+原探针提交91b1dc946e89b5670c83192ab5d597d29df564c4、读回cec34037bd2cf0dcab81f468db188dcad04be545。本次同一探针更新04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8、GitHub读回ae6a2252caf3333c3cfd25c9ed9d15358670e35b，身份/路径/快照/续接nonce一致。RESUME_WRITE_NONCE=GPT6_PRO-20261015-resume-from-input-checkpoint-v2。未重建/重启。合同START_HERE blob 34fde56b79b7aca53af64370074cf55be23928d2。409保留R01合并94ae508716a8f8d6df8cf3c0e937345922944bf9；恢复状态9c9cabf64b9c058f738cd9a0a0755b696984b904已读回。
 
 ## 已读来源索引
 
-各checkpoint是本日志组成部分，含实读文件/ref/commit/范围、目的、事实与边界。恢复不重读已完成仓库。
+各checkpoint是本日志组成部分，记录实读文件、ref/commit、范围、目的、关键事实及边界。只读指定项目，不从头重读。
 
 | 批次 | 事实记录 | 首次提交 |
 |---|---|---|
@@ -25,9 +25,10 @@ WRITE_PREFLIGHT=PASS
 | R06 Bobbio | checkpoints/06_BOBBIO.md | f37d9f362f3547a178bfdfe16da791f21956c746 |
 | R07 Mica-for-ChatGPT | checkpoints/07_MICA.md | 7d4fa716191c9f4e90966b094410ba9aa9696095 |
 | R08 SeminarArc | checkpoints/08_SEMINARARC.md | 8df8b18a8ab0d5a84180ee42b0b15ccbe96e196f |
+| R09 Asteria | checkpoints/09_ASTERIA.md | b7c9ae384bed31ff55a1fdf4ffbee658b2a0aa21 |
 
-INPUT–R07均已读回，R07 blob 21935be6cab30d5ca58265805453022eb695ae59。R08 main 5652fe17ce60625f3ff7c758fcc0183f920189de；AGENTS、README1–190、DEVICE_TESTING1–170、黑盒脚本1–340、WorkManager调度全文及Worker1–140。调度/持久领域状态、模拟器/真机、自动/独立/用户验收边界明确；源码真实动作不代表本轮运行，历史3750事件等不作为本轮实测。R08写后立即读回继续。
+INPUT–R08均读回；R08 blob b499a1eaa7c87226955ca5928468d38cfc6d988e。R09 main 193c033659a7612a99442763077217b130e9b756；根/Agent规则、README、repositoryBridge 1–225、真实validate脚本与package、黑盒合同、CHANGELOG和runtime操作段。桥接验证器拒绝把实现当证明，但不会证实CURRENT/TESTED内容；RC历史几何修复不等于当前像素验收。一次猜测test文件404后以package定位validate，不当已读来源。R09写后立即读回继续CARE。
 
 ## 边界
 
-只写本人输出；冻结候选前不读Toolkit历史；永不读其他研究者产物。每仓库立即checkpoint、日志/状态并读回，非审批。历史报告/当前代码/当前实测分开。本轮没有Codex、实机、数据库、Slurm、生产、付费或高成本执行。
+只写本人输出；候选冻结前不读Toolkit历史；永不读其他研究者。每仓库即时checkpoint、日志/状态并读回，非审批。历史报告/当前代码/本轮实测分开。本轮未运行Codex、实机、数据库、Slurm、生产、付费或高成本动作。
