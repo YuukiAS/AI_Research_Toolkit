@@ -8,11 +8,11 @@ INPUT_BRANCH: research/software-production-decision-20261013
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 STARTING_BRANCH_COMMIT: 4dfc002970bd248ddd1c4157907ec6a421a35932
 STATUS: IN_PROGRESS
-PHASE: FINAL_SYNTHESIS
+PHASE: FINAL_VERIFICATION
 COMPLETED_SOURCE_BATCHES: P1; R1–R10; E1–E6; P2 independent candidates; H1–H4 history; P3 candidate revision
 PENDING_SOURCE_BATCHES: none; final report QA/write/readback pending
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / P3｜历史反证完成与候选修订冻结
-NEXT_ACTION: 完成03草稿质量核对，写入并逐字读回，然后更新最终完成状态。
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md / P4｜最终研究完成与读回
+NEXT_ACTION: 核对三份远端阶段产物身份与内容，标记本研究完成；无待执行研究批次。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -66,3 +66,5 @@ CHECKPOINT: H3 — v0.8 全文、363行矩阵及原GPT55反证
 CHECKPOINT: H4 — 三位原审查及历史返修提示词完整读取
 
 CHECKPOINT: P3｜历史反证完成与候选修订冻结
+
+CHECKPOINT: P4｜最终研究完成与读回
