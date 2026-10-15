@@ -11,8 +11,8 @@ STATUS: IN_PROGRESS
 PHASE: OFFICIAL_RESEARCH
 COMPLETED_SOURCE_BATCHES: none
 PENDING_SOURCE_BATCHES: PRO_INPUT; core infrastructure; product group A; product group B; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / R10｜CARE
-NEXT_ACTION: 核查 Codex 官方事件、hook、恢复接口及稳定/实验边界。
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md / E1｜Codex 官方接口
+NEXT_ACTION: 核查 GitHub checks/保护和Slurm官方状态/依赖语义。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -42,3 +42,5 @@ CHECKPOINT: R8｜SeminarArc
 CHECKPOINT: R9｜Asteria
 
 CHECKPOINT: R10｜CARE
+
+CHECKPOINT: E1｜Codex 官方接口
