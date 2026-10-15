@@ -4,7 +4,39 @@
 
 目标：独立研究“复杂任务自动交付系统”究竟应该是什么、是否值得建立，以及怎样真实介入 Windows/服务器 Codex、发现假完成并驱动返修、处理 Slurm/HPC 与不同平台专业验收。**第一阶段不得继承任何旧架构答案。**
 
-启动消息必须提供唯一的 `OUTPUT_ROOT`。该目录是本研究线程唯一允许写入的 GitHub 研究目录；不同独立研究线程必须使用不同 `OUTPUT_ROOT`，不得读取或修改另一线程的输出。
+## 三个独立研究运行的隔离与恢复合同
+
+本轮预计并行运行三个独立研究者。启动消息必须同时给出唯一的 `RUNNER_ID` 和 `OUTPUT_ROOT`，且只能使用以下预留组合之一：
+
+- `RUNNER_ID=GPT6_PRO` → `OUTPUT_ROOT=docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEARCH_GPT6_PRO_R0`
+- `RUNNER_ID=GPT56_PRO` → `OUTPUT_ROOT=docs/research/software-production/14_INDEPENDENT_ARCHITECTURE_RESEARCH_GPT56_PRO_R0`
+- `RUNNER_ID=GPT_WORK` → `OUTPUT_ROOT=docs/research/software-production/15_INDEPENDENT_ARCHITECTURE_RESEARCH_GPT_WORK_R0`
+
+三个研究者共享同一冻结输入，但**不得读取、修改、引用、比较或等待另外两个 OUTPUT_ROOT**。所有研究写入仅允许发生在自己的 OUTPUT_ROOT。遇到 GitHub 并发提交冲突，只重新读取当前分支后重试自己的文件，禁止通过覆盖、reset、force、删除或修改其他研究目录解决冲突。
+
+### 网页中断与上下文耗尽：必须可从 GitHub 续接
+
+正式深度研究开始前，研究者必须先验证自己能够写入 OUTPUT_ROOT，并维护两份最小恢复文件：
+
+- `RUN_STATE.md`：RUNNER_ID、输入分支与起始提交、当前阶段、已完成 source batch、未完成 batch、最后稳定产物、下一项精确动作；
+- `SOURCE_LOG.md`：已经实际读取的仓库/文件/官方来源、ref/commit（若可得）、读取目的和关键事实定位。只记录可复核事实，不复制长文。
+
+不得等到整轮研究结束才写 GitHub。至少在以下节点完成 checkpoint，并更新 RUN_STATE/SOURCE_LOG：
+
+1. 四份 PRO_INPUT 完整读完；
+2. AI Skills + Bridge + Remote Compute 真实实现核查完成；
+3. Lucerna + CUHK_Date + Bobbio 核查完成；
+4. Mica + SeminarArc + Asteria + CARE 核查完成；
+5. 外部官方/成熟替代核查完成；
+6. 第一阶段独立候选冻结；
+7. 第二阶段历史反证完成；
+8. 最终研究完成。
+
+一个 checkpoint 必须先把本批次可复用的事实/结论写入 OUTPUT_ROOT，再继续下一个大批次。不要让大量只存在于网页对话上下文中的研究成果长期未落盘。
+
+如果网页连接中断、上下文重置或新线程接手：**先读自己 OUTPUT_ROOT 中的 RUN_STATE.md、SOURCE_LOG.md 和已提交阶段产物，从 next_action 继续；不要从头重读所有仓库。** 只有来源从记录的 ref/commit 发生实质变化、记录不一致或该 source batch 明确未完成时才补读。恢复不能重新执行生产动作，因为本轮本来就只读。
+
+如果一开始无法稳定写入自己的 OUTPUT_ROOT，则立即停止深度研究并报告研究基础设施缺口；不能先研究数小时再把唯一成果留在网页会话里。
 
 ## 第一阶段：只读这四份输入
 
