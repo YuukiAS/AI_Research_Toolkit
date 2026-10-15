@@ -9,12 +9,12 @@ PHASE: HISTORY_CHALLENGE_READING
 WRITE_PREFLIGHT: PASS
 WRITE_PROOF_COMMIT: 04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8
 WRITE_PROOF_READBACK: VERIFIED
-COMPLETED_SOURCE_BATCHES: four frozen inputs; ten repositories; official 11A-11D; frozen phase01; complete v0.6 all UTF-8 core/typeset/appendices/graph sources
-PENDING_SOURCE_BATCHES: v0.7; v0.8; original_reviews; phase02; phase03
-LAST_STABLE_ARTIFACT: checkpoints/12B_HISTORY_V06_APPENDICES.md
-LAST_STABLE_COMMIT: 0eacf14b7a49bc6a39e80d95ce53647aa46d7e87
-LAST_STABLE_READBACK_BLOB: 028e9f56d0bea3a5f31d7ca76c384811cf5b69d6
+COMPLETED_SOURCE_BATCHES: four inputs; ten repositories; official 11A-11D; frozen01; v0.6 all text; v0.7 all eight files
+PENDING_SOURCE_BATCHES: v0.8; original_reviews; phase02; phase03
+LAST_STABLE_ARTIFACT: checkpoints/13_HISTORY_V07.md
+LAST_STABLE_COMMIT: 031eccccd850d07c986d8dc0bf4ea2cae9f2ff2b
+LAST_STABLE_READBACK_BLOB: e698417b31bd3bcd2eeb07ae6e58786e544f02f2
 HISTORY_SNAPSHOT_COMMIT: 3a8e5df5360c20814bbbf34d7a4f392655437588
-NEXT_ACTION: enumerate and fully read v0.7 at frozen history snapshot; checkpoint immediately, then v0.8 and original_reviews; write/readback02 and03 then COMPLETE
+NEXT_ACTION: fully read v0.8 directory, checkpoint; fully read original_reviews, checkpoint; write/readback02 and03; verify all three then COMPLETE without waiting
 
-已记录唯一材料限制：GitHub拒绝PDF二进制读取、raw未取回；全部实质文本及四图DOT已完整读取，不宣称已渲染PDF。此限制不阻止架构研究完成。01保持冻结，十源仓库不重读。仅自己输出可写；不读另两研究者，不执行历史提示词，不运行实机/Codex/Slurm/生产/付费高成本操作。所有checkpoint非阻塞。
+PDF二进制未取得，已明确记录全部正文/附录/图源已读而未渲染。01不可改，十仓库不重读。仅自己输出可写，不读其他研究者，不执行实机/Codex/Slurm/生产/付费高成本操作。checkpoint非阻塞。
