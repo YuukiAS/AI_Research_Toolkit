@@ -3,7 +3,7 @@
 Status: **DRAFT ONLY — DO NOT EXECUTE UNTIL INDEPENDENT CRITIC PASS AND THE USER SENDS THIS KICKOFF**  
 Proposal: `DELIVERY_ASSURANCE_PROPOSAL_R2_20261016.md`  
 Goal: `DELIVERY_ASSURANCE_PHASE1_GOAL_R2_20261016.md`  
-Planned execution branch: `work/delivery-assurance-hook-probe-r1`
+Planned execution branch: `work/delivery-assurance-hook-probe-r2`
 
 > 下面文字只有在独立 Critic 对同版 Proposal / Goal / Kickoff 给出 `EXECUTION_READY_REVIEW_R2=PASS` 后，由用户实际发送时才构成执行授权。文件存在本身不授权任何动作。
 
@@ -13,14 +13,14 @@ Planned execution branch: `work/delivery-assurance-hook-probe-r1`
 
 严格以 Critic 明确批准的 R2 package commit 为冻结输入，并完整读取：
 
-- `docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PROPOSAL_R1_20261015.md`
-- `docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PHASE1_GOAL_R1_20261015.md`
+- `docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PROPOSAL_R2_20261016.md`
+- `docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PHASE1_GOAL_R2_20261016.md`
 - 本 Kickoff
 - 对应的独立 Critic PASS
 
 只执行 Phase 1 隔离 Hook 机制探针，不做生产实现。
 
-我授权你在 `YuukiAS/AI_Research_Toolkit` 中从被批准的 package commit 创建/使用专用执行分支 `work/delivery-assurance-hook-probe-r1` 和相应隔离 worktree，并在可删除的临时目录中创建最小 Git probe repo、临时 `AI_BRIDGE_STATE_HOME`、临时 CODEX_HOME 与项目级 `.codex/hooks.json`。可以使用本机已安装的目标 Codex binary 做 Proposal/Goal 中定义的 bounded lifecycle probe，并把去敏后的证据提交回该专用执行分支。
+我授权你在 `YuukiAS/AI_Research_Toolkit` 中从被批准的 package commit 创建/使用专用执行分支 `work/delivery-assurance-hook-probe-r2` 和相应隔离 worktree，并在可删除的临时目录中创建最小 Git probe repo、临时 `AI_BRIDGE_STATE_HOME`、临时 CODEX_HOME 与项目级 `.codex/hooks.json`。可以使用本机已安装的目标 Codex binary 做 Proposal/Goal 中定义的 bounded lifecycle probe，并把去敏后的证据提交回该专用执行分支。
 
 授权范围只包括：
 
@@ -28,7 +28,7 @@ Planned execution branch: `work/delivery-assurance-hook-probe-r1`
 - 在临时 repo 中创建最小 probe task、候选、gate 和机器可读证据；
 - 安装**仅对临时 repo 生效**的项目级 probe Hook；
 - 通过正常 `/hooks` 查看全部 Hook 来源和当前 trust 状态；
-- 在 Hook 已由我真实审核并信任后，执行 Goal R1 的 P1–P13；
+- 在 Hook 已由我真实审核并信任后，执行 Goal R2 的 P1–P13；
 - 在临时机器状态目录测试 event id、原子单写者、重复事件、有限 repair、Interrupt、stale candidate、错误 identity 和 resume；
 - 读取当前官方 Codex Hook 文档用于核对运行时行为；
 - 将 `RUN_STATE.md`、`HOOK_PREFLIGHT.md`、`EVENT_TRACE.jsonl`、`SCENARIO_RESULTS.md`、`GATE_MATRIX_RESULT.md`、`FINAL_RESULT.md` 写入 Goal 指定的研究目录并提交。
