@@ -142,3 +142,7 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - [Nextflow Slurm executors](https://docs.seqera.io/nextflow/executor)与[cache/resume](https://docs.seqera.io/nextflow/cache-and-resume)提供现成批次调度/缓存，复用要求cache+work outputs、输入hash与执行器环境；过程缓存不等同训练内部checkpoint或科学有效性。
 - [OpenTelemetry signals](https://opentelemetry.io/docs/concepts/signals/)已有trace/log/metric公共约定，可投影task→attempt→job→artifact真实事件；它不是完成裁决或授权系统。
 - 独立推论：现有Bridge/CARE已拥有controller/finalizer时再放Temporal会增加双owner；只在明确替换一个owner且跨进程可靠性收益经探针成立才考虑。Nextflow适合将来的明确科研DAG，非强制所有软件任务改入口。观测先导出既有事件，不先建大看板。
+
+## P2｜独立候选冻结
+- 已写入并读回01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md，commit 1de00e03b0747ea5d761c7e0446d57ab60f97d47。四路线为A仅修现有入口、B原入口完成检查/续办适配、C显式托管owner、D只读旁观审查；每条覆盖入口、返修、Slurm、专业质量、观察、适配和淘汰条件。
+- 冻结前未读历史架构/评审目录。现开始第二阶段，按四个指定历史目录逐一完整读取并checkpoint，不触碰其他研究者输出。
