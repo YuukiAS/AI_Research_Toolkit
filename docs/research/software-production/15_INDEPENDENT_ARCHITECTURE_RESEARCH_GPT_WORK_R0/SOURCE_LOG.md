@@ -80,3 +80,12 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 本地240-turn fixture记录heap减42.9%、response减83.3%，不能外推8GB目标设备或当前authenticated ChatGPT。CURRENT_AUTHENTICATED_CHATGPT=PENDING_HUMAN_ONLY；Notion clipboard真实解释也仍UNVERIFIED。本轮没访问真实ChatGPT、Notion或执行扩展。
 - 测试与故障：isolated Edge扩展fixture和真实日常profile分离；send_intent/user_committed/generating/settled、IME hotpath、connector/remount必须同candidate。历史旧fixture缺真实宿主结构、版本/ZIP/浏览器分裂、默认关闭功能当完成、诊断取代产品；两次无新增信息应审查根因/fixture/validator而非重跑。
 - 安全/适配：不自动发送/确认/重试、不读auth正文、不长期轮询；成熟浏览器测试可复用，但宿主私有DOM/API绑定与专业复制/PDF语义必须项目维护。
+
+## R8｜SeminarArc
+- main=5652fe17ce60625f3ff7c758fcc0183f920189de。读AGENTS1–130、README1–120、DEVICE_TESTING1–120、ANDROID_UI_BLACKBOX_CONTRACT全文、ProcessingWorker.kt1–150及0.5.x_blackbox_research_flows_result前145行。
+- 当前产品已到0.5.0-alpha.2 local-safe Android，README明确独立GPT Work黑盒未执行、production release NOT_READY；AGENTS内0.1.x局部约束不能被误读成全部当前功能仍只有0.1。不是iOS项目。
+- 正常入口是exact internal APK→可见UI→Room/foreground recording/WorkManager→可读媒体与导出。ProcessingWorker读取持久job，CANCELLED不执行，SUCCEEDED幂等成功，按jobtype分流；NOTION_EXPORT_PREP未接，manual formula provider和transcript本地foundation不等live ASR/AI/Notion。
+- 现成黑盒合同允许可见控件语义桥，禁止DB/内部API绕过；工具timeout须重新观察动作是否已完成。research flow结果中camera/authored fixture、OCR控件/滚动测试边界属于有范围的证据，不能代完整科研或硬件体验。
+- Android Emulator-first：WSL源仓/Windows mirror绑定同commit；mixed inventory禁止unscoped connected，明确serial才能操作Emulator；protected真机不用于普通CI，不得reset adb/USB/WSL transport。麦克风、OEM锁屏、真实相机/低存储等仍需专门授权。
+- 可复用Gradle/Compose/Room/WorkManager、既有场景control seam与package/signer验证。未来审美、科研语义、无障碍与硬件验收需专业判断；状态投影不能把producer准备完毕变成独立review通过。未运行任何设备操作。
+- R7证据精度补充：所读low-memory-windowing.ts前145行直接证明DOM安全分支及page-status消费；mapping graph细节来自当前研究结论文档，未在该片段内逐行验证primary interceptor。
