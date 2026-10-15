@@ -21,3 +21,11 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 已完整读取 CSV 的 363 条（六软件246+晚期25+CARE40+52），全部带 NOT_VERIFIED_AS_CURRENT_DEFECT；不将登记数当当前缺陷数或 gate 数。主要反例族：自报与真实对象不一致、真实宿主/数据缺失、检查器错误、跨候选污染、消费者不消费机制、排队和未知状态误归因。
 - 决策要求：比较真实的“不建新通用系统”基线；独立候选提交前禁止读取旧方案/评审。本次尚未读历史答案。
 - 继续逐仓库核对有效分支、AGENTS、目标、用户入口、测试、失败与恢复权限；每仓库落盘。
+
+## R1｜AI Skills
+- 分支核实：main=0d990b24fb7c7b46877347241800244f623b20c0；正式安装 release=06d135d8a6ee62cd41abb40fc5771fcef7f8db25，不能混称开发即已安装。README 明确正常入口为 Codex Marketplace release，更新后新会话加载。另有多条任务分支，本研究未将其未发布内容当正式能力。
+- 实读：README；AGENTS.md 相关源权威、规模、专业分工、授权、artifact-aware review/CI 章节；skills/core/codex-system/codex-workflow-protocol/{SKILL.md,agents/openai.yaml}；tests/test_workflow_core_normal_entry_reliability.py；plugins/codex/plugins/workflow-core/.codex-plugin/plugin.json；release 的同一生成技能前105行；docs/plugin-todos/workflow-core.md 前145行。
+- 主实现事实：workflow-core 是 Skills-only（manifest 无独立 MCP/controller）；allow_implicit_invocation=true 是路由配置。源码 W1–W5 明确真实纵向链、human triage、证据分层、重复失败止损、保护既有能力；恢复路由引用 Bridge bootstrap/materialize，不自造状态机。main source 与 release generated SKILL 的 blob 同为 030357c13abe5ffc544504051e8262c0881c78da。
+- 验证边界：normal-entry reliability 单测主要 assertIn 规则字符串与触发示例，不能证明所有真实任务自动消费；TODO 有已加载 skill 仍选错环境/越权 fallback 的真实记录，也指向 qualification_candidate_replay_manifest 的 actual_consumption.proven，后者本轮未重放，不能据此保证其他任务。
+- 已知失败证据：AGENTS 8.3 记载私有写作 artifact 未完整读仍 PASS；workflow TODO 记载 Lucerna 01055 自报与 TODO/真实 DPI/视觉相矛盾。状态已注明发布/历史，不断言现在仍坏。
+- 研究含义：可复用专业内容、安装与路由；不能凭 manifest/规则把它宣称为可外部拦截完成、唤醒原任务的执行程序。未来探针应查实际技能调用及最终消费者；本轮未运行任何 replay。
