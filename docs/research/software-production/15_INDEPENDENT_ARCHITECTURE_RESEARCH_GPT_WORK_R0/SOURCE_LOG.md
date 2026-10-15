@@ -89,3 +89,11 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - Android Emulator-first：WSL源仓/Windows mirror绑定同commit；mixed inventory禁止unscoped connected，明确serial才能操作Emulator；protected真机不用于普通CI，不得reset adb/USB/WSL transport。麦克风、OEM锁屏、真实相机/低存储等仍需专门授权。
 - 可复用Gradle/Compose/Room/WorkManager、既有场景control seam与package/signer验证。未来审美、科研语义、无障碍与硬件验收需专业判断；状态投影不能把producer准备完毕变成独立review通过。未运行任何设备操作。
 - R7证据精度补充：所读low-memory-windowing.ts前145行直接证明DOM安全分支及page-status消费；mapping graph细节来自当前研究结论文档，未在该片段内逐行验证primary interceptor。
+
+## R9｜Asteria
+- main=193c033659a7612a99442763077217b130e9b756，active 2.0.0-rc.19；1.x live canvas已归档，仅migration/legacy payload兼容保留。实读AGENTS1–145、README1–125、AGENT_RULES1–135、RC15_HUMAN_VISUAL_REVIEW_FAILURE1–130、validate-architecture-rc19.mjs1–130。
+- 产品是typed canonical scientific graph的Architecture/Lineage/Evidence三投影，不是随意节点画图；Original TRACE/CAT-TRACE科学语义、formula/ports/selection/trace及source/claim关系不能靠卡片计数、无overlap或统一模板证明。
+- 当前readme明确CAT-TRACE bridge仅schema/validator/synthetic pinnedfixture，live GitHub ingestion/callgraph/scientifictruth update不在RC。固定URL+status身份验证是生产验收入口，本研究不访问/启动/换tunnel。
+- RC15真实人审仍发现公式被切、线条拥堵等，早先工程/Work闭环不等审美完成；当前规则要求whole-screen selfQA、同candidate fresh pack、独立Work+最终人审，且fixture修复应通用。RC19 validator确实计算routing/port/overlap与多fixture invariants，但机械结果不充分证明语义和美观；本轮没运行或看实际截图。
+- 已有累积regression/browser/各RC脚本、publicsmoke及单parent审查可复用；source commit/runtime/截图/导出需同一候选。大范围视觉机制变更使相关review失效，不能只改局部截图凑PASS。
+- 权限：原仓站立push/runtime规则不扩大本次研究授权；只读未实施。跨renderer一致性、科学源版本与可读性是未来项目适配成本。
