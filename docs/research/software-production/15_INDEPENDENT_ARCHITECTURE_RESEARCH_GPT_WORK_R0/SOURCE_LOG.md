@@ -72,3 +72,11 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 源码 Invoke-BobbioReaderAcceptanceSafe.ps1（blob778c189b…）有 real/test 路径比较、Zotero/updater停止断言、URL handler检测和真实profile/data末尾比较；还会调用 Apply 准备、清理更新缓存及启动Bobbio，Preflight 名称不能被当只读授权。本轮没有执行或改变机器策略。
 - 质量必须按 Figma R7Avaszm0TIYAthTWMprP1 的当前Reader16states、整窗1440/1280、真实批注往返和知识语义判断。本轮未访问Figma或真实Windows，仓库截图覆盖表也不是本轮视觉结论。
 - 当前 evidence matrix 明确 LOCAL_CODEX_READY/READY_TO_START_GPT_WORK 不等于 FINAL_NATIVE_ZOTERO_ACCEPTANCE/USER_REVIEW/MILESTONE_ACCEPTED；旧focused review漏全产品/未知缺陷，审查系统audit将其分开。可复用已有多层gate，但不能自动累加成通过。
+
+## R7｜Mica
+- 分支核实：main=7059c0dc24b908b57bd0e1f475142ba4f4520621 的README仍0.1.7；实际较新恢复候选 codex/mica-product-recovery-current-gpt-ui=0065a7ba841f72244e6bc1dbce0b5ec2ada12d35 为0.4.1，尚非最终真实站点通过。两线的低内存能力不能混用。
+- 实读 main AGENTS 1–145/README1–110，恢复候选AGENTS1–80/README1–120、MICA_EXECUTION_FAILURE_HISTORY、2026-10-05-long-thread-product-conclusion；low-memory-windowing.ts前145行的响应识别/graph/path约束。
+- 当前候选真实消费设计：MAIN world document_start 对同源既有GET响应的无环active mapping裁至40 visible turns并保留hidden support；DOM fallback要求120+安全普通turns，unknown/tool/auth/streaming fail-open；恢复全历史是path scoped bypass+reload。原生DOM只5–9个不代表JS graph/heap已小，旧no-op结论已被新候选文档取代。
+- 本地240-turn fixture记录heap减42.9%、response减83.3%，不能外推8GB目标设备或当前authenticated ChatGPT。CURRENT_AUTHENTICATED_CHATGPT=PENDING_HUMAN_ONLY；Notion clipboard真实解释也仍UNVERIFIED。本轮没访问真实ChatGPT、Notion或执行扩展。
+- 测试与故障：isolated Edge扩展fixture和真实日常profile分离；send_intent/user_committed/generating/settled、IME hotpath、connector/remount必须同candidate。历史旧fixture缺真实宿主结构、版本/ZIP/浏览器分裂、默认关闭功能当完成、诊断取代产品；两次无新增信息应审查根因/fixture/validator而非重跑。
+- 安全/适配：不自动发送/确认/重试、不读auth正文、不长期轮询；成熟浏览器测试可复用，但宿主私有DOM/API绑定与专业复制/PDF语义必须项目维护。
