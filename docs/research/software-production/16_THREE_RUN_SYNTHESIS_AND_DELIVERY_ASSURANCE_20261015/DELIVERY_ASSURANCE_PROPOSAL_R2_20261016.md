@@ -388,7 +388,7 @@ SessionStart 可用于恢复时补充机器上下文，但 Delivery Assurance �
 
 ### AI Skills maintenance tracking 触发点
 
-本 R1 仍处于跨仓库产品设计和隔离 Hook 可行性验证之前，且本轮用户明确禁止修改生产 AI Skills。因此**本轮不提前创建一个假装已进入实现的 workflow-core maintenance Issue**。
+本 R2 仍处于跨仓库产品设计和隔离 Hook 可行性验证之前，且本轮用户明确禁止修改生产 AI Skills。因此**本轮不提前创建一个假装已进入实现的 workflow-core maintenance Issue**。
 
 正式进入 AI Skills maintenance tracking 的触发点冻结为：**阶段 1 GO，且 Planner 准备第一次对 `workflow-core` 做实质生产设计/实现交接之前。**
 
@@ -405,7 +405,7 @@ SessionStart 可用于恢复时补充机器上下文，但 Delivery Assurance �
 
 ## 14. 明确 non-goals
 
-R1 明确不做：
+R2 明确不做：
 
 - 新独立 repo、App、中央平台、数据库、任务队列；
 - 第四套 Bridge workflow / Local Review 复活；
