@@ -10,12 +10,12 @@ PHASE: DIRECT_SOURCE_RESEARCH
 WRITE_PREFLIGHT: PASS
 WRITE_PROOF_COMMIT: 04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8
 WRITE_PROOF_READBACK: VERIFIED
-COMPLETED_SOURCE_BATCHES: live contract; startup write/read; four frozen inputs; AI Skills; Bridge; Remote Compute; Lucerna
-PENDING_SOURCE_BATCHES: CUHK_Date; Bobbio; Mica-for-ChatGPT; SeminarArc; Asteria; CARE_Challenge; official sources; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: checkpoints/04_LUCERNA.md
-LAST_STABLE_COMMIT: 023cf364b14d41da33cd345471573449fef38bbe
-NEXT_ACTION: read back checkpoints/04_LUCERNA.md; inspect CUHK_Date actual development branch, rules, user entry, source acceptance and failure records; checkpoint before Bobbio
+COMPLETED_SOURCE_BATCHES: live contract; startup write/read; four frozen inputs; AI Skills; Bridge; Remote Compute; Lucerna; CUHK_Date
+PENDING_SOURCE_BATCHES: Bobbio; Mica-for-ChatGPT; SeminarArc; Asteria; CARE_Challenge; official sources; independent candidates; history challenge; final synthesis
+LAST_STABLE_ARTIFACT: checkpoints/05_CUHK_DATE.md
+LAST_STABLE_COMMIT: 4d9e0f4d5b5578cf2b16a889e7ddb200604766c6
+NEXT_ACTION: read back checkpoints/05_CUHK_DATE.md; inspect Bobbio branches and effective develop rules, Figma authority, native acceptance, execution/recovery and failures; checkpoint before Mica-for-ChatGPT
 
 ## 恢复与权限
 
-沿已完成checkpoint续接，禁止整轮重读。只写本OUTPUT_ROOT；候选冻结前不读Toolkit历史方案，永不读其他研究者输出。禁止Codex执行器、Windows实机、Slurm/生产/付费或高成本动作。每仓库完成立即落盘；checkpoint不是审批，写完读回后立即继续。SOURCE_LOG保留来源与未验证边界。
+沿已完成checkpoint续接，禁止整轮重读。只写本OUTPUT_ROOT；候选冻结前不读Toolkit历史方案，永不读其他研究者输出。禁止Codex执行器、Windows实机、数据库/Slurm/生产/付费或高成本动作。每仓库完成立即落盘；checkpoint不是审批，写完读回后立即继续。SOURCE_LOG保留来源与未验证边界。
