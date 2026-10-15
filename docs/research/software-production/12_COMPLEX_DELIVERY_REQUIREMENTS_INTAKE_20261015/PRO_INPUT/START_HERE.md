@@ -16,6 +16,26 @@
 
 三个研究者共享同一冻结输入，但**不得读取、修改、引用、比较或等待另外两个 OUTPUT_ROOT**。所有研究写入仅允许发生在自己的 OUTPUT_ROOT。遇到 GitHub 并发提交冲突，只重新读取当前分支后重试自己的文件，禁止通过覆盖、reset、force、删除或修改其他研究目录解决冲突。
 
+### 预建启动模板不是并行冲突
+
+每个预留 OUTPUT_ROOT 在研究开始前已经由研究管理员预建两份**合法启动模板**：
+
+- `RUN_STATE.md`
+- `SOURCE_LOG.md`
+
+如果这两份文件中的 `RUNNER_ID`、`OUTPUT_ROOT`、`INPUT_SNAPSHOT_COMMIT` 与启动消息完全一致，且 `STATUS: NOT_STARTED` / `PHASE: PREFLIGHT`，研究者**必须直接接管并更新它们**；不得把它们解释成“本线程之外的未知写入”，也不得因此询问用户。
+
+只有出现以下任一情况才算真实输出冲突并停止：
+- `RUNNER_ID` 与本线程不一致；
+- `OUTPUT_ROOT` 与启动消息不一致；
+- `INPUT_SNAPSHOT_COMMIT` 不一致且没有本合同明确迁移说明；
+- 已存在 `01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md`、`02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md`、`03_FINAL_ARCHITECTURE_RESEARCH.md` 或其他明显的实质研究产物，但 RUN_STATE 不是本线程可恢复状态；
+- RUN_STATE 显示另一个 active runner / incompatible owner。
+
+**禁止仅凭 GitHub 提交作者、提交时间或“文件已存在”判断冲突。** 这三个预留目录本来就由研究管理员提前创建恢复模板。
+
+如果发现模板匹配，启动动作是：把 RUN_STATE 更新为 `STATUS: IN_PROGRESS`、`PHASE: INPUT_READING`，记录本线程开始时间/首个 next_action，然后开始读取四份 PRO_INPUT。
+
 ### 网页中断与上下文耗尽：必须可从 GitHub 续接
 
 正式深度研究开始前，研究者必须先验证自己能够写入 OUTPUT_ROOT，并维护两份最小恢复文件：
