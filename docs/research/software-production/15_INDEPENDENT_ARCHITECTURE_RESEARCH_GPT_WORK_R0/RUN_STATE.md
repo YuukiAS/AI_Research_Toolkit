@@ -11,8 +11,8 @@ STATUS: IN_PROGRESS
 PHASE: OFFICIAL_RESEARCH
 COMPLETED_SOURCE_BATCHES: none
 PENDING_SOURCE_BATCHES: PRO_INPUT; core infrastructure; product group A; product group B; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / E3｜Slurm
-NEXT_ACTION: 核查原生桌面、浏览器和Android成熟验收工具。
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md / E4｜平台验收工具
+NEXT_ACTION: 核查科学重现、Zotero/图布局及可观测/持久工作流成熟替代。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -48,3 +48,5 @@ CHECKPOINT: E1｜Codex 官方接口
 CHECKPOINT: E2｜GitHub checks
 
 CHECKPOINT: E3｜Slurm
+
+CHECKPOINT: E4｜平台验收工具
