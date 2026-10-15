@@ -47,3 +47,11 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 健康语义：必须有 vantage/observed_at/freshness/failure_domain；RUNNING、listener、state file 都不能等同可用；UNKNOWN 不得变失败并触发恢复。基础设施只提供状态/diagnose/bounded action，Lucerna 是桌面 UI owner。
 - 已知失败/权限来源：AGENTS 记载 apps/catalog 异常流量、不得由 CLI upgrade 迁移 identity 或另启 daemon；禁止动生产 tunnel/job，禁止从另一台 Windows 机器状态推断目标机。Windows 后台需真实桌面两周期无闪窗验证，静态源码无法证明。
 - 核心基础设施批次完成：AI Skills/Bridge/Remote Compute 的能力与运行证据已区分，未启动生产、Codex、Slurm 或 Windows 验收。
+
+## R4｜Lucerna
+- 参考分支：main=79dd2875d3da33c6a6d80e5e35bea812b84c1ceb；其他为专项旧评审分支。实读根 AGENTS 前170行、README 前150行、package.json、src-tauri/src/main.rs、scripts/governance-regression.ps1 全文、LUCERNA_EXECUTION_FAILURE_HISTORY.md 全文（约130行）。
+- 产品/入口：Tauri Rust+WebView 的 Windows tray/macOS menu-bar 安静资源/健康监控；main.rs 调 lucerna_lib::run。正常 live_state、真实 provider/auth 与测试 fixture 分离；子状态到聚合、图标/CTA 一致性是验收重点，不是单个状态枚举完整即可。
+- 验收实际：package 中 typecheck/build、累积 guard、harness 与 development-acceptance；后两类明确有 SelfTest，不能称真实原生验收。governance-regression 的 overall=PARTIAL 时只要没有 FAIL 仍 exit0；且固定声明 trusted-real-acceptance-entrypoint=GAP。本研究静态重新确认此返回语义，不是现场运行失败。
+- 权限实码：governance script 会写临时文件、启动进程、对专用 sentinel 调 Stop-Process、访问桌面；名字叫 regression 不代表无副作用，本轮没有执行。根 AGENTS 明确可编辑 hooks 只是辅助，不能证明 OS isolation；需 agent-unwritable bounded entry 与真实负测。
+- 已核历史：01047 重复卡片自报被独立截图推翻、01055 未闭 TODO/无真实 DPI仍自报完工；handler/窗口最终隐藏不证明真正按钮因果；key 验证不证明激活；原生反复截图干扰用户。它们解释为何必须读实际对象和动作后置状态，不等于当前 main 这些 bug 全未修。
+- 适配边界：应复用现有 PID/commit/window/capture 辅助并消费结构化 static/runtime/coverage 分量；需要真实隔离桌面/安装/DPI/通知及 provider 往返才可宣称完整。当前研究没有资格宣称 Windows 已通过。
