@@ -150,3 +150,7 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 ## H1 — v0.6 全文与派生材料反证
 历史读取固定在第一阶段冻结提交 1de00e03b0747ea5d761c7e0446d57ab60f97d47。完整读09目录8份根Markdown、typeset/input_manifest.json、build_workflow_dossier.py、preamble.tex.in、四份dot；合成本workflow_architecture_dossier_v0.6.md共135860字符，逐字相同四卷段落去重后读完全部独有内容（含246项映射、25补查、40+52及META边界）。未运行构建脚本；PDF二进制与渲染图未独立视觉复验，BUILD_REPORT的76页/73有效页仅作者声明。四卷是历史设计，不继承旧Critic启动/PDF执行要求。
 反证：v0.6十二职责虽多有必要，但调用者、身份、恢复权仍大量拟建；B若包揽义务解释、调度、参考/验收权就重新成为中央控制器。A不能只修散落脚本而不确保正常入口消费。Mica已有同路径反伪control仍多轮失败；冻结错误参考会稳定假绿。Asteria常量零与受保护diff漏洞已由本轮直接源码交叉确认，历史作者CPU实测不是本轮复跑。CARE的正例NO_GO、有效amendment、测试器越权1e-6、不等组loss分母，要求实现失败/科学否定/验证器失败分开。报告哈希变化不应重训、全测试全绿不等首条真实链成立。Lucerna LX02监测域依赖被监测WSL、LX07/08凭据跨资源事务、LX10原生隐藏旁路提示UI外完整生命周期；仅Stop后置不能防昂贵投入前错误。普通框架不能替代专业语义与真实设备隔离。363为登记集合非当前bug数，本文不声称复验所有历史源。
+
+## H2 — v0.7 八份全文反证
+已完整读10_POST_CRITIC_REDESIGN_V0_7全部8份Markdown（00–06、README），ref同01冻结提交。接受其对第二CURRENT/影子重试的反证，但其推荐不是授权或正确答案。v0.7自承普通入口/实际Skill调用/六库安装/桌面隔离未证；仅把责任交Bridge不会让原App任务可续。它将Reviewed早期检查限定Executor内确定性测试，独立正式Review最多两轮且合法阶段受限；专业语义在昂贵动作之前仍需合适owner，不能增加不计价隐藏review。只读文件沙箱不能等同MCP/Win32/子脚本无副作用。共享记录如开始掌控retry/verdict/动作即重新成为控制器。
+Lucerna通知先persist已通知再show、失败/过期导致误抑制/重复为历史GPT-6指出的源码支持风险，尚非本轮直接源码复核或Windows实测。v0.7的第三位GPT-5.5空文档是当时限制，需以后续原文纠正，不带入当前结论。A应是可运行完整局部基线，B必须证明原入口接线实际成立并含早期检查，不是只Stop末端拦截；C必须明确handoff/单owner与全部成本。资格校准正/坏/缺测以及科学NO_GO值得保留；不按旧架构新增审批点。
