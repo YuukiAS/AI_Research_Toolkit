@@ -14,3 +14,10 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - WRITE_PREFLIGHT=PASS；沿用实际证明 commit f13de7d3d71a60fcb6078c6f5e6ffbb93e6a6c99 / docs/research/software-production/15_INDEPENDENT_ARCHITECTURE_RESEARCH_GPT_WORK_R0/RUN_STATE.md；本次已重新读取该 commit 的文件（blob 22a7085fc01ede5ecdc79087926ede7ba8d7900b），并核对当前分支恢复文件的 RUNNER_ID、OUTPUT_ROOT、INPUT_SNAPSHOT_COMMIT 一致。没有重复初始化或 probe。
 - 当前运行合同 START_HERE.md blob 34fde56b79b7aca53af64370074cf55be23928d2：合同随分支，四份问题输入冻结于指定 snapshot；逐仓库/主题落盘后自动继续全部三阶段。当前 SOURCE_LOG 所记旧合同已被本项更新。
 - 当前线程直接执行，不创建子任务；只通过 GitHub 写入本 OUTPUT_ROOT。
+
+## P1｜冻结输入完整读取
+- 已按序完整读取固定提交 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f 下 PRO_INPUT/01–04；blob 分别为 8881ef60f02d0030fc6eedea7977be1c031b90a2、ad39a66d2a5b9709d48ad8d538b38c8fb2745da0、034f4b8097c59b03faa206ec5423047c0f637759、1223c6645161e753bfbcb3b0a1fdf6d8cdb27746。
+- 61 问要求覆盖真实入口/同任务返修/权限/Slurm/专业判断/规则实际消费/成本/关闭权。四层证据必须分开：源码支持、机器安装、入口调用、候选验证。
+- 已完整读取 CSV 的 363 条（六软件246+晚期25+CARE40+52），全部带 NOT_VERIFIED_AS_CURRENT_DEFECT；不将登记数当当前缺陷数或 gate 数。主要反例族：自报与真实对象不一致、真实宿主/数据缺失、检查器错误、跨候选污染、消费者不消费机制、排队和未知状态误归因。
+- 决策要求：比较真实的“不建新通用系统”基线；独立候选提交前禁止读取旧方案/评审。本次尚未读历史答案。
+- 继续逐仓库核对有效分支、AGENTS、目标、用户入口、测试、失败与恢复权限；每仓库落盘。
