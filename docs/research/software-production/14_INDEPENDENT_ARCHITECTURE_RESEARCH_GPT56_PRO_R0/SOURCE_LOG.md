@@ -4,143 +4,109 @@ RUNNER_ID: GPT56_PRO
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 LAST_EXTERNAL_RESEARCH_DATE: 2026-10-15
 
-## Preflight and frozen inputs
+## Recovery and frozen inputs
 
-- Read the current `PRO_INPUT/START_HERE.md` and established the isolation, exact input order, per-repository checkpoint, nonblocking recovery and write restriction contracts. Proof commit `39f86bc75fd2c9265835178a8d80043d1a3213c4` and both recovery anchors matched; `WRITE_PREFLIGHT=PASS`.
-- Read at exactly `60d0a1feb7ca1efc8f751774850a4ec176b9ab6f`, in required order: `01_USER_REQUIREMENTS_NO_SOLUTIONS.md`, `02_OPEN_QUESTIONS_NO_ANSWERS.md`, all 363 rows of `03_HISTORICAL_FAILURES_SOURCE_INDEX.csv`, and `04_SOURCE_BOUNDARIES.md`.
-- Frozen framing: success means lower elapsed completion time, better first delivery, fewer user interventions and rework, bounded compute/Codex cost and lower maintenance. The system must bind normal entry, executor, immutable candidate, consumed artifact and project-local acceptance; preserve legitimate scientific `NO_GO`; separate resource, harness, product and science failures; prevent duplicate execution; and keep observability non-authoritative. Historical rows are challenge samples, not current-defect claims. Repository presence, machine installation, session loading, live consumer invocation, candidate passage, release and installed runtime are distinct facts.
+- Read current `PRO_INPUT/START_HERE.md`; confirmed isolation, exact frozen-input order, write restriction to this OUTPUT_ROOT, per-repository checkpoints and nonblocking resume. Existing proof commit and both anchors matched; `WRITE_PREFLIGHT=PASS`.
+- Read at the exact input snapshot, in order: `01_USER_REQUIREMENTS_NO_SOLUTIONS.md`, `02_OPEN_QUESTIONS_NO_ANSWERS.md`, all 363 rows of `03_HISTORICAL_FAILURES_SOURCE_INDEX.csv`, and `04_SOURCE_BOUNDARIES.md`.
+- Frozen objective: reduce end-to-end completion time, first-delivery defects, user intervention, rework, compute/Codex cost and maintenance while binding real entry, executor, immutable candidate, consumed artifact and project-local acceptance. Historical entries are challenge samples, not current-defect assertions. Repository source, machine installation, session loading, actual consumer execution, accepted candidate, release and installed runtime are separate facts.
 
-## Repository checkpoint — AI_Skills_Collection
+## Current repository checkpoints
 
-- Read `YuukiAS/AI_Skills_Collection` at `main@0d990b24fb7c7b46877347241800244f623b20c0`; stable distribution `release@06d135d8a6ee62cd41abb40fc5771fcef7f8db25`; main was 212 commits ahead.
-- Product is a Codex skill/plugin collection plus `ai-skills` CLI. Stable installation targets `release` and requires a fresh session. `workflow-core` owns process guidance, domain plugins own technical quality, and Bridge owns runtime/Git/Host Policy mechanics.
-- CI proves packaging, generation/audit, unit tests, selected Windows sparse-checkout and CLI smoke. It does not prove installation/loading on a target machine or authority over an arbitrary live Codex session.
-- Architectural boundary: professional-policy and specialist distribution layer, not a scheduler, task database, artifact authority, universal continuation engine or cross-session controller.
+### AI_Skills_Collection
 
-## Repository checkpoint — GPT_Codex_AI_Bridge_Kit
+- `YuukiAS/AI_Skills_Collection`: `main@0d990b24fb7c7b46877347241800244f623b20c0`; stable `release@06d135d8a6ee62cd41abb40fc5771fcef7f8db25`.
+- Read product/rules, plugin manifests, workflow-core, CI and maintained incident/TODO evidence.
+- Skills/plugins provide professional routing and package/CLI distribution. Workflow policy, domain expertise and Bridge runtime/Git/Host Policy have distinct owners. CI proves packaging and selected smoke, not target installation/loading or arbitrary-session control.
 
-- Read `YuukiAS/GPT_Codex_AI_Bridge_Kit` at `main@a7931fdfc6e3d71cf985351df075de17097795e6`; formal `release@9db19b0409816c22042a246b35a33e1d34fedd0a`; main was 23 commits ahead. Main is a `0.11.0` candidate while formal distribution is `0.10.0`.
-- Bridge provides bounded Host Policy, task/worktree identity, HTTPS publish/sync, unique watcher lifecycle, plugin replay, persistent tmux, runtime identity and deterministic notifications. Approval, sandbox and Slurm mutation remain gated.
-- `0.11.0` strengthens control-file/read and context binding but lacked formal distribution proof in the inspected evidence. `0.10.0` has isolated same-candidate live-consumer evidence.
-- Runtime/process activity and notification are projections, not semantic completion. Installed Reviewed flows can be controlled; arbitrary Windows/server Codex turns are not shown to be intercepted.
-- Architectural boundary: strongest existing narrow substrate for execution identity, recovery and permissions; not project-specific acceptance, specialist quality, scheduler authority or universal orchestration.
+### GPT_Codex_AI_Bridge_Kit
 
-## Repository checkpoint — Remote_Compute_Infrastructure
+- `YuukiAS/GPT_Codex_AI_Bridge_Kit`: `main@a7931fdfc6e3d71cf985351df075de17097795e6`; formal `release@9db19b0409816c22042a246b35a33e1d34fedd0a`.
+- Read rules, README, package/CI, readiness/context binding, Reviewed/Persistent behavior and candidate evidence.
+- Bridge is the strongest existing narrow owner for Host Policy, task/worktree identity, bounded publishing, watcher/persistent session, runtime identity and recovery. Main `0.11.0` context-binding changes lacked formal-distribution proof; `0.10.0` has isolated live-consumer evidence. Runtime activity is not semantic completion; arbitrary existing Codex turns are not shown to be universally intercepted.
 
-- Read `YuukiAS/Remote_Compute_Infrastructure` at `main@ca0bad392ce1295e76a07a5d8f9c9dd27d3f61d7`, including rules, Longleaf runtime and scheduling contracts, shared health states, Lucerna integration, Observer documentation, ROADMAP/TODO and tests.
-- Repository is source authority, not proof of current deployment. Evidence is scoped by vantage, timestamp, freshness and provenance; process/job/listener/timeout alone cannot establish end-to-end health.
-- Slurm is scheduler-owned. Placement is `KNOWN/UNKNOWN/AMBIGUOUS`; unknown fails closed. No automatic cancel/restart/relocation/resource expansion. Actions require exact scope, preconditions, rollback/fail-closed behavior and post-verification.
-- Architectural boundary: authoritative provider/scheduler adapter. Detached jobs, allocation lifetime and resource truth remain scheduler-owned; a general system may consume typed evidence but must not recreate it.
+### Remote_Compute_Infrastructure
 
-## Repository checkpoint — Lucerna
+- `YuukiAS/Remote_Compute_Infrastructure`: `main@ca0bad392ce1295e76a07a5d8f9c9dd27d3f61d7`.
+- Read Longleaf/Workstation provider contracts, health/freshness model, scheduler architecture, actions, Observer, tests and roadmap/TODO.
+- Repository source is not deployment truth. Slurm remains scheduler-owned; `KNOWN/UNKNOWN/AMBIGUOUS` placement fails closed. No speculative cancel/restart/relocation/resource expansion. Provider actions require exact scope, preconditions and post-verification.
 
-- Read `YuukiAS/Lucerna` at `main@79dd2875d3da33c6a6d80e5e35bea812b84c1ceb`, including product/rules/runtime/history, exact-candidate result and release/tag APIs.
-- Product is a Windows tray/macOS menu-bar status monitor and bounded provider-action UI, not workflow control. Runtime preserves freshness, last attempt/success, consecutive failure, generation, sanitized error and stale/unavailable semantics.
-- Exact candidate `58119733ec98ff253082cd64c0139f73b38d836f` has candidate-bound Windows/macOS evidence; the macOS remote VPS provider remained unproven. Current main is later than that candidate. No matching GitHub release/tag or current-install proof was found; no repository GitHub Actions workflow was found.
-- Architectural boundary: event/status projection and bounded operator surface, not task database, scheduler, semantic verifier or completion authority.
+### Lucerna
 
-## Repository checkpoint — CUHK_Date
+- `YuukiAS/Lucerna`: `main@79dd2875d3da33c6a6d80e5e35bea812b84c1ceb`.
+- Read product/rules, Tauri/package identity, provider runtime, implementation/evidence trees, exact-candidate result and release/tag APIs.
+- Local-first tray/menu-bar monitor and bounded action UI, not workflow controller. Runtime preserves freshness and stale/unavailable semantics. Candidate `58119733ec98ff253082cd64c0139f73b38d836f` has candidate-bound Windows/macOS evidence; current main is later, no matching release/tag/current-install proof was found, and macOS VPS evidence remained limited.
 
-- Read `YuukiAS/CUHK_Date` at `main@9f25c7754d3c80dbe74f5b71016320f55753ae6`; accepted `v0.5.25` targets `3d1229597253c78950b070c7c47646ddb1cb6730`. Read rules, package gates, current product contract/readiness, workflows and unmerged search-indexing branch.
-- Registration and Questionnaire V4 are live; Matching 1.2 remains `inactive_pilot_ready`, opt-in/publication paused and `REAL_MATCHING_STARTED=NO`. This is an explicit founder decision boundary, not an automatic continuation target.
-- Exact source/deployment/run binding, rehearsal/final-batch separation, claim/finalize credentials, locale/responsive/visual/state/security evidence and launch-quality acceptance are project-local gates. The synthetic `0.5.25` matrix recorded `readyForRealUsers=false`, `readyForSeparateReview=true`.
-- Architectural boundary: a general layer cannot consume final credentials, reinterpret a deliberate pause, open real matching or replace product-local safety/privacy/launch gates.
+### CUHK_Date
 
-## Repository checkpoint — Bobbio
+- `YuukiAS/CUHK_Date`: `main@9f25c7754d3c80dbe74f5b71016320f55753ae6`; accepted tag target `v0.5.25 -> 3d1229597253c78950b070c7c47646ddb1cb6730`.
+- Read rules, product contract, readiness, package gates, workflows, release identity and current unmerged search-indexing branch.
+- Registration/V4 collection are live; Matching 1.2 is `inactive_pilot_ready`, publication remains paused and `REAL_MATCHING_STARTED=NO`. Exact source/deployment/run, rehearsal/final-batch, locale/visual/responsive/state/security and credential-consumption contracts are project-local. A general layer cannot reinterpret founder authorization or consume final tickets.
 
-- Read active `develop@a64edfd6c5b11f81599bfcfc327be5964633a7b5` and stable `main@e7d929bad2d4b23939c81920e77390efbce42b96`; develop was 78 commits ahead. Read product/rules, package/gates, current milestone, review index, head and comparison.
-- Zotero owns bibliography, attachments and compatible annotation authority; Bobbio owns LearningTrace and reviewed knowledge. Notion/project wiki are projections.
-- Stable main contains accepted `0.2.0`; develop carries `0.3.0`. Immutable review candidate is `c86baf10a4953a72ea144f846d832fe2ccd8f54f`; moving branch is routing only.
-- Native performance/state/error/visual evidence exists, but fake Zotero Local API evidence is not final isolated-Zotero GUI/round-trip acceptance. GPT Work can admit only the next gate; user readiness and main promotion remain `NO`.
-- Architectural boundary: generic aggregation cannot replace Figma/whole-screen craft, Zotero compatibility, provenance or human knowledge verification.
+### Bobbio
 
-## Repository checkpoint — Mica-for-ChatGPT
+- `YuukiAS/Bobbio`: active `develop@a64edfd6c5b11f81599bfcfc327be5964633a7b5`; stable `main@e7d929bad2d4b23939c81920e77390efbce42b96`.
+- Read product/rules, architecture authority, package/gates, milestone, Figma/native review index and branch comparison.
+- Zotero owns bibliography/attachments/compatible annotations; Bobbio owns LearningTrace/reviewed knowledge. Stable main has accepted `0.2.0`; immutable `0.3.0` review candidate is `c86baf10a4953a72ea144f846d832fe2ccd8f54f`. Native self-QA is not final isolated-Zotero round-trip acceptance; user readiness/main promotion remain closed.
 
-- Read `YuukiAS/Mica-for-ChatGPT` at `main@7059c0dc24b908b57bd0e1f475142ba4f4520621` and divergent recovery branch `codex/mica-product-recovery-current-gpt-ui@0065a7ba841f72244e6bc1dbce0b5ec2ada12d35` (11 ahead, 27 behind main). Read branch README, rules, product contract, package/gates, result and independent-review history.
-- Product is a local Manifest V3 extension over an unstable ChatGPT web surface. It must fail open on unknown private API/DOM structures, preserve native auth/tools/streaming, remain local, exclude conversation text from diagnostics and avoid automated use of the user’s authenticated account for regression.
-- Candidate `0.4.1` offers export/highlighting, guarded send-state recovery and long-thread windowing. Independent review failed two exact candidates before passing runtime commit `0f2d40e16b2dcd0af8f7d567981dce7bf7b656cc` with P0/P1/P2 zero and package SHA-256 `453181fde35f25defbaef770264d3e4cb59200c3d25decde4bc50e11d6df2f92`.
-- Result remains `partial_complete`: ready for one consolidated user acceptance, not release. Authenticated ChatGPT/Notion behavior and current installed extension are `PENDING_HUMAN_ONLY`; the recovery branch is not canonical main.
-- Architectural boundary: Mica is a fragile-entry adapter whose final truth requires a bounded manual real-site gate. Fixtures/package review cannot prove live platform compatibility; a general controller must not automate retries or authorization across the unstable UI.
+### Mica-for-ChatGPT
 
-## Repository checkpoint — SeminarArc
+- `YuukiAS/Mica-for-ChatGPT`: `main@7059c0dc24b908b57bd0e1f475142ba4f4520621`; divergent recovery branch `codex/mica-product-recovery-current-gpt-ui@0065a7ba841f72244e6bc1dbce0b5ec2ada12d35`.
+- Read branch product contract, rules, package/gates, result and independent-review history.
+- Local MV3 extension over unstable ChatGPT DOM/private APIs. Exact runtime `0f2d40e16b2dcd0af8f7d567981dce7bf7b656cc` passed independent offline review after two failed candidates; package SHA-256 `453181fde35f25defbaef770264d3e4cb59200c3d25decde4bc50e11d6df2f92`. Authenticated ChatGPT/Notion and current installed extension remain human-only/unverified; recovery branch is not canonical main.
 
-- Read `YuukiAS/SeminarArc` at `main@5652fe17ce60625f3ff7c758fcc0183f920189de`, including README, rules, QA closeout, current head, Android build identity and published prerelease metadata.
-- Product is a local-first native Android seminar workflow with Room/WorkManager persistence. Missing cloud ASR, online summary, Notion upload and formula OCR are explicitly unavailable rather than represented by fake actions.
-- Published internal prerelease `v0.5.0-alpha.2` is bound to commit `122dfb8ce5203e3960aacd6c1c3a73cfdd851a15`, application id `com.yuukias.seminararc.internal`, version code `50002`, APK SHA-256 `5e382f3237a346b60b924716a9d53c3001d467c41517c85a13319117724e49ff`. Current main is later and adds GPT Work acceptance infrastructure.
-- Producer evidence includes Gradle/unit/lint, 24 API-36 instrumentation tests, install/launch/update-in-place/signing continuity, 9/9 private-slide OCR/persistence, 33 visual states over five profiles and 3,750 fixed-seed events across API 36/API 29 without unexplained crash/ANR. Emulator camera limitations were not called PASS.
-- Current main freezes earlier product candidate `64b5321` and prepares, but does not execute, a serial P01–P08 independent Android black-box campaign. Existing alpha remains dogfood; production/Google Play is not ready.
-- Architectural boundary: preserve source/APK/device identity and order project-approved emulator/reviewer/hardware gates. Do not launch campaigns without authority, treat emulator evidence as hardware acceptance, fabricate unavailable providers or promote dogfood to production.
+### SeminarArc
 
-## Repository checkpoint — Asteria
+- `YuukiAS/SeminarArc`: `main@5652fe17ce60625f3ff7c758fcc0183f920189de`.
+- Read product/rules, Android identity, QA closeout, current head and published prerelease.
+- Published internal APK `v0.5.0-alpha.2` is bound to commit `122dfb8ce5203e3960aacd6c1c3a73cfdd851a15`, application id `com.yuukias.seminararc.internal`, version code `50002`, SHA-256 `5e382f3237a346b60b924716a9d53c3001d467c41517c85a13319117724e49ff`. Current main is later and prepares, but does not execute, GPT Work acceptance. Emulator/visual/stress evidence does not close microphone, camera, background/ROM or production-signing/Play gates.
 
-- Read `YuukiAS/Asteria` at `main@193c033659a7612a99442763077217b130e9b756`; read README, rules, package/gates, roadmap/TODO, CAT-TRACE bridge contract, exact RC19 result, current head and tag/release APIs.
-- Asteria 2.0 is a Web shell for a canonical typed statistical-model graph projected as Architecture, Lineage and Evidence. Current source version is `2.0.0-rc.19`; exact implementation candidate is `4c32c42236b4a601fbb2d31e265200cbb90b57b4`, with current head only finalizing result metadata.
-- RC19 has candidate-bound regression, Playwright, layout/performance, screenshot pack and recorded fixed-public-URL smoke. Current live deployment was not reprobed. Stable `2.0.0` is not released; next gates are one parent GPT Work campaign, consolidated triage and final human acceptance.
-- CAT-TRACE bridge is deliberately read-only and commit-pinned. Current source contains schema/validator and synthetic fixture only; code binding may show implementation/test/blocker/staleness but cannot close a theorem or update scientific truth.
-- Architectural boundary: a general layer may bind source, public-deployment observation, review pack and bridge status, but cannot replace graph/science semantics, visual review, current live proof or stable release decision.
+### Asteria
 
-## Repository checkpoint — CARE_Challenge
+- `YuukiAS/Asteria`: `main@193c033659a7612a99442763077217b130e9b756`.
+- Read product/rules, package/gates, roadmap/TODO, CAT-TRACE read-only bridge contract, RC19 exact result, head and release/tag APIs.
+- Asteria 2.0 is a typed statistical-model graph Web shell. Exact RC19 implementation candidate `4c32c42236b4a601fbb2d31e265200cbb90b57b4` has candidate-bound tests/screenshots and recorded fixed-URL smoke; current live deployment was not reprobed and stable 2.0 is unreleased. CAT-TRACE bridge can project code status but cannot close theorems or mutate scientific truth.
 
-- Read `YuukiAS/CARE_Challenge` at active experimental `develop@184cc16bc00dbb4edce80e2c848bdaabae4f782e` and stable/default `main@75a40e454de43b64e59a0b0b438ff57ef2bb8345`; develop was 665 commits ahead and four behind main. Read rules/GPT entry, Agent-Flow v3 authority, frozen CARE-ASE contract, tracked state, formal-training request/state/monitor/checkpoints, deterministic CI and latest user-authorized outer diagnostic.
-- Agent-Flow v3 separates Planner, Critic, Controller, Verifier and Executor. Controller owns transactions, not science or implementation; Verifier can block only against frozen requirement IDs; Executor cannot edit tests/contracts. Typed ordinary failures route to same-scope repair; user escalation requires a Planner-classified irreducible scientific choice.
-- CARE-ASE implementation fidelity reached `PLANNER_PASS`, `CRITIC_FINAL_PASS`, `VERIFIED_COMPLETE` and `AWAIT_HUMAN_DECISION`; this did not authorize training, outer, upload, Docker, main promotion or scientific superiority. A later request authorized 14,000-step folds 2/3 plus inner evaluation while still forbidding outer and downstream release actions; outer diagnostics are separately user-authorized and diagnostic only.
-- The contract is deeply project-specific: modality/label semantics, architecture, samplers, losses, stages, exact-resume checkpoint schema, no-T2 exclusion, full-volume inference and protected known-bads. Generic orchestration cannot infer these gates.
-- Tracked formal-training `CURRENT.json` is stale (pre-GPU/zero steps) while a state-sync receipt points to live-monitor evidence and the repository contains 23 verified schema-v4 checkpoints plus inner/fair evaluations. Latest tracked monitor still says `RUNNING_NOT_COMPLETE`; current Slurm/tmux truth was not probed. One mutable status file is therefore not sufficient authority.
-- Latest user-authorized outer comparison at fold2 step13000/fold3 step12000 reports edema nearly matching but slightly below nnU-Net, while combined scar worsens and fold3 partial/no-T2 scar collapses. It forbids checkpoint selection/early stopping. No tracked source proves both folds at the frozen 14,000-step terminal target or a scientific win.
-- Architectural boundary: reuse frozen requirement ledgers, content-addressed review targets, typed failure routing, authority separation, incremental invalidation and durable finalization where needed. Do not generalize the five-role control plane as the default, reinterpret monitor activity as completion, select checkpoints, access outer data, submit/cancel compute, promote branches or make scientific claims without exact authorization.
+### CARE_Challenge
+
+- `YuukiAS/CARE_Challenge`: experimental `develop@184cc16bc00dbb4edce80e2c848bdaabae4f782e`; default `main@75a40e454de43b64e59a0b0b438ff57ef2bb8345`.
+- Read rules/GPT entry, Agent-Flow v3 authority, frozen CARE-ASE contract, tracked state, formal-training request/receipts/live monitor/checkpoints, CI and user-authorized outer diagnostic.
+- Role/frozen-contract/finalization patterns are valuable but deeply project-specific. Tracked `CURRENT.json` is stale relative to checkpoint/receipt evidence, and latest tracked monitor remains `RUNNING_NOT_COMPLETE`; no current live Slurm process was probed. Outer diagnostic is not checkpoint selection or a final scientific win. Generic control cannot access outer data, submit/cancel resources or choose science.
 
 ## Official current integration sources
 
-All external sources below were read from official primary documentation on 2026-10-15.
+All read from official primary documentation on 2026-10-15.
 
-### OpenAI Codex and ChatGPT execution surfaces
+- OpenAI: Windows app projects/tasks/worktrees; hierarchical `AGENTS.md`; non-interactive `codex exec`/resume/JSONL/structured output; app-server JSON-RPC; Codex SDK; GitHub Action; cloud environments; lifecycle hooks; plugin hooks/MCP; sandbox/approval boundaries.
+- Key finding: explicit hooks, `codex exec`, SDK and app-server are legitimate integration points, but documentation alone does not prove universal authority over every existing normal UI turn. Installation, trust and real entry testing remain required.
+- GitHub: protected branches, rulesets, merge queue, required checks/deployments and artifact attestations. These bind source/review/build provenance when correctly configured; skipped/incorrect checks and target-machine/runtime facts remain outside their proof. Attestation proves origin, not correctness.
+- Slurm: `sbatch`, `squeue`, `sacct`, state codes, dependencies and `scontrol`. Submission is not execution/completion; scheduler state is not scientific validity. Durable compute should use scheduler-native dependencies/checkpoints and terminal accounting.
 
-- `https://learn.chatgpt.com/docs/windows/windows-app`: Windows desktop projects/chats, worktrees, scheduled tasks, Git/browser/file surfaces, native PowerShell/Windows sandbox or WSL2, and separate Windows/WSL Codex homes unless deliberately shared. Normal entry is a user-opened project/chat; source does not establish universal interception of arbitrary existing chats.
-- `https://learn.chatgpt.com/docs/agent-configuration/agents-md`: hierarchical global/project `AGENTS.md`, read before work and once per run/session; changed instructions require a new run or restart; combined instruction limits apply.
-- `https://learn.chatgpt.com/docs/non-interactive-mode`: explicit `codex exec` entry for CI/scheduled/CLI use; default read-only sandbox, JSONL event stream, structured-output schemas and `exec resume`. It controls explicitly started/resumed threads, not arbitrary desktop turns.
-- `https://learn.chatgpt.com/docs/app-server`: JSON-RPC integration for authentication, history, approvals and streamed events; stable stdio JSONL and experimental WebSocket. It is a viable custom-client boundary, not proof that an external product can attach to any pre-existing normal UI turn.
-- `https://learn.chatgpt.com/docs/codex-sdk`: programmatic local Codex threads for CI/internal tools/apps; app-server is preferred when a custom client needs full auth/history/approval/event integration.
-- `https://learn.chatgpt.com/docs/github-action`: GitHub-event-driven `openai/codex-action` running `codex exec`, with sandbox/output/version controls. Useful for explicit CI automation, not local Windows entry interception.
-- `https://learn.chatgpt.com/docs/environments/cloud-environments`: explicit cloud task/environment entry and isolated workspaces that can continue after the local computer sleeps. This is a distinct execution surface and authority boundary.
-- `https://developers.openai.com/docs/hooks` (and localized official mirrors): lifecycle hooks including `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `Stop` and `SessionEnd`; non-managed hooks are hash-trusted and changed hooks are skipped until reviewed. Background hooks cannot block/approve/change the triggering action. Cloud/local support differs.
-- `https://developers.openai.com/plugins/build/plugins`: plugins can package skills, MCP and Codex lifecycle hooks, but web installation does not deploy local scripts and enabled plugin hooks remain untrusted until reviewed.
-- `https://learn.chatgpt.com/docs/sandboxing`: sandbox and approvals are distinct controls; sandbox bounds autonomous action while approvals gate boundary crossings.
+## Mature alternatives
 
-Architectural reading: OpenAI now exposes several legitimate explicit integration points—trusted hooks, `codex exec`, SDK and app-server—but none, by documentation alone, proves automatic authority over every existing Windows App/server chat. A proposed normal-entry adapter must be separately installed, trusted and live-tested on each surface and must fail closed when absent.
+- Temporal: durable event history and replay for workflows that must outlive processes and reliably retry side effects; too heavy as a universal layer and would create a second control plane.
+- Nextflow/Snakemake: strong opt-in scientific DAG/scheduler/cache/resume tools; do not solve product/UI/semantic acceptance and may not justify migration of existing CARE contracts.
+- MLflow/DVC: experiment/model/data lineage where needed; not task/scheduler/scientific approval authority.
+- OpenTelemetry: non-authoritative traces/metrics/logs.
+- Playwright: project-local browser actions and screenshot/trace evidence, not native/hardware/human acceptance.
 
-### GitHub source, review and artifact gates
+## First-stage independent candidates
 
-- `https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches`
-- `https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue`
-- `https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets`
-- `https://docs.github.com/en/actions/concepts/security/artifact-attestations`
-- `https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations`
+- Wrote and read back `01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md` before opening historical architecture materials.
+- Independent conclusion: reject a universal controller; retain no-new-system baseline; compare GitHub-only, durable workflow, CARE-style role graph, domain tools and a thin entry/evidence candidate. Initial recommendation was a thin entry-binding + evidence-envelope + project-gate layer, subject to normal-entry proof and kill criteria.
 
-Findings: branch protections/rulesets can require status checks, up-to-date target integration, merge queue, deployments and scanning; merge-queue workflows must handle the `merge_group` SHA. Artifact attestations bind an artifact digest to repository, workflow, environment, commit and event, but official guidance explicitly says provenance is not security/correctness proof and must be verified. GitHub is strong source/review/build provenance authority only to the extent that project checks test the real required surface; it cannot prove a target machine’s installed runtime or an untested semantic requirement.
+## Authorized history challenge
 
-### Official Slurm semantics
+Read only the four authorized roots:
 
-- `https://slurm.schedmd.com/sbatch.html`
-- `https://slurm.schedmd.com/squeue.html`
-- `https://slurm.schedmd.com/sacct.html`
-- `https://slurm.schedmd.com/job_state_codes.html`
-- `https://slurm.schedmd.com/scontrol.html`
+1. `09_FULL_DOSSIER_V0_6/`: README, four volumes, PDF build prompt/report and independent-critic contract. v0.6 correctly identified proxy goals, non-consumed resources, wrong observers and unowned closure, but its twelve central responsibilities conflict with the no-second-control-plane claim. The Lucerna run remained hypothetical; PDF source/build/review identities were distinct.
+2. `10_POST_CRITIC_REDESIGN_V0_7/`: full decision, blocker dispositions, role/capability boundaries, reviewer/evidence, artifact/Lucerna, normal-entry/adoption and provisional GPT-5.5 topics. v0.7 correctly removed the central runtime and mapped lawful roles/side effects, but risked becoming a non-executable responsibility document.
+3. `11_THREE_CRITIC_RECONCILIATION_V0_8/`: full proposal, five-command executable kernel, three evidence contracts, reviewer admission, seven-repository matrix, mature tools, PDF identity, 363-row methodology/matrix, blocker disposition, manifest and R2 prompt. All 363 rows remain `NOT_VALIDATED_ON_NORMAL_ENTRY`; no R2 PASS or real pilot was present. The five commands reduce ambiguity but duplicate Bridge/project responsibilities and are not proven to have net value.
+4. `12_.../original_reviews/`: read GPT-5.5 REVISE, GPT-5.6 REJECT, GPT-6 decision/full review/four-volume claim review and historical Planner prompt. GPT-5.6’s fundamental rejection supports no new platform; GPT-5.5 requires a genuinely executable minimum; GPT-6 requires legal Bridge-stage mapping and complete pre-side-effect capability closure.
 
-Findings: `sbatch` exits after transferring the script and receiving a job ID, so submission is not execution or completion. Slurm distinguishes pending, running, completed-zero, failed, timeout, OOM, node failure, cancellation and preemption; dependencies such as `afterok`/`afternotok` are scheduler-native. `squeue` is live queue evidence and frequent polling can burden the controller; `sacct` provides terminal accounting. Scheduler state still does not prove scientific artifact validity, aggregation or interpretation. Durable continuation should use scheduler-native dependencies/checkpoints and bounded accounting, not a Codex chat as job-lifetime owner.
+## Candidate revision after history
 
-## Mature alternatives checkpoint
+- Wrote and read back `02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md`.
+- Revised recommendation: no independent common runtime or five-command `assure` product. Retain candidate 0 as a possible final answer. If and only if baseline comparison justifies it, research a Bridge-native delivery-evidence contract consisting of an entry-binding receipt plus one pure candidate/evidence consistency validator. Project scripts own probes/collection/semantics; existing Bridge/CI/Reviewer/Slurm owners consume results and retain all lifecycle/authorization authority.
+- Removed universal lifecycle states and common `VERIFIED_COMPLETE/NO_GO`; project decision semantics remain authoritative. Reviewer qualification stays project/field-owned with only scoped references in the evidence envelope.
 
-All sources below are official project documentation read on 2026-10-15.
-
-- Temporal — `https://docs.temporal.io/temporal`, `https://docs.temporal.io/workflows`, `https://docs.temporal.io/ai/featured/memory-state-stripe`: durable event history, deterministic workflow replay and side-effecting Activities. Appropriate when business work must outlive processes and reliably wait/retry side effects; documentation also distinguishes short, cheap, safe coding tasks where existing Git/runtime recovery may be sufficient. A universal Temporal layer would create a second durable control plane and high adaptation cost.
-- Nextflow — `https://nextflow.io/` and official executor/training documentation: scientific pipeline DAGs, scheduler executors including Slurm, cache/checkpoint-like resume from completed tasks and reproducible dataflow. Strong opt-in for explicit compute pipelines, not product/UI quality, user acceptance or general Codex delivery.
-- Snakemake — `https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html` and official Slurm executor/profile documentation: file/DAG-based scientific workflow, retries, incomplete-output handling and cluster submission. Same bounded fit as Nextflow; migration of an existing highly stateful training system may cost more than it saves.
-- MLflow — `https://mlflow.org/docs/latest/ml/tracking/` and `https://mlflow.org/docs/latest/ml/model-registry/`: run parameters, code versions, metrics, artifacts, checkpoints/datasets and model lineage/version/aliases. Useful experiment/model registry, not scheduler, task authority or scientific approval.
-- DVC — `https://dvc.org/doc/user-guide/experiment-management` and related official experiment/pipeline pages: Git-parented experiment snapshots, dependency-aware pipeline reproduction, parameters/metrics/plots and remote model/data artifacts. Useful where data/model lineage is currently weak; only tracked Git/DVC files are reproducible, and it does not replace semantic gates or scheduler truth.
-- OpenTelemetry — `https://opentelemetry.io/docs/` and semantic-convention documentation: vendor-neutral traces, metrics and logs. Suitable for non-authoritative observability and event projection; unsuitable as a completion database.
-- Playwright — `https://playwright.dev/docs/test-snapshots` and screenshot documentation: browser/user-surface automation and screenshot comparison. Valuable project-local Web evidence, but screenshots and automated paths cannot replace inaccessible native/hardware/human gates.
-- GitHub artifact attestations provide build provenance for release binaries/containers and can be verified through the GitHub CLI. They should be added only for user-consumed release artifacts, not every test build; attestations bind origin and build, not product correctness.
-
-Cross-tool conclusion before history: mature tools strongly support a compositional architecture. Git/GitHub own source/review/build lineage; Bridge or explicit Codex integration owns bounded session/executor identity; project code owns semantic acceptance; Slurm/Nextflow/Snakemake own eligible compute lifetime; MLflow/DVC may own experiment lineage; OpenTelemetry/Lucerna own projection. No mature source supports collapsing these authorities into one universal semantic controller.
-
-Record only sources actually read. Do not infer machine state from repository state, do not read another runner’s output and do not treat official tool capability as proof that it is installed or consumed in the user’s environment.
+Record only sources actually read. Do not infer machine state from repository state, do not read another runner’s output and do not treat capability documentation or historical plans as installed/current truth.
