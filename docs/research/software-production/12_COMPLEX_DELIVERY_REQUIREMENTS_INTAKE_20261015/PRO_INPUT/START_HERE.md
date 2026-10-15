@@ -6,7 +6,9 @@
 
 ## 三个独立研究运行的隔离与恢复合同
 
-本轮预计并行运行三个独立研究者。启动消息必须同时给出唯一的 `RUNNER_ID` 和 `OUTPUT_ROOT`，且只能使用以下预留组合之一：
+本轮预计并行运行三个独立研究者。三个研究者的共同问题输入冻结于 `INPUT_SNAPSHOT_COMMIT=b7537eefbb526de9d79dcc6a578624ff35618583`。读取本目录四份第一阶段输入时必须使用这一固定提交，而不是读取随后不断前进的分支头；这样后启动的研究者也看不到别人的研究结果。
+
+启动消息必须同时给出 `INPUT_SNAPSHOT_COMMIT`、唯一的 `RUNNER_ID` 和 `OUTPUT_ROOT`，且只能使用以下预留组合之一：
 
 - `RUNNER_ID=GPT6_PRO` → `OUTPUT_ROOT=docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEARCH_GPT6_PRO_R0`
 - `RUNNER_ID=GPT56_PRO` → `OUTPUT_ROOT=docs/research/software-production/14_INDEPENDENT_ARCHITECTURE_RESEARCH_GPT56_PRO_R0`
@@ -34,7 +36,7 @@
 
 一个 checkpoint 必须先把本批次可复用的事实/结论写入 OUTPUT_ROOT，再继续下一个大批次。不要让大量只存在于网页对话上下文中的研究成果长期未落盘。
 
-如果网页连接中断、上下文重置或新线程接手：**先读自己 OUTPUT_ROOT 中的 RUN_STATE.md、SOURCE_LOG.md 和已提交阶段产物，从 next_action 继续；不要从头重读所有仓库。** 只有来源从记录的 ref/commit 发生实质变化、记录不一致或该 source batch 明确未完成时才补读。恢复不能重新执行生产动作，因为本轮本来就只读。
+如果网页连接中断、上下文重置或新线程接手：**先读自己 OUTPUT_ROOT 中的 RUN_STATE.md、SOURCE_LOG.md 和已提交阶段产物，从 next_action 继续；不要从头重读所有仓库。** 第一阶段共同输入仍以 INPUT_SNAPSHOT_COMMIT 为准；只有 SOURCE_LOG 明确记录某个外部仓库需要刷新时才重新核对。 只有来源从记录的 ref/commit 发生实质变化、记录不一致或该 source batch 明确未完成时才补读。恢复不能重新执行生产动作，因为本轮本来就只读。
 
 如果一开始无法稳定写入自己的 OUTPUT_ROOT，则立即停止深度研究并报告研究基础设施缺口；不能先研究数小时再把唯一成果留在网页会话里。
 
@@ -122,7 +124,7 @@
 
 ## 第三阶段：形成研究结论，而不是直接实现
 
-最终研究应写出：
+最终研究写入 `<OUTPUT_ROOT>/03_FINAL_ARCHITECTURE_RESEARCH.md`，并写出：
 
 - 推荐的产品/系统形态，或明确说明仍缺哪个决定性实验才可选择；
 - 用户正常从 Windows Codex App / 服务器 Codex 使用时的真实入口；
