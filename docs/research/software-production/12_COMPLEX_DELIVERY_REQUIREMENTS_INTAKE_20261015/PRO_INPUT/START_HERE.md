@@ -4,6 +4,8 @@
 
 目标：独立研究“复杂任务自动交付系统”究竟应该是什么、是否值得建立，以及怎样真实介入 Windows/服务器 Codex、发现假完成并驱动返修、处理 Slurm/HPC 与不同平台专业验收。**第一阶段不得继承任何旧架构答案。**
 
+启动消息必须提供唯一的 `OUTPUT_ROOT`。该目录是本研究线程唯一允许写入的 GitHub 研究目录；不同独立研究线程必须使用不同 `OUTPUT_ROOT`，不得读取或修改另一线程的输出。
+
 ## 第一阶段：只读这四份输入
 
 按顺序完整读取：
@@ -30,7 +32,7 @@
 
 ## 第一阶段随后必须直接核实的真实来源
 
-在不修改任何仓库、不启动 Codex、不碰 Windows 用户会话、不提交或取消 Slurm、不运行付费或高成本实验的前提下，直接读取当前真实实现：
+除启动消息给出的 `OUTPUT_ROOT` 外，不修改任何仓库；不启动 Codex、不碰 Windows 用户会话、不提交或取消 Slurm、不运行付费或高成本实验。在这个边界内直接读取当前真实实现：
 
 - YuukiAS/Lucerna
 - YuukiAS/CUHK_Date
@@ -49,9 +51,9 @@
 
 ## 第一阶段必须先写出的结果
 
-**在阅读任何旧方案之前**，先在当前研究分支新建：
+**在阅读任何旧方案之前**，先在启动消息指定的 `OUTPUT_ROOT` 下新建：
 
-docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEARCH_R0/01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md
+`<OUTPUT_ROOT>/01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md`
 
 至少包含：
 
@@ -82,7 +84,7 @@ docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEARCH_R0/01_IND
 
 第二阶段写：
 
-02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md
+`<OUTPUT_ROOT>/02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md`
 
 逐一回答：历史失败是否击中你第一阶段候选；哪些候选被淘汰；哪些只需局部修订；哪些旧机制值得成熟复用；为何。
 
@@ -100,7 +102,7 @@ docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEARCH_R0/01_IND
 - 与“不建新通用系统”的净收益比较；
 - 最小只读/低副作用技术探针列表，以及每个探针会支持或否决哪条路线。
 
-**本轮只做只读架构研究。** 不创建正式产品仓库，不修改六软件/CARE/Bridge/AI Skills，不启动 Codex 执行器、Windows 真实验收、Slurm 作业、付费调用或常驻服务。需要实机探针时，只写清楚未来需什么授权。
+**本轮只做只读架构研究；唯一写入例外是启动消息指定的 `OUTPUT_ROOT` 研究目录。** 不创建正式产品仓库，不修改六软件/CARE/Bridge/AI Skills，不启动 Codex 执行器、Windows 真实验收、Slurm 作业、付费调用或常驻服务。需要实机探针时，只写清楚未来需什么授权。
 
 ## 不需要读的东西
 
