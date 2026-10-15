@@ -27,8 +27,13 @@ WRITE_PREFLIGHT=PASS
 | R08 SeminarArc | checkpoints/08_SEMINARARC.md | 8df8b18a8ab0d5a84180ee42b0b15ccbe96e196f |
 | R09 Asteria | checkpoints/09_ASTERIA.md | b7c9ae384bed31ff55a1fdf4ffbee658b2a0aa21 |
 | R10 CARE_Challenge | checkpoints/10_CARE.md | 78eda260bc2dd04cf3e9cd3c3a58fe432f4d796e |
+| O11A 官方Codex接口、hook、目标与原生任务 | checkpoints/11A_OFFICIAL_CODEX.md | f3c437c1478d8644185bbdafc0b785d1fbf78fb5 |
 
 INPUT–R09均已读回，R09 blob21b32cec2a350d7812d095dcc1ddddc026e1d7ec。R10 main75a40e454de43b64e59a0b0b438ff57ef2bb8345、develop184cc16bc00dbb4edce80e2c848bdaabae4f782e，分叉665/4；显式develop v3实验与main普通工作边界区分。已读v3精确线程续接实际Popen/身份/锁/事件代码，不能误报仓库只有提示词；也不等于任意Windows App线程接管。Slurm确定性finalizer、历史会计夹具、8月科学诊断/单层Docker事故已读；未运行。本批次写后立即读回。
+
+## 本次恢复后的追加
+
+2026-10-15：从OFFICIAL_SOURCE_VERIFICATION恢复，未重读十仓库。当前合同blob f06d84ed06669fb3a84593a64ba680e4c740a9f7；R10读回blob54e0a31860ca32e7a0bb48f4130a1fe5129b418a。O11A已按提交f3c437c1478d8644185bbdafc0b785d1fbf78fb5读回，blob f4d789a8b268fc8bfdb948fdade691e35ebe9cfe。官方已存在同步Stop原线程续接、原生/goal、精确SDK/CLI续接；但hook信任/云本地差异、实验app-server及实际Windows可用性必须分别证明。codex mcp-server当前官方标记移除，不作为新候选。详细官方URL/定位见O11A。
 
 ## 边界
 
