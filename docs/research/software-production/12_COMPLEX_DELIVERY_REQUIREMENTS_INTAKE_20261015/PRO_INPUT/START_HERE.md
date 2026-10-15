@@ -16,6 +16,19 @@
 
 三个研究者共享同一冻结输入，但**不得读取、修改、引用、比较或等待另外两个 OUTPUT_ROOT**。所有研究写入仅允许发生在自己的 OUTPUT_ROOT。遇到 GitHub 并发提交冲突，只重新读取当前分支后重试自己的文件，禁止通过覆盖、reset、force、删除或修改其他研究目录解决冲突。
 
+### 写入能力是研究启动硬门槛
+
+**任何实质研究、批量读取七项目或外部资料之前，必须先证明本线程真的能写入自己的 OUTPUT_ROOT。**
+
+合法的写入预检有两种情况：
+
+1. 若 `RUN_STATE.md` / `SOURCE_LOG.md` 已经由**同一 RUNNER_ID**在本线程中成功更新，并且 SOURCE_LOG 记录了对应 GitHub commit 且已读回核对，则写入预检已经通过；**直接复用，不要重复创建文件，也不要从头开始。**
+2. 否则，在自己的 OUTPUT_ROOT 创建 `STARTUP_WRITE_PROBE.md`，内容至少包含 RUNNER_ID、OUTPUT_ROOT、INPUT_SNAPSHOT_COMMIT 和 `WRITE_PROBE_STATUS: CREATED_BY_THIS_RUN`；随后必须通过 GitHub **重新读取该文件**，逐项核对一致。只有写入成功且读回一致，才允许把 RUN_STATE 改成 `STATUS: IN_PROGRESS` / `PHASE: INPUT_READING` 并开始四份冻结输入。
+
+如果创建、更新或读回失败：**立即停止，不开始研究，不批量读取任何产品仓库，不把成果只留在网页上下文。** 只报告准确的 GitHub 写入错误和当前 OUTPUT_ROOT，不尝试其他目录、不覆盖别人的目录、不让用户在研究结束后才发现无法落盘。
+
+完成写入预检后，在 SOURCE_LOG 明确记一行 `WRITE_PREFLIGHT=PASS` 及实际证明它的 commit/path；恢复线程可直接复用这一事实，除非当前 GitHub 已无法再次读取该恢复锚点。
+
 ### 预建启动模板不是并行冲突
 
 每个预留 OUTPUT_ROOT 在研究开始前已经由研究管理员预建两份**合法启动模板**：
