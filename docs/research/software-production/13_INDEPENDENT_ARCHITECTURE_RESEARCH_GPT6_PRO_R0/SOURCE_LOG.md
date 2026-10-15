@@ -8,17 +8,18 @@ INPUT_BRANCH: research/software-production-decision-20261013
 ## 启动写入预检
 
 WRITE_PREFLIGHT=PASS
-- 写入路径：本目录 `STARTUP_WRITE_PROBE.md`。
-- 实际 GitHub 写入提交：`91b1dc946e89b5670c83192ab5d597d29df564c4`。
-- 随后通过 GitHub fetch_file 在当前分支重新读取；blob `cec34037bd2cf0dcab81f468db188dcad04be545`。RUNNER_ID、OUTPUT_ROOT、INPUT_SNAPSHOT_COMMIT、WRITE_PROBE_STATUS、PROBE_NONCE 和完整正文逐项一致。
-- 预检发生于四份冻结输入及任何产品/外部实质研究之前。
-- 当前运行合同：`12_COMPLEX_DELIVERY_REQUIREMENTS_INTAKE_20261015/PRO_INPUT/START_HERE.md`，当前分支 blob `34fde56b79b7aca53af64370074cf55be23928d2`，已完整阅读运行/隔离/恢复与三阶段要求。
-- 管理员预建 RUN_STATE/SOURCE_LOG 与本运行身份和快照匹配；合法接管，不构成输出冲突。
+- 路径：`STARTUP_WRITE_PROBE.md`；实际写入提交 `91b1dc946e89b5670c83192ab5d597d29df564c4`。
+- GitHub读回 blob `cec34037bd2cf0dcab81f468db188dcad04be545`；身份、输出路径、输入快照、状态、nonce与完整正文一致。发生于任何实质研究之前。
+- 运行合同：当前分支 `12_COMPLEX_DELIVERY_REQUIREMENTS_INTAKE_20261015/PRO_INPUT/START_HERE.md`，blob `34fde56b79b7aca53af64370074cf55be23928d2`。匹配管理员预建模板，合法接管。
 
-## 来源记录原则
+## 已完成来源
 
-只记录实际读取的来源、精确版本、用途及可复核事实。每个仓库读完立即落盘并更新 RUN_STATE。禁止读取、比较或修改其他研究者的输出。阶段 checkpoint 不等待审批。
+### INPUT — 四份冻结问题输入
 
-## 已完成来源批次
+按顺序完整读取冻结提交中 PRO_INPUT/01、02、03、04；61问、363条历史登记和来源边界全部读完。CSV分段展开所有截断，另补读CARE C37。363=246+25+40+52，不能当363个当前bug。
 
-尚未开始实质研究；下一动作：依序读取冻结提交中 PRO_INPUT 的 01、02、03、04。
+事实与下一步：`checkpoints/00_INPUT_FACTS.md`，首次提交 `da3a090a80ec5f829b9a8322555f8aa4a733877d`。独立阶段尚未接触任何历史架构/审查或其他研究者输出。
+
+## 记录原则
+
+只记录实际读过的源。仓库源码、历史运行记录与当前机器实测严格分开。每个仓库读完立即新增事实checkpoint，并更新本日志和RUN_STATE。恢复沿next_action继续，禁止从头重读；checkpoint不构成审批。
