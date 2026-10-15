@@ -1,3 +1,5 @@
+> **作废草案：请勿复制、发送或启动。** 本文件只是历史研究合同草稿，撰写时需求档案和原始审查还在归档，不能代表用户确认覆盖。唯一当前阅读入口是 [README](README.md) 和 [10号发送门槛](10_SEND_GATE_AND_OPEN_QUESTIONS.md)。现阶段不准备 GPT Pro 提示词。
+
 # 待用户核对：复杂任务自动交付系统的独立架构研究合同（不可直接启动实施）
 
 状态：DRAFT / USER_SCOPE_REVIEW_REQUIRED。日期：2026-10-15。**此文件只为将来 GPT Pro 研究提供仓库内、可直接定位的任务输入；现阶段不视为已获用户确认，也不是 Codex 的实施 Goal 或 Critic PASS。绝不要求用户另行传 ZIP。**
@@ -16,16 +18,16 @@
 
 研究仓库 YuukiAS/AI_Research_Toolkit，分支 research/software-production-decision-20261013，核心目录 docs/research/software-production/12_COMPLEX_DELIVERY_REQUIREMENTS_INTAKE_20261015/，先完整读取：
 - README.md
-- 00_COMPLETE_USER_REQUIREMENTS.md，REQ-001–REQ-064 加 REQ-P 七项目及新增领域
+- 00_COMPLETE_USER_REQUIREMENTS.md，REQ-001–REQ-075，加 REQ-P 七项目及未来领域八组
 - 01_PRIOR_THREAD_21_QUESTIONS_AND_CURRENT_FOLLOWUPS.md，21项历史问答旧原文与12项最新追问
 - 02_ALL_PROJECT_FAILURE_FAMILIES_AND_CAUSAL_REQUIREMENTS.md
 - 03_THREE_CRITICS_21_BLOCKERS_AND_R1_PROMPT_AUDIT.md（七+十二+二阻塞；三位独立裁决）
 - 04_EXECUTION_ENTRY_SLURM_AND_REAL_REPAIR_DECISION_TREES.md
 - 05_ALL_363_CASES_SOURCE_INDEX.csv：实际解析363条全部 ID、项目、来源、原问题和未验证状态；确认七组数量及 CARE 误配，不依赖旧映射派发任务
 - 06_SOURCES_AND_EVIDENCE_LIMITATIONS.md（重要的未亲读来源与实机不可验证边界）
-- 08_SCOPE_REVIEW_AND_RESEARCH_READINESS_CHECKLIST.md（审查本研究本身有没有遗漏）
+- 10_SEND_GATE_AND_OPEN_QUESTIONS.md（当前发送准入与未关闭事项）及07_ALL_83_REQUIREMENT_COVERAGE_GATE.csv（83项逐条未验）
 - v0.6四卷及原21问、v0.7反转、v0.8完整技术文本/363原矩阵、v0.8冻结提交 e0b98d327231407054074f3450e364b730b7cbe3 与后续审查提示词。
-- GPT-5.5全文在旧 v0.8/reviews/GPT55_R1_ORIGINAL_USER_UPLOAD.md；GPT-5.6和GPT-6的原始全本此时并未被可靠镜像到 GitHub，故当前先依据03已经逐项归档的21条审查阻塞及来源边界；不得假称已亲读另外两份全文。如果此缺口影响独立裁决，应停在源缺口，不把摘要冒充原文。
+- GPT-5.5全文在旧 v0.8/reviews/GPT55_R1_ORIGINAL_USER_UPLOAD.md；GPT-5.6 与 GPT-6 原始全本现已镜像到本目录 original_reviews/，可直接逐文件阅读；同时必须阅读 GPT-5.5 原文。不得仅依据03的概述作出裁决。
 
 同时从已连接 GitHub 实际核对 AI_Skills_Collection 最新角色/能力门/AGENTS、Bridge Kit 最新 README/AGENTS/源码/Reviewed/Control/Persistent Run、CARE_Challenge 专业 Slurm/训练/恢复代码、Remote_Compute_Infrastructure Longleaf 身份/访问事实、六软件当前真实开发分支与正常用户入口。不得以旧 README 或历史摘要推断当前机器实际安装。
 
