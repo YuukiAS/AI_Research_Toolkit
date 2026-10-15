@@ -124,3 +124,9 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - sbatch成功仅已转交并获得jobid；PENDING资源/优先级不是程序失败。afterok是训练成功依赖，afterany负责所有终态核算；失败依赖不会因前置后续requeue成功自动复活。requeue从batch脚本开头执行，必须应用显式加载checkpoint。
 - Slurm完成/exit0也不能证明内部重要步骤或科研语义成功，需step/derived exit、产物和消费者证据。UNKNOWN/会计延迟要保留不确定态，禁止当不存在重新提交。
 - 设计建议（推论非Slurm内置保证）：沿用CARE finalizer单owner+全部attempts+bounded只读观察；排队停模型推理，仅真实事件触发owner续处理。提交响应丢失先按cluster/job identity核对，不能宣称跨网络exactly-once sbatch。
+
+## E4｜平台验收工具
+- 官方[Tauri WebDriver](https://v2.tauri.app/develop/tests/webdriver/)当前推荐WebdriverIO tauri-service；embedded模式支持Windows/Linux/macOS，direct tauri-driver只Win/Linux。不能照旧知识声称macOS完全无路。注入embedded测试构建与真正发行binary/OS tray/DPI须分清。
+- [Playwright extensions](https://playwright.dev/docs/chrome-extensions)要求persistent Chromium context，Chrome/Edge移除某些sideload flags，官方推荐bundled Chromium。这不直接推翻Mica既有Edge测试记录，但使它成为版本/安装机制待核项，不可机械搬旧启动脚本。
+- [Windows UIAutomation](https://learn.microsoft.com/en-us/dotnet/framework/ui-automation/ui-automation-overview)提供可访问性树/controls，适合补原生外壳；[Android UIAutomator](https://developer.android.com/training/testing/other-components/ui-automator)可进程外操作App/systemUI，当前2.4新DSL仍underdevelopment；用项目已验证版本，不为研究追新。
+- 推论：Lucerna/Bobbio需WebView+OS+真实依赖三层，Mica需扩展+livehost，CUHK/Asteria复用Playwright，SeminarArc复用UIAutomator/Compose。不存在一个DOM工具足以覆盖所有真实用户入口。未安装/运行工具。
