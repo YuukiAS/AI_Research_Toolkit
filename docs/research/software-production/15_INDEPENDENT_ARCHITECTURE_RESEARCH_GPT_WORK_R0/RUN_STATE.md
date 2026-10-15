@@ -7,12 +7,12 @@ OUTPUT_ROOT: docs/research/software-production/15_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_BRANCH: research/software-production-decision-20261013
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 STARTING_BRANCH_COMMIT: 4dfc002970bd248ddd1c4157907ec6a421a35932
-STATUS: IN_PROGRESS
-PHASE: FINAL_VERIFICATION
-COMPLETED_SOURCE_BATCHES: P1; R1–R10; E1–E6; P2 independent candidates; H1–H4 history; P3 candidate revision
-PENDING_SOURCE_BATCHES: none; final report QA/write/readback pending
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / P4｜最终研究完成与读回
-NEXT_ACTION: 核对三份远端阶段产物身份与内容，标记本研究完成；无待执行研究批次。
+STATUS: COMPLETE
+PHASE: COMPLETE
+COMPLETED_SOURCE_BATCHES: P1; R1–R10; E1–E6; P2 independent candidates; H1–H4 history; P3 candidate revision; P4 final synthesis; CLOSE exact readback
+PENDING_SOURCE_BATCHES: none
+LAST_STABLE_ARTIFACT: 03_FINAL_ARCHITECTURE_RESEARCH.md @ d203d7f739fd77f2466c06f7e935506cf376afd6
+NEXT_ACTION: NONE — 三阶段研究及最终报告写入/读回全部完成。未来探针另需具体授权，不在本轮执行。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -68,3 +68,12 @@ CHECKPOINT: H4 — 三位原审查及历史返修提示词完整读取
 CHECKPOINT: P3｜历史反证完成与候选修订冻结
 
 CHECKPOINT: P4｜最终研究完成与读回
+
+COMPLETED_AT: 2026-10-15
+RESEARCH_COMPLETE: YES
+FINAL_REPORT_COMMIT: d203d7f739fd77f2466c06f7e935506cf376afd6
+FINAL_REPORT_BLOB: 392e5950005d8edd3a15ba51682e860529642314
+TRILOGY_READBACK: PASS
+CLOSURE_SOURCE_LOG_COMMIT: 395c37538dbaf904497e93da4ec3639c01d40e77
+RUNTIME_PROBES: NOT_EXECUTED (outside current research authorization)
+REMAINING_RESEARCH_WORK: none
