@@ -5,16 +5,16 @@ OUTPUT_ROOT: docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_BRANCH: research/software-production-decision-20261013
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 STATUS: IN_PROGRESS
-PHASE: HISTORY_CHALLENGE_READING
+PHASE: HISTORY_CHALLENGE_SYNTHESIS
 WRITE_PREFLIGHT: PASS
 WRITE_PROOF_COMMIT: 04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8
 WRITE_PROOF_READBACK: VERIFIED
-COMPLETED_SOURCE_BATCHES: four inputs; ten repositories; official11A-11D; frozen01; v0.6 all text; v0.7 all files; v0.8 all files including363 rows and GPT55 original
-PENDING_SOURCE_BATCHES: original_reviews directory; phase02; phase03
-LAST_STABLE_ARTIFACT: checkpoints/14_HISTORY_V08.md
-LAST_STABLE_COMMIT: 8205c1f7c673dc0e8123870d2568f6ae6437ef3c
-LAST_STABLE_READBACK_BLOB: 608083a64f09de4787ef6ccc5f324aea446daf6a
+COMPLETED_SOURCE_BATCHES: four frozen inputs; ten repositories; official11A-11D; frozen01; v0.6 all text; v0.7 all; v0.8 all; original_reviews all unique content
+PENDING_SOURCE_BATCHES: phase02 write/readback; phase03 write/readback; completion verification
+LAST_STABLE_ARTIFACT: checkpoints/15_HISTORY_ORIGINAL_REVIEWS.md
+LAST_STABLE_COMMIT: 48c1f181d90a8f2b723d30d337449ed398111d70
+LAST_STABLE_READBACK_BLOB: f5878fcbf4ffe2c41fe70cd964668fd832a100b5
 HISTORY_SNAPSHOT_COMMIT: 3a8e5df5360c20814bbbf34d7a4f392655437588
-NEXT_ACTION: enumerate original_reviews only and fully read all unique original critiques; checkpoint15; write/readback02 and03; verify all three and mark COMPLETE without waiting
+NEXT_ACTION: write and fully read back02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md; immediately write/readback03_FINAL_ARCHITECTURE_RESEARCH.md; verify all three and mark/read COMPLETE
 
-旧PDF未取得二进制，全部实质文本/图源已读，不宣称视觉通过。01保持不变。十个源仓库不重读，不重复预检，不读另两研究者。仅本人输出可写，不运行实机、Codex执行器、Slurm、数据库、生产或付费高成本。checkpoint非阻塞。
+所有来源研究已完成，不重新开始、不重读十仓库、01不改。旧PDF未渲染的限制保留，不阻止架构综合。只有本人输出可写，不读另两研究者、不运行实机/执行器/Slurm/数据库/生产/付费高成本。checkpoint非阻塞。
