@@ -109,4 +109,12 @@ Read only the four authorized roots:
 - Revised recommendation: no independent common runtime or five-command `assure` product. Retain candidate 0 as a possible final answer. If and only if baseline comparison justifies it, research a Bridge-native delivery-evidence contract consisting of an entry-binding receipt plus one pure candidate/evidence consistency validator. Project scripts own probes/collection/semantics; existing Bridge/CI/Reviewer/Slurm owners consume results and retain all lifecycle/authorization authority.
 - Removed universal lifecycle states and common `VERIFIED_COMPLETE/NO_GO`; project decision semantics remain authoritative. Reviewer qualification stays project/field-owned with only scoped references in the evidence envelope.
 
+## Final synthesis checkpoint
+
+- Wrote `03_FINAL_ARCHITECTURE_RESEARCH.md` in commit `d84a64aa432060ec896b23a078a7b64862185595` and read it back across the complete file.
+- Final decision: do not build a universal production platform, central task database, common scheduler/retry engine, central semantic reviewer or standalone five-command `assure` runtime.
+- Retain the current compositional authority model. Keep “repair existing entrypoints with no new common code” as the mandatory baseline and possible final solution.
+- The only retained research candidate is a Bridge-native delivery-evidence contract: actual entry-binding receipt plus a pure candidate/artifact/evidence consistency validator. It owns no workflow state, project probe/collection, semantic decision, retry, publish, device, Slurm or scientific authority.
+- No implementation or pilot is authorized. Any later experiment requires separate user authorization, an isolated scope, explicit permission/cost boundaries, baseline comparison and predeclared stop conditions.
+
 Record only sources actually read. Do not infer machine state from repository state, do not read another runner’s output and do not treat capability documentation or historical plans as installed/current truth.
