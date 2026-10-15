@@ -11,8 +11,8 @@ STATUS: IN_PROGRESS
 PHASE: HISTORY_CHALLENGE
 COMPLETED_SOURCE_BATCHES: none
 PENDING_SOURCE_BATCHES: PRO_INPUT; core infrastructure; product group A; product group B; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md / H2 — v0.7 八份全文反证
-NEXT_ACTION: 完整读取11_THREE_CRITIC_RECONCILIATION_V0_8全部文本。
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md / H3 — v0.8 全文、363行矩阵及原GPT55反证
+NEXT_ACTION: 完整读取12/original_reviews全部原审查，核对GPT6附件同一审查，然后提交02。
 
 ## 范围与恢复
 旧的 GPT6_R0 目标已按用户最新指令废弃。本轮唯一写入范围为上述 OUTPUT_ROOT，现有目录身份已核对为 GPT_WORK。未读取或修改另外两个研究者输出。所有非研究目录只读；不运行生产、高成本、执行器、Slurm 或常驻服务，不创建子任务。
@@ -60,3 +60,5 @@ CHECKPOINT: P2｜独立候选冻结
 CHECKPOINT: H1 — v0.6 全文与派生材料反证
 
 CHECKPOINT: H2 — v0.7 八份全文反证
+
+CHECKPOINT: H3 — v0.8 全文、363行矩阵及原GPT55反证
