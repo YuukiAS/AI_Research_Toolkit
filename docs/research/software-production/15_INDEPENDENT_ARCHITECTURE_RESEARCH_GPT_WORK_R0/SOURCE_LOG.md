@@ -97,3 +97,12 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - RC15真实人审仍发现公式被切、线条拥堵等，早先工程/Work闭环不等审美完成；当前规则要求whole-screen selfQA、同candidate fresh pack、独立Work+最终人审，且fixture修复应通用。RC19 validator确实计算routing/port/overlap与多fixture invariants，但机械结果不充分证明语义和美观；本轮没运行或看实际截图。
 - 已有累积regression/browser/各RC脚本、publicsmoke及单parent审查可复用；source commit/runtime/截图/导出需同一候选。大范围视觉机制变更使相关review失效，不能只改局部截图凑PASS。
 - 权限：原仓站立push/runtime规则不扩大本次研究授权；只读未实施。跨renderer一致性、科学源版本与可读性是未来项目适配成本。
+
+## R10｜CARE
+- main=75a40e454de43b64e59a0b0b438ff57ef2bb8345；develop=184cc16bc00dbb4edce80e2c848bdaabae4f782e。AGENTS当前main-only，旧route保留provenance非授权重启。读AGENTS1–130、README1–115、ROUTE_HARD_REQUIREMENTS_MATRIX1–150、dependency finalizer1–150、srr_production/checkpoint.py1–120、QIF-v2 signal audit controller_report1–150、forensics implementation maturity1–100。
+- 公仓刻意不含真实checkpoint、预测、机器配置、日志；不能把可读源码和lightweight evidence当现场验证。此研究不是新科学里程碑，不生成CARE执行合同、不替代缺失的Project diagram视觉读取。
+- 实码finalizer helper提交afterany并记录全部attempt、jobid、依赖、stdout；dry-run也写receipt，未执行。训练依赖afterok、核算afterany；未知/未有sacct需继续核算，不是再submit理由。hash不变的bounded retry也须原task授权，主README特别提醒partition scoped squeue。
+- checkpoint schema2实际保存model/optimizer/scheduler/AMP/step/epoch/RNG Python+NumPy+TorchCPU/CUDA、source/split/anchor/provenance，tmp.replace原子写。该片段未见sampler cursor字段，不能仅凭“true resume”标题断言任意数据迭代严格等价；必须按具体训练入口测连续vs中断。
+- 科学边界：真实完整架构、真实pretrained来源、训练量、case/label/preprocess/decode一致；summary/slot/文件hash不证明机制消费，causal effect需同checkpoint同cases实际干预到最终labels。scar/edema/center/T2子组不能由composite/emptyGT掩盖；faithful充分训练后仍负面可形成adequate negative，最终科学停止/升级归Planner/用户，不能无限工程返修追PASS。
+- 现有controller/finalizer/validator/workboard应复用，不能建立第二Slurm owner。controller operation complete与科学promotion/hosted metric完全分开，route文档已明确禁止未经授权upload、M11、跨route merge。本轮无SSH/Slurm/API调用或私有数据读取。
+- R9静态发现补充：validate-architecture-rc19.mjs的routeGestalt把avoidableEdgeCrossingCount和floatingRelationLabelCount写死为0；changedProtectedTruthFiles仅git diff工作区，不能覆盖staged/committed基线变化。这是当前所读脚本的具体覆盖缺口，不能将其报告的零解释成真实测量。RC15所读原文重点是connector/contact/route质量，不以未读公式缺陷扩大该特定来源。
