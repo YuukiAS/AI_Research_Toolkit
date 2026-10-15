@@ -8,27 +8,25 @@ INPUT_BRANCH: research/software-production-decision-20261013
 ## 写入与恢复
 
 WRITE_PREFLIGHT=PASS
-- STARTUP_WRITE_PROBE.md初始提交91b1dc946e89b5670c83192ab5d597d29df564c4，读回blob cec34037bd2cf0dcab81f468db188dcad04be545；身份、路径、快照、状态、nonce一致。
-- 当前合同START_HERE.md blob 34fde56b79b7aca53af64370074cf55be23928d2；续接只补读合同，未重读全部输入。实际仓库名为Mica-for-ChatGPT、CARE_Challenge。
-- 恢复RUN_STATE提交9c9cabf64b9c058f738cd9a0a0755b696984b904已读回。
-- 当前消息再次实际更新同一探针提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8，GitHub读回blob ae6a2252caf3333c3cfd25c9ed9d15358670e35b，RESUME_WRITE_NONCE=GPT6_PRO-20261015-resume-from-input-checkpoint-v2逐项一致；未重建文件或重启。日志409后保留R01重新合并，提交94ae508716a8f8d6df8cf3c0e937345922944bf9。
+原探针写入91b1dc946e89b5670c83192ab5d597d29df564c4、读回cec34037bd2cf0dcab81f468db188dcad04be545。本次更新同一STARTUP_WRITE_PROBE.md的提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8，GitHub读回blob ae6a2252caf3333c3cfd25c9ed9d15358670e35b，身份、路径、快照及RESUME_WRITE_NONCE=GPT6_PRO-20261015-resume-from-input-checkpoint-v2一致。未重复创建或重启。
+当前START_HERE合同blob 34fde56b79b7aca53af64370074cf55be23928d2。一次409已重新读取保留R01合并（94ae508716a8f8d6df8cf3c0e937345922944bf9）；恢复RUN_STATE写入9c9cabf64b9c058f738cd9a0a0755b696984b904已读回。后续按稳定checkpoint继续。
 
-## 已完成来源批次
+## 已读来源索引
 
-每份checkpoint包含具体实读路径/范围、目的、关键事实和未验证边界；以下是恢复索引。
+以下checkpoint是本日志的组成部分，逐份记录实际文件、ref/commit、读取范围、目的、关键事实与未验证边界；并非只读目录后推断内容。恢复按RUN_STATE走，不从头重读。
 
-INPUT：冻结四份PRO_INPUT按顺序完整读完，61问、363条登记及来源边界。363=246+25+40+52，不是当前bug数。CSV展开截断并补CARE C37。checkpoints/00_INPUT_FACTS.md，提交da3a090a80ec5f829b9a8322555f8aa4a733877d；已读回blob f0509ff2b26364f930762e2d39347f21f10577f4。
+| 批次 | 事实记录 | 首次提交 | 已核对事实 |
+|---|---|---|---|
+| INPUT | checkpoints/00_INPUT_FACTS.md | da3a090a80ec5f829b9a8322555f8aa4a733877d | 冻结四输入完整读取，61问、363历史登记；不是当前bug数 |
+| R01 AI_Skills_Collection | checkpoints/01_AI_SKILLS.md | 9e49c78cb994a039e23ac9df77f2c950ea6fb800 | main 0d990b24fb7c7b46877347241800244f623b20c0；release 06d135d8a6ee62cd41abb40fc5771fcef7f8db25；分发/加载/消费分开 |
+| R02 GPT_Codex_AI_Bridge_Kit | checkpoints/02_BRIDGE.md | e5efa23d8292bafe47c5f3a53b754930d1132aa6 | release 9db19b0409816c22042a246b35a33e1d34fedd0a；codex exec、thread_id=None，不是普通App线程接管 |
+| R03 Remote_Compute_Infrastructure | checkpoints/03_REMOTE_COMPUTE.md | 888bb07a3e1b66650efe7fff97e3d1f3e32c2e6f | main ca0bad392ce1295e76a07a5d8f9c9dd27d3f61d7；受限外部控制者、调度/健康/生命周期分开 |
+| R04 Lucerna | checkpoints/04_LUCERNA.md | 023cf364b14d41da33cd345471573449fef38bbe | main 79dd2875d3da33c6a6d80e5e35bea812b84c1ceb；真实函数测试亦会固化未证实语义 |
+| R05 CUHK_Date | checkpoints/05_CUHK_DATE.md | 4d9e0f4d5b5578cf2b16a889e7ddb200604766c6 | main 9f25c7754d3c80d0be74f5b71016320f55753ae6；active fix 7586b9bd97750efd2e0b8916d1b894ca19460d5f；租约/认证/状态/finalize有实现，逐维证据不可复制总PASS |
+| R06 Bobbio | checkpoints/06_BOBBIO.md | f37d9f362f3547a178bfdfe16da791f21956c746 | develop a64edfd6c5b11f81599bfcfc327be5964633a7b5；独立profile不等于dataDir隔离，原生/产品/人工知识审核权属不可合并 |
 
-R01 AI_Skills_Collection：main 0d990b24fb7c7b46877347241800244f623b20c0，release 06d135d8a6ee62cd41abb40fc5771fcef7f8db25。branches/树、AGENTS相关段、README、release workflow SKILL全文、marketplace CI全文、workflow TODO事故。checkpoints/01_AI_SKILLS.md，提交9e49c78cb994a039e23ac9df77f2c950ea6fb800；读回d757c521b546db6484d5717bf74bde6b1a5a6f79。技能分发/加载/消费不同；无任意App线程控制证据。
-
-R02 GPT_Codex_AI_Bridge_Kit：main a7931fdfc6e3d71cf985351df075de17097795e6，release 9db19b0409816c22042a246b35a33e1d34fedd0a。branches/树、README前部、AGENTS 1–120、reviewed_runner身份/锁/同步/执行/权限/重试段、CI全文；测试仅搜索定位。checkpoints/02_BRIDGE.md，提交e5efa23d8292bafe47c5f3a53b754930d1132aa6；读回05bfd29e29cec008f3518d12a8b91987d7420ae1。codex exec与thread_id=None不等于App原线程续接；/proc不是Windows实测。
-
-R03 Remote_Compute_Infrastructure：main ca0bad392ce1295e76a07a5d8f9c9dd27d3f61d7。branches/树、AGENTS 1–150、README 1–200、10月13日事故、longleaf_lifecycle_controller.sh、HEALTH_STATES、test_reconcile_longleaf_access.sh全文。checkpoints/03_REMOTE_COMPUTE.md，提交888bb07a3e1b66650efe7fff97e3d1f3e32c2e6f；读回4f0411daa527c60cf59963b419f31024321dc700。受限控制者有身份/锁/确认/限流实现；RUNNING不是端到端；fixture不能关闭部署/自然周期门槛。
-
-R04 Lucerna：main 79dd2875d3da33c6a6d80e5e35bea812b84c1ceb。branches、AGENTS、README 1–180、执行失败史、longleaf-presentation.ts、development-acceptance.ps1 1–240、package.json与test-longleaf-presentation.mjs。checkpoints/04_LUCERNA.md，提交023cf364b14d41da33cd345471573449fef38bbe；读回a8643daf7031e80040dec518fccde49b582d89d7。测试可固化未经入参证明的主链路可用和未知→检查中映射；局部源码风险不是全产品当前实测。已有丰富验收，仍需语义/原生/工具成本分开。
-
-R05 CUHK_Date：main 9f25c7754d3c80d0be74f5b71016320f55753ae6；当天fix/search-indexing-canonical-20261015为7586b9bd97750efd2e0b8916d1b894ca19460d5f，比较ahead 2/behind 0。AGENTS主体与尾部、package前部、LAUNCH_QUALITY_ACCEPTANCE_CONTRACT全文、verify-blackbox-handoff-claim-canaries.ts全文、handoff/handler.ts 1–250、fix分支SEARCH_INDEXING_INVESTIGATION全文。checkpoints/05_CUHK_DATE.md，提交4d9e0f4d5b5578cf2b16a889e7ddb200604766c6。先claim/后认证与权威状态/再finalize有源码；verify可写staging绝非默认只读；逐维专业证据不可从总PASS复制。当前规则Quick Tunnel阶段语句需消歧。最新源码修复报告明确未部署、源站无法验证，不混淆历史和当前。
+INPUT至R05均已GitHub读回，R05 blob bd7ce32833e6be0b19557b42e97991de3dcc4ed8；R06写后立即读回再继续Mica。历史报告、当前代码、本轮实测严格分开。Bobbio实际Figma和原生像素本轮未读取/未测试；不宣称设计一致性已证。
 
 ## 边界
 
-只记实读；代码、历史报告、当前实测分开。每仓库立即checkpoint并更新日志/状态；候选冻结前不读Toolkit历史方案；不读其他研究者输出。checkpoint非审批。未运行Codex、Windows实机、数据库/Slurm/生产、付费或高成本动作。
+只写本OUTPUT_ROOT，不读其他研究者产物；候选冻结前不读Toolkit历史方案。每仓库立即checkpoint、日志和状态更新，非审批。未运行Codex、Windows实机、数据库、Slurm、生产、付费或高成本动作。
