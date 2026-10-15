@@ -47,7 +47,7 @@ R2 保持以下已关闭合同：
 
 `session_id + turn_id` 是**每次 Hook 检查事件的身份**，不是长期 task identity；自动返修后的新 continuation 可能产生新的 turn。长期任务身份仍由 `task_key + frozen goal/task ref + repo/worktree binding` 保持。
 
-R1 冻结以下合同：
+R2 继续保持以下已关闭合同：
 
 - 阶段 1 必须绑定真实目标 Codex host/version，通过正常 `/hooks` 入口枚举全部生效 Hook 来源并确认探针 Hook 当前定义已受信任；禁止使用 `--dangerously-bypass-hook-trust` 制造 PASS。
 - 阶段 1 使用隔离临时 repo、隔离配置/CODEX_HOME 和项目级 Hook；其他可影响 Stop 决策的 Hook 必须被隔离，否则该轮结果记为 `UNPROVEN`，不能归因。
@@ -531,7 +531,7 @@ Gate 执行顺序：先低成本静态/机械回归，再阶段 1 真实 Hook �
 
 ## 18. 实施前执行边界与恢复
 
-本 R1 通过也只意味着**设计和阶段 1 执行包可进入用户授权**，不等于生产实现授权。
+本 R2 通过也只意味着**设计和阶段 1 执行包可进入用户授权**，不等于生产实现授权。
 
 阶段 1 只允许临时隔离资源。任何以下发现必须停止并回 Planner/Critic：
 
@@ -547,7 +547,7 @@ Gate 执行顺序：先低成本静态/机械回归，再阶段 1 真实 Hook �
 
 局部实现 bug 若不改变上述合同，可在后续已批准实施范围内修复；若机制本身不成立，必须回 Planner，不能移动验收标准。
 
-## 19. R1 之后的唯一合法下一步
+## 19. R2 之后的唯一合法下一步
 
 1. 独立 Critic 对 **本 Proposal R2 + Phase 1 Goal R2 + Phase 1 Kickoff Draft R2** 做同版 `EXECUTION_READY_REVIEW_R2`。
 2. Critic 只能给 `PASS` 或 `REVISE`。
