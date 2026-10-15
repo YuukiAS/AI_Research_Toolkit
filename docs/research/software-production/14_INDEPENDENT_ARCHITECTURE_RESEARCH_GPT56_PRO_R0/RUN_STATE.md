@@ -7,11 +7,11 @@ OUTPUT_ROOT: docs/research/software-production/14_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_BRANCH: research/software-production-decision-20261013
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 STATUS: IN_PROGRESS
-PHASE: OFFICIAL_AND_MATURE_ALTERNATIVES
+PHASE: HISTORY_CHALLENGE_AND_REVISION
 WRITE_PREFLIGHT: PASS
-COMPLETED_SOURCE_BATCHES: current START_HERE contract and preflight; four frozen inputs; AI_Skills_Collection; GPT_Codex_AI_Bridge_Kit; Remote_Compute_Infrastructure; Lucerna; CUHK_Date; Bobbio; Mica-for-ChatGPT; SeminarArc; Asteria; CARE_Challenge develop@184cc16bc00dbb4edce80e2c848bdaabae4f782e and main@75a40e454de43b64e59a0b0b438ff57ef2bb8345 with role authority, frozen science contract, formal-training/Slurm evidence, stale control-plane status, diagnostic-only outer evidence and scientific authorization boundaries checkpointed
-PENDING_SOURCE_BATCHES: official OpenAI Codex integration sources; GitHub protected checks and deployment gates; official Slurm semantics; mature durable/scientific workflow, experiment-lineage and observability alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md CARE checkpoint at commit 585bdb6da1bdc898518d557bc62a7e2d785c10a8
-NEXT_ACTION: read current official primary sources for OpenAI Codex normal entrypoints and authority boundaries, GitHub rulesets/required checks, Slurm submission/accounting/requeue/dependency semantics, and a bounded set of mature alternatives for durable workflows, scientific/HPC workflows, experiment lineage and observability; checkpoint before writing first-stage independent candidates
+COMPLETED_SOURCE_BATCHES: current START_HERE contract and preflight; four frozen inputs; all ten required current repositories; official OpenAI Codex integration sources; GitHub source/review/artifact gates; official Slurm semantics; mature alternatives Temporal, Nextflow, Snakemake, MLflow, DVC, OpenTelemetry and Playwright; first-stage independent candidates written and read back in 01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md without reading historical architecture materials
+PENDING_SOURCE_BATCHES: historical challenge volumes 09_FULL_DOSSIER_V0_6, 10_POST_CRITIC_REDESIGN_V0_7, 11_THREE_CRITIC_RECONCILIATION_V0_8 and original_reviews; candidate revision; final synthesis
+LAST_STABLE_ARTIFACT: 01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md at commit 9baa8b87534578b6280e7f52588d008a6fe7ddbb; SOURCE_LOG.md official alternatives checkpoint at commit 527043a1a542aa37cc1961bc1775aa6dad9f6c09
+NEXT_ACTION: read only the four authorized historical material roots, treating them as adversarial evidence against the independent candidates; map each historical claim to current evidence, revise or reject candidates, and write 02_HISTORY_CHALLENGE_AND_CANDIDATE_REVISION.md before final synthesis
 
 This file is the recovery anchor. Update it at every required checkpoint. Never read or write another runner's OUTPUT_ROOT.
