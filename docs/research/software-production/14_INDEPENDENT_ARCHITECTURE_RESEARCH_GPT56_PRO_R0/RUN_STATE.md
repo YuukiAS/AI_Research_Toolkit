@@ -7,11 +7,11 @@ OUTPUT_ROOT: docs/research/software-production/14_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_BRANCH: research/software-production-decision-20261013
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 STATUS: IN_PROGRESS
-PHASE: PRODUCT_REPOSITORIES_GROUP_A
+PHASE: PRODUCT_REPOSITORIES_GROUP_B
 WRITE_PREFLIGHT: PASS
-COMPLETED_SOURCE_BATCHES: current START_HERE contract and preflight; all four frozen PRO_INPUT files; AI_Skills_Collection; GPT_Codex_AI_Bridge_Kit; Remote_Compute_Infrastructure; Lucerna; CUHK_Date main@9f25c7754d3c80d0be74f5b71016320f55753ae6 with public entry, accepted release, product truth hierarchy, deliberate matching pause, exact candidate/deployment rules, gate surface, current feature-branch distinction, and authorization boundary checkpointed
-PENDING_SOURCE_BATCHES: Bobbio; Mica; SeminarArc; Asteria; CARE; official/mature alternatives; independent candidates; history challenge; final synthesis
-LAST_STABLE_ARTIFACT: SOURCE_LOG.md CUHK_Date checkpoint at commit 4b5905d9300de9199a8b59643eff635f327e9589
-NEXT_ACTION: inspect YuukiAS/Bobbio current effective development/release refs; read rules, native desktop entry, implementation architecture, design-source contract, tests and release acceptance, current TODO/failures, updater/recovery/permission boundaries; checkpoint before product group A completion
+COMPLETED_SOURCE_BATCHES: current START_HERE contract and preflight; four frozen inputs; AI_Skills_Collection; GPT_Codex_AI_Bridge_Kit; Remote_Compute_Infrastructure; product group A complete: Lucerna, CUHK_Date, Bobbio develop@a64edfd6c5b11f81599bfcfc327be5964633a7b5 with stable/develop separation, immutable 0.3 candidate, Figma/native/Zotero gate boundaries and current readiness checkpointed
+PENDING_SOURCE_BATCHES: Mica; SeminarArc; Asteria; CARE; official/mature alternatives; independent candidates; history challenge; final synthesis
+LAST_STABLE_ARTIFACT: SOURCE_LOG.md Bobbio checkpoint at commit 6a65c5133c017a2ee3ad605f427ffe561c5ce14f
+NEXT_ACTION: identify and inspect the current Mica repository/ref; read effective rules, ChatGPT-facing desktop entry, implementation architecture, memory/truncation and refresh behavior, tests/acceptance, current gaps and release/runtime boundaries; checkpoint immediately before SeminarArc
 
 This file is the recovery anchor. Update it at every required checkpoint. Never read or write another runner's OUTPUT_ROOT.
