@@ -118,3 +118,9 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 官方[protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)与[required checks troubleshooting](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks)支持复用commit绑定/指定App来源/合并门禁。
 - 限制：skipped/neutral也可满足required checks，workflow条件跳过与job条件跳过语义不同；默认管理员可绕过。CI绿不是所有验收执行，更不证明Windows/科研质量。应让aggregate消费required覆盖清单并拒绝缺项，而非只看结论颜色。
 - 读取目标仓库branch列表中若干protected:false只是所见branch元数据，不等于完整ruleset审计；本轮未改保护/CI/权限。GitHub门禁发生在提交/合并，不捕获尚未提交的App“已完成”。
+
+## E3｜Slurm
+- 实读官方[sbatch](https://slurm.schedmd.com/sbatch.html)提交/依赖/requeue/performance、[state codes](https://slurm.schedmd.com/job_state_codes.html)、[exit codes](https://slurm.schedmd.com/job_exit_code.html)，并核sacct/reason官方入口。
+- sbatch成功仅已转交并获得jobid；PENDING资源/优先级不是程序失败。afterok是训练成功依赖，afterany负责所有终态核算；失败依赖不会因前置后续requeue成功自动复活。requeue从batch脚本开头执行，必须应用显式加载checkpoint。
+- Slurm完成/exit0也不能证明内部重要步骤或科研语义成功，需step/derived exit、产物和消费者证据。UNKNOWN/会计延迟要保留不确定态，禁止当不存在重新提交。
+- 设计建议（推论非Slurm内置保证）：沿用CARE finalizer单owner+全部attempts+bounded只读观察；排队停模型推理，仅真实事件触发owner续处理。提交响应丢失先按cluster/job identity核对，不能宣称跨网络exactly-once sbatch。
