@@ -64,3 +64,11 @@ INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 - 当前验收/恢复规则：verify:registration-critical-path-hosted、verify:gpt-work-parent-delivery；serial persona、disposable rehearsal/final batch 分离、票据 claim/finalize、同 persona recovery、expected prestate、source+Web/API deployment identity。产品错误、工具中断、身份污染分开处理；不能因一个工具失败放弃安全的其他覆盖。
 - 专业边界：简体/香港繁体自然性、305/320宽与冷载状态闪烁、照片实际像素/双方访问、隐私和匹配科学语义；内部 audit 字段不得流进普通文案。合成审查不等于真实 Matching 上线授权。
 - 研究含义：项目已有较多可复用入口，通用层应调用/归因，避免另造 persona/token/CI 体系。已接受用户状态必须恢复，报告、截图或数据库未消费 token 不能单独证明可交付。未执行 hosted 脚本。
+
+## R6｜Bobbio
+- 分支：develop=a64edfd6c5b11f81599bfcfc327be5964633a7b5 为开发权威，main=e7d929bad2d4b23939c81920e77390efbce42b96 为用户验收稳定线；不因 main 名称选错来源。实读 develop AGENTS 1–85、README 1–155、package.json、FIGMA_HANDOFF 1–95、ZOTERO_ACCEPTANCE_SAFETY 全文、EVIDENCE_COVERAGE、GPT_WORK_REVIEW_SYSTEM_AUDIT；Reader Safe wrapper 读取并检查隔离、权限、副作用及最终校验部分（长输出中段未全审）。
+- 产品是 local-first Reader，Zotero 是文献/附件/批注 authority，PDF 不改、不得直接改 zotero.sqlite/另造批注数据库；Codex explanation、Candidate 与人工确认知识必须区分。
+- 真实失败：新 profile 仍指向真实 data directory；裸 zotero:// URL 可启动默认真实 profile；缓存 updater 使仅关闭自动更新不够。需要独立 profile+data、before/after 两份审计、从隔离 Zotero 内开 PDF。历史不安全 run 不证明未污染。
+- 源码 Invoke-BobbioReaderAcceptanceSafe.ps1（blob778c189b…）有 real/test 路径比较、Zotero/updater停止断言、URL handler检测和真实profile/data末尾比较；还会调用 Apply 准备、清理更新缓存及启动Bobbio，Preflight 名称不能被当只读授权。本轮没有执行或改变机器策略。
+- 质量必须按 Figma R7Avaszm0TIYAthTWMprP1 的当前Reader16states、整窗1440/1280、真实批注往返和知识语义判断。本轮未访问Figma或真实Windows，仓库截图覆盖表也不是本轮视觉结论。
+- 当前 evidence matrix 明确 LOCAL_CODEX_READY/READY_TO_START_GPT_WORK 不等于 FINAL_NATIVE_ZOTERO_ACCEPTANCE/USER_REVIEW/MILESTONE_ACCEPTED；旧focused review漏全产品/未知缺陷，审查系统audit将其分开。可复用已有多层gate，但不能自动累加成通过。
