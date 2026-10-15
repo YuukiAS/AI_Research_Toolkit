@@ -5,42 +5,29 @@ OUTPUT_ROOT: docs/research/software-production/13_INDEPENDENT_ARCHITECTURE_RESEA
 INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
 INPUT_BRANCH: research/software-production-decision-20261013
 
-## 恢复证明与完整日志保全
+## 写入证明与保全
 
-WRITE_PREFLIGHT=PASS。既有写入证明提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8及读回ae6a2252caf3333c3cfd25c9ed9d15358670e35b；本轮复用，不重建探针。2026-10-15从OFFICIAL_SOURCE_VERIFICATION恢复；当前合同START_HERE blob f06d84ed06669fb3a84593a64ba680e4c740a9f7；R10读回blob54e0a31860ca32e7a0bb48f4130a1fe5129b418a。
+WRITE_PREFLIGHT=PASS。既有证明提交04905a02db82c02e5e6d990b4fbc0e03b5e6c7c8及读回ae6a2252caf3333c3cfd25c9ed9d15358670e35b；本轮复用，不重建。当前合同START_HERE blob f06d84ed06669fb3a84593a64ba680e4c740a9f7。历史完整日志保存在本路径commit2989b4a51d5c544eac0ff30e4c56eb7d5a547d65；截至Slurm的完整索引保存在本路径commit147c785d110fc293395edb3946bc3ec79aaae5fd。这些版本与下列checkpoint均属本日志，保留原始读取范围/提交和早期冲突处理事实。
 
-为使继续读取无需重复长日志，早期探针、nonce、409协调及各批次原始叙述完整保全于本文件历史版本：commit 2989b4a51d5c544eac0ff30e4c56eb7d5a547d65，path与本文件相同。它和下列未改动的checkpoint均为本来源日志组成部分；没有删除研究事实。
+## 已完成来源
 
-## 冻结输入与十仓库（全部完成，不重读原仓库）
+四份冻结输入及十个源仓库全部完成并读回，不得重读原仓库。相对路径checkpoints/00_INPUT_FACTS.md、01_AI_SKILLS.md、02_BRIDGE.md、03_REMOTE_COMPUTE.md、04_LUCERNA.md、05_CUHK_DATE.md、06_BOBBIO.md、07_MICA.md、08_SEMINARARC.md、09_ASTERIA.md、10_CARE.md均保持不变；原始提交详见上述147c785历史日志。最后源仓库checkpoint提交78eda260bc2dd04cf3e9cd3c3a58fe432f4d796e，读回blob54e0a31860ca32e7a0bb48f4130a1fe5129b418a。
 
-各路径均相对OUTPUT_ROOT。每个checkpoint包含原文件/ref/commit、实际读取范围、事实与未验证边界。
+本次仅从自身00–10 checkpoint恢复已读取事实，没有重读十仓库或四冻结输入。Bobbio/Android等恢复不算新的源仓库审计，不增加已验证等级。
 
-| 批次 | checkpoint | 首次提交 |
-|---|---|---|
-| INPUT：四冻结输入、61问、363历史登记 | checkpoints/00_INPUT_FACTS.md | da3a090a80ec5f829b9a8322555f8aa4a733877d |
-| R01 AI_Skills_Collection | checkpoints/01_AI_SKILLS.md | 9e49c78cb994a039e23ac9df77f2c950ea6fb800 |
-| R02 GPT_Codex_AI_Bridge_Kit | checkpoints/02_BRIDGE.md | e5efa23d8292bafe47c5f3a53b754930d1132aa6 |
-| R03 Remote_Compute_Infrastructure | checkpoints/03_REMOTE_COMPUTE.md | 888bb07a3e1b66650efe7fff97e3d1f3e32c2e6f |
-| R04 Lucerna | checkpoints/04_LUCERNA.md | 023cf364b14d41da33cd345471573449fef38bbe |
-| R05 CUHK_Date | checkpoints/05_CUHK_DATE.md | 4d9e0f4d5b5578cf2b16a889e7ddb200604766c6 |
-| R06 Bobbio | checkpoints/06_BOBBIO.md | f37d9f362f3547a178bfdfe16da791f21956c746 |
-| R07 Mica-for-ChatGPT | checkpoints/07_MICA.md | 7d4fa716191c9f4e90966b094410ba9aa9696095 |
-| R08 SeminarArc | checkpoints/08_SEMINARARC.md | 8df8b18a8ab0d5a84180ee42b0b15ccbe96e196f |
-| R09 Asteria | checkpoints/09_ASTERIA.md | b7c9ae384bed31ff55a1fdf4ffbee658b2a0aa21 |
-| R10 CARE_Challenge | checkpoints/10_CARE.md | 78eda260bc2dd04cf3e9cd3c3a58fe432f4d796e |
-
-INPUT–R10均已读回。CARE当前来源区分main与develop；v3有真实精确线程Popen/锁/事件，不能误报只有提示词；也未证明任意Windows App接管。具体边界完整见10_CARE。
-
-## 当前官方主题簇（2026-10-15）
-
-| 批次 | checkpoint及提交 | 读回blob | 关键事实 |
+| 官方主题簇 | 自己的checkpoint | 写入commit | GitHub读回blob |
 |---|---|---|---|
-| O11A | checkpoints/11A_OFFICIAL_CODEX.md @ f3c437c1478d8644185bbdafc0b785d1fbf78fb5 | f4d789a8b268fc8bfdb948fdade691e35ebe9cfe | 同步Stop、原生goal、精确续接已存在；信任/云本地/实验传输/Windows环境分开；旧mcp-server已移除 |
-| O11B | checkpoints/11B_OFFICIAL_GITHUB.md @ 79dfe9b50bd35f9db44ad70762810ca11912b1da | 1e7d0aeaf348b4e27f5af09811b3d2ac05d81118 | 平台跳过/中性不等于领域通过；可信工作流、凭据、目标提交与产物绑定；未证明用户保护配置 |
-| O11C | checkpoints/11C_OFFICIAL_SLURM.md @ 3f9a343f72b45fe1dc819191aebb77f88f4c4a5f | d926ba8ce4bd9ba1754f906be26d686d1c9c0f68 | 作业状态/标志、提交不确定、数组/重排身份、账务、依赖、科学NO_GO；未运行集群命令 |
+| Codex控制面、原生goal、hook信任 | checkpoints/11A_OFFICIAL_CODEX.md | f3c437c1478d8644185bbdafc0b785d1fbf78fb5 | f4d789a8b268fc8bfdb948fdade691e35ebe9cfe |
+| GitHub强制检查、权限、产物身份 | checkpoints/11B_OFFICIAL_GITHUB.md | 79dfe9b50bd35f9db44ad70762810ca11912b1da | 1e7d0aeaf348b4e27f5af09811b3d2ac05d81118 |
+| Slurm状态、数组、账务、重排与收尾 | checkpoints/11C_OFFICIAL_SLURM.md | 3f9a343f72b45fe1dc819191aebb77f88f4c4a5f | d926ba8ce4bd9ba1754f906be26d686d1c9c0f68 |
+| 专业验收与成熟编排替代 | checkpoints/11D_OFFICIAL_PROFESSIONAL_TOOLS.md | 88aceda5a9e343240ee26718d2c49a3ce6ac911f | c2d5068e11b4cae5e4096179fc68a91219bd2fc1 |
 
-每主题簇含完整去重官方URL、阅读位置及能力/部署/本轮实测区分。下一步专业工具后冻结01，之后才历史反证。
+访问日期2026-10-15，官方参考文献O01–O34分别完整保存在四文件。重要更正：同步Stop原线程续接及原生goal已存在；app-server实验传输与SDK稳定性分别判断；旧mcp-server已移除。Tauri当前嵌入式WebDriver支持macOS，不能把直接tauri-driver旧限制当全部能力。没有把官方能力当用户机器已部署事实。MONAI原站读取失败后使用官方readthedocs参数段；ArviZ空重定向没有用作证据。
 
-## 边界
+## 当前研究状态
 
-只写本人OUTPUT_ROOT；永不读取/引用/比较其他研究者产物。候选冻结前不读历史架构。没有实机、Codex执行器、数据库、Slurm、生产、付费或高成本操作。checkpoint非审批，不以阶段性判断结束。
+官方来源全部已写入并读回。历史架构及Critic尚未读取。下一步立即冻结01_INDEPENDENT_CANDIDATES_BEFORE_HISTORY.md，读回后才能进入历史目录。checkpoint非审批，不等待用户。
+
+## 权限
+
+只写本人OUTPUT_ROOT，永不读取/引用/比较其他研究者产物。没有Windows实机、Codex执行器、数据库、Slurm命令、生产、付费或高成本操作。
