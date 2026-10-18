@@ -1,0 +1,9 @@
+# 研究写入预检
+
+RUNNER_ID: GPT_WORK_DA_CLOSURE_R0
+OUTPUT_ROOT: docs/research/software-production/17_DELIVERY_ASSURANCE_ARCHITECTURE_CLOSURE_GPT_WORK_R0
+INPUT_SNAPSHOT_COMMIT: 60d0a1feb7ca1efc8f751774850a4ec176b9ab6f
+RESEARCH_START_COMMIT: 787e046ca76ec36853977b3974cc6b7ef3d29aaf
+WRITE_PROBE_STATUS: CREATED_BY_THIS_RUN
+
+当前用户附件决定本轮范围、三阶段顺序及输出目录；旧 START_HERE 中其他轮次的目录和候选研究步骤不覆盖当前任务。仅写研究文档，不执行产品验收或更改生产代码。Pass A 提交前不读取 Proposal v0.2 或 supporting map。
