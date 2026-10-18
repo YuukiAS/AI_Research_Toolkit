@@ -126,6 +126,9 @@ R3 明确禁止把 Sign in、Device Code、API key、复制认证缓存、临时
 - probe candidate、handler 和测试数据继续只存在于 task-owned 临时 probe workspace/repo；
 - `AI_BRIDGE_STATE_HOME` 继续使用临时目录；
 - SQLite-backed runtime state 优先指向临时目录。当前公开配置参考已正式列出 `sqlite_home`；当前 Codex 源码还明确实现 `CODEX_SQLITE_HOME` 作为 SQLite state home 覆盖。因此 R3 可以在**目标实际 Codex 版本的 setup preflight 确认生效后**使用临时 `CODEX_SQLITE_HOME`。必须用 `/debug-config` 或等价当前官方只读诊断确认 effective `sqlite_home`；若 managed requirement 覆盖、目标版本不支持、或实际 state 仍落入真实 `CODEX_HOME`，setup 停止，不通过内部数据库搬运来绕过。
+- 正常用户配置仍被读取，但 setup 启动必须用 session-scoped override 把 `log_dir` 指向临时目录，并把 `history.persistence=none`；这两个键都由当前公开配置参考正式定义，不需要修改 user `config.toml`。
+- `/hooks` trust 的交互式 setup 过程只做 `/debug-config`、`/hooks` 和必要的 UI review，不发送模型任务。若该 setup 过程仍在真实 `CODEX_HOME` 中产生 Hook trust 之外的新 session/history/log durable state，返回 `SETUP_STATE_ISOLATION_UNPROVEN`，不得假装“只有 trust 被持久化”。
+- 真正执行 P1–P13 时优先使用正常配置的 `codex exec --ephemeral`，并继续应用临时 `CODEX_SQLITE_HOME`、临时 `log_dir` 与 `history.persistence=none`；官方 CLI 明确说明 `--ephemeral` 不持久化 session rollout 文件。不得把 `--ephemeral` 与 `--ignore-user-config` 混为一谈。
 - 不复制或迁移现有 thread/session 数据；R3 只需要本次 probe 的新临时 runtime state。
 
 ### 3A.3 `--ignore-user-config` 不作为 R3 默认入口
@@ -172,6 +175,7 @@ SETUP_READY
 HOOK_TRUST_REQUIRED
 SETUP_AUTH_IDENTITY_UNAVAILABLE
 SETUP_SQLITE_ISOLATION_UNPROVEN
+SETUP_STATE_ISOLATION_UNPROVEN
 SETUP_PROJECT_TRUST_REQUIRED_UNAPPROVED
 SETUP_HOOK_SOURCE_CONFLICT
 SETUP_RUNTIME_IDENTITY_MISMATCH
@@ -544,7 +548,8 @@ R3 明确不做：
 - 使用用户当前真实、已认证的 `CODEX_HOME`，只复用现有 authentication/runtime identity；probe 不读取、复制、导出、软链接或重写任何 auth/token/credential；
 - task-owned 临时 probe workspace/repo；若 linked-worktree Hook discovery 会映射到 canonical root project Hook folder，只允许创建可明确归属本 probe 的临时 Hook 定义且不得覆盖任何既有 Hook/config；若无法做到，setup blocker；
 - 临时 `AI_BRIDGE_STATE_HOME`；
-- 临时 SQLite runtime state：优先使用当前目标版本已验证有效的 `CODEX_SQLITE_HOME`，并通过 `/debug-config`/等价正式诊断核对 effective `sqlite_home`；无法隔离则 setup blocker；
+- 临时 SQLite/runtime/log state：优先使用当前目标版本已验证有效的 `CODEX_SQLITE_HOME`，并以 session-scoped `log_dir=<temp>`、`history.persistence=none` 避免把 probe 日志/历史写入真实 `CODEX_HOME`；通过 `/debug-config`/等价正式诊断核对；无法隔离则 setup blocker；
+- `/hooks` 交互式 setup 不发送模型任务；P1–P13 优先使用正常配置的 `codex exec --ephemeral`，避免 session rollout 持久化，同时保持 project Hook/trust 语义；
 - 项目级 `.codex/hooks.json`，project layer 必须在不新增 project trust 的前提下已经 trusted；
 - 默认不使用 `--ignore-user-config`，不使用 trust bypass，也不改 existing user/plugin/managed Hook；
 - `/hooks` 枚举全部 Hook 来源；无法归因的 matching Stop controller -> `SETUP_HOOK_SOURCE_CONFLICT`；
@@ -606,7 +611,7 @@ GO 必须同时满足：
 
 | Gate | 能力主张 / 为什么独立 | 正常入口 | PASS 证据 | FAIL 条件 | 回归边界 | 最终候选要求 |
 |---|---|---|---|---|---|---|
-| DA-G01 | Hook 来源、信任和宿主可归因；否则所有后续链都可能是假 PASS | 真实已认证 Codex + 正常 `/hooks` | 目标 binary/version、既有 auth identity 可用且未读取认证材料、临时 SQLite/Bridge state 生效、project layer 已 trusted、全部 Hook 来源枚举、精确 probe hash 由用户 trusted、无不可归因 Stop controller、事件 marker | 重新登录/复制凭据、bypass trust、额外 project trust 写入、state isolation 未生效、来源不全、冲突不可归因 | Hook 安装/信任/配置层；唯一新增 real CODEX_HOME 持久效果仅为用户 Hook trust | 阶段 1 最终探针配置；发布时同一发布候选 |
+| DA-G01 | Hook 来源、信任和宿主可归因；否则所有后续链都可能是假 PASS | 真实已认证 Codex + 正常 `/hooks` | 目标 binary/version、既有 auth identity 可用且未读取认证材料、临时 SQLite/Bridge/log state 与 `history.persistence=none` 生效、P1–P13 使用 `--ephemeral` 避免 rollout 持久化、project layer 已 trusted、全部 Hook 来源枚举、精确 probe hash 由用户 trusted、无不可归因 Stop controller、事件 marker | 重新登录/复制凭据、bypass trust、额外 project trust 写入、真实 CODEX_HOME 出现 Hook trust 之外的新 probe durable state、来源不全、冲突不可归因 | Hook 安装/信任/配置层；唯一新增 real CODEX_HOME 持久效果仅为用户 Hook trust | 阶段 1 最终探针配置；发布时同一发布候选 |
 | DA-G02 | 假完成能被 Stop 同步拦截并回到同 thread/worktree 修复 | 普通 Codex turn | FAIL -> 单次 continuation -> 修复 -> fresh PASS -> 正常结束的完整轨迹 | 新 thread/worktree、只写报告、未真正修复、Hook 未跑 | Stop repair 主能力 | 同一探针实现与 Hook 定义 |
 | DA-G03 | 已经合格的任务不被制造额外循环 | 普通 Stop | 初始 PASS 后零 repair continuation | PASS 仍续写、重复 QA | 普通完成体验 | 同一最终探针候选 |
 | DA-G04 | 用户停止和预算熔断是真实终止，不会无限消费 | Interrupt + 持续失败 Stop | Interrupt 不重启；预算=1 后再 FAIL 明确非就绪且零新 repair | 任何继续返修、后台重启、虚假 PASS | 人类控制/成本 | 同一最终探针候选 |
@@ -655,7 +660,7 @@ probe 结束后只使用官方用户界面提供的正式 trust 清理能力；�
 
 ## 19. R3 之后的唯一合法下一步
 
-1. 独立 Critic 对 **本 Proposal R2 + Phase 1 Goal R2 + Phase 1 Kickoff Draft R2** 做同版 `EXECUTION_READY_REVIEW_R3`。
+1. 独立 Critic 对 **本 Proposal R3 + Phase 1 Goal R3 + Phase 1 Kickoff Draft R3** 做同版 `EXECUTION_READY_REVIEW_R3`。
 2. Critic 只能给 `PASS` 或 `REVISE`。
 3. 即使 PASS，也必须由用户实际发送批准后的 Kickoff 才能执行阶段 1。
 4. 阶段 1 GO 前，不修改生产 Bridge、AI Skills、消费者或 Slurm。
