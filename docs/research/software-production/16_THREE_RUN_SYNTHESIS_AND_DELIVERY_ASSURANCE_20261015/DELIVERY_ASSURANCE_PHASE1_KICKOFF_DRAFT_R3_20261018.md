@@ -20,13 +20,15 @@ Planned execution branch: `work/delivery-assurance-hook-probe-r3`
 
 只执行 Phase 1 隔离 Hook 机制探针，不做生产实现。
 
-我授权你在 `YuukiAS/AI_Research_Toolkit` 中从被批准的 package commit 创建/使用专用执行分支 `work/delivery-assurance-hook-probe-r3` 和 task-owned probe workspace。启动目标 Codex 时必须复用我当前真实、已经认证的 `CODEX_HOME`，只用于现有 authentication/runtime identity；不得读取或搬运任何认证秘密。同时使用临时 `AI_BRIDGE_STATE_HOME` 与经当前版本验证有效的临时 SQLite state root，并使用项目级 `.codex/hooks.json`。可以使用本机已安装的目标 Codex binary 做 Proposal/Goal 中定义的 bounded lifecycle probe，并把去敏后的证据提交回该专用执行分支。
+我授权你在 `YuukiAS/AI_Research_Toolkit` 中从被批准的 package commit 创建/使用专用执行分支 `work/delivery-assurance-hook-probe-r3` 和 task-owned probe workspace。启动目标 Codex 时必须复用我当前真实、已经认证的 `CODEX_HOME`，只用于现有 authentication/runtime identity；不得读取或搬运任何认证秘密。同时使用临时 `AI_BRIDGE_STATE_HOME`、经当前版本验证有效的临时 `CODEX_SQLITE_HOME`/SQLite state root、临时 `log_dir`，并设置 `history.persistence=none`；使用项目级 `.codex/hooks.json`。用于 P1–P13 的正式 runner 优先采用正常配置的 `codex exec --ephemeral`，避免 session rollout 持久化。可以使用本机已安装的目标 Codex binary 做 Proposal/Goal 中定义的 bounded lifecycle probe，并把去敏后的证据提交回该专用执行分支。
 
 授权范围只包括：
 
 - 查询并记录目标 Codex binary/version；
 - 创建最小 probe task、候选、gate 和机器可读证据；
-- 设置临时 `AI_BRIDGE_STATE_HOME` 和临时 SQLite state；必须先确认 effective `sqlite_home` 确实指向临时路径；
+- 设置临时 `AI_BRIDGE_STATE_HOME`、临时 `CODEX_SQLITE_HOME`/SQLite state、临时 `log_dir` 和 `history.persistence=none`；必须先确认这些 session-scoped isolation 实际生效；
+- `/debug-config` 与 `/hooks` setup 不发送模型任务；若真实 `CODEX_HOME` 出现精确 Hook trust 之外的新 probe session/history/log durable state，setup 立即停止；
+- P1–P13 使用正常配置的 `codex exec --ephemeral`，不得为此切换 CODEX_HOME；
 - 安装**仅供本 task 使用**的项目级 probe Hook；不得覆盖/改写任何已有 Hook/config；
 - 使用正常真实 `CODEX_HOME` 配置，通过 `/debug-config`/等价正式诊断确认 project layer 已经 trusted，不新增 project trust；
 - 通过正常 `/hooks` 查看全部 Hook 来源和当前 trust 状态；若另有无法归因的 matching Stop controller，setup 停止；
@@ -77,7 +79,7 @@ hook_event_count=0
 
 不要恢复 R2 stopped branch/本地 commit 继续跑，也不要声称 `005fee947bafabbfc77f47d744b4717238439905` 已经在远端。
 
-R3 setup 只有在以下全部成立时才能开始 P1：既有 Codex 登录可直接使用；effective SQLite state 已隔离到临时位置；project layer 已经 trusted 而不需要新增 project trust；`/hooks` 能完整枚举来源；没有无法归因的其他 matching Stop controller；本次 project Hook 的精确 definition/hash 已由我通过 `/hooks` 亲自 trust。
+R3 setup 只有在以下全部成立时才能开始 P1：既有 Codex 登录可直接使用；effective SQLite/log/history state 已隔离到临时位置且没有 Hook trust 之外的新真实 `CODEX_HOME` durable state；project layer 已经 trusted 而不需要新增 project trust；`/hooks` 能完整枚举来源；没有无法归因的其他 matching Stop controller；本次 project Hook 的精确 definition/hash 已由我通过 `/hooks` 亲自 trust。
 
 如果本次 Hook 尚未 trusted，停在 `HOOK_TRUST_REQUIRED`。这是正常情况下唯一预期的人工作业。不要要求我重新登录、输入 Device Code/API key、复制 auth 文件或切换 CODEX_HOME。
 
