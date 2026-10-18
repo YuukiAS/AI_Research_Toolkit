@@ -145,6 +145,7 @@ change_authority = "<same canonical owner>"
 [applicability]
 delivery_classes = ["UI_FEATURE", "DESKTOP_RELEASE"]
 change_kinds = ["UI", "STATE_SEMANTICS", "COPY", "NATIVE_INTERACTION"]
+impact_tags = ["USER_VISIBLE_STATE", "PRIMARY_FLOW"]
 claim_levels = ["INTEGRATED", "ARTIFACT_READY", "INSTALLED", "LIVE"]
 subject_types = ["SOURCE_TREE", "DESKTOP_BINARY", "RUNTIME_INSTANCE"]
 consumed_target_types = ["NATIVE_UI_SURFACE"]
@@ -232,6 +233,23 @@ Resolver 必须消费：
 9. 已有 gate results 及其 definition/candidate freshness。
 
 它不得从任务标题、复杂度印象、README prose 或“这个项目通常很重要”直接推导 full gate。
+
+### 4.1A Impact classification：Resolver 怎样知道“这次改到了什么”
+
+只看任务标题或文件数量不够，只看 diff path 也不够。v0.2 冻结三路合并：
+
+1. frozen Goal / Delivery Declaration 给出用户要求的能力与最大 claim；
+2. Delivery Target Graph 给出产物和消费表面；
+3. project adapter 的轻量 `impact_rules` 把稳定源码区域映射成项目语义 tag，例如：
+   - Lucerna provider/aggregation -> `STATE_SEMANTICS`；
+   - Lucerna NSIS/startup hooks -> `INSTALL_LIFECYCLE`；
+   - Bobbio Zotero adapter/profile -> `ZOTERO_AUTHORITY`；
+   - CARE trainer/loss/sampler -> `TRAINING_SEMANTICS`；
+   - Asteria route/layout -> `GRAPH_GEOMETRY`。
+
+workflow-core 读取 actual diff 后计算 `impact_tags[]`。path rule 只是候选影响证据，不能覆盖 Goal/target graph；一项改动跨规则或语义不确定时，在**相关 family 内**升级 BROAD，而不是把全项目所有 Gate 全跑。
+
+项目 owner 拥有 path→impact 语义；Executor 可以在已冻结项目语义下机械更新 path locator，但不能在当前任务中删除 impact tag 来逃 Gate。
 
 ### 4.2 解析顺序
 
@@ -613,6 +631,11 @@ project_gate_manifest_ref = "automation/delivery_assurance/gates.toml"
 normal_entry_refs = ["..."]
 long_run_owner_refs = ["..."]
 adapter_change_authority = "project:<project-id>"
+
+[[impact_rules]]
+path_globs = ["<project-owned source globs>"]
+impact_tags = ["<stable project semantic tags>"]
+target_refs = ["<affected target ids>"]
 ```
 
 Adapter 只声明可用能力、消费对象和 locator，不保存某个任务的 required gate set 或完成状态。
@@ -724,6 +747,27 @@ environment/authority facts
 7. 结果绑定正确 target/claim level。
 
 如果 Resolver 在这组历史回放上频繁需要手工特判 repo 名或 case ID，说明 descriptor/applicability 设计失败，不能进入生产。
+
+## 12B. 设计级 replay：当前合同能不能真的复现人工逐条映射
+
+在送 Critic 前，Planner 用真实历史案例反推一次 Resolver。以下不是“以后再实现”的例子，而是 v0.2 的 expected resolution oracle：
+
+| 历史案例 | change/claim 输入 | Resolver 应选 | 不该选什么 |
+|---|---|---|---|
+| Lucerna L17 Longleaf child failure 被 Available 吞掉 | provider aggregation + user-visible state | state-truth-propagation；若 UI/release claim 同时要求，再加 targeted native actual-surface | 不新建 Longleaf Gate；不跑 installer |
+| Lucerna L32 startup/upgrade/uninstall | NSIS/startup lifecycle | install-startup-lifecycle；必要时 environment coverage | 不因“桌面软件”跑完整视觉重审 |
+| Lucerna L13 把可解决问题问用户 | 无产品 surface change；Human Gate routing | **无 project Gate**；workflow-core W2 | 不造 user-interruption quality Gate |
+| Bobbio B01 test profile 指向真实 Zotero data | Zotero profile/authority | zotero-isolation-safety + roundtrip authority | 不先跑 Frontend taste |
+| Bobbio B05 整屏控件语法失败 | UI layout + Reader release claim | frontend-actual-surface + independent product review | 不把 Zotero roundtrip PASS 当视觉 PASS |
+| Mica M35 coordinated forgery 能骗过 validator | acceptance validator changed | validator-anti-forgery + evidence-contract validation，使用 frozen known-bad | 不新建 forgery-v2 Gate |
+| SeminarArc S11 OCR 假阴性来自 harness 读错控件 | acceptance harness only | installed-blackbox harness regression；产品 OCR claim保持未被该假阴性推翻 | 不修改 OCR 算法来迎合坏测试 |
+| Asteria A40/A41 metric 被硬编码 0/缺值当 0 | validator/geometry measurement | mechanical-architecture-regression + known-bad geometry | 不新建 routeMetric2 Gate；不拿 PASS 去替整体审美 |
+| CUHK Date C11 one-time ticket 过早消费 | handoff transaction/API | one-time-handoff-transaction；若完整注册 claim再组合 registration critical path | 不跑所有 Dating 内容质量 Gate |
+| CUHK Date C21 HTTP200 冒充媒体搜索质量 | user-facing media result | dating-product-semantics-content-quality + web state evidence | 不把 availability/HTTP Gate 当 quality Gate |
+| CARE C10 loss weight 写入 args 但消费者没用 | training semantics / loss | F2 parameter-data-consumption-causality，cheap counterfactual before Slurm | 不直接启动 full long-run/F5 |
+| CARE C23 要求 500 steps 实际 12 steps | execution budget/scale | F3 scale-population-budget | 不因为训练“跑过”给 scientific PASS |
+
+这张表暴露并关闭了 v0.1 的一个真实空白：如果没有 `impact_tags` 与 project-owned impact rules，Resolver 很可能只能靠 LLM 从 repo 名和自然语言猜 Gate。v0.2 因此把 impact classification 作为正式输入，而不是实现细节。
 
 ## 13. 完整责任矩阵
 
