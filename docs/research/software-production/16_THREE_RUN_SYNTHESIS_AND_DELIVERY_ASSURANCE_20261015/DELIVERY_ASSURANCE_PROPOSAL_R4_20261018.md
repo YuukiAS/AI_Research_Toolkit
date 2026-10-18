@@ -50,7 +50,7 @@ R2 保持以下已关闭合同：
 R2 继续保持以下已关闭合同：
 
 - 阶段 1 必须绑定真实目标 Codex host/version，通过正常 `/hooks` 入口枚举全部生效 Hook 来源并确认探针 Hook 当前定义已受信任；禁止使用 `--dangerously-bypass-hook-trust` 制造 PASS。
-- 阶段 1 使用隔离的 probe repo/workspace、临时运行状态目录和项目级 Hook；R3 不再切换到未认证的临时 `CODEX_HOME`，而是复用当前真实、已认证的 `CODEX_HOME` 作为既有 authentication/runtime identity。其他可影响 Stop 决策的 Hook 仍必须在 `/hooks` 预检中完整枚举并保持可归因，否则在 P1 前停止为 setup blocker。
+- 阶段 1 使用隔离的 probe repo/workspace、临时运行状态目录和项目级 Hook；R4 保持 R3 已通过方向：不再切换到未认证的临时 `CODEX_HOME`，而是复用当前真实、已认证的 `CODEX_HOME` 作为既有 authentication/runtime identity。其他可影响 Stop 决策的 Hook 仍必须在 `/hooks` 预检中完整枚举并保持可归因，否则在 P1 前停止为 setup blocker。
 - 每个 Stop 检查事件至少绑定：`session_id`、`turn_id`、canonical repo root、worktree identity、当前 `HEAD`、candidate identity、`task_key`。
 - 每个检查事件具有稳定幂等键和原子单写者 claim；重复事件只读取同一已完成结果，不能重复运行门禁、重复写证据或生成第二次 continuation。
 - Hook 生成的 continuation reason 仅有**诊断和同范围返修指令**效力，不产生任何新增授权。授权来源仍只有原始真实用户请求、已冻结 Goal/Kickoff 或后续真实用户批准。
@@ -130,7 +130,7 @@ Codex 官方 Hooks 当前行为构成阶段 1 的直接技术基础：
 
 Codex Goal 已经提供线程级持久目标、预算和用户 pause/resume/interrupt，但它仍不能替代候选绑定、领域 QA 或独立交付证据。若阶段 1 的 Stop 续写链 NO-GO，Goal 可以作为下一轮重新设计时要比较的原生替代 substrate；本轮不得静默把 Goal 换成新实现路径来规避失败。
 
-## 3A. R3 execution environment：认证复用与状态隔离
+## 3A. R4 execution environment：认证复用与状态隔离
 
 ### 3A.1 采用真实已认证 `CODEX_HOME`，但不授权读取或修改凭据
 
@@ -154,7 +154,7 @@ R4 明确禁止把 Sign in、Device Code、API key、复制认证缓存、临时
 
 1. config loader 在 `ignore_user_config=true` 时保留一个空的 user layer，而不是删除 user layer；Hook discovery 仍可从该 layer 的 config folder 查找 `hooks.json`，因此它不能可靠地消除所有 user-level Hook 来源。
 2. project layer 仍会被发现，但 project trust 与非 managed Hook 的 `trusted_hash` 都属于用户配置状态；忽略 user config 会使正常持久 trust 语义不再等同于普通入口。
-3. 当前公开 CLI 参考把该选项列在 `codex exec` 路径，而 R3 的最小人工动作依赖交互式 `/hooks` 浏览器。把 trust UI 和后续执行拆成两套不同 config-loading 语义会降低可归因性。
+3. 当前公开 CLI 参考把该选项列在 `codex exec` 路径，而 R4 的最小人工动作依赖交互式 `/hooks` 浏览器。把 trust UI 和后续执行拆成两套不同 config-loading 语义会降低可归因性。
 4. managed hooks 独立于 user config；即使忽略 user config，也不能据此假设没有 managed Stop controller。
 
 因此 R4 默认**不使用** `--ignore-user-config`，也不使用 `allow_managed_hooks_only`（后者会连 project probe Hook 一起跳过）。使用真实 `CODEX_HOME` 的正常配置后，通过 `/hooks` 对所有实际 Hook 来源做预检，才是本轮更小且可审计的路线。
@@ -651,7 +651,7 @@ Gate 执行顺序：先低成本静态/机械回归，再阶段 1 真实 Hook �
 
 本 R4 通过也只意味着**修订后的阶段 1 执行包可重新进入用户授权**，不等于生产实现授权。
 
-R3 setup 必须先达到 `SETUP_READY`；在此之前任何 setup blocker 都保持 Phase 1 `NOT_STARTED / NOT_REACHED`，不得偷换成 GO/NO-GO。Phase 1 开始后才适用既有 GO/NO-GO 合同。任何以下发现必须停止并回 Planner/Critic：
+R4 setup 必须先达到 `SETUP_READY`；在此之前任何 setup blocker 都保持 Phase 1 `NOT_STARTED / NOT_REACHED`，不得偷换成 GO/NO-GO。Phase 1 开始后才适用既有 GO/NO-GO 合同。任何以下发现必须停止并回 Planner/Critic：
 
 - 当前 Codex Stop 实际行为与官方文档不一致，无法可靠同 thread continuation；
 - setup 中已有 authentication identity 不可用且唯一恢复办法要求重新登录/复制凭据，或 Hook/project trust/来源无法在正常入口证明；
@@ -677,7 +677,7 @@ probe 结束后只使用官方用户界面提供的正式 trust 清理能力；�
 
 ## 19. R4 之后的唯一合法下一步
 
-1. 独立 Critic 对 **本 Proposal R3 + Phase 1 Goal R3 + Phase 1 Kickoff Draft R3** 做同版 `EXECUTION_READY_REVIEW_R3`。
+1. 独立 Critic 对 **本 Proposal R4 + Phase 1 Goal R4 + Phase 1 Kickoff Draft R4** 做同版 `EXECUTION_READY_REVIEW_R4`。
 2. Critic 只能给 `PASS` 或 `REVISE`。
 3. 即使 PASS，也必须由用户实际发送批准后的 Kickoff 才能执行阶段 1。
 4. 阶段 1 GO 前，不修改生产 Bridge、AI Skills、消费者或 Slurm。
