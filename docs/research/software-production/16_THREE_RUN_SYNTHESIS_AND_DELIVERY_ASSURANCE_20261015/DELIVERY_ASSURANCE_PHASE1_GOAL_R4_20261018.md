@@ -83,7 +83,7 @@ P1_P13=NOT_RUN
 hook_event_count=0
 ```
 
-R2 stopped branch 为 `work/delivery-assurance-hook-probe-r2`，本地 commit `005fee947bafabbfc77f47d744b4717238439905` 未 push。R3 不声称可从 GitHub 读取该 commit，也不依赖其原始文件才能判断 setup 根因。不得恢复 R2 branch 继续跑；R4 获批后使用新的 `work/delivery-assurance-hook-probe-r4`。
+R2 stopped branch 为 `work/delivery-assurance-hook-probe-r2`，本地 commit `005fee947bafabbfc77f47d744b4717238439905` 未 push。R3 从未声称可从 GitHub 读取该 commit；R4 同样只把它作为用户转交的 local-only locator，不依赖其原始文件才能判断 setup 根因。不得恢复 R2 branch 继续跑；R4 获批后使用新的 `work/delivery-assurance-hook-probe-r4`。
 
 ### S1. 认证身份
 
