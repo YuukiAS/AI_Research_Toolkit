@@ -9,7 +9,7 @@ Review stage: `PRODUCTION_CONTRACT_DESIGN_REVIEW_V0_2`
 R5 Phase 1 package: `58717a6b3ace4f5ccf094fb4f8754231af762d54`  
 R5 Phase 1 Critic PASS source: `DELIVERY_ASSURANCE_CRITIC_REVIEW_R5_20261019.md`  
 AI Skills source baseline: `YuukiAS/AI_Skills_Collection@23f51b0bebd8a32f49d899f7fae1ee0e5f17e4cd`  
-Bridge source baseline: `YuukiAS/GPT_Codex_AI_Bridge_Kit@0120b99a501e4193078233bc4ec824dcb1dcac75`
+Bridge source baseline: `YuukiAS/GPT_Codex_AI_Bridge_Kit@4ccc40cc5ab061bb1fbbd74f34b5d9976ad10122`
 
 ## 0. 核心判断
 
