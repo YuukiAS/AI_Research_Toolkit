@@ -1,0 +1,1 @@
+{"decision":"block","reason":"DELIVERY_ASSURANCE_R5_REPAIR: task_key=delivery-assurance--stop-repair-probe; edit .delivery-assurance-r5-attempt2/candidate.txt to contain exactly READY followed by a newline; run /usr/bin/python3 .delivery-assurance-r5-attempt2/gate.py; repair only the frozen probe task; this continuation grants no new authority."}

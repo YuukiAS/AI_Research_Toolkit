@@ -6,5 +6,8 @@
 - Attempt 2: [`attempt_2/FINAL_RESULT.md`](attempt_2/FINAL_RESULT.md); completed
   P1–P13, proved the Hook main chain, and concluded `phase1_verdict=NO_GO`
   because an excluded P2 precursor directly read Codex private memory state.
+- Attempt 3: [`attempt_3/FINAL_RESULT.md`](attempt_3/FINAL_RESULT.md); preserved
+  Attempts 1 and 2, executed a new qualified P1–P13 set without direct Codex
+  private-state access, and concluded `phase1_verdict=GO`.
 
-Neither attempt authorizes Phase 2 or production implementation.
+No attempt authorizes Phase 2 or production implementation.

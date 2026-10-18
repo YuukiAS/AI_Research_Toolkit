@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.delivery-assurance-r5-attempt2/handler.py\"",
+            "timeout": 3,
+            "statusMessage": "Running bounded Delivery Assurance R5 probe"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.delivery-assurance-r5-attempt2/handler.py\"",
+            "timeout": 3,
+            "statusMessage": "Second controlled R5 Stop controller"
+          }
+        ]
+      }
+    ],
+    "Interrupt": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.delivery-assurance-r5-attempt2/handler.py\"",
+            "timeout": 3,
+            "statusMessage": "Recording Delivery Assurance R5 interrupt"
+          }
+        ]
+      }
+    ]
+  }
+}
