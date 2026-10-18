@@ -648,7 +648,7 @@ Gate 执行顺序：先低成本静态/机械回归，再阶段 1 真实 Hook �
 
 本 R5 通过也只意味着**修订后的阶段 1 执行包可重新进入用户授权**，不等于生产实现授权。
 
-R4 setup 必须先达到 `SETUP_READY`；在此之前任何 setup blocker 都保持 Phase 1 `NOT_STARTED / NOT_REACHED`，不得偷换成 GO/NO-GO。Phase 1 开始后才适用既有 GO/NO-GO 合同。任何以下发现必须停止并回 Planner/Critic：
+R5 setup 必须先达到 `SETUP_READY`；在此之前任何 setup blocker 都保持 Phase 1 `NOT_STARTED / NOT_REACHED`，不得偷换成 GO/NO-GO。Phase 1 开始后才适用既有 GO/NO-GO 合同。任何以下发现必须停止并回 Planner/Critic：
 
 - 当前 Codex Stop 实际行为与官方文档不一致，无法可靠同 thread continuation；
 - setup 中已有 authentication identity 不可用且唯一恢复办法要求重新登录/复制凭据，或 Hook/project trust/来源无法在正常入口证明；
@@ -668,13 +668,13 @@ R5 不改变 Delivery Assurance 产品架构，只把 Phase 1 的执行环境收
 
 用户正常只应遇到一个新的人工动作：在 `/hooks` 中检查 source + definition/hash，并信任这一份精确 project Hook。Codex 自己正常产生的 SQLite、索引、日志、rollout backfill 或认证维护不需要用户管理，也不作为 DA probe 的验收对象。若当前环境还需要新增 project trust、重新登录、复制凭据或改现有 Hook/plugin/managed policy，R5 不继续，而是以 setup blocker 停止。
 
-`--ignore-user-config` 不作为默认捷径，因为当前官方语义和源码不能同时保证它消除 user Hook 干扰又保持普通 project Hook trust 流程。R4 选择正常配置 + `/hooks` 完整来源枚举；有无法归因的 Stop controller 就停。
+`--ignore-user-config` 不作为默认捷径。R5 继续使用正常配置 + `/hooks` 完整来源枚举；有无法归因的 Stop controller 就停。
 
 probe 结束后只使用官方用户界面提供的正式 trust 清理能力；没有 revoke/remove UI 就删除临时 Hook/workspace并记录残留 hash，不直接改内部存储。
 
 ## 19. R5 之后的唯一合法下一步
 
-1. 独立 Critic 对 **本 Proposal R4 + Phase 1 Goal R4 + Phase 1 Kickoff Draft R4** 做同版 `EXECUTION_READY_REVIEW_R5`。
+1. 独立 Critic 对 **本 Proposal R5 + Phase 1 Goal R5 + Phase 1 Kickoff Draft R5** 做同版 `EXECUTION_READY_REVIEW_R5`。
 2. Critic 只能给 `PASS` 或 `REVISE`。
 3. 即使 PASS，也必须由用户实际发送批准后的 Kickoff 才能执行阶段 1。
 4. 阶段 1 GO 前，不修改生产 Bridge、AI Skills、消费者或 Slurm。
