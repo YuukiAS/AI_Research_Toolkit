@@ -1,0 +1,57 @@
+# 研究交付机械完整性检查
+
+这份检查只验证研究文件的结构、集合、引用和冻结身份，不证明专业判断正确、盲读独立或任何生产能力运行通过。产品runner运行次数为0。
+
+| 检查 | 结果 | 范围 |
+|---|---|---|
+|13必需文件|PASS|全部存在且非空|
+|02_ALL_363_FAILURE_COVERAGE.csv ID集合|PASS|363/363，无重复或漏项|
+|02_ALL_363_FAILURE_COVERAGE.csv 字段完整|PASS|所有字段非空；明确UNKNOWN/NOT_PROVEN不算PASS|
+|03A_MANUAL_CASE_MAP.csv ID集合|PASS|363/363，无重复或漏项|
+|03A_MANUAL_CASE_MAP.csv 字段完整|PASS|所有字段非空；明确UNKNOWN/NOT_PROVEN不算PASS|
+|04A_ARCHITECTURE_CASE_MAP.csv ID集合|PASS|363/363，无重复或漏项|
+|04A_ARCHITECTURE_CASE_MAP.csv 字段完整|PASS|所有字段非空；明确UNKNOWN/NOT_PROVEN不算PASS|
+|05A_SIX_DIMENSION_CASE_COMPARISON.csv ID集合|PASS|363/363，无重复或漏项|
+|05A_SIX_DIMENSION_CASE_COMPARISON.csv 字段完整|PASS|所有字段非空；明确UNKNOWN/NOT_PROVEN不算PASS|
+|合法disposition|PASS|无OTHER/MISC/TBD处置|
+|scope值|PASS|历史情境重建；不作runtime硬编码|
+|原repo来源|PASS|363行有原始repo locator；链接存在不等于本轮逐个全文/实机核验|
+|83原始要求|PASS|ID与原文字段完整一致|
+|83机制/owner|PASS|每行机制/owner/probe/阶段/证据限界齐全|
+|C01-C20|PASS|20节唯一且齐全|
+|引用section有效|PASS|覆盖表合同引用均可解析|
+|交接22×11|PASS|22行，每行11字段，无空白|
+|研究结论一致|PASS|C失败，不把文档完整当封板|
+|冻结人工文件|PASS|03字节与已提交blob一致；03A同样在发布前校验|
+|01_ARCHITECTURE_COMPLETENESS_AUDIT.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|02A_REPO_GATE_FAMILY_SUMMARY.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|03_MANUAL_GATE_FAMILIES.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|04_ARCHITECTURE_DERIVED_GATE_FAMILIES.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|05_MANUAL_VS_ARCHITECTURE_COMPARISON.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|06_FINAL_ARCHITECTURE_CONTRACT.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|07_REMAINING_DECISIONS.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|08_PROPOSAL_V0_3_EXACT_CHANGESET.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|README.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|RUN_STATE.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|SOURCE_LOG.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+|VALIDATION.md 本地链接|PASS|仅检查研究文档内部链接，不执行产品路径|
+
+## 内容指纹
+
+下列为规范化UTF-8/LF正文SHA-256，不包含本VALIDATION自身以避免自引用。最终GitHub提交及远程读回单独验证。
+
+| 文件 | SHA-256 |
+|---|---|
+|README.md|8714943ea76b66f63a3ff40ea42bbd19c7714926046832f634ee346bd8a88876|
+|01_ARCHITECTURE_COMPLETENESS_AUDIT.md|3cfc6c007067011a18cfed5b5948b94bdaa5829cbad4b1fdf386c0cce98bce85|
+|01A_ALL_83_REQUIREMENT_ARCHITECTURE_COVERAGE.csv|0a571e7f067127fd15f24d1267e5249f37e847483d848bf2c16c0da30a5c75bc|
+|02_ALL_363_FAILURE_COVERAGE.csv|00c4c05f6909862020cfa09aaa491c6fb168353279292dcff3238a6c3cc7656c|
+|02A_REPO_GATE_FAMILY_SUMMARY.md|703a8988b62eb089766a912cf3d0c86e4ddd5fed2b91fda7a2107b81483c4ca9|
+|03_MANUAL_GATE_FAMILIES.md|6929e834f40d000ff506311ec16b3fa0573803a8bda2b6278a9a9b0aa4b78839|
+|03A_MANUAL_CASE_MAP.csv|2792ba6dcc180322e7373e77901b308fe6eec70930d131b12fe1d0fb913c1bac|
+|04_ARCHITECTURE_DERIVED_GATE_FAMILIES.md|ae3e0b669d28b189db6c7b73ca486b359ad428fb11cd811e5edf6ea078452cbe|
+|04A_ARCHITECTURE_CASE_MAP.csv|5c142b0463b41197dc55a56b0f2a73a74c8926e3071077118967a8c9a731f92e|
+|05_MANUAL_VS_ARCHITECTURE_COMPARISON.md|00d75e6e7d5a54f78a839a6c5c3c5972e5db4d6d7f73130ec1884e975511894c|
+|06_FINAL_ARCHITECTURE_CONTRACT.md|90d8b0d57ccecec52afca36b1d0a5180257e25fd253f34227e9a833dbb2a17c0|
+|07_REMAINING_DECISIONS.md|0d8cd62e9d4ab21eeb94591001c2bf21aa05f67ca79b88a15bc25ae595012229|
+|08_PROPOSAL_V0_3_EXACT_CHANGESET.md|4f8b23e064fcd73bdde7096ee7fa2e1b2f6295db7507c03f600ad0a46da55c6f|
