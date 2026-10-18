@@ -1,0 +1,1 @@
+{"decision":"RECORDED_NO_RESTART","event":{"cwd":"/tmp/ai-research-toolkit-da-hook-probe-r5","hook_event_name":"Interrupt","permission_mode":"default","session_id":"01a14fe5-319a-7ae2-818b-7557a87fa66a","stop_hook_active":null,"turn_id":"01a14fe5-331f-77d0-a871-a1c43bba424e"},"event_id":"59cd97abc322d5895e89b0555eae9d0f8874b59fd8593d838f821bbffbb1744d","record_type":"interrupt"}

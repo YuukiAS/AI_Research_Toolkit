@@ -1,0 +1,9 @@
+{
+  "candidate_ref": ".delivery-assurance-r5-attempt2/candidate.txt",
+  "candidate_sha256": "3dfa3fb239f56c778a1e9b33eb31328349edd155a95806dac4378904e88527e5",
+  "decision": "PASS",
+  "git_head": "09f1a2d48f985971626fe381a01638aac6a69838",
+  "reason_code": "CANDIDATE_READY",
+  "schema": "delivery-assurance-r5-probe-gate-evidence-v1",
+  "task_key": "delivery-assurance--stop-repair-probe"
+}
