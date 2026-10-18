@@ -1,0 +1,25 @@
+{
+  "schema": "delivery-assurance-phase1-r5-setup-incident-v1",
+  "frozen_package_commit": "58717a6b3ace4f5ccf094fb4f8754231af762d54",
+  "critic_review_commit": "2964e6a14f927e408b9a7a0d8803dcaea8d6e51d",
+  "codex_version": "0.142.0",
+  "authentication_status": "EXISTING_SESSION_AVAILABLE",
+  "credential_secret_value_exposed": false,
+  "private_file_content_exposed": false,
+  "relogin_or_api_key_used": false,
+  "probe_owned_codex_state_override_used": false,
+  "prohibited_diagnostic_invoked": "codex doctor --json",
+  "private_state_metadata_classes_observed": [
+    "authentication",
+    "sqlite",
+    "sessions",
+    "rollouts"
+  ],
+  "project_hook_created": false,
+  "hook_trust_requested": false,
+  "temporary_ai_bridge_state_home_created": false,
+  "hook_event_count": 0,
+  "p1_p13_executed": false,
+  "phase1_verdict": null,
+  "setup_status": "SETUP_PRIVATE_STATE_BOUNDARY_VIOLATED"
+}
