@@ -40,7 +40,8 @@ Paid/external side effects: **NONE**
 - 创建项目级 `.codex/hooks.json` 和最小 probe handler；若当前 linked-worktree 语义把 Hook source 映射到 canonical root project folder，只能创建 task-owned 新 Hook 文件且不得覆盖/改写任何已有 Hook/config，否则 setup blocker；
 - 复用用户当前真实、已经认证的 `CODEX_HOME`，仅用于既有 authentication/runtime identity；probe 不读取、复制、导出、软链接或重写 auth/token/credential；
 - 使用临时 `AI_BRIDGE_STATE_HOME`；
-- 使用临时 SQLite runtime state；优先设置当前目标版本已验证支持的 `CODEX_SQLITE_HOME`，并通过 `/debug-config` 或当前官方等价只读诊断确认 effective `sqlite_home` 指向临时位置；
+- 使用临时 SQLite/runtime/log state；优先设置当前目标版本已验证支持的 `CODEX_SQLITE_HOME`，并以 session-scoped override 设置临时 `log_dir`、`history.persistence=none`，通过 `/debug-config` 或当前官方等价只读诊断确认生效；
+- Hook trust setup 不发送模型任务；P1–P13 使用正常配置的 `codex exec --ephemeral`，避免 session rollout 文件写入真实 `CODEX_HOME`；
 - 查询目标 Codex binary/version；
 - 通过正常 `/hooks` 查看真实 Hook 来源和信任状态；
 - 在用户真实完成 Hook 信任后运行 bounded probe；
@@ -90,7 +91,11 @@ R2 stopped branch 为 `work/delivery-assurance-hook-probe-r2`，本地 commit `0
 
 ### S2. runtime state 隔离
 
-建立临时 `AI_BRIDGE_STATE_HOME` 与临时 SQLite state root。目标版本必须证明 effective `sqlite_home` 指向临时路径；可使用当前版本支持的 `CODEX_SQLITE_HOME`，但必须通过 `/debug-config` 或当前官方等价诊断核对。若 managed requirement 覆盖、变量不生效、或真实 SQLite state 会落到用户 `CODEX_HOME`，返回 `SETUP_SQLITE_ISOLATION_UNPROVEN`。不得复制现有 DB。
+建立临时 `AI_BRIDGE_STATE_HOME`、临时 SQLite state root 与临时 log root。目标版本必须证明 effective `sqlite_home` 指向临时路径；可使用当前版本支持的 `CODEX_SQLITE_HOME`，但必须通过 `/debug-config` 或当前官方等价诊断核对。同时用 session-scoped config override 设置 `log_dir=<temp>` 与 `history.persistence=none`，不修改 user `config.toml`。若 managed requirement 覆盖、变量/override 不生效、或 SQLite/log/history 会落到用户 `CODEX_HOME`，返回 `SETUP_SQLITE_ISOLATION_UNPROVEN` 或 `SETUP_STATE_ISOLATION_UNPROVEN`。不得复制现有 DB。
+
+用于 `/debug-config` 与 `/hooks` 的交互式 setup 过程不发送模型任务。记录 setup 前后真实 `CODEX_HOME` 的**非敏感路径级**变化，只允许精确 Hook trust state 这一新增持久效果；不得读取 auth/token 内容。若 setup 自身产生新的 probe session/history/log durable state，返回 `SETUP_STATE_ISOLATION_UNPROVEN`。
+
+完成 trust 后，P1–P13 优先通过正常 config semantics 的 `codex exec --ephemeral` 运行，继续带临时 `CODEX_SQLITE_HOME`、临时 `log_dir` 与 `history.persistence=none`。`--ephemeral` 只用于避免 session rollout 持久化，不改变 Hook trust/来源验收，也不允许 `--ignore-user-config`。
 
 ### S3. 不使用 `--ignore-user-config`
 
@@ -266,6 +271,9 @@ handler 故意超时、非预期退出或返回 malformed output。此时允许 
 - real authenticated `CODEX_HOME` locator（只记录路径/identity，不读取认证秘密）；
 - authentication status = EXISTING_SESSION_AVAILABLE；
 - temporary `CODEX_SQLITE_HOME` / effective `sqlite_home` locator；
+- temporary `log_dir`；
+- `history.persistence=none`；
+- P1–P13 runner uses `codex exec --ephemeral`；
 - temporary `AI_BRIDGE_STATE_HOME`；
 - task-owned probe workspace/repo/worktree；
 - project layer trust = ALREADY_TRUSTED，且没有本轮新增 project trust；
@@ -277,7 +285,8 @@ handler 故意超时、非预期退出或返回 malformed output。此时允许 
 - `--dangerously-bypass-hook-trust = NOT_USED`；
 - credential material read/copied/exported/symlinked = NO；
 - re-login/device-code/API-key fallback = NOT_USED；
-- user config mutations 除 exact Hook trust 外 = NONE；
+- real `CODEX_HOME` 新增 durable effects 除 exact Hook trust 外 = NONE；
+- setup/P1–P13 unexpected session/history/log writes under real `CODEX_HOME` = NONE；
 - production repos touched = NONE（AI Research Toolkit 研究执行分支/临时 project Hook/evidence 不算生产 consumer）；
 - paid/network side effect = NONE（普通 Codex 已认证服务连接不算新增产品副作用，但不得额外购买/调用第三方服务）。
 
