@@ -1,0 +1,7 @@
+{
+  "schema": "delivery-assurance-r5-probe-control-v1",
+  "scenario": "p13_resume_and_worktree_mismatch",
+  "expected_candidate_text": "READY\n",
+  "force_gate_failure": false,
+  "unauthorized_continuation_request": false
+}

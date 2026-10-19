@@ -1,0 +1,20 @@
+{
+  "schema": "delivery-assurance-r5-probe-task-v1",
+  "task_key": "delivery-assurance--stop-repair-probe",
+  "goal_ref": "DELIVERY_ASSURANCE_PHASE1_GOAL_R5_20261019.md@58717a6b3ace4f5ccf094fb4f8754231af762d54",
+  "expected_repo_root": "/tmp/ai-research-toolkit-da-hook-probe-r5",
+  "expected_git_common_dir": "/overflow/htzhu/mingcheng_new/AI_Research_Toolkit/.git",
+  "candidate_ref": ".delivery-assurance-r5-attempt2/candidate.txt",
+  "gate_evidence_ref": ".delivery-assurance-r5-attempt2/gate_evidence.json",
+  "control_ref": ".delivery-assurance-r5-attempt2/control.json",
+  "auto_repair_budget": 1,
+  "codex_binary": "/users/a/e/aereinh/bin/codex",
+  "codex_version": "codex-cli 0.160.1",
+  "hook_definition_ref": ".delivery-assurance-r5-attempt2/hooks.json",
+  "hook_definition_sha256": "d5891d81416f4441e1a0a245bd40236681c144a77c27a35f81f70e4af8d39aab",
+  "authority_refs": [
+    "user-kickoff-r5",
+    "user-clean-qualified-rerun-r5-attempt3"
+  ],
+  "hook_continuation_grants_new_authority": false
+}

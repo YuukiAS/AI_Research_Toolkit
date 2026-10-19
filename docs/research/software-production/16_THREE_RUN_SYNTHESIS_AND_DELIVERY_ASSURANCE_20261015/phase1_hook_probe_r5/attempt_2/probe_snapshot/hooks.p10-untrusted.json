@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.delivery-assurance-r5-attempt2/handler.py\"",
+            "timeout": 3,
+            "statusMessage": "Untrusted negative-control R5 probe"
+          }
+        ]
+      }
+    ],
+    "Interrupt": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.delivery-assurance-r5-attempt2/handler.py\"",
+            "timeout": 3,
+            "statusMessage": "Untrusted interrupt negative control"
+          }
+        ]
+      }
+    ]
+  }
+}
