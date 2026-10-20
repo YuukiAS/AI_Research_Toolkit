@@ -11,7 +11,7 @@
 - design_topic_or_task_key: `software-production--delivery-assurance`
 - source_branch_or_ref: `research/software-production-decision-20261013`
 - review_stage: `PRODUCTION_CONTRACT_DESIGN_REVIEW_V0_4`
-- frozen_package_commit: `a73b851a031b6146e3ef27916663280d69a772c5`
+- frozen_package_commit: `0ff0f43f3b04286273490e4c4870975f4aa7a7f8`
 - package_manifest:
   `docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PRODUCTION_CONTRACT_COMPLETION_PACKAGE_V0_4_20261019.md`
 - main_proposal:
@@ -49,7 +49,7 @@ REVISE
 
 ## 二、读取完整 v0.4 包
 
-从 frozen package commit `a73b851a031b6146e3ef27916663280d69a772c5` 完整读取：
+从 frozen package commit `0ff0f43f3b04286273490e4c4870975f4aa7a7f8` 完整读取：
 
 1. `DELIVERY_ASSURANCE_PRODUCTION_CONTRACT_COMPLETION_PROPOSAL_V0_4_20261019.md`
 2. `DELIVERY_ASSURANCE_SEVEN_CONSUMER_ADOPTION_ANNEX_V0_1_20261019.md`
@@ -326,7 +326,7 @@ REVISE
 
 ```text
 reviewed_object=Delivery Assurance Production Contract v0.4
-frozen_package_commit=a73b851a031b6146e3ef27916663280d69a772c5
+frozen_package_commit=0ff0f43f3b04286273490e4c4870975f4aa7a7f8
 review_stage=PRODUCTION_CONTRACT_DESIGN_REVIEW_V0_4
 
 DESIGN_VERDICT=PROCEED
