@@ -2,7 +2,7 @@
 
 本轮核对支持一个方向：把交付保障接入已有任务入口和项目验收程序，补齐“这次该验什么、证据属于谁、失败交给谁”的连接。现有材料尚不能支持“安装后所有普通 Codex 对话都得到强制保障”。尤其是原生入口、Hook 失效和同任务持续恢复，必须作为可否决架构的前置条件。
 
-本文件为研究候选 v0.1，后续七仓核查将修订同一文件。不是独立审查结论，不授权实施。
+本文件已按七仓源码与后续反证修订，仍为待独立审查的研究候选。不是独立审查结论，不授权实施。
 
 ## 1. 用户实际经历的任务
 
@@ -20,7 +20,7 @@
 | AI_Skills_Collection main | f1de8e85957d32a50f4458349f450ec65add13bb | Planner/Critic 1.7、Capability Gate 1.2、维护看板 |
 | Bridge release | ba9013b9fbbd242e51b09f9d09291f417df17652 | 正式发布来源；GitHub Releases API 返回空列表，不用该列表替代 release 分支 |
 | Bridge main | bc94e41f44bd5b534d8ab8caa304114b8bf90685 | 与 release 不同，不能默认 main 更接近用户正在使用的实现 |
-| Bridge 当前产品开发分支 | work/bridge-core--product-scope-reset @ 7f43e146eed50d290ef9cc6ab912d106f754042c | 待与 release 逐函数比对，不能继承发布证明 |
+| Bridge 当前产品开发分支 | work/bridge-core--product-scope-reset @ 7f43e146eed50d290ef9cc6ab912d106f754042c | 已核对launch/route/transition等关键链，不能继承发布证明 |
 | Lucerna main | 79dd2875d3da33c6a6d80e5e35bea812b84c1ceb | 桌面最终对象仍需获权运行验证 |
 | Bobbio main / develop | e7d929bad2d4b23939c81920e77390efbce42b96 / a64edfd6c5b11f81599bfcfc327be5964633a7b5 | main 里程碑仍写 0.2.0，开发目标需单独绑定 |
 | Mica main | 7059c0dc24b908b57bd0e1f475142ba4f4520621 | fixture E2E 不代表真实 ChatGPT 加载 |
@@ -30,7 +30,7 @@
 | CARE main | 75a40e454de43b64e59a0b0b438ff57ef2bb8345 | v3 develop 只有明确绑定任务才有效 |
 | CAT-TRACE main | 0d829fb17c458a076a15ec51893e917960107c21 | 参考解释方式，不移植统计方法为交付算法 |
 
-引用形式统一为 `仓库@上述SHA:path#函数或行`；后续 SOURCE_INDEX 给直接固定链接。
+引用形式统一为 `仓库@上述SHA:path#函数或行`；07的来源索引及02–04给直接固定链接。
 
 ## 3. 已有代码与当前断点
 
@@ -105,3 +105,7 @@ GitHub 必需状态检查接受的结果可能包含 skipped/neutral；因此发
 A 可细分为仅修项目脚本，以及 Bridge 最窄启动/交付边界扩展；后者能强制受管启动，但不自然拦住所有原生聊天。Skills-only 成本最低，适合解释与生成补验收任务，不能承担确定性准入。独立常驻产品可以拥有自己入口，却要求用户迁移日常入口，增加状态、凭据和维护面，目前没有净收益证据，拒绝选用。成熟执行工具采用各仓现有 Playwright、PowerShell、Android/Room、pytest/Slurm finalizer；它们解决运行与观察，不替代标准和来源审查。因此推荐 B 的小型义务/证据库 + A 的实际入口消费 + C 的现有专业运行器。
 
 **核心未闭合 G1**：无任务包的普通对话在 Hook 无信任、超时或关闭时，如何仍在原生界面确定性阻止虚假完成，当前没有已验证实现。可选受管入口有真实能力但增加入口摩擦，不能视为原承诺等价完成。研究保留此架构阻塞，不能据本方案发实施 Goal。
+
+## 最后交叉核对的修订
+
+Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/src-tauri/src/zotero_client.rs#L242)已直接核对：read_attachment_annotations 242行、authorize_local_writes 407行、mutate_attachment_annotation 526行；写路径检查server identity、写能力和授权，不能从main推定。CUHK的campaign合同明确换部署snapshot须关闭旧Parent，本研究的“同任务”指产品目标/预算/问题lineage连续，不能复用过期活动。G6补充旧da/1必填或语义变更必须重新Planner/Critic冻结，03示例不是兼容声明。详见04补充边界及06 P0。
