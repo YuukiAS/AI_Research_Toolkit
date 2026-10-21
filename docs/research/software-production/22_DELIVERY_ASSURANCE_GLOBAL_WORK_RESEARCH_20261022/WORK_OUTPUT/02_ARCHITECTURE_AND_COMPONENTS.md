@@ -1,81 +1,131 @@
-# 整体架构与组件
+# 整体架构与组件：让原任务真正消费验收结果
 
-当前推荐是：让原任务负责继续工作，让项目专业程序负责判断成品，把 Delivery Assurance 收缩为连接两者的一组共享函数。用户照常提出功能要求；系统自动准备本轮验收义务，调用已有检查，补齐确实缺少的程序，沿原任务返修，最后从真实使用对象得出可声明的结果。
+推荐保留五组职责，物理上实现为**既有执行入口中的少量调用、一个共享纯函数库，以及项目原有专业检查的适配**。任务仍归原执行者；验收标准仍归专业owner；Delivery Assurance不获得第二份调度权。它的价值应体现在用户少提醒、坏候选更早暴露、旧功能受保护和成品身份清楚，而不是多出一套状态文件。
 
-这是候选 v0.1。下图中的“拟新增”均未实现；源码已存在也不代表本轮实际运行。原生 Hook 全宿主可用性、未登记旧能力的保护下限仍待闭合。
+这是源代码调查后修订的架构候选，**设计尚有核心阻塞，不能交实施Goal**。初稿先写入GitHub后，再由七仓反证修订：新增了早期工具入口检查、有效开发分支区分、观察器校准、科学负结果分流；没有把旧v0.5作为正确前提。真实函数与逐问题合同见03，七仓链见04。
 
-## 1. 总图：只保留一个执行权威
+## 1. 总图与运行直觉
 
 ```mermaid
 flowchart TD
-  U["用户普通功能请求"]
-  H["拟新增：原生 UserPromptSubmit 接入\n无 Goal 也记录当前请求与宿主事实"]
-  L["已有 Bridge cli.run_lite_task\n已有任务包"]
-  R["已有 Review watcher_once → run_codex_event"]
-  C["已有 Control 状态与项目 Controller"]
-  O["拟新增：任务内义务编译\n需求/正式标准/旧行为/真实变更"]
-  E["当前 Codex Executor\n实现功能或补齐缺少的验收程序"]
-  V["已有项目/领域运行器\n桌面、浏览器、APK、科学数据"]
-  J["拟新增：候选身份核对与结果聚合\n保留每项原始证据及未证明范围"]
-  D["已有交付/发布入口消费判定\n普通对话 Stop 为受限接入"]
-  F["原任务失败消费者\n当前会话续修 / Review / Control / 原控制器"]
-  P["用户实际消费对象 + 中文增量报告"]
-  U --> H --> O
-  U --> L --> O
-  U --> R --> O
-  U --> C --> O
-  O --> E --> V --> J --> D
-  O -- "标准不明/语义冲突" --> Q["原专业 Planner；必要时独立 Critic"]
-  O -- "程序缺失，标准已冻结" --> E
-  J -- "产品/检查程序/证据/环境分类失败" --> F --> E
-  D -- "完整证据成立且授权满足" --> P
-  D -- "缺证或权限不足" --> F
+  U["用户普通请求／已有Goal"]
+  N["宿主原生事件
+拟：on_prompt / pre-tool / post-tool / stop
+失效与不支持仍有G1缺口"]
+  L["已有 cli.run_lite_task"]
+  R["已有 watcher_once → run_codex_event"]
+  C["已有 launch_executor_with_preflight
+或项目原Controller"]
+  K1["K1 接入与身份
+原请求、任务、源码、权限引用"]
+  K2["K2 义务与选测
+正式要求＋旧能力＋实际变更"]
+  E["当前Executor
+实现产品／补必要验收程序"]
+  K3["K3 项目／领域专业验收
+既有runner＋独立观察"]
+  K4["K4 身份与逐项声明核验
+同候选、真实证据、声明范围"]
+  K5["K5 原任务反馈与报告
+原预算、原owner、可恢复结果"]
+  D["已有交付／评审／发布入口"]
+  P["用户实际消费对象与简洁中文报告"]
+  U --> N --> K1
+  U --> L --> K1
+  U --> R --> K1
+  U --> C --> K1
+  K1 --> K2 --> E --> K3 --> K4
+  K2 -- "标准明确、程序缺失" --> E
+  K2 -- "标准冲突／无法推导" --> Q["原专业Planner；必要人类决策"]
+  K4 -- "具体失败／缺证" --> K5 --> E
+  K4 -- "满足指定声明的证据" --> D
+  D -- "授权与原流程验收满足" --> P
+  K5 -- "无合法自动消费者／权限不足" --> W["原任务保留未完成与恢复点"]
 ```
 
-图中共五组新增或重构职责，分别是入口绑定、义务编译、专业验收适配、结果判定和原任务反馈。它们不是五个常驻服务。持久任务状态继续属于 Lite 文件、Review CURRENT、Control CURRENT 或项目控制器；本轮结果是任务附属产物，不能再发明并行状态机。
+这张图不意味着每个箭头今天已经接好。实线表示建议的数据路径；节点中的“已有”只说明现存源码，跨节点新增调用在03明确标为待实现。尤其原生Hook失效路径、外部Reviewer回传、项目文档里的Controller是否存活都必须真实验证。
 
-## 2. 正向链与坏候选链
+一条正向任务是：Lucerna修刷新→接入保存用户原义→把真实刷新和旧quota状态作为义务→选择已有Rust和原生runner→真实EXE同PID操作产生后置状态→逐项判定→原release流程消费→报告哪些已可用。一条坏链是：共享状态把unknown写成0→旧quota控制例失败→原执行者收到actual/expected和来源→修映射→重跑影响闭包→最终安装检查；不是让用户拿截图再来指出。
 
-以 Lucerna 增加真实用量显示为例。用户请求由拟新增原生接入保存；workflow-core 的拟新增 `prepare_delivery_obligations` 从请求、正式产品要求、现有 provider 和测试读取证据。它把“真实来源、单位、时间、不能伪造未知余额”与共享配额旧行为一起交给当前 Codex。已有 Rust 测试和 `development-acceptance.ps1` 按授权运行。新增的项目结果适配函数读取实际结果，公共判定核对源码、EXE、PID和截图属于同一个候选。日常任务只跑对应范围；正式交付再进入既有独立 release 验收。用户得到功能状态和检查变化说明。
+CAT-TRACE的方法启发是“先找到同一种近似相互印证仍会一起错的反例，再改变计算路径”。本研究对应的是：产品自报数值与验收器读取同一自报值可以一起错；所以要独立原始观察。参见[零槽位导读](https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md#L63)。数学方法的准确性与数值边界属于CAT-TRACE，本研究不据此宣布它已验证。
 
-坏候选把所有余额硬编码为 680。检查必须用两组不同原始输入、独立期望值和未知额度上限样本。结果携带实际值、期望值、原始输入定位、候选身份以及责任分类。当前会话内，拟新增 Stop adapter 返回有界续修理由，当前 Codex 读取完整失败文件，修 provider 后重跑受影响旧配额。Review 则由已有 `watcher_once` 消费新的合法状态事件，`executor_prompt` 读取 REVIEW；Control 则按现有 findings 路由。不能把三者预算相加，也不能由 Stop 再启动 Review 或 Slurm。
+## 2. K1 接入、来源与执行身份
 
-这只是设计推演。本轮没有使用真实账号，也没有运行 EXE；七仓的具体程序、历史失败和可证伪条件将在 04 文件逐项核实。
+**事故与必要性。** Lucerna历史旧EXE/PID混用（L22），Mica主线/ZIP/实际加载版本错位（M04/M45），Bobbio旧里程碑代签（B14/B26）。现有Bridge能绑定受管执行源码，但不会替一个无任务包的普通对话建立完整交付义务；一个repo HEAD不能代表用户运行的程序。
 
-## 3. 组件边界与最小改动候选
+**owner与入口。** Bridge拥有启动、repo/worktree、session、Host权限及加载身份。已有[readiness.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ba9013b9fbbd242e51b09f9d09291f417df17652/ai_bridge_kit/readiness.py)、[cli.run_lite_task](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ba9013b9fbbd242e51b09f9d09291f417df17652/ai_bridge_kit/cli.py#L657)、Review launcher、Control launcher分别接入；新原生delivery_hooks.py属于Bridge，尚无生产实现。不新建host进程、App reader或线程。
 
-| 组件 | 当前事故/缺口 | 真实拥有者与候选改动位置 | 输入 → 输出 → 消费者 |
-|---|---|---|---|
-| C1 入口与身份绑定 | 普通对话无任务包；旧 EXE/旧扩展冒充本轮 | Bridge：`readiness.py`、`cli.run_lite_task`、`reviewed_runner.run_codex_event`；原生 hooks adapter 拟新增 | 平台 session/turn/cwd + 当前任务/分支 + 用户请求 → 任务绑定 → C2及原执行者 |
-| C2 任务义务编译 | Skill 没调用、adapter漏旧功能、标准有而程序无 | AI_Skills workflow-core 源码下拟新增纯函数；项目正式标准仍由项目拥有 | 请求+基线+变更+领域标准+现有检查 → 义务/选测/缺口工作项 → 当前 Executor及C3 |
-| C3 专业运行与校准 | fixture替实际产品；假保存；损失没进训练 | 七仓原生脚本、专业插件；仅补必要结果适配与缺失检查 | 冻结义务+候选+授权环境 → 原始观察及逐项结果 → C4 |
-| C4 证据与声明判定 | 写PASS却没运行；截图过期；阈值跟着产品改 | Bridge持有身份核对；workflow-core聚合语义；领域负责人解释专业结果 | 检查结果+独立标准+候选运行对象 → 可声明范围/失败 → C5及既有交付入口 |
-| C5 原任务反馈和读者报告 | Reviewer反馈没人收到；无限返修；用户看日志 | Bridge原有入口及项目控制器，拟新增结果消费调用；不另建watcher | C4完整失败→原预算内修复/合法等待/必要用户动作；最终中文变化报告→用户 |
+**输入→输出→接收方。** 原始用户请求、现有任务、原owner、mandatory source blobs、实际执行上下文和当前授权引用→admission.json→K2和现有prompt。例如Bobbio 0.3请求必须绑定develop a64edfd及其CURRENT_MILESTONE，不能读main 0.2后假设接受。请求改变保存revision，不能悄悄改原目标。
 
-C2不能根据关键词替代领域判断。未知旧功能不能靠空数组得到“无需检查”；应从基线正式入口、既有测试、被调用公共接口、已接受行为与变更传播核对覆盖，仍不确定则扩大本仓便宜回归并保留覆盖未知。扩大不授权真机、GPU或付费。
+**分支与三类控制。** 正常来源/任务一致可继续；错分支/旧载荷/工作树冲突拒绝ready；报告文字更新且runtime不变应保持旧二进制证据有效。无任务包用原生轻量记录；无Hook能力只能指导或使用显式受管入口，影响用户体验必须说明。缺账号不是重新初始化真实账号的理由。
 
-C3缺少程序和缺少标准必须分开。标准明确时，任务内工作项包含原条款、输入、好/坏/缺证样本、写入位置与结果格式；当前 Codex完成实现。标准冲突时不让执行者修改成功定义以得到通过。
+**恢复与生命周期。** 现有任务恢复时重核来源和效果权限；不新task洗状态。安装、更新、信任重置、卸载逐宿主处理，旧payload按兼容矩阵保留；权限不跨不可证明的session重用。Bridge源码与正式distribution仍分owner。
 
-C4不是万能评分器。它只能证明结果身份、义务满足和证据范围；视觉质量、科学意义与专业正确性仍需对应程序和独立审阅。执行者可写输出文件，所以文件哈希与PASS字段本身不是真实性证明；高风险发布消费方必须独立运行或直接观察。
+**最小改动/成本/否决。** 在三个launcher加入prepare/check调用；原生五类事件适配一次；每次使用已有来源缓存但校验实际blob。测启动延迟、用户信任操作、是否误阻小修。任何supported入口可绕过且仍报告受保障，G1不关闭；Windows fcntl/锁兼容必须独立测试，不能从Unix Bridge外推。
 
-C5的反馈载荷不增权限。用户中断后只记录；外部审查未返回新决定时保持原状态等待；失去进程且无既有恢复者时明确报告不能自动继续。后台续跑能力不能由一份待办文件产生。
+## 3. K2 义务、旧行为发现与选测
 
-## 4. 与既有方案的具体取舍
+**事故。** Mica关闭主功能得到安全（M14），CARE 500步变12步（C23），Lucerna共享状态旧能力被吞（L17/LX12），Asteria无基准diff漏已提交修改（A42）。已有测试目录只能告诉我们“有什么测试”，不能推出“用户这次需要什么”。
 
-复用：Lite/Review/Control/Persistent Run 的任务、预算、角色和恢复；七仓成熟验收程序；领域插件的专业标准；维护看板的中央完成与消费者适配区别。
+**owner与真实落点。** AI_Skills_Collection canonical `skills/core/codex-system/codex-workflow-protocol/` 持有通用准备/选测/聚合规则；拟在其scripts加入delivery_obligations.py的prepare_delivery_obligations/select_checks。当前SKILL指导已有，拟新增纯函数不存在。Bridge只调用已安装/启用的精确版本；项目owner提供专业合同和依赖适配。中央不得复制领域阈值。
 
-删除或拒绝新增：中央万能评分器、独立跨仓任务数据库、第二套Slurm调度、以36职责对应36模块的结构、为每个历史事故新增Gate、通过回执数量证明完成、所有小任务都走Control。
+**数据与算法。** K1 admission＋原请求＋正式标准＋接受基线＋全变化集＋实际入口清单→obligations/resolution/work_items→当前Executor和K3。按原请求建立expected set后才匹配gates；反向消费者闭包决定范围；依赖未知先修映射，不能以全跑已知测试替代未知旧能力。六维类别判据与完整算法见03 E4。
 
-重构：将旧DA接口中必要字段作为兼容输入候选，先按真实消费者证明用途，再决定保留；不因 `da/1` 冻结过就强迫生产入口接受整套设计。若后续确认已有消费者，迁移需双读、等价对照和明确切换；当前尚无生产消费证据。
+**三类控制。** 普通README文字修正只检查文档；shared provider改动选兄弟quota；空adapter/漏公共入口必须coverage_unknown，不能NONE。should_not_change来自既有接受来源，不是本次临时自造“旧功能”。
 
-新增必须证明的价值：无任务包的原生接入；发现缺失验收程序并交给当前执行者；根据实际变化保护旧能力；真实消费对象绑定；逐项结果被原任务及交付入口读取。任一新增没有接收者即为未闭合，不算架构完成。
+**失败/恢复。** 标准已有、runner缺失产生具体BUILD_VALIDATOR给现Executor；缺标准/冲突返回原专业Planner；缺环境/权限留独立阻塞并继续无关工作。模型语义提取仍会漏要求，不能被JSON schema校验神化；原请求逐条对照与独立盲抽样是G2最低证据，不是完备定理。
 
-## 5. 目前可否决该架构的条件
+**生命周期/成本/否决。** 每次新入口/删测试/改共享generator自动标记映射重审；case合并不删除保护。纯函数不持有第二CURRENT；source-first生成插件，消费者版本不符阻止ready。测分析时长、漏选与过度FULL；若对少量任务没有净收益，退回项目本地选择，保留有用回归。
 
-- G1：原生 Hook 未信任/失效/宿主不支持时，无法保证普通聊天的完成表述被拦截；独立交付入口也可能不存在。
-- G2：初次基线无法可靠发现全部隐含旧能力。必须定义可审查的保护下限和未知升级，不能承诺“所有旧功能均发现”。
-- G3：同用户执行者可写检查器和结果，高风险独立观察及冻结标准必须实际由不同权限/角色消费；仅哈希不足。
-- G4：当前原任务没有活执行者或恢复权威时，不得承诺无人转发的自动返修。
-- G5：最终真实设备、安装、账号和科学结果未获权验证，不得以本轮只读分析代签。
+## 4. K3 专业验收程序、运行器与观察者
 
-后续文件必须给这些条件的具体实现选择、仍需验证的事实和停止声明；它们不能被延期到实现者临场决定。
+**事故。** SeminarArc只有点击不能证明保存，OCR选择器误读造成假阴性S11；Bobbio假Zotero性能代替真实批注；Asteria crossing常零；CARE参数有名却没有因果消费。中央通用脚本无法知道这些专业语义。
+
+**owner与复用。** 七仓专业owner拥有标准、原程序和回归；已有Lucerna PowerShell、Bobbio隔离runner、Mica acceptance CLI、SeminarArc黑盒、Asteria browser tests、CUHK parent gate、CARE finalizer/validators直接复用。新增只有缺失检查和结果适配。领域plugin提供正式标准/能力，不夺项目执行权。
+
+**触发/数据/消费。** K2选出义务和当前效果权限→现Executor/Controller执行白名单argv→真实runner原输出与原始观察→项目adapt_result→K4。补程序工作项具有原条款、三类控制、明确写路径、命令与回报位置，见03 E5–E7。命令是数据不能自动授予shell或账号权限。
+
+**判断与反例。** SeminarArc正确OCR控件非空且重启保留为good；旧错误定位要产生observer fault，不能叫product fail；录音已接受路径不得为修照片被破坏。新validator要通过good/bad/missing/unchanged；坏例必须经同生产验证路径。高风险更需独立冻结参考和实际观察，源hash不是可信签名。
+
+**失败与维护。** product修产品，observer修采集器并重采，oracle修标准走专业owner；科学充分负结果不修成正面。新增/更新/暂停/退休按03 E8；停检查不取消原义务，合并迁移全部历史case。授权环境不可达不偷偷换成低等级；Mica已明确允许target-class的范围不推广到Android真机。
+
+**成本与否决。** 复用一次运行满足多个义务，cheap-first，稳定候选再真设备/昂贵检查。只增加回执而不能拒绝真实坏实现则取消该adapter设计；Asteria独立geometry与CARE训练恢复等价未验证前保留G3，不说全部26类已实现。
+
+## 5. K4 证据身份、逐项结论与交付准入
+
+**事故。** Lucerna不同PID截图，Mica source/build/loaded不一致，CUHK Web/API/campaign混版，CARE Slurm COMPLETED没有预测；Asteria“指标0”只是默认值。需要把“检查程序退出”和“目标被证明”分开。
+
+**owner与接点。** Bridge复用身份/semantic snapshot/来源校验；workflow-core拟validate_delivery_claim做纯集合判断；专业owner解释结果。既有交付边界读取：Lite父进程只准自己的ready通知，Review原发布就绪检查、Control transition predicate、项目finalizer的送审边界。原生聊天文本由宿主，不能声称K4掌握不存在的发布闸门。
+
+**输入输出。** obligation set＋candidate vector＋原始run/observer证据＋冻结standard＋独立审查状态→每项PASS/FAIL/UNKNOWN及可声明层级→K5和既有delivery owner。vector不是单commit，包含每仓源码、构建/安装/部署、数据/model、observer和环境。只控制结果身份，不做科学正确性万能评分。
+
+**规则与三类控制。** 同候选真实观测匹配才允许对应claim；旧截图/未跑job/缺ratio/缺result拒绝；只改审计文字不让无关运行无限失效。一个义务FAIL和另一个UNKNOWN可同时留存，不平均。不用GitHub绿色check直接证明产品；required job skipped不算实跑。
+
+**恢复与生命周期。** 错身份先重绑/采集，不为了过测试改产品。标准/observer变化沿依赖失效；报告可以重建；原失败append保留。对象版本升级逐consumer验证，退出保留审计链。禁止把same-user可重写文件当不可篡改证据。
+
+**成本与否决。** 缓存semantic digest避免receipt hash循环；大文件用已有构建manifest但审来源，不能无限哈希医学数据。核心否决是不同候选材料能拼绿、required集合可清空或同源造假仍被视独立。G3必须通过实际攻击试点。
+
+## 6. K5 同任务反馈、等待、维护与读者报告
+
+**事故。** Reviewer报告没人收、Mica连续新Goal重置，CARE只留NEEDS_MONITOR便退出，Lucerna工具修理吞掉开发，用户被迫搬运错误。生成FAIL文件不等于形成下一步执行。
+
+**owner与真实消费。** 活跃Codex直接读命令失败；Review watcher_once读取当前合法REVISE→run_codex_event→executor_prompt；Control route_current_findings返回路由→**已有**Controller实际launch；CARE原Controller消费finalizer；CUHK Parent消费当前campaign反馈。这些接线有的待新增、有的运行存活未证，G4不能藏起来。
+
+**消息。** K4工作项带task/candidate/actual/expected/source/evidence/classification/修复范围/失效项；原ownerack后执行并产生fresh run关闭。报告从实际清单派生新增、加固、复用、未跑、关闭及未证明范围；不给用户一屏内部状态码。无需新增validator也要说明为什么。
+
+**三类控制与预算。** good新鲜反馈只消费一次；bad旧review target或中断后不得再开进程；另一独立任务保持原进度。Lite一次子进程、Hook受限一次续修、Review事件attempt/轮次、Lucerna独立最多三轮、CARE合同预算互不相加。等待不消耗修复；重复同因无新证据先根因审计，不无限换命令。
+
+**生命周期/恢复。** 断线由原持久owner恢复；没有owner则诚实给同任务恢复位置，不能许诺无人值守。外部GPT正常等待不写BLOCKED终态；两小时只是最低宽限，无新证据不重试旧决定。中央维护看板引用现有task，不产生第二任务状态。
+
+**成本/否决。** 普通报告确定性模板即可，既有Notifier可选表达适配而不改变事实；不额外造控制台常驻服务。若修复消息未到执行者、用户仍需反复转述、同一错误重复占预算，试点失败，先修消费链或取消新增层。
+
+## 7. 删除、复用、重构、新增及未闭合边界
+
+|处理|决定与理由|
+|---|---|
+|删除/拒绝|第二任务数据库、第二Slurm调度、万能评分器、36个服务、每历史条目一个Gate、第四种Bridge自主workflow、常驻app-server reader、强制所有小改全量review|
+|复用|Bridge既有身份/预算/状态/Host/Persistent/Notifier；七仓runner；项目Controller；领域标准；AI Skills发布与maintenance board|
+|重构|旧da/1字段仅按消费需要迁移；26能力族用于归类而非强制模块。旧冻结接口不是本轮正确性依据；如果发现真实consumer才做双读迁移，不猜它们不存在|
+|新增候选|原生接入适配；通用义务/选测/claim纯函数；项目最小result adapter与确实缺失validator；在已有交付边界加真实调用|
+
+G1普通原生失效路径、G2未知旧行为、G3独立观察、G4活跃反馈消费者、G5真实最终环境分别保留。G1可能改变推荐路线：如managed hooks或平台接口不能达到用户原承诺，需要独立Critic要求架构REVISE或由用户明确接受额外受管入口摩擦，不能把后者悄悄算原目标已完成。G2/G3必须冻结可验证保护边界，不能承诺绝对发现所有未知缺陷。所有未实现接点有06分包位置；任何关键设计未闭合都阻止发执行Goal。
