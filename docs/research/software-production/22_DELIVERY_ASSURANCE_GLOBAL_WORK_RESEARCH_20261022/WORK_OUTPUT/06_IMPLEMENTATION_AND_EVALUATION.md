@@ -55,7 +55,7 @@ flowchart LR
 
 P0的可接受输出不是“都支持”：可以证明某入口不支持，但若它属于原始核心用户承诺，则总体仍REVISE，不能用删除该入口换PROCEED。替代受管入口有现实价值，却需要用户明确接受新增操作与覆盖差异。
 
-旧[da/1冻结](../..//16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PUBLIC_DA1_INTERFACE_FREEZE_V1_20261020.md)第22行要求：必填字段、owner、decision/identity/authority/claim/routing等语义变化回Planner/Critic。本研究建议把UNKNOWN impact先修映射、仅在真正消费者处准入，并重界定Hook/Lite预算和轻量原生上下文，不能声称它们天然保持旧freeze。**决定：不复用旧PROCEED，不自行授予新wire版本；冻结失败则P1/P2不得进入执行。** 能兼容的诊断字段保持可忽略，不兼容required/语义必须拒绝；在发现全部真实consumer之前不得宣布迁移完成。
+旧[da/1冻结](../../16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PUBLIC_DA1_INTERFACE_FREEZE_V1_20261020.md)第22行要求：必填字段、owner、decision/identity/authority/claim/routing等语义变化回Planner/Critic。本研究建议把UNKNOWN impact先修映射、仅在真正消费者处准入，并重界定Hook/Lite预算和轻量原生上下文，不能声称它们天然保持旧freeze。**决定：不复用旧PROCEED，不自行授予新wire版本；冻结失败则P1/P2不得进入执行。** 能兼容的诊断字段保持可忽略，不兼容required/语义必须拒绝；在发现全部真实consumer之前不得宣布迁移完成。
 
 ## 3. P1-WF：公共义务、选测与声明的纯函数
 
