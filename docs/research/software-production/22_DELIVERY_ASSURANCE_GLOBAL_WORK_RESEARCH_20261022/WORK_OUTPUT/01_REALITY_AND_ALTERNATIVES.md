@@ -76,3 +76,32 @@ GitHub 必需状态检查接受的结果可能包含 skipped/neutral；因此发
 5. 小文档修改触发重型设备测试；所有检查存在但无人阅读完整成品。
 
 这些反例将落实为调用点、观察和失败消费者，不以“已覆盖”关闭。
+
+## 七仓源码反证后的修订（本文件继续作为现实能力的唯一权威）
+
+本轮只读取 GitHub 文本源码、规则和历史结果，没有运行产品、浏览器账号、桌面、设备、GPU 或发布。下面的“历史结果”不是本轮复测；源码能证明调用存在，不能证明现在的设备、账户和最终安装对象已经通过。
+
+- **Bridge 实际开发分支也已读取**：`work/bridge-core--product-scope-reset@7f43e146eed50d290ef9cc6ab912d106f754042c`。它的 `cli.py::run_lite_task` 仍是一次启动；`agent_flow.py::launch_executor_with_preflight` 在 492–519 行绑定源后调用 `adapter.launch_role(request)`；`route_findings` 在 1134–1167 行明确区分 Executor、Verifier、Controller、Planner 与用户。路线名仍能指向一个执行角色，但 **路由字典本身不等于有持续运行的 Controller**。实现包必须在所选真实 runtime adapter 上证明消费闭环。开发分支的 AGENTS 明确不恢复 app-server reader、事件总线或自动工作树交换。本方案不复活它们。
+- **Bobbio 两条真实权威**：main `e7d929b` 的 0.2 基线与 develop `a64edfd6c5b11f81599bfcfc327be5964633a7b5` 的 0.3 不能混签。develop 的 `docs/CURRENT_MILESTONE.md` 明确本地就绪与外部产品审查、最终隔离 Zotero 集成、用户可验收分层；0.3 尚未成为 main 的接受结论。拟接入 0.3 时采用该 develop 合同，不能擅自切分支。
+- **Mica 必须再区分 main 与重构分支**：`codex/mica-product-system-rebuild@0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c` 已读取 AGENTS、package、acceptance CLI/validator 和低内存候选报告。main 中 10 月 5 日 Goal 已标 SUPERSEDED；当前标准是 `docs/product/MICA_PRODUCT_SYSTEM_V1.md` 与 10 月 12 日 Goal。优先级是 Foundation→Low Memory→Highlighter→PDF；高级 Reliability 与 Notion 延后，不能因历史登记把它们重新塞进当前交付。重构分支已有 `acceptance:preflight/focused/candidate`，应复用。
+- **Mica 历史性能结果不能简写“内存下降”**：报告绑定的是 runtime `57fa880`，不是当前重构 HEAD；其 A/B/C 表中 C 的 process private memory 比 B 增加约 1.67%，JS heap 下降 93.75%。证据明确为 `TARGET_CLASS_ENVIRONMENT`，不是物理低内存设备；独立表面审查与最终登录态验收仍未成立。该允许的目标类替代来自 Mica 冻结合同，不能推广为所有项目可自由降级。
+- **Asteria 当前量测缺陷已从源码确认**：`scripts/validate-architecture-rc19.mjs::routeGestalt` 第 38–49 行把 crossing 和 floating-label 指标设为 0，并对缺 ratio 使用 0；这不能证明真实零碰撞。RC11 历史报告还记录自动回归已过而整屏箭头明显失败。因此需要校准量测、实际 DOM/SVG 独立观测和完整读图，不能新增一个“总评分”掩盖它。此结论不等于宣称当前整个产品坏了。
+- **SeminarArc 的验收程序也会错**：`0.5.x_real_world_media_corpus_round_02_result.md` 明确撤销 OCR 0/5 产品结论：旧选择器读错控件；历史修复后报告 9/9 照片流程和全量重启持久化。外部录音只是盘点，产品没有导入入口，未冒充导入通过。本轮不读取私有素材，不重演设备。
+- **CARE 同时存在验收器 PASS 与科学否定**：batch7 `validator_status.json` 表示材料/坏例检查通过；`training_stage_adequacy.json` 的 600 optimizer steps、help 25/harm 27 和 continuation FAIL 是科学路线返回 Planner 的证据。finalizer 的最后状态是送审包就绪，不能升为科学成功。当前 `GPT_PLANNER_CARE_PROTOCOL.md` 默认 Controller 协调、planning critic/reviewer 关闭，只有具体任务显式开启；不得把通用 Control 强塞给 CARE。
+- **CARE 最新状态页也不是本轮授权**：main 的 `prompts/routes/handoffs/CURRENT.md` 记录 Attempt3 单层输入修复 archive、未发送组织方邮件，以及另一 R2 v9 训练前外部审阅等待。它不能授权本研究训练、上传、开控制器，历史 route A/B/C 不恢复。
+- **CUHK_Date 已有事务修复**：`handleAuditTicketSession` 读取 claim，认证与产品预期状态成功后 finalize，失败 release；修复报告有历史 canary。接入应补失败消息与同一 campaign 消费绑定，不再实现一个票据系统。响应丢失/重试的端到端当前性仍须合法实测。
+- **Mathpix 680 只保留为需求给定的对抗样例**：本轮读取 Lucerna 当前 Rust 源未找到 Mathpix 实现；`lib.rs` 出现的 680 是窗口初始高度，不能误报为硬编码余额缺陷。旧 Codex quota 的真实 `Option<f64>`、fresh/stale/unavailable 与共享 refresh 链才是本轮可核验的现有基础。
+
+固定版本源码链接按 `https://github.com/YuukiAS/<仓库>/blob/<上述完整SHA>/<路径>` 构成；七仓逐条可点击锚点见 04，公共调用锚点见 02/03。其余 main SHA 保持本文件前表。
+
+## 平台事实的严格含义
+
+[Codex 官方 Hooks](https://learn.chatgpt.com/docs/hooks) 描述 UserPromptSubmit、Stop 与 Interrupt。可利用提交事件传入上下文、Stop 的阻止结果请求续修，并须尊重中断；非受管 Hook 的信任与定义变更必须真实确认。**文档没有赋予外部研究一套不依赖 Hook 的原生完成抑制权。** Hook 不运行时，不能靠它自己报告失效。此前 Phase1 整体 NO_GO 不因局部主链成功而消失。Windows App、CLI、Remote 各自版本与信任边界必须单独通过真实入口试点。
+
+[GitHub required checks](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks) 的状态准入与“必需检查实际执行且证明目标”不同；成功、跳过或中性状态不能单独充当产品证据。研究分支写入成功也不证明任何生产分支有强制合并门槛。
+
+## 扩展的替代路线裁决
+
+A 可细分为仅修项目脚本，以及 Bridge 最窄启动/交付边界扩展；后者能强制受管启动，但不自然拦住所有原生聊天。Skills-only 成本最低，适合解释与生成补验收任务，不能承担确定性准入。独立常驻产品可以拥有自己入口，却要求用户迁移日常入口，增加状态、凭据和维护面，目前没有净收益证据，拒绝选用。成熟执行工具采用各仓现有 Playwright、PowerShell、Android/Room、pytest/Slurm finalizer；它们解决运行与观察，不替代标准和来源审查。因此推荐 B 的小型义务/证据库 + A 的实际入口消费 + C 的现有专业运行器。
+
+**核心未闭合 G1**：无任务包的普通对话在 Hook 无信任、超时或关闭时，如何仍在原生界面确定性阻止虚假完成，当前没有已验证实现。可选受管入口有真实能力但增加入口摩擦，不能视为原承诺等价完成。研究保留此架构阻塞，不能据本方案发实施 Goal。
