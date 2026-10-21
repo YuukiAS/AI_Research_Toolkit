@@ -125,7 +125,9 @@ CAT-TRACE的方法启发是“先找到同一种近似相互印证仍会一起�
 |---|---|
 |删除/拒绝|第二任务数据库、第二Slurm调度、万能评分器、36个服务、每历史条目一个Gate、第四种Bridge自主workflow、常驻app-server reader、强制所有小改全量review|
 |复用|Bridge既有身份/预算/状态/Host/Persistent/Notifier；七仓runner；项目Controller；领域标准；AI Skills发布与maintenance board|
-|重构|旧da/1字段仅按消费需要迁移；26能力族用于归类而非强制模块。旧冻结接口不是本轮正确性依据；如果发现真实consumer才做双读迁移，不猜它们不存在|
+|重构|旧da/1语义变化须先重新Planner/Critic冻结，不能按需删字段；26能力族用于归类而非强制模块。先普查真实consumer，再冻结兼容/双读/迁移决定；当前G6阻止实现|
 |新增候选|原生接入适配；通用义务/选测/claim纯函数；项目最小result adapter与确实缺失validator；在已有交付边界加真实调用|
 
 G1普通原生失效路径、G2未知旧行为、G3独立观察、G4活跃反馈消费者、G5真实最终环境分别保留。G1可能改变推荐路线：如managed hooks或平台接口不能达到用户原承诺，需要独立Critic要求架构REVISE或由用户明确接受额外受管入口摩擦，不能把后者悄悄算原目标已完成。G2/G3必须冻结可验证保护边界，不能承诺绝对发现所有未知缺陷。所有未实现接点有06分包位置；任何关键设计未闭合都阻止发执行Goal。
+
+补充修订：G6接口冻结同样属于核心设计阻塞。CUHK的原产品任务可继续，但换snapshot必须关闭旧Parent campaign；K5不得突破项目活动、票据与创建授权边界。Bobbio develop真实API入口已补查，见04。新增这些限制是后续原源码反证的结果，旧含糊表述以此及06 P0为准。
