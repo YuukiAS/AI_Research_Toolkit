@@ -1,11 +1,11 @@
 # 当前研究状态
 
-实施合同阶段已保存并回读：06_IMPLEMENTATION_AND_EVALUATION.md，提交 f4d997605c4d240133a6f228fc79c01fb6b3019f。P0前置架构证伪、P1-WF/P1-DOM、P2-BR、七仓P3/P4、P5发行维护分别定义用户能力、修改接点、冻结决定、真实good/bad/unchanged/missing、授权、成本、回退和否决条件。当前P0未过，均非执行Goal。
+全部规定产物00–08、05覆盖CSV、README均已逐阶段写入并回读。审查包提交 434832ce5493d183d306f3ac055231f396142828；独立Critic指令提交 304c75bab4fda31351210bff94706064730614a6；README提交 ddbd08d5654b994205e7b7533d14f7c8c649d1c3。当前正在做最终全包引用/计数/固定commit回读核验，未将核验完成预先记为成功。
 
-已完成并回读00–06；覆盖CSV 823行，37条关联原材料抽查、326条历史当前状态仍UNKNOWN。重要来源：输入基线 f1426b6322870c7a9d42d83ff6ea7ad8a35837a3；AI Skills f1de8e85；Bridge release ba9013b9、dev7f43e146；七仓有效分支见01/04/05。
+方案：K1接入身份、K2目标/旧保护与选测、K3专业验收、K4证据/声明、K5原任务反馈/维护报告；复用原owner与runner，不建第二调度系统。06给P0前置证伪、公共与专业分包、七仓试点、成本/维护/发行/退出合同。
 
-新补证：Bobbio develop的zotero_client.rs已直接核对read(242)/authorize(407)/mutate(526)，不再依靠main实现推测0.3。CUHK换snapshot须新Parent campaign且保留原产品task lineage/预算；旧da/1接口必须重新独立冻结。
+来源固定：研究输入 f1426b6322870c7a9d42d83ff6ea7ad8a35837a3；AI Skills f1de8e85，Bridge release ba9013b9/dev7f43e146，七仓有效分支详见01/04/07。覆盖823行，315问有逐项答案；37条关联原材料抽查，326条历史当前状态UNKNOWN；没有任何本轮产品复测。
 
-待完成：把新增反证同步03/04/01/02；07/08独立Critic包；README；最终全包GitHub读回和引用/计数检查。
+核心G1–G6未闭合，ARCHITECTURE_CLOSED=NO，READY_FOR_CODEX=NO。所有生产源码/规则/任务状态只读；没有设备、账号、私有医学数据、GPU/Slurm、付费、部署、发布操作，没有创建新任务/子代理/后台进程，没有独立Critic结论。
 
-G1–G6仍未闭合；无生产修改、设备/账号/GPU/部署/发布运行，无新任务或独立Critic结论。下一步只完成研究包，不跨入实施。
+下一动作：最终核验后固定研究包commit交独立Critic；待新鲜审查后仍在本目录修订。普通入口强制、独立观察、真实反馈消费者与接口冻结不能推给实施阶段自行决定。
