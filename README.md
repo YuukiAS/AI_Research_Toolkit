@@ -6,6 +6,7 @@
 
 ## 通用方法规范
 
+- [从科研想法到博士一作论文：通用科学研究标准](RESEARCH_IDEA_TO_FIRST_AUTHOR_PAPER_STANDARD.md)：从重要科学问题、原始文献与可证伪假设出发，经强基线、独立证据、原创贡献与第一作者主导形成可发表研究。
 - [复杂系统设计与交付标准](COMPLEX_SYSTEM_DESIGN_GUIDE.md)：怎样设计、实施和验收真实可用的复杂系统。
 - [复杂架构的可信解释标准](COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)：怎样结合实际使用、因果机制与证据，向读者解释系统为何有用、当前真正做到了什么。
 
