@@ -1,6 +1,6 @@
 # 覆盖审查、设计裁决与仍未证明的运行边界
 
-本文件与[覆盖CSV](05_HISTORICAL_COVERAGE.csv)共同构成一份规范化映射。表大不代表系统有效：本轮没有运行产品、设备、账号或科研试验。D1–D6的研究可解设计已在01–04确定；平台绝对原生文字拦截、真实宿主/成品与独立审查仍有明确边界，不能进入可执行Goal。逐项设计回答见03/04与本页；实现与验证分包见06。
+本文件与[覆盖CSV](05_HISTORICAL_COVERAGE.csv)共同构成一份规范化映射。表大不代表系统有效：本轮没有运行产品、设备、账号或科研试验。D1–D6是原方案骨架；本轮针对独立Critic R1 REVISE的五项缺口，按下文R1表修订01–06；平台绝对原生文字拦截、真实宿主/成品与独立审查仍有明确边界，不能进入可执行Goal。逐项设计回答见03/04与本页；实现与验证分包见06。
 
 ## 1. 清点结果与证据等级
 
@@ -36,13 +36,13 @@ CSV采用显式外键，避免363次复制同一段组件说明。它不是残�
 
 |项目键|有效源码|正常入口及定位|结果接收方|实施包|
 |---|---|---|---|---|
-|Lucerna|[Lucerna@79dd2875](https://github.com/YuukiAS/Lucerna/tree/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb)|[scripts/development-acceptance.ps1](https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/scripts/development-acceptance.ps1)：development-acceptance.ps1::Assert-CandidateAdmission/Test-CaptureSameRunBinding; independent native orchestrator|当前Executor或Lucerna原local orchestrator|P3-LUC|
-|Bobbio|[Bobbio@a64edfd6](https://github.com/YuukiAS/Bobbio/tree/a64edfd6c5b11f81599bfcfc327be5964633a7b5)|[scripts/Invoke-BobbioReaderAcceptanceSafe.ps1](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/scripts/Invoke-BobbioReaderAcceptanceSafe.ps1)：Invoke-BobbioReaderAcceptanceSafe.ps1; milestone gates|Bobbio原Executor/milestone owner|P4-BOB|
-|Mica|[Mica-for-ChatGPT@0aee22f3](https://github.com/YuukiAS/Mica-for-ChatGPT/tree/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c)|[scripts/acceptance/validator.mjs](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/scripts/acceptance/validator.mjs)：scripts/acceptance/cli.mjs::candidate -> validateBundle; original Parent|Mica原Parent Goal/Executor|P4-MIC|
-|SeminarArc|[SeminarArc@5652fe17](https://github.com/YuukiAS/SeminarArc/tree/5652fe17ce60625f3ff7c758fcc0183f920189de)|[scripts/run-blackbox-acceptance.ps1](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/scripts/run-blackbox-acceptance.ps1)：run-blackbox-acceptance.ps1::Run-B01..B08; verify-gpt-work-acceptance|SeminarArc原Executor/Parent|P3-SEM|
-|Asteria|[Asteria@193c0336](https://github.com/YuukiAS/Asteria/tree/193c033659a7612a99442763077217b130e9b756)|[scripts/validate-architecture-rc19.mjs](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/scripts/validate-architecture-rc19.mjs)：test:browser; validate-architecture-rc19.mjs; fixed URL review|Asteria原Executor/Reviewer|P4-AST|
-|CUHK_Date|[CUHK_Date@9f25c775](https://github.com/YuukiAS/CUHK_Date/tree/9f25c7754d3c80d0be74f5b71016320f55753ae6)|[packages/api-contract/src/parent-delivery-gate.ts](https://github.com/YuukiAS/CUHK_Date/blob/9f25c7754d3c80d0be74f5b71016320f55753ae6/packages/api-contract/src/parent-delivery-gate.ts)：runRegistrationCriticalPathHosted; evaluateParentDeliveryGate; handleAuditTicketSession|CUHK原Parent/campaign owner|P4-CUH|
-|CARE|[CARE_Challenge@75a40e45](https://github.com/YuukiAS/CARE_Challenge/tree/75a40e454de43b64e59a0b0b438ff57ef2bb8345)|[scripts/ops/care_milestone_finalizer.py](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/ops/care_milestone_finalizer.py)：approved formal train/eval -> care_milestone_finalizer.py -> original Controller|CARE原Controller/科学Planner|P3-CARE|
+|Lucerna|[Lucerna@79dd2875](https://github.com/YuukiAS/Lucerna/tree/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb)|[scripts/development-acceptance.ps1](https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/scripts/development-acceptance.ps1)：development-acceptance.ps1::Assert-CandidateAdmission/Test-CaptureSameRunBinding; independent native orchestrator|Complete-LucernaDelivery → check/report → 原handoff的claim绑定（均为待实施，04#r1-ar04）|P3-LUC|
+|Bobbio|[Bobbio@a64edfd6](https://github.com/YuukiAS/Bobbio/tree/a64edfd6c5b11f81599bfcfc327be5964633a7b5)|[scripts/Invoke-BobbioReaderAcceptanceSafe.ps1](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/scripts/Invoke-BobbioReaderAcceptanceSafe.ps1)：Invoke-BobbioReaderAcceptanceSafe.ps1; milestone gates|Complete-BobbioDelivery → check/report → 当前0.3结果绑定（均为待实施，04#r1-ar04）|P4-BOB|
+|Mica|[Mica-for-ChatGPT@0aee22f3](https://github.com/YuukiAS/Mica-for-ChatGPT/tree/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c)|[scripts/acceptance/validator.mjs](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/scripts/acceptance/validator.mjs)：scripts/acceptance/cli.mjs::candidate -> validateBundle; original Parent|cli.mjs::finalizeDelivery → check/report → rebuild结果绑定（均为待实施，04#r1-ar04）|P4-MIC|
+|SeminarArc|[SeminarArc@5652fe17](https://github.com/YuukiAS/SeminarArc/tree/5652fe17ce60625f3ff7c758fcc0183f920189de)|[scripts/run-blackbox-acceptance.ps1](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/scripts/run-blackbox-acceptance.ps1)：run-blackbox-acceptance.ps1::Run-B01..B08; verify-gpt-work-acceptance|Complete-SeminarArcDelivery → check/report → 原task result绑定（均为待实施，04#r1-ar04）|P3-SEM|
+|Asteria|[Asteria@193c0336](https://github.com/YuukiAS/Asteria/tree/193c033659a7612a99442763077217b130e9b756)|[scripts/validate-architecture-rc19.mjs](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/scripts/validate-architecture-rc19.mjs)：test:browser; validate-architecture-rc19.mjs; fixed URL review|validate-architecture-rc19.mjs::finalizeDelivery → check/report → RC结果绑定（均为待实施，04#r1-ar04）|P4-AST|
+|CUHK_Date|[CUHK_Date@9f25c775](https://github.com/YuukiAS/CUHK_Date/tree/9f25c7754d3c80d0be74f5b71016320f55753ae6)|[packages/api-contract/src/parent-delivery-gate.ts](https://github.com/YuukiAS/CUHK_Date/blob/9f25c7754d3c80d0be74f5b71016320f55753ae6/packages/api-contract/src/parent-delivery-gate.ts)：runRegistrationCriticalPathHosted; evaluateParentDeliveryGate; handleAuditTicketSession|verify-gpt-work-parent-delivery.ts::finalizeDelivery → check/report → campaign结果绑定（均为待实施，04#r1-ar04）|P4-CUH|
+|CARE|[CARE_Challenge@75a40e45](https://github.com/YuukiAS/CARE_Challenge/tree/75a40e454de43b64e59a0b0b438ff57ef2bb8345)|[scripts/ops/care_milestone_finalizer.py](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/ops/care_milestone_finalizer.py)：approved formal train/eval -> care_milestone_finalizer.py -> original Controller|care_milestone_finalizer.py::finalize_delivery → check/report → Controller completion绑定（均为待实施，04#r1-ar04）|P3-CARE|
 
 以下定义26个原专业族和9个治理族。专业阈值最终来自项目冻结合同；此表没有创造科学、视觉或性能数值门槛。
 
@@ -418,12 +418,39 @@ consumer inventory未知则中央只能source-ready，不得formal adaptation DO
 
 独立Critic应从原输入另抽问题，检查CURRENT固定包、03具体消费者、04正常/坏/旧链、06成本边界；发现未闭合箭头继续返修，不能把823行数量当准入条件。旧包快照仍在Git历史，本目录只保留最新唯一权威方案。
 
-## 最终设计闭合：同一账本的增量解释
+## 前轮方案的覆盖基础与本轮修订
 
 本轮没有新增第二份823行台账。原row_id、原问题、来源、历史状态、当前证据状态保持；仅同步C02原文覆盖、C23唯一阶段消费者、C25/C26锁与实际续修、C30四类退休校准、C34最小成本路线等设计答案。03 F1–F5是这些答案的详细合同；未再出现“用户产品边界待选/当前设计因此不闭合”的旧回答。
 
 04追加L20、B02、M08、S24、A14、CUHK C25、CARE C11，先在0f9a8fd固定题目，再读取当前代码和历史报告作反证。它们是新的有来源设计推演，不是独立holdout、真实重演或历史已解决认证，因此原37条定向审读/326条当前UNKNOWN统计不变。源码显示已有修复应当保护，不将历史缺陷自动归罪当前实现。
 
-PROJECT接收方还必须联合03 F2解释：development-acceptance/validateBundle/verify-gpt-work/static validator/Parent gate/finalizer只证明自己的阶段；Bobbio Safe的0.2证明也不能代0.3。最终USER_READY一律由原交付owner调用唯一Bridge.check_delivery核验真实同候选结果。CSV若只读项目入口名而忽略阶段合同，不构成完整结论。
+PROJECT接收方还必须联合03 F2解释：development-acceptance/validateBundle/verify-gpt-work/static validator/Parent gate/finalizer只证明自己的阶段；Bobbio Safe的0.2证明也不能代0.3。最终USER_READY一律经04 R1-AR04的七个确切finalizer调用唯一Bridge.check_delivery，并由原结果writer核验报告绑定；角色名本身不算消费者。CSV若只读项目入口名而忽略阶段合同，不构成完整结论。
 
-成本与保护一同受检：纯对话NONE、小文档局部、稳定候选昂贵观察；首片28–64小时估算与全量104–264小时均未量测。不得以文件/行数齐全认定设计或实现成功。后续独立Critic仍需从原源码另选问题，按具体箭头给PROCEED或REVISE。
+成本与保护一同受检：纯对话NONE、小文档局部、稳定候选昂贵观察；现行首片36–80小时、全量130–316小时均未量测，P0的4–8小时必须先于完整公共层；旧估算已撤回。不得以文件/行数齐全认定设计或实现成功。后续独立Critic仍需从原源码另选问题，按具体箭头给PROCEED或REVISE。
+
+<a id="r1-coverage"></a>
+## R1 五项返修如何改变原问题的处理
+
+五项均 **ACCEPT**。这是Planner设计修订，不是独立Critic关闭或运行通过。原823行的前八列（编号、分类、项目、原文、来源、项目原来源、历史状态、当前证据状态）逐字段保持；后九列仅更新处理链与定位。历史37条定向审读、326条当前UNKNOWN的口径不变。
+
+|稳定问题|本轮确定的处理与实际接收者|覆盖定位|必须保留的反例|
+|---|---|---|---|
+|DA-AR-01|prepare_admission在第一次依赖产品写入前分流；已有独立角色从原材料重建，原owner消费；原生需要耐久接收时进入既有受管模式|03#r1-ar01；C01/C02/C03/C21|Executor把重要原话归为背景；异步结果没有owner；缺独立接收者仍写依赖产品并签USER_READY|
+|DA-AR-02|DefinitionAdmission将候选、四类控制、校准、准入权威、精确激活摘要和回执相连；Bridge activate，正式reader消费；首次adapter同样准入|03#r1-ar02；C07/C09–C14/C30|恒680却四例全PASS；伪写ACTIVE；改答案获批；校准当产品stage；首次adapter启用相互等待|
+|DA-AR-03|Resolution.execution_capabilities经原Executor载荷、真实读取/调用及实现影响进入check_delivery；已审项目等效能力可替代|03#r1-ar03；C05/C17/C31，REQ-043、REQ-065|只安装未读取；只声明已调用；UI任务低配泛做；后端小改被强制完整前端流程|
+|DA-AR-04|04七个finalizer读取独立专业结果，在报告前调用check/report，原task结果writer拒绝缺绑定的USER_READY|04#r1-ar04；C23/C33、63仓库问题、363历史的项目消费定位|L/B/M/S/A/C/CARE-BYPASS：旧脚本PASS、材料准备、过期部署或科学validator绿直接冒最终可用|
+|DA-AR-05|P0真实host能力先证，Planner按固定回退表确定P2，然后才完整P1/P2；失败不启七仓|06#r1-ar05；C04/C19/C25–C27/C34–C36|Hook没加载却宣称保障；resume错thread；AGENTS文件更新冒加载；取消后重复副作用；先花完整首片再查宿主|
+
+### 联动反证与预期裁决
+
+以下均为设计级推演，**本轮没有执行探针或产品实验**：
+
+1. 新adapter校准需要ACTIVE才可跑：拒绝此循环。CalibrationContext能运行CANDIDATE；独立准入后做无签发shadow；原正常出口正反例证成再enable。shadow只产STOP/SHADOW_ONLY，不产Claim。
+2. 激活过程先更新profile后崩溃，回执缺失：不能半激活。不可变记录和回执先写，短锁CAS profile为唯一提交点；未引用记录无准入权。
+3. 高风险原请求需要独立核对，但只有原生会话：在已授权范围内绑定同请求到既有Review接收者；独立结果未被原owner消费前只允许读、诊断或已准入无关子范围，不新建第四工作流。
+4. 只读文件sandbox仍能调用外部写工具：不认定隔离成立。P0必须证实际工具边界；不支持则禁用该bootstrap路线，保留原受管Planner入口，不自造新客户端。
+5. Validator已ACTIVE但其调用的能力版本或adapter出口变了：按真实语义依赖失效，重走相关准入/运行；报告文案变化不使无关产品观察全部失效。
+6. Finalizer通过后源文件变了再写报告：report重验当前身份与claim，拒绝陈旧结果。直接手写READY也不能通过原结果writer；这不声称操作系统禁止任意聊天或任意文件文字。
+7. CARE科学负结果完整且被原Planner接受：报告“实验完成，方法未成立”；不把负结论路由成无限产品返修。纯后端/普通文档也不因这轮新机制强制启动视觉、设备或科学审查。
+
+独立Critic要从原题重建这些处理链，不能把此表当检验答案。R1五项若还有实际调用、授权或真实接收缺口，应在同一稳定ID下继续REVISE；无需再造目录或另一份覆盖账本。
