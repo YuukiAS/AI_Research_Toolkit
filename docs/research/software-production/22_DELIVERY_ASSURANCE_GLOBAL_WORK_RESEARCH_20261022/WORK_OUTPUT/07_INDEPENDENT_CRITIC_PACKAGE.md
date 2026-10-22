@@ -294,3 +294,9 @@ Lucerna、Bobbio、Mica、SeminarArc、Asteria、CARE源仍为04固定SHA，已�
 全量138–332小时、首片40–88小时，P0仍4–8小时，均为未量测规划估算；增量8–16用于两项接线。维护只有共享host finish、既有role binding及七仓结果映射，无七个新服务。若原正常任务绕过检查或本机失败仍靠用户搬运，相关consumer不启用。
 
 当前所有DA接线为待实现；七仓DA enabled=NO。P0、产品设备/账号/GPU、实际独立角色launch、真实schedule回传、取消恢复与成本量测均未执行。下一结论只能为实现前PROCEED/REVISE；不能据本包写产品通过或签执行任务。
+
+### R2冻结前的上游增量核查
+
+Bridge开发分支最新固定到 **76e2f14d5669867b2d4e3fa0950d8b2fedea7f35**。与上述0de62cb7比较，四个提交仅新增八份相邻正常入口验收文档，生产代码未变。已完整读取[窄Gate修订](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/76e2f14d5669867b2d4e3fa0950d8b2fedea7f35/docs/design/0.11.1_normal_entry_acceptance_gate_amendment_v0.1_2026-10-22.md)：它将真实Persistent链与预算极端故障回归分开，并为Text Transform补实际Actions触发/付费前持久预留设计。DA不依赖或执行该未实施外部调用，不继承其Goal、通知、费用或Git写入授权；本轮角色/完成源码引用0de62仍准确。正常业务完整链和危险边界测试都要经过真实入口，但不要求同一次产品运行刻意凑所有罕见故障，此原则与06现有试点不冲突。
+
+冻结前再次核实研究main仍daf797c7、AI Skills main仍ca10623f；七仓SHA仍为本轮04表。该刷新不改变02/03/05关闭状态，也不代表任何部署或host实测。
