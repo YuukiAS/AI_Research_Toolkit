@@ -73,3 +73,10 @@ GitHub compare `b6ca488fd93ca5b6a7dacb901aa34a123f1540f1...5a46c6a2f3640f45a240b
 01/02/05/06/07/08的过时产品等待已修订并逐份回读；README/CURRENT保留已确认边界，尚不声称设计结束。04追加反证先冻结于 `0f9a8fd36c845955e0aa07e5e24b3850e11bc785`：L20、B02、M08、S24、A14、CUHK C25、CARE C11；未重建历史账本，未新增运行PASS。接下来补原请求逐段覆盖、正式交付出口、锁与预算/恢复的实际调用合同，并核查这七条源码。
 
 当前来源复核：AI Skills、Bridge release/dev、七仓有效分支均未变化；研究main现为 `daf797c79bcd777c27948da51c4218e5d95e7be3`，设计指南未变，解释标准新增技术替代比较和连续修订完整判断要求，已读。官方Codex main为 `b4ad33d1a3c10c9652dd57f7afd7a949f8f26895`；与原固定源码比较的两个提交未改Hook/Stop/exec resume所引用文件。源码版本不等安装版本。
+
+
+### 已解决：要求遗漏、交付出口误升与返修锁（提交7287452）
+
+03新增F1–F3并已逐字回读：原请求无丢字定位＋逐段义务映射/反向阅读；缺引用/空集合拒绝；原专业独立角色从原文审要求；七仓低层PASS按阶段消费，USER_READY由唯一Bridge交付函数消费真实完整结果。修正Lucerna准备包、Bobbio0.2、SeminarArc基础设施不能冒最终产品就绪的接线。
+
+同时拆分launch lease与短state mutex，避免父进程等child却锁住child ack；修复reservation共享计数、未知副作用先reconcile、取消优先与实际接收判据。已写源码对应和可否决轨迹，未运行未来代码。下一步核对宿主矩阵、da/2所有字段/消费者与成本，以及已冻结七仓新反证，尚不启动Critic。
