@@ -1,113 +1,92 @@
-# 当前状态与同任务恢复点
+# 当前状态：同一研究的最终Planner架构送审候选
 
-本轮已将可通过合法源码、官方资料与架构比较解决的技术选择写成完整推荐方案。**用户于 2026-10-22 已明确接受推荐的有界混合架构与三个产品原则；目前不再等待用户产品选择。** 当前尚未形成最终 Planner 送审候选、未交独立 Critic、更未实施。下一步按本目录 [10 续研合同](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md) 在同一任务做最后技术审查、消除过时的等待措辞并核对完整提交。
+本轮已完成可在当前合法源码、官方资料与架构比较范围内解决的关键设计决定，并核对实际调用、失败接收、版本迁移、七仓反证和成本。推荐仍是**Bridge原入口＋workflow-core小共享库＋七仓既有专业runner**。原始请求逐段覆盖，旧行为从真实入口/新旧依赖发现；失败回当前执行者或原启动器有界恢复；受管交付由唯一Bridge消费者核验真实当前结果。
 
-## 用户已经批准、不能重复要求的产品边界
+**现在是Planner的实现前架构送审候选。** 这是设计收敛结论，尚无独立Critic结论、生产DA实现或七仓运行通过。唯一下一入口为[08完整独立Critic提示词](08_CRITIC_PROMPT.md)；本任务不自动启动Critic，不生成Codex实施Goal。Critic发现可由研究解决的关键缺陷，仍回本目录同一方案返修。
 
-用户于 2026-10-22 明确接受：① 实际受支持的正常 Codex 入口应尽量自动接入、主动选验收并同任务修复，不再由用户反复提醒；② 受管交付必须强制核验真实当前成品，Hook 完全缺席时不承诺拦截原生聊天中已经产生的错误“完成”文字，此限制不能被扩大为正式交付免验收；③ 不建设新的 Codex 客户端或过重控制平台。三项均为已批准产品原则，**不是新的平台实测结论或任何实施授权**。
+## 1. 已接受的边界与当前状态
+
+用户于2026-10-22明确接受：① 实际受支持的正常Codex入口自动接入，减少提醒验收/搬运失败/催修；② 受管交付必须强制真实验收，Hook完全缺席时不能拦原生聊天已经生成的错误完成文字，例外仅限聊天；③ 不开发额外Codex客户端、常驻通用调度平台、第二任务数据库、第四工作流或万能评分器。不重复询问这一决定。
 
 - PRODUCT_BOUNDARY_DECIDED = YES
-- RESEARCH_COMPLETION_CANDIDATE = NO（尚待 GPT Work 最终整合与反证）
-- ARCHITECTURE_CLOSED = NO（不是未决定产品边界，而是尚未完成最后审查）
-- READY_FOR_CRITIC = NO（待 Planner 检查、回读并明确冻结候选）
+- RESEARCH_COMPLETION_CANDIDATE = YES
+- ARCHITECTURE_CLOSED = YES（本轮Planner设计判断；待独立Critic反证）
+- READY_FOR_CRITIC = YES
 - READY_FOR_CODEX = NO
-- 目前需用户再决定的架构产品问题 = NONE
-- 独立 Critic 结论 = 尚无
-- 生产能力/七仓真实运行 = 尚未验证
+- PRODUCTION_IMPLEMENTED = NO
+- INDEPENDENT_CRITIC_DECISION = NONE
+- 当前需要用户另作的架构产品选择 = NONE
+- 当前未解决且可由本轮合法研究解决的关键架构决定 = NONE
+- 真实宿主/七仓产品运行证据 = 未取得，不冒充通过
 
-## 已作出的实质设计选择
+两次/30分钟是待试点检验的额外自动修复上限，取原预算更小值，不授予付费或资源。无活跃owner不承诺自动唤醒，缺授权/取消/外部等待/未知副作用不launch。语义完整性不是纯函数可证明的全知；same-user hash不是安全隔离；这些限制已有明确适用声明和否决实验。
 
-|问题|确定的方案与权威文件|
-|---|---|
-|普通入口|01 D1：可信原生接入＋原交付门；源码证明Stop续修不撤回文字，Hook失效不天然fail-closed|
-|未登记旧功能|03 D2：入口分母、语义确认、旧/新图、消费者闭包、孤儿/未知扩围、accepted baseline、复用与抽样|
-|独立观察|03 D3：机械/产品/受保护三档，标准/collector/产品/专业判断分开；四历史反例有具体分流|
-|同任务返修|03 D4：当前回合优先，Lite/Review原父进程最多两次精确thread resume，Control具体adapter与Executor/Verifier两路径，原Controller一次性step；取消/去重/恢复同预算|
-|七仓成品|04 D5：每仓成品身份、正式入口、好坏旧控制、最小实测/数量/时间/权限/回收；另七个普通任务压力推演|
-|旧接口|03 D6：明确提出da/2，旧da/1只诊断读取，严格字段/consumer握手/shadow/迁移/回退，不继承旧批准|
+## 2. 唯一候选和可复核身份
 
-02给唯一整体图与因果解释；03末尾修订了结果Receipt和送审循环、Hook递送误记、Control Verifier遗漏，并给12条设计故障轨迹。06撤销“以后P0决定架构”，确定公共实现、真实试点、逐仓推广、维护退出与成本护栏。07/08已同步当前提案，尚不启动审查。
+- repo：YuukiAS/AI_Research_Toolkit
+- branch：research/software-production-decision-20261013
+- 唯一目录：docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/
+- 本轮起点：fd0e5e0fa4569aabd538fc1c21724bd97086c064
+- architecture_source_commit：28eded9ff482ff2377804ebac012c0dc36e8ebe5
+- 完整包回读检查提交：1066176f15cfa6c3a0e1c1409a3a7fa0c1e70cb4
+- 独立审查所用package commit：本次CURRENT冻结提交完成后，在最终交接消息给出；本文件不自含自己的commit。无交接消息时，Critic读取本分支一次并固定HEAD，核对技术文件仍与architecture_source_commit相同。
 
-## 实际来源与逐阶段写入
+技术源含README、01–07及覆盖CSV的唯一方案；之后08/CURRENT只冻结审查入口与核验记录。已通过GitHub compare确认技术源到完整包检查提交仅改变08/CURRENT，没有暗改技术结论。不要采用更早候选或旧da/1批准代签本包。
 
-恢复分支HEAD：b6ca488fd93ca5b6a7dacb901aa34a123f1540f1。先查询实际push权限/分支，00探针写入并完整回读：26233fcbc56ceaffe8752dc4ced8cd5c93b248bf。原12产物和09续研合同完整读取；之后每项实质决定更新原文件、回读并更新本页。
+## 3. 关键设计决定及为什么改变用户结果
 
-本轮关键提交：D1 0b0803bd；D4 9e4c5bc9；D2/D3 78db3503；D6 5ab6dad8；七仓28fe5ee9；整体142bfd8b；实施7683e7ea；循环与Verifier修正4b677de8。完整历史由本分支Git保留；不靠提交数量证明设计有效。
+|机制|已决定的实际接线|可反证位置|
+|---|---|---|
+|正常入口与正式交付|受信任同步Hook提供早期上下文/同回合修复；既有Lite/Review/Control直接接同一Bridge；受管出口即使无Hook也必须check|01宿主矩阵；03 D4/F2；坏候选退出0、Hook缺席仍不得正式就绪|
+|原要求与旧功能|原文无丢字定位＋逐段投影＋反向阅读；原专业角色从原文重建要求；旧/新入口图、接受基线、孤儿/未知扩围和有效复用|03 F1/D2；空required、吞条件、删除/rename、动态未知、未登记旧消费者|
+|验收器完整生命周期|当前Executor补明确标准下的同类检查；新类别只因语义/观察/owner等确有区别；good/bad/missing/unchanged校准；冻结标准、独立观察、暂停不撤义务、退休迁移旧bad|03 D3/F5；Lucerna凭据启用与Asteria普通trace贯穿；04各仓正坏旧控制|
+|阶段与实际接收者|runner→adapter→GateResult→Bridge ingest/Receipt→唯一core evaluator→原最终owner；七仓材料就绪与USER_READY分别消费|03 F2/F4；Bobbio0.2、SeminarArc基础设施、CARE包存在都不能冒最终通过|
+|同任务返修|工具返回/Stop优先；原Lite/Review父进程精确thread resume；Control具体Executor/Verifier adapter与一次性step；launch lease/短mutex分开，共享实际修复预算|03 D4/F3；父子互锁、重复launch、取消、崩溃、未知副作用、外部stale review反例|
+|da/2与维护|完整类型、RequestedClaim/RunContext/CheckContext/ResultManifest与退出码；ReceiptLocator无摘要循环；旧da/1仅诊断、能力握手、无重复效果shadow、逐consumer启用和验证组合回退|03 D6/F4；单一准入权，旧reader/丢core/缺字段必须拒绝；同thread恢复不能自动证明新指令已加载|
+|成本与推广|先core＋原生/Lite＋Lucerna完整切片；没有减少漏检/用户搬运则退回原runner补强；其余入口/六仓设计已定、分别获证才启用|06：首片28–64小时、全量104–264小时均为未量测估算；纯对话/小文档不重型化|
 
-收尾来源核对：AI Skills main、Bridge release/实际dev及七仓有效分支均仍匹配01/07固定SHA。研究仓main在本轮前进到f4a1233d59817867bc4c40b541f480695d947440，已完整重读最新COMPLEX_SYSTEM_DESIGN_GUIDE.md与新增COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md并同步方案。官方Codex源码固定2a77e82f09212c9e1bbf02656afca5d8172c5f9e，仅作机制依据，不冒充安装版本。
+这不是另建版本或重新罗列六项阻塞。02整合主线，03提供可实施合同，04给逐仓源码与真实任务推演，06给依赖/验收/失败/维护与成本。36职责/315问/83旧要求/363历史仅用于反向核对。
 
-## 证据、范围与未发生的事项
+## 4. 七仓新反证与当前证据边界
 
-823唯一row_id的原问题、来源、历史/当前证据状态保持不变；答复与D1–D6同步，answer锚/行号已查。历史37条定向原材料抽查与326条当前UNKNOWN不变；新增源码推演不扩成产品复测。
+新增反证在0f9a8fd36c845955e0aa07e5e24b3850e11bc785先固定问题和预期，随后读取当前代码/原报告：Lucerna L20保存后真正启用；Bobbio B02更新策略/缓存；Mica M08迟到清理与当前加载；SeminarArc S24实际字符输入；Asteria A14方向旁支；CUHK C25消费时健康；CARE C11checkpoint选择。
 
-未修改生产源、正式规则、项目状态、分支拓扑或release；未创建task/subagent/handoff/fork/自动化/后台；未运行真实GUI、账号、Zotero、Android、Docker/GPU/Slurm、私有数据、付费、部署、发布。所有成品与宿主实验仍未运行。材料完整性不等产品PASS。
+这些核对产生具体约束：Mica旧恢复器文件不等当前构建加载；SeminarArc保存实际收到文本不等原意输入正确；CARE快速报告缺HD/HD95不能签完整排名；Bobbio Safe有机器全局副作用且仅证明旧Reader阶段；CUHK已有health/claim防护应复用；Asteria已有方向隔离应保护；Lucerna真实Vault/generation/刷新须独立读回。不是七次产品复测，也不是独立holdout。
 
-本页最后全包回读与范围复核结果将在下节保存。09为用户合同，本轮未修改。
+原823行row_id、原问题、来源、历史状态和当前证据状态已与本轮基线逐字段核对，零改变。363历史保持32条SOURCE_OR_REPORT_RESAMPLED_NO_RUNTIME_REPLAY、5条CURRENT_VALIDATOR_LIMIT_CONFIRMED_SOURCE_ONLY、326条HISTORICAL_MAPPING_REUSED_CURRENT_UNKNOWN。37条定向审读不等37个事故重演；新增推演不扩成产品PASS。
 
-## 唯一合法恢复入口
+## 5. 尚需以后合法实现与实测的事项
 
-同一 GPT Work Planner 直接按[10 已批准边界与最后审查续研合同](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md) 恢复，不再问用户是否接受混合方案。先核实 GitHub 当前写入/回读和本文件，逐步修订原 01–08、README/CURRENT，反证入口、义务遗漏、验收器全生命周期、失败消费者、版本迁移、七仓历史和成本。技术决定确已闭合后，标记**待独立 Critic 审查的 Planner 候选**，并交 08 的修订版。用户还没有授权实际安装、生产修改、付费实验、七仓部署或七仓业务数据访问。
+|尚未证明|已确定的最低摩擦合同|当前影响|
+|---|---|---|
+|Windows Desktop、CLI、Remote、GPT Work实际版本/Hook信任与能力|01逐host八例、确切安装绑定、正常/失效入口；无等价Hook的入口明确只用原任务显式检查|不声称当前自动保障已运行，不靠新客户端补缺口|
+|父进程/OS锁/崩溃/取消/精确resume/Control两角色|03 F3及06 P2固定无外部副作用机制矩阵，不能新任务代原thread|拟实现代码尚无运行证据|
+|七仓真实成品/独立观察|04 D5固定对象、数量/时间/权限/回收；Mica正常Edge最终手动集中一次，账号/设备按原具体effect授权|本轮只读源码，不签安装/部署/物理设备/真实账户通过|
+|CARE科学训练/充分性与负结论|先最多10变异和CPU3+2机制试点、零GPU/Slurm提交；科学结果只能绑定以后合法task的原entry/model/data/scale/预算|CPU不能代医学充分性，也不复活旧route|
+|成本收益、漏检率与维护|06首片直接观察用户提醒/搬运、坏例拒绝、旧保护、实际repair与成品；无收益可撤公共层|估算非实测，不自动承诺全量投入|
 
-## 最终回读与范围复核
+这些是运行证据/实际资源授权边界，不是留给实施者选择核心架构。现在不要求用户批准这些未来动作，不拿未实测冒充成功。
 
-已按固定提交 `5a46c6a2f3640f45a240bb6c507705c9d2cb0511` 从GitHub完整回读原12份产物及09合同，文本逐份与阶段写入一致。823行CSV的原问题/来源/历史与当前证据状态未变；稳定答复锚、有效行号和研究相对文件链接无缺项；已检查旧“Lite只退出不续修”“P0以后决定版本”等矛盾语句，未残留。
+## 6. 最后来源版本与漂移处理
 
-GitHub compare `b6ca488fd93ca5b6a7dacb901aa34a123f1540f1...5a46c6a2f3640f45a240bb6c507705c9d2cb0511` 仅显示本WORK_OUTPUT内原12文件修改，09用户合同未变，无范围外修改。本次最后一次提交仅将这份核验事实写入CURRENT并再次回读，不改变技术方案或产品待决状态。
+研究main：daf797c79bcd777c27948da51c4218e5d95e7be3；设计指南blob c3cfe3b8afcee108df90ce9f1bcce3650bee0c3a未改，最新解释标准已读。
 
-该历史核验证明材料身份与范围，不是产品运行或独立审查。用户产品边界现已确认；本轮继续完成技术审查，不再等待或重复询问该选择。
+AI Skills main：1cd3dfd303097265114ffd912ef003329e2c197b；最后仅新增PIE设计提案。当前AGENTS、Planner/Critic角色、Capability Gate Policy、Maintenance Board已按新main回读，blob与原f1de8e85957d32a50f4458349f450ec65add13bb相同。Bridge release仍ba9013b9fbbd242e51b09f9d09291f417df17652，实际dev变为71ad6874c1cde41548eb66a6c32cea615e055407，仅新增正常入口设计提案；原7f43e146代码链接仍有效。相邻提案相关正文和compare已核对，03/07记录责任与加载边界，不继承其实现或批准。
 
-## 本次产品决定记录（等待原 GPT Work 最终整合）
+七仓最后刷新均未变：Lucerna79dd2875；Bobbio develop a64edfd6；Mica重构0aee22f3；SeminarArc5652fe17；Asteria193c0336；CUHK_Date9f25c775；CARE main75a40e45。完整SHA和源码链接在07。官方Codex b4ad33d1a3c10c9652dd57f7afd7a949f8f26895与旧2a77e82之间两提交未改所引Hook/exec文件，来源不代表已安装宿主版本。
 
-本次新增 [10 续研合同](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md) 并同步本文件及用户入口。原 01–08 中若仍有“等待产品边界决定”的段落，均以这项明确用户决定为准，需由接续 Planner 在正式冻结与独立送审前逐处修订，不能将旧措辞作为再次提问依据。此记录不代表那些文件已完成一致性核查或任何生产验收。
+## 7. GitHub持续写入与最终核验
 
+第一步核查实际push权限、既有分支与已有文件；00真实探针7c35e1ade275e2b776a286e9c6713f894b4a6dda已写入逐字回读，CURRENT随后登记用户决定/起点。全程逐项提交原权威文件并回读，没有最后一次性上传或本地成果替代。
 
-## 最终设计闭合阶段已恢复（2026-10-22）
+关键阶段：F1–F3 7287452ad72485e608b1cf7dd563fef2ec39c1b4；七仓新反证2555e68fe636ffdb90ea6265ee597833e60b05b2；完整生命周期715117d14de6a6dd02e902948ed5b1f977669747；成本098abb6b87d421aceb8d581c417319bc1ce624c7；最终调用装配100de6681b718b37a1931fb749e0122d1ea06e3f；上游加载边界7252bd72602ffa961c66bd69a0ce2df8d042aed5。完整提交历史保留实际顺序，不靠提交数量证明设计有效。
 
-本轮实际基线为 `fd0e5e0fa4569aabd538fc1c21724bd97086c064`。GitHub 仓库权限实时返回 `push=true`；既有分支存在；00 写入探针提交 `7c35e1ade275e2b776a286e9c6713f894b4a6dda` 已逐字回读。原 12 份研究产物、09 与10合同已从指定分支取回；最新 main 设计指南仍为 blob `c3cfe3b8afcee108df90ce9f1bcce3650bee0c3a`。
+已按1066176f15cfa6c3a0e1c1409a3a7fa0c1e70cb4从GitHub完整回读原12产物与09/10两份用户合同，逐字匹配阶段写入；覆盖CSV结构/唯一ID/原字段/216公共答复正文和定位无异常，Markdown表列无异常。按七仓固定递归树核对126个去重源码文件链接存在，包内相对文件与稳定锚无缺项。新相邻提案直接从固定提交取回；没有把未取得的私有附件标已读。
 
-正式消费第10合同及用户当前决定：正常受支持入口自动接入；受管交付必须真实准入；Hook完全缺席的原生聊天文字例外仅限聊天；不开发额外Codex客户端、第二任务数据库或常驻调度平台。此处无待用户决定的问题。正在逐处修正旧状态并核查六项设计攻击面；当前仍是 Planner 工作候选，`READY_FOR_CRITIC=NO`，不代表实施或 Critic 结论。恢复点：先完成01/02/07/08一致性，再完成原请求覆盖、两道入口、完整验收与恢复接线、接口最小化和七仓独立反证。
+GitHub compare从本轮起点到1066176f15cfa6c3a0e1c1409a3a7fa0c1e70cb4仅显示原WORK_OUTPUT的12文件修改，09/10不变，目录外无改动；技术源到该提交仅08/CURRENT元数据变化。本次最后提交仅将CURRENT收敛为本冻结记录，提交后再次回读并在最终交接给出精确package commit，避免文件自含其commit的循环。
 
+## 8. 未发生事项与精确后续入口
 
-### 本轮阶段进展：状态同步与反证冻结
+未改其它仓或生产源/规则/状态/release，未换分支或创建PR；未创建任务/subagent/handoff/fork/自动化/后台；未运行GUI、账号、Zotero、Android、Docker/GPU/Slurm、私有数据、付费、部署或发布。没有独立Critic PASS、没有执行Goal、没有启动后续试点。
 
-01/02/05/06/07/08的过时产品等待已修订并逐份回读；README/CURRENT保留已确认边界，尚不声称设计结束。04追加反证先冻结于 `0f9a8fd36c845955e0aa07e5e24b3850e11bc785`：L20、B02、M08、S24、A14、CUHK C25、CARE C11；未重建历史账本，未新增运行PASS。接下来补原请求逐段覆盖、正式交付出口、锁与预算/恢复的实际调用合同，并核查这七条源码。
-
-当前来源复核：AI Skills、Bridge release/dev、七仓有效分支均未变化；研究main现为 `daf797c79bcd777c27948da51c4218e5d95e7be3`，设计指南未变，解释标准新增技术替代比较和连续修订完整判断要求，已读。官方Codex main为 `b4ad33d1a3c10c9652dd57f7afd7a949f8f26895`；与原固定源码比较的两个提交未改Hook/Stop/exec resume所引用文件。源码版本不等安装版本。
-
-
-### 已解决：要求遗漏、交付出口误升与返修锁（提交7287452）
-
-03新增F1–F3并已逐字回读：原请求无丢字定位＋逐段义务映射/反向阅读；缺引用/空集合拒绝；原专业独立角色从原文审要求；七仓低层PASS按阶段消费，USER_READY由唯一Bridge交付函数消费真实完整结果。修正Lucerna准备包、Bobbio0.2、SeminarArc基础设施不能冒最终产品就绪的接线。
-
-同时拆分launch lease与短state mutex，避免父进程等child却锁住child ack；修复reservation共享计数、未知副作用先reconcile、取消优先与实际接收判据。已写源码对应和可否决轨迹，未运行未来代码。下一步核对宿主矩阵、da/2所有字段/消费者与成本，以及已冻结七仓新反证，尚不启动Critic。
-
-
-### 已解决：宿主支持边界、接口消费与七仓追加反证
-
-01宿主矩阵已更新并回读（a2fb9d3d2833d3f37e33b427a85620ff5b9b230b）：官方源码和文档只能证明机制；CLI、Desktop、Remote、GPT Work分别以安装版本、同步Hook与真实入口实验取得支持资格，不能继承彼此证据。03 F4字段类型和消费关系已更新（cce666995bec17d60e17ce482c19b99d32ede438），正在做最后循环引用和规范一致性检查。
-
-04七个预先冻结的新反证已逐仓追到当前源与历史证据并回读（2555e68fe636ffdb90ea6265ee597833e60b05b2）。发现Mica旧恢复源码不在当前构建入口、SeminarArc字符注入与持久化需分开证明、CARE历史快速报告缺HD/HD95，均已收紧可声明范围。历史37/326证据计数不变。尚余验收器两条完整生命周期、成本收益与权威文件同步及最终固定提交复核；目前仍未达到送审候选。
-
-
-### 已解决：完整生命周期与接口循环（715117d）
-
-03已把F2七仓阶段接收者合回D4主合同，并修复F4回执定位与内容摘要循环、集合排序和字段表歧义。F5以Lucerna凭据启用和Asteria方向追踪贯穿缺程序发现、同类加固/新类别判断、四类校准、真实运行、原执行者返修、用户报告、暂停与退休。新增定义不宣称当前缺失的程序已写成；尚未运行任何产品。接下来完成成本/整体图/覆盖引用同步与完整包核验。
-
-
-### 已解决：最低完整投入与整体方案同步
-
-06成本裁决已回读（098abb6b87d421aceb8d581c417319bc1ce624c7）：总体104–264小时不作一次性投入理由，先做28–64小时估算的core＋原生/Lite＋Lucerna完整切片；收益不成立则回退原runner补强。Review/Control和另外六仓设计保持完整，未获运行证明不启用。零新检查/零额外续修条件、CARE机械试点与真实科学收益线均明确。
-
-02已合并F1–F5、唯一消费、阶段区分、锁预算和七仓新发现。正在进行最后覆盖引用、审查提示词与固定提交完整核验；尚不将材料存在等同送审资格。
-
-
-### 最后技术收敛与核验进度
-
-原请求语义边界、材料/最终阶段、验收器生命周期、锁/预算/实际接收、da/2完整字段和最终check调用已统一。七仓源码反证与成本选择已进原权威文件。823行已与本轮基线fd0e5e0逐字段核对：原文、来源、历史和当前证据状态零变化；唯一row_id为823，37/326不变，答复锚及公共216问正文一致。Markdown表列无异常。
-
-README已更新唯一整体解释。正在以固定提交完整回读并核对仅WORK_OUTPUT写入，然后冻结新的CURRENT和08；这一步不是新增设计版本，不运行产品或独立审查。
-
-
-### 收尾来源变化已核清
-
-最后刷新发现AI Skills main新增PIE设计提案，Bridge dev新增正常入口设计提案；compare各仅新增文档，AGENTS/四份正式角色与policy回读blob未变，Bridge运行源码/release及七仓SHA未变。03补清同thread恢复不自动证明AGENTS热加载、SOURCE_BINDING_STALE与原合法加载恢复；Persistent进度/ETA不作为专业完成证据。07追加精确新HEAD和来源。旧技术冻结需更新到本次新提交后再全包回读；没有实施这些相邻提案。
+独立Critic按最终package commit完整执行08，自己从原文/源码选反例，只给ARCHITECTURE_REVIEW的PROCEED或REVISE。PROCEED后也须按正式角色合同准备并审后续执行包，不能直接启动Codex。REVISE则原Planner在本目录修同一方案；本页技术源仍是精确恢复点，不另开研究版本。
