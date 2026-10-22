@@ -188,6 +188,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 
 以下编号与原C01–C36的每组1–6一一对应；它们是可审查设计回答，不是运行通过登记。对应组件在02，具体七仓在04，覆盖矩阵保留原问题全文。
 
+<a id="c01"></a>
 ### C01 用户消息进入哪个真实任务入口
 
 1. Desktop/CLI/Remote 原生消息由宿主接收；已知可用扩展点为 UserPromptSubmit。Lite=run_lite_task，Review=run_codex_event，Control=launch_executor_with_preflight；GPT Work 没有本研究已证实的同等 Hook。
@@ -197,6 +198,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 正常入口返回可消费缺口；Hook完全缺席不能自报或撤回聊天文字。01 D1已证明不可达并选择可信入口＋原交付门组合，未把原生全场景承诺算已满足。
 6. 试点必须从一条未准备任务包的普通功能请求开始，记录宿主事件、接收端、真实检查和最终失败/修复；内部 helper 单测不算。
 
+<a id="c02"></a>
 ### C02 目标与不能降级的交付承诺如何冻结
 
 1. 当前 Codex 从原请求和正式来源提取行为、数据、规模、结果与不可替代条件，写 obligations；专业标准引用原 owner，不由中央模型发明。
@@ -206,6 +208,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 外部不可达产生缺权限或缺证据，不删除 obligation；假数据只支持 fixture 子结论，不能把目标的 LIVE 要求改低。
 6. 合法变更由原 owner 更新 contract revision、原因和授权引用，影响依赖闭包失效；旧结果归档仍可查，不能覆写。
 
+<a id="c03"></a>
 ### C03 选择哪种原有执行流程以及返修能力
 
 1. 先按项目既有治理选；Lite 默认，独立复核要求才选 Review，高 false-PASS 且需要独立 oracle 才 Control；CARE/Mica 既有 controller 优先。
@@ -215,6 +218,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 纯咨询无产品改动可 NONE；文案局部检查是 TARGETED，公共生成器/协议变动才扩大；任务长短与文件数不是升级条件。
 6. Hook与父进程默认共享两次实际修复上限；Review event启动attempt与review round分开；Lucerna三轮及项目更低上限优先；不相加。D4定义取消/断线/重复事件。
 
+<a id="c04"></a>
 ### C04 启动、提示、停止和中断钩子
 
 1. UserPromptSubmit登记与注入，PreToolUse在受支持的变更工具前检查admission，PostToolUse在声明的纵向runner完成后消费结果，Stop末端核对，Interrupt撤销续修；均为拟接点。
@@ -224,6 +228,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 官方Hook错误可能继续，受管信任也不是fail-closed。01 D1已裁决接入与交付分层；宿主/版本/信任失效负例是后续运行验证，不能靠配置宣称强制拦聊天。
 6. 现存Review thread_id=None；新增JSONL reader必须取得thread.started真实id，后续resume返回同id才继续。GPT Work/CLI/Desktop/Remote逐宿主验证，不能继承CLI结果。
 
+<a id="c05"></a>
 ### C05 技能发现、专业能力调用和强制消费
 
 1. 从 installed/enabled plugin 注册和精确载荷路径读描述；绑定 canonical source、发布版本、加载目录及 hash。文件存在不证明当前会话加载。
@@ -233,6 +238,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. descriptor 声明 observer capability 与最低证据；没有观察工具就 UNKNOWN，不因找到描述文件变可运行。
 6. 程序坏由该程序 owner 修；无等价观察则保留高层未完成、继续独立低层工作。
 
+<a id="c06"></a>
 ### C06 项目规则、权威文件与 AGENTS 的生命周期
 
 1. 跟随 root/nested AGENTS、task 指向的合同和配置 locator；路径迁移检查引用目标和 blob，不让用户维护第二份目录。
@@ -242,6 +248,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. Bridge readiness 绑定 mandatory source 并检查 instruction budget；加载结果还须正常入口行为反证，不能从 hash 推导模型理解。
 6. 缺权威或截断先诊断，只改授权的 managed block；不擅自提高 project_doc_max_bytes 或重写用户规则。
 
+<a id="c07"></a>
 ### C07 首次接入和项目适配文件
 
 1. 接入者读取当前源码、入口、接受基线、发布脚本和历史；生成适配草案，用户只裁不可推导语义，不手填全部功能。
@@ -251,6 +258,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. adapter 绑定 repo、effective branch、产品 milestone、环境类别；分支变动重算，设备证据不能跨设备继承。
 6. 删改入口由 impact diff 发现，当前 Executor 修本地映射；标准变更走专业 owner；迁移前后旧坏例不得丢。
 
+<a id="c08"></a>
 ### C08 真实交付对象与依赖关系图
 
 1. 图节点包含源、配置、生成器、依赖、构建、安装/部署、运行实例、数据/模型和读者产物；图只是可验证关系，不新建任务状态。
@@ -260,6 +268,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 从构建/公开API/路由/UI action/正式CLI与接受基线抽取；旧图保留删除边，未知动态消费者扩到所属产品FULL并保留缺口。03 D2给分母、盲抽和增量维护，不把FULL解释为全知。
 6. 动态对象绑定观测时段、输入版本及消费时复核；时间戳不替代内容/hash，provider 变更使相关 LIVE 证据过期。
 
+<a id="c09"></a>
 ### C09 专业能力类别和验收定义的来源
 
 1. 能力类别由目标行为、专业 owner、证据类型、正式入口、失败语义、维护生命周期六维区分；Mathpix 是状态真值实例而非必然新类。
@@ -269,6 +278,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 标准未冻结时 Executor 收集原始材料和反例，不能挑方便阈值；交 Planner/专业 owner 的 NEEDS_GPT_PLANNER。
 6. 标准留领域 source，项目留实例参数，生成插件层机械同步；两份同义标准不并存。
 
+<a id="c10"></a>
 ### C10 验收标准、权威来源与规则冲突
 
 1. 优先原请求与项目正式合同，官方 API 提供具体语义；每条 obligation 保存来源版本与位置。
@@ -278,6 +288,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. revision 记录旧标准、原因、权限、迁移和影响结果；不可删除原标准来洗白旧候选。
 6. 独立参考由冻结公式、原 API 响应、真实用户后置条件或已审 oracle 提供；产品输出不得同时作期望。
 
+<a id="c11"></a>
 ### C11 判断何时缺验收器、何时必须自动建立
 
 1. 拟 prepare_delivery_obligations 在 admission 和首条链后比较 required behaviors 与 descriptor/runner/observer；Stop 再核对未闭合集合。
@@ -287,6 +298,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 未知标准写归因+最小问题到原 Planner，不产生假默认值；保留可做的无关工作。
 6. expected set 来自原任务与独立入口普查，不从 adapter 的 gates 数量反推；非空功能任务遇空集判覆盖缺口。
 
+<a id="c12"></a>
 ### C12 验收器代码的生成、位置、运行方式和维修
 
 1. 优先本项目既有框架/语言/runner；SeminarArc 延伸黑盒脚本，CARE 延伸 scientific validator，中央不重写。
@@ -296,6 +308,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 复用 Playwright/JVM/Room/pytest/native PowerShell 等已用工具；只有缺失观察适配才写最小 glue。
 6. 脚本与 descriptor/standard/fixture 版本绑定；release source-first，消费者实际载入匹配才称可用。
 
+<a id="c13"></a>
 ### C13 验收器本身的反证与校准
 
 1. good 用真实正常路径，bad 用历史根因的产品扰动，missing 删关键观测；另保留不应改变的旧能力。
@@ -305,6 +318,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 算法/阈值变更撤销依赖该判断的 PASS；原数据足够可重判，采集坏必须重采；不重训无关科研。
 6. 同用户文件权限不是强隔离；哈希只能检测无意漂移。高风险仍需独立 owner/受限观察与不可被候选改写的参考；G3 未证明前不称防恶意伪造。
 
+<a id="c14"></a>
 ### C14 历史回归库、坏例来源和保留/退休
 
 1. 任务 owner 保存 incident ID、原请求、源/产物身份、原观察与处置；重复根因关联既有 case 不抹掉。
@@ -314,6 +328,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 开发坏例可见，独立 holdout 在冻结前由 Reviewer 保持独立；暴露后失去未见身份，不换题挑赢家。
 6. 入口变更由该项目维护，先证明新回放能拒绝原根因并接受正常行为；不能只保留一个不可运行文件。
 
+<a id="c15"></a>
 ### C15 代码变更、影响分析和未登记旧功能
 
 1. 以批准基线对当前最终内容，包含 committed/staged/unstaged/相关 untracked，记录用户文件归属，禁止自动 stash/reset。
@@ -323,6 +338,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 隔离依据是依赖闭包与不变量不变、产物字节未变及可复核映射；执行者口头说没影响不足。
 6. 反向闭包列出 sibling obligations，生成可追溯选测原因；删除边必须审查，否则旧保护不消失。
 
+<a id="c16"></a>
 ### C16 每任务选择运行哪些验收及何时复用
 
 1. 输入冻结义务、变更集合、依赖图、runner能力、旧证据身份、claim；输出 selected IDs、scope、理由、复用/未运行原因与未满足项。
@@ -332,6 +348,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. UNKNOWN applicability 留阻塞项而非 false；不适用必须有可审核依据。
 6. 成对测试 README-only不跑原生、共享schema扩大所有消费者、adapter空/漏边拒绝；成本与漏测同时验。
 
+<a id="c17"></a>
 ### C17 开发中的检查时机与早期反降级
 
 1. 现有 runner 返回一个真实端到端结果时调用 after_vertical_slice；还没有 runner 事件的入口必须新增明确回调，不能靠模型自称有了。
@@ -341,6 +358,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 任何影响语义的变化让对应早期证据失效；最终必须绑定最终目标对象，不复制第一条链的PASS。
 6. 当前命令返回失败+work item到当前 Codex；若进程已结束，只能由已有合法 watcher/controller 继续，不能暗建后台。
 
+<a id="c18"></a>
 ### C18 真实接口、凭据与数据来源真实性
 
 1. 项目 owner 核实官方API/数据合同与账户可用能力；本轮未调用 Mathpix 或任何私有 provider。
@@ -350,6 +368,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 解析违背已知contract为产品缺陷；认证/限流/接口漂移分别诊断，缺事实不强行判产品坏。
 6. 可接受诚实未知状态作为错误处理子能力；原请求要求实时额度时仍未完成，不能说未知UI就是额度完成。
 
+<a id="c19"></a>
 ### C19 验收运行器、宿主和隔离环境
 
 1. 当前 Executor或原 controller 调项目 allowlisted argv，绑定 cwd、代码/runner版本、run_id、目标进程/设备与输入；不执行任意repo字符串。
@@ -359,6 +378,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 退出0不等专业正确；必须动作→后置条件与原始观测，和runner provenance同绑。
 6. 结果通过已有review路径或controller导入，校验任务/候选/round；无可用connector则真实等待 G4，不要求用户假装自动。
 
+<a id="c20"></a>
 ### C20 原始证据采集、强度与缺失处理
 
 1. 按义务收集原响应、完整操作轨迹、截图/DOM、PID/安装hash、数据库读回/导出内容、checkpoint/预测/GT/指标；最小必要。
@@ -368,6 +388,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 文件存在/非空/hash不能证明渲染或阅读；读者review明确目标/页/状态/观察结论与限制。
 6. observer版本改变且原证据不可靠就重采，同候选完整向量不匹配则不能拼接。
 
+<a id="c21"></a>
 ### C21 领域专家、独立评审与专业质量判断
 
 1. 视觉整体、科学结论和高风险独立要求按项目合同；纯函数有已校准oracle可机械验证，非每次加Reviewer。
@@ -377,6 +398,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 冲突附具体反例与原标准回专业owner复核，不能多数投票或机械要求更严；保留被撤销意见原因。
 6. 失败写用户行为、期望/实际、截图/数据坐标与最小修复边界；自然中文说明影响，机器字段留附件。
 
+<a id="c22"></a>
 ### C22 候选、构建物、运行进程和结果身份绑定
 
 1. 候选冻结源/配置/依赖/生成器/标准/runner输入的semantic digest；不是每个receipt commit都重新造candidate。
@@ -386,6 +408,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 向量绑定所有仓/服务/模型/数据版本及集成关系，未同批冻结不可声称整套产品完成。
 6. 身份冲突路由Controller/采集owner，保留已有低层事实；禁止ready，不擅自重建/部署不同对象。
 
+<a id="c23"></a>
 ### C23 每项结果怎样形成可消费的判断及完成声明
 
 1. 每项含task/contract/obligation/target/candidate/runner/observer/input/evidence/verdict/原因；完整字段见03格式。
@@ -395,6 +418,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 源码测试不授权安装/部署/发布，build成功也不证明实际加载。
 6. Bridge ingest_result先解析并产生真实调用者消费Receipt，再由check_delivery/core evaluate_claim核验集合。Lite/Review父进程、Control apply_transition及项目送审出口消费；03 D4明确新增位置。
 
+<a id="c24"></a>
 ### C24 失败代码如何自动变成下一步工作项
 
 1. write_work_item保存actual/expected/source/raw evidence/分类/owner/allowed repair/invalidations，绝不只写FAIL。
@@ -404,6 +428,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 同task_key和contract revision保存根因/attempt，不新Goal洗预算；contract改变才走原合法变更流程。
 6. 进程消失时先核验原任务锁/精确session/结果；仅原父进程或已授权持久owner可恢复；无活跃owner保留同task恢复点，不创建新后台。设计已定，运行能力未证。
 
+<a id="c25"></a>
 ### C25 同任务自动返修、根因分析和停止预算
 
 1. 选定原入口内有限续修：初次执行后最多两次精确resume，Hook与父进程共享该计数；已有更低预算优先。Review事件attempt不被清零，外部等待不耗repair；项目独立轮次不相加。
@@ -413,15 +438,17 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. admission发现需独立多轮就先选正确模式；已耗尽保留未完成与同task恢复点，不借Stop再领预算。
 6. WAIT不消耗repair/critic/retry轮次；新鲜REVISE且实际执行才消耗，stale review不触发。
 
+<a id="c26"></a>
 ### C26 Stop、用户中断、重复事件与状态一致性
 
 1. Stop读当前obligations+resolution+claim；没有admission/结果不允许受管ready，但G1仍不能约束未运行Hook的原生UI。
 2. 持有该任务短锁比较event key和last decision；同候选重复只读同结果，不重复执行测试/续修。
-3. mode owner是唯一预算账；Review/Control下Stop只返回给原owner，不额外续修；native/Lite明确一次试点预算也不自动升级。
+3. mode owner持有唯一预算；Hook与Lite/Review/Control adapter共享原task实际修复计数，默认最多两次且服从原合同更低上限，不因换进程或角色另领额度；外部等待/重复事件不扣。
 4. Interrupt写中断事实，Stop/watcher发起前再次核对；恢复需要真实用户继续与原owner，不把中断等价普通失败。
 5. 受管发布器拒绝缺合法receipt；hook自身失效时native文本仍可能外漏，必须作为产品能力缺口而非PASS。
 6. 可设计trusted hook的普通入口低摩擦试点；完整原承诺需跨host负例证据和平台补足，当前设计不闭合。
 
+<a id="c27"></a>
 ### C27 长期任务、等待、终态与断线恢复
 
 1. CARE控制器/Slurm拥有寿命；Bridge Persistent只在terminal-owned需断线存活时获权使用，DA不持有job提交权。
@@ -431,6 +458,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 外部GPT至少正常等待两小时且非deadline；状态有效就继续等待，其他独立任务不被拖住；低频无需模型忙轮询。
 6. 若runtime adapter没自动等待/恢复接口如实标unsupported，给原任务恢复定位；不创建新后台线程来假装有能力。
 
+<a id="c28"></a>
 ### C28 高影响权限、真实账号、费用及数据安全
 
 1. Host根据当前用户可见授权比对artifact/provider/recipient/用途/资源/费用/backend；文件authorized=true不构成批准。
@@ -440,6 +468,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 继续纯源码/fixture等独立部分，所缺高层证据保持未完成；不让预算计数要求突破人类边界。
 6. 敏感证据留本地受控位置，只共享已授权摘要/哈希；哈希也可能敏感需审，禁止公开医学数据。
 
+<a id="c29"></a>
 ### C29 故障归因和不应改变的系统边界
 
 1. 从runner本身和原观察复核原因，至少product/validator/observer/source/env/auth/identity/science分开。
@@ -449,6 +478,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 未知原因先收证/停止危险动作，保留低层结论；全量重跑不是诊断替代。
 6. 原bad经同入口不再发生、good及旧行为仍成立、最终候选身份一致才关闭。
 
+<a id="c30"></a>
 ### C30 验收器新增、修改、暂停、关闭、删除的全生命周期
 
 1. 报告由descriptor diff+实际run records生成新增/加固/复用/关闭清单及保护行为；没有新增明确说明原因。
@@ -458,6 +488,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 保留旧case与历史结果，alias迁移、重算required union、通知所有已知消费者；未知消费者阻止广泛退休。
 6. source-first同步脚本/定义/adapter/必要AGENTS locator，正常入口fresh load与known-bad回放通过才发布。
 
+<a id="c31"></a>
 ### C31 中央插件和领域能力的更新与受管消费者适配
 
 1. canonical skills/core/... 修改，经现有生成流程进入plugins；Bridge runtime在Bridge仓；本研究不编辑生成层。
@@ -467,6 +498,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. fresh session通过实际普通任务得到新行为/坏例拒绝/旧行为保留；安装完成不等当前会话更新。
 6. 维护板指向既有任务/发布receipt，不再建DA状态数据库；回滚仍保留当前产品义务，不变成绕过。
 
+<a id="c32"></a>
 ### C32 历史失败和跨项目经验如何转入规则、测试、责任
 
 1. 原任务先保存真实incident；领域共性需第二消费者或同等结构证据，不能从一张截图泛化所有项目。
@@ -476,6 +508,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 中央等待不阻止已有兼容本地保护；局部补丁有版本和退出条件，不能永久fork标准。
 6. 按首次错误位置分包：产品修项目、通用语义库修Skills、启动/身份修Bridge，不能全部归中央。
 
+<a id="c33"></a>
 ### C33 用户实际看到的报告、原因和下一步
 
 1. 从artifact diff和run rows列新增/加固/复用/退休；列哪些旧能力实际通过及对应结果。
@@ -485,6 +518,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 链接同候选证据索引和正式维护位置，正文只讲重要结论；无新增也写一句。
 6. 正常机器可解决的问题自动回原任务；真实HUMAN_ONLY最小问题一次问清；无connector明确缺口不能许诺无转发。
 
+<a id="c34"></a>
 ### C34 一次性接入成本、每任务成本和节省用户精力
 
 1. 一次性量安装/信任/adapter discovery/校准/consumer验收人工分钟和模型token；七仓独立接入非一次大Goal。
@@ -494,6 +528,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 预算耗尽保留已成立层级、失败原文与恢复点，不宣称完成也不清状态重来。
 6. 若小改频繁FULL或维护净损，先修选择/缩小公共层；仍无收益退回项目原生入口，保留有用回归。
 
+<a id="c35"></a>
 ### C35 真实试点、未见样本和最终发布验收
 
 1. 开发回归与独立未见样本分开；Reviewer在候选前冻结holdout来源/版本/判定，生产者只见必要范围。
@@ -503,6 +538,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 5. 每能力都跑good/bad/unchanged，另missing证据；按false accept/false reject分别计算，零观测错误也不等全域保证。
 6. 推广按consumer×host×entry×artifact分层；G1原生聊天不可达边界不掩盖，D3未证明保护的环境不签protected。已确定实验数量与资源上限见04 D5/06，不把运行未证留成算法待定。
 
+<a id="c36"></a>
 ### C36 正式落地、更新、回滚和退出策略
 
 1. Planner已选D1–D6；独立Critic可审这些选择而非替Planner补决定。后续按06公共实现、真实试点、逐仓适配、发行维护推进；本研究不发执行Goal。
