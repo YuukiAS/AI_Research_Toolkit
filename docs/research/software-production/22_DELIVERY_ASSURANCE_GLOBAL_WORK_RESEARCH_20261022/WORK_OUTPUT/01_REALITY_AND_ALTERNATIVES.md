@@ -173,9 +173,9 @@ Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edf
 最新研究main为 `daf797c79bcd777c27948da51c4218e5d95e7be3`；设计指南未改，解释标准新增关键技术替代比较与连续修订完整判断，已读并应用。源码、当前安装版本、宿主实测在本表明确分开。
 
 <a id="r1-reality"></a>
-## R1 源码复查与五项路线裁决
+## R1源码与已被R2修订的决定（历史追溯）
 
-本轮以369b4ae4a534a7d87be11a36e7c4b3ca9114e0c7为被审包；Critic REVISE来自用户当前消息。五项均ACCEPT，上一包“核心设计全部闭合”的断言已撤回。03/04/06的R1合同是同一架构的修订，不是并列可选版本。
+本轮以369b4ae4a534a7d87be11a36e7c4b3ca9114e0c7为被审包；Critic REVISE来自用户当前消息。五项均ACCEPT，上一包“核心设计全部闭合”的断言已撤回。其中01/04选择已被文末R2及03#r2-ar01、04#r2-ar04替换；02/03/05保持R2关闭。以下保留来源历史，不是另一份实施路线。
 
 |问题|比较过的可行做法|本轮唯一选择及现实依据|
 |---|---|---|
@@ -226,3 +226,5 @@ v0.3把特定未来Persistent验收的六次通知上限落实到原run binding�
 独立核对比较四种方式：自动创建Review文件（无执行者，拒绝）；把所有任务送新通用agent/API（增加权限/费用且违背既有角色，拒绝）；复用已有且实际可调用的项目Reviewer、Control角色或已配置Review schedule（选定，严格资格检查）；无上述能力时诚实人工恢复（必要边界，不标自动）。简单UI小改如既有样式内的间距/文案纠错不因“UI”二字自动升级Review；新语义/来源/安全/科学选择才按原风险规则独立核对。
 
 完成出口比较：七个历史专用脚本末尾各加finalizer（普通任务可能不经过，撤回）；要求模型每次记得调用（无法约束直接写result，拒绝作为唯一机制）；**Bridge正常host结束边界统一finish_delivery，七仓只提供项目证据/原结果路径映射**（选定）。现有项目runner继续产专业证据，原报告文件可写草稿，但只有正常结束接点校验并接受的提交才构成受管完成。不是七个新后台服务，也不假称能禁止任意进程写文字。
+
+R2调用参数补核：[官方CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli)提供exec的JSONL、output-schema和read-only沙箱参数；[官方Hooks](https://learn.chatgpt.com/docs/hooks)说明Stop反馈产生continuation，并非撤销原turn。03将实际JSONL终态消息解析与宿主工具隔离资格写明，不能以CLI语法存在推导安装版本/权限已支持。当前阶段没有运行这些命令。
