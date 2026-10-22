@@ -1182,6 +1182,10 @@ P1的引用fixture必须同时拒绝：候选含未来Admission digest、结果�
 
 本节与04#r2-ar04替换旧F2/R1-AR04中“七个finalizer存在就构成强制出口”的推断。新增共享函数仍在原拟议 `ai_bridge_kit/delivery.py::finish_delivery`，命令 `ai-bridge delivery finish --context <context> --submission <manifest>`。七仓共用这个稳定提交入口；历史RC/campaign脚本继续只是证据生产者。
 
+**没有模型清单也必须执行。** 正常host调用 `finish_delivery(context, submission=None, completion_event=observed_event)`；submission缺失时，函数内的materialize_submission从原Admission的result binding、原不可变run/result索引和required专业输入构造同一SubmissionManifest。不能因模型没有调用CLI、没有写manifest或report草稿就跳过。无Goal原生确无result文件时，以该Stop事件的last_assistant_message原文保存为task-local草稿快照；消息缺失则记录MISSING，不编造结论。已有项目规定result路径却没写，保留RESULT_MISSING，不能拿聊天代替原合同文件。证据refs只按任务/当前候选索引解析，不扫描latest或接受producer删减项；没有找到就是缺证。显式CLI仍用 --submission 读取同型manifest，值均需重核，不能获得比host更宽的权限。
+
+SubmissionManifest另带协议公共字段 `schema_version:"da/2",object_type:"SubmissionManifest"`；host completion invocation使用原session/lease观察生成，不接受候选作者填造来源。finish只消费已授权生成的结果，不在此构建模型/产品/账号证据。原task草稿与DA报告路径从产品source_set排除；若某项目确实将该文件作为产品输入，须按原source_set_rules纳入并重建候选，不能通用豁免。
+
 **确定顺序：** 原host结束事件/父进程退出/Controller完成动作→finish_delivery从Admission取项目consumer和冻结义务（不信report自填）→验证原result草稿与当前候选/独立专业证据→现有项目result adapter转换GateResult→ingest/receipt→Bridge.check_delivery→成功才由既有report写出派生报告与绑定manifest→原结果提交检查accept_submission。缺证和已知失败分别保留原因，未获准提交不进入受管完成状态。写草稿、保存诊断和普通Git提交本身不是DA签发，也不由DA拦所有Git。
 
 SubmissionManifest固定为已有F4 Ref/Identity的组合：`{task_identity,consumer_id,requested_stage,result_draft_ref,professional_result_refs:Ref[],candidate_identity,owner_binding:Provenance,cancel_epoch}`；producer提供线索，finish逐项与Admission/adapter重建expected，不能删一项来避检。原result草稿先冻结不可变快照作为输入；Bridge不原地改它来修判定。生成的report.manifest绑定claim、当前candidate、原result快照、报告字节和真正host completion invocation；它不自授权部署/用户接受。不存在新任务DB。
