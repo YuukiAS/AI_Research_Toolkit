@@ -565,7 +565,7 @@ E3–E7是读者内容示意，D6是本轮选定的完整da/2接口提案。旧d
 
 feedback 必填 id、requirement_ref、candidate、actual、expected、evidence_refs、classification、recipient_role、allowed_write_scope、invalidates、next_check、budget_ref。id = SHA256(task identity + scope revision + candidate + obligation + reason + evidence digest)；不含可变时间。标准已有但检查程序缺失，classification=VALIDATOR_MISSING，recipient=Executor，附标准和 good/bad/missing/unchanged 校准。绝不让“生成工作项”本身算已接收。
 
-`receipt` 分三个观察：DELIVERED=已观察到宿主后续同session回合接收该payload，或launcher以该输入启动精确resume且返回同thread id；ACKED=该模型首次调用 `delivery ack <feedback-id> <candidate>`，Bridge 验证任务/授权并记录其 session/turn；RESOLVED=新的有效 GateResult 覆盖原失败义务且满足原标准。stdout 写出、文件存在、模型说“收到”均不自动等于 ACKED/RESOLVED。模型不 ack，工具前/交付前返回明确缺收据，但不得启动重复后台。收据证明协议消费，不证明模型理解；以实际修复新结果证明最终消费。
+`receipt` 分三个观察：DELIVERED=已观察到宿主后续同session回合接收该payload，或launcher以该输入启动精确resume且返回同thread id；ACKED=该模型首次调用 `delivery ack <feedback-id> <candidate>`，Bridge 验证任务/授权并记录其 session/turn；RESOLVED=新的有效 GateResult 覆盖原失败义务且满足原标准。stdout 写出、文件存在、模型说“收到”均不自动等于 ACKED/RESOLVED。模型首次使用带 feedback id 的受管检查/返修工具时，Bridge 可记录该真实调用作为 ACKED；无需为了记账再发一次模型调用。没有任何接收观察则不得声称自动返修已经发生，也不得启动重复后台。收据证明协议消费，不证明模型理解；以实际修复新结果证明最终消费。
 
 ### 2. 原生当前回合
 
@@ -796,3 +796,58 @@ check_delivery的context必须包含 `requested_claim` 和 `stage`。Obligation.
 |产品正确但OCR读错／科学足量负结果|分别修collector重采／交科学Planner可信负结论，不用修改产品或阈值刷绿|
 
 本轮逐轨迹推导时发现并修订了送审循环、结果Receipt循环、Hook递送误记和Verifier接线遗漏；没有运行这些未来代码，不将此表命名为测试PASS。独立Critic应尝试寻找新的反例。
+
+## 最终闭合合同 F1：原请求覆盖是准入输入，不是模型自评
+
+本节是同一架构对第10合同的实质补强，适用于上文全部入口。比较了“单次自由归纳”“每条请求再开独立模型审查”“保留全文、逐段映射并在原有专业审查中反向核对”三种做法。选择第三种：前者漏一条后所有测试仍可绿；第二种增加固定成本且两模型仍可同错。**机械完整性可以强制，语义完整性必须有原文与可反证检查，不能形式化宣称绝无遗漏。**
+
+1. 新 `prepare_admission` 先保存原请求原文、精确来源、上下文修订引用与附件清单。可信 Hook 的 prompt/session/turn/cwd 来自官方 `UserPromptSubmitRequest`；它只提供字符串，不保证已经提供附件内容或所有旧回合。附件、被用户明确引用的规范由当前模型通过已有授权工具读取，记录 digest/read status；不得扫描整份账号/主目录补上下文。原文保存在既有本地任务证据根，不默认进Git、不外传；密钥值只保留脱敏占位和受限引用。
+2. core 的 `partition_request` 按原文 UTF-8 字节范围生成无丢字的 source_units：标题/列表/句子/引用/代码段，保留顺序与整篇digest。这只是定位，不靠关键词判目标。模型先提出结果/旧保护/不降级/权限/成本/最终对象义务，再做一次**从原文反查**的 coverage projection：每个source_unit归到一个或多个 obligation，或明确 CONTEXT / SUPERSEDED / UNRESOLVED。不能以一条“满足全部要求”映射整篇；含多个可独立失败的后置条件必须分项。原文中的数字、否定、对象名、环境和“同时/仍/不能”由纯函数差异提示，提示不是专业判定。
+3. `compile_obligations` 校验全范围无缺口、引用仍同digest、撤销有较新的用户决定或合法authority、每项required有可观察postcondition及target。UNRESOLVED、无法读取的必需附件、未展开的引用、明显吞并条件、空required都会生成具体反馈。模型本可重读解决的事项回当前Executor；确需新的产品/科学选择才回原owner。低风险明确纯对话且没有交付/修改时允许NONE并记录理由，不因此创建验收任务。
+4. 在第一处受管写操作前要求映射完成；原生PreToolUse只对该宿主实际支持的工具形状做短时拒绝，未知工具不声称被拦。所有受管交付入口无条件重新检查 request digest、coverage projection、义务摘要与当前candidate。Hook漏执行但有原正式任务包时可据包重建；无包时由当前会话提交原请求的可定位来源并标注来源能力。只有模型重述、无法核对原请求时不能升级为可信原请求；保留SOURCE_CONTEXT_MISSING，不让用户重复编一份清单冒充原始要求。
+5. 正式已有Reviewer/科学Planner核对高风险目标时，必须看到**原请求全文和未压缩权威条款**，并从它们独立提出应有后置条件，再对照投影；不是只读Producer义务表。普通机械任务不另开模型，当前模型的第二遍反查＋原文/新旧入口差异与已冻结反例作为有界防漏；剩余同源语义误判风险由试点漏检记录检验，不标成独立审查通过。
+6. 用户中途修正先新增scope_revision，保留旧原文和supersedes理由，禁止原子覆盖。新增要求立即加入expected；取消或降低原目标只有当前用户/原合法专业权威有权，执行者不能靠删除测试取消。变更时重算相关依赖、report/claim，旧结果只有语义不受影响才可重用。新任务与原任务无法确定且会改变范围才问用户；一般纠错直接沿原任务。
+
+**具体反证。** “新增余额，缺数据不能显示0，旧额度不能坏，而且别打开我的桌面”被归纳为“新增余额”时，后三段仍未归类，compile拒绝；把它们均标CONTEXT，当前反查必须说明其为何不约束行为，高风险原Reviewer从原文反推会否决。恶意或同错模型仍能写虚假理由，故本方案不把该机械检查当真值证明。三个试点必须主动注入这类遗漏，包括一条不含“必须”的隐含正常后置条件，记录漏检/误报与用户提醒次数。
+
+**精确结构补充。** ObligationSet新增 `request_coverage={source_digest,source_units:[{id,start_byte,end_byte,kind}],projection:[{unit_id,disposition,obligation_ids,reason_ref}],referenced_inputs:[{ref,read_status,digest_or_unknown}],review:{method:CURRENT_MODEL_REVERSE_READ|EXISTING_INDEPENDENT_ROLE,source_digest,receiver_ref,findings_refs}}`。字段参与语义摘要；core检查byte partition与映射，原owner负责语义。SurfaceEntry的accepted baseline与request coverage分别回答“以前正确什么”“这次要求什么”，不能互相替代。不存在第二份用户需求数据库。
+
+## 最终闭合合同 F2：把程序PASS与正式交付分开接线
+
+本次重新逐行读到：Lucerna开发runner明确“不判断产品审美、不跑完整独立循环”；Bobbio Safe runner仍调用0.2 validator；SeminarArc verify脚本永远输出GPT_WORK_EXECUTED=NO、READY_FOR_USER_REVIEW=NO；Mica candidate只validateBundle；Asteria静态validated不是完整视觉判断；CUHK Parent gate验证启动条件；CARE finalizer只准备送审。**修订此前D4“最终再核验位置”的简写：这些位置只能签各自阶段，不能直接签最终USER_READY。**
+
+选定一个正式准入消费者：Bridge `delivery.check_delivery`，调用workflow-core判定。项目adapter只转换原始结果和执行既有专业检查，不能另写平行ready算法。现有脚本的低层PASS可以保留，但新增输出必须带具体claim；最终报告/交付登记只消费Bridge计算的Claim。不是修改每个测试让其都拥有发布权。
+
+|现存源码接点（各仓SHA见01/04）|确定新增调用与精确拦截位置|此处最多允许的结果／最终消费者|
+|---|---|---|
+|Lucerna development-acceptance.ps1 L752–825、L844–850|在写完原始smoke/capture结果后adapt并ingest；Invoke-PackBuilder前check REVIEW_BUNDLE_READY；缺证不打印DA材料就绪|只证明当前EXE/PID原生证据包；原独立原生/产品判断完成后，由当前Executor或已获权local orchestrator调用delivery check USER_READY，再生成正式交付报告|
+|Bobbio Safe runner L741–785|0.2 validator与真实目录前后审计后adapt为旧Reader保护结果，输出前核验其claim；绝不把0.2改标签成0.3|0.3所需增强、整屏/性能、最终隔离原生由develop里程碑另外提供；原milestone owner调用delivery check USER_READY后才给就绪材料。缺0.3结果即拒绝|
+|Mica acceptance/cli.mjs L30–38|validateBundle后、console.log前adapt/ingest/check候选材料；preflight只作validator calibration|实际loaded身份、当前完整表面审查与正常Edge手动终验齐备后，原Parent调用同delivery check USER_READY；candidate.ok不能替代它|
+|SeminarArc verify-gpt-work-acceptance.ps1 L207–253|verification-summary后、READY_TO_PASTE_PARENT前check审查材料；SkipDynamicProbe保留NOT_EVALUATED，不造USER_READY|blackbox运行结果及原独立审查结果由原Executor/Parent提供给delivery check USER_READY，最后才能生成用户验收报告；准备脚本不承担这一判断|
+|Asteria validate-architecture-rc19.mjs L151–155|其JSON只adapt机械geometry/source检查，正常浏览器与完整科学/视觉审查另读|原RC任务的当前Executor在准备完整交付/固定URL报告时调用delivery check USER_READY，缺已部署身份只能声明本地对应层|
+|CUHK evaluateParentDeliveryGate L456及调用它的preflight|原返回gate仍是Parent活动材料谓词；preflight组装真实证据后调用check REVIEW_BUNDLE_READY，不能给pure function网络/进程副作用|原campaign owner在所有当前snapshot/persona专业结果收到后check USER_READY；部署/Matching放行仍是单独当前授权|
+|CARE finalizer L550–582|validator结果解析后、maybe_commit和终态写入前check REVIEW_BUNDLE_READY；未就绪沿已有NEEDS_EVIDENCE/NEEDS_REVISION|原科学Controller消费packet后按原Planner科学判断调用check对应结果claim；充分负结论可成为完成的实验报告，不能变成“方法有效”|
+
+新增CLI合同固定为 `ai-bridge delivery check --context <explicit-json> --results <manifest-json>`；context含requested_claim/stage/Admission/ref，manifest显式枚举run refs。stdout仅一个DeliveryCheck JSON，诊断到stderr；退出0仅表示请求的claim READY，退出2=可解析但未就绪，退出3=配置/结构/身份错误。现有项目脚本用参数数组调用安装绑定的Bridge可执行入口，检查JSON与退出状态一致；不得仅凭0。Python项目可直接调同库，TypeScript/PowerShell通过CLI，无七份规则副本。实际函数均为拟新增，不声称已安装。
+
+项目已经启用DA后，以上受管入口**每次执行都调用gate**，不以Hook事件存在、可选环境变量或模型愿意调用为条件。候选可先构建，但安装候选登记、用户可验收就绪报告、受管发布/部署执行点必须读取当前claim和对应原授权。禁用Hook、删除claim/core、改schema、旧snapshot都不能使启用的交付入口放行。首次接入必须枚举并绑定现有消费者的这些就绪输出；漏一个正式出口即该项目不具备DA接入资格。
+
+这不是对任意shell、手工复制或同权限恶意改写交付程序的安全沙箱。用户/拥有同权限的进程可绕开受管出口，绕开的对象没有DA就绪声明；不能把此限制包装成原生文字例外以给坏成品签字。支持边界由实际入口试点证明，不能只靠写一份adapter。副作用边界使用原Host policy/安全runner；尤其Bobbio Safe runner L380/L412会修更新缓存，必须在调用前确认该具体machine-global effect已有授权，否则只读诊断并停相关路径，不能因名叫Safe自动执行。
+
+## 最终闭合合同 F3：没有死锁、重复预算或“回执代表修复”的恢复
+
+本次发现上文“原task排他锁”若由父进程跨子进程持有，子进程Hook/ack再取同锁会死锁。确定改为**两种用途、同一任务根的轻量文件**：launch lease只防两个父owner同时启动；state mutex只覆盖读—比较revision/cancel epoch—写事件/预算的短事务。父进程等待child时不持state mutex；child以session/launch token加入已存在lease，不再抢launch ownership。Hook用try-lock：占用则短时返回待处理上下文，不阻塞长测试；交付check拿不到一致快照则NOT_READY。无锁获取成功就不能写预算。
+
+O_CREAT|O_EXCL用于lease及短mutex，owner含host、PID和process-start identity；Windows读取该PID创建时间，Linux读取boot_id＋/proc/<pid>/stat starttime，macOS用本机进程创建时间API。只读取本次owner，不枚举别人的环境。OS接口不可用/身份不确定就停止自动launch，不按锁龄抢占。释放前比较完整owner nonce；不因为PID复用而删活锁。该设计不改Bridge原AGENTS写锁，preflight读源码本身不依赖那个写锁；真正需要写AGENTS的操作仍受原限制。
+
+预算规则具体为：在短mutex里为稳定feedback分配一次repair reservation，先写intent再发起；实际同session新回合ack/首个带feedback的修复调用，或父进程确认该resume启动，才转为已耗用。取消/启动失败且有证明未开始时释放reservation；崩溃且是否开始不明时保持占用，宁可停止额外launch，不多发一次有副作用的动作。Hook与parent读取同一counter，不能各得两次。普通初次实现和检查不算额外修复；重复同一反馈的展示/ack、解析重试、等待均不扣修复轮次。scope revision、换candidate、换campaign不重置task lineage预算。
+
+默认两次/额外30分钟只是保守工程上限：`effective_limit=min(DA_default, original_remaining_limits)`，缺失不等无限。没有获权的续修、用户取消/暂停、科学路线/标准争议、外部审查等待、不可恢复身份、未授权设备/账号/付费/部署、仍活跃的同一长作业，**零额外自动launch**。已有更大持续合同的正常任务由原owner运行，DA默认值不杀原Slurm；超额自动修复必须原合同已有明确授权，否则停止依赖路径。
+
+Feedback逐跳示例（逻辑值不是运行记录）：W=SeminarArc/持久化/C2，actual=重开后找不到note42，expected=note42正文等于保存后UI读回；runner报告原始run→adapter只映射事实→ingest生成Result Receipt→check REPAIR→当前模型工具返回已可读；若其回合已结束，Stop请求续修，或Lite原父对精确thread id resume→模型下一次 `delivery ack` 或带W的正式工具调用记录ACKED→修repository→新run C3覆盖该义务且旧媒体控制成立→RESOLVED。仅声明“收到”、仅改report、旧C2截图、把expected改空都不能关闭W。claim只取新有效证据；ACK缺失时不得说自动修复已证明，但已独立成立的产品结果不因无关历史ack永久失效。
+
+副作用不能靠“resume同thread”保证恰好一次。每个拟重放命令从Descriptor取得effect identity；只读/明确幂等可恢复。已提交job、已安装实例、票据lease/数据库事务用原系统的真实receipt查询状态；无法判定是否发生时先只读reconcile，禁止原样重发。修复请求只描述所需后置条件与合法范围，不含让模型盲执行上一条shell的命令。没有活owner就保存精确task/session/feedback/剩余预算，不新建后台承诺。
+
+持久写入采用不可变run/事件、flush并fsync文件、同目录replace、manifest最后提交；Unix fsync目录，Windows使用系统可用的写入刷新/替换API并在恢复时完整核验。若磁盘断电持久性无法由宿主保证，只承诺崩溃后可检测不完整并拒绝ready，不声称数据库级恰好一次。双父进程、父等child时child ack、reserve后崩溃、ack前取消、late result、重复resume六轨迹均纳入P2否决。
+
+每次原owner退出/交付/权限等待时调用 `delivery report`，从前后Descriptor版本、Resolution、实际run、claim与feedback事件派生：本轮新增/加固/合并/暂停/退休及原因，复用与实际运行，受保护旧能力，当前成品层级、失败归属与唯一必要用户动作。无新增明确说明既有类别够用；无人工动作写“无需额外操作”，不列内部日志让用户搬运。模板不新增模型调用，文字改写不能改机器事实。检查临时停用到期后重新准入需原校准/依赖仍有效；合并须迁移每个旧bad、obligation和consumer，不能只改名称。
