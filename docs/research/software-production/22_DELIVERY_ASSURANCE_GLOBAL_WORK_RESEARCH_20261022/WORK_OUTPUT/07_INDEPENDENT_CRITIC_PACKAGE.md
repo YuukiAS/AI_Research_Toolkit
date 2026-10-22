@@ -308,8 +308,8 @@ Bridge开发分支最新固定到 **76e2f14d5669867b2d4e3fa0950d8b2fedea7f35**�
 
 本轮新文档仍在同一WORK_OUTPUT：
 
-- [11完整中文说明](11_ARCHITECTURE_EXPLAINED.md)：真实Lucerna LR-STATE-001、成功/返修设计推演、A1–A9调用表、七仓与支持边界；
-- [11 SVG图源](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)：1600×1840确定性矢量图。已在本地渲染PNG并实际看图修正重叠/边界；SVG为GitHub图源，PNG只是同图的显示预览，不是另一个方案。无产品截图或产品实测；
+- [11 面向读者的中文说明](11_ARCHITECTURE_EXPLAINED.md)：已按用户反馈重写，以 Lucerna 状态误报的真实历史解释目标核对、旧功能保护、真实验收、原任务返修与证据交付；技术追溯放在末尾。成功和返修仍是设计推演；
+- [11 高清主图](11_DELIVERY_ASSURANCE_ARCHITECTURE.png)及[可编辑 SVG 图源](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)：当前为 16:9 前后对比图，SVG 1920 × 1080、实际渲染 PNG 3840 × 2160；已打开检查高清及聊天缩小预览，二者均保存于 GitHub。本次仅修正解释用途，不变更技术合同，不发起新审查；原实施前材料仍固定于 a88cf411f57a9ff9c55e43831f65401b399e1fff。无产品截图或产品实测；
 - [12分阶段审查包](12_STAGED_EXECUTION_REVIEW_PACKAGE.md)：沿原P0/P1/P2/D/P3/P4/P5，含目标、权限、预算、真实反例、接收、回滚和Capability Gates。正式执行放行条件与本轮研究权限分开；
 - [08](08_CRITIC_PROMPT.md)：下一轮唯一独立审查入口。
 

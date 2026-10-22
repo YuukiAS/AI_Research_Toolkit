@@ -1,96 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1840" viewBox="0 0 1600 1840" role="img" aria-labelledby="title desc">
-<title id="title">Delivery Assurance：正常请求到可信交付</title><desc id="desc">R3 冻结设计。蓝色为待实现连接，绿色为已有代码或角色合同，橙色为宿主和授权条件。箭头 A1 到 A9 见 11_ARCHITECTURE_EXPLAINED.md。</desc>
-<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#53708a"/></marker><marker id="red" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#b44a38"/></marker></defs>
-<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#173047}.title{font-size:38px;font-weight:700}.sub{font-size:24px;fill:#506276}.head{font-size:29px;font-weight:700}.body{font-size:24px}.code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:21px;fill:#315674}.tag{font-size:21px;font-weight:700}.arrow{fill:none;stroke:#53708a;stroke-width:3;marker-end:url(#arrow)}.loop{fill:none;stroke:#b44a38;stroke-width:3;marker-end:url(#red)}.label{font-size:22px;font-weight:700;fill:#315674}</style>
-<rect width="1600" height="1840" fill="#f7f9fc"/>
-<text x="60" y="64" class="title">Delivery Assurance：普通请求怎样走到可信交付</text>
-<text x="60" y="108" class="sub">贯穿案例：Lucerna“检查中不算故障；真实故障仍要提示”</text>
-<rect x="60" y="132" width="22" height="22" rx="4" fill="#e6efff" stroke="#739bd4"/><text x="94" y="151" class="tag">待实现接线</text>
-<rect x="300" y="132" width="22" height="22" rx="4" fill="#e7f4ee" stroke="#64a08b"/><text x="334" y="151" class="tag">已有代码／角色合同</text>
-<rect x="650" y="132" width="22" height="22" rx="4" fill="#fff4dd" stroke="#bc8a2f" stroke-dasharray="5 3"/><text x="684" y="151" class="tag">须验证宿主／已有授权</text>
-<text x="1090" y="151" class="tag" fill="#a35430">设计通过 ≠ 已经可用</text>
-<rect x="60" y="195" width="910" height="130" rx="16" fill="#fff4dd" stroke="#bc8a2f" stroke-width="2" stroke-dasharray="8 5"/><text x="84" y="234" class="head">普通 Codex 请求：不要求先写 Goal</text>
-<text x="84" y="273" class="body">当前原文、材料、仓库与权限；保留同一任务身份</text>
-<text x="84" y="307" class="code">UserPromptSubmit / 已有 Lite、Review、Control 入口</text>
-<rect x="60" y="380" width="910" height="175" rx="16" fill="#e6efff" stroke="#739bd4" stroke-width="2"/><text x="84" y="419" class="head">先核对要求；第一次相关产品写入前决定</text>
-<text x="84" y="458" class="body">机械明确的小修 → 当前 Executor 自查</text>
-<text x="84" y="492" class="body">新含义／来源／重要风险 → 右侧原独立角色</text>
-<text x="84" y="526" class="code">prepare_admission → decide_admission_route</text>
-<rect x="1050" y="380" width="490" height="270" rx="16" fill="#e7f4ee" stroke="#64a08b" stroke-width="2"/><text x="1074" y="419" class="head">原独立角色＋待实现调用</text>
-<text x="1074" y="458" class="body">读完整原文，不只读摘要</text>
-<text x="1074" y="492" class="body">本机只读 Reviewer；或已有</text>
-<text x="1074" y="526" class="body">Review / Control 的实际通道</text>
-<text x="1074" y="560" class="body">当前 owner 收到结果才放行</text>
-<text x="1074" y="594" class="code">run_admission_review</text>
-<text x="1074" y="624" class="code">consume_requirement_review</text>
-<rect x="60" y="615" width="910" height="155" rx="16" fill="#e6efff" stroke="#739bd4" stroke-width="2"/><text x="84" y="654" class="head">选择成熟能力，也选出旧功能保护</text>
-<text x="84" y="693" class="body">当前 Executor 实际读取／调用；固定版本与实现影响</text>
-<text x="84" y="727" class="body">本例：状态语义、已有回归、原生审查；保留真实故障警示</text>
-<text x="84" y="761" class="code">select_execution_capabilities / compile_obligations</text>
-<rect x="60" y="830" width="910" height="150" rx="16" fill="#e6efff" stroke="#739bd4" stroke-width="2"/><text x="84" y="869" class="head">同一 Executor 实现；发现缺检查就补候选</text>
-<text x="84" y="908" class="body">标准由原合同决定；不能改答案让测试变绿</text>
-<text x="84" y="942" class="body">已激活定义可复用，缺失定义走右侧准入</text>
-<text x="84" y="976" class="code">select_checks / submit_definition</text>
-<rect x="1050" y="735" width="490" height="270" rx="16" fill="#e6efff" stroke="#739bd4" stroke-width="2"/><text x="1074" y="774" class="head">验收器与 adapter 准入</text>
-<text x="1074" y="813" class="body">候选 → 校准 → 精确版本激活</text>
-<text x="1074" y="847" class="body">冻结：正确／错误／缺证／旧功能</text>
-<text x="1074" y="881" class="body">机械规则按原政策自动准入</text>
-<text x="1074" y="915" class="body">新专业判断由原独立角色批准</text>
-<text x="1074" y="949" class="code">calibrate_definition</text>
-<text x="1074" y="979" class="code">activate_definition</text>
-<rect x="60" y="1040" width="910" height="185" rx="16" fill="#e7f4ee" stroke="#64a08b" stroke-width="2"/><text x="84" y="1079" class="head">七仓原专业验收：看真实成品与独立观察</text>
-<text x="84" y="1118" class="body">Lucerna · Bobbio · Mica · SeminarArc · Asteria · CUHK_Date · CARE</text>
-<text x="84" y="1152" class="body">本例：同 source / EXE / PID；独立检查状态、刷新与旧功能</text>
-<text x="84" y="1186" class="body">现有 runner 产事实，拟新增 adapter 与 ingest_result 接收</text>
-<text x="84" y="1220" class="code">材料就绪 REVIEW_BUNDLE_READY ≠ 最终 USER_READY</text>
-<rect x="1050" y="1080" width="490" height="245" rx="16" fill="#e6efff" stroke="#739bd4" stroke-width="2"/><text x="1074" y="1119" class="head">失败回到原任务</text>
-<text x="1074" y="1158" class="body">产品错 → 修产品；观察错 → 重采</text>
-<text x="1074" y="1192" class="body">工具返回／已证 Stop／精确 resume</text>
-<text x="1074" y="1226" class="body">当前 Executor 或原父进程消费</text>
-<text x="1074" y="1260" class="body">共享预算；取消后不再启动</text>
-<text x="1074" y="1294" class="code">Feedback → run_delivery_cycle</text>
-<rect x="60" y="1290" width="910" height="235" rx="16" fill="#e6efff" stroke="#739bd4" stroke-width="2"/><text x="84" y="1329" class="head">正常结束时强制检查：漏写命令也必须发生</text>
-<text x="84" y="1368" class="body">Stop／Lite 退出／Review 收回结果／Control 终态前</text>
-<text x="84" y="1402" class="body">直接写 result“完成”也不能绕过；缺当前专业结果就拒绝</text>
-<text x="84" y="1436" class="body">拟新增 finish_delivery → check_delivery</text>
-<text x="84" y="1470" class="code">→ report → accept_submission</text>
-<text x="84" y="1500" class="code">宿主接点、线程恢复与取消行为：先做 P0 实测</text>
-<rect x="60" y="1560" width="910" height="160" rx="16" fill="#e6efff" stroke="#739bd4" stroke-width="2"/><text x="84" y="1599" class="head">用户最终拿到：可信报告，而不是一句自评</text>
-<text x="84" y="1638" class="body">说清完成范围、实际被测对象、旧功能与未证边界</text>
-<text x="84" y="1672" class="body">只有当前候选与报告绑定被接受，才可声称 USER_READY</text>
-<text x="84" y="1706" class="code">原任务 delivery_assurance/report.md + manifest</text>
-<rect x="1050" y="1400" width="490" height="320" rx="16" fill="#fff4dd" stroke="#bc8a2f" stroke-width="2" stroke-dasharray="8 5"/><text x="1074" y="1439" class="head">不能隐含成“全自动”的路径</text>
-<text x="1074" y="1478" class="body">角色未获权／无合法返回通道</text>
-<text x="1074" y="1512" class="body">→ 等原角色；保留同任务恢复点</text>
-<text x="1074" y="1546" class="body">账号／设备／GPU／部署</text>
-<text x="1074" y="1580" class="body">→ 仍需原任务精确授权</text>
-<text x="1074" y="1614" class="body">Hook 缺席或 owner 已退出</text>
-<text x="1074" y="1648" class="body">→ 不承诺撤回聊天／后台唤醒</text>
-<text x="1074" y="1682" class="body">当前七仓 DA 均未启用</text>
-<path d="M515 325 V377" class="arrow"/>
-<text x="535" y="361" class="label">A1</text>
-<path d="M970 465 H1046" class="arrow"/>
-<text x="987" y="447" class="label">A2</text>
-<path d="M1050 615 H1008 V691 H974" class="arrow"/>
-<text x="1016" y="680" class="label">原 owner 消费</text>
-<path d="M515 555 V611" class="arrow"/>
-<text x="535" y="595" class="label">A3</text>
-<path d="M515 770 V826" class="arrow"/>
-<text x="535" y="809" class="label">执行</text>
-<path d="M970 905 H1046" class="arrow"/>
-<text x="987" y="890" class="label">A4</text>
-<path d="M1295 1005 V1023 H940 V1037" class="arrow"/>
-<text x="1100" y="1023" class="label">激活后</text>
-<path d="M515 980 V1036" class="arrow"/>
-<text x="535" y="1018" class="label">A5</text>
-<path d="M970 1130 H1046" class="loop"/>
-<text x="987" y="1115" class="label" style="fill:#b44a38">A6</text>
-<path d="M1540 1180 H1575 V695 H1010 V815 H940 V826" class="loop"/>
-<text x="1450" y="682" class="label" style="fill:#b44a38">返修</text>
-<path d="M515 1225 V1286" class="arrow"/>
-<text x="535" y="1263" class="label">A7</text>
-<path d="M970 1380 H1018 V1270 H1046" class="loop"/>
-<text x="1015" y="1360" class="label" style="fill:#b44a38">缺证也返回</text>
-<path d="M515 1525 V1556" class="arrow"/>
-<text x="535" y="1548" class="label">A8 → A9</text>
-<text x="60" y="1772" class="sub">箭头函数与固定源码：11_ARCHITECTURE_EXPLAINED.md；唯一技术合同：02–06；图源：本 SVG。</text><text x="60" y="1812" class="sub">自动路径只在对应宿主已实测、角色已获权且原 owner 存活时成立。没有增加后台服务或第四工作流。</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+<title id="title">从一句需求，到真正值得信任的交付</title>
+<desc id="desc">上方展示过去由用户发现错误、催促修复的体验。下方展示已通过设计的新系统：提出需求、核对目标并保护旧功能、Codex实现、检查真实结果、有证据再交付。检查发现问题时返回原任务修复，随后再次验证。实际系统尚未实现和验证。</desc>
+<metadata>Editable vector source. Architecture authority: YuukiAS/AI_Research_Toolkit, 79fe13a6ce3480732e206b33029cfa3b9fcf9a78. This illustration explains the approved design, not an observed system run.</metadata>
+<defs>
+ <style>
+  text { font-family: 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif; }
+  .ink { fill: #182D3B; }
+  .muted { fill: #536570; }
+  .green { fill: #08796E; }
+  .red { fill: #B84E38; }
+  .icon { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+ </style>
+ <marker id="gray-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="#A0ACB3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+ <marker id="green-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="#178B7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+ <marker id="red-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="#C66147" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<rect width="1920" height="1080" fill="#FAFBFC"/>
+
+<text x="72" y="108" font-size="60" font-weight="700" fill="#182D3B" text-anchor="start">从一句需求，到真正值得信任的交付</text>
+<text x="74" y="164" font-size="29" font-weight="400" fill="#536570" text-anchor="start">让系统发现问题、接回原任务修复，减少你补验收、催返修的负担。</text>
+<rect x="64" y="214" width="1792" height="226" rx="24" fill="#EFF2F4"/>
+<text x="102" y="265" font-size="30" font-weight="600" fill="#536570" text-anchor="start">过去的常见体验</text>
+<text x="1812" y="265" font-size="28" font-weight="500" fill="#B84E38" text-anchor="end">你成了最后一道检查</text>
+<g transform="translate(260 326) scale(0.85)" class="icon" stroke="#667984" color="#667984"><circle cx="0" cy="-15" r="12"/><path d="M-25 27v-8c0-13 11-22 25-22s25 9 25 22v8"/></g>
+<text x="260" y="402" font-size="34" font-weight="500" fill="#667984" text-anchor="middle">我提出需求</text>
+<g transform="translate(700 326) scale(0.85)" class="icon" stroke="#667984" color="#667984"><path d="M-29-27h58a7 7 0 0 1 7 7v36a7 7 0 0 1-7 7H-9l-19 12V23h-1a7 7 0 0 1-7-7v-36a7 7 0 0 1 7-7Z"/><path d="m-13-2 9 9 18-19"/></g>
+<text x="700" y="402" font-size="34" font-weight="500" fill="#667984" text-anchor="middle">Codex 说完成</text>
+<g transform="translate(1140 326) scale(0.85)" class="icon" stroke="#B84E38" color="#B84E38"><circle cx="-5" cy="-5" r="24"/><path d="m13 13 22 22 M-5-17v15"/><circle cx="-5" cy="7" r="1.7" fill="currentColor" stroke="none"/></g>
+<text x="1140" y="402" font-size="34" font-weight="500" fill="#B84E38" text-anchor="middle">我发现错误</text>
+<g transform="translate(1580 326) scale(0.85)" class="icon" stroke="#B84E38" color="#B84E38"><path d="M-28 2h31c18 0 27 7 27 19 M-28 2l17-17 M-28 2l17 17"/><path d="M-17-27h25"/></g>
+<text x="1580" y="402" font-size="34" font-weight="500" fill="#B84E38" text-anchor="middle">我要求继续修复</text>
+<path d="M334 329H614" stroke="#A0ACB3" stroke-width="3" fill="none" marker-end="url(#gray-arrow)"/>
+<path d="M784 329H1054" stroke="#A0ACB3" stroke-width="3" fill="none" marker-end="url(#gray-arrow)"/>
+<path d="M1224 329H1494" stroke="#A0ACB3" stroke-width="3" fill="none" marker-end="url(#gray-arrow)"/>
+<rect x="64" y="474" width="1792" height="454" rx="24" fill="#FFFFFF" stroke="#D4E8E2" stroke-width="2"/>
+<text x="102" y="530" font-size="36" font-weight="700" fill="#08796E" text-anchor="start">新系统希望实现</text>
+<text x="1812" y="528" font-size="26" font-weight="400" fill="#536570" text-anchor="end">自动路径以环境支持和已有授权为前提</text>
+<circle cx="215" cy="624" r="53" fill="#EDF5F2"/>
+<g transform="translate(215 622) scale(1)" class="icon" stroke="#08796E" color="#08796E"><circle cx="0" cy="-15" r="12"/><path d="M-25 27v-8c0-13 11-22 25-22s25 9 25 22v8"/></g>
+<text x="215" y="718" font-size="36" font-weight="700" fill="#182D3B" text-anchor="middle">提出需求</text>
+<text x="215" y="761" font-size="26" font-weight="400" fill="#536570" text-anchor="middle">照常说你要什么</text>
+<circle cx="580" cy="624" r="53" fill="#EDF5F2"/>
+<g transform="translate(580 622) scale(1)" class="icon" stroke="#08796E" color="#08796E"><rect x="-26" y="-31" width="49" height="65" rx="6"/><path d="M-12-31v-6H10v6 M-15-13l4 4 7-8 M4-12h9 M-15 6l4 4 7-8 M4 7h9"/><path d="m21 12 16 6v14c0 10-16 17-16 17S5 42 5 32V18Z" fill="#E5F3EF"/><path d="m13 29 6 6 10-11"/></g>
+<text x="580" y="718" font-size="36" font-weight="700" fill="#182D3B" text-anchor="middle">先核对目标</text>
+<text x="580" y="761" font-size="26" font-weight="400" fill="#536570" text-anchor="middle">目标明确，旧功能保留</text>
+<circle cx="945" cy="624" r="53" fill="#EDF5F2"/>
+<g transform="translate(945 622) scale(1)" class="icon" stroke="#08796E" color="#08796E"><rect x="-34" y="-27" width="68" height="47" rx="5"/><path d="M-42 30h84 M-11 20v10 M11 20v10"/><path d="m-14-11-9 8 9 8 M14-11l9 8-9 8 M5-14-5 10"/></g>
+<text x="945" y="718" font-size="36" font-weight="700" fill="#182D3B" text-anchor="middle">Codex 实现</text>
+<text x="945" y="761" font-size="26" font-weight="400" fill="#536570" text-anchor="middle">用好已有专业能力</text>
+<circle cx="1310" cy="624" r="53" fill="#DDF3EC"/>
+<g transform="translate(1310 622) scale(1)" class="icon" stroke="#08796E" color="#08796E"><rect x="-35" y="-29" width="59" height="49" rx="5"/><path d="M-35-16h59 M-25-22h2 M-18-22h2 M-24 6l9-9 9 5"/><circle cx="17" cy="14" r="20" fill="#DDF3EC"/><path d="m31 28 15 15 M8 14l6 6 12-13"/></g>
+<text x="1310" y="718" font-size="36" font-weight="700" fill="#182D3B" text-anchor="middle">检查真实结果</text>
+<text x="1310" y="761" font-size="26" font-weight="400" fill="#536570" text-anchor="middle">看实际成品，不只看测试</text>
+<circle cx="1675" cy="624" r="53" fill="#DDF3EC"/>
+<g transform="translate(1675 622) scale(1)" class="icon" stroke="#08796E" color="#08796E"><path d="M-25-34h31l19 19v46a5 5 0 0 1-5 5h-40a5 5 0 0 1-5-5Z"/><path d="M6-34v19h19 M-13-2h25 M-13 9H0"/><circle cx="22" cy="23" r="19" fill="#DDF3EC"/><path d="m13 23 6 6 12-13"/></g>
+<text x="1675" y="718" font-size="36" font-weight="700" fill="#182D3B" text-anchor="middle">有证据再交付</text>
+<text x="1675" y="761" font-size="26" font-weight="400" fill="#536570" text-anchor="middle">结果与证据一起交给你</text>
+<path d="M299 624H495" stroke="#178B7D" stroke-width="4" fill="none" marker-end="url(#green-arrow)"/>
+<path d="M664 624H860" stroke="#178B7D" stroke-width="4" fill="none" marker-end="url(#green-arrow)"/>
+<path d="M1029 624H1225" stroke="#178B7D" stroke-width="4" fill="none" marker-end="url(#green-arrow)"/>
+<path d="M1394 624H1590" stroke="#178B7D" stroke-width="4" fill="none" marker-end="url(#green-arrow)"/>
+<text x="1492" y="602" font-size="25" font-weight="600" fill="#08796E" text-anchor="middle">通过</text>
+<path d="M1310 785V824Q1310 848 1286 848H969Q945 848 945 824V785" stroke="#C66147" stroke-width="4" fill="none" marker-end="url(#red-arrow)"/>
+<text x="1340" y="820" font-size="28" font-weight="600" fill="#B84E38" text-anchor="start">发现问题</text>
+<rect x="989" y="825" width="277" height="44" rx="10" fill="#FFFFFF"/>
+<text x="1127" y="859" font-size="30" font-weight="700" fill="#B84E38" text-anchor="middle">原任务继续修复</text>
+<text x="1127" y="902" font-size="26" font-weight="400" fill="#536570" text-anchor="middle">修好后，再检查真实结果</text>
+<rect x="64" y="956" width="1792" height="65" rx="16" fill="#FBF1E4"/>
+<circle cx="106" cy="989" r="17" fill="none" stroke="#99632D" stroke-width="2.5"/><path d="M106 979v11" stroke="#99632D" stroke-width="3" stroke-linecap="round"/><circle cx="106" cy="998" r="1.8" fill="#99632D"/>
+<text x="143" y="1000" font-size="28" font-weight="400" fill="#795326" text-anchor="start">需要新授权、环境不支持或证据不足时，明确说明，不能假装完成。</text>
+<text x="960" y="1060" font-size="25" font-weight="500" fill="#536570" text-anchor="middle">设计已通过；实际系统尚未实现和验证</text>
+</svg>
