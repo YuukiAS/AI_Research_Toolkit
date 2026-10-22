@@ -198,12 +198,12 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 <a id="c02"></a>
 ### C02 目标与不能降级的交付承诺如何冻结
 
-1. 当前 Codex 从原请求和正式来源提取行为、数据、规模、结果与不可替代条件，写 obligations；专业标准引用原 owner，不由中央模型发明。
+1. 当前Codex从原请求全文逐段映射行为、数据、规模、结果与不可替代条件；core核全范围/必需来源，当前模型反向阅读，原专业Reviewer从原文独立提出后置条件。F1防结构漏项，不假称机械检查保证语义全知。
 2. 扫描接受基线、正式入口、构建/导出清单、测试和源依赖，把旧行为并入 should_not_change；覆盖不明不允许空集合通过。
 3. 可由源码/官方规范推导的参数由执行者提出有来源的决定；产品取舍、科学语义及高影响授权才交原 Planner/用户。
 4. 保存冲突双方的版本和原文定位；最新用户决定优先但不得推导额外权限；无法裁定交唯一原 owner。
 5. 外部不可达产生缺权限或缺证据，不删除 obligation；假数据只支持 fixture 子结论，不能把目标的 LIVE 要求改低。
-6. 合法变更由原 owner 更新 contract revision、原因和授权引用，影响依赖闭包失效；旧结果归档仍可查，不能覆写。
+6. 合法变更新增scope_revision与supersedes依据，保留原文；原目标降低须当前用户或合法专业authority，不由Executor删测试。重算相关闭包，未受影响结果可复用，原修复预算不重置。
 
 <a id="c03"></a>
 ### C03 选择哪种原有执行流程以及返修能力
@@ -413,7 +413,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 3. 按required set逐项汇总，不平均、投票或用全绿摘要；缺行与重复冲突直接拒绝。
 4. source/unit成立可报告；installed/live/scientific结论不成立就明确保留，不能把部分完成写全任务done。
 5. 源码测试不授权安装/部署/发布，build成功也不证明实际加载。
-6. Bridge ingest_result先解析并产生真实调用者消费Receipt，再由check_delivery/core evaluate_claim核验集合。Lite/Review父进程、Control apply_transition及项目送审出口消费；03 D4明确新增位置。
+6. 唯一Bridge ingest_result/check_delivery调用core；项目adapter只翻译。材料阶段与USER_READY分开，七仓低层PASS不自动升级；F2指定原最终owner。ReceiptLocator不含待生成回执摘要，消除循环。
 
 <a id="c24"></a>
 ### C24 失败代码如何自动变成下一步工作项
@@ -428,10 +428,10 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 <a id="c25"></a>
 ### C25 同任务自动返修、根因分析和停止预算
 
-1. 选定原入口内有限续修：初次执行后最多两次精确resume，Hook与父进程共享该计数；已有更低预算优先。Review事件attempt不被清零，外部等待不耗repair；项目独立轮次不相加。
+1. 初次执行后默认至多两次实际额外修复、总30分钟，取原合同剩余额度更小值；Hook和父进程共享reservation。取消/缺权/外部等待/活跃长作业/未知session或effect状态为零续修；这不是付费授权。
 2. 先分类和因果证据再改；根据修复影响重算检查，oracle改动重新校准，源不变不重跑无关大实验。
 3. 同因第二次无新信息转根因审计，第三次仍无新证据停止盲试；这不是新预算，不能越过更低现有上限。
-4. 当前工具返回与Stop优先；子进程结束由原launcher检查并有界resume；Control由原Controller调用一次性step。所有ACK绑定候选，修复后fresh run闭合；不存在的owner不自动发明。
+4. 当前工具返回与Stop优先；退出后原launcher精确resume，Control原Controller一次性step。显式ack或首次带feedback-id的实际受管调用证明ACKED，新有效结果才RESOLVED；无活owner不虚构唤醒。
 5. admission发现需独立多轮就先选正确模式；已耗尽保留未完成与同task恢复点，不借Stop再领预算。
 6. WAIT不消耗repair/critic/retry轮次；新鲜REVISE且实际执行才消耗，stale review不触发。
 
@@ -439,11 +439,11 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 ### C26 Stop、用户中断、重复事件与状态一致性
 
 1. Stop读当前obligations+resolution+claim；没有admission/结果不允许受管ready，但G1仍不能约束未运行Hook的原生UI。
-2. 持有该任务短锁比较event key和last decision；同候选重复只读同结果，不重复执行测试/续修。
+2. F3用launch lease防双owner启动，短state mutex只做revision/cancel epoch/预算提交；父进程等child时释放短锁。重复feedback幂等，崩溃先核原session与副作用，不按锁年龄重启。
 3. mode owner持有唯一预算；Hook与Lite/Review/Control adapter共享原task实际修复计数，默认最多两次且服从原合同更低上限，不因换进程或角色另领额度；外部等待/重复事件不扣。
 4. Interrupt写中断事实，Stop/watcher发起前再次核对；恢复需要真实用户继续与原owner，不把中断等价普通失败。
 5. 受管发布器拒绝缺合法receipt；hook自身失效时native文本仍可能外漏，必须作为产品能力缺口而非PASS。
-6. 可设计trusted hook的普通入口低摩擦试点；完整原承诺需跨host负例证据和平台补足，当前设计不闭合。
+6. 用户已接受Hook完全缺席时不能拦已生成原生聊天文字；01宿主矩阵规定逐host机制资格，03 F2规定受管交付仍必查。当前未实测，不再把已接受的文字边界写成待决设计。
 
 <a id="c27"></a>
 ### C27 长期任务、等待、终态与断线恢复
@@ -481,7 +481,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 1. 报告由descriptor diff+实际run records生成新增/加固/复用/关闭清单及保护行为；没有新增明确说明原因。
 2. 用户自然语言可提出修改某保护；当前Executor定位其唯一project/domain owner、原标准与消费者，不要求用户记ID。
 3. run-skip是本轮；not-applicable需有依据；pause有环境/期限；retire永久迁移；缺required项时仍不ready。
-4. 可用替代覆盖且三类回放等价或用户正式取消目标才可退休；用户停检查不自动取消专业最低标准。
+4. 替代覆盖通过good/bad/missing/unchanged四类校准并迁移消费者，或用户正式取消对应目标，才可退休；暂停检查不自动取消原质量承诺。
 5. 保留旧case与历史结果，alias迁移、重算required union、通知所有已知消费者；未知消费者阻止广泛退休。
 6. source-first同步脚本/定义/adapter/必要AGENTS locator，正常入口fresh load与known-bad回放通过才发布。
 
@@ -523,7 +523,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 3. cheap-first，最终稳定候选才昂贵检查；早期必须揭示资源与权限，不能用延期隐藏不可达。
 4. 与A路线同任务对照，测用户提醒、误放、误拒、返工、完成率与总成本；不是比较文件数量。
 5. 预算耗尽保留已成立层级、失败原文与恢复点，不宣称完成也不清状态重来。
-6. 若小改频繁FULL或维护净损，先修选择/缩小公共层；仍无收益退回项目原生入口，保留有用回归。
+6. 06确定先做28–64小时估算的core＋原生/Lite＋Lucerna完整切片，不一次投入104–264小时。实测没有减少漏检或用户搬运则退回原runner补强，保留有效回归；维护超上限先减公共层，不能降标准。
 
 <a id="c35"></a>
 ### C35 真实试点、未见样本和最终发布验收
@@ -891,7 +891,7 @@ D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读�
 |impact_rules/parameter_bindings/source_set_rules/environment_profiles/claim_ceilings|Rule[]/{name,value,authority_ref}[]/Rule[]/Identity[]/ClaimTuple[]；core按变化集/源集合选测与失效，Bridge核环境实际能力；参数不能降domain minimum|
 |surface_inventory_ref/discovery_contract/consumer_binding|库存Ref；提取器Ref[]、入口kind[]、unknown_edge_rule固定为D2扩围并保留缺口、baseline_ref为Ref或有依据Unknown；consumer为{consumer_id:Id,reader_version:Id,accepted_schema_versions:string[],entry_refs:Ref[],delivery_boundary_ref:Ref}|
 |Result task/workflow/run/gate_instance/gate_ref/definition_version|前两为{task_key,scope_revision,owner_ref}和{kind,task_ref,event_ref_or_none}；其余Id。Bridge与原owner核task/session/round，不从目录猜最新|
-|Result authority_ref与definition/adapter/source-set/invalidation摘要|Ref及Digest；core重新计算/比较；不得只信producer给的摘要|
+|Result authority_ref与definition/adapter/invalidation摘要|Ref及Digest；core重新计算/比较；source_set_identity是SOURCE Identity并绑定完整来源集合摘要，不与裸Digest混用；不得只信producer给的摘要|
 |Result candidate/subject/target/normal_entry/runner/fixture/rubric/environment identities|Identity或Identity[]；candidate确定同一个语义候选，collector在observation_binding单独定义；无fixture也需明确NONE依据|
 |Result observed_at/decision/reason_codes/covered/missing/evidence_refs/scope|ISO8601、PASS\|FAIL\|UNKNOWN、Id[]、Id[]、Id[]、Ref[]、TARGETED\|BROAD\|FULL；core用expected减covered且核scope，PASS不能带missing required|
 |Result actor_provenance/observer_provenance/cost/elapsed_time/claim_support|Provenance/Provenance/带单位计数或Unknown/非负毫秒整数或Unknown/ClaimTuple[]；Bridge验证消费与资源，core限制声明|
