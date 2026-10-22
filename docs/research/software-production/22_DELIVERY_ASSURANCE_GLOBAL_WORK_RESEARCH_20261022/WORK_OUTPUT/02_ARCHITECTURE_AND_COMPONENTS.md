@@ -2,7 +2,7 @@
 
 用户发出正常功能请求后，系统应自己核对要求、使用合适的成熟能力、保护旧功能、验真实成品，并把失败送回原任务修复。用户不应反复提醒验收、搬运失败报告，或成为第一个发现假完成的人。
 
-推荐仍是 **Bridge 的已有入口＋workflow-core 的小共享库＋七仓已有专业验收**。本轮接受独立 Critic 的五项 REVISE，补上写产品前的独立要求核对、定义准入、实现能力消费、七个确切最终出口，以及先行宿主探针。这里是待审架构，没有生产实现、平台实测或独立 Critic 通过；状态以 [CURRENT](CURRENT.md) 为准。
+推荐仍是 **Bridge 的已有入口＋workflow-core 的小共享库＋七仓已有专业验收**。本轮只修独立 Critic R2 保留的两项：独立核对怎样真正启动并返回，正常任务怎样强制消费最终检查。验收器准入、成熟实现能力、先行宿主探针已由R2设计关闭，保持不变。这里是待审架构，没有生产实现、平台实测或独立 Critic 通过；状态以 [CURRENT](CURRENT.md) 为准。
 
 已确认边界不再提问：受支持正常 Codex 入口自动接入；受管交付必须真实验收；Hook 完全缺席时不保证撤回已经生成的原生聊天错误文字；不造新客户端、常驻调度器、第二任务库、第四工作流或万能评分器。
 
@@ -13,7 +13,9 @@ flowchart TD
  U["普通请求／原任务继续"] --> A["Bridge prepare_admission：原文、权限、来源、任务身份"]
  A --> R{"原标准机械明确且局部低风险？"}
  R -->|是| S["当前 Executor 自查与原文覆盖"]
- R -->|否| I["已有 Planner／Reviewer／Verifier 独立重建要求"]
+ R -->|否| T{"已有角色的真实执行/返回通道已获权并验证？"}
+ T -->|是| I["现有项目Reviewer／已配置Review schedule／具体Control角色"]
+ T -->|否| W["明确等待原角色；保留同task恢复点"]
  I --> A2["原 owner 消费当前审查结果"]
  S --> O["义务＋旧功能影响＋成熟能力选择"]
  A2 --> O
@@ -25,14 +27,14 @@ flowchart TD
  P --> F{"要求与证据是否成立？"}
  F -->|可修失败| B["原任务接收反馈；共享预算内修复"]
  B --> E
- F -->|标准／授权／外部等待| W["保留原 task 与恢复点"]
- F -->|完整有效| D["七仓指定 finalizer → Bridge.check_delivery"]
- D --> H["Bridge report：当前候选的用户可见结果"]
+ F -->|标准／授权／外部等待| W
+ F -->|完整有效| D["正常host结束事件 → finish_delivery → check_delivery"]
+ D --> H["report＋accept_submission：接受当前候选报告"]
 ```
 
 这张图中的新增调用都是设计，不代表今天已接通。没有活跃 owner 时，只保存原任务恢复点，不画虚构的自动唤醒；没有原授权就不启动账号、设备、GPU或部署。
 
-以 Lucerna 为例，用户要求刷新真实用量并保留旧配额。写产品前，独立角色要从原话确认“可信来源、当前账号、缺值不能编零、旧功能不退化”，不能只审 Executor 的摘要。Executor 读取适用设计/状态能力，再补缺失检查。检查程序先接受冻结好例、坏例、缺证例、旧功能例校准；新的观察方式须独立准入，获准的准确版本才可验产品。当前EXE上的刷新、旧配额和独立原生审查全部成立，Complete-LucernaDelivery 才能调用统一检查并给用户报告。
+以 Lucerna 为例，用户要求刷新真实用量并保留旧配额。写产品前，独立角色要从原话确认“可信来源、当前账号、缺值不能编零、旧功能不退化”，不能只审 Executor 的摘要。Executor 读取适用设计/状态能力，再补缺失检查。检查程序先接受冻结好例、坏例、缺证例、旧功能例校准；新的观察方式须独立准入，获准的准确版本才可验产品。当前EXE上的刷新、旧配额和独立原生审查全部成立，正常host的Stop或父进程退出检查才接受统一交付报告。仅修既有明确状态映射可走SELF；新来源/余额语义必须独立。角色文件存在不代表已运行；本机Reviewer需具体获权调用，Review需实际scheduler与接收者。
 
 固定显示680的坏实现即使过第一输入，第二个不同用量会失败；反馈携带实际/期望、候选、原要求和允许修复范围回原任务。旧功能则从变化前后的入口和依赖图反查，不能因为手写adapter漏了Codex额度就不保护它。更完整的 Android 持久化和 CARE 科学负结果链见 [03联动核验](03_END_TO_END_EXECUTION_AND_VALIDATORS.md#r1-integration) 与 [04逐仓合同](04_SEVEN_REPOSITORY_ADOPTION.md)。
 
@@ -42,21 +44,23 @@ flowchart TD
 
 |位置|解决的具体问题|实际调用与接收|维护与失效|
 |---|---|---|---|
-|Bridge 原入口增量；delivery.py / delivery_hooks.py|漏准入、失败无人接、错线程恢复、报告绕过|run_lite_task / run_codex_event / 原Control preflight /可信Hook调用prepare_admission；当前任务或原父进程消费；七仓finalizer调用check/report|Bridge维护入口、身份、锁与真实接收；缺能力不启用，不建新daemon|
+|Bridge 原入口增量；delivery.py / delivery_hooks.py|漏准入、失败无人接、错线程恢复、报告绕过|run_lite_task / run_codex_event / 原Control preflight /可信Hook调用prepare_admission；当前任务或原父进程消费；正常host调用finish/check/report/accept_submission|Bridge维护入口、身份、锁与真实接收；缺能力不启用，不建新daemon|
 |workflow-core delivery_core.py、同一da/2 schema和fixtures|原要求/旧功能遗漏、未激活检查签交付、不同候选拼绿|decide_admission_route、compile_obligations、select_checks、select_execution_capabilities、validate_definition_admission、validate_result、evaluate_claim；返回给Bridge|纯函数，不运行设备/模型/领域评分；缺标准、未知边或required证据保持未证|
-|项目既有runner与小adapter/finalizer|机械PASS冒真实成品、专业判断失真|原runner产生真实观察和专业结果；04七个finalizer明确消费，Bridge统一形成claim|项目维护标准、控制集、旧行为与结果转换；首次adapter和正式出口变化必须准入|
+|项目既有runner与小adapter|机械PASS冒真实成品、专业判断失真|原runner产生真实观察和专业结果；04明确每仓原结果路径与独立输入；Bridge在正常完成接点统一形成claim|项目维护标准、控制集、旧行为与结果转换；首次adapter和正式出口变化必须准入|
 
 K1–K5仍只是身份、义务、专业检查、交付、反馈五组职责，不是五个服务。36职责、315问题、83旧要求和363历史是反向核对材料，不决定模块数量。删掉准入会重现理解错还全绿；删掉激活会让产品作者自造测试自签；删掉最终消费者则独立结果可以永远没人读。
 
-## 3. 五项修订怎样改变实际结果
+## 3. 两项返修与三项保留机制
 
 |稳定意见|已选机制与具体消费者|为什么不能用更轻的口头约定代替|
 |---|---|---|
-|DA-AR-01|[prepare_admission 写前决策](03_END_TO_END_EXECUTION_AND_VALIDATORS.md#r1-ar01)：简单机械任务自查，高风险从原文由已有独立角色重建；原mode接收结果；缺接收者阻依赖写入/最终声明|逐字覆盖抓不到误解；不能把所有任务都升级Control，也不能让事后Reviewer冒事前检查|
+|DA-AR-01|[实际独立调用](03_END_TO_END_EXECUTION_AND_VALIDATORS.md#r2-ar01)：简单机械任务SELF；新高风险由既有获权角色独立重建。本机有限调用同步返回，已有Review schedule补首轮PLAN_REQUESTED处理；缺合法通道明确非自动，不能用创建文件代执行|逐字覆盖抓不到误解；不能把所有任务都升级Control，也不能让事后Reviewer冒事前检查|
 |DA-AR-02|[DefinitionAdmission](03_END_TO_END_EXECUTION_AND_VALIDATORS.md#r1-ar02)：候选→校准→精确摘要激活；submit/calibrate/activate及check实际消费；adapter同准入|登记“owner”没有批准效果；换一个agent也不产生独立性。冻结控制的低风险机械检查无需额外模型|
 |DA-AR-03|[Resolution.execution_capabilities](03_END_TO_END_EXECUTION_AND_VALIDATORS.md#r1-ar03)：任务相关性、真实版本、Executor读取/调用、实现影响、缺失限制|只有验收清单会放任低配方法先实施；已有等价项目能力优先，纯后端/普通文档不触发全套前端|
-|DA-AR-04|[七个指定最终化入口](04_SEVEN_REPOSITORY_ADOPTION.md#r1-ar04)：专业输入→check→report→原task完成验证|Executor/Parent/Controller只是角色名；旧脚本退出0不能代替当前最终claim|
+|DA-AR-04|[正常任务结束接点](04_SEVEN_REPOSITORY_ADOPTION.md#r2-ar04)：Stop／Lite退出／Review消费／Control终态→finish→check→report→接受提交；七仓直接写原result再结束的坏例必须被拒|Executor/Parent/Controller只是角色名；旧脚本退出0不能代替当前最终claim|
 |DA-AR-05|[P0宿主探针先行](06_IMPLEMENTATION_AND_EVALUATION.md#r1-ar05)：实际版本、Hook、Stop、精确resume、加载、取消/父退出，按固定矩阵选择P2|源码接口不等宿主可用；不能先花整个公共层预算再发现关键入口不成立|
+
+DA-AR-01/04为本轮修订候选，尚待独立Critic确认关闭；DA-AR-02/03/05保留R2设计关闭。
 
 低风险准入依赖**事先冻结的标准、控制与授权政策**，不是当前作者临时宣布自己低风险。高风险由已有专业角色只读审标准、候选和原始证据；没有真正隔离就不称受保护观察。CARE默认已有科学Planner和Controller承担其原职责，只有原合同显式要求才增加Reviewer。当前研究不启动任何角色。
 
@@ -76,10 +80,12 @@ da/2仍是同一未发布接口候选：旧da/1只诊断，返修前的da/2草�
 
 定义改动、标准/控制/观察器变化、正式出口变化分别使相关结果失效；暂停不取消义务，退休迁移旧坏例和消费者。中央source、生成、release、installed、loaded与正常入口分别核验。维护沿原TODO/DOING/ADAPTING/DONE；DA不拥有第二任务库。回退到已验证组合，或停止DA签发并保留项目原验收/恢复点，不把停用变成当前任务降标准。
 
-R1保守工程估算为总计 **130–316小时**；首个完整切片 **36–80小时**，其中先行宿主探针仅 **4–8小时**。这些不是实测或授权。先探针，再按可用路线做一个完整Lucerna切片；若没减少旧漏检或用户提醒/搬运，撤公共新增层，保留有效项目回归。其余仓有各自合同，不能互相代签。
+R2修订后的保守工程估算为总计 **138–332小时**；首个完整切片 **40–88小时**，其中先行宿主探针仅 **4–8小时**。增量用于真实角色调用/返回与正常完成检查，未凭共享代码预扣维护收益；详见06。不是实测或授权。先探针，再按可用路线做一个完整Lucerna切片；若没减少旧漏检或用户提醒/搬运，撤公共新增层，保留有效项目回归。其余仓有各自合同，不能互相代签。
 
 ## 6. 当前可送审什么，仍未证明什么
 
-本轮交的是五项REVISE修订后的**实现前候选**。具体调用、类型、接收者、恢复与反证已写入03/04/06，独立Critic仍可否决它们。Windows Desktop、CLI、Remote的实际版本和行为未探测；七仓真实产品、账户、设备、科研运行未执行；不声称系统已经能替用户自动完成这些事。
+本轮交的是DA-AR-01/04修订后的**实现前候选**，其它三项保持R2关闭。具体调用、类型、接收者、恢复与反证已写入03/04/06，独立Critic仍可否决它们。Windows Desktop、CLI、Remote的实际版本和行为未探测；七仓真实产品、账户、设备、科研运行未执行；不声称系统已经能替用户自动完成这些事。
 
-下一入口是 [08独立Critic审查](08_CRITIC_PROMPT.md)，只审五项修订与整体连带影响，并重走普通请求到最终结果的完整路径。不是Codex实施Goal，也不是自动启动下一任务。
+下一入口是 [08独立Critic审查](08_CRITIC_PROMPT.md)，只审这两项修订与整体连带影响，并重走普通请求到最终结果的完整路径。不是Codex实施Goal，也不是自动启动下一任务。
+
+当前承诺按具体host和角色通道划界：本机项目Reviewer、Review schedule、Control的实际可执行adapter都要有运行资格；没有就不签自动等级。Asteria/SeminarArc等只有现行人工GPT Work入口时，独立产品审查仍需一次原Parent交接；Mica正常Edge最终短操作仍可能由用户完成。内部可读失败由当前Executor直接消费与返修，不能把这些人工边界混写为“零搬运”。这是对当前可用能力的明确限制，不是放松产品标准或把未证产品宣布完成。
