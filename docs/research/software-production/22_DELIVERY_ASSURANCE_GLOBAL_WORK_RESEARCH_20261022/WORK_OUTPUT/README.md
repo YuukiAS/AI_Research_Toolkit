@@ -1,28 +1,25 @@
-# Delivery Assurance：同一架构的 R2 返修候选
+# Delivery Assurance：R3 设计已通过，正在准备实施前审查
 
-用户仍从普通Codex请求开始，不必先写Goal。方案先核对原要求，调用任务需要的成熟能力，保护旧功能，再运行项目自己的真实验收。失败交回原任务修复；最终由正常任务的结束检查接受报告，不能因为Codex写了“完成”就算交付。
+用户从普通 Codex 请求开始，不必先写 Goal。系统核对原要求、使用相关成熟能力、保护旧功能、验真实成品；失败交回原任务；正常结束时必须检查并接受当前报告，不能因为写了“完成”就算交付。
 
-推荐仍是 **Bridge已有入口＋workflow-core小共享库＋七仓专业验收**。不建新客户端、常驻调度器、第二任务库或第四工作流。受支持入口自动接入、受管交付强制验收；Hook完全缺席时不保证撤回已发聊天文字，已接受边界保持。
+**独立 Critic R3 已给设计 PROCEED，五项 DA-AR 设计均关闭。系统尚未实施，READY_FOR_CODEX=NO，七仓 DA enabled 全部为 NO。** 结论由用户转交，没有另一个 GitHub 审查原件。固定审查包为 `7ca0f0f2c84cc9f29ec8df525797d17da168bd7b`，架构源为 `79fe13a6ce3480732e206b33029cfa3b9fcf9a78`。
 
-独立Critic R2保留了两项问题，本轮均接受并修改：
+![完整架构图](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)
 
-- **DA-AR-01：审查必须真的运行并返回。** 创建PLAN_REQUESTED文件不再算自动核对。优先复用已经定义、获权且可执行的项目Reviewer；已有Review安排任务补首轮Planner处理，原watcher接收；Control须有具体可运行角色。原任务核结果后才允许依赖写入。简单UI机械修复可自查，不强制重型Review。
-- **DA-AR-04：检查必须在正常结束路径发生。** 撤回七个历史脚本各加finalizer的方案。改为正常Stop、Lite退出、Review返回消费、Control终态动作调用共享finish_delivery，再check/report/accept_submission。七仓保留原结果位置和专业证据；直接写原result“完成”并省略检查的坏例，必须被真正host拒绝。
+先读 [11：用 Lucerna 真实问题讲清整体架构](11_ARCHITECTURE_EXPLAINED.md)。图中的箭头能追到已有或冻结的拟新增函数，明确区分现有代码、待接线、宿主未证与权限边界。正常完成和拒绝返修是设计推演，不冒充实测。
 
-R2已关闭的 **DA-AR-02验收器/adapter准入、DA-AR-03成熟能力消费、DA-AR-05先行宿主探针** 保持。两级交付、回执去环、父子锁、共享预算、取消及科学负结论没有放宽。
+推荐保持 **Bridge 原入口＋workflow-core 小共享库＋七仓专业验收**。不建额外客户端、常驻调度器、第二任务库、第四工作流或万能评分器。Hook 完全缺席时不保证撤回已发原生聊天文字；没有合法独立通道或活跃 owner，不承诺无人值守核对/唤醒。既有 GPT Work 人工交接和 Mica 正常 Edge 短操作边界不被隐去。
 
-这是Planner的**实现前候选**，两项关闭证据还需独立Critic确认。固定身份和全包回读见[CURRENT](CURRENT.md)。没有运行宿主探针、独立角色进程或七仓产品，七仓DA enabled均为NO。没有合法自动角色通道的环境明确不支持无人值守高风险核对；Asteria等现行GPT Work人工交接、Mica正常Edge短操作不能隐瞒成自动。没有活跃owner也不承诺自动唤醒。
+[12：分阶段实施审查包](12_STAGED_EXECUTION_REVIEW_PACKAGE.md)保留先行 P0、最小 Lucerna 完整链、七仓逐项接入、真实反例、预算、权限和回滚。计划估算仍为 P0 **4–8小时**，首片 **40–88小时（含P0）**，全量 **138–332小时**；不是实测消耗或执行授权。先证明入口，再投资公共层；没有减少漏检/用户搬运就不推广。
 
-全量规划估算 **138–332小时**，首个完整切片 **40–88小时**，其中先行P0仍 **4–8小时**；不是实测或执行授权。新增接线的成本与退出条件见06。只增加记录却不减少漏检/用户搬运，就不推广。
+技术权威与审查入口：
 
-- [02：整体架构与正常用户路径](02_ARCHITECTURE_AND_COMPONENTS.md)
-- [01：真实源码、路线比较与平台边界](01_REALITY_AND_ALTERNATIVES.md)
-- [03：实际独立调用、定义准入、能力消费、da/2与同任务返修](03_END_TO_END_EXECUTION_AND_VALIDATORS.md#r2-ar01)
-- [04：七仓正常完成入口、绕过坏例及三个完整案例](04_SEVEN_REPOSITORY_ADOPTION.md#r2-ar04)
-- [05：823条原问题映射](05_HISTORICAL_COVERAGE.csv) · [覆盖与反证](05_COVERAGE_SUMMARY.md)
-- [06：实施顺序、维护、成本与否决条件](06_IMPLEMENTATION_AND_EVALUATION.md)
-- [07：两项处置、三项保留与固定源码](07_INDEPENDENT_CRITIC_PACKAGE.md#r2-review)
-- [08：下一轮独立Critic完整提示词](08_CRITIC_PROMPT.md)
-- [09：持续闭合合同](09_CONTINUE_UNTIL_ARCHITECTURE_CLOSED.md) · [10：已接受边界合同](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md) · [原写入探针](00_GITHUB_WRITE_PROBE.md)
+- [02：整体架构](02_ARCHITECTURE_AND_COMPONENTS.md) · [01：源码、替代方案与平台边界](01_REALITY_AND_ALTERNATIVES.md)
+- [03：完整调用、准入、能力、da/2与恢复](03_END_TO_END_EXECUTION_AND_VALIDATORS.md)
+- [04：七仓正常完成入口、专业结果与绕过坏例](04_SEVEN_REPOSITORY_ADOPTION.md#r2-ar04)
+- [05：823条覆盖映射](05_HISTORICAL_COVERAGE.csv) · [覆盖说明](05_COVERAGE_SUMMARY.md)
+- [06：阶段、维护、成本与否决](06_IMPLEMENTATION_AND_EVALUATION.md)
+- [07：固定源码与审查包索引](07_INDEPENDENT_CRITIC_PACKAGE.md) · [08：下一轮独立 Critic 提示词](08_CRITIC_PROMPT.md)
+- [CURRENT：最新阶段与固定包](CURRENT.md) · [09：持续闭合合同](09_CONTINUE_UNTIL_ARCHITECTURE_CLOSED.md) · [10：已接受边界](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md)
 
-本轮审查意见来自用户转交，没有单独GitHub审查文件。所有改动仅在原WORK_OUTPUT、原研究分支逐阶段提交并回读；原823行前八列逐字段保留。没有生产修改、新任务、自动化、设备/账号/GPU/付费/部署操作。下一入口只有独立设计复核，不含Codex实施任务。
+本轮只在原 WORK_OUTPUT 提交研究、解释和审查材料并回读。没有修改生产代码、运行宿主探针、启动新任务/角色/自动化、使用账号/设备/GPU/付费或部署。03/04/覆盖 CSV 的冻结技术内容保持；11/12是同一方案的解释与阶段落地视图，不是平行架构。
