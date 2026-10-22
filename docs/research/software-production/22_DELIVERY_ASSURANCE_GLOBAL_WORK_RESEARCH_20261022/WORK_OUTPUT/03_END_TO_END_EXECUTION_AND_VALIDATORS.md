@@ -8,20 +8,21 @@
 
 现有执行者实现、调用项目正式runner、拿到原始失败并修复；交付边界比较本任务必须成立的集合与同候选的证据。用户最终看见“真实安装版可用到哪一层、旧功能哪些成立、还有什么未证”，不被要求逐条点测试或转述FAIL。没有可运行的接收方、没有设备权限或Hook未生效时，这段体验尚未成立；不能把指导性提示写成强制保证。
 
-## E2 模式与真实接点
+## E2 模式与真实接点：已确定的接线选择
 
-|入口|已有代码与拟接入位置|下一跳与结果接收|自动继续的真实上限|
+本节及文末 D4 取代此前“Lite 只能留恢复点、Control 返回 route 即会继续”的方案。**当前代码、确定新增设计、未来运行证据分开**。
+
+|入口|现存调用|确定新增的消费位置|可承诺范围|
 |---|---|---|---|
-|无Goal原生Desktop/CLI/Remote|宿主Hooks；拟 Bridge delivery_hooks.py::on_prompt/on_pre_tool/on_post_tool/on_stop/on_interrupt，当前release不存在|on_prompt只登记/提供上下文；当前模型编译义务；受支持变更工具前检查admission；Stop读取claim与work_items|仅在受信任、支持的同会话路径试点一次continuation；失效边界G1未闭合|
-|带Goal原生会话|同上，引用已有Goal identity与resume点；不新Goal|原Goal owner接收反馈；不得用DA另建Goal状态|Goal预算与用户中断优先；不由DA扩预算|
-|Bridge Lite|[cli.py run_lite_task](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ba9013b9fbbd242e51b09f9d09291f417df17652/ai_bridge_kit/cli.py#L657)，拟在preflight后附obligation输入、子进程返回后核验claim|_lite_task_prompt传给当前codex exec；进程内命令失败可继续；返回后父程序能拒绝ready|现有只启动一次；不新增while循环或另一个Codex进程；进程已退则保存同任务恢复点|
-|Review|[reviewed_runner.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ba9013b9fbbd242e51b09f9d09291f417df17652/ai_bridge_kit/reviewed_runner.py#L746) executor_prompt/run_codex_event/watcher_once|拟把work item纳入executor_prompt；产品审查仍由现有Reviewer写新鲜REVISE；watcher读取CURRENT并启动同task执行事件|事件attempt与review round分别沿现有合同；无新REVISE则不反复repair；thread_id为空，不声称原App线程|
-|Control|[agent_flow.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/ai_bridge_kit/agent_flow.py#L492) launch_executor_with_preflight→adapter.launch_role|拟把结果转为现有typed finding；route_current_findings→原Controller→RoleLaunchRequest；delivery predicate挂apply_transition|原Controller独占预算与状态。只找到route函数还不够，所选adapter必须实际消费；G4|
-|项目控制器|CARE finalizer/Controller，Mica Parent，CUHK Parent Work，Lucerna独立原生流程|项目本地结果适配函数转换现有结果，不复制原控制器；明确谁读取及下一动作|项目冻结合同；文档中“Parent会继续”没有运行证据时标G4|
-|Persistent Run|现有start/status/supervisor只管进程寿命|原workflow仍负责语义结果|不是第四workflow；不自动重启stale session|
-|GPT Work/其它宿主|本研究未证实同等native hook接口|使用其现有受管入口与connector，缺传输时交还可读材料|不承诺后台自动唤醒，保持waiting_external_review|
+|无任务包原生|宿主 UserPromptSubmit、Pre/PostToolUse、Stop|Bridge `delivery_hooks.py` 的同名处理器调用共享库；Stop 的非空 reason 由宿主 turn loop 作为当前回合输入|已信任且实际支持的事件路径可同会话返修；失效时不能拦原生文字，见01 D1|
+|已有 Goal 原生|同上＋原 Goal/resume 身份|Hook 只引用原 Goal；实际 Goal owner 消费反馈、继承剩余预算|不创建 Goal，不改完成含义，不自动越过暂停|
+|Lite|release `cli.run_lite_task` L657，L715 单次 subprocess|在同一函数加入有界 `run_delivery_cycle`，JSONL 捕获当前 thread id；退出核验未就绪且可修时，对精确 id 执行 resume|同逻辑任务、同 Codex thread 的有限续修；不是新任务或守护服务。运行前冻结预算并受用户中断约束|
+|Review|release `watcher_once→run_codex_event→executor_prompt`|run_codex_event 内使用相同有限 cycle；发布给 Reviewer 前核验；外部新 REVISE 仍由 watcher 原事件接收|机械返修不伪造 Reviewer 决定；外部审查等待不消耗 repair budget|
+|Control|dev `route_current_findings`、`plan_transition`、`launch_executor_with_preflight`|选定新增 `agent_flow.consume_delivery_result` 和具体 `CodexExecRuntimeAdapter`；由**已启动的原 Controller Codex**调用新增 `control step`，一次调用只推进一个合法动作|没有运行中的 Controller 就不承诺自动唤醒；Persistent 只维持已获授权的 Controller 寿命|
+|项目原流程|七仓 runner 与原 Executor/Parent/Controller|在当前模型调用 runner 的同一工具返回中输出统一反馈；原流程的送审/终态函数再次核验|不凭文档里的 Parent 名称假设有后台进程。实际入口映射见 D4、04|
+|GPT Work/其他未证宿主|没有已验证等价 Hook/当前回合注入接口|原任务显式调用同一检查；保留原平台的合法恢复方式|不造 App reader，不自动创建远程任务；不宣称等价原生强制保障|
 
-[官方Hook边界](https://learn.chatgpt.com/docs/hooks)决定可用事件和信任方式；工具路径覆盖不完整。设计不使用bypass-hook-trust、不扫描不稳定transcript冒充正式API。managed policy是需另审的宿主部署选项，不能推定个人Windows账户已有此能力。
+选择比较：只增加 FAIL 文件没有接收者，淘汰；让每个普通任务升级 Control 增加角色与用户操作，淘汰；另建调度器制造状态冲突，淘汰；**优先当前回合接收，受管启动器有限 resume，外部等待沿原流程**，选定。只读本轮没有执行上述新增调用。
 
 ## E3 任务身份与存储：不造第二个CURRENT
 
@@ -516,3 +517,59 @@ E3–E7的schema_version:1与函数例子是待实现内容模型，不是旧da/
 工作项可被多个工具看到但只由原owner推进；ack含WID、task/candidate、receiver identity、原生工作流event引用、接收时刻和实际下一动作。写ack不等于执行成功；新run必须引用superseded失败并满足对应义务。只有文件、没有接收记录/下一跳则G4。原工作流CURRENT是唯一状态权威，delivery文件不另设终态。
 
 拟议只读报告入口可由原Bridge CLI增加delivery report，读取原任务显式引用的claim与run，按E9生成摘要/明细；不扫描目录挑最新PASS，不开daemon，不改任务。用户也可在当前聊天询问“这次验了什么、关了什么、还缺什么”，当前owner返回同一派生报告，无需用户维护额外控制台。
+
+## D4 同任务返修协议与确切消费者
+
+### 1. 单一解析入口和结果
+
+选定新增 Bridge `ai_bridge_kit/delivery.py` 负责文件定位、来源校验和宿主适配；AI Skills workflow-core 的 `scripts/delivery_core.py` 只计算义务、选测和 claim；项目 `scripts/delivery/adapter.*` 调已有程序并解释专业结果。Bridge 通过已安装插件 manifest 的固定 capability entry 调用 core，不能扫描 PATH 中名字相似的脚本。缺 core 或版本不合时返回 NOT_READY，原项目低层测试仍可独立运行。
+
+所有边界调用 `check_delivery(context, result_refs) -> DeliveryCheck`（**新增接口**）：status 为 READY / REPAIR / NEEDS_STANDARD / NEEDS_AUTH / WAIT_EXTERNAL / STOP；包含 task_identity、scope_revision、candidate_identity、obligation_set_digest、result_refs、feedback[]、allowed_claims、resume_ref。此 status 是一次函数返回，不是新的持久 workflow enum。它映射回原流程状态。异常统一为 REPAIR 且 reason=RESULT_UNREADABLE / RESULT_SCHEMA_UNSUPPORTED / IDENTITY_MISMATCH；不能把解析错误映射到 READY。
+
+feedback 必填 id、requirement_ref、candidate、actual、expected、evidence_refs、classification、recipient_role、allowed_write_scope、invalidates、next_check、budget_ref。id = SHA256(task identity + scope revision + candidate + obligation + reason + evidence digest)；不含可变时间。标准已有但检查程序缺失，classification=VALIDATOR_MISSING，recipient=Executor，附标准和 good/bad/missing/unchanged 校准。绝不让“生成工作项”本身算已接收。
+
+`receipt` 分三个观察：DELIVERED=宿主已将 payload 送进模型输入（或 launcher 已以该输入成功启动精确 resume）；ACKED=该模型首次调用 `delivery ack <feedback-id> <candidate>`，Bridge 验证任务/授权并记录其 session/turn；RESOLVED=新的有效 GateResult 覆盖原失败义务且满足原标准。stdout 写出、文件存在、模型说“收到”均不自动等于 ACKED/RESOLVED。模型不 ack，工具前/交付前返回明确缺收据，但不得启动重复后台。收据证明协议消费，不证明模型理解；以实际修复新结果证明最终消费。
+
+### 2. 原生当前回合
+
+UserPromptSubmit 处理器只记录原请求与已有未结任务关联，并把 admission/required actions 的短上下文注入当前回合；语义义务编译由同一模型完成后提交给 core 验证，不在 Hook 内另调模型。PostToolUse 标记实际变化与过期证据。Stop 读取当前 candidate 的检查结果：READY 输出正常空控制；REPAIR 且预算允许返回 `{"decision":"block","reason":"[精确feedback引用及下一步]"}`；宿主实际消费位置为 [turn.rs L742–759](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/core/src/session/turn.rs#L742)。该注入本身是 DELIVERED，下一次工具调用 ack 才是 ACKED。不能用 continue:false 代替 block；前者停止处理。
+
+重入以 task/candidate/feedback 去重，不以 stop_hook_active=true 一律绕过。一个失败最多两次**实际执行的修复**，第二次同因无新证据转根因诊断；默认总计两次 Stop 自动续修，嵌套回合共享同一 budget。已有任务更小预算优先；更大预算只来自原批准合同。预算到达仍可报告未完成和原恢复点，不改成 PASS。用户中断标记 cancellation epoch；Interrupt 只有短时保存用途，不能阻止中断，不能靠它自动重启。Hook 崩溃时交付边界拒绝缺证，原生文本限制保持01 D1。
+
+无包任务存机器本地已配置 Bridge state 根的 `delivery_sessions/<session>/<request-epoch>/delivery_assurance/`，不依赖产品仓可写，也不把此记录叫任务控制器。首次有文件变更前保存原请求；缺上下文时继续对话恢复，不推定新目标。用户改目标保留旧版本并产生 scope revision，原义务只能凭明确请求或权威变更撤销。
+
+### 3. Lite 的有限续修由原父进程实际执行
+
+现有 [run_lite_task L693–715](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ba9013b9fbbd242e51b09f9d09291f417df17652/ai_bridge_kit/cli.py#L693) 仅启动一次。本设计明确改变这个已知限制，不把新增行为冒充现存能力：
+
+1. preflight 成功后，冻结原 task、repo/branch/worktree、授权、预算和 core 版本；启动 `codex exec --json -C <exact-root> -`，以 stdin 输入完整已绑定 prompt。新增父进程 JSONL reader 记录 `thread.started.thread_id`；其官方定义在 [exec_events.rs](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/exec/src/exec_events.rs#L11)。不解析聊天文字猜 thread id。
+2. 子进程内 runner 的结构化失败先由当前模型修；结束后父进程调用 check_delivery。READY 只准相应语义通知；进程 exit=0 永远不是替代。
+3. REPAIR 且尚有原预算、未取消、来源仍一致、明确 id 存在时，父进程以同 cwd 和配置调用 `codex exec --json resume <exact-thread-id> -`，stdin 含原约束与新 feedback。**不用 --last，不 fork，不新任务。**正式版本的 CLI 能力探针必须支持此参数形状才启用；源码 [ResumeArgs](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/exec/src/cli.rs#L238) 与 [thread/resume](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/exec/src/lib.rs#L1029) 已给实现依据。
+4. 新 process 的 thread.started 必须仍为原 id；找不到原 thread、返回新 id、权限变化或输入 hash 不符立即停止续修。记录发出但未 ack 的同一 feedback，不能再以新 task 补跑。
+5. 默认只允许初次执行后最多两次 resume，且 Hook 与父进程共享计数；启动前冻结 max_elapsed、原资源上限。取消/预算/授权等待时保存在原 task 的证据根，退出非就绪；不启动新的永久 owner。父进程崩溃则下次用户继续原入口恢复一次，只有已授权 Persistent owner 存活时才可按其合同恢复。
+
+计数在取得排他任务锁后先登记 attempt intent，再启动；崩溃窗口若有 session 活跃证据，禁止并发补发；若只能确认进程退出而不能确认是否完成，先核验结果/查精确 session，再决定一次恢复。不以“至少一次”交付重复执行有副作用的命令。原有预算/权限是最外层上限，DA 不增加 GPU/设备/发布权。
+
+### 4. Review 与 Control：不替外部角色决定
+
+Review 在 `run_codex_event` 内接同一 cycle，`executor_prompt` 带 feedback refs；周期结束才回 `watcher_once`。代码 L861–864 读取原 CURRENT，新增检查保证它在证据不就绪时不能发布“待审候选已齐”。语义审查照旧写 fresh REVISE；watcher 的 event identity 与 max_attempts_per_event 不被 DA 清零。一次 event 内的 repair 次数不是新的 review round；进程启动失败计 launch attempt，等待不计任何 repair。已退进程与新鲜外部决定由原 watcher 执行；watcher 没启动时就没有自动消费，不能报告已进入后台。
+
+Control 关键事实：[RuntimeAdapter L485–489](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/ai_bridge_kit/agent_flow.py#L485) 仍是抽象类；[main L2769–2775](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/ai_bridge_kit/agent_flow.py#L2769) 只打印 route/transition。因此本设计选定：
+- `consume_delivery_result` 把机械事实追加到现有 evidence/findings 输入，不伪造 Planner 分类。
+- 新增一次性 `control step`：锁定原 CURRENT → validate_task_state → plan_transition → 若是合法 Executor 动作，用具体 CodexExecRuntimeAdapter 和 launch_executor_with_preflight；角色分离、授权路径、repo/branch 全部仍由既有合同限制 → 捕获真实 session、RoleReceipt → check_delivery → 按原允许转换 apply_transition。每次最多一动作，返回完整结果给**调用它的原 Controller Codex 工具回合**。
+- 具体 adapter 是既有 RuntimeAdapter 的实现，复用上述 JSONL/resume，不能构造新分支、换身份、自动起 Planner/Critic。Controller 的 prompt 在每个工具返回后读取 next_action；外部角色动作输出等待，必须获得该角色新鲜工件才继续。Persistent 如已被准确授权可承载这个原 Controller；否则进程结束后由同任务恢复，不伪装 daemon。
+- apply_transition 在送审/候选通过处加入 check_delivery predicate；失败不改成 PLANNER_PASS。产品或科学取舍只能沿已有 Planner 分类，不能由 Controller 自动降标准。
+
+### 5. 七仓原接收者与断点
+
+|项目|runner 返回给谁|最终再核验位置（新增调用）|谁持久保存／恢复|
+|---|---|---|---|
+|Lucerna|调用 development-acceptance.ps1 的当前 Executor；若原独立原生流程已启动则反馈给其 orchestrator|development-acceptance.ps1 的 candidate admission/交付报告出口|原 task result＋原执行者；独立流程最多三轮，DA 不增加轮数|
+|Bobbio|调用 Safe runner 的当前 Executor|Safe runner 总结与 CURRENT_MILESTONE 就绪材料生成处；不自动改里程碑|原 milestone task；设备/账号等待保留该任务|
+|Mica|调用 acceptance CLI 的当前 Executor/已存在 Parent|cli.mjs candidate→validateBundle 返回前，正式 ZIP/loaded identity 报告消费处|原 Parent/Goal；没有已启动 Parent 时不声称自动续跑|
+|SeminarArc|调用 run-blackbox-acceptance 的当前 Executor|verify-gpt-work-acceptance 最终决策生成处|原 task result；真机断开先停止该项，不再安装别的设备|
+|Asteria|调用 browser tests 的当前 Executor，独立视觉审查归原 Reviewer|RC 汇总/送审材料生成处，不改旧视觉标准|原 RC task；需要新判断就等待原 Reviewer|
+|CUHK_Date|原 Parent 调用 hosted audit；handleAuditTicketSession 返回同一 ticket owner|evaluateParentDeliveryGate 与原 campaign finalization|原 campaign/ticket lease；换 snapshot 必须按项目合同关闭旧 campaign，创建新活动仍需授权|
+|CARE|原 Controller 调用 finalizer 获得完整结构与 exit|care_milestone_finalizer 的送审包生成前，当前 Controller 的科学终态判断处|原 route/task/Slurm job identity；科学负结果交 Planner，不能再投新作业|
+
+上表不是声称这些程序已经内置 DA。新增接点和谁读取已确定；若当前没有活跃模型/Controller，恢复位置仍在原任务，后续必须通过原入口合法继续。ACK 包含 task/run/candidate，旧评审/旧反馈不得反复触发修复；权限不足只阻塞相关动作，其它独立工作继续。
