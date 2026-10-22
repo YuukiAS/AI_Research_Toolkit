@@ -4,6 +4,11 @@
 
 本仓库不是具体科研项目目录，也不是 Codex skill marketplace。仓库边界见 `docs/REPOSITORY_BOUNDARY.md`。
 
+## 通用方法规范
+
+- [复杂系统设计与交付标准](COMPLEX_SYSTEM_DESIGN_GUIDE.md)：怎样设计、实施和验收真实可用的复杂系统。
+- [复杂架构的可信解释标准](COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)：怎样结合实际使用、因果机制与证据，向读者解释系统为何有用、当前真正做到了什么。
+
 ## 新机器使用流程
 
 ```bash
