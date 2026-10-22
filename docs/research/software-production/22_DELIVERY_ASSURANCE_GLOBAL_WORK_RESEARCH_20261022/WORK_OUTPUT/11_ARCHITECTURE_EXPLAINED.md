@@ -12,7 +12,7 @@ Delivery Assurance 把这些责任接进普通任务：先明确要求和旧功�
 
 [高清图片](11_DELIVERY_ASSURANCE_ARCHITECTURE.png) · [可编辑图源](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)
 
-沿绿色箭头从左向右看：用户提出需求，当前 Codex 接到请求，Bridge Kit 接入原任务，workflow-core 确定必须满足的要求和检查，Codex 实现，项目验收程序检查真实成品，Bridge Kit 做最终交付检查，用户取得核验结果。
+四个浅色区域依次区分接入原任务、确定要求、实现与验收、接受交付。沿绿色箭头从左向右看：用户提出需求，当前 Codex 接到请求，Bridge Kit 接入原任务，workflow-core 确定必须满足的要求和检查，Codex 实现，项目验收程序检查真实成品，Bridge Kit 做最终交付检查，用户取得核验结果。
 
 这是逻辑协作顺序。同名的 Codex 表示原任务在接收需求和开发阶段的两次出现；几个 Bridge Kit 方框表示同一套程序在接入、失败回传和最终交付时承担不同工作，不是新建多个服务或聊天任务。图中 workflow-core 到 Codex 的箭头表示检查要求交给实现者；实际由 Bridge Kit 调用规则库、接回结果并交给当前 Codex，规则库不会自己启动模型。
 
