@@ -6,7 +6,7 @@
 
 ```mermaid
 flowchart LR
- R["独立架构审查与必要产品取舍"] --> C["P1 core：da/2与纯函数"]
+ R["独立架构审查；已确认产品边界"] --> C["P1 core：da/2与纯函数"]
  C --> B["P2 Bridge：入口／有界返修／交付消费"]
  C --> D["D 项目标准与原runner适配"]
  B --> A["P3 首条真实链：Lucerna"]
@@ -26,7 +26,7 @@ P0编号仅为历史映射兼容保留，现表示**运行能力核验**：01 D1
 
 **代码归属。** AI_Skills_Collection canonical `skills/core/codex-system/codex-workflow-protocol/`；新增 `scripts/delivery_core.py`、da/2 schema/fixtures/reference，沿已有 `scripts/build_codex_marketplace.py`生成正式消费层。Bridge只读取安装绑定，不复制领域阈值。确切开工branch/worktree由后续已授权项目流程指定，本稿不创造分支。
 
-**确定功能。** compile_obligations/discover_surface/select_checks/validate_result/evaluate_claim；输入输出与嵌套必填字段见03 D2/D6。只做文件/数据语义计算，无设备、网络、模型调用、进程调度或发布效果。请求的语义投影来自当前模型，并绑定原文，不能以schema通过证明语义没有遗漏。
+**确定功能。** compile_obligations/discover_surface/select_checks/validate_result/evaluate_claim；输入输出与嵌套必填字段见03 D2/D6/F1/F4；partition_request先保存全文范围映射，ReceiptLocator不含待生成回执摘要。只做文件/数据语义计算，无设备、网络、模型调用、进程调度或发布效果。请求的语义投影来自当前模型，并绑定原文，不能以schema通过证明语义没有遗漏。
 
 **验证。** 枚举以下成对fixture：真实需求缺runner、空adapter、动态未知边、删除/rename、已提交与未跟踪变更、shared dependency、正常文档无影响、标准冲突、同候选有效复用、collector变更失效、未跑/skipped/neutral、FAIL与UNKNOWN并存、不同target拼绿、da/1只诊断、未知主版本、重复JSON键、path escape、字段缺失/清空required、循环receipt。好例必须保留合法复用，坏例不得以FULL或退出0变绿。历史反例作为其中输入，不声称这些fixtures是七仓真实实测。
 
@@ -50,13 +50,13 @@ D-LUC/D-BOB/D-MIC/D-SEM/D-AST/D-CUH/D-CARE沿04列出的当前合同、runner和
 |---|---|---|
 |cli.py::build_parser/run_lite_task/_lite_task_prompt|delivery prepare/ingest/check/ack/report；原函数内run_delivery_cycle；JSONL精确thread id与有界resume|当前Codex及原父进程；无id/换id/取消后启动必须拒绝|
 |reviewed_runner.py::executor_prompt/run_codex_event/watcher_once|注入feedback；event内同一cycle；发布候选前check|原Reviewer和watcher；不伪造新REVISE，不清event attempt|
-|agent_flow.py::RuntimeAdapter/launch_executor_with_preflight/plan_transition/apply_transition/build_parser|具体CodexExecRuntimeAdapter、consume_delivery_result、一次性control step、delivery predicate|已启动原Controller工具回合；只有route字典不算消费，无owner不声称后台|
-|新增delivery.py/delivery_hooks.py|来源绑定、本地task锁、结果/收据解析、可信原生事件薄适配|当前回合/原任务；Hook只返回递送请求，须实际后续ack|
-|原项目profile与安装收据|delivery_assurance.runtime_binding：精确core entry、payload/version/digest|缺绑定NOT_READY；不从PATH或任意缓存选择相似脚本|
+|agent_flow.py::RuntimeAdapter/launch_executor_with_preflight/plan_transition/apply_transition/build_parser|具体CodexExecRuntimeAdapter、Executor/Verifier各自preflight、consume_delivery_result、一次性control step、delivery predicate|已启动原Controller工具回合；只有route字典不算消费，无owner不声称后台|
+|新增delivery.py/delivery_hooks.py|来源绑定、launch lease＋短state mutex、结果/收据解析、可信原生事件薄适配|当前回合/原任务；Hook只返回递送请求，须实际后续ack|
+|原项目profile与安装收据|delivery_assurance.runtime_binding：精确core entry、payload/version/digest|缺绑定STOP／CORE_UNAVAILABLE；不从PATH或任意缓存选择相似脚本|
 
 **预算确定。** 普通新增DA机械任务默认最多两次实际修复；Hook与父进程共享，不是2+2。run_delivery_cycle默认额外自动续修墙钟总上限30分钟，单个无输出Hook最多2秒；已有task更小上限优先。用户批准的正式长任务仍沿其原预算，不因30分钟截断Slurm作业；DA只停止额外自动launch并保留原job/owner。没有明确长期资源授权不启动。资源上限不是自动可花额度，账号/设备/付费仍逐effect受限。Stop处理器不得在2秒内执行专业检查，只读已准备的摘要；超时不代表平台会强制停止，交付端独立拒绝缺证。
 
-**恢复/并发。** 用03的本地排他锁和原子manifest，不依赖fcntl支持Windows；网络共享/跨host多owner不支持自动续修，沿原合法handoff。launch intent先保存，崩溃后检查精确session、进程启动身份和结果再决定，不重复副作用。用户取消传递原进程组并冻结cancel epoch；旧结果可留审计，不能复活任务。所有文件owner字段是来源记录，非权限边界。
+**恢复/并发。** 用03 F3的launch lease、短state mutex和manifest提交点，父进程不得持短锁等child ack；不依赖fcntl支持Windows；网络共享/跨host多owner不支持自动续修，沿原合法handoff。launch intent先保存，崩溃后检查精确session、进程启动身份和结果再决定，不重复副作用。用户取消传递原进程组并冻结cancel epoch；旧结果可留审计，不能复活任务。所有文件owner字段是来源记录，非权限边界。
 
 **必须运行的机制矩阵。** 正常接收修复、Hook缺席/未信任/超时/畸形输出、空block理由、错task/candidate、重复feedback、结果部分写入、resume换thread、父进程崩溃、用户Interrupt、原预算耗尽、外部stale review、无Controller、外部正常等待。每例一次初跑与一次针对性复跑上限，不为凑覆盖无限重试。Windows Native、目标Unix/Remote、Desktop/CLI分别记录版本与支持等级；GPT Work无已证等价接口，不伪装支持。
 
@@ -76,7 +76,7 @@ D-LUC/D-BOB/D-MIC/D-SEM/D-AST/D-CUH/D-CARE沿04列出的当前合同、runner和
 
 **首轮路线已经选择**：先回放现有反偷懒/adequacy/finalizer结果和最多10个变异，CPU小fixture连续3+2步与独立resume2步比对，60秒上限，GPU/Slurm提交0。它验证DA机械判断、同任务反馈与科学负结论路由，不声称验证真实训练充分性。
 
-真实科学验收复用之后合法活动task的formal entry/model/pretrained/split/scale/最低时长/总体和资源，不从历史Route B或CARE ASE14000步中任选替代。当前R2 v9等待与Attempt3归档不授权恢复旧route。适配finalizer送审出口和原Controller结果消费，packaging场景必须archive save/load后官方entry，不只工作镜像。科学充分负结果交原Planner，不能继续训练直到正面；no-T2/split/权重等不可偷换。
+真实科学验收复用之后合法活动task的formal entry/model/pretrained/split/scale/最低时长/总体和资源，不从历史Route B或CARE ASE14000步中任选替代。当前R2 v9等待与Attempt3归档不授权恢复旧route。按03 F2适配finalizer送审材料出口和原科学Controller最终结果消费，不把packet可生成视为科学成功；packaging场景必须archive save/load后官方entry，不只工作镜像。科学充分负结果交原Planner，不能继续训练直到正面；no-T2/split/权重等不可偷换。
 
 这里未填新GPU数量是科学/资源授权不在本研究范围，**不是把DA架构留给实现者**：接口已经要求原task预算和实际计数，缺合法budget就拒绝launch。在下一个批准科学task运行前绑定其具体值，不新增科学路线。回退不取消job、不删checkpoint、不上传或邮件外传。
 
@@ -84,10 +84,10 @@ D-LUC/D-BOB/D-MIC/D-SEM/D-AST/D-CUH/D-CARE沿04列出的当前合同、runner和
 
 |包|基线与改动|真实验收/坏例/旧保护|接收、权限、回退|
 |---|---|---|---|
-|P4-BOB|develop a64edfd；Safe runner/result adapter/milestone出口；真实zotero_client read/authorize/mutate|隔离批注往返、PDF不变/cache重建；真实dataDir污染与旧0.2签0.3拒绝；论文切换/Inspector保持|当前Executor/runner owner；最多两测试论文/隔离profile；不动真实库，回退DA仍保留隔离断言|
+|P4-BOB|develop a64edfd；Safe runner保留0.2Reader保护，0.3原milestone聚合出口加check；真实zotero_client read/authorize/mutate|隔离批注往返、PDF不变/cache重建；真实dataDir污染与旧0.2签0.3拒绝；论文切换/Inspector保持|当前Executor/runner owner；最多两测试论文/隔离profile；不动真实库，回退DA仍保留隔离断言|
 |P4-MIC|rebuild0aee22f；acceptance CLI/validator/Parent接收，release-config→manifest→loaded|Foundation→LowMemory→Highlighter→PDF；真实A/B/C分别process/heap；错anchor/缩负载/功能关闭不算过；typing/IME/branch保持|原Parent/当前Executor；正常Edge账号最终手动，禁止自动化规避；退候选扩展保留dist稳定路径，未证登录态不签完成|
 |P4-AST|193c033；routeGestalt/rc19RouteGestalt/基线diff/结果适配|独立真实几何＋完整科学图；常量0/缺ratio/已提交保护变更拒绝；trace、关系与canonical导出保持|原Executor与独立科学/视觉owner；固定URL身份需真实核验，部署另授权；退适配不删旧bad与科学约束|
-|P4-CUH|9f25c775；parent-delivery-gate/hosted audit结果/Parent消费|可见注册关键路径＋claim/auth/state/finalize事务；fetch旁路、burn、混snapshot拒绝；隐私、只读重入、并发保持|原campaign owner；测试persona和snapshot限额见04；换snapshot关旧campaign，新活动仍须授权；回退DA不擅改生产DB/token|
+|P4-CUH|9f25c775；parent-delivery-gate纯谓词外的原调用方/hosted audit结果/Parent消费|可见注册关键路径＋claim/auth/state/finalize事务；fetch旁路、burn、混snapshot拒绝；隐私、只读重入、并发保持|原campaign owner；测试persona和snapshot限额见04；换snapshot关旧campaign，新活动仍须授权；回退DA不擅改生产DB/token|
 
 四包的普通功能压力推演与完整source直链见04；不能只换项目名复用Lucerna验收。一个项目装好DA不等于另一个项目已能用。
 
@@ -118,3 +118,25 @@ da/2按03 D6先reader/fixtures、再Bridge握手、再单仓shadow和单一准�
 本轮已确定最小架构、各入口消费者、发现/选测、观察层级、da/2迁移、七仓实验和维护成本。尚未发生独立Critic审查、生产实现、宿主事件实测、七仓真成品验收或正式发行。原生Hook缺席下强制阻止聊天文本是已证明的平台能力缺口，不能靠P0试验承诺修掉；用户已接受这一有限文字边界并排除新客户端；当前无待用户决定的架构产品问题。
 
 后续报告必须讲用户得到的实际能力、受验对象、新增/加固/复用checks、真正运行/合法未运行、同任务修复和仍需用户动作。研究材料可审查和产品可交付不是同一层；不把当前包写成执行批准。
+
+## 10. 最小完整投入选择与逐阶段用户收益合同
+
+**裁决：不把104–264小时当成应一次批准的整体工程。** 最强的便宜替代是只给七仓现有runner补坏例和结果读取；当主要失败来自单仓断言缺失、不会跨入口丢失身份或失败无人接收时，它更划算。此处历史还反复出现原生请求漏验收、低层PASS冒最终就绪、同任务未消费和跨候选拼绿，因此选择一个可退出的完整纵向切片先证公共层价值，再按前文已决定的设计展开。不是将Review/Control或其余六仓的架构留给后续决定，也不是以试点代替七仓交付。
+
+首片固定为：P1最小da/2 reader/evaluator、原请求覆盖、入口/旧保护闭包；P2原生与Lite的接入/共享预算/最终check；D-LUC与P3-LUC正常功能→真实成品→旧功能→失败同任务修复。先只实现这个闭合子集，未包含的Review/Control/其它项目明确未启用DA，原工作流仍有效。首片计划估算28–64小时，属于总体估算的子集而非额外加项；需实际设备/账号的部分仍按04精确授权后运行。无桌面授权可完成机制准备，但不能标首片用户收益通过。首片失败先修或撤公共新增层，不默认启动跨七仓铺开。
+
+104–264小时只有在减少真实高代价事故与用户负担时才值得。仅用省人工时间的假设作量级判断：若每任务净省20分钟，忽略维护也需约312–792个任务回收一次投入；首片约84–192个。这个算式不是已测收益，账号污染、错误科学结论等损失也不能凭空换成金额。首两包记录增量与维护后重算；如果主要只多回执而未消除一条旧漏检/搬运链，选择退回项目runner补强路线，并保留有用坏例。若真实收益成立但维护超上限，先减公共抽象/重复字段处理，不能减真实验收承诺来制造收益。
+
+|重点链|必须直接观察的用户收益|不能偷换的完成线|
+|---|---|---|
+|P3-LUC|从无手动提醒的普通请求发现缺检查；动态坏值/旧provider回归被拒；当前Executor实际收到反馈并修复；同EXE/PID与后置状态才准最终claim|只fixture或准备包通过不算真实桌面/账号链|
+|P3-SEM|无提醒选出保存/重启/导出保护；假保存及错采集分流；同APK/serial重跑；实际收到文本与原本意输入分别报告|基础设施READY_TO_PASTE_PARENT、模拟器结果或harness读回都不能冒全部真实硬件/字符输入|
+|P3-CARE|机械试点不把validator PASS+adequacy FAIL报告成有效方法；失败返回原Controller；保留同task/job/预算；不重提已运行作业|10个变异与CPU3+2步只关闭协议/机制试点；科学用户收益须以后合法完整训练/评价task的真实身份、规模、负结论与Planner消费，未有该任务前保持未验证|
+
+所有试点同时记“用户主动提醒次数、搬运次数、首个发现者、实际repair接收/执行/结果”，没有观测到就记UNKNOWN；不从模型自述推断0。独立旧入口抽样和遗漏要求注入在候选冻结后执行，标准先冻结，不能挑成功样本。
+
+**零新增运行的确定条件。** 纯知识问答且无修改/成品承诺时，现有模型直接答复；即使已有Hook也只做轻量身份/NONE判断，不建GateResult或模型审查。简单文档修订只做相关内容/链接/渲染约束，不跑产品设备；完全没有受管交付目标就没有交付claim。完全未启用的host不运行DA也不标DA自动保障。已启用受管交付始终check，不能用“这次没Hook”免除。
+
+**零额外自动续修的确定条件。** 用户取消/暂停、授权缺失、新专业标准待裁决、外部审查正常等待、长作业仍在运行、session/effect状态未知或原预算已耗尽，均不launch。两次/30分钟仅为待试点检验的保守默认上限，取与原任务剩余额度的较小值；不是付费额度。初次实现、等待和记账不偷算成修复，也不能换任务洗掉真实修复计数，详03 F3。
+
+**每包的交接与否决。** P1给Bridge原维护者格式/fixture与负例证据；P2给同一原任务真实调用返回与OS故障结果；D/P3/P4给各项目原owner同候选专业观察与Claim；P5给已有维护流程逐consumer实际loaded/回退证据。未通过包只阻其依赖，不能写全局DONE。全部接点按03 F2单一Bridge.check_delivery消费：exit0且requested claim READY才通过；exit2保留明确非就绪；exit3为接口/身份错误。实际合法平台能力与性能是这些包的否决条件，不再留未选架构。
