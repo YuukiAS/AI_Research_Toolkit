@@ -1,75 +1,45 @@
-# 独立Critic审查包：Delivery Assurance总体架构
+# Delivery Assurance 独立审查材料与来源索引
 
-**审查阶段：总体架构中间审查，结论仅PROCEED / REVISE。当前设计有核心阻塞，READY_FOR_CODEX=NO。** 本包不含已批准Goal，不委任新线程，不授予生产执行或资源权限。Planner只提供候选与内部反证，尚无独立Critic结论。
+**当前未发起独立审查。** 本轮已完成能够从源码、官方资料和架构比较确定的技术选择，并修订了原研究；仍有一个不能由Planner擅自缩减的产品边界：是否接受01 D1的推荐混合方案，同时明确Hook缺席时无法强制拦截原生聊天的错误完成文字。CURRENT在获得这项选择前不标完成候选、不交Critic。这个包是同一目录已有材料的同步，不以包存在当研究完成。
 
-## 1. 独立审查对象与完整承诺
+## 1. 原目标与推荐结果
 
-target_repo = YuukiAS/AI_Research_Toolkit  
-source_branch = research/software-production-decision-20261013  
-design_topic = delivery-assurance--global-architecture  
-proposal_path = docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/  
-review_stage = architecture_intermediate  
-研究输入固定基线 = f1426b6322870c7a9d42d83ff6ea7ad8a35837a3  
-proposal_commit = Critic开始时实际读取该既有分支HEAD并固定；本包内相对链接按该HEAD读取，不能跨研究版本拼接。源码则按下列各自固定SHA。
+用户希望普通功能请求自动带出真实标准、旧功能保护、必要验收、原任务返修、实际成品与简洁中文报告，少承担“补测试、指出假实现、搬运失败、反复继续”的工作。推荐采用Bridge既有入口＋workflow-core小型纯函数库＋七仓原runner，原交付出口独立核验。没有新daemon、任务数据库、统一科学评分或第四workflow。
 
-核心承诺不是“生成验收文件”：普通用户表达功能/科研目标后，系统在支持的正常入口保留不可降级目标、发现并保护旧行为、复用成熟实现、补缺验收、真实调用并读取结果、在原权限预算内同任务返修、验证最终消费对象、清楚报告，用户不当第一轮QA/配置维护者/Reviewer消息转发员。真正不可推导产品/科学选择、凭据、账号、设备、费用和发布仍属用户。
+实质变化在于失败被当前执行者真正收到并修复；旧功能来自真实入口/前后依赖而不只是手工清单；最终对象分开核验；标准/collector/产品不同错；版本迁移不会让旧reader忽略新必需约束。实现状态全部为设计或已有源码依据，尚无生产DA调用验收。
 
-必须先独立读原要求，再评价本提案：
-- [本次完整正式研究指令](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f1426b6322870c7a9d42d83ff6ea7ad8a35837a3/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/01_GPT_WORK_FULL_ARCHITECTURE_PROMPT.md)
-- [连续用户要求与纠错](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f1426b6322870c7a9d42d83ff6ea7ad8a35837a3/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/00_USER_REQUIREMENTS_AND_GAPS.md)
-- [36职责与315问题原文](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f1426b6322870c7a9d42d83ff6ea7ad8a35837a3/docs/research/software-production/21_DELIVERY_ASSURANCE_COMPONENT_AND_QUESTION_INVENTORY_20261022.md)
+## 2. 审查对象与唯一权威
 
-正式角色来源是AI Skills main：本轮读到Planner/Critic v1.7、Capability Gate v1.2，均在f1de8e85。Critic开始新轮次须核对最新main是否变化，差异明确说明，不偷偷用漂移版重解释本研究事实。
+仓库YuukiAS/AI_Research_Toolkit，既有分支research/software-production-decision-20261013，本WORK_OUTPUT为唯一续研真值。开始独立审查前固定分支HEAD作为proposal_commit，所有研究文件按同commit读。不能用早期db8beae/b6ca旧包或旧da/1批准代签当前方案。09是用户续研合同，未被Planner修改。
 
-## 2. 阅读导航与单一权威
+读者主线：02整体因果链→03完整调用/字段/接收/恢复→04三条深链＋七仓合同/新请求推演→06阶段/成本/退出。01给事实/替代/官方边界；05给315问、83要求、363历史反向审查；本页提供源码。08为条件满足后可直接用的完整审查指令。README/CURRENT先解释可用状态，机器字段留详细合同。
 
-|文件|审查用途|
-|---|---|
-|[README](README.md)、[CURRENT](CURRENT.md)、[写入探针](00_GITHUB_WRITE_PROBE.md)|状态、范围、实际GitHub写入与顺序偏差|
-|[01现实与替代](01_REALITY_AND_ALTERNATIVES.md)|已有/设计/未知，至少三条路线及取舍|
-|[02整体架构](02_ARCHITECTURE_AND_COMPONENTS.md)|K1–K5必要性、真实接点、消息流、生命周期与否决|
-|[03调用与验收器](03_END_TO_END_EXECUTION_AND_VALIDATORS.md)|普通请求、各执行模式、格式/算法/失败逐跳、216问|
-|[04七仓](04_SEVEN_REPOSITORY_ADOPTION.md)|三个深度故事、四条关键链、七仓63问|
-|[05 CSV](05_HISTORICAL_COVERAGE.csv)、[05摘要](05_COVERAGE_SUMMARY.md)|823行原文索引、35机制外键、36反例与G1–G6；不是运行覆盖|
-|[06阶段合同](06_IMPLEMENTATION_AND_EVALUATION.md)|前置冻结、源码包、试点、成本、发行/适配/退出|
-|[08可直接转交的Critic指令](08_CRITIC_PROMPT.md)|无本对话也可启动独立审查|
+## 3. 本轮已由Planner作出的决定
 
-在大量案例之间存在冲突时，以当前用户正式研究范围、当前项目authority、真实源码/原报告为证；不要以本CSV分类覆盖原证据。03/04是调用与项目语义权威，05通过外键定位不复制全部机制；06只定义分包，不擅自改产品完成语义。E11与04末尾记录后续源码反证，前文已同步纠正。
-
-## 3. 本轮真正改变的架构选择
-
-1. 不默认v0.5正确。推荐B共享小型纯函数＋A既有入口消费＋C成熟专业runner；拒绝新中央daemon/任务数据库/统一评分器/第四Bridge workflow。
-2. 不把36职责/26族/363事故变成同数量模块；五组职责在原source owner内实现。
-3. 从用户目标构造expected obligations，再匹配检查；不能把已有测试数组当完整需求。未知旧行为单独保留G2。
-4. 从产品自报数据移到原始来源、真实后置观察与独立参考；包hash防错身份，不证明防同用户伪造。
-5. 从FAIL文件移到原执行者实际接收、ack、合法动作和fresh run；没有活跃消费者就是G4。
-6. 普通原生无包入口是核心目标；不能静默排除。Hook失效仍缺完整保障G1，替代受管入口不是已批准等价方案。
-7. 同产品任务不等于同App thread、同run或永久同Parent。CUHK换snapshot须新活动；Mica手动登录态、CARE科学Planner界限必须保留。
-8. 旧da/1 freeze存在真实语义冲突G6；禁止继承旧PROCEED直接实施。新schema/version尚未批准。
-
-## 4. 需Critic直接裁定的阻塞
-
-|问题|Planner当前证据|需要独立判断|
+|决定|可否决的具体内容|正式位置|
 |---|---|---|
-|G1 无Hook/信任失败下普通任务|官方存在事件，但覆盖不完整；Phase1整体NO_GO|能否保持原用户承诺？有无更优可实现最低摩擦入口？不能以排除普通入口批准|
-|G2 旧行为遗漏|公开入口与依赖普查设计，不能完备发现隐藏语义|保护范围和UNKNOWN处理是否可落地，是否又逼用户手写清单|
-|G3 独立观察/反自签|Mica有协调变异控制；Asteria指标常量；CARE恢复检验不足|候选、oracle、observer谁可写？实际信任边界是否充分？新增方案是否只多hash|
-|G4 反馈消费/长期恢复|Bridge函数存在，Controller运行及传输端到端未证|每条箭头的接收函数、持久owner、去重、预算、中断能否真实实现|
-|G5 最终产品环境|本轮仅源码与历史文本；没有实机/账号/部署/GPU|每仓还必须证明什么，哪些是必须人类动作，低层证据有没有被升格|
-|G6 接口冻结/迁移|本稿schema示例不等da/1；required/语义变化已明确|该冻结决定应如何重新形成，消费者兼容成本是否否决共享层|
+|D1|已信任普通入口接入＋原交付边界准入；Stop不撤回消息、失败不天然fail-closed；不偷换入口承诺|01 D1、02|
+|D2|真实入口分母、语义确认、旧/新图并集、反向闭包、孤儿与动态未知扩围、有效复用、独立抽样|03 D2|
+|D3|机械/产品/受保护三档；冻结标准与独立观察；四历史误判明确分流；same-user hash不是防伪|03 D3|
+|D4|工具返回/Stop后续ack、Lite/Review有限精确resume、Control具体adapter及Executor/Verifier双路径、原Controller step、七仓原接收者|03 D4及末尾反例修订|
+|D5|七仓最终对象、数量/时间/权限上限、好坏旧控制和回收；另七个普通任务推演|04 D5|
+|D6|新da/2提案，旧da/1诊断读取，完整字段/reader握手/迁移/回退；PIE相邻合同适配|03 D6|
 
-这些问题不能由“以后实现时补”关闭。可提出最小隔离探针与证据要求，但在关键选择没确定前总体仍不得发执行Goal。若独立Critic认为只能批准一个更窄目标，必须标为scope-change建议，不能当原目标PROCEED。
+已修掉初稿的四个明确设计缺陷：Lite仅留文件没有续修选择；Control抽象adapter被误当可运行；结果Receipt与claim潜在循环；送审前要求独立审查通过的循环。没有把这些留给后续Codex决定。仍应由Critic寻找新缺陷。
 
-## 5. 关键事实核对，不接受旧结论继承
+## 4. 当前唯一产品取舍与运行未证
 
-- **Phase1主链可行不等整体合格。** [FINAL_RESULT](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f1426b6322870c7a9d42d83ff6ea7ad8a35837a3/docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/phase1_hook_probe_r5/attempt_2/FINAL_RESULT.md)记执行完整性失败/NO_GO；[场景结果](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f1426b6322870c7a9d42d83ff6ea7ad8a35837a3/docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/phase1_hook_probe_r5/attempt_2/SCENARIO_RESULTS.md)可说明部分机制。若旧提案叫GO，以实际原报告区分局部与整体，不能继承许可。
-- **未hook路径没有DA PASS不代表原生UI不会假完成。** 需要危险下游确实被拦或真实正向能力，不是“没有日志”。
-- **Asteria不能笼统说所有指标都假。** static crossing/floating常0、ratio默认0；browser crossing常0，floating有实际测量。源码审查需逐字段。
-- **Mica不能说内存全面改善。** 历史57fa880 candidate相对B的process private memory升1.67%，heap降93.75%，target-class非物理设备；当前HEAD与真实登录态未签。
-- **SeminarArc历史OCR 0/5已撤销。** 选择器误读造成假阴性；9/9历史照片与外部音频盘点不等全部媒体导入已实现。
-- **CARE不能把600步科学FAIL与validator PASS合并。** 证据链合格与科学结论分别判断；14,000步当前另入口不替历史500/1800合同。
-- **Bobbio有效0.3在develop。** 本轮补查develop真实read/authorize/mutate，不用main代签；本地ready仍非final native。
-- **CUHK注册假绿的根因有用户语义。** 随机不同密码+fetch跳过可见表单掩盖真实422，不能只加一个状态码断言。
+**待用户决定的问题：** 是否接受“正常已支持原生入口尽量自动接入，受管交付前强制核验；Hook缺席时不能保证拦截聊天假完成”作为明确产品边界？推荐接受该混合设计，因为日常仍用原入口且能改善实际产物；代价是不能承诺任意原生聊天绝对不说错完成。
+
+若不接受，现有公开扩展接口不足。替代是明确转受管展示入口，或等待平台提供可靠发送前门；前者改变操作方式并增加产品/维护范围，必须用户明确选择，不能由Planner偷偷宣布等价。提出问题的依据是09 §3 G1和最新通用指南§13，不是执行权限不足，也不是Critic应替用户决定。
+
+设备/账号/平台运行证据另列：Windows Desktop/CLI/Remote/Control新adapter尚未实测；Bobbio隔离Zotero、Mica真实加载与手动登录态、Android硬件、Asteria完整图/固定URL、CUHK真实campaign、CARE科学实跑均未验证。04/06已确定实验，不要求用户此刻授权这些动作。不因这些未运行停止其它设计，也不凭设计推演宣称PASS。
+
+## 5. 独立审查重点
+
+审已选机制，不替Planner选择缺失接口。必须攻击：无事件普通聊天、缺原请求、空义务、删除旧入口、动态未知、标准/expected协同改松、错误collector、不同候选拼绿、工作镜像与归档错配、Hook递送未被接收、精确resume返回新thread、Control Verifier缺合法环境、用户取消竞态、重复事件、副作用重发、预算重复领取、外部stale review、科学负结果被刷正、da/1误升da/2，以及小任务新增成本无收益。
+
+三条深链逐跳到真实源码；另外从原历史输入与未准备任务自行抽查。少一个接收者、偷改目标或只剩文件箭头应REVISE；仅因后续需真实运行而无限要求设计增加平台也不合理。对不可达原生文字边界，必须核对用户是否已明确接受，不默认范围缩小。
 
 ## 6. 冻结来源索引
 
@@ -218,24 +188,26 @@ proposal_commit = Critic开始时实际读取该既有分支HEAD并固定；本�
 
 本轮查阅[Codex Hooks](https://learn.chatgpt.com/docs/hooks)、[插件构建](https://developers.openai.com/plugins/build/plugins)、[Skills](https://developers.openai.com/plugins/concepts/skills)和[GitHub required checks](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks)。平台规范会变化，独立Critic应核实当前版本；文档支持接口存在，不等本机或全部宿主已实现本方案。01记录已知边界；其余“拟on_prompt”等均为研究设计。
 
-## 7. 全量与盲审方法
 
-机器清点：36职责＋216公共＋63七仓＋36反例＋363历史＋83需求＋26族＝823行；315问分别在03/04/05实际答复。CSV将重复机制归一到05的PROJECT/FAMILY字典，必须联结后审查；缺字典/错来源/原问题被删均属材料缺陷。
+### 续研新增固定源码与最新标准
 
-37条关联原材料抽查为定向选择而非统计样本；326条历史当前状态UNKNOWN。不能从它推导当前七仓363bug、检出率或“已覆盖全部事故”。
+- [最新通用设计指南@f4a1233](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f4a1233d59817867bc4c40b541f480695d947440/COMPLEX_SYSTEM_DESIGN_GUIDE.md)；[可信解释标准](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f4a1233d59817867bc4c40b541f480695d947440/COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)。恢复时70812bd已读，收尾发现main变化后完整重读新版。
+- OpenAI [LICENSE](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/LICENSE)、[Stop分派](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/hooks/src/events/stop.rs)、[turn消费](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/core/src/session/turn.rs#L723)、[JSONL事件](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/exec/src/exec_events.rs)、[resume参数](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/exec/src/cli.rs#L238)、[thread resume调用](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/exec/src/lib.rs#L1029)：仅作为源码支持，不代表用户安装同版本。
+- 官方 [Hooks](https://learn.chatgpt.com/docs/hooks)、[安全机制边界](https://learn.chatgpt.com/docs/enterprise/security-cookbook)、[配置](https://learn.chatgpt.com/docs/config-file/config-reference)、[App Server](https://learn.chatgpt.com/docs/app-server)、[Goals](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex)：核查事件/受管信任、steer/resume与Goal等待边界，不据此创建任务。
+- [Python os](https://docs.python.org/3/library/os.html#os.open)：O_CREAT/O_EXCL在Unix/Windows提供，replace同文件系统使用；实际崩溃/取消语义仍需逐OS试点。
+- [Mica高亮](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/extension/src/features/highlighter/highlight-engine.ts)、[PDF模型](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/extension/src/features/pdf/pdf-export-model.ts)；[SeminarArc导出](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/app/src/main/java/com/yuukias/seminararc/domain/export/SeminarExportAssembler.kt)；[Asteria导出](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/src/architecture/export.ts)；[CARE Attempt3实际打包](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/packaging/run_care_myops_attempt3_single_slice_hotfix.py#L670)：支持04新增普通任务推演，未运行其副作用。
+- [PIE待实现da/1引用](https://github.com/YuukiAS/AI_Skills_Collection/blob/f1de8e85957d32a50f4458349f450ec65add13bb/docs/skill-todos/project-instructions-editor.md#L85)：是需迁移的相邻设计引用，不是已上线da/1 reader。
 
-盲审先读原要求与某条原始故障，暂不读该CSV结论；独立写完整处理链再比对。样本由Critic选，至少包含历史已修、observer误判、评分器问题、科学负结论及未准备普通功能。每条必须落到“谁调用、谁接收、如何识别、为何这次跑、失败怎样继续、怎样关闭、用户看到什么”。不用Planner给定案例全部通过代替任意抽取能力。
+## 7. 材料、覆盖和权限核验口径
 
-## 8. 研究完整性与严格限制
+823唯一行＝36职责＋216公共＋63七仓＋36反例＋363历史＋83旧要求＋26能力族。原问题/来源/历史状态/当前证据状态逐字段保留；答复与D1–D6同步，定位核验。37条原历史定向材料抽查与326条当前UNKNOWN沿旧口径，不因新增源审读膨胀成已复测案例。CSV用于逆向问责，不作为系统能力证明。
 
-实际写入成功且回读先于大规模研究，首次提交c935e0aa4ded7fa4b8584d6bf106979c04e9e19c。**严格动作顺序存在偏差**：最初两项调用发现GitHub工具schema，第一个GitHub资源操作是创建探针；权限与branch保护信息在成功回读后补查，起始SHA从parent回溯，随机标识也后补。00已明确，不能报告完全满足“先查询权限再写”的逐操作顺序。真实写入/回读确实成功，没有本地替代。
+续研先核对实际push权限/目标branch，写00探针并真实回读，提交26233fcbc56ceaffe8752dc4ced8cd5c93b248bf；随后每项实质决定立即写原文件、回读并更新CURRENT。首次研究更早的工具/权限顺序偏差保留00，不追改历史。没有本地成果替代，没有改09用户合同。
 
-每个阶段直接写入同一既有研究分支WORK_OUTPUT并回读，CURRENT逐阶段更新。CSV初版超过Contents直接回传范围，核对自有Git blob后规范化到可完整回读大小；05记录修复，不把空内容返回当成功。本包只含研究材料；未修改生产源/状态/规则/分支拓扑/发布，未创建任务、handoff、fork、后台线程、自动化或subagent。
+本轮仅本WORK_OUTPUT研究文件发生写入。未修改生产源码、规则/状态、分支拓扑或release；未创建任务/subagent/handoff/fork/自动化/后台；未运行真实GUI、账号、Zotero、Android、Docker/GPU/Slurm、私有数据、付费或部署。CARE源码含清输出/tag/load/rm动作，明确只读没有执行。
 
-没有本轮视觉检查、真实GUI、浏览器账号、Zotero、Android、私有医学数据、GPU/Slurm、部署/付费/正式release。报告中good/bad链是待实现设计或明确标注的历史事实。没有独立Critic PASS；没有可执行Goal；研究整理可供审查不等整体架构闭合或产品完成。
+## 8. 后续审查输出合同
 
-## 9. 独立结果应长什么样
+用户产品边界明确后，按08固定proposal commit只读独立审查。先中文解释该组合是否改变真实使用结果，再给PROCEED或REVISE（中间架构结论，不是PASS/执行许可）。每项缺陷带原要求、固定源码、具体请求、错误箭头、用户影响、最小修订与owner。不得用旧PROCEED、文件数或作者自评作判断。READY_FOR_CODEX恒NO；不写Goal、不发起生产工作。
 
-先用自然中文说明推荐组合是否真的减少用户工作、有没有更简单可行替代，再给PROCEED或REVISE。每项发现包含原要求、固定源码/行或实际缺证、触发请求、缺失/错误箭头、用户影响、最小设计/补证修订及责任owner。明确architecture_closed与READY_FOR_CODEX=NO，避免把中间PROCEED当执行许可。
-
-如需重开G1/G3/G4/G6，不要求实现者临场选架构；把准确决策返回Planner在同研究目录修订。若只有运行证据缺失，说明它影响何种声明，仍不允许伪造完整完成。审查者不需要从本对话取回隐含信息；发现本包不自足本身就是REVISE依据。
+当前不得因这个包已同步就宣布本任务完成或自动交Critic。唯一下一决定见CURRENT；收到明确选择后仍在本目录同任务更新，保留全部已完成技术设计和未证运行边界。
