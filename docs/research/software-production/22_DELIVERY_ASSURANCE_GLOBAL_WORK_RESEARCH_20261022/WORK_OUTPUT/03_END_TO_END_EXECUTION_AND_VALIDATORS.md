@@ -598,17 +598,7 @@ Control 关键事实：[RuntimeAdapter L485–489](https://github.com/YuukiAS/GP
 
 ### 5. 七仓原接收者与断点
 
-|项目|现有接点能消费的阶段|最终USER_READY由谁调用Bridge|
-|---|---|---|
-|Lucerna|development-acceptance在pack builder/summary前检查REVIEW_BUNDLE_READY；原低层PASS仍仅表其程序范围|原Executor，或已经合法启动的独立native orchestrator，收齐同候选真实桌面/专业结果后check|
-|Bobbio|Safe runner只保护既有Reader 0.2，不能签当前0.3里程碑|原milestone Executor聚合0.3增强、整屏、性能与native结果后check|
-|Mica|candidate→validateBundle只检查材料；不替代已加载实例|原Parent/当前Executor，核loaded identity及各surface真实结果后check|
-|SeminarArc|verify-gpt-work仅检查基础设施与READY_TO_PASTE_PARENT；其GPT_WORK_EXECUTED/READY_FOR_USER_REVIEW本来就是NO|原Executor/Parent收到真实blackbox和独立结果后check|
-|Asteria|static validator只验静态结构，RC材料出口可检查REVIEW_BUNDLE_READY|原RC Executor收到真实browser、科学全图和原独立视觉判断后check|
-|CUHK_Date|evaluateParentDeliveryGate保持纯活动材料谓词；调用方在preflight检查REVIEW_BUNDLE_READY，不在纯函数内起进程|原campaign owner收齐同snapshot/persona活动结果后check；活动完成不冒产品上线|
-|CARE|finalizer在maybe_commit/packet终态前检查送审材料，保留原NEEDS_EVIDENCE/REVISION|原科学Controller结合Planner新鲜决定check；合格负实验报告可以完成，不代表方法有效|
-
-上表不是声称这些程序已经内置 DA。新增接点和谁读取已确定；若当前没有活跃模型/Controller，恢复位置仍在原任务，后续必须通过原入口合法继续。ACK 包含 task/run/candidate，旧评审/旧反馈不得反复触发修复；权限不足只阻塞相关动作，其它独立工作继续。
+各项目原runner保留材料、专业观察和科学结果职责；最终USER_READY统一由本文件#r2-completion的正常host完成接点调用Bridge.finish_delivery，具体结果路径、独立输入、消费者ID与恢复见04#r2-ar04。原Executor/Parent/Controller是专业结果来源或活跃owner，不能只靠角色名字充当强制提交入口。无活跃owner只保存原task恢复点；只有既有watcher或原父进程仍运行时才能承诺异步返回自动消费。ACK与候选/epoch绑定，旧结果不触发重复修复。
 
 ## D2 旧功能保护：选定“入口清单＋反向依赖＋接受基线”的有界算法
 
@@ -819,15 +809,17 @@ check_delivery的context必须包含 `requested_claim` 和 `stage`。Obligation.
 
 选定一个正式准入消费者：Bridge `delivery.check_delivery`，调用workflow-core判定。项目adapter只转换原始结果和执行既有专业检查，不能另写平行ready算法。现有脚本的低层PASS可以保留，但新增输出必须带具体claim；最终报告/交付登记只消费Bridge计算的Claim。不是修改每个测试让其都拥有发布权。
 
-|现存源码接点（各仓SHA见01/04）|确定新增调用与精确拦截位置|此处最多允许的结果／最终消费者|
+|现存专业生产者（各仓SHA见01/04）|保留阶段与接点|正常任务完成消费者|
 |---|---|---|
-|Lucerna development-acceptance.ps1 L752–825、L844–850|在写完原始smoke/capture结果后adapt并ingest；Invoke-PackBuilder前check REVIEW_BUNDLE_READY；缺证不打印DA材料就绪|只证明当前EXE/PID原生证据包；原独立原生/产品判断完成后，由当前Executor或已获权local orchestrator调用delivery check USER_READY，再生成正式交付报告|
-|Bobbio Safe runner L741–785|0.2 validator与真实目录前后审计后adapt为旧Reader保护结果，输出前核验其claim；绝不把0.2改标签成0.3|0.3所需增强、整屏/性能、最终隔离原生由develop里程碑另外提供；原milestone owner调用delivery check USER_READY后才给就绪材料。缺0.3结果即拒绝|
-|Mica acceptance/cli.mjs L30–38|validateBundle后、console.log前adapt/ingest/check候选材料；preflight只作validator calibration|实际loaded身份、当前完整表面审查与正常Edge手动终验齐备后，原Parent调用同delivery check USER_READY；candidate.ok不能替代它|
-|SeminarArc verify-gpt-work-acceptance.ps1 L207–253|verification-summary后、READY_TO_PASTE_PARENT前check审查材料；SkipDynamicProbe保留NOT_EVALUATED，不造USER_READY|blackbox运行结果及原独立审查结果由原Executor/Parent提供给delivery check USER_READY，最后才能生成用户验收报告；准备脚本不承担这一判断|
-|Asteria validate-architecture-rc19.mjs L151–155|其JSON只adapt机械geometry/source检查，正常浏览器与完整科学/视觉审查另读|原RC任务的当前Executor在准备完整交付/固定URL报告时调用delivery check USER_READY，缺已部署身份只能声明本地对应层|
-|CUHK evaluateParentDeliveryGate L456及调用它的preflight|原返回gate仍是Parent活动材料谓词；preflight组装真实证据后调用check REVIEW_BUNDLE_READY，不能给pure function网络/进程副作用|原campaign owner在所有当前snapshot/persona专业结果收到后check USER_READY；部署/Matching放行仍是单独当前授权|
-|CARE finalizer L550–582|validator结果解析后、maybe_commit和终态写入前check REVIEW_BUNDLE_READY；未就绪沿已有NEEDS_EVIDENCE/NEEDS_REVISION|原科学Controller消费packet后按原Planner科学判断调用check对应结果claim；充分负结论可成为完成的实验报告，不能变成“方法有效”|
+|Lucerna development-acceptance.ps1|原smoke/capture后adapt/ingest，Invoke-PackBuilder前仅check REVIEW_BUNDLE_READY|D-LUC，由正常host finish读取独立原生审查；不依赖01056r3历史campaign|
+|Bobbio Safe runner|0.2结果只保护旧Reader，不能替0.3；原0.3阶段合同不变|D-BOB，由正常host finish读取当前0.3专业结果和最终隔离集成|
+|Mica acceptance/cli.mjs|validateBundle后仅材料；原candidate与最终正常Edge分开|D-MIC，由正常host finish核实际loaded及应需最终观察|
+|SeminarArc verify-gpt-work-acceptance.ps1|verification-summary仅准备，SkipDynamicProbe保留未评|D-SEM，由正常host finish消费原task结果及真实独立Parent|
+|Asteria validate-architecture-rc19.mjs|机械geometry/source不能替真实浏览器与科学/视觉判断|D-AST，由正常host finish读取原results结果与当前RC实际审查|
+|CUHK evaluateParentDeliveryGate/preflight|纯准备谓词保持；不将使用过票据再次当未消费票据验证|D-CUH，由正常host finish读取当前snapshot活动完成结果|
+|CARE care_milestone_finalizer.py|原packet准备/提交前仅材料；保留NEEDS_EVIDENCE/REVISION|D-CARE，由原Controller终态动作及其host finish消费科学/运营结果|
+
+这里的“正常host”不是模糊角色：具体为delivery_hooks.on_stop、cli.run_lite_task子进程退出分支、reviewed_runner.watcher_once/consume_pending_delivery，或agent_flow的Controller终态apply_transition；顺序与权限见#r2-completion。没有实际运行该host的普通文件写入路径不具DA完成权，不能enable。项目脚本仍可为原阶段调用下列低层check，最终提交则必须走finish＋accept_submission。
 
 新增CLI合同固定为 `ai-bridge delivery check --context <explicit-json> --results <manifest-json>`；context含requested_claim/stage/Admission/ref，manifest显式枚举run refs。stdout仅一个DeliveryCheck JSON，诊断到stderr；退出0仅表示请求的claim READY，退出2=可解析但未就绪，退出3=配置/结构/身份错误。现有项目脚本用参数数组调用安装绑定的Bridge可执行入口，检查JSON与退出状态一致；不得仅凭0。Python项目可直接调同库，TypeScript/PowerShell通过CLI，无七份规则副本。实际函数均为拟新增，不声称已安装。
 
@@ -852,7 +844,7 @@ Feedback逐跳示例（逻辑值不是运行记录）：W=SeminarArc/持久化/C
 
 持久写入采用不可变run/事件、flush并fsync文件、同目录replace、manifest最后提交；Unix fsync目录，Windows使用系统可用的写入刷新/替换API并在恢复时完整核验。若磁盘断电持久性无法由宿主保证，只承诺崩溃后可检测不完整并拒绝ready，不声称数据库级恰好一次。双父进程、父等child时child ack、reserve后崩溃、ack前取消、late result、重复resume六轨迹均纳入P2否决。
 
-每次原owner退出/交付/权限等待时调用 `delivery report`，从前后Descriptor版本、Resolution、实际run、claim与feedback事件派生：本轮新增/加固/合并/暂停/退休及原因，复用与实际运行，受保护旧能力，当前成品层级、失败归属与唯一必要用户动作。无新增明确说明既有类别够用；无人工动作写“无需额外操作”，不列内部日志让用户搬运。模板不新增模型调用，文字改写不能改机器事实。检查临时停用到期后重新准入需原校准/依赖仍有效；合并须迁移每个旧bad、obligation和consumer，不能只改名称。
+每次原owner退出/交付时由正常host调用finish；权限等待只生成无USER_READY的状态报告。报告模块使用 `delivery report`，从前后Descriptor版本、Resolution、实际run、claim与feedback事件派生：本轮新增/加固/合并/暂停/退休及原因，复用与实际运行，受保护旧能力，当前成品层级、失败归属与唯一必要用户动作。无新增明确说明既有类别够用；无人工动作写“无需额外操作”，不列内部日志让用户搬运。模板不新增模型调用，文字改写不能改机器事实。检查临时停用到期后重新准入需原校准/依赖仍有效；合并须迁移每个旧bad、obligation和consumer，不能只改名称。
 
 <a id="f4"></a>
 ## 最终闭合合同 F4：da/2的唯一消费者、类型和轻量化裁决
@@ -1040,53 +1032,69 @@ ProjectAdapter 使用相同记录，无第二准入平台。GOOD=当前真实入
 
 
 <a id="r1-ar01"></a>
-## R1 修订：DA-AR-01 写产品之前决定谁核对原要求
+<a id="r2-ar01"></a>
+## DA-AR-01 的 R2 修订：选择风险后，必须真正运行既有独立角色
 
-**处置 ACCEPT。** 原 F1 的逐字范围覆盖只能抓“没映射”，抓不住“映射了却理解错”。选择在原 Admission 加一个决策，不新增工作流：当前 Executor 的归纳只是候选，复杂或高后果任务必须由已有独立角色从原文重建后置条件。全任务双模型太重；只在最后审成品会让误解先进入实现，均不选。
+**ACCEPT。** 原R1把adopt_existing_mode→init_task→PLAN_REQUESTED接到了不存在的自动Planner启动箭头。本节替换该部分：保留原请求覆盖、风险分流和既有模式，增加实际角色传输资格与调用；独立核对没有执行证据时不得写ADMIT。创建REQUEST/CURRENT只是登记，不是唤醒或送达。
 
-### 决策、调用位置和最小字段
+### 1. 先决定需不需要独立核对，不按“有UI”机械升级
 
-新增纯函数 core::decide_admission_route(request_sources, authorities, change_scope, effect_scope, project_policy, available_owner_bindings)。Bridge **delivery.py::prepare_admission** 调用并消费它；新增 CLI `ai-bridge delivery admit --context <json>` 只是同一函数入口。它先读取原文、附件定位/可读性、约束、当前已有 mode 和角色，后决定是否允许 product write，不从 Executor 的“低风险”标签单独推断。
+core::decide_admission_route仍由Bridge::prepare_admission在首次**依赖本次新要求**的产品写入前消费。SELF需要：现有标准已明确、目标与旧行为可核对、局部可逆、没有新专业/安全/数据来源/科学/权限语义，也没有已有合同强制独立要求。按已批准设计改间距、修一个确定的文案错误、修已有回归是SELF候选；不是所有界面任务都要Review。UI任务仍按已关闭AR03消费适用成熟能力，最终项目合同若要求独立产品审查也仍执行，两者不混同。
 
-Admission 增加 `execution_admission={mode:NATIVE|LITE|REVIEW|CONTROL|PROJECT,review_requirement:SELF|INDEPENDENT,reason_refs:Ref[],original_materials_ref:Ref,independent_result_ref:Ref或PENDING,owner_binding:Provenance,write_scope:Ref[],allowed_actions:READ_ONLY|BOUNDED_PRODUCT_WRITE,route_policy_ref:Ref}`。它是不可变 revision 的执行条件，不是新 task state。独立结果变更写下一 revision；请求、标准或范围变化使旧决定失效。CheckContext 通过 admission_ref 读取，不重复存一套决定。
+新数据来源、余额真实性、权限/密钥语义、原要求可能被解释成较弱结果、新科学方法/规模、阈值或核心产品行为选择，以及原合同指定的独立要求，走INDEPENDENT。已由独立科学Planner从相同原材料冻结的现行CARE合同可以直接复用；新要求超出范围就不能复用旧批准。定义准入的风险规则仍按AR02，不因此处SELF而豁免。
 
-准入的真实接点（均为**拟新增调用**，所列外层函数已存在）：
-- cli.py::run_lite_task：现有 readiness.preflight_lite_task 后、L715 subprocess 产品写入会话启动前。必要的语义归纳在当前任务只读阶段完成；缺投影/原文或独立决定则只读，不以“先启动可写 Executor 再补准入”倒置。
-- reviewed_runner.py::run_codex_event：executor_prompt 构造前；reviewed_handoff.py::plan_transition 从 PLAN_FROZEN 或 REVISE 返回执行动作时也检查 admission。仅 PLAN.md 存在不能放行。
-- agent_flow.py::launch_executor_with_preflight：readiness 后、adapter.launch_role 前；Verifier 先按冻结原文和标准审 requirements，不由 Executor 同写标准。
-- 已支持原生：delivery_hooks.py::on_prompt 保存可获取原文，**on_pre_tool_use 在第一次产品修改工具前调用 prepare_admission**；缺材料时返回当前模型可读补件要求。该 hook 是否覆盖所用写入工具必须先经 P0 证明；没覆盖的入口不标支持“写前强制”。这里不宣称操作系统能拦任意文件写入。
-- 项目原入口：04 的 finalizer 所属项目接入合同把 prepare_admission 接在原 Executor 的起始 preflight；最终 check 再验证。首次没有已激活 adapter 时，只读发现/拟定接入候选允许，不能用空 adapter 自行取得产品写权限。
+Admission.execution_admission沿原字段，新增的只是其已有owner/source绑定所指的 **role_execution_binding**：
+`{role_authority_ref,transport:PROJECT_LOCAL_REVIEWER|REVIEW_SCHEDULED|CONTROL_BOUND_ROLE|EXTERNAL_MANUAL,entry_ref,host_or_service_identity,input_scope_ref,output_scope_ref,authorization_ref,budget_ref,return_consumer_ref,capability_evidence_ref}`。
+它保存在原项目profile并由Admission引用，不是角色注册服务或第二任务数据库。entry必须是下述确定入口之一；普通文件、自然语言角色名、抽象RuntimeAdapter、未启用schedule不能填“可自动”。
 
-纯函数不能识别所有隐藏语义风险。决定输入须包含原文全覆盖、已激活项目政策及代码/效果扫描；任一关键项 UNKNOWN 不能落 SELF。独立结果从原始资料先形成自己的后置条件，再与 Executor 投影比较，逐条解释遗漏/冲突/非需求。合并只可增加保护或按原 authority 更正误判，不投票，不让 Executor 删除独立发现。
+prepare_admission输出的执行选择仍为NATIVE/LITE/REVIEW/CONTROL/PROJECT；独立性与执行模式分开。优先复用当前项目/Control已绑定角色，再用已经配置且覆盖精确task/branch的Review schedule；只有需要其原计划/耐久接收并且自动通道确实成立时才采用Review。没有通道时不创建一堆Review文件冒进度。
 
-### 何时自查足够，何时必须独立核对
+### 2. 本机既有项目Reviewer：实际启动、返回与消费
 
-SELF 必须全满足：局部可逆；既有标准能机械决定；不改专业含义/数据来源/身份权限/共享接口/安装部署；无新 validator 专业判断和重大旧功能影响；原文材料齐全；没有项目本来要求的独立审查。例：修普通 README 链接、对冻结 JSON schema 增补缺字段回归。相关文档校对仍做，不自动跑全套前端。
+**适用对象**是项目已经定义的独立审查角色，例如Lucerna的LUCERNA_FINAL_PRODUCT_REVIEWER；不是给任何任务新增通用subagent。新增接线位于Bridge的拟议 `ai_bridge_kit/delivery.py::run_admission_review`，CLI固定为 `ai-bridge delivery admission-review --context <context> --binding <binding-ref>`。其有限本机分支 `run_project_reviewer_once` 用现有Codex非交互入口执行该项目角色的一次事前要求核对：
 
-任一命中则 INDEPENDENT：多入口或跨组件用户行为；模糊语义会改变产品结果；新领域能力/重要旧行为/专业标准；凭据/权限/持久化/不可逆效果；视觉交互与正式科研/统计结论；原要求/旧保护映射缺口；R1-AR02 的高风险定义准入。**独立核对发生在这些依赖的首次产品写入前**，之后专业成品审查仍必须运行，不能用需求审查替代实物。
+`codex exec --json --sandbox read-only -C <frozen_review_input_root> --output-schema <request_admission_schema> -`
 
-优先保留已有模式和角色，规则按顺序：
-1. 已有项目/Control/Review 合同：用该合同的原要求权威和接收者，不新建模式。CARE 默认由科学 Planner 从原始请求冻结 Batch，Controller 验执行；不得因高风险自动强加 review.md 或启动额外 Reviewer。显式 review_required=true 时再沿它原有只读 Reviewer。
-2. 纯普通自查任务：原生或 Lite；只在原任务确需有界退出后恢复时选 Lite。
-3. 原生任务需要耐久独立接收且项目没有现成流程：选择**既有 Review**；新专业规则/产品与 verifier 必须分权且项目已有适用 Control 时选 Control，不凭“复杂”自动升 Control。
-4. 既有 Review 初次要求核对用其 **GPT Planner 的 PLAN_REQUESTED→PLAN_FROZEN** 阶段；后续 GPT Reviewer 还须从原文复核最终 coverage。不伪造一个“实现前 Reviewer review_round”，不把 Reviewer 本来事后才出现当作事前保证。Control 用现有 Planner/Verifier 冻结，原项目用其已有专业 Planner/Reviewer。
+使用已发现的当前Codex可执行文件绝对路径及当前身份，不切CODEX_HOME、不另装客户端、不放任shell字符串。这条命令是未来接线合同，本轮未运行。它产生独立Reviewer上下文，**属于原项目角色的执行成本和权限**；机器政策要求每次批准新角色进程/任务时必须遵守，不能把项目文档当成用户当次授权。无合法授权就EXTERNAL_MANUAL，不偷偷fallback subagent。已有原生Reviewer子任务传输只有原项目原本使用且权限已明确允许时可作等效carrier，不能成为本方案默认依赖。
 
-独立需求结果用原 PLAN/Verifier/项目审查工件内一段 machine-readable request_admission：
-`{original_materials_digest,authority_digest,scope_revision,independently_derived_postconditions[],comparison_findings[],decision:ADMIT|REVISE,role_receipt_ref}`；
-各 postcondition 用 Obligation 的同型字段。Bridge::consume_requirement_review 校验原材料、角色非候选作者、实际只读范围与当前 revision；prepare_admission 消费该结果后才允许其产品写范围。缺附件只能 UNKNOWN；不能把 Executor 摘要作为完整原文。
+输入由当前owner准备：原始请求全文、所有相关修订/附件、正式标准、接受基线、已授权源码快照与本轮目标范围；不是Executor摘要。角色先独立列后置条件，再与Executor投影比较。需求核对不执行产品、不访问设备或账号，也不把未来原生产品验收的权限一并带入。只读snapshot和实际工具允许集必须阻止候选/产品/控制样本写入；文件sandbox不代表MCP无外部写能力。实际host无法限制工具或无法提供必需原材料时，禁止这条自动分支，不能只靠prompt声称隔离。
 
-### 原生无任务包怎样进入 Review，异步结果谁接
+Reviewer仅向stdout输出R1既有request_admission对象（原材料/authority摘要、scope、独立后置条件、差异、ADMIT或REVISE）。Bridge父进程记录实际命令身份、PID/start、独立thread id、输入摘要、输出/exit及原role receipt；父进程把结果写原任务 `delivery_assurance/admission/<scope_revision>/`。Reviewer不写生产目录或正式标准。随后 **consume_requirement_review** 验schema/来源/角色/原文/scope/预算并写Receipt；ADMIT才解开相关产品写入，REVISE交同一Executor修解释/计划。缺输出、错误scope、工具越权或原材料不全保持未准入。
 
-新增 delivery.py::adopt_existing_mode，受 prepare_admission 的决定调用。先按本 session/request digest 查既有 task 关联，幂等复用，绝不每次生成另一 task。若项目已安装 Review 且该任务的元数据/分支策略已获权，调用已有 reviewed_handoff.init_task；它创建原来的 REQUEST.md/CURRENT.json，起始仍是 PLAN_REQUESTED，**不创建 Codex 线程、不启动 watcher、不改 branch**。REQUEST 保存原文及附件完整 locator，不能只用 objective 摘要。原生 session 原 owner 绑定此同一逻辑任务；原 native 证据目录只留下指向原 task 的定位，不维护第二 CURRENT。
+**谁触发：** Lite的run_lite_task在启动产品Executor前直接调用；已有project orchestrator在派发Producer前调用；原生UserPromptSubmit只准备/返回该确定动作，当前Executor正常工具调用运行admission-review，PreToolUse拒绝先越过相关写入。短Hook不阻塞等待模型，不偷偷起后台任务。若当前宿主没有可调用的本机命令/角色通道，则该原生环境不能承诺自动独立核对。CLI无模型父进程的只读projection自举沿R1保留，不能把projection当Reviewer。
 
-若项目要求 reviewed/<task_key> 分支，只有原项目政策或用户已经授权该精确策略时才用已有 bounded materialize/bootstrap；不能为了自动接入擅自切分支。Control 仅在项目已安装且既有契约适用时用 agent_flow.init_task。缺安装、权限、角色 transport 或真实接收者时保存未准入原因，走原 NEEDS_GPT_PLANNER / 外部等待 / 授权路径；不把“自动接入”解释为授权新线程和费用。最低摩擦是复用已有角色/任务，不要求用户重抄需求；确有新 host/线程权限才按原政策一次询问那项具体动作，绝不重复询问已接受产品边界。
+**谁恢复：** 原活跃父进程同步消费退出结果；等待长于当前工具窗口时，只查询这一个明确进程/结果身份，不新启动第二份。原父进程结束后，不假称会被文件唤醒；下次原task resume先执行 `delivery admission-review --resume --context <context> --binding <binding-ref>`，核原请求/epoch/结果身份：已有终态则消费，仍运行则等待，执行状态未知则停止重发并核对。没有合法恢复通道时报告原任务需要恢复，不能要求用户搬运检查内容。
 
-异步期间当前模型仍活跃时，它消费工具返回；Review 已运行的 reviewed_runner.watcher_once 读取原 CURRENT 与新鲜 PLAN/REVIEW，新增 consume_requirement_review 后通过原 plan_transition/apply_transition 继续原 task；Control 由已活跃原 Controller 的 control step 消费；项目通过04原 finalizer 下次合法调用消费。**没有活跃 owner 时结果只是已保存，不能写已递送/已修复。** 恢复入口是原 watcher_once、control step 或原 session 的同任务恢复；新的 owner 接管先核 cancel epoch/lease/原材料摘要，不能读“最新任意 PASS”。不会新建常驻平台来掩盖等待。
+### 3. Review：真实外部入口是已存在的ChatGPT安排任务
 
-无独立接收者时允许读源码、枚举入口、拟需求/定义草案、无外部效果诊断与冻结控制；已经独立准入且不受本缺口影响的合法产品子范围可继续。尚未准入的依赖产品写、受影响 USER_READY、首次定义激活均阻塞；REVIEW_BUNDLE_READY 可以声明完整可审材料，不能声明产品完成。原 scope/budget/effects 不变。
+选定复用现有 `templates/reviewed_handoff/prompts/REVIEWER_SCHEDULED_TASK.md`，**拟补PLAN_REQUESTED分支**，调用同模板系统已有 `PLANNER.md`。当前源码只有后续NEEDS_GPT_PLANNER/Reviewer处理，本分支尚未实现。真正启动者是ChatGPT scheduler，不是watcher或init_task；当前研究不创建、修改或启动schedule。
 
-负例：把“真实账户剩余额度”映射成“显示一个数字”仍有原文覆盖；独立角色从原话重建可信 limit/usage/当前账号后置条件，prepare_admission 拒绝原投影。把 async 审查写到错 scope_revision，owner 不消费；没有 watcher 时只记录待接收，不能假称自动恢复。把普通文档变更升全套 Control 也被 SELF 条件与成本控制反证。
+仅当已有schedule的实际启用状态、精确repo/branch/task允许范围、原材料可访问性和最近一次当前模板消费证据成立，才允许自动路线。模板存在、schedule名称或旧截图均不足；不能用覆盖另一个task的schedule，也不能为任意原生请求自动创建schedule、分支或外传私有原文。需要新配置/授权时保持明确非自动。
 
+获权的原owner在原任务branch发布REQUEST及PLAN_REQUESTED；既有scheduler下一次触发才开始工作。该分支先读原材料，从原文重建后置条件，写PLAN/request_admission，回读校验后最后写原CURRENT=PLAN_FROZEN。local watcher已有eligible_events再调用run_codex_event前，由prepare_admission/consume_requirement_review读取这份当前决定；从此进入原Executor及原精确resume设计。没有模型活跃时，**已在运行的原watcher**是耐久接收者；它不等于外部Planner启动者。没有活跃watcher或原生owner时，结果可持久保存，但automatic_return=false，恢复同task后先消费，不能宣称已送达。
+
+首轮scope/request摘要、schedule实际身份和返回artifacts必须吻合。等待不消耗review/repair轮次；沿原至少两小时正常外部等待规则，不能以两小时无回复自动判失败。scheduler禁用/权限故障有具体证据才走恢复。新增首轮处理不改Review的三个逻辑角色、不增加工作流、不扩大其人工审批/外发权限。
+
+### 4. Control与CARE：复用当前真正可运行的角色，而非抽象类
+
+Control仅在当前workflow原本存在并且实际RuntimeAdapter可以启动对应独立Planner/Verifier时使用。原Controller在一次原step中以既有RoleLaunchRequest传原材料；拟扩 `launch_verifier_with_preflight` 核角色scope后调用该**已获权的具体adapter.launch_role**；返回RoleReceipt与原角色artifact，由原Controller的consume_requirement_review消费。现行RuntimeAdapter抽象、Executor-only preflight本身不满足条件；尚无具体能力的host标UNSUPPORTED，不能初始化Control来掩盖缺口。
+
+CARE不新增Verifier或Reviewer。原科学Planner已冻结同范围方法/规模时，当前Controller核原请求与原合同一致即可消费；只属于既定实现的机械修复不重新叫科学Planner。新科学选择必须交原Planner；若只有人工ChatGPT入口，本架构承认此段需要一次人工交接，不能由Controller代批或伪称全自动。现行Controller负责已授权任务的同范围失败返修和最终运营验收，review_required=false保持。
+
+### 5. 不支持矩阵和最低摩擦恢复
+
+|真实环境|可以承诺|不能承诺及最小恢复|
+|---|---|---|
+|普通低风险请求，原文/标准齐全|当前Executor SELF，原host结束检查；不升级重型Review|不能把self-check说成独立专业批准|
+|已有且获权的本机项目Reviewer＋已证只读/工具边界|当前owner调用一次admission-review，stdout返回，同task消费|不能推断获得产品GUI/账号权限；缺此权限只阻相关产品观察|
+|已有合格Review schedule＋活跃原watcher|scheduler启动首轮Planner，GitHub返回，watcher消费；现有次数/等待合同|不保证即时；私有材料不可达不能只传摘要；无schedule不能自动|
+|已有可运行Control原角色adapter|原Controller launch/consume；不造另一个调度器|抽象adapter不是支持；不为小改切Control|
+|只有原生聊天、无合法独立role启动/返回通道|读源码、准备完整请求/诊断、已准入无关范围仍可做|高风险依赖写入/USER_READY受阻。生成一份自包含原Planner交接，用户只需在既有Planner入口启动一次；原task恢复自动读返回文件。人工这一步明确记human_handoff_count，绝不记0|
+|父进程/当前task退出|持久保留原身份、决定和恢复点|没有常驻owner就没有自动唤醒；只恢复原任务，不创建继任task|
+
+审查入口不支持并不意味着整套功能可静默降级。支持声明按host×role×transport×task范围逐项给出；当前仅有源码依据，未运行这些接线。新增一次需求核对默认每scope一次，无自动模型重试；相同摘要合法复用，实质新scope重新取原授权/预算。总预算沿既有共享上限，不能与项目三轮或其他角色预算叠加发券。
+
+反例必须拒绝：只有PLAN_REQUESTED；schedule不覆盖此branch；Reviewer用Producer摘要；输出来自候选作者；stdout丢失却再次起两份；同scope已有有效独立合同仍无理由重复审；小UI纠错无风险依据强制Review；无接收者却把落盘标成自动闭环。
 
 <a id="r1-ar03"></a>
 ## R1 修订：DA-AR-03 成熟实现能力必须进入当前 Executor
@@ -1131,12 +1139,12 @@ NOT_APPLICABLE 条目只保留 id/requirement_refs/why 与依据，不伪填安�
 ## R1 联动核验：首次接入、同线程准入和报告不能形成死循环
 
 1. **没有可写 Executor 也能完成第一次归纳。** 对已经有当前模型回合的 native/项目任务，使用该回合的只读阶段。对仅有 CLI 父进程、尚无模型投影的 Lite/Review，run_delivery_cycle 新增 bootstrap_readonly 分支：原 launch intent 下以 `codex exec --json --sandbox read-only -C <root> --output-schema <projection-schema> -` 输出 AdmissionProjection（原文映射、建议义务、领域/效果标记，不是准入决定），只允许已冻结读取工具，不开放副作用 MCP。父进程捕获同一个 thread.started，并由 prepare_admission 消费原始结果；独立决定齐备后才用 `codex exec --json --sandbox workspace-write -C <same-root> resume <exact-id> -` 恢复同一任务，权限不超过原授权。参数放 subcommand 前；不使用 bypass、--last 或新会话冒恢复。只读沙箱到获权工作区权限的精确resume必须加入 P0 H5：若宿主不支持，就不启用该 launcher 的无包自动写前准入；已有原 Planner 冻结包可直接准入，不把新增投影回合变成所有小任务强制成本。bootstrap是同一Executor的阶段，不是额外审查agent；它不能给自己签 INDEPENDENT。
-2. **候选 adapter 可以先校准，不能先自签交付。** CalibrationContext 允许读取 candidate adapter，在无产品效果fixture中调用原转换器和core纯判定；不要求 ACTIVE，结果只能 CalibrationReport。独立准入之后才形成ACTIVE adapter。consumer启用前，原已授权任务的真实结果通过同一finalizer的 shadow模式走完整读取/判定路径；Bridge `delivery check --shadow` 只输出诊断，status=STOP、reason=SHADOW_ONLY，extensions.evaluation记录would_allow，不创建Claim/report就绪。enable_consumer消费这些正/坏例记录和实际入口绑定，然后原任务正式调用一次 finalizer/check/report，才产生第一张正式claim。正式check不能接受shadow结果充当产品GateResult；shadow不再次运行产品、训练或账号。这样不用先有USER_READY才能启用，也不让首次适配绕过独立检查。
+2. **候选 adapter 可以先校准，不能先自签交付。** CalibrationContext 允许读取 candidate adapter，在无产品效果fixture中调用原转换器和core纯判定；不要求 ACTIVE，结果只能 CalibrationReport。独立准入之后才形成ACTIVE adapter。consumer启用前，原已授权任务的真实结果通过正常host调用同一finish_delivery的 shadow模式走完整读取/判定路径；Bridge `delivery check --shadow` 只输出诊断，status=STOP、reason=SHADOW_ONLY，extensions.evaluation记录would_allow，不创建Claim/report就绪。enable_consumer消费这些正/坏例记录和实际入口绑定，然后原任务由正常host正式调用一次 finish/check/report，才产生第一张正式claim。正式check不能接受shadow结果充当产品GateResult；shadow不再次运行产品、训练或账号。这样不用先有USER_READY才能启用，也不让首次适配绕过独立检查。
 3. **激活原子点只有一个。** activate_definition先写完整不可变记录、校准/决定和激活回执，最后在短锁内CAS原profile active binding作为唯一发布点；任何中断都不能暴露缺回执的ACTIVE。旧binding仍成立则继续旧定义，否则拒绝新ready。不要把“先CAS再写回执”实现成可见半状态。
-4. **正式出口不是自由填consumer_id。** ProjectAdapter.consumer_binding补充 `stage_bindings:[{stage:RequestedClaim.stage,entry_ref:Ref,report_root_ref:Ref,result_writer_ref:Ref}]`；正式consumer ID固定 D-LUC、D-BOB、D-MIC、D-SEM、D-AST、D-CUH、D-CARE。Bridge将实际dispatch入口/文件摘要、原任务launch绑定与本表比较，不只信调用者JSON标签；同UID不是防恶意执行者沙箱。04的finalizer只允许USER_READY，对原材料入口分别绑定REVIEW_BUNDLE_READY。报告manifest仅可由Bridge report生成，不能由candidate adapter自制；原task结果提交检查读取它。
+4. **正式出口不是自由填consumer_id。** ProjectAdapter.consumer_binding补充 `stage_bindings:[{stage:RequestedClaim.stage,entry_ref:Ref,report_root_ref:Ref,result_writer_ref:Ref}]`；正式consumer ID固定 D-LUC、D-BOB、D-MIC、D-SEM、D-AST、D-CUH、D-CARE。Bridge将实际dispatch入口/文件摘要、原任务launch绑定与本表比较，不只信调用者JSON标签；同UID不是防恶意执行者沙箱。04的D消费者仅接受其冻结USER_READY范围；正常host还可按原阶段申请REVIEW_BUNDLE_READY。stage_binding.entry_ref绑定实际host完成接点，result_writer_ref绑定原结果路径与验证函数；不能绑定历史任务脚本来冒充所有未来任务出口。报告manifest仅可由Bridge report生成，不能由candidate adapter自制；原task结果提交检查读取它。
 5. **回执扩展不重复存状态。** R1-AR03的能力使用回执沿原 Receipt，增加 `subject_kind:RESULT|FEEDBACK|EXECUTION_CAPABILITY|DEFINITION_ACTIVATION` 与 subject_ref；旧 feedback_or_result_ref 在 da/2 统一改名 subject_ref，含义通过subject_kind区分，禁止两字段同时写造成歧义。原摘要/真实接收者/观察/预算字段保留；定义与能力回执不自动关闭产品Feedback。已有D4示例名称属内容说明，正式序列化使用此唯一集合。
 6. **标准变化不能偷带产品通过。** DefinitionAdmission/ExecutionAdmission/ExecutionCapability均进入 Resolution/ObligationSet 的语义依赖；candidate、controls、authority、adapter入口、安装能力版本变化逐依赖失效，不因report-only提交变化误杀无关产品结果。旧da/1与本次返修前da/2草案都不具准入权；此da/2尚未发布，更新同一冻结候选，待本次Critic审，不新造da/3或新产品版本。
-7. **三条完整用户链重新走通。** Lucerna普通刷新请求→写前独立需求核对→加载既有视觉/状态能力→同任务补候选校准/独立激活→真实EXE旧quota/新刷新→独立原生审查→Complete-LucernaDelivery/check/report；错误680或假activated先返回同task修复。SeminarArc拍照结束/重启请求→Android/Compose相关能力→旧Room/媒体保护→校准后检查→同APK实际保存与独立Parent→Complete-SeminarArcDelivery；读错控件修观察器，不逼产品改错。CARE原批准训练请求→科学Planner从原请求冻结规模→Controller/Executor既有工具链→精确规模/模型/实际机制→finalizer材料→Controller和需要时科学Planner真实消费→finalize_delivery；充分负结果按负结论交付，12步假完整永不签。三条均不让用户承担原任务内部可读失败的搬运；平台/账号真实限制仍按原范围诚实等待。
+7. **三条完整用户链。** 04#r2-normal-journeys给出Lucerna、SeminarArc、CARE从普通无Goal请求到最终报告的完整R2推演。它区分真实可调用的独立角色、现行人工GPT Work交接和已冻结科学合同复用；最后均由正常host finish接受提交。不能把历史脚本函数或未运行的角色当作自动链已成立。
 
 ### R1 的读取、激活与写前边界补充
 
@@ -1157,3 +1165,26 @@ NOT_APPLICABLE 条目只保留 id/requirement_refs/why 与依据，不伪填安�
 能力读取也不回写被ACK对象。bind_execution_capabilities先冻结选择快照Resolution-R0（load/impact仍PENDING）；真实读取事件至少包含capability_id、selection_resolution_ref、entry_path、payload_digest、reader_identity、read_event_ref、loaded_at，ack_execution_capability核它与R0精确条目一致，Receipt.subject_ref引用R0。读取/调用/影响事实到齐后产生Resolution-R1，引用原始事件及实现证据；R0与旧Receipt均保持不变。正式check用R1，并沿事件核到R0选择与实际版本，不能拿另一个能力的ACK补缺。该做法仍用原任务中的不可变Resolution与Receipt，不增加运行状态机或第二数据库。
 
 P1的引用fixture必须同时拒绝：候选含未来Admission digest、结果含未来Receipt digest、ACK后原地改Resolution、同一能力id但实际payload已变。它们是协议逻辑校验，不被描述成当前已执行测试。
+
+<a id="r2-completion"></a>
+## R2 正常任务完成接点：写了result不等于提交被接受
+
+本节与04#r2-ar04替换旧F2/R1-AR04中“七个finalizer存在就构成强制出口”的推断。新增共享函数仍在原拟议 `ai_bridge_kit/delivery.py::finish_delivery`，命令 `ai-bridge delivery finish --context <context> --submission <manifest>`。七仓共用这个稳定提交入口；历史RC/campaign脚本继续只是证据生产者。
+
+**确定顺序：** 原host结束事件/父进程退出/Controller完成动作→finish_delivery从Admission取项目consumer和冻结义务（不信report自填）→验证原result草稿与当前候选/独立专业证据→现有项目result adapter转换GateResult→ingest/receipt→Bridge.check_delivery→成功才由既有report写出派生报告与绑定manifest→原结果提交检查accept_submission。缺证和已知失败分别保留原因，未获准提交不进入受管完成状态。写草稿、保存诊断和普通Git提交本身不是DA签发，也不由DA拦所有Git。
+
+SubmissionManifest固定为已有F4 Ref/Identity的组合：`{task_identity,consumer_id,requested_stage,result_draft_ref,professional_result_refs:Ref[],candidate_identity,owner_binding:Provenance,cancel_epoch}`；producer提供线索，finish逐项与Admission/adapter重建expected，不能删一项来避检。原result草稿先冻结不可变快照作为输入；Bridge不原地改它来修判定。生成的report.manifest绑定claim、当前candidate、原result快照、报告字节和真正host completion invocation；它不自授权部署/用户接受。不存在新任务DB。
+
+|原正常入口|强制消费者与拒绝位置（均为待实现接线）|异常恢复|
+|---|---|---|
+|受支持原生Codex无Goal|已信任 `delivery_hooks.py::on_stop` 每次收到该admitted task的Stop都调用finish_delivery，不靠模型先调用某个项目脚本。前置 `on_pre_tool_use` 对已支持的完成提交工具额外核验。普通写result不能跳过Stop重查；合法等待/取消可结束，但不能产生USER_READY|可修错误按既有Stop反馈回同会话；Hook失效不签报告。原生Stop发生在模型回复后，不能删除已发文字，只能纠正并继续；正式DA报告仍不得虚签。完全缺Hook的文字边界保持用户已接受范围|
+|Lite|cli.run_lite_task的产品子进程退出后、函数返回“任务完成”之前必调finish_delivery；成功exit仅代表进程，不代表交付|非就绪回既有run_delivery_cycle，精确thread/共享预算；无可恢复身份则保留未接受提交，不猜--last|
+|Review|reviewed_runner.run_codex_event退出后先验证当前阶段；材料阶段可REVIEW_BUNDLE_READY。已有Scheduled Reviewer写新鲜review后，原watcher_once新增有限 `consume_pending_delivery` 分支读取它并finish，再由reviewed_handoff.validate_final_report_for_repository/validate_task核报告后接受终态|外部Reviewer只先写review artifact，不因缺本机shell伪造Claim；保持原READY_FOR_GPT_REVIEW，watcher写回claim/report后原合法transition才推进；无新enum，不额外消耗review轮次。无watcher则原task恢复时执行此分支|
+|Control|原agent_flow.validate_executor_result对Executor只准其阶段；Controller终态apply_transition前调用finish_delivery＋validate_final_report_binding；独立角色结果按原role receipt消费|失败走原Controller修复step；不以Executor文件宣称整task完成|
+|项目原Controller/orchestrator|其原任务的完成动作调用finish，且所运行的原生Hook或已有Bridge父进程在退出时再次验accept_submission；双检查共用同一claim/receipt，不重复运行产品|已结束则同task `delivery finish --resume --context … --submission …`；重核候选/epoch/专业结果，只做缺失消费，不重启产品、账号或job|
+
+Review细节：现有模板需要同步“专业review先写、最终claim待原watcher消费”的末段，且plan_transition/validate_task拒绝终态缺claim。只有模板约定不能成为唯一安全边界；本机原watcher实际验证后才对外生成DA交付结果。若有人绕开整个受管host直接改GitHub CURRENT或普通文本，不能赋予它DA通过权；本系统不宣称OS/GitHub权限隔离。已有正式workflow状态和单一结果消费者继续持有真值。
+
+Stop只执行只读汇总和短原子报告步骤，不在2秒Hook里运行模型、设备或长测试；超时不产生Claim，当前原owner通过finish工具路径完成同一检查。宿主必须以已关闭AR05的P0证据验证Stop/返回性质；未证明或禁用时不能标“自动结束拦截”。native-only且没有活跃owner时不冒称自动恢复。
+
+**绕过测试统一形状：** 当前候选故意缺一个该仓必需的独立专业结果；让Executor不运行finish，直接写正常result路径并退出0/结束回合。实际原host完成接点必须调用finish，拒绝accept_submission和USER_READY，产生该缺项Feedback；随后同task补合法结果并重试才接受。测试调用的是正常host，不能直接调用helper冒替。未证此链的consumer保持DA disabled。
