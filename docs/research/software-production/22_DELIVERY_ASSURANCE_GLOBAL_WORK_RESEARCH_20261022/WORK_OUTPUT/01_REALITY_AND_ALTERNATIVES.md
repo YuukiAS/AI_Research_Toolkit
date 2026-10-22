@@ -228,3 +228,9 @@ v0.3把特定未来Persistent验收的六次通知上限落实到原run binding�
 完成出口比较：七个历史专用脚本末尾各加finalizer（普通任务可能不经过，撤回）；要求模型每次记得调用（无法约束直接写result，拒绝作为唯一机制）；**Bridge正常host结束边界统一finish_delivery，七仓只提供项目证据/原结果路径映射**（选定）。现有项目runner继续产专业证据，原报告文件可写草稿，但只有正常结束接点校验并接受的提交才构成受管完成。不是七个新后台服务，也不假称能禁止任意进程写文字。
 
 R2调用参数补核：[官方CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli)提供exec的JSONL、output-schema和read-only沙箱参数；[官方Hooks](https://learn.chatgpt.com/docs/hooks)说明Stop反馈产生continuation，并非撤销原turn。03将实际JSONL终态消息解析与宿主工具隔离资格写明，不能以CLI语法存在推导安装版本/权限已支持。当前阶段没有运行这些命令。
+
+### R2冻结前的上游增量核查
+
+Bridge开发分支最新固定到 **76e2f14d5669867b2d4e3fa0950d8b2fedea7f35**。与上述0de62cb7比较，四个提交仅新增八份相邻正常入口验收文档，生产代码未变。已完整读取[窄Gate修订](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/76e2f14d5669867b2d4e3fa0950d8b2fedea7f35/docs/design/0.11.1_normal_entry_acceptance_gate_amendment_v0.1_2026-10-22.md)：它将真实Persistent链与预算极端故障回归分开，并为Text Transform补实际Actions触发/付费前持久预留设计。DA不依赖或执行该未实施外部调用，不继承其Goal、通知、费用或Git写入授权；本轮角色/完成源码引用0de62仍准确。正常业务完整链和危险边界测试都要经过真实入口，但不要求同一次产品运行刻意凑所有罕见故障，此原则与06现有试点不冲突。
+
+冻结前再次核实研究main仍daf797c7、AI Skills main仍ca10623f；七仓SHA仍为本轮04表。该刷新不改变02/03/05关闭状态，也不代表任何部署或host实测。
