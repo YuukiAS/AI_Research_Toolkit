@@ -198,7 +198,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 <a id="c02"></a>
 ### C02 目标与不能降级的交付承诺如何冻结
 
-1. 当前Codex从原请求全文逐段映射行为、数据、规模、结果与不可替代条件；core核全范围/必需来源，当前模型反向阅读，原专业Reviewer从原文独立提出后置条件。F1防结构漏项，不假称机械检查保证语义全知。
+1. 当前Codex从原请求全文逐段映射行为、数据、规模、结果与不可替代条件；core核全范围/必需来源，当前模型反向阅读；prepare_admission按R1-AR01判风险，高风险必须由已有独立角色从原材料重建并消费决定后才允许依赖产品写入。F1防结构漏项，不假称机械检查保证语义全知。
 2. 扫描接受基线、正式入口、构建/导出清单、测试和源依赖，把旧行为并入 should_not_change；覆盖不明不允许空集合通过。
 3. 可由源码/官方规范推导的参数由执行者提出有来源的决定；产品取舍、科学语义及高影响授权才交原 Planner/用户。
 4. 保存冲突双方的版本和原文定位；最新用户决定优先但不得推导额外权限；无法裁定交唯一原 owner。
@@ -229,8 +229,8 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 ### C05 技能发现、专业能力调用和强制消费
 
 1. 从 installed/enabled plugin 注册和精确载荷路径读描述；绑定 canonical source、发布版本、加载目录及 hash。文件存在不证明当前会话加载。
-2. runner registry 是确定性入口直接读的数据；Skill 负责解释/生成，不能作唯一调用条件。required obligation 无对应结果即不放行。
-3. 缺插件/错误 CODEX_HOME/旧载荷返回 source gap；按既有 Maintainer 处理，获权后 fresh session；不能静默退成泛用测试。
+2. runner registry只解决检查选择。R1-AR03将成熟实现能力加入Resolution.execution_capabilities：选择理由、实际版本、交给当前Executor、真实读取/调用证据和实现影响分别绑定；缺required使用证据不签相应claim。Skill存在或自称已调用均不足。
+3. 缺插件/错误 CODEX_HOME/旧载荷返回source gap；由既有Maintainer处理。当前任务可明确读取合同的路线须经P0证明且符合该能力合同；要求原生loaded的能力仍须实际重新加载。不能为换会话丢原任务，也不能静默退成泛用测试；已审等效成熟能力按R1-AR03替代。
 4. 领域标准和项目参数分别带 owner/id/version；同名不覆盖。科学/产品冲突交原专业 owner，不能取更严数字投票。
 5. descriptor 声明 observer capability 与最低证据；没有观察工具就 UNKNOWN，不因找到描述文件变可运行。
 6. 程序坏由该程序 owner 修；无等价观察则保留高层未完成、继续独立低层工作。
@@ -251,7 +251,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 1. 接入者读取当前源码、入口、接受基线、发布脚本和历史；生成适配草案，用户只裁不可推导语义，不手填全部功能。
 2. 路径规则从实际 import/build/runner 关系得出，参数从版本合同；每条边附 source locator 和自动/人工确认类型。
 3. 03 D2枚举真实入口与旧/新依赖，输出discovered/mapped/tested/reused/unresolved差集；空映射、孤儿和未知边阻止相关claim。保护边界已冻结为可枚举入口及可解析依赖，不宣称全知。
-4. 无 adapter 先做 admission discovery；可局部开发但不宣称全量旧功能保护；不能默认 NONE。
+4. 无adapter先做admission discovery；仅R1-AR01已允许的无关子范围可局部开发，依赖未获独立准入的产品写入不得继续。首次adapter按R1-AR02校准、独立批准、原出口shadow验证后启用；不能默认NONE或宣称全量旧功能保护。
 5. adapter 绑定 repo、effective branch、产品 milestone、环境类别；分支变动重算，设备证据不能跨设备继承。
 6. 删改入口由 impact diff 发现，当前 Executor 修本地映射；标准变更走专业 owner；迁移前后旧坏例不得丢。
 
@@ -309,7 +309,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 ### C13 验收器本身的反证与校准
 
 1. good 用真实正常路径，bad 用历史根因的产品扰动，missing 删关键观测；另保留不应改变的旧能力。
-2. 标准/阈值/控制样本由专业 owner 在候选前冻结；外部观察者读冻结版本，candidate Executor 无权改其判分权威。
+2. 标准/阈值/控制样本由专业owner冻结；候选作者无权改答案获批。R1-AR02定义独立CalibrationContext/Report、DefinitionAdmission及submit/calibrate/activate实际消费者；只有ACTIVE精确摘要可进入正式选测。机械自动准入仅限既有冻结标准/控制政策，其余按独立角色。首次标准来源见R1联动补充。
 3. 同一生产验收入口喂坏实现；仅变异结果 JSON 只能校准证据验证，不能证明会发现坏产品。
 4. 用真实原观察区分产品、runner、observer、oracle；SeminarArc OCR 例先修错选择器并撤销假阴性。
 5. 算法/阈值变更撤销依赖该判断的 PASS；原数据足够可重判，采集坏必须重采；不重训无关科研。
@@ -413,7 +413,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 3. 按required set逐项汇总，不平均、投票或用全绿摘要；缺行与重复冲突直接拒绝。
 4. source/unit成立可报告；installed/live/scientific结论不成立就明确保留，不能把部分完成写全任务done。
 5. 源码测试不授权安装/部署/发布，build成功也不证明实际加载。
-6. 唯一Bridge ingest_result/check_delivery调用core；项目adapter只翻译。材料阶段与USER_READY分开，七仓低层PASS不自动升级；F2指定原最终owner。ReceiptLocator不含待生成回执摘要，消除循环。
+6. 唯一Bridge ingest_result/check_delivery调用core；项目adapter只翻译。材料阶段与USER_READY分开，七仓低层PASS不自动升级；04 R1-AR04逐仓冻结finalizer命令、check位置、report和原结果writer绑定；F2仅说明材料/最终层级。ReceiptLocator不含待生成回执摘要，消除循环。
 
 <a id="c24"></a>
 ### C24 失败代码如何自动变成下一步工作项
