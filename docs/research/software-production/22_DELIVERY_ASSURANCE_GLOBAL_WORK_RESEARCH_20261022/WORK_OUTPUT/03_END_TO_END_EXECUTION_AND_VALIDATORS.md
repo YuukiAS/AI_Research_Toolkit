@@ -53,14 +53,12 @@ claim.json/report.md：由上述数据派生，可重建，绝不是另一个任
 
 **具体输入输出（设计）**：Lucerna改 provider_runtime.rs，要求资源卡真实刷新；依赖消费者包括codex_quota/openai/longleaf，候选EXE有新hash。输出BROAD：provider freshness单测、旧quota动态桶与null语义、OpenAI计量映射、Longleaf未观测/子路径故障回归、同EXE/PID原生刷新。无关Zotero迁移若依赖闭包/输入不变可复用；实时账户无授权时对应项blocked、源码子结果保留。只改README且不改变产品/安装命令语义，则TARGETED文档/链接检查，不打开Windows或跑Slurm。
 
-## E5 验收定义的真实格式示例
+## E5 验收定义的读者内容示例
 
 以下YAML全为**待实现设计**，路径/函数是候选新增；并非已安装配置。它扩展已存在的Lucerna验收runner，不新写万能运行器。
 
 ```yaml
-schema_version: da/2
-object_type: GateDescriptor
-# 下列为便于读者理解的非完整示意，正式字段集以 D6 为准。
+# 非序列化内容示意；正式da/2字段集以D6为准，不能将本YAML直接作为GateDescriptor。
 id: lucerna.provider-state-truth
 owner: Lucerna
 standard:
@@ -595,7 +593,7 @@ Review 在 `run_codex_event` 内接同一 cycle，`executor_prompt` 带 feedback
 
 Control 关键事实：[RuntimeAdapter L485–489](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/ai_bridge_kit/agent_flow.py#L485) 仍是抽象类；[main L2769–2775](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/ai_bridge_kit/agent_flow.py#L2769) 只打印 route/transition。因此本设计选定：
 - `consume_delivery_result` 把机械事实追加到现有 evidence/findings 输入，不伪造 Planner 分类。
-- 新增一次性 `control step`：锁定原 CURRENT → validate_task_state → plan_transition → 若是合法 Executor 动作，用具体 CodexExecRuntimeAdapter 和 launch_executor_with_preflight；角色分离、授权路径、repo/branch 全部仍由既有合同限制 → 捕获真实 session、RoleReceipt → check_delivery → 按原允许转换 apply_transition。每次最多一动作，返回完整结果给**调用它的原 Controller Codex 工具回合**。
+- 新增一次性 `control step`：锁定原 CURRENT → validate_task_state → plan_transition → 若是合法 Executor 动作，用具体 CodexExecRuntimeAdapter 和 launch_executor_with_preflight；Verifier 动作用新增 launch_verifier_with_preflight，详见文末角色动作表；角色分离、授权路径、repo/branch 全部仍由既有合同限制 → 捕获真实 session、RoleReceipt → check_delivery → 按原允许转换 apply_transition。每次最多一动作，返回完整结果给**调用它的原 Controller Codex 工具回合**。
 - 具体 adapter 是既有 RuntimeAdapter 的实现，复用上述 JSONL/resume，不能构造新分支、换身份、自动起 Planner/Critic。Controller 的 prompt 在每个工具返回后读取 next_action；外部角色动作输出等待，必须获得该角色新鲜工件才继续。Persistent 如已被准确授权可承载这个原 Controller；否则进程结束后由同任务恢复，不伪装 daemon。
 - apply_transition 在送审/候选通过处加入 check_delivery predicate；失败不改成 PLANNER_PASS。产品或科学取舍只能沿已有 Planner 分类，不能由 Controller 自动降标准。
 
@@ -732,7 +730,7 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 - consumption_ref：指向本次当前owner接收该结果的 Receipt；首次输出可为明确 pending receipt，**pending不能签ready**。不存在用自引用hash生成结果的循环：GateResult不可变，receipt引用其digest，consumption_ref是稳定receipt locator；核验再读取该locator。receipt不反写result字节。
 
 **Admission**：task_identity、workflow_identity、request_ref、scope_revision、entry_kind、session_binding、source_bindings[]、candidate_identity、effect_refs[]、budget_ref、owner_ref、cancel_epoch、consumer_binding。无session的真实非交互runner可以在session_binding写NOT_APPLICABLE及依据，不能假造session。
-**ObligationSet**：contract_binding、candidate_scope、required[]、should_not_change[]、surface_inventory_ref、unknown_edges[]、unresolved[]、digest。每项 obligation={id,requirement_ref,target_ref,postcondition,claim_level,non_substitutable[],authority_ref,gate_refs[],status}；required为空只能在无交付声明的明确NONE任务成立。
+**ObligationSet**：contract_binding、candidate_scope、required[]、should_not_change[]、surface_inventory_ref、unknown_edges[]、unresolved[]、digest。每项 obligation={id,requirement_ref,target_ref,postcondition,claim_level,non_substitutable[],authority_ref,gate_refs[],required_for_claims[],status}；required为空只能在无交付声明的明确NONE任务成立。
 **Resolution**：admission_ref、obligation_set_digest、mode、selected[]、reuse[]、not_applicable[]、unresolved_obligations[]、unknown_edges[]、effect_requirements[]；各条带id和reason/ref，不仅列命令。
 **Feedback/Receipt**：D4字段；Receipt={task_identity,feedback_or_result_ref,digest,candidate,recipient_session_or_owner,cancel_epoch,delivery_observation,ack_observation,resolution_result_refs[],budget_usage}。单调追加事件，不回写已见失败。
 **Claim**：task_identity、contract_binding、candidate_identity、obligation_set_digest、result_refs[]、receipt_refs[]、allowed_claims[]、denied_claims[]、remaining_unknowns[]、report_ref。每个claim保留旧tuple；本对象不颁发发布/账号/GPU权限。
@@ -756,3 +754,45 @@ Bridge项目现有profile新增可选 `delivery_assurance.runtime_binding`，值
 DA使用机器本地Bridge state根的原任务锁；选择原子排他创建锁文件（O_CREAT|O_EXCL），记录host/task/process start identity/cancel epoch，不依赖Unix fcntl。只接受本地文件系统；网络共享和跨host同时持有同task不支持，必须走原工作流合法handoff。正常释放核对owner；崩溃恢复先证明原进程已不存在且启动身份不匹配，不凭过了几分钟删锁。无法证明时只阻止该任务自动launch，保留原恢复点。原readiness的AGENTS写锁在Windows可能无fcntl，与DA本地锁不同，不据此暗改原AGENTS写策略；需要该写操作的入口必须通过原preflight或明确未支持。
 
 状态写采用同目录临时文件、flush、原子replace；多文件以不可变run目录和最后写manifest作为提交点。未写完manifest的run不能被claim消费。接收结果与反馈幂等独立：GateResult digest去重，Feedback id去重，ACK不扣修复轮次；真正launch/执行修复才扣。取消信号到达父进程后设置epoch并按原进程组取消规则停止当前child，任何后来返回的ready只保留证据，不改变用户已取消状态。正式发行必须在Windows Native和目标Unix各跑崩溃/并发/取消例，不能从纯函数证明OS行为。
+
+## 交叉反例审计后的闭合补丁
+
+### 分阶段声明，避免“审查通过才能送审”的循环
+
+check_delivery的context必须包含 `requested_claim` 和 `stage`。Obligation.required_for_claims 显式列哪些声明需要该义务；继承最终用户义务集合不变，不能通过换stage取消义务。送审的 `REVIEW_BUNDLE_READY` 是原工作流的材料准入谓词，**不是新增用户交付层级**：它要求当前候选/原始观察/规定机械检查/可读完整材料，允许“尚待独立审查”以明确状态进入原Reviewer。之后USER_READY才要求全部最终义务及新鲜独立判断。ARTIFACT_READY/INSTALLED/LIVE仍是da/1保留的claim层级，不能把材料就绪改叫用户已完成。
+
+同理：定义尚未准入→先允许VALIDATOR_CALIBRATION输入候选程序和冻结坏例；不先要求该程序已有PASS。首次接入无accepted baseline允许生成discovery草案，但旧行为claim保持未证；不能把草案自己接受成基线。结果接收先ingest/Receipt，再evaluate_claim；反馈关闭只看新有效结果，不要求先有最终完成通知。这样每个依赖都有真实起点，无需伪造一个初始PASS。
+
+### Control完整角色动作表
+
+由已获授权、当前活跃的原Controller调用一次性control step；无新常驻控制器。读取plan_transition返回并校验expected CURRENT/state/review_target后：
+
+|next_action|选定调用|完成返回与后续消费|
+|---|---|---|
+|LAUNCH_EXECUTOR／LAUNCH_EXECUTOR_REPAIR|已有launch_executor_with_preflight→新CodexExecRuntimeAdapter.launch_role|JSONL真实session/结束事件＋RoleReceipt＋GateResult返回原Controller；Controller核验后走原apply_transition|
+|LAUNCH_VERIFIER／LAUNCH_VERIFIER_REPAIR|**新增launch_verifier_with_preflight**；复用readiness.freeze_execution_locator/preflight_execution_sources，但要求role=Verifier、冻结oracle/标准与已授权Verifier环境、独立写范围；再调用同具体adapter|返回Verifier自己的RoleReceipt/校准证据/冻结候选，原Controller检查角色隔离与现有VERIFIER_FROZEN条件后才进入Executor；不把Executor收据冒充Verifier|
+|LAUNCH_VERIFIER_THEN_EXECUTOR_REPAIR|本次只执行Verifier动作，保存其receipt及原next_action进度；下次原Controller工具调用经原state再次规划后执行Executor|每次至多一合法角色动作，不在一个递归循环偷加第二角色或改branch|
+|RUN_PLANNER_*／RUN_CRITIC_*／RUN_FINAL_CRITIC及WAIT_*|返回原流程的等待/审查输入位置；**不自动启动外部角色**|只有原角色的新鲜工件经原校验才推进；没有connector保留等待，不自签|
+|COLLECT_RUNTIME_EVIDENCE／RUN_CI|原Controller调用冻结Descriptor/原CI入口，动作仍受原授权与预算|原工具结果→ingest_result→原Controller；CI名称绿不等required实际执行|
+|不合法state/无角色环境/无新判定|不launch，返回具体恢复条件|使用已有等待/人类决策/角色隔离错误路径，不创造DA状态|
+
+具体adapter只接受RoleLaunchRequest已经指定且获权的repo/worktree/branch/allowed_write_scope；没有现成合法角色环境时不自行创建分支、工作树或第二task。Verifier的只读参考与输出隔离必须按03 D3证明；仅在同权限shell中换prompt不足以签PROTECTED。缺独立环境时允许当前任务做机械诊断，独立验收仍未证，不假称同一执行者已替代。
+
+### 十二条故障轨迹的设计审计（不是产品测试或独立Critic）
+
+|输入轨迹|按本合同得到的唯一处置|
+|---|---|
+|原生Hook完全没有执行|不能拦聊天；原交付入口缺义务拒绝ready，保持01 D1不可达边界|
+|Hook返回block但宿主忽略|无后续ack不记已送达；原delivery gate缺消费拒绝，不无限block|
+|模型结果文件先写PASS后进程崩溃|未有完整manifest/真实消费Receipt不能ready；原owner恢复后先核验，不重新执行副作用|
+|原Lite进程exit0但义务失败|原父进程在同预算内resume精确thread；id不可用不新建任务|
+|resume隐式回了另一thread|返回身份不匹配，停止并保存原恢复点，不能将新thread当同任务成功|
+|用户取消与旧成功结果同时到达|cancel epoch优先，保留结果但不恢复或宣布任务继续|
+|同feedback被Hook与父进程同时看到|原task排他锁和稳定id，最多一个执行意图；共用repair计数|
+|送审还没有Reviewer结果|只核REVIEW_BUNDLE_READY，最终USER_READY保持未证；消除循环依赖|
+|新validator还没有准入记录|先执行冻结calibration入口，不能以未准入拒绝校准本身|
+|Control要求修Verifier|调用明确Verifier preflight/adapter，原Controller消费其receipt；不只把route打印出来|
+|全部required被改空／旧da1总PASS导入|需求/义务摘要不符或版本只诊断，拒绝新ready|
+|产品正确但OCR读错／科学足量负结果|分别修collector重采／交科学Planner可信负结论，不用修改产品或阈值刷绿|
+
+本轮逐轨迹推导时发现并修订了送审循环、结果Receipt循环、Hook递送误记和Verifier接线遗漏；没有运行这些未来代码，不将此表命名为测试PASS。独立Critic应尝试寻找新的反例。
