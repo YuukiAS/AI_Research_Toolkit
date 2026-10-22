@@ -119,16 +119,16 @@
 
 尤其警惕四种伪创新：
 
+- 仅把成熟方法换到新数据集，既没有新科学认识，也没有困难条件下的新能力；
+- 把强基线没有正确调好的结果当作方法优势；
+- 以前人的“未来工作”一句话当成已证明重要、尚未有人解决的问题；
+- 改变任务设置、预算或信息访问权限，使原方法无法比较，然后宣称新方法独有能力。
+
 ### 最接近前作的“撞题审查”是正式研究动作
 
 提出自己的算法前，要写出三列内容：**前人实际已经证明的能力**、**我们的目标要求但前人未证明的能力**、**需要哪项对等实验或理论论证才能区分二者**。若最直接前作已经在相同约束下解决同样问题，不能用方法名字、新数据集或降低比较标准勉强保留创新。若前人只处理特殊情形，则须判断推广是否有独立难度和科学价值。
 
 检索应覆盖已发表论文、正式接收稿、可获得的最新预印本、补充材料和主要公开实现，并记录检查日期。对非常新的研究，明确“尚未读到全文”与“已证明没有相关工作”的区别。发现撞题后可以调整科学问题，也可以转向更强的实证、理论解释或问题边界；这属于正常研究修正，不应隐瞒。
-
-- 仅把成熟方法换到新数据集，既没有新科学认识，也没有困难条件下的新能力；
-- 把强基线没有正确调好的结果当作方法优势；
-- 以前人的“未来工作”一句话当成已证明重要、尚未有人解决的问题；
-- 改变任务设置、预算或信息访问权限，使原方法无法比较，然后宣称新方法独有能力。
 
 ## 五、不要从唯一构想起步：建立真正不同的备选问题
 
@@ -492,9 +492,8 @@ Nature Communications 的定位是发表**对相应领域专家具有重要意�
 2. NeurIPS. *NeurIPS 2026 Reviewing Guidelines*. https://neurips.cc/Conferences/2026/ReviewerGuidelines 。区分一般、理论、真实使用需求驱动、概念可行性与负结果，评估质量、清晰性、重要性及原创性。
 3. NeurIPS. *Evaluations and Datasets 2026 Reviewing Guidelines*. https://neurips.cc/Conferences/2026/EvaluationsDatasetsReviewerGuidelines 。强调评价、数据、复现、负结果及研究结论改变等贡献的独立价值。
 4. MICCAI. *MICCAI 2026 Reviewer Guidelines*. https://miccai2026.org/en/REVIEWER-GUIDELINES.html 。评审关注领域影响、医学相关性、采集与划分、样本代表性、标注质量、评价不确定性、统计分析、可复现性以及新问题或新应用的价值。
-5. NeurIPS. *Evaluations and Datasets 2026 Reviewing Guidelines*. https://neurips.cc/Conferences/2026/EvaluationsDatasetsReviewerGuidelines 。强调严谨评价、数据审计、研究结论改变、独立证据和负结果的学术贡献。
-6. Nature Communications. *Aims & Scope*. https://www.nature.com/ncomms/ncomms/aims 。说明期刊关注对相应研究领域专家具有重要意义的科学进展。
-7. Nature Communications. *Editorial Process*. https://www.nature.com/ncomms/submit/editorial-process 。说明编辑对新颖性、潜在影响、学科适用性及概念/方法进步的审查。
-8. International Committee of Medical Journal Editors. *Defining the Role of Authors and Contributors*. https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html 。说明科研作者的实质贡献、知识责任与人工智能使用责任；作者顺序仍遵循相应领域规则。
+5. Nature Communications. *Aims & Scope*. https://www.nature.com/ncomms/ncomms/aims 。说明期刊关注对相应研究领域专家具有重要意义的科学进展。
+6. Nature Communications. *Editorial Process*. https://www.nature.com/ncomms/submit/editorial-process 。说明编辑对新颖性、潜在影响、学科适用性及概念/方法进步的审查。
+7. International Committee of Medical Journal Editors. *Defining the Role of Authors and Contributors*. https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html 。说明科研作者的实质贡献、知识责任与人工智能使用责任；作者顺序仍遵循相应领域规则。
 
 **维护约定：** 本文件只保留跨项目、跨学科可复用的科研原则和判断流程。新的案例、具体论文路线、某次研究失败、模型名称、仓库路径、阶段预算或某个课题的停止决定，不应持续堆入此文件。遇到新问题先检查现有原则是否足够；足够时修正具体研究，而不是增加同义规则。
