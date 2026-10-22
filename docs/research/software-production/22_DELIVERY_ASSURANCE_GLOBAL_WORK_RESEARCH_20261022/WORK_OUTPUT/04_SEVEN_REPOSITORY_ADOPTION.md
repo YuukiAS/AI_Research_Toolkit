@@ -286,6 +286,8 @@
 
 每仓下列原result都是**生产者草稿**。accept_submission按当前Admission重建全部义务，要求当前candidate、独立结果、Claim、报告字节和host completion invocation一致。原result内容先冻结快照；报告写原任务证据根的 `delivery_assurance/report.md` 与 `report.manifest.json`，引用草稿不回写其hash。原结果文件/最终答复链接这个报告。没有报告时允许保存失败、权限等待和诊断，拒绝的是“受管USER_READY提交”，不是所有文件/Git提交。原项目用户接受、发布和下一科学Batch仍有自己的权限。
 
+模型不提供manifest时，normal-host按03的materialize_submission从Admission与原结果索引构造；缺原result或独立结果明确拒绝，不能把没调用命令当NONE。无Goal且项目没有原结果文件要求时才可冻结Stop原话作草稿，仍不代替专业证据。
+
 各adapter只做原结果路径解析、专业结果转换、状态约束；均使用已有ACTIVE定义准入。撤销的Complete-LucernaDelivery等七个候选函数不再是实施要求。后续项目版本只更新同一consumer的绑定与专业定义，不重建架构。
 
 ### D-LUC：正常Lucerna任务
@@ -340,7 +342,7 @@ USER_READY须原Parent实际返回当前任务冻结的合法专业范围（完�
 
 [AGENTS L85–105](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/AGENTS.md#L85)和[Controller合同](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/prompts/CONTROLLER_COORDINATOR_RUNTIME_STANDARD.md)仍唯一决定角色。普通短任务原 `results/<task_key>/result.md`；Controller任务另读 `controller_report.md`、completion_check、MANIFEST与packet。正常host finish(D-CARE)为统一出口；已有Controller在写最终VERIFIED_COMPLETE声明前调用finish，外层原host再次验证同一绑定。不是在历史finalizer加入新stage即可证明强制。
 
-允许状态是当前原任务required outputs/validator/terminal accounting/aggregation/local commit全部成立；科学声明范围由原Planner合同/需要时新决定限制。输入包括Controller实际diff/配置/执行核查、真实模型/数据/步数/时长/checkpoint、独立aggregation/adequacy、Planner对新科学结论的处置；review_required=false不强制review.md。finalizer只是确定性材料生产者，不能自签科学有效。
+对Controller监督的科学任务，允许状态是当前原任务required outputs/validator/terminal accounting/aggregation/local commit全部成立；科学声明范围由原Planner合同/需要时新决定限制。输入包括Controller实际diff/配置/执行核查、真实模型/数据/步数/时长/checkpoint、独立aggregation/adequacy、Planner对新科学结论的处置；review_required=false不强制review.md。finalizer只是确定性材料生产者，不能自签科学有效。对AGENTS允许的短、无Slurm、低恢复风险普通修复，不新增Controller或强要不存在的job accounting：沿原planner→executor→local result→planner路径，adapter依据冻结task类型选择其实际所需原专业输入；只能签该局部代码/结果范围，不能借短任务签整个实验、科学方法或下一Batch。
 
 finish→check→report的次序位于受管接受终态前。**CARE-BYPASS：** Executor直接result写VERIFIED_COMPLETE，只有validator程序绿而实际12步/缺最终聚合或缺Controller消费，随后正常结束；host拒绝。充分训练得到负结果则允许“实验完成、方法未成立”的有限声明，不把负面结果当产品bug无限修。恢复原Controller/原task，先查原job/精确epoch/结果与已有Planner输入，只补消费；不重投GPU、不重开下一Batch。长期Controller必须遵守原Goal/持续合同；普通无Goal入口遇到新长训练时只能诊断/准备，不能替用户生成未批准Goal启动。
 
