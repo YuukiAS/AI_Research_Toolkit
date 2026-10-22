@@ -14,7 +14,7 @@
 
 |稳定 blocker|处置|当前缺口|本轮应交出的决定|
 |---|---|---|---|
-|DA-AR-01|ACCEPT，待修复|原要求独立重建和执行模式分流没有第一次写入前的明确消费者|admission 决策、已有审查角色、耐久接收者和无接收者限制|
+|DA-AR-01|ACCEPT，设计修复已写入，待整体验证|原要求独立重建和执行模式分流没有第一次写入前的明确消费者|admission 决策、已有审查角色、耐久接收者和无接收者限制|
 |DA-AR-02|ACCEPT，设计修复已写入，待整体验证|校准阶段、候选生命周期与专业批准对象不一致|定义准入记录、冻结控制集、风险分级准入命令和精确激活 digest；同样覆盖 ProjectAdapter|
 |DA-AR-03|ACCEPT，待修复|只决定验收，没有确保成熟实现能力实际交到 Executor|Resolution 中需要、版本、接收、使用影响和降级限制|
 |DA-AR-04|ACCEPT，待修复|七仓最终消费者仍有角色名，缺少逐仓最终化入口|文件/函数/命令、专业输入、check_delivery 位置、报告出口、恢复及绕过负例|
@@ -28,3 +28,6 @@
 
 ## 阶段恢复点：定义准入
 03 的 R1-AR02 已在 3f6cba7806112d6b8ec5fabde9cf408b2be3f271 写入并逐字回读。决定为独立 CalibrationContext/Report，而非产品 claim stage；DefinitionAdmission 绑定候选、四类冻结控制、校准、准入权威、激活摘要和回执；机械自动准入条件与强制独立角色条件已确定，ProjectAdapter 同样受管。尚需与入口分流、七仓消费者、迁移和成本联动核验，其余四项继续。
+
+## 阶段恢复点：原要求与模式分流
+03 R1-AR01 已在 674efa2cf0f3c0413eb6e9457f6a0a2c80e1e33e 写入回读。prepare_admission 在首次依赖产品写入前选择自查/既有独立角色；Review 复用原 GPT Planner 的 PLAN_REQUESTED，不伪造事前 Reviewer 回合；CARE 沿科学 Planner。无任务包只关联既有模式，不自动开线程/后台。无活跃 owner 的恢复与哪些可继续已明确。继续核对能力消费和七仓最终报告入口。
