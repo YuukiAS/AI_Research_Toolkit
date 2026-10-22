@@ -1,6 +1,8 @@
 # Delivery Assurance 独立审查材料与来源索引
 
-**当前未发起独立审查。** 用户已于 2026-10-22 接受 01 D1 的有界混合方案：正常受支持的 Codex 入口自动接入、受管交付强制核验、Hook 完全缺席时不保证禁止聊天已生成的错误完成文字；不另建 Codex 客户端。产品取舍不再等待用户；本包按 [10 续研合同](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md) 完成技术收敛，冻结提交与最终核验状态由CURRENT记录。本包存在不代表审查已经发起或生产实现完成。
+**独立 Critic R1 已给 REVISE；本轮是原 Planner 对同一架构的五项返修。** 意见来自用户转交正文，稳定编号 DA-AR-01..05，审查基线为369b4ae4a534a7d87be11a36e7c4b3ca9114e0c7，原技术源28eded9ff482ff2377804ebac012c0dc36e8ebe5。五项均ACCEPT，不把前轮“已闭合”继承为本轮结论。下文给修订决定及新证据；新固定技术源与包身份见CURRENT。本轮尚无新的独立结论，未获生产实施授权。
+
+已接受的有界混合方案不再询问：正常受支持Codex自动接入，受管交付强制真实验收；Hook完全缺席不保证撤回已发原生聊天；不建设新客户端、常驻调度器、第二任务库、第四工作流或万能评分器。目标仍是减少用户提醒、发现假完成、搬运失败和催促原任务返修。
 
 ## 1. 原目标与推荐结果
 
@@ -14,7 +16,7 @@
 
 读者主线：02整体因果链→03完整调用/字段/接收/恢复→04三条深链＋七仓合同/新请求推演→06阶段/成本/退出。01给事实/替代/官方边界；05给315问、83要求、363历史反向审查；本页提供源码。08为条件满足后可直接用的完整审查指令。README/CURRENT先解释可用状态，机器字段留详细合同。
 
-## 3. 本轮已由Planner作出的决定
+## 3. 保留的整体架构骨架与本轮修订位置
 
 |决定|可否决的具体内容|正式位置|
 |---|---|---|
@@ -36,6 +38,8 @@
 设备/账号/平台运行证据另列：Windows Desktop/CLI/Remote/Control新adapter尚未实测；Bobbio隔离Zotero、Mica真实加载与手动登录态、Android硬件、Asteria完整图/固定URL、CUHK真实campaign、CARE科学实跑均未验证。04/06已确定实验，不要求用户此刻授权这些动作。不因这些未运行停止其它设计，也不凭设计推演宣称PASS。
 
 ## 5. 独立审查重点
+
+下一轮范围限定为DA-AR-01..05的修订及其连带影响；不能借此重开已接受产品边界或要求新平台。必须重新走正常用户完整路径，不能只做字段diff。原有无循环回执、父子锁、共享预算、科学负结果、材料/最终分层仍须检查未被破坏。
 
 审已选机制，不替Planner选择缺失接口。必须攻击：无事件普通聊天、缺原请求、空义务、删除旧入口、动态未知、标准/expected协同改松、错误collector、不同候选拼绿、工作镜像与归档错配、Hook递送未被接收、精确resume返回新thread、Control Verifier缺合法环境、用户取消竞态、重复事件、副作用重发、预算重复领取、外部stale review、科学负结果被刷正、da/1误升da/2，以及小任务新增成本无收益。
 
@@ -212,13 +216,13 @@
 
 最终CURRENT只有在全包固定提交回读和关键合同复核后才标Planner送审候选。下一入口是用户将08交给独立Critic；本任务不自动启动审查。Critic若发现关键设计缺陷，原Planner回同目录同一方案返修，不新增平行版本。用户无需再次作已确认的产品决定。
 
-## 9. 本次最终设计闭合的新增来源与检查重点
+## 9. 前轮候选的来源基础与保留机制
 
 本轮研究基线fd0e5e0fa4569aabd538fc1c21724bd97086c064；实际写探针7c35e1ade275e2b776a286e9c6713f894b4a6dda及CURRENT恢复均完整回读。旧阶段的26233f探针和f4a1233指南读取是历史，不替代本轮权限/版本检查。当前研究main为[daf797c](https://github.com/YuukiAS/AI_Research_Toolkit/tree/daf797c79bcd777c27948da51c4218e5d95e7be3)，[设计指南](https://github.com/YuukiAS/AI_Research_Toolkit/blob/daf797c79bcd777c27948da51c4218e5d95e7be3/COMPLEX_SYSTEM_DESIGN_GUIDE.md)未改；[解释标准](https://github.com/YuukiAS/AI_Research_Toolkit/blob/daf797c79bcd777c27948da51c4218e5d95e7be3/COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)新增关键替代比较和连续修订完整解释要求，已完整读取。AI Skills、Bridge、七仓有效源SHA仍匹配上列。
 
 官方Codex新固定[b4ad33d](https://github.com/openai/codex/tree/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895)与原2a77e82之间两提交未改前述Hook/turn/exec文件。新增读取[UserPromptSubmit](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/hooks/src/events/user_prompt_submit.rs)、[PreToolUse](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/hooks/src/events/pre_tool_use.rs)。官方Hooks与安全说明重新核查commandWindows、async、输出spill、session/agent身份与cloud差异；安装版本仍未知。
 
-F1封住“语义归纳后原要求消失”的结构缺口：保存全文范围、逐段映射、必需引用、当前模型反向读取、既有专业角色独立从原文重建；不假称纯函数能识别所有语义遗漏。F2逐仓区分材料就绪与USER_READY，并确定唯一Bridge.check_delivery消费者。F3分launch lease/短mutex、防父子互锁、共享reservation预算、实际ack和副作用核对。F4补全类型/旧枚举/摘要与无循环ReceiptLocator。F5以高风险凭据和普通关系追踪贯穿完整生命周期。06裁决最小完整首片及净收益否决，不把104–264小时变成总额授权。
+F1封住“语义归纳后原要求消失”的结构缺口：保存全文范围、逐段映射、必需引用、当前模型反向读取、既有专业角色独立从原文重建；不假称纯函数能识别所有语义遗漏。F2逐仓区分材料就绪与USER_READY，并确定唯一Bridge.check_delivery消费者。F3分launch lease/短mutex、防父子互锁、共享reservation预算、实际ack和副作用核对。F4补全类型/旧枚举/摘要与无循环ReceiptLocator。F5以高风险凭据和普通关系追踪贯穿完整生命周期。06裁决最小完整首片及净收益否决，不把全量估算变成总额授权（本轮现行成本见06）。
 
 04新增反证先冻结在[0f9a8fd](https://github.com/YuukiAS/AI_Research_Toolkit/commit/0f9a8fd36c845955e0aa07e5e24b3850e11bc785)，然后追源；它们不是独立holdout，不改37/326历史证据计数。新增源如下：
 
@@ -232,11 +236,45 @@ F1封住“语义归纳后原要求消失”的结构缺口：保存全文范围
 
 审查时必须尝试否决这些具体差别：Mica旧恢复器源码不在当前构建的content scripts；SeminarArc输入注入错误和已收到文本持久化分别判断；Bobbio Safe既含全局更新策略操作又仅证明0.2Reader；CARE快速报告明确少HD/HD95；CUHK消费时health在claim前检查已存在，DA应复用并保护而不是另造服务。Lucerna先验证再保存/启用的多步副作用必须有真实后置状态与恢复；Asteria当前方向遍历已有隔离，历史问题应用作回归而非声称当前仍坏。
 
-## 10. 最后一次上游分支刷新与相邻提案影响
+## 10. 前轮上游刷新记录（历史定位，不是本轮最新HEAD）
 
-最终刷新：研究main仍daf797c79bcd777c27948da51c4218e5d95e7be3，七仓有效SHA和Bridge release均不变。AI Skills main前进到1cd3dfd303097265114ffd912ef003329e2c197b；Bridge dev前进到71ad6874c1cde41548eb66a6c32cea615e055407。两份compare均只新增设计文档，不改生产源码。AI Skills当前AGENTS与四份角色/policy/maintenance文件已按新main回读，blob与此前完全一致；以上f1de8e/7f43e代码链接仍是准确代码基线，不能再将旧值标成最新分支HEAD。
+前轮冻结时：研究main仍daf797c79bcd777c27948da51c4218e5d95e7be3，七仓有效SHA和Bridge release均不变。AI Skills main前进到1cd3dfd303097265114ffd912ef003329e2c197b；Bridge dev前进到71ad6874c1cde41548eb66a6c32cea615e055407。两份compare均只新增设计文档，不改生产源码。AI Skills当前AGENTS与四份角色/policy/maintenance文件已按新main回读，blob与此前完全一致；以上f1de8e/7f43e代码链接仍是准确代码基线，不能再将旧值标成最新分支HEAD。
 
 - [PIE新提案](https://github.com/YuukiAS/AI_Skills_Collection/blob/1cd3dfd303097265114ffd912ef003329e2c197b/docs/design/project-instructions-editor/PROJECT_INSTRUCTIONS_EDITOR_0_3_AGENTS_ARCHITECTURE_PROPOSAL_V0_2_2026-10-22.md)：核对模板归属、实际加载/隐式调用和DA边界相关正文。PIE负责编辑，Bridge原模板保留；DA尚未实现不能反向充当PIE自动调用已证。它仍待Critic。
 - [Bridge新提案](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/71ad6874c1cde41548eb66a6c32cea615e055407/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.1_2026-10-22.md)：核对Persistent进度/ETA、正常入口、wrapper能力边界与恢复正文。新提案没有改变当前RuntimeAdapter抽象和Lite一次启动的生产事实，也不授权DA启动任何资源。Progress/ETA不是语义完成证据。
 
 03末尾明确“同thread resume成功≠新AGENTS/Skill实际加载”、SOURCE_BINDING_STALE与原合法加载恢复路径；不新建thread绕开精确resume。Persistent仍持有原寿命/恢复，不将缺进度当产品失败。只更新本研究合同，未修改相邻提案、生产源或其它仓跟踪状态。
+
+<a id="r1-review"></a>
+## 11. R1 五项意见的正式处置与修订证据
+
+意见原件没有仓库路径。本包准确保留用户转交的五项要求作为审查输入，不编造Critic文件或签字。**五项全部ACCEPT，无REBUT或PARTIAL_ACCEPT。** “Planner已补足设计”与“独立Critic已关闭”分开记录，后者仍待R2。
+
+|稳定ID|接受的缺陷与用户影响|本轮选择、具体消费者及反证|唯一权威|
+|---|---|---|---|
+|DA-AR-01|原请求自审可能从一开始漏掉重要要求；异步反馈无耐久owner又回到用户搬运|prepare_admission在首次依赖产品写入前消费原材料；风险规则选SELF/既有独立角色；原生必要时低摩擦绑定既有Review；原owner消费独立决定；无receiver限制写入和USER_READY。bootstrap只读及工具边界先经P0|03#r1-ar01、#r1-integration；02整体链|
+|DA-AR-02|候选/校准与产品stage混用；“专业owner批准”没有可验证对象|单独CalibrationContext/Report；DefinitionAdmission；四类冻结控制；submit/calibrate/activate；已有专业角色或预冻结机械政策；先不可变回执后CAS active binding。首次adapter出口及旧映射也要准入；未ACTIVE不得正式选测|03#r1-ar02；D6/F4已同步，05联动反例|
+|DA-AR-03|只选验收不能防实施时省掉成熟能力；导致反复低质返工|Resolution.execution_capabilities由select/bind/ack和原Executor载荷实际消费；要求版本、真实read/invoke、实现影响；已审project equivalent可替代，缺required限制claim；后台计算文档不强迫前端|03#r1-ar03；CSV REQ-043/065|
+|DA-AR-04|角色名没有真正报告出口；专业结果可能无人读，旧PASS可冒完成|七仓固定finalizer命令在原产品副作用前dispatch，独立输入后check_delivery，report重验再原结果writer核绑定；七个BYPASS均要求拒绝；未接真实入口不enable|04#r1-ar04、03阶段绑定与report协议|
+|DA-AR-05|先花完整公共层成本才发现宿主不支持，会使关键接线返工|P0实际版本/Hook信任与失败/Stop/JSONL/加载/取消/幂等在产品之外先证；固定支持矩阵及P2回退，关键不支持先回同Planner修路线再实施完整da/2|06#r1-ar05、P0→P1/P2依赖与成本|
+
+### 本轮新刷新及固定源码
+
+研究main仍为daf797c79bcd777c27948da51c4218e5d95e7be3，两份指南已读取。七仓固定SHA和Bridge release不变；不是重新取移动HEAD来覆盖原历史证据。以下新增读取用于本轮真实接线：
+
+- AI Skills main **ca10623fe028114cfafc5ec7e5350800d5c8259c**：[AGENTS](https://github.com/YuukiAS/AI_Skills_Collection/blob/ca10623fe028114cfafc5ec7e5350800d5c8259c/AGENTS.md)、[Planner](https://github.com/YuukiAS/AI_Skills_Collection/blob/ca10623fe028114cfafc5ec7e5350800d5c8259c/docs/workflows/PLANNER_ROLE_CONTRACT.md)、[Critic](https://github.com/YuukiAS/AI_Skills_Collection/blob/ca10623fe028114cfafc5ec7e5350800d5c8259c/docs/workflows/CRITIC_ROLE_CONTRACT.md)、[Capability Gate](https://github.com/YuukiAS/AI_Skills_Collection/blob/ca10623fe028114cfafc5ec7e5350800d5c8259c/docs/workflows/PLUGIN_CAPABILITY_GATE_POLICY.md)、[Maintenance](https://github.com/YuukiAS/AI_Skills_Collection/blob/ca10623fe028114cfafc5ec7e5350800d5c8259c/docs/workflows/AI_SKILLS_MAINTENANCE_BOARD.md)。Planner/Critic为1.7，Capability Gate为1.2。相对1cd3dfd，新增变更仅PIE设计文本；[PIE v0.2](https://github.com/YuukiAS/AI_Skills_Collection/blob/ca10623fe028114cfafc5ec7e5350800d5c8259c/docs/design/project-instructions-editor/PROJECT_INSTRUCTIONS_EDITOR_0_3_AGENTS_ARCHITECTURE_PROPOSAL_V0_2_2026-10-22.md)要求DA相关任务保留三层AGENTS证据，R1能力消费未删掉它；它仍不是已实现调用。
+- Bridge实际开发分支 `work/bridge-core--product-scope-reset` **b3a435eb193bcba251b343d2dd5dd3ef580587ed**：[cli.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/b3a435eb193bcba251b343d2dd5dd3ef580587ed/ai_bridge_kit/cli.py)、[reviewed_runner.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/b3a435eb193bcba251b343d2dd5dd3ef580587ed/ai_bridge_kit/reviewed_runner.py)、[reviewed_handoff.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/b3a435eb193bcba251b343d2dd5dd3ef580587ed/ai_bridge_kit/reviewed_handoff.py)、[agent_flow.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/b3a435eb193bcba251b343d2dd5dd3ef580587ed/ai_bridge_kit/agent_flow.py)、[readiness.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/b3a435eb193bcba251b343d2dd5dd3ef580587ed/ai_bridge_kit/readiness.py)。相对71ad687只有[0.11.1入口提案v0.2](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/b3a435eb193bcba251b343d2dd5dd3ef580587ed/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.2_2026-10-22.md)新增，不把提案当实现。release仍ba9013b9fbbd242e51b09f9d09291f417df17652，release AGENTS/cli/reviewed亦重读。
+- Bridge真实调用依据：run_lite_task的preflight及subprocess；Review的executor_prompt、run_codex_event、watcher_once；reviewed_handoff.init_task原PLAN_REQUESTED和PLAN_FROZEN转移、validate_final_report_for_repository；Control的RoleLaunchRequest、RuntimeAdapter抽象与launch_executor_with_preflight。新增prepare_admission/definition/consumer/report函数均明确是拟接线，源码没有它们。
+- 七仓新增最终出口源码与专业规则完整链接集中于04#r1-ar04。特别核查CUHK当前脚本会先加载凭据/查询live，故新增finalize必须顶端分流；CARE原finalizer默认会有accounting/commit，最终分支也必须提前分流；Lucerna旧campaign不直接重跑；Bobbio旧Safe不代表0.3；SeminarArc准备脚本明确GPT_WORK_EXECUTED=NO。
+- 官方固定Codex **b4ad33d1a3c10c9652dd57f7afd7a949f8f26895**：[stop.rs](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/hooks/src/events/stop.rs)、[turn.rs](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/core/src/session/turn.rs)、[exec CLI](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/exec/src/cli.rs)、[exec events](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/exec/src/exec_events.rs)。重查[官方Hooks](https://learn.chatgpt.com/docs/hooks)、[非交互](https://learn.chatgpt.com/docs/non-interactive-mode)、[AGENTS](https://learn.chatgpt.com/docs/agent-configuration/agents-md)。源码与文档说明可能路线，不能证明用户实际Windows/Desktop/CLI/Remote版本及已加载状态。
+
+### 审查最容易漏掉的连带影响
+
+- 原要求独立重建与候选validator批准是不同决定；可由已有同一专业角色在同次审查分别输出，但不准以同一个旧摘要代签两个对象。
+- 候选校准不是RequestedClaim.stage。所有新增字段已并入同一未发布da/2提案，不保留另一个可忽略新字段的“兼容reader”。
+- 激活回执与profile CAS、结果回执与claim、首次adapter与最终出口shadow均不能形成循环。
+- 正常无任务包请求和纯CLI父进程缺模型上下文均有明确路线及支持前提，未获P0证实不能宣传自动接入；没有owner不能把落盘写成送达。
+- 七仓报告失败应回原task，不重跑有副作用准备脚本；产品科学负结论、用户取消、外部等待不启动自动修成绿的循环。
+- 总体估算130–316小时，首片36–80小时，先行P0仅4–8小时；未量测，未获一次性全部实施授权。
+
+本轮只完成研究文稿写入和固定源码核查。P0、七仓完整产品验收、实际安装/loaded证明全部仍未执行；各仓DA enabled=NO。独立Critic只能判断该设计是否足以进入下一步获权阶段，不能把本文转成生产PASS。
