@@ -223,3 +223,19 @@
 |CARE：仅修单层预处理后重新打包，旧权重和正常病例不能改变。补读 [Attempt3 packaging](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/packaging/run_care_myops_attempt3_single_slice_hotfix.py#L670)|原task→BASE_ARCHIVE身份/关键assets/正常病例不变→phase_functional的正常15例与混合病例、phase_archive save/load后官方entry、13例synthetic矩阵→实际archive/image ID和预测|只测工作镜像却打旧tar、混入Attempt2、load后少输出均不准archive ready；适配器将身份/缺病例送原Controller。源码docker_infer会清输出、phase_archive会改tag/load/rm，故绝不作为本轮只读探针执行；包装不改变科学路线，也不授权上传|
 
 这些推演反过来修订了公共算法：旧/新图并集防删除逃逸；多个最终对象各有claim，不能以JSON model代替PDF、工作镜像代替archive、视图子集代替canonical模型；同一错误必须带对象identity回原task。真正未见功能抽样仍按03 D2在冻结方案后由独立审查/试点进行，本轮不能自称独立验证。
+
+## 最终闭合阶段：先冻结再推演的追加反证
+
+2026-10-22 在检查下列具体当前函数之前，按原历史登记选定七个此前未作为本架构完整示范的任务。不是独立随机 holdout，也不增加第824行台账；仍引用原 case_id。下表先冻结问题与可否决标准，后续只追加源码推演，不按结果换题。原37条定向抽查、326条当前未验证的统计不变。
+
+|原历史条目|本次冻结输入／必须观察的后置条件|坏例／旧控制／证据边界|
+|---|---|---|
+|Lucerna:L20|替换一个provider凭据，验证成功之后下一次正常刷新使用新凭据；取消/写入失败不能伪装成功|仅验证新key却未激活应失败；旧Codex quota、unknown/stale与其它provider不变。只读源码；真实账户/Windows未运行|
+|Bobbio:B02|隔离Zotero准备与启动需同时满足profile/dataDir、更新偏好、更新器缓存与机器策略的现有安全条件|只写禁更新偏好却启动残留更新器不能算隔离成功；真实库与PDF不变。禁止启动Zotero|
+|Mica:M08|发送确认与草稿清理必须对应同一消息/草稿版本；提交后用户新输入不得被旧清理删除|仅输入框清空冒充发送、延迟ACK删除新草稿均拒绝；IME、正常发送及低资源热路径保持。最终正常Edge手动边界不变|
+|SeminarArc:S24|通过指定APK的正常编辑入口输入文本、读回实际输入，再保存/强停/重启/导出保持该文本|Android10输入注入改字符先判采集/注入错误，不能伪装持久化坏；旧照片/公式/录音保留。未操作设备|
+|Asteria:A14|固定科学图中Recursive/Both应分别求上游、下游闭包再合并，不在中途反复双向扩散|菱形/共同下游的旁支不应错误进入；旧直接trace、图布局、canonical关系不变。需完整科学图独立观察|
+|CUHK_Date:C25|票据消费当刻检查冻结snapshot所需依赖可用，再进入真实注册/预期状态；预检历史健康不够|发票后依赖死亡不能签可交付，也不能为探测消耗最终票据；失败lease释放与同snapshot恢复按原合同。无账号/部署操作|
+|CARE:C11|现行合法科学任务明确checkpoint选择标准；训练/评估实际选择必须按该标准消费真实指标，不能只在说明里写Dice/HD95|val_patch_loss偷偷代替正式规则应拒绝；步数、病例总体、no-T2与充分科学负结果保留。历史SRR标准不变成当前新路线授权|
+
+推演记录将在本节之后写回同一文件。此冻结只约束研究反证选择，不授予任何后续实测资源。
