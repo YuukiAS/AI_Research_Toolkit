@@ -148,7 +148,7 @@ Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edf
 
 续研期间研究仓main从70812bd前进到 `f4a1233d59817867bc4c40b541f480695d947440`。已完整回读其最新COMPLEX_SYSTEM_DESIGN_GUIDE.md（blob c3cfe3b8afcee108df90ce9f1bcce3650bee0c3a）及新增[可信解释标准](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f4a1233d59817867bc4c40b541f480695d947440/COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)。新版强调风险匹配质量属性、成熟外部能力的许可/维护、真实负结果、成本、明确用户选择及不移动完成终点；02–06已经按这些原则核对。它没有授权实施或自动发送前拦截。
 
-AI Skills main、Bridge release/实际dev和七仓有效分支收尾重新查询仍与本文件固定SHA一致。官方Codex源码只作为接口/机制依据，Apache-2.0许可已读；没有移植或安装其代码，也不保证当前Desktop部署同版本。采用已有项目工具，不新增外部编排依赖。Python标准库排他创建标志支持Unix/Windows的文档已核对，具体OS崩溃/取消/文件替换性质仍需运行测试。[Python os](https://docs.python.org/3/library/os.html#os.open)
+前轮候选收尾时，AI Skills main、Bridge release/实际dev和七仓有效分支与当时记录一致；本轮当前版本以本文件末尾R1刷新记录为准。官方Codex源码只作为接口/机制依据，Apache-2.0许可已读；没有移植或安装其代码，也不保证当前Desktop部署同版本。采用已有项目工具，不新增外部编排依赖。Python标准库排他创建标志支持Unix/Windows的文档已核对，具体OS崩溃/取消/文件替换性质仍需运行测试。[Python os](https://docs.python.org/3/library/os.html#os.open)
 
 ## 最终闭合：宿主、信任与两道门的支持矩阵
 
