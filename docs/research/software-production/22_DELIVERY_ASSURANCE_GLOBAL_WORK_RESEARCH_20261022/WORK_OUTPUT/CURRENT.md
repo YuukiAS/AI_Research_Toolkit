@@ -106,3 +106,8 @@ GitHub compare `b6ca488fd93ca5b6a7dacb901aa34a123f1540f1...5a46c6a2f3640f45a240b
 原请求语义边界、材料/最终阶段、验收器生命周期、锁/预算/实际接收、da/2完整字段和最终check调用已统一。七仓源码反证与成本选择已进原权威文件。823行已与本轮基线fd0e5e0逐字段核对：原文、来源、历史和当前证据状态零变化；唯一row_id为823，37/326不变，答复锚及公共216问正文一致。Markdown表列无异常。
 
 README已更新唯一整体解释。正在以固定提交完整回读并核对仅WORK_OUTPUT写入，然后冻结新的CURRENT和08；这一步不是新增设计版本，不运行产品或独立审查。
+
+
+### 收尾来源变化已核清
+
+最后刷新发现AI Skills main新增PIE设计提案，Bridge dev新增正常入口设计提案；compare各仅新增文档，AGENTS/四份正式角色与policy回读blob未变，Bridge运行源码/release及七仓SHA未变。03补清同thread恢复不自动证明AGENTS热加载、SOURCE_BINDING_STALE与原合法加载恢复；Persistent进度/ETA不作为专业完成证据。07追加精确新HEAD和来源。旧技术冻结需更新到本次新提交后再全包回读；没有实施这些相邻提案。
