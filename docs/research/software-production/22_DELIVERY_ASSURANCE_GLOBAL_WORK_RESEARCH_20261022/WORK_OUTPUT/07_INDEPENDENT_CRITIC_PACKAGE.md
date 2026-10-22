@@ -231,3 +231,12 @@ F1封住“语义归纳后原要求消失”的结构缺口：保存全文范围
 - CARE_Challenge：[scripts/training/run_srr_myops_fold0.py](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/training/run_srr_myops_fold0.py)；[prompts/tasks/20260629_pathology_checkpoint_selection.md](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/prompts/tasks/20260629_pathology_checkpoint_selection.md)；[results/20260629_pathology_checkpoint_selection/result.md](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/results/20260629_pathology_checkpoint_selection/result.md)；[scripts/ops/care_milestone_finalizer.py](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/ops/care_milestone_finalizer.py)。
 
 审查时必须尝试否决这些具体差别：Mica旧恢复器源码不在当前构建的content scripts；SeminarArc输入注入错误和已收到文本持久化分别判断；Bobbio Safe既含全局更新策略操作又仅证明0.2Reader；CARE快速报告明确少HD/HD95；CUHK消费时health在claim前检查已存在，DA应复用并保护而不是另造服务。Lucerna先验证再保存/启用的多步副作用必须有真实后置状态与恢复；Asteria当前方向遍历已有隔离，历史问题应用作回归而非声称当前仍坏。
+
+## 10. 最后一次上游分支刷新与相邻提案影响
+
+最终刷新：研究main仍daf797c79bcd777c27948da51c4218e5d95e7be3，七仓有效SHA和Bridge release均不变。AI Skills main前进到1cd3dfd303097265114ffd912ef003329e2c197b；Bridge dev前进到71ad6874c1cde41548eb66a6c32cea615e055407。两份compare均只新增设计文档，不改生产源码。AI Skills当前AGENTS与四份角色/policy/maintenance文件已按新main回读，blob与此前完全一致；以上f1de8e/7f43e代码链接仍是准确代码基线，不能再将旧值标成最新分支HEAD。
+
+- [PIE新提案](https://github.com/YuukiAS/AI_Skills_Collection/blob/1cd3dfd303097265114ffd912ef003329e2c197b/docs/design/project-instructions-editor/PROJECT_INSTRUCTIONS_EDITOR_0_3_AGENTS_ARCHITECTURE_PROPOSAL_V0_2_2026-10-22.md)：核对模板归属、实际加载/隐式调用和DA边界相关正文。PIE负责编辑，Bridge原模板保留；DA尚未实现不能反向充当PIE自动调用已证。它仍待Critic。
+- [Bridge新提案](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/71ad6874c1cde41548eb66a6c32cea615e055407/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.1_2026-10-22.md)：核对Persistent进度/ETA、正常入口、wrapper能力边界与恢复正文。新提案没有改变当前RuntimeAdapter抽象和Lite一次启动的生产事实，也不授权DA启动任何资源。Progress/ETA不是语义完成证据。
+
+03末尾明确“同thread resume成功≠新AGENTS/Skill实际加载”、SOURCE_BINDING_STALE与原合法加载恢复路径；不新建thread绕开精确resume。Persistent仍持有原寿命/恢复，不将缺进度当产品失败。只更新本研究合同，未修改相邻提案、生产源或其它仓跟踪状态。
