@@ -26,7 +26,7 @@
 
 ## E3 任务身份与存储：不造第二个CURRENT
 
-待实现的公共数据放**既有任务证据根**的delivery/内。Lite沿results/<task_key>，Review/Control沿其task路径，CARE沿任务result根。原生无任务包入口可用忽略入Git的 .ai-bridge/delivery/<session-id>/<request-epoch>/；这里只存源/证据/恢复引用，不推进工作流。目录名非权限来源。
+待实现的公共数据放**既有任务证据根**的delivery_assurance/内。Lite沿results/<task_key>，Review/Control沿其task路径，CARE沿任务result根。原生无任务包入口可用忽略入Git的 已配置 Bridge state 根/delivery_sessions/<session-id>/<request-epoch>/delivery_assurance/；这里只存源/证据/恢复引用，不推进工作流。目录名非权限来源。
 
 admission.json：schema_version、entry_kind、runtime_version、session_id/turn_id（可空但原因必填）、task_key、repo/worktree、branch、baseline、dirty_ownership、source_bindings、claim_requested、effect_refs、owner、scope_revision。
 obligations.json：原请求locator、冻结标准locator与版本、required行为、不可替代条件、should_not_change、对象关系、coverage_unknown。
@@ -58,7 +58,9 @@ claim.json/report.md：由上述数据派生，可重建，绝不是另一个任
 以下YAML全为**待实现设计**，路径/函数是候选新增；并非已安装配置。它扩展已存在的Lucerna验收runner，不新写万能运行器。
 
 ```yaml
-schema_version: 1
+schema_version: da/2
+object_type: GateDescriptor
+# 下列为便于读者理解的非完整示意，正式字段集以 D6 为准。
 id: lucerna.provider-state-truth
 owner: Lucerna
 standard:
@@ -135,7 +137,8 @@ admission发现标准已定、程序缺失时生成下列工作项，拟由run_l
 
 ```json
 {
-  "schema_version": 1,
+  "schema_version": "da/2",
+  "object_type": "Feedback",
   "work_item_id": "W-provider-mapping",
   "task_key": "existing-task-key",
   "kind": "BUILD_VALIDATOR",
@@ -641,3 +644,71 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 ### 生命周期与成本
 
 同一行为只补样例时复用类别；出现新观察方式或独立标准才新建 Gate。新增与加固都运行冻结好/坏/缺证/旧功能控制；缺任一种不得正式准入。暂停检查保留义务；限期、作用域、替代及到期回收写入原项目配置，由任务开始/交付时校验，不靠后台闹钟。永久退休必须把历史坏例与旧消费者迁给新 Gate 或有明确产品取消授权。中央升级先回放共享语义与全部已声明 consumer fixtures，再逐项目实际入口适配；失败只阻止该消费者升级，不批量写 DONE。成本优先顺序固定为来源/身份→机械检查→小纵向链→受影响真实目标→独立专业审查；没有任何 tier 为逃避原任务验收而自动降低。
+
+## D6 唯一接口选择：提出 da/2，拒绝暗改冻结 da/1
+
+### 1. 比较与决定
+
+本研究**推荐新 wire 版本 `da/2`**，保留旧 da/1 文件作为历史权威，提交独立 Critic 重新审查；不是新研究轮次、正式发布或执行授权。理由是完整的义务来源、消费回执和观察信任绑定成为交付准入的必需输入，旧读者会忽略这些新增必需条件，不能用可选字段假装兼容。
+
+|候选|代价与失效|决定|
+|---|---|---|
+|da/1 完全不动，仅加可选 hints|旧消费者可能在缺新义务/观察/接收绑定时仍给 ready|不选；无法表达新准入约束|
+|明确 da/2，旧记录只诊断导入|要升级消费者与冻结接口；当前尚未发现生产 da/1 reader，迁移成本主要在设计/fixture|选定；严格版本握手和回退|
+|弃用公共格式，每仓私有|少一次中央迁移，重复选测/身份/失效规则，七仓消费漂移|不选；保留为退出 DA 后的原项目路径，不并存两套通过权|
+
+旧 freeze 固定来源：[PUBLIC_DA1_INTERFACE_FREEZE](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f1426b6322870c7a9d42d83ff6ea7ad8a35837a3/docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PUBLIC_DA1_INTERFACE_FREEZE_V1_20261020.md)。旧 PROCEED 不能迁给本提案。旧 FULL 已表示完整义务覆盖而非重跑所有测试；本研究保留这个语义，不虚构该项冲突。
+
+### 2. 实际消费者调查
+
+2026-10-22 通过 GitHub 对 Bridge/AI Skills 与七仓默认分支搜索 `da/1`、`GateResult/GateDescriptor`，并核查固定 release/dev 的 cli、reviewed_runner、agent_flow 调用源码、各仓正式 runner。未发现这些已读运行入口消费 da/1；**搜索无结果不等于证明全部机器没有私有实现**。确定找到的相邻合同是 [PIE TODO L85–103](https://github.com/YuukiAS/AI_Skills_Collection/blob/f1de8e85957d32a50f4458349f450ec65add13bb/docs/skill-todos/project-instructions-editor.md#L85)，它把未来0.3与 da/1 绑定；对应 [PIE 0.3 审查合同](https://github.com/YuukiAS/AI_Skills_Collection/blob/f1de8e85957d32a50f4458349f450ec65add13bb/docs/design/project-instructions-editor/PROJECT_INSTRUCTIONS_EDITOR_0_3_AGENTS_ARCHITECTURE_CRITIC_PROMPT_V0_1_2026-10-20.md) 明确尚为架构审查，不能把未发布0.3当必需运行依赖。
+
+迁移对象已确定：workflow-core 规范/fixtures；Bridge 三入口、Hook、Control具体adapter；七仓项目result adapter及交付出口；PIE相邻设计引用；AI Skills生成分发与consumer manifest。PIE不负责 ready、不成为 DA 首次运行前置条件；AGENTS语义维护沿当前合法编辑流程，DA验证 canonical authority/实际加载。外部已装 reader 在启用时进行能力握手，发现未知版本直接拒绝 DA ready，由原项目流程继续诊断；不自动转换或覆盖。
+
+### 3. da/1 到 da/2 的准确差异
+
+|对象/旧合同|da/2 决定|旧结果如何处理|
+|---|---|---|
+|全部 `schema_version="da/1"`|必须为 `"da/2"`，另有 object_type；未知主版本拒绝准入|只读诊断 importer，不能自动PASS|
+|GateDescriptor 的 capability/failure/entry/evidence/judgment/identity/invalidation/cost/calibration|全部保留；新增 protection_policy 与 lifecycle_binding 为必填|旧定义可作草案，必须补标准owner/风险档/旧保护转移后准入|
+|ProjectAdapter authority/AGENTS/targets/edges/impact/claim/owner|全部保留；新增 surface_inventory_ref、discovery_contract、consumer_binding|旧 adapter 不能以空入口集表示无旧功能|
+|GateResult 的 decision=PASS/FAIL/UNKNOWN 与三轴证据|枚举及原含义保留；新增 obligation_set_digest、observation_binding、contract_binding、consumption_ref|旧PASS只保留其原声明；不能证明新coverage/观察独立/消费|
+|Resolution NONE/TARGETED/BROAD/FULL|保留；另列 unresolved_obligations 与 unknown_edges，FULL不抹除它们|旧选择结果不能凭 mode=FULL晋升ready|
+|claim tuple/USER_READY聚合|保留目标/能力/环境/时窗/层级；required集合必须绑定原请求和旧保护，禁止空集合|新ready重新计算；不由旧总状态复制|
+|正常entry/失败路由的文本引用|新增 Admission、Feedback、Receipt 有明确 session/task/cancel/budget binding|缺实际接收者不签自动返修能力|
+|authority安全单调性/标准变更|保留；标准、oracle、collector变更分别失效；专业取舍不交Executor|新旧authority冲突回原owner，不选“更近日期”|
+|存储 `delivery_assurance/` 和原task CURRENT|保留，不使用初稿 `delivery/` 简写，不设第二CURRENT|导入定位显式，禁止扫描“最新PASS”|
+
+### 4. 规范字段与类型（实现必须照此，不交 Codex 自选）
+
+所有对象 UTF-8 JSON，顶层 object；必填 `schema_version:string="da/2"`、`object_type:string`。身份为非空 string 或具名结构，不允许 null 冒充空值；明确允许未知的内容用 `{status:"UNKNOWN",reason:string}`，不能写0。来源引用统一 `{repo,ref,path,blob_digest,scope}`；本地观察引用用 `{artifact_id,digest,locator,access_class}`，不得嵌入账号密钥。解析拒绝重复键、非法路径、必填缺失、未知 decision、未知主版本；扩展字段只许放 extensions，不获得准入语义。
+
+**GateDescriptor 保留必填集合**：gate_ref、definition_version、authority_ref、authority_contract_ref、definition_digest、capability、failure_semantics、applicability、subject_types[]、target_roles[]、claim_support[]、normal_entry、evidence_requirements、judgment、regression_bank_refs[]、known_bad_refs[]、should_not_change_refs[]、invalidation、execution_requirements、calibration_requirement。normal_entry 必含 kind/root_ref/entry_ref 和 argv_schema 或 typed_parameters；不能把任意shell字符串当入口。evidence_requirements 必含 modality[]/fidelity[]/observer_requirement[]/required_observations[]/completeness_rule。judgment 必含 PASS/FAIL/UNKNOWN条件、rubric_ref与阈值约束。invalidation 必含 subject/target/runner/fixture/rubric/environment依赖及time_validity。execution_requirements 必含权限、cost_resource_ceiling、secret_classes、physical_target、long_run、side_effects。
+
+**新增 Descriptor 字段**：protection_policy={risk_tier:MECHANICAL|PRODUCT|PROTECTED,reference_source,observer_required,calibration_refs[],accepted_behavior_refs[]}；lifecycle_binding={owner_ref,state:ACTIVE|PAUSED|RETIRED,effective_scope,expiry_or_none,replacement_refs[],reason_ref}。required暂停/退休但无合法替代时不能准入，不把生命周期state当任务state。
+
+**ProjectAdapter 保留必填集合**：repo_identity、authority_ref、adapter_semantic_digest、canonical_authority_set[]、agents_authority_set[]、normal_entry_refs[]、capability_refs[]、targets[]、edges[]、impact_rules[]、parameter_bindings[]、source_set_rules[]、environment_profiles[]、claim_ceilings[]、long_run_owner_refs[]、human_only_boundaries[]。authority item保留 field_or_scope、authority_ref、canonical_locator、branch_or_release_scope、content_digest、supersedes[]、effective_from；AGENTS item保留 scope_root、agents_path或ABSENT、canonical_contract_refs、authority_ref、branch_or_release_scope、content_digest、supersedes、effective_from。新增 surface_inventory_ref；discovery_contract={extractor_refs[],supported_entry_kinds[],unknown_edge_rule,baseline_ref}；consumer_binding={consumer_id,reader_version,accepted_schema_versions[],entry_refs[],delivery_boundary_ref}。
+
+**GateResult 保留必填集合**：task_identity、workflow_identity、run_id、gate_instance_key、gate_ref、authority_ref、definition_version、definition_digest、adapter_semantic_digest、candidate_identity、source_set_identity、subject_identities[]、target_identities[]、normal_entry_identity、runner_identity、fixture_identity、rubric_identity、observed_at、environment_identity、decision、reason_codes[]、obligations_covered[]、obligations_missing[]、evidence_refs[]、invalidation_fingerprint、actor_provenance、observer_provenance、scope、cost、elapsed_time、claim_support[]。新增：
+- contract_binding={request_ref,scope_revision,authority_set_digest}；
+- obligation_set_digest：本次完整expected集合摘要；
+- observation_binding={collector_identity,reference_identity,trust_tier,raw_evidence_refs[],protection_evidence_ref_or_unknown}；
+- consumption_ref：指向本次当前owner接收该结果的 Receipt；首次输出可为明确 pending receipt，**pending不能签ready**。不存在用自引用hash生成结果的循环：GateResult不可变，receipt引用其digest，consumption_ref是稳定receipt locator；核验再读取该locator。receipt不反写result字节。
+
+**Admission**：task_identity、workflow_identity、request_ref、scope_revision、entry_kind、session_binding、source_bindings[]、candidate_identity、effect_refs[]、budget_ref、owner_ref、cancel_epoch、consumer_binding。无session的真实非交互runner可以在session_binding写NOT_APPLICABLE及依据，不能假造session。
+**ObligationSet**：contract_binding、candidate_scope、required[]、should_not_change[]、surface_inventory_ref、unknown_edges[]、unresolved[]、digest。每项 obligation={id,requirement_ref,target_ref,postcondition,claim_level,non_substitutable[],authority_ref,gate_refs[],status}；required为空只能在无交付声明的明确NONE任务成立。
+**Resolution**：admission_ref、obligation_set_digest、mode、selected[]、reuse[]、not_applicable[]、unresolved_obligations[]、unknown_edges[]、effect_requirements[]；各条带id和reason/ref，不仅列命令。
+**Feedback/Receipt**：D4字段；Receipt={task_identity,feedback_or_result_ref,digest,candidate,recipient_session_or_owner,cancel_epoch,delivery_observation,ack_observation,resolution_result_refs[],budget_usage}。单调追加事件，不回写已见失败。
+**Claim**：task_identity、contract_binding、candidate_identity、obligation_set_digest、result_refs[]、receipt_refs[]、allowed_claims[]、denied_claims[]、remaining_unknowns[]、report_ref。每个claim保留旧tuple；本对象不颁发发布/账号/GPU权限。
+
+digest 只包含各对象已声明语义字段；数组是否集合由字段规定，set字段按稳定id排序，步骤/argv保留顺序；对象键按字节排序，UTF-8、无无意义空白、拒绝NaN/Infinity，度量小数用明确单位的十进制字符串。不把注释/展示路径/生成时间/自身摘要纳入语义摘要。跨语言必须同一组固定输入输出fixture，不能分别随手json.dumps导致失效漂移。时间新鲜性保留独立检查，不因排除展示时间就无限复用。
+
+### 5. 迁移、双读、拒绝和回退合同
+
+顺序确定为：独立 Critic 审本 da/2提案→workflow-core schema/reader/fixtures→Bridge能力协商且默认不签新ready→单仓 shadow读取旧原始输出产生da/2→确认旧原生报告与新分项一致，故意删字段必须拒绝→该仓切单一da/2准入→其余七仓分别适配→同步PIE等相邻设计引用和已装consumer清单。没有通过的仓继续旧项目验收，不能标DA已支持。shadow不是两套PASS权；只有指定当前consumer_binding拥有正式准入权。
+
+reader 支持 da/2准入；da/1只经 `import_legacy_for_diagnostics` 输出旧来源与缺项清单，不自动补未知字段、不签新ready；unknown schema硬拒绝。旧记录仍可作为原始观察候选，被新标准重新判定且真实身份/观察/时窗成立后产生**新的**da/2 result；不是给旧PASS换标签。可选扩展不改变必需语义；未来必需字段或decision含义变更再升主版本。
+
+回退选择经过验证的 Bridge/core/project-adapter 版本组合，停发DA ready并保留所有原项目检查、历史结果和未解决义务；不把新记录强转da/1，不删除新回归，不回滚产品数据。每consumer启用前验证读者版本/已加载payload/受管入口；升级失败只回退该consumer，未适配者不得被中央release“一键完成”。
+
+这些是本轮已经作出的架构选择。还需独立审查批准、实现与真实加载测试；不存在“以后由Codex决定版本/双读/迁移顺序”的空白。
