@@ -16,3 +16,10 @@
 - 写入方式：GitHub 插件 `github_create_file`，显式指定既有分支；回读方式：`github_fetch_file`，显式指定同一分支。
 - 追加随机核验标识：pit5lyzkjw-5967ut51ulv。
 - 顺序偏差：为发现工具 schema，最初两项工具调用仅发现 GitHub 工具；第一个实际 GitHub 资源操作即为创建探针。仓库权限与分支保护标记在成功回读后补查，未在验证前开展实质研究。
+
+## 同一任务继续时的真实写入复核
+
+- UTC：2026-10-22T02:10:20Z；写入前实际观察分支HEAD：b6ca488fd93ca5b6a7dacb901aa34a123f1540f1。
+- 本次先查询仓库权限push=true/archived=false及指定分支protected=false，再读取当前探针与CURRENT；未覆盖未知修改。
+- 本次随机标识：DA-CONTINUE-20261022-0ax8lm26z2u。
+- 写入方法：在原文件追加本节，显式指定原分支并用当前blob SHA更新；随后通过GitHub回读逐字核对。继续同一研究，不新建方案目录或执行任务。
