@@ -1146,3 +1146,5 @@ NOT_APPLICABLE 条目只保留 id/requirement_refs/why 与依据，不伪填安�
 **首次控制集的权威来源。** 标准已有时引用冻结标准；首次专业标准/控制集由已有专业 Planner 或 Reviewer 从原请求、官方定义和原始观察独立重建，写入它自己的审查输出，形成待冻结的 authority/controls 决定。Bridge 的原 owner 消费并冻结之后，候选作者只能读取，不能以改答案修 validator。候选作者提出的样本可供审阅，但不能是唯一正确性来源；独立角色须给反例或独立 oracle 的来源及覆盖理由。审查候选的只读边界与“角色可以写自己的决定/控制建议目录”兼容，不赋予它候选、产品、正式标准文件的写权。若实际受保护边界拿不到，按原风险档保留 UNKNOWN。
 
 **定义失效与选择。** select_checks 可发现候选或未准入定义，并将其列入 unresolved_obligations；只有 ACTIVE 且绑定有效的定义进入 selected/reuse。校准入口显式读取候选，不借 formal RunContext。正式 reader 将 DefinitionAdmission/CalibrationContext/CalibrationReport 作为单独 object_type 解析，采用本文件 R1-AR02 的唯一字段集；它们不能被 GateResult parser 接收。原 profile 的 active binding 固定为 `{definition_id,kind,candidate_digest,admission_ref:Ref,activation_receipt_locator:ReceiptLocator,previous_binding_digest_or_none}`，CAS 整个 binding；不存在第二份可自行变绿的注册表。
+
+**Persistent相邻预算边界。** Bridge开发分支新增通知预算提案v0.3（源码未改，固定来源见01/07）。DA的同任务返修reservation只限制自己的获准返修，不向Persistent另发一套通知；原supervisor/Notifier持有外部通知permit和额度。恢复、反馈ACK、报告生成均不能重置run binding或隐式调用邮件。P0使用无通知fixture，不依赖这项尚未实施的相邻提案。
