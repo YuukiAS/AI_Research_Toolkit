@@ -573,3 +573,71 @@ Control 关键事实：[RuntimeAdapter L485–489](https://github.com/YuukiAS/GP
 |CARE|原 Controller 调用 finalizer 获得完整结构与 exit|care_milestone_finalizer 的送审包生成前，当前 Controller 的科学终态判断处|原 route/task/Slurm job identity；科学负结果交 Planner，不能再投新作业|
 
 上表不是声称这些程序已经内置 DA。新增接点和谁读取已确定；若当前没有活跃模型/Controller，恢复位置仍在原任务，后续必须通过原入口合法继续。ACK 包含 task/run/candidate，旧评审/旧反馈不得反复触发修复；权限不足只阻塞相关动作，其它独立工作继续。
+
+## D2 旧功能保护：选定“入口清单＋反向依赖＋接受基线”的有界算法
+
+### 路线比较与保护边界
+
+只相信手工 adapter 会漏掉从未登记的功能；每次全跑现有 tests 同样漏掉没有测试的行为；把整个仓库交给模型自由总结难以稳定复用。选定**机械入口枚举、当前模型语义归纳、受影响消费者闭包和基线对照**。机械层只声称枚举已识别入口，不声称理解全部产品；模型草案不单独获得通过权。旧行为的权威来自已接受版本及正式产品合同，不把当前 bug 固化成正确标准。
+
+保护范围冻结为：adapter 支持的入口类型中全部枚举出的用户入口/公开 API/产物目标，及它们的可解析直接和传递依赖；当前改动涉及的动态/未知边显式进入覆盖缺口。入库清单显示 discovered、mapped、tested、reused、unresolved 五个集合及差集，不输出“全部旧功能已保护”这种无边界结论。私有未访问入口、动态生成且不能解析的消费者、不可恢复接受历史只能列未证；不让用户手写补全整个产品。
+
+### 具体数据与调用
+
+首次 admission 调新增 `discover_surface(repo_snapshot, adapter)`。项目 adapter 只声明已有语言/构建工具与入口提取器，不扫描私有主目录或运行产品。来源依次为构建/发布 manifest、注册表/路由/command 定义、公共 export、UI action 到后端绑定、已有 tests 和 accepted reports。用项目现有 TypeScript compiler/构建依赖输出、Rust module/command 注册、Android manifest/导航/Room schema；没有现成结构化提取器时先做有来源的文本定位草案，再由当前模型读上下文确认。文本匹配没有语义确认不得成为“无影响”证明。新增机械提取器必须回放 rename/delete/间接 import/动态注册负例。
+
+输出 SurfaceEntry = {stable_id, kind, source_locator, action, normal_entry, final_target, dependencies, dependency_completeness, accepted_baseline_ref, observation_ref, owner}。id 来自稳定动作/API/对象标识，不用行号；重命名保留 alias。每条行为进一步映射到 obligation 和 GateDescriptor，缺任一条产生具体 COVERAGE_GAP，接收者为当前 Executor 的 adapter/测试补齐任务；发现正式语义冲突才交专业 Planner。
+
+七仓入口来源已选定：Lucerna Tauri command/provider registrations＋UI card action；Bobbio Tauri Zotero commands＋Reader action；Mica extension manifest/background message/action＋export/low-memory pipeline；SeminarArc Android manifest/navigation/usecase/Room migration；Asteria graph projection/view route/control event；CUHK Web routes/API contract/campaign surface registry；CARE正式 CLI/配置消费/数据模型与产物链。不得把 README 功能列表当作唯一分母。
+
+### 动态变化的确定性规则
+
+1. 变化集为接受基线到当前候选的完整内容差异，包含已提交、暂存、工作区、任务相关未跟踪、重命名/删除、锁文件和生成器；不只读 git diff 的未暂存部分。
+2. 从变更节点求反向可达消费者。共享模型、schema、generator、序列化、权限入口改变，扩到全部相关产品目标。delete/rename 同时保留旧边，证明旧消费者迁移后才移除；若只按新图求闭包会把被删功能漏掉。
+3. 新发现入口没有映射、登记入口在源码消失、required 测试删除、公共 API 无消费者、依赖解析失败，分别生成孤儿项；不能变成 NONE。动态未知边使其所属产品范围 FULL；范围本身不明则全项目 FULL，并保留未知义务阻止完成声明。FULL 是全部应覆盖义务的解析和证明，不是“把有的测试都跑一遍就绿”。
+4. 复用必须逐项比较旧结果的 definition/authority、subject/target、正常入口、runner/fixture/rubric/observer、环境能力与有效时窗；改报告不改运行语义可复用，改 collector 则原观察失效，改阈值但原采集完整可重新判定而不必重采。新 EXE 不能拿旧安装结果，但源码未变的独立数学单元结果可有说明地复用。
+5. 每次工具变更后标记 dirty；第一条纵向链、共享层接通与交付前重新选测。缓存键为内容摘要＋提取器版本，缓存 miss 只是重新发现，不授权运行产品。
+6. 维护时比对 accepted SurfaceEntry 与当前集合；退休必须说明消费者迁移/功能经用户批准取消，附保护转移。不能以无命中自动删除旧行为。
+
+### 低成本反证与非特制抽查
+
+机制推演：Lucerna provider_runtime 改动，即使 adapter 漏了 codex_quota，Tauri/provider import 与旧卡动作会产生孤儿或反向消费者，不能只验新卡；SeminarArc 删除旧 repository 方法，旧图仍把搜索/导出连入；Asteria 已提交过的 validator 修改在基线差异中仍可见；CARE 新 train 参数未到 forward/loss 的链会产生未消费义务，而不是仅查 argparse 字段。
+
+正式试点在冻结清单后，从独立枚举的入口集合中按 candidate digest 的可复算序列各取“一个非本次改动旧入口、一个共享消费者、一个已删/迁移入口”；没有第三类则取第二个不同旧入口。每仓最多三项，明确分母与抽样理由；不能由 Producer 挑最容易的三个。抽样人/独立检查负责对照源码和真实后置条件，本轮没有运行该独立抽查。发现漏项要补提取规则和同类回归，再重算整个受影响集合，不只补一个名字。日常任务仅重扫变更依赖，完整盘点发生在首次接入、提取器升级、公共入口/共享模型变化和发布候选；不新增定时扫描服务。
+
+## D3 观察与标准：选定分级独立性，避免每个任务都重型审查
+
+### 不同的可信对象
+
+- 标准/阈值：来自原请求、正式项目/领域合同和已接受基线，冻结于候选生成前；authority locator 与内容摘要并存。模型不得修改标准后当作自己的授权。
+- 产品：允许当前 Executor 在获权范围内修改；构建/安装/部署身份独立记录。
+- 程序与 collector：专业 owner 维护；改动必须校准并失效对应观察。可由同 Executor 编写，但不能仅靠它的新 expected 和新实现互证。
+- 原始观察：runner 从真实对象收集，记录采集路径、对象身份、时间和缺失；产品自报字段是输入之一，不能充当独立 truth。
+- 判定：core 只验证绑定与覆盖，专业 runner/独立 Reviewer 判断领域含义；科学 Planner 决定方向与充分性，不能用 core PASS 代替。
+
+### 三档能力，风险决定采用哪一档
+
+|档|适用与最小证据|谁执行/消费|可信边界与限制|
+|---|---|---|---|
+|机械局部|确定映射/序列化/纯函数；冻结标准＋旧 good/bad/missing/unchanged，至少一组输入干预|当前 Executor 可运行已有测试；core 消费逐项结果|防常见同源误判，不声称抵抗持有宿主写权限的恶意 Producer|
+|产品实际行为|安装、持久化、账号 API、视觉、权限、共享高风险改动；真实正常入口＋独立原始观察|原项目 runner 在限定环境采集；高风险/新 oracle 由项目已有独立 Reviewer 复核|只读参考放在候选之外；具体工具允许写的路径必须限制到输出/测试环境。若同用户 shell 仍能改参考，只算可追溯流程隔离，不写 PROTECTED_OBSERVATION|
+|科学/受保护观察|训练规模/机制/结果充分性，或要求抵抗实现者自签的正式交付|原已授权 Controller/独立观察执行环境运行冻结 runner；Planner 判科学标准；结果在 Producer 不可写的边界生成|只有 OS/容器/远端权限或真实独立审查者控制的输出才能声明 protected。权限拓扑未证明时降的是证据声明、不是原要求；相应最终 claim 保持未证|
+
+选择理由：所有任务强制独立模型会增加费用、引入等待且模型也可能同错；全靠 hash 只证明字节一致而非来源可信；全部上隔离服务会新建平台。选定复用项目原独立流程，低风险机械检查自动完成，高风险观察要求真正分离。新增隔离环境不在当前研究授权内；将其作为具体已有 runner 的部署合同，而非新 DA 服务。若项目没有独立运行边界，采用原 Reviewer 自己从候选启动并采集的低摩擦替代；仍不能把 Producer 的截图移交后叫独立观察。
+
+**防替换规则：** runner 从冻结 authority ref 装载标准，不从候选工作区导入 expected；待审 validator 作为候选，先由冻结 calibration harness 执行旧对抗样例。新标准需要原 owner 明确修订并重新确认相关结果，不能自动更新 golden。运行前后比较参考/程序身份并记录 collector 来源；这能发现正常漂移，不能弥补同权限进程可伪造一切的威胁边界。
+
+### 四个历史反例如何改变判定
+
+|反例|必须采集什么|诊断与实际下一步|
+|---|---|---|
+|Asteria crossing=0 常量、ratio 缺失默认0|从最终渲染 SVG/path/节点实际几何或截图独立提取；禁止读取产品 data-* 自报 crossing 充当 oracle；已知交叉/越界坏图应被校准集拒绝|冻结几何参考与真实坏图先验 collector；collector 连坏图也报0→VERIFIER_BUG；真实图不合冻结视觉合同→IMPLEMENTATION_BUG；审美/语义冲突→原 Reviewer/Planner，不自定阈值|
+|SeminarArc OCR 读错 EditText|控件语义/标识、完整 UI tree、图片/对应对象、独立导出或存储读回；“标签文本”与内容区别|已存在正确内容但定位错→OBSERVER_FAULT，修 selector 重采；真正重启丢内容→产品修复；不能只改期望为空|
+|Lucerna 假状态/旧PID截图|两个不同输入、缺数据、真实 provider observation time、EXE hash/PID/run 的原生动作后置状态|固定数/unknown→0→产品错；旧PID/环境没观察到→采集/身份缺口；无可信上限→数据/标准缺口，不能伪余额|
+|CARE validator PASS但科学充分性FAIL|原训练入口实际 step/time/梯度/病例/预测、Slurm lineage、独立 aggregation；机制干预与冻结充分性门分别评价|足量真实数据得负结果→科学 Planner 收到可信负结论；没训练/少步→实现或执行失败；程序误算病例→validator修复重聚合；不改充分性阈值刷绿|
+
+Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量或读取同一个伪字段时仍同错。SeminarArc UI 和数据库如都由产品自己捏造，也不能证明外部 OCR 正确；它们只能证明指定持久化行为。CARE 两次 eval 同 checkpoint 只能证明推理重载，不能证明训练恢复；训练恢复合同选择 deterministic CPU 小型机制 fixture 比较逐步 batch/RNG/optimizer/scheduler/参数精确一致，真实 GPU 则使用原科学合同已有容差；没有合法容差不擅自制定，报告未证并回原科学 owner。小 fixture 不替代真实医学充分性。
+
+### 生命周期与成本
+
+同一行为只补样例时复用类别；出现新观察方式或独立标准才新建 Gate。新增与加固都运行冻结好/坏/缺证/旧功能控制；缺任一种不得正式准入。暂停检查保留义务；限期、作用域、替代及到期回收写入原项目配置，由任务开始/交付时校验，不靠后台闹钟。永久退休必须把历史坏例与旧消费者迁给新 Gate 或有明确产品取消授权。中央升级先回放共享语义与全部已声明 consumer fixtures，再逐项目实际入口适配；失败只阻止该消费者升级，不批量写 DONE。成本优先顺序固定为来源/身份→机械检查→小纵向链→受影响真实目标→独立专业审查；没有任何 tier 为逃避原任务验收而自动降低。
