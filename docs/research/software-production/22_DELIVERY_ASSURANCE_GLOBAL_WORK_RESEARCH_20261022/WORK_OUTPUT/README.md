@@ -12,6 +12,8 @@
 
 [12：分阶段实施审查包](12_STAGED_EXECUTION_REVIEW_PACKAGE.md)保留先行 P0、最小 Lucerna 完整链、七仓逐项接入、真实反例、预算、权限和回滚。计划估算仍为 P0 **4–8小时**，首片 **40–88小时（含P0）**，全量 **138–332小时**；不是实测消耗或执行授权。先证明入口，再投资公共层；没有减少漏检/用户搬运就不推广。
 
+用户随后明确允许保存[13目标审查草稿](13_P0_CANONICAL_GOAL_REVIEW_DRAFT.md)和[14启动范围草稿](14_P0_KICKOFF_REVIEW_DRAFT.md)，二者均DRAFT/NOT_AUTHORIZED，不启动Goal。首个待审执行范围仅为已有P0的当前Windows非交互CLI单元，已绑定本机fixture及binary文件身份；Desktop/Remote与完整生产实施不随之放行。
+
 技术权威与审查入口：
 
 - [02：整体架构](02_ARCHITECTURE_AND_COMPONENTS.md) · [01：源码、替代方案与平台边界](01_REALITY_AND_ALTERNATIVES.md)
