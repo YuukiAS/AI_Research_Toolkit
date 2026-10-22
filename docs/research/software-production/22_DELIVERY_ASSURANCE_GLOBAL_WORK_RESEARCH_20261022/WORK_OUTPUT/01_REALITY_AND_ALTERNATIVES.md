@@ -149,3 +149,25 @@ Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edf
 续研期间研究仓main从70812bd前进到 `f4a1233d59817867bc4c40b541f480695d947440`。已完整回读其最新COMPLEX_SYSTEM_DESIGN_GUIDE.md（blob c3cfe3b8afcee108df90ce9f1bcce3650bee0c3a）及新增[可信解释标准](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f4a1233d59817867bc4c40b541f480695d947440/COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)。新版强调风险匹配质量属性、成熟外部能力的许可/维护、真实负结果、成本、明确用户选择及不移动完成终点；02–06已经按这些原则核对。它没有授权实施或自动发送前拦截。
 
 AI Skills main、Bridge release/实际dev和七仓有效分支收尾重新查询仍与本文件固定SHA一致。官方Codex源码只作为接口/机制依据，Apache-2.0许可已读；没有移植或安装其代码，也不保证当前Desktop部署同版本。采用已有项目工具，不新增外部编排依赖。Python标准库排他创建标志支持Unix/Windows的文档已核对，具体OS崩溃/取消/文件替换性质仍需运行测试。[Python os](https://docs.python.org/3/library/os.html#os.open)
+
+## 最终闭合：宿主、信任与两道门的支持矩阵
+
+用户三项边界已确认，本表不再制造待决产品选择。表中的“已证实”仅指本研究真正取得的源码/历史材料；**没有任何宿主完成本轮新DA正常入口实测**。安装了插件、Hook定义存在、源代码支持事件都不等于当前宿主已启用。
+
+|实际入口|已实际证实的事实|基于源码确定、尚未实测的新增接线|不支持／未知与最小验证|
+|---|---|---|---|
+|Windows Desktop普通无Goal消息|官方源码UserPromptSubmit含session/turn/cwd/prompt；本地Desktop安装版本/Hook信任未探测|一次获权接入安装精确Bridge/core；同步UserPromptSubmit保存原文并注入；Stop非空block请求当前会话续修；各项目交付gate独立工作|当前自动保障UNKNOWN。8例：正常、未信任、禁用、超时、坏JSON、空reason、同session返修、取消；分别观察聊天和交付。Windows commandWindows指向安装时解析的解释器与脚本，不假设/usr/bin/python|
+|CLI原生交互与exec|历史CLI0.160.1曾观察Stop主链，但整轮NO_GO；官方JSONL thread.started/resume源码可定位|同原生Hook；受管Lite父进程额外提供精确thread resume与最终check|历史机械观察不作为当前准入。安装版本能力探针＋同8例；resume前后id/写范围/权限/预算不变；无id禁止--last回退|
+|Remote SSH Codex|公开同核源码只能说明潜在能力；未访问远端真实CODEX_HOME或安装版本|事件处理与证据存在实际执行host；本地Desktop只是界面；原远端Bridge父进程消费，断线不造本地代替owner|未知。以后只在获权exact host/项目按真实SSH config读取版本并运行同8例；本地信任/文件收据不能替远端。不开新连接/任务证明本轮研究|
+|Bridge Lite|release run_lite_task L657–745当前只一次subprocess，退出不等完成|函数内run_delivery_cycle读JSONL，按同任务budget精确resume；preflight→Admission→最终Claim→原通知|新增尚未实现；以无外部效果坏候选证明退出0被拒、一次真实同thread修复、取消后不重启。不开新任务补失败|
+|Bridge Review|release run_codex_event/watcher_once已有事件与CURRENT消费；thread_id现为None|event内用同cycle；外部fresh REVISE由原watcher消费；发布前核材料claim|watcher已启动与否未知；一组watcher运行/未运行、stale/fresh review对照。未运行只保存原task恢复点，不宣称自动收到外部决定|
+|Bridge Control|dev RuntimeAdapter为抽象；route/transition CLI只输出选择|确定CodexExecRuntimeAdapter＋Executor/Verifier各自preflight＋当前已授权Controller调用一次性step|没有合法角色环境或活Controller就等待原流程；不得新建daemon/新任务填空。最小两角色机械回执、一次Verifier修复、一次外部等待，不擅启Planner/Critic|
+|GPT Work／其它Cloud入口|官方资料明确cloud-orchestrated Work的Hook handler能力不同；本研究没有获得等价当前回合/本地命令Hook证明|原Parent若能合法调用项目既有runner/API，就显式消费同一结果与交付门；不套用Desktop command Hook|自动原生接入未支持；不开发新客户端。只可用现有原任务显式检查作较高摩擦替代，并明确少了哪条自动箭头。没有工具消费者时该宿主不能标DA已接入|
+
+新增Hook定义必须同步执行（不设async）；只发短locator/digest/下一动作，不把整份合同塞进Hook输出。当前模型经正式工具按locator读取全文并交coverage，读不到就缺证；官方输出可能spill/截断，因此“Hook已发上下文”不能证明全部标准已加载。session_id在subagent事件中可能是父session，需同时校验agent_id/turn；未获权子角色不继承主task写权。permission_mode仅环境事实，不是新授权。
+
+采用状态：OpenAI公开源码与文档为REFERENCE_ONLY，不复制/部署客户端；Python标准库只用于拟实现的本地绑定/锁；项目现有专业runner是后续复用对象。官方源码从2a77e82到当前 `b4ad33d1a3c10c9652dd57f7afd7a949f8f26895` 的两个提交已比较，原Hook/turn/exec引用文件未改。新增读取的 [UserPromptSubmit](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/hooks/src/events/user_prompt_submit.rs#L24)给出真实字段；[官方Hooks](https://learn.chatgpt.com/docs/hooks)说明commandWindows、异步限制与输出spill；[安全说明](https://learn.chatgpt.com/docs/enterprise/security-cookbook)说明工具匹配和cloud差异。平台版本升级或信任定义变化使该host支持收据失效，重跑对应小型入口检查，不自动重复七仓昂贵产品实测。
+
+接入一次性成本是安装/核实精确载荷、信任当前定义和宿主机制回放，后续用户正常发话；不是每次重新@插件。采用项目/插件可信Hook而不强制管理员受管Hook，降低首次摩擦；已有企业策略可复用，但研究不要求改其策略。缺Hook仍须原项目正式交付gate工作；正式出口未绑定的项目只可报尚未接入，不能用边界声明假签产品。
+
+最新研究main为 `daf797c79bcd777c27948da51c4218e5d95e7be3`；设计指南未改，解释标准新增关键技术替代比较与连续修订完整判断，已读并应用。源码、当前安装版本、宿主实测在本表明确分开。
