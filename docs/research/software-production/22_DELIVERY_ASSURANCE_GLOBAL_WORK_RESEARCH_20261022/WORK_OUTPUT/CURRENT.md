@@ -53,3 +53,9 @@ G1/G3/G4/G6会改变关键架构选择，不能交Executor以后自行补。G2�
 ## 下一真实入口与独立交接
 
 首先由原 GPT Work Planner 读取[09续研合同](09_CONTINUE_UNTIL_ARCHITECTURE_CLOSED.md)，完成能够在当前授权与源码中解决的架构决定，修订 01–08 的唯一权威内容。之后再从[07审查包](07_INDEPENDENT_CRITIC_PACKAGE.md)读取来源和限制，交独立 Critic 使用修订后的[08指令](08_CRITIC_PROMPT.md)。Critic开始时固定当前分支HEAD，只给PROCEED/REVISE中间架构结论；不得继承旧v0.5或da/1的批准。若关键缺口不能闭合，继续保留REVISE并给最小证据/设计修订，不新建平行真值或生产Goal。
+
+## 续研进展：D1 已作设计裁决
+
+已写回并回读 01：选择“已信任原生/既有受管入口接入＋原交付边界独立准入”。已用 Codex 固定源码证明 Stop 是续修而非撤回消息，Hook 错误不天然 fail-closed。任意原生聊天绝不假完成仍是平台/产品不可达要求，未被默认为满足。实测矩阵、摩擦和最低替代已确定。
+
+下一步：核对 Lite/Review/Control 的真实消费者，确定有界返修与断点所有权；随后冻结旧行为发现、观察独立性与 da/1 兼容选择。ARCHITECTURE_CLOSED=NO；研究继续，不提交 Critic。
