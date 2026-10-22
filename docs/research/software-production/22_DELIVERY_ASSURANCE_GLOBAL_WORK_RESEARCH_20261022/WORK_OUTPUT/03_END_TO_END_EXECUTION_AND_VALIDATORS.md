@@ -28,14 +28,15 @@
 
 待实现的公共数据放**既有任务证据根**的delivery_assurance/内。Lite沿results/<task_key>，Review/Control沿其task路径，CARE沿任务result根。原生无任务包入口可用忽略入Git的 已配置 Bridge state 根/delivery_sessions/<session-id>/<request-epoch>/delivery_assurance/；这里只存源/证据/恢复引用，不推进工作流。目录名非权限来源。
 
-admission.json：schema_version、entry_kind、runtime_version、session_id/turn_id（可空但原因必填）、task_key、repo/worktree、branch、baseline、dirty_ownership、source_bindings、claim_requested、effect_refs、owner、scope_revision。
+以下是各文件承载的内容说明，不是另一套wire schema；实际字段/类型统一为D6/F4，session缺省使用有依据NOT_APPLICABLE而非null。
+admission.json：入口、task/session、repo/worktree、branch、baseline、dirty ownership、来源、当前claim、effects、owner与scope revision。
 obligations.json：原请求locator、冻结标准locator与版本、required行为、不可替代条件、should_not_change、对象关系、coverage_unknown。
 resolution.json：所选检查、理由、缺口、复用结果、权限/环境需求。
 runs/<run_id>/：immutable evidence manifest + 原生runner结果 + 适配后的逐义务结果。
 work_items.json：当前原owner可消费的失败；追加history不覆盖失败记录。
 claim.json/report.md：由上述数据派生，可重建，绝不是另一个任务状态机。
 
-原生每条消息先关联当前未结task；修正/追问保留identity。新目标由当前模型明确关联或新epoch，语义无法确定且会影响目标才问用户。不能把同一session所有对话合成永久一个任务，也不能每个Stop制造新任务。并发用现有owner的任务锁；保存使用临时文件+原子替换，幂等key绑定session/turn/event/candidate。锁不能提供跨同用户恶意篡改隔离。
+原生每条消息先关联当前未结task；修正/追问保留identity。新目标由当前模型明确关联或新epoch，语义无法确定且会影响目标才问用户。不能把同一session所有对话合成永久一个任务，也不能每个Stop制造新任务。并发使用F3的launch lease与短state mutex；保存使用不可变事件与原子manifest，幂等key绑定session/turn/event/candidate。锁不能提供跨同用户恶意篡改隔离。
 
 ## E4 首次发现与动态选测
 
@@ -51,7 +52,7 @@ claim.json/report.md：由上述数据派生，可重建，绝不是另一个任
 6. 旧结果仅当所有semantic inputs、oracle/runner/observer、目标与环境能力仍相符、未撤销/未过期才复用。报告/receipt-only提交不使无关二进制失效。
 7. 输出每项run/reuse/not-applicable/blocked原因。required缺失不允许ready；未适用需依据，不能默认False。
 
-**具体输入输出（设计）**：Lucerna改 provider_runtime.rs，要求资源卡真实刷新；依赖消费者包括codex_quota/openai/longleaf，候选EXE有新hash。输出BROAD：provider freshness单测、旧quota动态桶与null语义、OpenAI计量映射、Longleaf未观测/子路径故障回归、同EXE/PID原生刷新。无关Zotero迁移若依赖闭包/输入不变可复用；实时账户无授权时对应项blocked、源码子结果保留。只改README且不改变产品/安装命令语义，则TARGETED文档/链接检查，不打开Windows或跑Slurm。
+**具体输入输出（设计）**：Lucerna改 provider_runtime.rs，要求资源卡真实刷新；依赖消费者包括codex_quota/openai/longleaf，候选EXE有新hash。输出BROAD：provider freshness单测、旧quota动态桶与null语义、OpenAI计量映射、Longleaf未观测/子路径故障回归、同EXE/PID原生刷新。不受影响的静态文档/资源检查若依赖闭包与输入未变可复用；实时账户无授权时对应项blocked、源码子结果保留。只改README且不改变产品/安装命令语义，则TARGETED文档/链接检查，不打开Windows或跑Slurm。
 
 ## E5 验收定义的读者内容示例
 
@@ -76,8 +77,8 @@ source_inputs:
 runner:
   existing_entry: scripts/development-acceptance.ps1
   proposed_adapter: scripts/delivery/validate-provider-state.py
-  executable_binding: approved_runner_registry
-  output_schema: DeliveryObservationV1
+  executable_binding: installed_runtime_binding
+  output_schema: project_existing_raw_observation
 observation_requirements:
   source_mapping: [independent_input, expected_mapping, actual_mapping]
   installed_refresh: [exe_hash, pid, run_id, native_action, provider_observed_at, postcondition]
@@ -131,12 +132,10 @@ def quota_case(raw, observed):
 
 ## E7 缺程序、失败和逐跳返修消息
 
-admission发现标准已定、程序缺失时生成下列工作项，拟由run_lite_task的prompt或原controller的Executor payload读入：
+admission发现标准已定、程序缺失时生成下列工作项内容摘要，拟由run_lite_task的prompt或原controller的Executor payload读入。这里不展示完整wire实例；序列化一律用D4/D6/F4的Feedback，不得将下列摘要直接发给parser：
 
 ```json
 {
-  "schema_version": "da/2",
-  "object_type": "Feedback",
   "work_item_id": "W-provider-mapping",
   "task_key": "existing-task-key",
   "kind": "BUILD_VALIDATOR",
@@ -176,7 +175,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 - 新增：本轮没有新增验收类别；在状态真值类别补了第二输入与缺上限回归。
 - 加固：同次运行EXE/PID/截图绑定；复用旧Codex动态桶和Longleaf状态测试。
 - 实际执行：候选C2上的计算/状态检查，结果逐项链接R3；原生账户检查未执行，原因是缺当前授权。
-- 证据复用：未改变的Zotero迁移检查沿依赖证明复用；无关硬件不运行。
+- 证据复用：未改变的静态文档/资源检查沿依赖证明复用；无关硬件不运行。
 - 修改/关闭：没有关闭检查、没有调整专业阈值。
 - 自动返修：W2已由当前Executor修复；原生证据未闭合，恢复定位沿原task，不新建Goal。
 
@@ -801,9 +800,9 @@ check_delivery的context必须包含 `requested_claim` 和 `stage`。Obligation.
 
 本节是同一架构对第10合同的实质补强，适用于上文全部入口。比较了“单次自由归纳”“每条请求再开独立模型审查”“保留全文、逐段映射并在原有专业审查中反向核对”三种做法。选择第三种：前者漏一条后所有测试仍可绿；第二种增加固定成本且两模型仍可同错。**机械完整性可以强制，语义完整性必须有原文与可反证检查，不能形式化宣称绝无遗漏。**
 
-1. 新 `prepare_admission` 先保存原请求原文、精确来源、上下文修订引用与附件清单。可信 Hook 的 prompt/session/turn/cwd 来自官方 `UserPromptSubmitRequest`；它只提供字符串，不保证已经提供附件内容或所有旧回合。附件、被用户明确引用的规范由当前模型通过已有授权工具读取，记录 digest/read status；不得扫描整份账号/主目录补上下文。原文保存在既有本地任务证据根，不默认进Git、不外传；密钥值只保留脱敏占位和受限引用。
+1. 新 `prepare_admission` 先保存原请求原文、精确来源、上下文修订引用与附件清单。可信 Hook 的 prompt/session/turn/cwd 来自官方 `UserPromptSubmitRequest`；它只提供字符串，不保证已经提供附件内容或所有旧回合。附件、被用户明确引用的规范由当前模型通过已有授权工具读取，记录 digest/read status；不得扫描整份账号/主目录补上下文。原文保存在既有本地任务证据根，不默认进Git、不外传；密钥值只保留脱敏占位和受限引用。source_units定位实际保存的脱敏文本，另外保留脱敏区间对应表；不得把脱敏后的digest谎称原始密钥全文digest。若脱敏损失了必要语义而授权来源不可读，保留SOURCE_CONTEXT_MISSING，不能静默丢要求。
 2. core 的 `partition_request` 按原文 UTF-8 字节范围生成无丢字的 source_units：标题/列表/句子/引用/代码段，保留顺序与整篇digest。这只是定位，不靠关键词判目标。模型先提出结果/旧保护/不降级/权限/成本/最终对象义务，再做一次**从原文反查**的 coverage projection：每个source_unit归到一个或多个 obligation，或明确 CONTEXT / SUPERSEDED / UNRESOLVED。不能以一条“满足全部要求”映射整篇；含多个可独立失败的后置条件必须分项。原文中的数字、否定、对象名、环境和“同时/仍/不能”由纯函数差异提示，提示不是专业判定。
-3. `compile_obligations` 校验全范围无缺口、引用仍同digest、撤销有较新的用户决定或合法authority、每项required有可观察postcondition及target。UNRESOLVED、无法读取的必需附件、未展开的引用、明显吞并条件、空required都会生成具体反馈。模型本可重读解决的事项回当前Executor；确需新的产品/科学选择才回原owner。低风险明确纯对话且没有交付/修改时允许NONE并记录理由，不因此创建验收任务。
+3. `compile_obligations` 校验全范围无缺口、引用仍同digest、撤销有较新的用户决定或合法authority、每项required有可观察postcondition及target。UNRESOLVED、无法读取的必需附件、未展开的引用、空required都会生成具体反馈。core只能机械检查范围/字段/已声明条件；“把多个要求吞成一个”这类语义错误由当前模型反向阅读及已有独立专业角色对原文核查，不虚构纯函数能自动理解全部原话。模型本可重读解决的事项回当前Executor；确需新的产品/科学选择才回原owner。低风险明确纯对话且没有交付/修改时允许NONE并记录理由，不因此创建验收任务。
 4. 在第一处受管写操作前要求映射完成；读取权威、Bridge自身证据根内的admission/投影草案写入属于自举操作，不要求先有产品PASS；不能把此例外扩为产品写入。原生PreToolUse只对该宿主实际支持的工具形状做短时拒绝，未知工具不声称被拦。所有受管交付入口无条件重新检查 request digest、coverage projection、义务摘要与当前candidate。Hook漏执行但有原正式任务包时可据包重建；无包时由当前会话提交原请求的可定位来源并标注来源能力。只有模型重述、无法核对原请求时不能升级为可信原请求；保留SOURCE_CONTEXT_MISSING，不让用户重复编一份清单冒充原始要求。
 5. 正式已有Reviewer/科学Planner核对高风险目标时，必须看到**原请求全文和未压缩权威条款**，并从它们独立提出应有后置条件，再对照投影；不是只读Producer义务表。普通机械任务不另开模型，当前模型的第二遍反查＋原文/新旧入口差异与已冻结反例作为有界防漏；剩余同源语义误判风险由试点漏检记录检验，不标成独立审查通过。
 6. 用户中途修正先新增scope_revision，保留旧原文和supersedes理由，禁止原子覆盖。新增要求立即加入expected；取消或降低原目标只有当前用户/原合法专业权威有权，执行者不能靠删除测试取消。变更时重算相关依赖、report/claim，旧结果只有语义不受影响才可重用。新任务与原任务无法确定且会改变范围才问用户；一般纠错直接沿原任务。
@@ -905,6 +904,10 @@ D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读�
 |Claim|D6全部身份/摘要/Ref[]按上列；allowed/denied为{requested_id,tuple,reason_refs}[]，unknown为{id,reason_ref}[]；report_ref为ArtifactLocator，是派生文本定位，不参与准入，不可因报告写失败产生循环。原正式交付owner读取，权限仍单独检查|
 
 实现需生成JSON Schema及固定跨语言fixture；不允许运行时猜类型。集合数组按以下键排序并拒绝重复：有id用id，Ref用规范化完整Ref的摘要，图edge用(from_target,relation,to_target)，ClaimTuple用规范化tuple摘要，纯string用码点顺序；AuthorityItem用(field_or_scope,canonical_locator)，AgentsItem用(scope_root,agents_path)，parameter_binding用name，projection用unit_id。输入/目标身份数组用Identity.id，其它具名条目沿本表唯一键；没有唯一键即schema定义错误，不能随运行排序。argv、步骤、原文source_units和按时间追加的Receipt事件保持顺序。规范编码是UTF-8、对象key按Unicode码点排序、字符串JSON标准转义、不escape普通非ASCII、无空白，整数十进制；小数只用带单位字符串。实际观察时间、作用域、权限和时窗是语义输入，只有生成时间、展示字段、自身digest、派生report_ref不参与自身摘要。为每种对象冻结一份字节/摘要golden及一个缺字段坏例，三语言结果必须相同；不是让三方选不同JSON序列化器。
+
+**保留的枚举逐字列出，避免实现时猜旧协议。** target_type为SOURCE、BUILD、PACKAGE、INSTALLED_INSTANCE、DEPLOYED_RUNTIME、DATASET、CHECKPOINT、PREDICTION、GROUND_TRUTH、REPORT、DOCUMENT、OTHER_TYPED_TARGET；边relation为BUILDS、PACKAGES、INSTALLS、DEPLOYS、CONSUMES、PRODUCES、VALIDATES、DOCUMENTS、DERIVES_FROM。OTHER_TYPED_TARGET还须adapter明确身份schema与claim边界，不能作为逃避绑定的兜底。Identity.kind与目标类型使用这套词，前文INSTALLED/DEPLOYED/GT是说明简称，不是新增wire枚举。
+
+evidence_requirements三轴独立：modality为SOURCE_INSPECTION、STRUCTURED_RUNTIME、ACTUAL_SURFACE、INTERACTION_TRACE、RENDERED_ARTIFACT、CAUSAL_INTERVENTION、PROTECTED_OBSERVATION；fidelity为SYNTHETIC_FIXTURE、CONTROLLED_REAL_RUNTIME、HOST_DERIVED、ACTUAL_INSTALLED_TARGET、ACTUAL_DEPLOYED_TARGET、PHYSICAL_DEVICE、SCIENTIFIC_POPULATION；observer_requirement为PRODUCER_SELF_QA、INDEPENDENT_REVIEW、PROTECTED_OBSERVATION。不得将三轴压成单一分数或自动升级。GateResult.observation_binding.trust_tier只用MECHANICAL、PRODUCT、PROTECTED；它说明适用观察合同，不能代替三轴实际证据。
 
 ### 能力协商、影子与回滚只有一条路线
 
