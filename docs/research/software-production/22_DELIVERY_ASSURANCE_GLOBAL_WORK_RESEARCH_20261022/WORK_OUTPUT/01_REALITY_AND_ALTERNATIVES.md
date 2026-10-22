@@ -112,7 +112,7 @@ Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edf
 
 ## 续研裁决 D1：接入负责续修，交付边界负责准入
 
-本节取代上文“G1 留给实施前决定”的表述。研究恢复基线为 `b6ca488fd93ca5b6a7dacb901aa34a123f1540f1`；通用标准取自 main 的 [COMPLEX_SYSTEM_DESIGN_GUIDE.md](https://github.com/YuukiAS/AI_Research_Toolkit/blob/70812bd09974a023f6294500d247c5e2655d583b/COMPLEX_SYSTEM_DESIGN_GUIDE.md)。这是一项确定的设计选择，尚未实施，也不声称已经消除平台限制。
+本节取代上文“G1 留给实施前决定”的表述。研究恢复基线为 `b6ca488fd93ca5b6a7dacb901aa34a123f1540f1`；通用标准取自 main 的 [COMPLEX_SYSTEM_DESIGN_GUIDE.md](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f4a1233d59817867bc4c40b541f480695d947440/COMPLEX_SYSTEM_DESIGN_GUIDE.md)。这是一项确定的设计选择，尚未实施，也不声称已经消除平台限制。
 
 **推荐组合：已有入口接入＋项目交付边界二次核验。** 普通原生任务默认通过已信任 UserPromptSubmit 建立轻量任务关联，PreToolUse 约束明确的高影响动作，PostToolUse 记录实际变更，Stop 给同一回合送回具体返修输入。已有 Lite/Review/Control 入口直接调用相同库。正式安装、交付包登记、送审、部署与科学结果声明的现有入口独立读取核验结论；缺文件、解析失败、身份不匹配或必需义务 UNKNOWN 时，这些入口不得报就绪。接入与交付都复用现有进程，不增加守护进程。
 
@@ -140,3 +140,9 @@ Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edf
 交付入口每次独立核验，缓存必须绑定候选和依赖；Hook 无收据不自动等于产品坏，但缺少完整义务集就不能签发就绪。现有任务包可由交付入口重建义务并要求补验；无包任务可从同 session 的原请求建立轻量记录。没有请求来源时只能要求恢复原任务上下文，不能编造完成标准。
 
 **实测合同已确定：** 在获授权的同一宿主、同一受支持版本，顺序回放正常 Hook、未信任、禁用、超时、畸形输出、空理由、同任务续修和用户中断；每例使用无外部副作用的坏候选。检查两份独立结果：聊天是否发出误导文本、受管交付是否拒绝。前者失败不得用后者成功抵销。每宿主最多 8 个短例、每例一次初跑一次修复复跑；不使用账号、设备或付费资源。未满足的平台登记为未支持自动接入，保留手动原任务调用同一检查的低摩擦替代，不声称替代等价。
+
+## 最终来源漂移核对
+
+续研期间研究仓main从70812bd前进到 `f4a1233d59817867bc4c40b541f480695d947440`。已完整回读其最新COMPLEX_SYSTEM_DESIGN_GUIDE.md（blob c3cfe3b8afcee108df90ce9f1bcce3650bee0c3a）及新增[可信解释标准](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f4a1233d59817867bc4c40b541f480695d947440/COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)。新版强调风险匹配质量属性、成熟外部能力的许可/维护、真实负结果、成本、明确用户选择及不移动完成终点；02–06已经按这些原则核对。它没有授权实施或自动发送前拦截。
+
+AI Skills main、Bridge release/实际dev和七仓有效分支收尾重新查询仍与本文件固定SHA一致。官方Codex源码只作为接口/机制依据，Apache-2.0许可已读；没有移植或安装其代码，也不保证当前Desktop部署同版本。采用已有项目工具，不新增外部编排依赖。Python标准库排他创建标志支持Unix/Windows的文档已核对，具体OS崩溃/取消/文件替换性质仍需运行测试。[Python os](https://docs.python.org/3/library/os.html#os.open)
