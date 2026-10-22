@@ -559,7 +559,7 @@ E3–E7是读者内容示意，D6是本轮选定的完整da/2接口提案。旧d
 
 ### 1. 单一解析入口和结果
 
-选定新增 Bridge `ai_bridge_kit/delivery.py` 负责文件定位、来源校验和宿主适配；AI Skills workflow-core 的 `scripts/delivery_core.py` 只计算义务、选测和 claim；项目 `scripts/delivery/adapter.*` 调已有程序并解释专业结果。Bridge 通过已安装插件 manifest 的固定 capability entry 调用 core，不能扫描 PATH 中名字相似的脚本。缺 core 或版本不合时返回 NOT_READY，原项目低层测试仍可独立运行。
+选定新增 Bridge `ai_bridge_kit/delivery.py` 负责文件定位、来源校验和宿主适配；AI Skills workflow-core 的 `scripts/delivery_core.py` 只计算义务、选测和 claim；项目 `scripts/delivery/adapter.*` 调已有程序并解释专业结果。Bridge 通过已安装插件 manifest 的固定 capability entry 调用 core，不能扫描 PATH 中名字相似的脚本。缺 core 或版本不合时返回 STOP／CORE_UNAVAILABLE 或 RESULT_SCHEMA_UNSUPPORTED，原项目低层测试仍可独立运行。本文“未就绪/NOT_READY”如作为说明词使用，不是另一个 DeliveryCheck wire enum。
 
 所有边界先调用 `ingest_result`解析结果并记录真实调用者的消费Receipt，再调用 `check_delivery(context, result_refs) -> DeliveryCheck`（**新增接口**）：status 为 READY / REPAIR / NEEDS_STANDARD / NEEDS_AUTH / WAIT_EXTERNAL / STOP；包含 task_identity、scope_revision、candidate_identity、obligation_set_digest、result_refs、feedback[]、allowed_claims、resume_ref。此 status 是一次函数返回，不是新的持久 workflow enum。它映射回原流程状态。异常统一为 REPAIR 且 reason=RESULT_UNREADABLE / RESULT_SCHEMA_UNSUPPORTED / IDENTITY_MISMATCH；不能把解析错误映射到 READY。
 
@@ -585,7 +585,7 @@ UserPromptSubmit 处理器只记录原请求与已有未结任务关联，并把
 4. 新 process 的 thread.started 必须仍为原 id；找不到原 thread、返回新 id、权限变化或输入 hash 不符立即停止续修。记录发出但未 ack 的同一 feedback，不能再以新 task 补跑。
 5. 默认只允许初次执行后最多两次 resume，且 Hook 与父进程共享计数；启动前冻结 max_elapsed、原资源上限。取消/预算/授权等待时保存在原 task 的证据根，退出非就绪；不启动新的永久 owner。父进程崩溃则下次用户继续原入口恢复一次，只有已授权 Persistent owner 存活时才可按其合同恢复。
 
-计数在取得排他任务锁后先登记 attempt intent，再启动；崩溃窗口若有 session 活跃证据，禁止并发补发；若只能确认进程退出而不能确认是否完成，先核验结果/查精确 session，再决定一次恢复。不以“至少一次”交付重复执行有副作用的命令。原有预算/权限是最外层上限，DA 不增加 GPU/设备/发布权。
+计数按F3取得短state mutex后登记reservation并释放该mutex，再在launch lease保护下启动；崩溃窗口若有 session 活跃证据，禁止并发补发；若只能确认进程退出而不能确认是否完成，先核验结果/查精确 session，再决定一次恢复。不以“至少一次”交付重复执行有副作用的命令。原有预算/权限是最外层上限，DA 不增加 GPU/设备/发布权。
 
 ### 4. Review 与 Control：不替外部角色决定
 
@@ -593,21 +593,21 @@ Review 在 `run_codex_event` 内接同一 cycle，`executor_prompt` 带 feedback
 
 Control 关键事实：[RuntimeAdapter L485–489](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/ai_bridge_kit/agent_flow.py#L485) 仍是抽象类；[main L2769–2775](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/ai_bridge_kit/agent_flow.py#L2769) 只打印 route/transition。因此本设计选定：
 - `consume_delivery_result` 把机械事实追加到现有 evidence/findings 输入，不伪造 Planner 分类。
-- 新增一次性 `control step`：锁定原 CURRENT → validate_task_state → plan_transition → 若是合法 Executor 动作，用具体 CodexExecRuntimeAdapter 和 launch_executor_with_preflight；Verifier 动作用新增 launch_verifier_with_preflight，详见文末角色动作表；角色分离、授权路径、repo/branch 全部仍由既有合同限制 → 捕获真实 session、RoleReceipt → check_delivery → 按原允许转换 apply_transition。每次最多一动作，返回完整结果给**调用它的原 Controller Codex 工具回合**。
+- 新增一次性 `control step`：在短mutex内读取原 CURRENT并validate_task_state/plan_transition，保存revision与launch reservation后释放mutex → 若是合法 Executor 动作，用具体 CodexExecRuntimeAdapter 和 launch_executor_with_preflight；Verifier 动作用新增 launch_verifier_with_preflight，详见文末角色动作表；角色分离、授权路径、repo/branch 全部仍由既有合同限制 → 捕获真实 session、RoleReceipt → check_delivery → 重新短锁核对revision/cancel epoch后按原允许转换 apply_transition。每次最多一动作，返回完整结果给**调用它的原 Controller Codex 工具回合**。
 - 具体 adapter 是既有 RuntimeAdapter 的实现，复用上述 JSONL/resume，不能构造新分支、换身份、自动起 Planner/Critic。Controller 的 prompt 在每个工具返回后读取 next_action；外部角色动作输出等待，必须获得该角色新鲜工件才继续。Persistent 如已被准确授权可承载这个原 Controller；否则进程结束后由同任务恢复，不伪装 daemon。
 - apply_transition 在送审/候选通过处加入 check_delivery predicate；失败不改成 PLANNER_PASS。产品或科学取舍只能沿已有 Planner 分类，不能由 Controller 自动降标准。
 
 ### 5. 七仓原接收者与断点
 
-|项目|runner 返回给谁|最终再核验位置（新增调用）|谁持久保存／恢复|
-|---|---|---|---|
-|Lucerna|调用 development-acceptance.ps1 的当前 Executor；若原独立原生流程已启动则反馈给其 orchestrator|development-acceptance.ps1 的 candidate admission/交付报告出口|原 task result＋原执行者；独立流程最多三轮，DA 不增加轮数|
-|Bobbio|调用 Safe runner 的当前 Executor|Safe runner 总结与 CURRENT_MILESTONE 就绪材料生成处；不自动改里程碑|原 milestone task；设备/账号等待保留该任务|
-|Mica|调用 acceptance CLI 的当前 Executor/已存在 Parent|cli.mjs candidate→validateBundle 返回前，正式 ZIP/loaded identity 报告消费处|原 Parent/Goal；没有已启动 Parent 时不声称自动续跑|
-|SeminarArc|调用 run-blackbox-acceptance 的当前 Executor|verify-gpt-work-acceptance 最终决策生成处|原 task result；真机断开先停止该项，不再安装别的设备|
-|Asteria|调用 browser tests 的当前 Executor，独立视觉审查归原 Reviewer|RC 汇总/送审材料生成处，不改旧视觉标准|原 RC task；需要新判断就等待原 Reviewer|
-|CUHK_Date|原 Parent 调用 hosted audit；handleAuditTicketSession 返回同一 ticket owner|evaluateParentDeliveryGate 与原 campaign finalization|原 campaign/ticket lease；换 snapshot 必须按项目合同关闭旧 campaign，创建新活动仍需授权|
-|CARE|原 Controller 调用 finalizer 获得完整结构与 exit|care_milestone_finalizer 的送审包生成前，当前 Controller 的科学终态判断处|原 route/task/Slurm job identity；科学负结果交 Planner，不能再投新作业|
+|项目|现有接点能消费的阶段|最终USER_READY由谁调用Bridge|
+|---|---|---|
+|Lucerna|development-acceptance在pack builder/summary前检查REVIEW_BUNDLE_READY；原低层PASS仍仅表其程序范围|原Executor，或已经合法启动的独立native orchestrator，收齐同候选真实桌面/专业结果后check|
+|Bobbio|Safe runner只保护既有Reader 0.2，不能签当前0.3里程碑|原milestone Executor聚合0.3增强、整屏、性能与native结果后check|
+|Mica|candidate→validateBundle只检查材料；不替代已加载实例|原Parent/当前Executor，核loaded identity及各surface真实结果后check|
+|SeminarArc|verify-gpt-work仅检查基础设施与READY_TO_PASTE_PARENT；其GPT_WORK_EXECUTED/READY_FOR_USER_REVIEW本来就是NO|原Executor/Parent收到真实blackbox和独立结果后check|
+|Asteria|static validator只验静态结构，RC材料出口可检查REVIEW_BUNDLE_READY|原RC Executor收到真实browser、科学全图和原独立视觉判断后check|
+|CUHK_Date|evaluateParentDeliveryGate保持纯活动材料谓词；调用方在preflight检查REVIEW_BUNDLE_READY，不在纯函数内起进程|原campaign owner收齐同snapshot/persona活动结果后check；活动完成不冒产品上线|
+|CARE|finalizer在maybe_commit/packet终态前检查送审材料，保留原NEEDS_EVIDENCE/REVISION|原科学Controller结合Planner新鲜决定check；合格负实验报告可以完成，不代表方法有效|
 
 上表不是声称这些程序已经内置 DA。新增接点和谁读取已确定；若当前没有活跃模型/Controller，恢复位置仍在原任务，后续必须通过原入口合法继续。ACK 包含 task/run/candidate，旧评审/旧反馈不得反复触发修复；权限不足只阻塞相关动作，其它独立工作继续。
 
@@ -730,12 +730,12 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 - consumption_ref：指向本次当前owner接收该结果的 Receipt；首次输出可为明确 pending receipt，**pending不能签ready**。不存在用自引用hash生成结果的循环：GateResult不可变，receipt引用其digest，consumption_ref是稳定receipt locator；核验再读取该locator。receipt不反写result字节。
 
 **Admission**：task_identity、workflow_identity、request_ref、scope_revision、entry_kind、session_binding、source_bindings[]、candidate_identity、effect_refs[]、budget_ref、owner_ref、cancel_epoch、consumer_binding。无session的真实非交互runner可以在session_binding写NOT_APPLICABLE及依据，不能假造session。
-**ObligationSet**：contract_binding、candidate_scope、required[]、should_not_change[]、surface_inventory_ref、unknown_edges[]、unresolved[]、digest。每项 obligation={id,requirement_ref,target_ref,postcondition,claim_level,non_substitutable[],authority_ref,gate_refs[],required_for_claims[],status}；required为空只能在无交付声明的明确NONE任务成立。
+**ObligationSet**：contract_binding、candidate_scope、required[]、should_not_change[]、surface_inventory_ref、unknown_edges[]、unresolved[]、request_coverage（F1完整结构）、digest。每项 obligation={id,requirement_ref,target_ref,postcondition,claim_level,non_substitutable[],authority_ref,gate_refs[],required_for_claims[],status}；required为空只能在无交付声明的明确NONE任务成立。
 **Resolution**：admission_ref、obligation_set_digest、mode、selected[]、reuse[]、not_applicable[]、unresolved_obligations[]、unknown_edges[]、effect_requirements[]；各条带id和reason/ref，不仅列命令。
 **Feedback/Receipt**：D4字段；Receipt={task_identity,feedback_or_result_ref,digest,candidate,recipient_session_or_owner,cancel_epoch,delivery_observation,ack_observation,resolution_result_refs[],budget_usage}。单调追加事件，不回写已见失败。
 **Claim**：task_identity、contract_binding、candidate_identity、obligation_set_digest、result_refs[]、receipt_refs[]、allowed_claims[]、denied_claims[]、remaining_unknowns[]、report_ref。每个claim保留旧tuple；本对象不颁发发布/账号/GPU权限。
 
-digest 只包含各对象已声明语义字段；数组是否集合由字段规定，set字段按稳定id排序，步骤/argv保留顺序；对象键按字节排序，UTF-8、无无意义空白、拒绝NaN/Infinity，度量小数用明确单位的十进制字符串。不把注释/展示路径/生成时间/自身摘要纳入语义摘要。跨语言必须同一组固定输入输出fixture，不能分别随手json.dumps导致失效漂移。时间新鲜性保留独立检查，不因排除展示时间就无限复用。
+digest 只包含各对象已声明语义字段；集合排序键、步骤/argv顺序及Unicode规范编码以F4为唯一规则，UTF-8、无无意义空白、拒绝NaN/Infinity，度量小数用明确单位的十进制字符串。不把注释/展示路径/生成时间/自身摘要纳入语义摘要。跨语言必须同一组固定输入输出fixture，不能分别随手json.dumps导致失效漂移。时间新鲜性保留独立检查，不因排除展示时间就无限复用。
 
 ### 5. 迁移、双读、拒绝和回退合同
 
@@ -749,11 +749,11 @@ reader 支持 da/2准入；da/1只经 `import_legacy_for_diagnostics` 输出旧�
 
 ## 实现边界补充：文件锁、能力定位与原子消费
 
-Bridge项目现有profile新增可选 `delivery_assurance.runtime_binding`，值为安装收据locator、允许的core entry相对路径、payload digest和reader版本；安装/接入命令写入，运行时preflight回读并核验。不是另建registry或从PATH猜脚本；首次不存在时返回NOT_READY并给当前Executor具体接入工作项。当前研究不修改profile。新增CLI的delivery prepare/ingest/check/ack/report注册在现有cli.build_parser；control step注册在agent_flow.build_parser。命令只处理显式task/root/ref，不递归读机器其他任务。
+Bridge项目现有profile新增可选 `delivery_assurance.runtime_binding`，值为安装收据locator、允许的core entry相对路径、payload digest和reader版本；安装/接入命令写入，运行时preflight回读并核验。不是另建registry或从PATH猜脚本；首次不存在时返回STOP／CORE_UNAVAILABLE并给当前Executor具体接入工作项。当前研究不修改profile。新增CLI的delivery prepare/ingest/check/ack/report注册在现有cli.build_parser；control step注册在agent_flow.build_parser。命令只处理显式task/root/ref，不递归读机器其他任务。
 
-DA使用机器本地Bridge state根的原任务锁；选择原子排他创建锁文件（O_CREAT|O_EXCL），记录host/task/process start identity/cancel epoch，不依赖Unix fcntl。只接受本地文件系统；网络共享和跨host同时持有同task不支持，必须走原工作流合法handoff。正常释放核对owner；崩溃恢复先证明原进程已不存在且启动身份不匹配，不凭过了几分钟删锁。无法证明时只阻止该任务自动launch，保留原恢复点。原readiness的AGENTS写锁在Windows可能无fcntl，与DA本地锁不同，不据此暗改原AGENTS写策略；需要该写操作的入口必须通过原preflight或明确未支持。
+DA在机器本地Bridge state根为原任务分别使用launch lease和短state mutex（F3）；选择原子排他创建锁文件（O_CREAT|O_EXCL），记录host/task/process start identity/cancel epoch，不依赖Unix fcntl。只接受本地文件系统；网络共享和跨host同时持有同task不支持，必须走原工作流合法handoff。正常释放核对owner；崩溃恢复必须用PID与启动身份判定原owner确已不存在；PID重用须证明是另一启动实例，不凭过了几分钟删锁。父进程不持短mutex等待child，避免child无法ack。无法证明时只阻止该任务自动launch，保留原恢复点。原readiness的AGENTS写锁在Windows可能无fcntl，与DA本地锁不同，不据此暗改原AGENTS写策略；需要该写操作的入口必须通过原preflight或明确未支持。
 
-状态写采用同目录临时文件、flush、原子replace；多文件以不可变run目录和最后写manifest作为提交点。未写完manifest的run不能被claim消费。接收结果与反馈幂等独立：GateResult digest去重，Feedback id去重，ACK不扣修复轮次；真正launch/执行修复才扣。取消信号到达父进程后设置epoch并按原进程组取消规则停止当前child，任何后来返回的ready只保留证据，不改变用户已取消状态。正式发行必须在Windows Native和目标Unix各跑崩溃/并发/取消例，不能从纯函数证明OS行为。
+状态写采用同目录临时文件、flush/fsync、同文件系统原子replace；持久化与Windows实际能力按F3逐OS验证；多文件以不可变run目录和最后写manifest作为提交点。未写完manifest的run不能被claim消费。接收结果与反馈幂等独立：GateResult digest去重，Feedback id去重，ACK不扣修复轮次；真正launch/执行修复才扣。取消信号到达父进程后设置epoch并按原进程组取消规则停止当前child，任何后来返回的ready只保留证据，不改变用户已取消状态。正式发行必须在Windows Native和目标Unix各跑崩溃/并发/取消例，不能从纯函数证明OS行为。
 
 ## 交叉反例审计后的闭合补丁
 
@@ -864,6 +864,7 @@ D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读�
 
 - `Id`：非空字符串，不含NUL；`Digest`：64位小写SHA-256十六进制；Git commit/blob OID与内容SHA-256分字段，不能混用。
 - `Ref`：带kind的联合类型。`git`={kind,repo,commit,path,blob_oid,content_digest,scope}，commit必须不可变OID；`artifact`={kind,root_ref,path,digest,access_class:PUBLIC|TASK_LOCAL|RESTRICTED}，path为显式受权根下相对路径；`event`={kind,host_id,session_id,event_id,content_digest}。消费前按类别验证身份和读权限，引用本身不授权跨host访问。模型重述原话标来源不足，不自行生成可信event。
+- `ReceiptLocator`={root_ref,path,receipt_id}、`ArtifactLocator`={root_ref,path}：只定位预留回执或派生报告，**不含该目标内容digest**；root_ref须是原任务已登记且受权的稳定根定位，不能包含后代文件摘要。GateResult.consumption_ref仅用ReceiptLocator；读回receipt再校验其result digest、task/candidate与真实consumer。因此不存在result→receipt hash→result hash循环。其它不可变事实仍用带digest的Ref。
 - `Identity`={id,kind,semantic_digest,ref,bindings}，bindings为adapter固定identity规则声明的字段；未声明字段不参与判断。SOURCE须repo/commit与完整内容差异digest；BUILD/PACKAGE须输入digest和产物hash；INSTALLED须package/hash/实例或PID-start；DEPLOYED须服务/部署/DB schema快照；DATASET/GT须split/病例集合/预处理/标注版本；CHECKPOINT须model/pretrained/参数与训练lineage；PREDICTION须checkpoint/数据/几何；DOCUMENT/REPORT须内容与渲染对象。适用字段缺失不能仅填id；非适用字段用有依据的NOT_APPLICABLE，不伪造值。
 - `ClaimTuple`={target_set:Id[],capability_set:Id[],environment:Identity,time_window:{from,to_or_none},level:LOCAL_SOURCE|INTEGRATED|ARTIFACT_READY|INSTALLED|LIVE}。USER_READY仍是全部承诺的聚合谓词，不新增证据层级。
 - `AuthorityItem`、`AgentsItem`保留D6列出的所有键：refs用Ref，scope/path/branch_scope用string，digest用Digest，supersedes为Ref[]，effective_from为有时区ISO8601；ABSENT必须有本scope树枚举依据。不能依时间新旧解决专业权限冲突。
@@ -877,11 +878,11 @@ D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读�
 |Descriptor gate_ref/definition_version/definition_digest/authority_ref/authority_contract_ref|Id/Id/Digest/Ref/Ref；core解析冻结定义与版本，Bridge核来源|
 |capability/failure_semantics/applicability|Id/Rule/Rule；core按权威选择义务，项目runner给专业失败语义，不执行任意脚本文本|
 |subject_types/target_roles/claim_support|枚举string[]/Id[]/ClaimTuple[]；core禁止跨对象升级|
-|normal_entry|{kind:CLI|FUNCTION|NATIVE|BROWSER|DEVICE|SCIENTIFIC,root_ref:Ref,entry_ref:Ref,argv_schema或typed_parameters:冻结JSON Schema}；Bridge检查参数/效果再调用，绝不eval shell|
+|normal_entry|{kind:CLI\|FUNCTION\|NATIVE\|BROWSER\|DEVICE\|SCIENTIFIC,root_ref:Ref,entry_ref:Ref,argv_schema或typed_parameters:冻结JSON Schema}；Bridge检查参数/效果再调用，绝不eval shell|
 |evidence_requirements|modality/fidelity/observer_requirement使用旧freeze三轴枚举；required_observations为{observation_id,type,unit_or_none,source_rule:Rule}[]，completeness_rule为Rule；core验完整性，专业observer采值|
 |judgment|{pass:Rule,fail:Rule,unknown:Rule,rubric_ref:Ref,threshold_parameter_constraints:Rule[]}；专业runner判断，core检查来源/边界/缺证，不替代科学判断|
 |regression_bank_refs/known_bad_refs/should_not_change_refs|Ref[]；校准与生命周期迁移读取，required为空需有NOT_APPLICABLE权威不能直接省略|
-|invalidation|六种dependencies各Ref[]或Identity[]，time_validity为{mode:IMMUTABLE_INPUTS|CURRENT_INSTANCE|TTL,ttl_seconds_or_none,authority_ref}；core逐依赖判复用，实际observed_at参与时窗|
+|invalidation|六种dependencies各Ref[]或Identity[]，time_validity为{mode:IMMUTABLE_INPUTS\|CURRENT_INSTANCE\|TTL,ttl_seconds_or_none,authority_ref}；core逐依赖判复用，实际observed_at参与时窗|
 |execution_requirements/calibration_requirement|前者保留permissions:string[]、cost_resource_ceiling:Limits、secret_classes:string[]、physical_target:Identity或有依据NONE、long_run:bool、side_effects:effect[]；后者Rule。Bridge和原runner拒绝未授权效果，校准入口读取四种控制|
 |protection_policy/lifecycle_binding|D6枚举固定；reference/observer/accepted refs均Ref，scope为Id[]，expiry为ISO8601或明确NONE，reason_ref必填。core禁止暂停required后签ready|
 |Adapter repo_identity/authority_ref/adapter_semantic_digest|Identity/Ref/Digest；Bridge实际repo和core语义匹配|
@@ -893,17 +894,17 @@ D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读�
 |Result task/workflow/run/gate_instance/gate_ref/definition_version|前两为{task_key,scope_revision,owner_ref}和{kind,task_ref,event_ref_or_none}；其余Id。Bridge与原owner核task/session/round，不从目录猜最新|
 |Result authority_ref与definition/adapter/source-set/invalidation摘要|Ref及Digest；core重新计算/比较；不得只信producer给的摘要|
 |Result candidate/subject/target/normal_entry/runner/fixture/rubric/environment identities|Identity或Identity[]；candidate确定同一个语义候选，collector在observation_binding单独定义；无fixture也需明确NONE依据|
-|Result observed_at/decision/reason_codes/covered/missing/evidence_refs/scope|ISO8601、PASS|FAIL|UNKNOWN、Id[]、Id[]、Id[]、Ref[]、TARGETED|BROAD|FULL；core用expected减covered且核scope，PASS不能带missing required|
+|Result observed_at/decision/reason_codes/covered/missing/evidence_refs/scope|ISO8601、PASS\|FAIL\|UNKNOWN、Id[]、Id[]、Id[]、Ref[]、TARGETED\|BROAD\|FULL；core用expected减covered且核scope，PASS不能带missing required|
 |Result actor_provenance/observer_provenance/cost/elapsed_time/claim_support|Provenance/Provenance/带单位计数或Unknown/非负毫秒整数或Unknown/ClaimTuple[]；Bridge验证消费与资源，core限制声明|
-|Result新增contract_binding/obligation_set_digest/observation_binding/consumption_ref|request Ref＋scope_revision非负整数＋authority Digest；Digest；collector/reference Identity＋trust tier＋raw Ref[]＋protected Ref或Unknown；稳定artifact Ref。Bridge先ingest记录消费，core随后核验，不需要修改result|
-|Admission|D6身份/引用使用上列类型；entry_kind为NATIVE|LITE|REVIEW|CONTROL|PROJECT，session_binding为{host_id,session_id,turn_id,agent_id_or_none}或有依据NOT_APPLICABLE，cancel_epoch/scope_revision非负整数；effect_refs为Ref[]，budget_ref/owner_ref/consumer_binding明确；由Bridge写入，core读取|
-|ObligationSet|D6集合保留；obligation含Id、Ref、target Id、postcondition:Rule、ClaimTuple要求、non_substitutable:Rule[]、gate_refs:Id[]、required_for_claims:Id[]、status:ACTIVE|SUPERSEDED|UNRESOLVED；F1 request_coverage必填；core禁止摘要不符、空required冒交付|
-|Resolution|mode=NONE|TARGETED|BROAD|FULL；selected/reuse/not_applicable分别{id,reason_ref,result_ref_or_none}[]，unresolved/unknown为{id,reason_ref,owner_ref}[]，effect_requirements为effect[]；当前Executor据此运行或补程序|
+|Result新增contract_binding/obligation_set_digest/observation_binding/consumption_ref|request Ref＋scope_revision非负整数＋authority Digest；Digest；collector/reference Identity＋trust tier＋raw Ref[]＋protected Ref或Unknown；ReceiptLocator。Bridge先ingest记录消费，core随后核验，不需要修改result|
+|Admission|D6身份/引用使用上列类型；entry_kind为NATIVE\|LITE\|REVIEW\|CONTROL\|PROJECT，session_binding为{host_id,session_id,turn_id,agent_id_or_none}或有依据NOT_APPLICABLE，cancel_epoch/scope_revision非负整数；effect_refs为Ref[]，budget_ref/owner_ref/consumer_binding明确；由Bridge写入，core读取|
+|ObligationSet|D6集合保留；obligation含Id、Ref、target Id、postcondition:Rule、ClaimTuple要求、non_substitutable:Rule[]、gate_refs:Id[]、required_for_claims:Id[]、status:ACTIVE\|SUPERSEDED\|UNRESOLVED；F1 request_coverage必填；core禁止摘要不符、空required冒交付|
+|Resolution|mode=NONE\|TARGETED\|BROAD\|FULL；selected/reuse/not_applicable分别{id,reason_ref,result_ref_or_none}[]，unresolved/unknown为{id,reason_ref,owner_ref}[]，effect_requirements为effect[]；当前Executor据此运行或补程序|
 |Feedback|D4字段使用Id/Ref/Identity与明确actual/expected值（单位按Rule）、classification为已有归因码、recipient的role Id及owner_ref:Provenance、allowed_write_scope为受权路径/对象Ref[]、invalidates为Id[]、next_check为Ref、budget_ref为Ref；Bridge/当前模型/原owner消费，不执行字段内命令|
-|Receipt|D6字段使用Ref/Digest/Identity/Provenance；delivery_observation/ack_observation分别为{status:OBSERVED|PENDING,at_or_none,event_ref_or_none}，resolution_result_refs为Ref[]；budget_usage对应同一reservation；桥接层派生DELIVERED/ACKED/RESOLVED，不要求项目另维护状态机|
-|Claim|D6全部身份/摘要/Ref[]按上列；allowed/denied为{requested_id,tuple,reason_refs}[]，unknown为{id,reason_ref}[]；report_ref是派生文本定位，不参与准入，不可因报告写失败产生循环。原正式交付owner读取，权限仍单独检查|
+|Receipt|D6字段使用Ref/Digest/Identity/Provenance；delivery_observation/ack_observation分别为{status:OBSERVED\|PENDING,at_or_none,event_ref_or_none}，resolution_result_refs为Ref[]；budget_usage对应同一reservation；桥接层派生DELIVERED/ACKED/RESOLVED，不要求项目另维护状态机|
+|Claim|D6全部身份/摘要/Ref[]按上列；allowed/denied为{requested_id,tuple,reason_refs}[]，unknown为{id,reason_ref}[]；report_ref为ArtifactLocator，是派生文本定位，不参与准入，不可因报告写失败产生循环。原正式交付owner读取，权限仍单独检查|
 
-实现需生成JSON Schema及固定跨语言fixture；不允许运行时猜类型。全部集合数组按稳定id排序，重复id拒绝；argv、步骤、原文source_units保持顺序。规范编码是UTF-8、对象key按Unicode码点排序、字符串JSON标准转义、不escape普通非ASCII、无空白，整数十进制；小数只用带单位字符串。实际观察时间、作用域、权限和时窗是语义输入，只有生成时间、展示字段、自身digest、派生report_ref不参与自身摘要。为每种对象冻结一份字节/摘要golden及一个缺字段坏例，三语言结果必须相同；不是让三方选不同JSON序列化器。
+实现需生成JSON Schema及固定跨语言fixture；不允许运行时猜类型。集合数组按以下键排序并拒绝重复：有id用id，Ref用规范化完整Ref的摘要，图edge用(from_target,relation,to_target)，ClaimTuple用规范化tuple摘要，纯string用码点顺序；AuthorityItem用(field_or_scope,canonical_locator)，AgentsItem用(scope_root,agents_path)，parameter_binding用name，projection用unit_id。输入/目标身份数组用Identity.id，其它具名条目沿本表唯一键；没有唯一键即schema定义错误，不能随运行排序。argv、步骤、原文source_units和按时间追加的Receipt事件保持顺序。规范编码是UTF-8、对象key按Unicode码点排序、字符串JSON标准转义、不escape普通非ASCII、无空白，整数十进制；小数只用带单位字符串。实际观察时间、作用域、权限和时窗是语义输入，只有生成时间、展示字段、自身digest、派生report_ref不参与自身摘要。为每种对象冻结一份字节/摘要golden及一个缺字段坏例，三语言结果必须相同；不是让三方选不同JSON序列化器。
 
 ### 能力协商、影子与回滚只有一条路线
 
@@ -912,3 +913,33 @@ D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读�
 shadow在**原runner已合法执行之后**读其原始输出，不重复账号/训练、不签第二套ready。记录原阶段结论与新claim的差异并归因，低层PASS与USER_READY不同不算误报。单仓enable必须负例证明“去掉Hook、core丢失、无义务、错对象、旧reader”仍拒绝正式就绪；新reader正式启用后只有它的Claim可签DA交付。各仓独立适配，PIE相邻合同引用随维护更新而非首次必需依赖。
 
 回滚是回到经过验证的Bridge/core/adapter组合；没有旧da/2组合则关闭DA就绪签发、保留项目原专业检查与未决task，不用旧da/1替代签字。启用/停用由原项目配置/正式安装流程负责，运行过程中缺组件不能默默当停用。移除DA不会自动撤销历史义务、回归、产品数据或科学作业。
+
+## 最终闭合合同 F5：两种不同任务的完整验收器生命周期
+
+以下是按04固定源码设计的未来调用轨迹，**不是本次运行结果**。补程序默认在当前Executor内完成，不新增模型角色。机械规则来自既有明确合同且通过冻结反例校准时，由项目已经授予的开发权限准入；新增专业含义、修改标准或高风险独立观察仍交原合法专业owner。不存在“每多一个测试都要用户批准”的新流程。
+
+### 高风险例：Lucerna凭据保存后真正启用
+
+普通请求是“保存新的BandwagonHost凭据后立即刷新；失败保留原可用配置，旧provider不能坏”。F1绑定原话与现有auth_intake/provider合同。D2枚举UI保存、Rust验证/保存、运行缓存、Vault读回与刷新消费者。已有“验证凭据格式/返回activated=true”检查无法覆盖持久化与后续刷新，core产生VALIDATOR_MISSING；这是已有provider/auth类别的**加固**，不是凭据类别已出现就新建一套平台。
+
+具体工作项由Bridge工具返回给同一Executor：requirement=原保存/刷新/失败保留条款；target=同候选EXE、选定provider和generation；allowed_write_scope=原仓授权的auth回归/adapter路径；expected=合法凭据被保存且新刷新确用该generation，失败不污染旧配置；next_check=原development/native acceptance，校准覆盖good/bad/missing/unchanged。凭据值不进feedback；真实Vault写入是独立高影响效果，原任务未授权则此项NEEDS_AUTH且零自动外部尝试，不妨碍先写隔离fixture。
+
+校准在隔离测试store中固定：good为两组不同有效generation的保存/新读取；bad为仅返回activated=true而不更新持久store，或缓存仍指旧generation；missing为读回不可得；unchanged为旧Codex/OpenAI/Longleaf状态和失败保留旧配置。输入/预期依据已冻结合同，不能用产品函数自己算expected。runner改动也要先跑这四类；不能先改标准让新实现过。现有源码的候选安装、ack/promote、Vault put、store readback、cache清理及bwg_live_acceptance提供接线点（04追加L20直链），但这些源码存在不是当前账号成功证据。
+
+开发中跑隔离机械链；稳定候选且确获原账号/桌面权限后，从正常保存入口运行，独立原流程读实际Vault/活跃generation与新刷新、同EXE/PID并采原始观察。专业检查写GateResult；Bridge摄取后由当前Executor看到失败；Stop或原Lite父进程按F3精确续修。产品错修产品，collector错先修collector；未知远端写入先查generation与回执再重试，不重复put。材料完整只得REVIEW_BUNDLE_READY；原native结果和旧保护齐全后，由原交付owner检查USER_READY。
+
+这一任务的报告必须列：加固provider持久化/启用检查、复用旧quota回归、真正运行的隔离与获权观察、未运行账号项的理由、当前成品仅到哪一层、实际修复/未决失败。若只有授权缺口，用户动作压成一个精确效果请求；不是要求用户搬运失败或重写需求。未来合并auth检查保留上述坏例与consumer alias；临时停用真实账号检查不能把安装可用声明变绿；退休只有相关目标正式撤销或替代检查完成迁移时成立。
+
+### 普通例：Asteria关系追踪方向修复
+
+普通请求是“点击节点只显示它的上游和下游，不混入旁支，导出关系不变”。读取原图方向/导出合同与traceForEntity：当前源码分别做上游/下游BFS且visited去环（04追加A14）。D2从trace入口发现selection/render/export消费者；先寻找已有断言。若当前测试已包含A→B、C→B以A为根不得包含C，则复用；若缺此输入，只追加**同类关系追踪回归**，不创建新能力族或独立Reviewer。是否缺程序由现有测试内容与义务对比决定，不能因历史事故就假定当前缺失。
+
+当前Executor工作项绑定原图方向条款和source候选，添加good单链/独立双向可达、bad在中间节点混合方向导致旁支C进入、missing不存在root或缺必需图输入、unchanged canonical导出/无关节点关系。普通合法不存在root若原接口规定空结果，则它是有效good边界，不把所有空集合判错误；“missing”专指无法验证所需输入。expected来自明确手画小图和固定边集，不能再次调用traceForEntity计算。先用有意混向的隔离坏实现检验回归能失败，再恢复正确候选验证。
+
+机械回归由当前模型同任务运行；图结构/测试输入未变时复用先前已验证结果，改trace/shared projection则失效重跑相关闭包。真实点击后的可见子图另由现有browser入口观察DOM/节点和所选实体，不能只把函数测试提升成完整视觉或科学合格；若任务牵涉科学图语义或整体视觉，继续沿原专业Reviewer，不扩一个万能评分器。static validator只消费材料阶段；最终当前RC Executor调用Bridge以满足的实际claim结案。
+
+失败直接回当前工具调用，原预算内修trace并重跑导出旧控制；无需账号、GPU、额外模型或每次全仓实测。报告可以是“新增1个旁支回归；复用导出基线；机械与浏览器结果分别列出；无新专业标准；未请求部署所以不声称LIVE”。归并重复测试时迁移bad和obligation引用；暂停required测试仍拒绝对应claim，不能删掉旁支例消除失败。
+
+### 每次任务的最小用户报告与字段消费
+
+Bridge.report从当前Claim/Resolution/Receipt和实际run manifest生成派生文本，不另调用模型、不另建报告DB。固定信息是：用户可用变化；新增/加固/复用/退休检查及理由（没有新增也说明）；受保护旧能力；实际run与合法reuse/未run原因；成品身份与允许层级；失败是否被实际接收及新结果；仍需用户的具体动作。只有真的需要用户时显示动作；正常成功不要求用户逐项确认。报告失败不倒推已有专业结果失效，但正式交付必须能返回可读摘要和证据定位，不能以没有报告而悄悄签完整交付。可从同一已验证Claim重建报告，不重跑产品。
