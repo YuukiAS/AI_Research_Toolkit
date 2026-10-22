@@ -424,21 +424,21 @@ consumer inventory未知则中央只能source-ready，不得formal adaptation DO
 
 04追加L20、B02、M08、S24、A14、CUHK C25、CARE C11，先在0f9a8fd固定题目，再读取当前代码和历史报告作反证。它们是新的有来源设计推演，不是独立holdout、真实重演或历史已解决认证，因此原37条定向审读/326条当前UNKNOWN统计不变。源码显示已有修复应当保护，不将历史缺陷自动归罪当前实现。
 
-PROJECT接收方还必须联合03 F2解释：development-acceptance/validateBundle/verify-gpt-work/static validator/Parent gate/finalizer只证明自己的阶段；Bobbio Safe的0.2证明也不能代0.3。最终USER_READY一律经04 R1-AR04的七个确切finalizer调用唯一Bridge.check_delivery，并由原结果writer核验报告绑定；角色名本身不算消费者。CSV若只读项目入口名而忽略阶段合同，不构成完整结论。
+PROJECT接收方还必须联合03 F2解释：development-acceptance/validateBundle/verify-gpt-work/static validator/Parent gate/finalizer只证明自己的阶段；Bobbio Safe的0.2证明也不能代0.3。最终USER_READY一律经04 R2-AR04的正常host完成接点调用finish/check/report/accept_submission；原result仍可写草稿，不能自行获得正式完成权；角色名本身不算消费者。CSV若只读项目入口名而忽略阶段合同，不构成完整结论。
 
-成本与保护一同受检：纯对话NONE、小文档局部、稳定候选昂贵观察；现行首片36–80小时、全量130–316小时均未量测，P0的4–8小时必须先于完整公共层；旧估算已撤回。不得以文件/行数齐全认定设计或实现成功。后续独立Critic仍需从原源码另选问题，按具体箭头给PROCEED或REVISE。
+成本与保护一同受检：纯对话NONE、小文档局部、稳定候选昂贵观察；现行首片40–88小时、全量138–332小时均未量测，P0的4–8小时必须先于完整公共层；旧估算已撤回。不得以文件/行数齐全认定设计或实现成功。后续独立Critic仍需从原源码另选问题，按具体箭头给PROCEED或REVISE。
 
 <a id="r1-coverage"></a>
-## R1 五项返修如何改变原问题的处理
+## R2 两项返修及三项保留关闭
 
-五项均 **ACCEPT**。这是Planner设计修订，不是独立Critic关闭或运行通过。原823行的前八列（编号、分类、项目、原文、来源、项目原来源、历史状态、当前证据状态）逐字段保持；后九列仅更新处理链与定位。历史37条定向审读、326条当前UNKNOWN的口径不变。
+R2已关闭DA-AR-02/03/05的设计；01/04均 **ACCEPT**，本轮修订后仍待下一独立Critic确认。不是运行证明。原823行的前八列（编号、分类、项目、原文、来源、项目原来源、历史状态、当前证据状态）逐字段保持；后九列仅更新处理链与定位。历史37条定向审读、326条当前UNKNOWN的口径不变。
 
 |稳定问题|本轮确定的处理与实际接收者|覆盖定位|必须保留的反例|
 |---|---|---|---|
-|DA-AR-01|prepare_admission在第一次依赖产品写入前分流；已有独立角色从原材料重建，原owner消费；原生需要耐久接收时进入既有受管模式|03#r1-ar01；C01/C02/C03/C21|Executor把重要原话归为背景；异步结果没有owner；缺独立接收者仍写依赖产品并签USER_READY|
+|DA-AR-01|prepare_admission先按风险和真实role transport资格分流；已有项目Reviewer实际有限调用/既有schedule首轮Planner/具体Control角色返回后才消费；无通道明确人工边界|03#r2-ar01；C01/C02/C03/C21|Executor把重要原话归为背景；异步结果没有owner；缺独立接收者仍写依赖产品并签USER_READY|
 |DA-AR-02|DefinitionAdmission将候选、四类控制、校准、准入权威、精确激活摘要和回执相连；Bridge activate，正式reader消费；首次adapter同样准入|03#r1-ar02；C07/C09–C14/C30|恒680却四例全PASS；伪写ACTIVE；改答案获批；校准当产品stage；首次adapter启用相互等待|
 |DA-AR-03|Resolution.execution_capabilities经原Executor载荷、真实读取/调用及实现影响进入check_delivery；已审项目等效能力可替代|03#r1-ar03；C05/C17/C31，REQ-043、REQ-065|只安装未读取；只声明已调用；UI任务低配泛做；后端小改被强制完整前端流程|
-|DA-AR-04|04七个finalizer读取独立专业结果，在报告前调用check/report，原task结果writer拒绝缺绑定的USER_READY|04#r1-ar04；C23/C33、63仓库问题、363历史的项目消费定位|L/B/M/S/A/C/CARE-BYPASS：旧脚本PASS、材料准备、过期部署或科学validator绿直接冒最终可用|
+|DA-AR-04|正常host结束强制finish→check→report→accept_submission，沿七仓原result路径；拒绝省略显式finish直接写就绪的提交|04#r2-ar04；C23/C33、63仓库问题、363历史的项目消费定位|L/B/M/S/A/C/CARE-BYPASS：旧脚本PASS、材料准备、过期部署或科学validator绿直接冒最终可用|
 |DA-AR-05|P0真实host能力先证，Planner按固定回退表确定P2，然后才完整P1/P2；失败不启七仓|06#r1-ar05；C04/C19/C25–C27/C34–C36|Hook没加载却宣称保障；resume错thread；AGENTS文件更新冒加载；取消后重复副作用；先花完整首片再查宿主|
 
 ### 联动反证与预期裁决
@@ -447,10 +447,17 @@ PROJECT接收方还必须联合03 F2解释：development-acceptance/validateBund
 
 1. 新adapter校准需要ACTIVE才可跑：拒绝此循环。CalibrationContext能运行CANDIDATE；独立准入后做无签发shadow；原正常出口正反例证成再enable。shadow只产STOP/SHADOW_ONLY，不产Claim。
 2. 激活过程先更新profile后崩溃，回执缺失：不能半激活。不可变记录和回执先写，短锁CAS profile为唯一提交点；未引用记录无准入权。
-3. 高风险原请求需要独立核对，但只有原生会话：在已授权范围内绑定同请求到既有Review接收者；独立结果未被原owner消费前只允许读、诊断或已准入无关子范围，不新建第四工作流。
+3. 高风险原请求需要独立核对，但只有原生会话：只有实际合格既有schedule＋接收者才能绑定Review，创建文件本身不是自动启动；独立结果未被原owner消费前只允许读、诊断或已准入无关子范围，不新建第四工作流。
 4. 只读文件sandbox仍能调用外部写工具：不认定隔离成立。P0必须证实际工具边界；不支持则禁用该bootstrap路线，保留原受管Planner入口，不自造新客户端。
 5. Validator已ACTIVE但其调用的能力版本或adapter出口变了：按真实语义依赖失效，重走相关准入/运行；报告文案变化不使无关产品观察全部失效。
-6. Finalizer通过后源文件变了再写报告：report重验当前身份与claim，拒绝陈旧结果。直接手写READY也不能通过原结果writer；这不声称操作系统禁止任意聊天或任意文件文字。
+6. 正常host的finish通过后源文件变了再写报告：report重验当前身份与claim，拒绝陈旧结果。直接手写READY也不能通过正常host的accept_submission；这不声称操作系统禁止任意聊天或任意文件文字。
 7. CARE科学负结果完整且被原Planner接受：报告“实验完成，方法未成立”；不把负结论路由成无限产品返修。纯后端/普通文档也不因这轮新机制强制启动视觉、设备或科学审查。
 
-独立Critic要从原题重建这些处理链，不能把此表当检验答案。R1五项若还有实际调用、授权或真实接收缺口，应在同一稳定ID下继续REVISE；无需再造目录或另一份覆盖账本。
+独立Critic要从原题重建这些处理链，不能把此表当检验答案。01/04若还有实际调用、授权或真实接收缺口，应在原稳定ID下继续REVISE；02/03/05只检查本轮连带回归，不无因重开；无需再造目录或另一份覆盖账本。
+
+<a id="r2-coverage"></a>
+## R2 覆盖核验记录
+
+本轮只更新与独立执行/返回及最终消费相关的设计答案和定位：DA-AR-01关联108行，DA-AR-04关联451行；不以行数作为关闭证明。所有823行及前八列逐字段不变，REQ-043/065和已关闭定义/宿主机制保持。实际normal-host调用、角色启动和七仓产品证据仍未运行。
+
+新增反证为：只init_task无Planner；未启用schedule；既有Reviewer没有当前授权；只读shell但MCP可写；同scope旧独立决定应复用；简单UI纠错误升级Review；原result写完成却完全不调用finish；异步review落盘无watcher；候选变更后重用claim。每项分别由03#r2-ar01、#r2-completion与04#r2-ar04给出具体消费者及恢复，不交给实施者临时定路线。
