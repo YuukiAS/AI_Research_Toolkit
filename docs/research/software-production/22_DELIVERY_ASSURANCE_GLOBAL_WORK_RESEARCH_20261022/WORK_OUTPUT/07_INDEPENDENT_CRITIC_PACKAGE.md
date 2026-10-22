@@ -1,6 +1,6 @@
 # Delivery Assurance 独立审查材料与来源索引
 
-**独立Critic R2结论为REVISE；本轮只返修DA-AR-01、DA-AR-04，均ACCEPT。** 被审包9eacd550e563ef9ffd4610b7f66427ad8d827ad3、架构源c87220f9d52935e4eb5296b072830cfd408d32df。R2正文由用户当前转交，没有单独GitHub审查文件；不能虚构路径。DA-AR-02/03/05由该轮设计关闭，原机制保持。当前修订是同一架构候选，待下一独立设计复核；无生产实施授权。
+**独立 Critic R3 已给设计 PROCEED。** 被审包7ca0f0f2c84cc9f29ec8df525797d17da168bd7b、架构源79fe13a6ce3480732e206b33029cfa3b9fcf9a78。DA-AR-01/04关闭，DA-AR-02/03/05保留关闭。结论由用户当前转交，没有独立GitHub审查原件。下面保留历轮来源与闭合证据作为历史；当前阶段是同一架构的可读解释和实施前审查准备，READY_FOR_CODEX=NO，没有生产实施授权。
 
 已接受的有界混合方案不再询问：正常受支持Codex自动接入，受管交付强制真实验收；Hook完全缺席不保证撤回已发原生聊天；不建设新客户端、常驻调度器、第二任务库、第四工作流或万能评分器。目标仍是减少用户提醒、发现假完成、搬运失败和催促原任务返修。
 
@@ -39,7 +39,7 @@
 
 ## 5. 独立审查重点
 
-下一轮范围限定为DA-AR-01..05的修订及其连带影响；不能借此重开已接受产品边界或要求新平台。必须重新走正常用户完整路径，不能只做字段diff。原有无循环回执、父子锁、共享预算、科学负结果、材料/最终分层仍须检查未被破坏。
+下一轮审完整冻结架构及11/12的解释、阶段目标、先行P0与最小Lucerna链，不再只做两项blocker复核。五项已关闭设计只在有新证据或连带影响时重开；不能重问已接受产品边界或要求新平台。必须重新走正常用户完整路径，不能只做字段diff。原有无循环回执、父子锁、共享预算、科学负结果、材料/最终分层仍须检查未被破坏。
 
 审已选机制，不替Planner选择缺失接口。必须攻击：无事件普通聊天、缺原请求、空义务、删除旧入口、动态未知、标准/expected协同改松、错误collector、不同候选拼绿、工作镜像与归档错配、Hook递送未被接收、精确resume返回新thread、Control Verifier缺合法环境、用户取消竞态、重复事件、副作用重发、预算重复领取、外部stale review、科学负结果被刷正、da/1误升da/2，以及小任务新增成本无收益。
 
@@ -300,3 +300,19 @@ Lucerna、Bobbio、Mica、SeminarArc、Asteria、CARE源仍为04固定SHA，已�
 Bridge开发分支最新固定到 **76e2f14d5669867b2d4e3fa0950d8b2fedea7f35**。与上述0de62cb7比较，四个提交仅新增八份相邻正常入口验收文档，生产代码未变。已完整读取[窄Gate修订](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/76e2f14d5669867b2d4e3fa0950d8b2fedea7f35/docs/design/0.11.1_normal_entry_acceptance_gate_amendment_v0.1_2026-10-22.md)：它将真实Persistent链与预算极端故障回归分开，并为Text Transform补实际Actions触发/付费前持久预留设计。DA不依赖或执行该未实施外部调用，不继承其Goal、通知、费用或Git写入授权；本轮角色/完成源码引用0de62仍准确。正常业务完整链和危险边界测试都要经过真实入口，但不要求同一次产品运行刻意凑所有罕见故障，此原则与06现有试点不冲突。
 
 冻结前再次核实研究main仍daf797c7、AI Skills main仍ca10623f；七仓SHA仍为本轮04表。该刷新不改变02/03/05关闭状态，也不代表任何部署或host实测。
+
+
+## R3 通过后的解释与实施准备审查索引
+
+本轮最新读取的两份研究main标准和AI Skills角色/治理合同仍为上文daf797c79、ca10623f。Bridge release仍ba9013b9，dev已到[82ae7c85](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/tree/82ae7c855240f4936b05b1417f78fd2bd799c5a2)；[与76e2f14比较](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/compare/76e2f14d5669867b2d4e3fa0950d8b2fedea7f35...82ae7c855240f4936b05b1417f78fd2bd799c5a2)只有五份文档变化。没有运行相邻包中的任何Goal、付费或发布动作。旧固定源码链接仍可核对现有函数。
+
+本轮新文档仍在同一WORK_OUTPUT：
+
+- [11完整中文说明](11_ARCHITECTURE_EXPLAINED.md)：真实Lucerna LR-STATE-001、成功/返修设计推演、A1–A9调用表、七仓与支持边界；
+- [11 SVG图源](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)：1600×1840确定性矢量图。已在本地渲染PNG并实际看图修正重叠/边界；SVG为GitHub图源，PNG只是同图的显示预览，不是另一个方案。无产品截图或产品实测；
+- [12分阶段审查包](12_STAGED_EXECUTION_REVIEW_PACKAGE.md)：沿原P0/P1/P2/D/P3/P4/P5，含目标、权限、预算、真实反例、接收、回滚和Capability Gates。正式执行放行条件与本轮研究权限分开；
+- [08](08_CRITIC_PROMPT.md)：下一轮唯一独立审查入口。
+
+技术权威03/04和823行CSV未改，五项已关闭机制没有放松。本轮文件仅是同一架构的解释及阶段落地视图；出现真实语义冲突必须修订并交Critic，不能选择较宽松文本执行。原R2 prompt由7ca0f0固定历史保存，当前08更新不是改写旧审查结论。
+
+独立审查者应打开SVG检查实际可读性，不仅扫描XML；从Lucerna原任务/修复记录核对“历史发生什么”和“DA拟怎样处理”没有混用。最终对象是未来同候选真实产品，图画得完整不证明调用已实现。
