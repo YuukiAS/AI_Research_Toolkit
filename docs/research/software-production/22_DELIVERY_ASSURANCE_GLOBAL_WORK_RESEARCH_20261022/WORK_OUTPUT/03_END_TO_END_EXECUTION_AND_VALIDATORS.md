@@ -1036,3 +1036,52 @@ FROZEN_MECHANICAL 必须同时满足：标准已有、阈值/观察方式不变�
 ProjectAdapter 使用相同记录，无第二准入平台。GOOD=当前真实入口与合法结果能进正确 claim；BAD=直接调用旧 PASS/伪造最终报告、错候选或漏掉一个正式出口必须拒绝；MISSING=没有独立结果/没有 accepted baseline 保持未知；UNCHANGED=从真实旧入口独立抽查的保护边及原 runner 仍可运行。初次由原项目专业审查者从源码重建入口/旧功能，再批准 consumer_binding 与映射摘要。Bridge 的 enable_consumer（原安装/接入命令内部函数）只在 adapter ACTIVE、04 七仓 finalizer 与绕过负例均有证据时开启该 consumer。当前七仓均未完成这一实测，不标 DA enabled。
 
 修改定义由原 Executor 在原允许路径修，反馈原任务接收；改标准只由原 authority。控制集升级使相关激活失效，先校准再激活；合并/退休迁移原 bad/unchanged 与消费者。记录位于原 task 的 delivery_assurance/definitions/，active locator 仍在原项目 profile；中央维护沿原维护板 ADAPTING/DONE。机械准入不新增模型调用；独立路径复用本任务必要专业审查，其成本并入 06，不固定多开一个长期 agent。
+
+
+<a id="r1-ar01"></a>
+## R1 修订：DA-AR-01 写产品之前决定谁核对原要求
+
+**处置 ACCEPT。** 原 F1 的逐字范围覆盖只能抓“没映射”，抓不住“映射了却理解错”。选择在原 Admission 加一个决策，不新增工作流：当前 Executor 的归纳只是候选，复杂或高后果任务必须由已有独立角色从原文重建后置条件。全任务双模型太重；只在最后审成品会让误解先进入实现，均不选。
+
+### 决策、调用位置和最小字段
+
+新增纯函数 core::decide_admission_route(request_sources, authorities, change_scope, effect_scope, project_policy, available_owner_bindings)。Bridge **delivery.py::prepare_admission** 调用并消费它；新增 CLI `ai-bridge delivery admit --context <json>` 只是同一函数入口。它先读取原文、附件定位/可读性、约束、当前已有 mode 和角色，后决定是否允许 product write，不从 Executor 的“低风险”标签单独推断。
+
+Admission 增加 `execution_admission={mode:NATIVE|LITE|REVIEW|CONTROL|PROJECT,review_requirement:SELF|INDEPENDENT,reason_refs:Ref[],original_materials_ref:Ref,independent_result_ref:Ref或PENDING,owner_binding:Provenance,write_scope:Ref[],allowed_actions:READ_ONLY|BOUNDED_PRODUCT_WRITE,route_policy_ref:Ref}`。它是不可变 revision 的执行条件，不是新 task state。独立结果变更写下一 revision；请求、标准或范围变化使旧决定失效。CheckContext 通过 admission_ref 读取，不重复存一套决定。
+
+准入的真实接点（均为**拟新增调用**，所列外层函数已存在）：
+- cli.py::run_lite_task：现有 readiness.preflight_lite_task 后、L715 subprocess 产品写入会话启动前。必要的语义归纳在当前任务只读阶段完成；缺投影/原文或独立决定则只读，不以“先启动可写 Executor 再补准入”倒置。
+- reviewed_runner.py::run_codex_event：executor_prompt 构造前；reviewed_handoff.py::plan_transition 从 PLAN_FROZEN 或 REVISE 返回执行动作时也检查 admission。仅 PLAN.md 存在不能放行。
+- agent_flow.py::launch_executor_with_preflight：readiness 后、adapter.launch_role 前；Verifier 先按冻结原文和标准审 requirements，不由 Executor 同写标准。
+- 已支持原生：delivery_hooks.py::on_prompt 保存可获取原文，**on_pre_tool_use 在第一次产品修改工具前调用 prepare_admission**；缺材料时返回当前模型可读补件要求。该 hook 是否覆盖所用写入工具必须先经 P0 证明；没覆盖的入口不标支持“写前强制”。这里不宣称操作系统能拦任意文件写入。
+- 项目原入口：04 的 finalizer 所属项目接入合同把 prepare_admission 接在原 Executor 的起始 preflight；最终 check 再验证。首次没有已激活 adapter 时，只读发现/拟定接入候选允许，不能用空 adapter 自行取得产品写权限。
+
+纯函数不能识别所有隐藏语义风险。决定输入须包含原文全覆盖、已激活项目政策及代码/效果扫描；任一关键项 UNKNOWN 不能落 SELF。独立结果从原始资料先形成自己的后置条件，再与 Executor 投影比较，逐条解释遗漏/冲突/非需求。合并只可增加保护或按原 authority 更正误判，不投票，不让 Executor 删除独立发现。
+
+### 何时自查足够，何时必须独立核对
+
+SELF 必须全满足：局部可逆；既有标准能机械决定；不改专业含义/数据来源/身份权限/共享接口/安装部署；无新 validator 专业判断和重大旧功能影响；原文材料齐全；没有项目本来要求的独立审查。例：修普通 README 链接、对冻结 JSON schema 增补缺字段回归。相关文档校对仍做，不自动跑全套前端。
+
+任一命中则 INDEPENDENT：多入口或跨组件用户行为；模糊语义会改变产品结果；新领域能力/重要旧行为/专业标准；凭据/权限/持久化/不可逆效果；视觉交互与正式科研/统计结论；原要求/旧保护映射缺口；R1-AR02 的高风险定义准入。**独立核对发生在这些依赖的首次产品写入前**，之后专业成品审查仍必须运行，不能用需求审查替代实物。
+
+优先保留已有模式和角色，规则按顺序：
+1. 已有项目/Control/Review 合同：用该合同的原要求权威和接收者，不新建模式。CARE 默认由科学 Planner 从原始请求冻结 Batch，Controller 验执行；不得因高风险自动强加 review.md 或启动额外 Reviewer。显式 review_required=true 时再沿它原有只读 Reviewer。
+2. 纯普通自查任务：原生或 Lite；只在原任务确需有界退出后恢复时选 Lite。
+3. 原生任务需要耐久独立接收且项目没有现成流程：选择**既有 Review**；新专业规则/产品与 verifier 必须分权且项目已有适用 Control 时选 Control，不凭“复杂”自动升 Control。
+4. 既有 Review 初次要求核对用其 **GPT Planner 的 PLAN_REQUESTED→PLAN_FROZEN** 阶段；后续 GPT Reviewer 还须从原文复核最终 coverage。不伪造一个“实现前 Reviewer review_round”，不把 Reviewer 本来事后才出现当作事前保证。Control 用现有 Planner/Verifier 冻结，原项目用其已有专业 Planner/Reviewer。
+
+独立需求结果用原 PLAN/Verifier/项目审查工件内一段 machine-readable request_admission：
+`{original_materials_digest,authority_digest,scope_revision,independently_derived_postconditions[],comparison_findings[],decision:ADMIT|REVISE,role_receipt_ref}`；
+各 postcondition 用 Obligation 的同型字段。Bridge::consume_requirement_review 校验原材料、角色非候选作者、实际只读范围与当前 revision；prepare_admission 消费该结果后才允许其产品写范围。缺附件只能 UNKNOWN；不能把 Executor 摘要作为完整原文。
+
+### 原生无任务包怎样进入 Review，异步结果谁接
+
+新增 delivery.py::adopt_existing_mode，受 prepare_admission 的决定调用。先按本 session/request digest 查既有 task 关联，幂等复用，绝不每次生成另一 task。若项目已安装 Review 且该任务的元数据/分支策略已获权，调用已有 reviewed_handoff.init_task；它创建原来的 REQUEST.md/CURRENT.json，起始仍是 PLAN_REQUESTED，**不创建 Codex 线程、不启动 watcher、不改 branch**。REQUEST 保存原文及附件完整 locator，不能只用 objective 摘要。原生 session 原 owner 绑定此同一逻辑任务；原 native 证据目录只留下指向原 task 的定位，不维护第二 CURRENT。
+
+若项目要求 reviewed/<task_key> 分支，只有原项目政策或用户已经授权该精确策略时才用已有 bounded materialize/bootstrap；不能为了自动接入擅自切分支。Control 仅在项目已安装且既有契约适用时用 agent_flow.init_task。缺安装、权限、角色 transport 或真实接收者时保存未准入原因，走原 NEEDS_GPT_PLANNER / 外部等待 / 授权路径；不把“自动接入”解释为授权新线程和费用。最低摩擦是复用已有角色/任务，不要求用户重抄需求；确有新 host/线程权限才按原政策一次询问那项具体动作，绝不重复询问已接受产品边界。
+
+异步期间当前模型仍活跃时，它消费工具返回；Review 已运行的 reviewed_runner.watcher_once 读取原 CURRENT 与新鲜 PLAN/REVIEW，新增 consume_requirement_review 后通过原 plan_transition/apply_transition 继续原 task；Control 由已活跃原 Controller 的 control step 消费；项目通过04原 finalizer 下次合法调用消费。**没有活跃 owner 时结果只是已保存，不能写已递送/已修复。** 恢复入口是原 watcher_once、control step 或原 session 的同任务恢复；新的 owner 接管先核 cancel epoch/lease/原材料摘要，不能读“最新任意 PASS”。不会新建常驻平台来掩盖等待。
+
+无独立接收者时允许读源码、枚举入口、拟需求/定义草案、无外部效果诊断与冻结控制；已经独立准入且不受本缺口影响的合法产品子范围可继续。尚未准入的依赖产品写、受影响 USER_READY、首次定义激活均阻塞；REVIEW_BUNDLE_READY 可以声明完整可审材料，不能声明产品完成。原 scope/budget/effects 不变。
+
+负例：把“真实账户剩余额度”映射成“显示一个数字”仍有原文覆盖；独立角色从原话重建可信 limit/usage/当前账号后置条件，prepare_admission 拒绝原投影。把 async 审查写到错 scope_revision，owner 不消费；没有 watcher 时只记录待接收，不能假称自动恢复。把普通文档变更升全套 Control 也被 SELF 条件与成本控制反证。
