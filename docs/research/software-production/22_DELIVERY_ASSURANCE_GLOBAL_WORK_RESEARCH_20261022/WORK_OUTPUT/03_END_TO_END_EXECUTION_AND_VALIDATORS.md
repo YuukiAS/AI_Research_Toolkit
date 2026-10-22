@@ -718,7 +718,7 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 
 **GateDescriptor 保留必填集合**：gate_ref、definition_version、authority_ref、authority_contract_ref、definition_digest、capability、failure_semantics、applicability、subject_types[]、target_roles[]、claim_support[]、normal_entry、evidence_requirements、judgment、regression_bank_refs[]、known_bad_refs[]、should_not_change_refs[]、invalidation、execution_requirements、calibration_requirement。normal_entry 必含 kind/root_ref/entry_ref 和 argv_schema 或 typed_parameters；不能把任意shell字符串当入口。evidence_requirements 必含 modality[]/fidelity[]/observer_requirement[]/required_observations[]/completeness_rule。judgment 必含 PASS/FAIL/UNKNOWN条件、rubric_ref与阈值约束。invalidation 必含 subject/target/runner/fixture/rubric/environment依赖及time_validity。execution_requirements 必含权限、cost_resource_ceiling、secret_classes、physical_target、long_run、side_effects。
 
-**新增 Descriptor 字段**：protection_policy={risk_tier:MECHANICAL|PRODUCT|PROTECTED,reference_source,observer_required,calibration_refs[],accepted_behavior_refs[]}；lifecycle_binding={owner_ref,state:CANDIDATE|CALIBRATING|ACTIVE|REJECTED|PAUSED|RETIRED,admission_ref,effective_scope,expiry_or_none,replacement_refs[],reason_ref}。required暂停/退休但无合法替代时不能准入，不把生命周期state当任务state。
+**新增 Descriptor 字段**：protection_policy={risk_tier:MECHANICAL|PRODUCT|PROTECTED,reference_source,observer_required,calibration_refs[],accepted_behavior_refs[]}；lifecycle_binding={owner_ref,state:CANDIDATE|CALIBRATING|ACTIVE|REJECTED|PAUSED|RETIRED,admission_ref:DefinitionAdmissionLocator,effective_scope,expiry_or_none,replacement_refs[],reason_ref}。required暂停/退休但无合法替代时不能准入，不把生命周期state当任务state。
 
 **ProjectAdapter 保留必填集合**：repo_identity、authority_ref、adapter_semantic_digest、canonical_authority_set[]、agents_authority_set[]、normal_entry_refs[]、capability_refs[]、targets[]、edges[]、impact_rules[]、parameter_bindings[]、source_set_rules[]、environment_profiles[]、claim_ceilings[]、long_run_owner_refs[]、human_only_boundaries[]。authority item保留 field_or_scope、authority_ref、canonical_locator、branch_or_release_scope、content_digest、supersedes[]、effective_from；AGENTS item保留 scope_root、agents_path或ABSENT、canonical_contract_refs、authority_ref、branch_or_release_scope、content_digest、supersedes、effective_from。新增 lifecycle_binding（与 Descriptor 同型，R1-AR02）；surface_inventory_ref；discovery_contract={extractor_refs[],supported_entry_kinds[],unknown_edge_rule,baseline_ref}；consumer_binding={consumer_id,reader_version,accepted_schema_versions[],entry_refs[],delivery_boundary_ref,stage_bindings[]}；stage_bindings={stage:RequestedClaim.stage,entry_ref:Ref,report_root_ref:Ref,result_writer_ref:Ref}[]，绑定实际 dispatch 与原结果写入检查。另增 execution_capability_rules:Rule[]，具体选择及等效替代条件见 R1-AR03。
 
@@ -868,6 +868,7 @@ D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读�
 - `Id`：非空字符串，不含NUL；`Digest`：64位小写SHA-256十六进制；Git commit/blob OID与内容SHA-256分字段，不能混用。
 - `Ref`：带kind的联合类型。`git`={kind,repo,commit,path,blob_oid,content_digest,scope}，commit必须不可变OID；`artifact`={kind,root_ref,path,digest,access_class:PUBLIC|TASK_LOCAL|RESTRICTED}，path为显式受权根下相对路径；`event`={kind,host_id,session_id,event_id,content_digest}。消费前按类别验证身份和读权限，引用本身不授权跨host访问。模型重述原话标来源不足，不自行生成可信event。
 - `ReceiptLocator`={root_ref,path,receipt_id}、`ArtifactLocator`={root_ref,path}：只定位预留回执或派生报告，**不含该目标内容digest**；root_ref须是原任务已登记且受权的稳定根定位，不能包含后代文件摘要。GateResult.consumption_ref仅用ReceiptLocator；读回receipt再校验其result digest、task/candidate与真实consumer。因此不存在result→receipt hash→result hash循环。其它不可变事实仍用带digest的Ref。
+- `DefinitionAdmissionLocator`={root_ref,path,admission_id}：候选lifecycle_binding中的稳定定位，不含尚未生成的准入记录digest。ACTIVE真值从既有profile的active binding解析到带digest的不可变Admission Ref；不得信候选自填state。候选不能反向包含其准入记录摘要。
 - `Identity`={id,kind,semantic_digest,ref,bindings}，bindings为adapter固定identity规则声明的字段；未声明字段不参与判断。SOURCE须repo/commit与完整内容差异digest；BUILD/PACKAGE须输入digest和产物hash；INSTALLED须package/hash/实例或PID-start；DEPLOYED须服务/部署/DB schema快照；DATASET/GT须split/病例集合/预处理/标注版本；CHECKPOINT须model/pretrained/参数与训练lineage；PREDICTION须checkpoint/数据/几何；DOCUMENT/REPORT须内容与渲染对象。适用字段缺失不能仅填id；非适用字段用有依据的NOT_APPLICABLE，不伪造值。
 - `ClaimTuple`={target_set:Id[],capability_set:Id[],environment:Identity,time_window:{from,to_or_none},level:LOCAL_SOURCE|INTEGRATED|ARTIFACT_READY|INSTALLED|LIVE}。USER_READY仍是全部承诺的聚合谓词，不新增证据层级。
 - `AuthorityItem`、`AgentsItem`保留D6列出的所有键：refs用Ref，scope/path/branch_scope用string，digest用Digest，supersedes为Ref[]，effective_from为有时区ISO8601；ABSENT必须有本scope树枚举依据。不能依时间新旧解决专业权限冲突。
@@ -1106,7 +1107,7 @@ NOT_APPLICABLE 条目只保留 id/requirement_refs/why 与依据，不伪填安�
 
 1. prepare_admission 在第一次相关产品写入前解析上述条目；Bridge::bind_execution_capabilities 从既有安装收据和真实入口文件读取 version/digest，不能只扫“已安装列表”。不执行安装、更新或付费工具。
 2. Lite 的 _lite_task_prompt、Review 的 executor_prompt、Control 的 RoleLaunchRequest 所用冻结 payload、原生 on_prompt/当前工具返回均附上**本次所需的完整入口合同、定位与选择理由**。按能力原合同继续读相关 references，不能仅注入标题。长参考按任务范围加载，不递归读整套库。
-3. 当前 Executor 正常读取/调用该能力；Bridge::ack_execution_capability 复用原 Receipt（新增 subject_kind=EXECUTION_CAPABILITY，subject_ref 指本 Resolution 条目），记录真实文件读取/tool result 的事件及摘要、接收 session 和反馈 ID。ACK 只证明收到，不能证明理解，更不凭一句“我已使用”签 ACTUALLY_CONSUMED。
+3. 当前 Executor 正常读取/调用该能力；Bridge::ack_execution_capability 复用原 Receipt（新增 subject_kind=EXECUTION_CAPABILITY，subject_ref 指加载前的不可变 Resolution 快照），记录真实文件读取/tool result 的事件及摘要、接收 session 和反馈 ID。ACK 只证明收到，不能证明理解，更不凭一句“我已使用”签 ACTUALLY_CONSUMED。
 4. `delivery prepare-run`（prepare_run_context 的 CLI）和 on_pre_tool_use 对相关产品写范围检查 required load evidence。需要工具/helper 的合同还须真实调用结果；纯指导型技能可由带摘要的实际读取＋实现影响证明，不强求不存在的运行命令。宿主不提供读事件时，当前任务通过 Bridge 显式读取返回完整内容并 ack；不得伪造隐藏插件调用 token。
 5. 实现后记录 impact：哪条能力规则导致哪个代码/设计/成品变化，由原 QA/专业 Reviewer 对最终完整结果核对。Bridge::check_delivery 检查 REQUIRED 项 load/invoke/impact 和 claim_limits；缺任一所需证据只准中间诊断，不能 USER_READY。影响必须落具体内容；“遵循最佳实践”无效。模型自述的 impact 不是独立专业质量判断。
 
@@ -1148,3 +1149,11 @@ NOT_APPLICABLE 条目只保留 id/requirement_refs/why 与依据，不伪填安�
 **定义失效与选择。** select_checks 可发现候选或未准入定义，并将其列入 unresolved_obligations；只有 ACTIVE 且绑定有效的定义进入 selected/reuse。校准入口显式读取候选，不借 formal RunContext。正式 reader 将 DefinitionAdmission/CalibrationContext/CalibrationReport 作为单独 object_type 解析，采用本文件 R1-AR02 的唯一字段集；它们不能被 GateResult parser 接收。原 profile 的 active binding 固定为 `{definition_id,kind,candidate_digest,admission_ref:Ref,activation_receipt_locator:ReceiptLocator,previous_binding_digest_or_none}`，CAS 整个 binding；不存在第二份可自行变绿的注册表。
 
 **Persistent相邻预算边界。** Bridge开发分支新增通知预算提案v0.3（源码未改，固定来源见01/07）。DA的同任务返修reservation只限制自己的获准返修，不向Persistent另发一套通知；原supervisor/Notifier持有外部通知permit和额度。恢复、反馈ACK、报告生成均不能重置run binding或隐式调用邮件。P0使用无通知fixture，不依赖这项尚未实施的相邻提案。
+
+### R1 最终引用去环检查
+
+候选定义的完整文件还会被candidate_ref绑定，因此只把definition_digest排除生命周期字段仍不够：若候选的lifecycle_binding.admission_ref含未来准入记录digest，仍会与准入记录的candidate_ref形成内容循环。本稿已将这个字段统一为 **DefinitionAdmissionLocator**。候选只预留位置；Bridge正式active binding才引用已存在的不可变DefinitionAdmission，激活回执另用稳定ReceiptLocator。实际链为：候选文件→校准初始记录→CalibrationReport→最终准入记录→激活回执→profile CAS；后一步只引用已存在内容或无digest的稳定locator。每次状态变化追加记录，不回写前一记录的字节。
+
+能力读取也不回写被ACK对象。bind_execution_capabilities先冻结选择快照Resolution-R0（load/impact仍PENDING）；真实读取事件至少包含capability_id、selection_resolution_ref、entry_path、payload_digest、reader_identity、read_event_ref、loaded_at，ack_execution_capability核它与R0精确条目一致，Receipt.subject_ref引用R0。读取/调用/影响事实到齐后产生Resolution-R1，引用原始事件及实现证据；R0与旧Receipt均保持不变。正式check用R1，并沿事件核到R0选择与实际版本，不能拿另一个能力的ACK补缺。该做法仍用原任务中的不可变Resolution与Receipt，不增加运行状态机或第二数据库。
+
+P1的引用fixture必须同时拒绝：候选含未来Admission digest、结果含未来Receipt digest、ACK后原地改Resolution、同一能力id但实际payload已变。它们是协议逻辑校验，不被描述成当前已执行测试。
