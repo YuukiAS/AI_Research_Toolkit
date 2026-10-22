@@ -155,7 +155,7 @@ admission发现标准已定、程序缺失时生成下列工作项，拟由run_l
 
 Review：W2附在现有Executor结果，Reviewer审后写本round REVISE；watcher_once按现有CURRENT选择事件→run_codex_event→executor_prompt传入W2及REVIEW。不可绕过Reviewer直接伪造其决定。Control：适配为现有finding→write_current_findings→route_current_findings→原Controller消费route并建立已有RoleLaunchRequest→launch_executor_with_preflight。当前源码已存在这些函数，**拟新增适配与真正Controller接线尚未实现/验证**。
 
-native：on_stop只有在任务身份匹配、用户未中断、预算尚有且支持续修时返回阻止完成和W2摘要，宿主将其交给同会话。若此平台不执行Hook，不能保证“完成”文本被拦，G1。Lite子进程已经退出则只拒绝ready、保存原task恢复点，不额外启动进程。外部Reviewer没有自动返回connector则G4，不拿待办文档冒充消息送达。
+native：on_stop只有在任务身份匹配、用户未中断、预算尚有且支持续修时返回阻止完成和W2摘要，宿主将其交给同会话。若此平台不执行Hook，不能保证“完成”文本被拦，G1。Lite退出后由原父进程按D4核验并在原预算内精确resume；取消、缺session或预算不足则保存原task恢复点。外部Reviewer没有自动返回connector时沿原流程等待，不拿文件冒充送达。
 
 归因规则：product→Executor；validator→原验收程序owner；observer→采集owner；identity/env→Controller；standard contradiction→原专业Planner；AUTH→当前用户；科学充分负结果→科学Planner决定STOP/下一路线。相同原因为第二次无新信息时先根因审计，不能仅换命令名重试。第三次也不自动获新预算。
 
@@ -194,7 +194,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 2. 原生拟由 on_prompt 提取 session_id/turn_id/cwd，在当前任务证据目录分配 task_key；不创建 Goal。Bridge 使用已有 task_key，项目控制器使用自己的 identity。
 3. 仅 Skill/AGENTS 触发属于指导层；没有确定性前后入口就标 OBSERVATIONAL，不得称 ENFORCED。
 4. 只生成原请求及 repo/worktree/dirty ownership/现有权限引用的投影，不搬迁工作树或开线程；改变执行模式须现 owner 合法交接。
-5. 正常执行中的入口向当前模型/调用进程返回明确 UNSUPPORTED/NEEDS_EVIDENCE；完全未运行的 Hook 无法自报，G1 保留阻塞。
+5. 正常入口返回可消费缺口；Hook完全缺席不能自报或撤回聊天文字。01 D1已证明不可达并选择可信入口＋原交付门组合，未把原生全场景承诺算已满足。
 6. 试点必须从一条未准备任务包的普通功能请求开始，记录宿主事件、接收端、真实检查和最终失败/修复；内部 helper 单测不算。
 
 ### C02 目标与不能降级的交付承诺如何冻结
@@ -210,10 +210,10 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 
 1. 先按项目既有治理选；Lite 默认，独立复核要求才选 Review，高 false-PASS 且需要独立 oracle 才 Control；CARE/Mica 既有 controller 优先。
 2. 在 readiness 前准备 scope summary，原 owner 决定模式；Bridge launcher 只消费已选模式，DA 不启动第二 owner。
-3. Lite 新发现复杂性先保留结果；仍可在同一活跃进程做有界修复；需独立多轮时经原模式合法交接，不偷增一次 codex exec。
+3. Lite优先在当前回合修复；退出后原run_lite_task内按D4最多两次精确thread resume，共用原预算，不新增任务。需要独立角色时由原owner按既有Review/Control策略合法选择，不按任务大小自动升级。
 4. 真实设备、长期运行、独立审查、付费与发布要求在 admission 揭示；正式执行包前冻结，不能晚到最后才问。
 5. 纯咨询无产品改动可 NONE；文案局部检查是 TARGETED，公共生成器/协议变动才扩大；任务长短与文件数不是升级条件。
-6. 分别核查 Lite 单进程、Hook 试点一次 continuation、Review max_attempts_per_event 与 review_round、Lucerna 最多三轮独立审查、Control 自有计数，禁止相加。
+6. Hook与父进程默认共享两次实际修复上限；Review event启动attempt与review round分开；Lucerna三轮及项目更低上限优先；不相加。D4定义取消/断线/重复事件。
 
 ### C04 启动、提示、停止和中断钩子
 
@@ -221,8 +221,8 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 2. 安装与信任分离：记录实际 Hook 文件及宿主接受的定义身份；定义改动重新走宿主信任，不伪造已信任标记。
 3. 拟 on_prompt 读取原消息和当前 repo，写 admission.json，additionalContext 提供路径/摘要；当前 Codex 读取并回传所接受 obligation IDs。
 4. event key=(session,turn,event,candidate)，原 owner 串行锁/原子结果防重入；Interrupt 标记优先于任何续修，已启动操作按其 owner 取消规则处理。
-5. 官方存在不受tool hooks覆盖的路径；失败输出字段还可能使工具继续。受管策略可强化信任但不能外推完整拦截；G1要求跨host真实负例，不能只看配置。
-6. Review 子进程 thread_id 当前为空；同逻辑任务不等于同 App 会话。各 host/profile/version 单独测试，不移用 CLI 结果。
+5. 官方Hook错误可能继续，受管信任也不是fail-closed。01 D1已裁决接入与交付分层；宿主/版本/信任失效负例是后续运行验证，不能靠配置宣称强制拦聊天。
+6. 现存Review thread_id=None；新增JSONL reader必须取得thread.started真实id，后续resume返回同id才继续。GPT Work/CLI/Desktop/Remote逐宿主验证，不能继承CLI结果。
 
 ### C05 技能发现、专业能力调用和强制消费
 
@@ -246,7 +246,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 
 1. 接入者读取当前源码、入口、接受基线、发布脚本和历史；生成适配草案，用户只裁不可推导语义，不手填全部功能。
 2. 路径规则从实际 import/build/runner 关系得出，参数从版本合同；每条边附 source locator 和自动/人工确认类型。
-3. 对比代码导出/命令/路由/构建产物清单与 adapter；空映射、孤儿公共入口、未跟踪语义文件都拒绝就绪；通用完备性不可证明 G2。
+3. 03 D2枚举真实入口与旧/新依赖，输出discovered/mapped/tested/reused/unresolved差集；空映射、孤儿和未知边阻止相关claim。保护边界已冻结为可枚举入口及可解析依赖，不宣称全知。
 4. 无 adapter 先做 admission discovery；可局部开发但不宣称全量旧功能保护；不能默认 NONE。
 5. adapter 绑定 repo、effective branch、产品 milestone、环境类别；分支变动重算，设备证据不能跨设备继承。
 6. 删改入口由 impact diff 发现，当前 Executor 修本地映射；标准变更走专业 owner；迁移前后旧坏例不得丢。
@@ -257,7 +257,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 2. 先解析现有构建与清单，动态边由运行证据补；冻结需要的交付路径，不要求用户逐点录入；不确定边阻断相关 claim。
 3. 共享 runtime/schema 改动取消费者反向闭包；Lucerna provider 变动至少检查各实际消费者，不能只查新卡片。
 4. 候选是对象向量：每仓 semantic digest + 构建 hash + 安装/部署身份 + observer+input；缺一条 required edge 即身份缺证。
-5. 从公共 API/路由/测试引用/生成目标对照发现遗漏；发现不了所有隐藏行为是 G2，不能用 FULL 假装知道未知功能。
+5. 从构建/公开API/路由/UI action/正式CLI与接受基线抽取；旧图保留删除边，未知动态消费者扩到所属产品FULL并保留缺口。03 D2给分母、盲抽和增量维护，不把FULL解释为全知。
 6. 动态对象绑定观测时段、输入版本及消费时复核；时间戳不替代内容/hash，provider 变更使相关 LIVE 证据过期。
 
 ### C09 专业能力类别和验收定义的来源
@@ -393,23 +393,23 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 3. 按required set逐项汇总，不平均、投票或用全绿摘要；缺行与重复冲突直接拒绝。
 4. source/unit成立可报告；installed/live/scientific结论不成立就明确保留，不能把部分完成写全任务done。
 5. 源码测试不授权安装/部署/发布，build成功也不证明实际加载。
-6. 拟 existing completion boundary 调 validate_delivery_claim；Control predicate、Review发布就绪边界、项目finalizer各由原owner消费；尚未接入者G4。
+6. Bridge ingest_result先解析并产生真实调用者消费Receipt，再由check_delivery/core evaluate_claim核验集合。Lite/Review父进程、Control apply_transition及项目送审出口消费；03 D4明确新增位置。
 
 ### C24 失败代码如何自动变成下一步工作项
 
 1. write_work_item保存actual/expected/source/raw evidence/分类/owner/allowed repair/invalidations，绝不只写FAIL。
-2. 活跃runner返回当前Codex；Review经当前REVISE事件由watcher_once→run_codex_event→executor_prompt读取；Control typed findings走现有route_current_findings；native Stop待实现。
+2. 当前runner stdout直接返回当前模型；原生Stop通过宿主后续回合送回；Lite/Review父进程run_delivery_cycle精确resume；Control原Controller调用新control step及具体CodexExecRuntimeAdapter。D4规定输入、ack与新结果。
 3. 工作项ack标明ID和理解的修复范围，closure必须有本轮新结果；没有ack/新结果不推进。
 4. 产品给Executor；runner给原runner维护者；observer给采集者；env给Controller；标准给Planner；授权给用户；身份给Controller；科学NO_GO给科学Planner。
 5. 同task_key和contract revision保存根因/attempt，不新Goal洗预算；contract改变才走原合法变更流程。
-6. 进程消失无owner时记录恢复命令/原任务路径与不具自动续跑事实；当前没有活跃消费者就保留G4，不输出无人值守承诺。
+6. 进程消失时先核验原任务锁/精确session/结果；仅原父进程或已授权持久owner可恢复；无活跃owner保留同task恢复点，不创建新后台。设计已定，运行能力未证。
 
 ### C25 同任务自动返修、根因分析和停止预算
 
-1. Lite一次subprocess；原生Hook只在试点验证范围内一次续修；Review watcher事件attempt默认2，独立review轮次另管；Lucerna三轮、Control/CARE各自合同。
+1. 选定原入口内有限续修：初次执行后最多两次精确resume，Hook与父进程共享该计数；已有更低预算优先。Review事件attempt不被清零，外部等待不耗repair；项目独立轮次不相加。
 2. 先分类和因果证据再改；根据修复影响重算检查，oracle改动重新校准，源不变不重跑无关大实验。
 3. 同因第二次无新信息转根因审计，第三次仍无新证据停止盲试；这不是新预算，不能越过更低现有上限。
-4. 活跃Codex由命令失败继续；外部返回由已有watcher/controller消费；不存在的owner不能由DA临时发明。
+4. 当前工具返回与Stop优先；子进程结束由原launcher检查并有界resume；Control由原Controller调用一次性step。所有ACK绑定候选，修复后fresh run闭合；不存在的owner不自动发明。
 5. admission发现需独立多轮就先选正确模式；已耗尽保留未完成与同task恢复点，不借Stop再领预算。
 6. WAIT不消耗repair/critic/retry轮次；新鲜REVISE且实际执行才消耗，stale review不触发。
 
@@ -501,11 +501,11 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 3. 同candidate vector与真实安装/部署/数据run对应，重采受影响部分，禁止多版本拼绿。
 4. 看完整真实产物与正常入口，内部JSON/单测不足；研究阶段未运行这些试点。
 5. 每能力都跑good/bad/unchanged，另missing证据；按false accept/false reject分别计算，零观测错误也不等全域保证。
-6. 逐环境/consumer限范围推广；G1未闭合不得写七仓一句话自动保障，G3不足不得写不可伪造。
+6. 推广按consumer×host×entry×artifact分层；G1原生聊天不可达边界不掩盖，D3未证明保护的环境不签protected。已确定实验数量与资源上限见04 D5/06，不把运行未证留成算法待定。
 
 ### C36 正式落地、更新、回滚和退出策略
 
-1. 先接口/权限/核心阻塞独立审查，再分包基础与项目小试；具体依赖和候选要求见06，不交执行Goal。
+1. Planner已选D1–D6；独立Critic可审这些选择而非替Planner补决定。后续按06公共实现、真实试点、逐仓适配、发行维护推进；本研究不发执行Goal。
 2. 每仓源码、安装、实际运行、独立验收、发布各有独立事实；一个仓PASS不签其它仓。
 3. 版本向量兼容检查失败只回退该consumer已知可用组合；保留当前目标与必要缺证，不重写Git历史。
 4. 新仓先建立最小真实纵向链+正式目标+good/bad/unchanged，不凭空宣称旧能力完备。
@@ -513,7 +513,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 6. 试点若无净收益或持续制造无意义重验，删除通用机制/缩小到入口与身份；维护成本有真实否决权。
 ## E11 交叉核对后的接口、活动与命令边界
 
-E3–E7的schema_version:1与函数例子是待实现内容模型，不是旧da/1的合法wire，也不是已经冻结的新版本。旧[da/1](https://github.com/YuukiAS/AI_Research_Toolkit/blob/f1426b6322870c7a9d42d83ff6ea7ad8a35837a3/docs/research/software-production/16_THREE_RUN_SYNTHESIS_AND_DELIVERY_ASSURANCE_20261015/DELIVERY_ASSURANCE_PUBLIC_DA1_INTERFACE_FREEZE_V1_20261020.md#L22)要求必填字段或决策语义变更重新Planner/Critic。06 P0必须先决定兼容/替代和全部consumer迁移；unknown required version不消费，optional诊断字段不得改变判定。没有新冻结不能进入P1/P2。
+E3–E7是读者内容示意，D6是本轮选定的完整da/2接口提案。旧da/1保留不改；旧记录只诊断导入，新增必需条件不得被旧reader忽略。版本、消费者、迁移和回退已经由Planner决定，仍需独立Critic审查和后续实施授权；不是交给P0/Codex再选方案。
 
 “同任务”必须同时表达三层身份：产品task/scope revision；执行run/candidate；独立审查campaign/review target。产品修复保留目标、失败和预算，但candidate改变使对应旧结果失效。CUHK当前合同明确换部署snapshot关闭旧Parent，获准后为新snapshot准备新活动，旧token不复用；相同snapshot的合法工具session loss才走原有限续行。这个项目边界优先于任何通用“同一聊天持续修复”表述；DA不创建新Parent或增加预算。
 
@@ -527,15 +527,15 @@ E3–E7的schema_version:1与函数例子是待实现内容模型，不是旧da/
 
 选定新增 Bridge `ai_bridge_kit/delivery.py` 负责文件定位、来源校验和宿主适配；AI Skills workflow-core 的 `scripts/delivery_core.py` 只计算义务、选测和 claim；项目 `scripts/delivery/adapter.*` 调已有程序并解释专业结果。Bridge 通过已安装插件 manifest 的固定 capability entry 调用 core，不能扫描 PATH 中名字相似的脚本。缺 core 或版本不合时返回 NOT_READY，原项目低层测试仍可独立运行。
 
-所有边界调用 `check_delivery(context, result_refs) -> DeliveryCheck`（**新增接口**）：status 为 READY / REPAIR / NEEDS_STANDARD / NEEDS_AUTH / WAIT_EXTERNAL / STOP；包含 task_identity、scope_revision、candidate_identity、obligation_set_digest、result_refs、feedback[]、allowed_claims、resume_ref。此 status 是一次函数返回，不是新的持久 workflow enum。它映射回原流程状态。异常统一为 REPAIR 且 reason=RESULT_UNREADABLE / RESULT_SCHEMA_UNSUPPORTED / IDENTITY_MISMATCH；不能把解析错误映射到 READY。
+所有边界先调用 `ingest_result`解析结果并记录真实调用者的消费Receipt，再调用 `check_delivery(context, result_refs) -> DeliveryCheck`（**新增接口**）：status 为 READY / REPAIR / NEEDS_STANDARD / NEEDS_AUTH / WAIT_EXTERNAL / STOP；包含 task_identity、scope_revision、candidate_identity、obligation_set_digest、result_refs、feedback[]、allowed_claims、resume_ref。此 status 是一次函数返回，不是新的持久 workflow enum。它映射回原流程状态。异常统一为 REPAIR 且 reason=RESULT_UNREADABLE / RESULT_SCHEMA_UNSUPPORTED / IDENTITY_MISMATCH；不能把解析错误映射到 READY。
 
 feedback 必填 id、requirement_ref、candidate、actual、expected、evidence_refs、classification、recipient_role、allowed_write_scope、invalidates、next_check、budget_ref。id = SHA256(task identity + scope revision + candidate + obligation + reason + evidence digest)；不含可变时间。标准已有但检查程序缺失，classification=VALIDATOR_MISSING，recipient=Executor，附标准和 good/bad/missing/unchanged 校准。绝不让“生成工作项”本身算已接收。
 
-`receipt` 分三个观察：DELIVERED=宿主已将 payload 送进模型输入（或 launcher 已以该输入成功启动精确 resume）；ACKED=该模型首次调用 `delivery ack <feedback-id> <candidate>`，Bridge 验证任务/授权并记录其 session/turn；RESOLVED=新的有效 GateResult 覆盖原失败义务且满足原标准。stdout 写出、文件存在、模型说“收到”均不自动等于 ACKED/RESOLVED。模型不 ack，工具前/交付前返回明确缺收据，但不得启动重复后台。收据证明协议消费，不证明模型理解；以实际修复新结果证明最终消费。
+`receipt` 分三个观察：DELIVERED=已观察到宿主后续同session回合接收该payload，或launcher以该输入启动精确resume且返回同thread id；ACKED=该模型首次调用 `delivery ack <feedback-id> <candidate>`，Bridge 验证任务/授权并记录其 session/turn；RESOLVED=新的有效 GateResult 覆盖原失败义务且满足原标准。stdout 写出、文件存在、模型说“收到”均不自动等于 ACKED/RESOLVED。模型不 ack，工具前/交付前返回明确缺收据，但不得启动重复后台。收据证明协议消费，不证明模型理解；以实际修复新结果证明最终消费。
 
 ### 2. 原生当前回合
 
-UserPromptSubmit 处理器只记录原请求与已有未结任务关联，并把 admission/required actions 的短上下文注入当前回合；语义义务编译由同一模型完成后提交给 core 验证，不在 Hook 内另调模型。PostToolUse 标记实际变化与过期证据。Stop 读取当前 candidate 的检查结果：READY 输出正常空控制；REPAIR 且预算允许返回 `{"decision":"block","reason":"[精确feedback引用及下一步]"}`；宿主实际消费位置为 [turn.rs L742–759](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/core/src/session/turn.rs#L742)。该注入本身是 DELIVERED，下一次工具调用 ack 才是 ACKED。不能用 continue:false 代替 block；前者停止处理。
+UserPromptSubmit 处理器只记录原请求与已有未结任务关联，并把 admission/required actions 的短上下文注入当前回合；语义义务编译由同一模型完成后提交给 core 验证，不在 Hook 内另调模型。PostToolUse 标记实际变化与过期证据。Stop 读取当前 candidate 的检查结果：READY 输出正常空控制；REPAIR 且预算允许返回 `{"decision":"block","reason":"[精确feedback引用及下一步]"}`；宿主实际消费位置为 [turn.rs L742–759](https://github.com/openai/codex/blob/2a77e82f09212c9e1bbf02656afca5d8172c5f9e/codex-rs/core/src/session/turn.rs#L742)。Hook返回只能记递送请求；在后续同session回合/ack实际看到该feedback才记DELIVERED，下一次工具调用ack才是ACKED。不能用 continue:false 代替 block；前者停止处理。
 
 重入以 task/candidate/feedback 去重，不以 stop_hook_active=true 一律绕过。一个失败最多两次**实际执行的修复**，第二次同因无新证据转根因诊断；默认总计两次 Stop 自动续修，嵌套回合共享同一 budget。已有任务更小预算优先；更大预算只来自原批准合同。预算到达仍可报告未完成和原恢复点，不改成 PASS。用户中断标记 cancellation epoch；Interrupt 只有短时保存用途，不能阻止中断，不能靠它自动重启。Hook 崩溃时交付边界拒绝缺证，原生文本限制保持01 D1。
 
@@ -712,3 +712,11 @@ reader 支持 da/2准入；da/1只经 `import_legacy_for_diagnostics` 输出旧�
 回退选择经过验证的 Bridge/core/project-adapter 版本组合，停发DA ready并保留所有原项目检查、历史结果和未解决义务；不把新记录强转da/1，不删除新回归，不回滚产品数据。每consumer启用前验证读者版本/已加载payload/受管入口；升级失败只回退该consumer，未适配者不得被中央release“一键完成”。
 
 这些是本轮已经作出的架构选择。还需独立审查批准、实现与真实加载测试；不存在“以后由Codex决定版本/双读/迁移顺序”的空白。
+
+## 实现边界补充：文件锁、能力定位与原子消费
+
+Bridge项目现有profile新增可选 `delivery_assurance.runtime_binding`，值为安装收据locator、允许的core entry相对路径、payload digest和reader版本；安装/接入命令写入，运行时preflight回读并核验。不是另建registry或从PATH猜脚本；首次不存在时返回NOT_READY并给当前Executor具体接入工作项。当前研究不修改profile。新增CLI的delivery prepare/ingest/check/ack/report注册在现有cli.build_parser；control step注册在agent_flow.build_parser。命令只处理显式task/root/ref，不递归读机器其他任务。
+
+DA使用机器本地Bridge state根的原任务锁；选择原子排他创建锁文件（O_CREAT|O_EXCL），记录host/task/process start identity/cancel epoch，不依赖Unix fcntl。只接受本地文件系统；网络共享和跨host同时持有同task不支持，必须走原工作流合法handoff。正常释放核对owner；崩溃恢复先证明原进程已不存在且启动身份不匹配，不凭过了几分钟删锁。无法证明时只阻止该任务自动launch，保留原恢复点。原readiness的AGENTS写锁在Windows可能无fcntl，与DA本地锁不同，不据此暗改原AGENTS写策略；需要该写操作的入口必须通过原preflight或明确未支持。
+
+状态写采用同目录临时文件、flush、原子replace；多文件以不可变run目录和最后写manifest作为提交点。未写完manifest的run不能被claim消费。接收结果与反馈幂等独立：GateResult digest去重，Feedback id去重，ACK不扣修复轮次；真正launch/执行修复才扣。取消信号到达父进程后设置epoch并按原进程组取消规则停止当前child，任何后来返回的ready只保留证据，不改变用户已取消状态。正式发行必须在Windows Native和目标Unix各跑崩溃/并发/取消例，不能从纯函数证明OS行为。
