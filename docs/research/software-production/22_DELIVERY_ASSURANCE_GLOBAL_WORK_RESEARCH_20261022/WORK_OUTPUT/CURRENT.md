@@ -18,4 +18,6 @@ ALL_SEVEN_DA_ENABLED=NO
 
 实质进展：已读最新 main 解释标准、设计指南、Planner/Critic/Capability Gate/Maintenance 合同。11_ARCHITECTURE_EXPLAINED.md 已以 Lucerna LR-STATE-001 真实任务贯穿，区分历史事实与成功/返修设计推演；11_DELIVERY_ASSURANCE_ARCHITECTURE.svg 已写入并逐字回读。解释提交 8195a38a4f551fce558bcad93aa35cfe0ba35ec2；图源提交 03304d4cf802541f346c94077148431ff5aa77de。
 
-恢复点：完成图稿视觉检查，准备 12 分阶段实施审查稿，按 P0→最小 Lucerna 完整链→七仓逐项接入冻结范围、正反例、预算、权限与回退；再更新唯一审查入口和固定全包。没有执行探针或产品。
+实质进展：12分阶段实施审查稿已写入回读；用户已允许保存DRAFT/NOT_AUTHORIZED的13目标、14启动范围草稿，未授权执行。首个草稿目标只覆盖既有P0的本机非交互CLI单元，已只读绑定fixture根及命令首选binary文件hash；未执行binary、未创建fixture。03/04/823行CSV保持冻结技术原文。
+
+恢复点：完成全包交叉检查与图稿/链接验证，更新08唯一下一轮审查提示词，冻结内容提交和固定最终package并全文回读。下一Critic只可能放行精确P0单元，不能据此授权全量生产。
