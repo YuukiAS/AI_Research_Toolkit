@@ -90,7 +90,7 @@ controls:
 effects:
   source_mapping: workspace_only
   installed_refresh: authorized_exact_desktop_and_provider
-lifecycle: active
+lifecycle: candidate # 必须依R1-AR02准入后激活
 ```
 
 真实实例还必须填来源blob与完整argv，descriptor不内嵌shell字符串随意执行。示例标准要求“剩余”时如果provider没有可信上限，标准不完整，不能硬配fixed limit。Mathpix 680是对抗输入，不是当前Lucerna源码确认bug。
@@ -160,7 +160,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 
 对象须分开：通用标准（领域source）/项目参数（项目合同）/测试程序（专业runner）/回归样例（项目incident）/真实观察者（工具或Reviewer）/运行记录（每次run）/任务结论（原owner）。标准明确不代表程序存在，程序存在不代表观察发生。
 
-创建：扫描发现缺口→当前Executor收到BUILD_VALIDATOR→按标准补程序→good/bad/missing/unchanged校准→专业owner准入→真实runner运行。若标准缺失直接回专业owner，禁止填任意阈值。已有类别加案例、程序坏修程序；新类别用E4六维测试，26类目录不是必须安装26个Gate。
+创建：扫描发现缺口→当前Executor收到BUILD_VALIDATOR→按标准补程序→good/bad/missing/unchanged校准→R1-AR02定义准入与激活回执→真实runner运行。若标准缺失直接回专业owner，禁止填任意阈值。已有类别加案例、程序坏修程序；新类别用E4六维测试，26类目录不是必须安装26个Gate。
 
 更新：产品与validator同时修改并非一律禁止，但判定权不能一起松绑。冻结参考先于候选；改validator需独立准入与旧bad回放，保留差异和受影响PASS失效。高风险验证在候选不能改写的参考/独立观察环境执行；同用户hash/锁不足以提供安全隔离，G3仍需实施验证。不能以regex扫关键词代替专业判断。
 
@@ -731,14 +731,14 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 **Admission**：task_identity、workflow_identity、request_ref、scope_revision、entry_kind、session_binding、source_bindings[]、candidate_identity、effect_refs[]、budget_ref、owner_ref、cancel_epoch、consumer_binding、claim_requested[]。无session的真实非交互runner可以在session_binding写NOT_APPLICABLE及依据，不能假造session。
 **ObligationSet**：contract_binding、candidate_scope、required[]、should_not_change[]、surface_inventory_ref、unknown_edges[]、unresolved[]、request_coverage（F1完整结构）、digest。每项 obligation={id,requirement_ref,target_ref,postcondition,claim_level,non_substitutable[],authority_ref,gate_refs[],required_for_claims[],status}；required为空只能在无交付声明的明确NONE任务成立。
 **Resolution**：admission_ref、obligation_set_digest、mode、selected[]、reuse[]、not_applicable[]、unresolved_obligations[]、unknown_edges[]、effect_requirements[]、execution_capabilities[]（R1-AR03）；各条带id和reason/ref，不仅列命令。
-**Feedback/Receipt**：D4字段；Receipt={task_identity,feedback_or_result_ref,digest,candidate,recipient_session_or_owner,cancel_epoch,delivery_observation,ack_observation,resolution_result_refs[],budget_usage}。单调追加事件，不回写已见失败。
+**Feedback/Receipt**：D4字段；Receipt={task_identity,subject_kind,subject_ref,digest,candidate,recipient_session_or_owner,cancel_epoch,delivery_observation,ack_observation,resolution_result_refs[],budget_usage}。单调追加事件，不回写已见失败。
 **Claim**：task_identity、contract_binding、candidate_identity、obligation_set_digest、result_refs[]、receipt_refs[]、allowed_claims[]、denied_claims[]、remaining_unknowns[]、report_ref。每个claim保留旧tuple；本对象不颁发发布/账号/GPU权限。
 
 digest 只包含各对象已声明语义字段；集合排序键、步骤/argv顺序及Unicode规范编码以F4为唯一规则，UTF-8、无无意义空白、拒绝NaN/Infinity，度量小数用明确单位的十进制字符串。不把注释/展示路径/生成时间/自身摘要纳入语义摘要。跨语言必须同一组固定输入输出fixture，不能分别随手json.dumps导致失效漂移。时间新鲜性保留独立检查，不因排除展示时间就无限复用。
 
 ### 5. 迁移、双读、拒绝和回退合同
 
-顺序确定为：独立 Critic 审本 da/2提案→workflow-core schema/reader/fixtures→Bridge能力协商且默认不签新ready→单仓 shadow读取旧原始输出产生da/2→确认旧原生报告与新分项一致，故意删字段必须拒绝→该仓切单一da/2准入→其余七仓分别适配→同步PIE等相邻设计引用和已装consumer清单。没有通过的仓继续旧项目验收，不能标DA已支持。shadow不是两套PASS权；只有指定当前consumer_binding拥有正式准入权。
+顺序确定为：独立 Critic 审本 da/2提案→06 P0宿主探针与P2路线冻结→workflow-core schema/reader/fixtures→Bridge能力协商且默认不签新ready→单仓 shadow读取旧原始输出产生da/2→确认旧原生报告与新分项一致，故意删字段必须拒绝→该仓切单一da/2准入→其余七仓分别适配→同步PIE等相邻设计引用和已装consumer清单。没有通过的仓继续旧项目验收，不能标DA已支持。shadow不是两套PASS权；只有指定当前consumer_binding拥有正式准入权。
 
 reader 支持 da/2准入；da/1只经 `import_legacy_for_diagnostics` 输出旧来源与缺项清单，不自动补未知字段、不签新ready；unknown schema硬拒绝。旧记录仍可作为原始观察候选，被新标准重新判定且真实身份/观察/时窗成立后产生**新的**da/2 result；不是给旧PASS换标签。可选扩展不改变必需语义；未来必需字段或decision含义变更再升主版本。
 
@@ -920,7 +920,7 @@ Admission.claim_requested必填RequestedClaim[]，每项为{id:Id,stage:REVIEW_B
 Bridge固定按以下顺序调用，不由各仓自由另造协议：
 1. prepare_admission验证原task/来源/权限/root，将原请求和claim_requested写入不可变revision；读取source不运行产品。当前模型提交projection，core.compile_obligations校验；Bridge存ObligationSet与Resolution后，当前Executor调用已选runner。
 2. runner启动前Bridge给RunContext={admission_ref,obligation_set_ref,resolution_ref,gate_ref,candidate_identity,run_id,receipt_locator,effect_authority_refs,budget_snapshot_ref}；refs指不可变内容，receipt_locator是预留稳定地址。adapter用gate_ref从已验证Descriptor集合解析具体argv/参数，不执行Feedback内命令。正常项目runner自身先产生原始结果，adapter输出GateResult，不能自己写消费者Receipt。
-3. 项目最终owner或原launcher向CLI交DeliveryCheckContext与ResultManifest。Context={schema_version:"da/2",object_type:"DeliveryCheckContext",admission_ref,obligation_set_ref,resolution_ref,requested_claim_ids:Id[],current_candidate_identity,consumer_binding,cancel_epoch}；Manifest={schema_version:"da/2",object_type:"ResultManifest",result_refs:Ref[]}。这些是同协议的输入结构，不另建持久控制状态。ids必须来自本revision的claim_requested，实际入口必须与consumer_binding的stage一致；USER_READY永远核全部最终required，不能只塞一个通过gate。
+3. 项目最终owner或原launcher向CLI交DeliveryCheckContext与ResultManifest。Context={schema_version:"da/2",object_type:"DeliveryCheckContext",admission_ref,obligation_set_ref,resolution_ref,requested_claim_ids:Id[],current_candidate_identity,consumer_binding,cancel_epoch}；Manifest={schema_version:"da/2",object_type:"ResultManifest",result_refs:Ref[]}。这些是同协议的输入结构，不另建持久控制状态。ids必须来自本revision的claim_requested，实际入口必须与consumer_binding.stage_bindings中请求的stage一致；USER_READY永远核全部最终required，不能只塞一个通过gate。
 4. Bridge重新核当前候选/来源/取消epoch/实际consumer与授权边界，读取全部refs并ingest。每个receipt写入所读result摘要、真实consumer与观察；core.validate_result/evaluate_claim只接这些已核数据，既不联网也不起进程。ReceiptLocator路径必须在登记证据根，解析后仍在受权根内；symlink/path escape拒绝。相同结果可有多consumer的独立收据，但正式Claim只由当前binding的指定consumer签发，不能挑一张旧收据。
 5. DeliveryCheck={schema_version:"da/2",object_type:"DeliveryCheck",status,task_identity,scope_revision,candidate_identity,obligation_set_digest,result_refs,feedback,allowed_claims,resume_ref,claim_ref_or_none}；status与D4一致。全部requested ids成立才READY/exit0。有效请求但缺证/失败/等待exit2；配置/schema/身份错误exit3，stderr诊断、stdout可解析非READY结果。脚本同时核JSON与退出码，不能只看其一。
 
@@ -1124,3 +1124,15 @@ NOT_APPLICABLE 条目只保留 id/requirement_refs/why 与依据，不伪填安�
 缺能力时：先使用已批准等价项目能力；不存在则当前任务可读源码、拟方案、做不依赖该能力的机械修复，相关实现/claim 标未满足。安装或新服务有独立权限时按原授权处理；不得 silently fallback 为低配实现。纯指导能力使用失败可重读原冻结入口一次，工具/版本错误回原能力维护者，不每次新建插件。
 
 负例：只写“用了 Frontend Design”无读取或影响→拒绝；读旧缓存而生成层已升级→拒绝；只登记 validator 但界面 capability 缺失→拒绝；给纯后端任务强行要求视觉全流程→NOT_APPLICABLE；Bobbio 使用项目 Figma 体系且证据齐全→可满足等价能力，不因 Plugin 名不同拒绝。维护只更新原 adapter 的规则和安装绑定，成本是相关任务的读取/必要调用与既有质量检查；不固定新增一次模型审查。
+
+
+<a id="r1-integration"></a>
+## R1 联动核验：首次接入、同线程准入和报告不能形成死循环
+
+1. **没有可写 Executor 也能完成第一次归纳。** 对已经有当前模型回合的 native/项目任务，使用该回合的只读阶段。对仅有 CLI 父进程、尚无模型投影的 Lite/Review，run_delivery_cycle 新增 bootstrap_readonly 分支：原 launch intent 下以 `codex exec --json --sandbox read-only -C <root> --output-schema <projection-schema> -` 输出 AdmissionProjection（原文映射、建议义务、领域/效果标记，不是准入决定），只允许已冻结读取工具，不开放副作用 MCP。父进程捕获同一个 thread.started，并由 prepare_admission 消费原始结果；独立决定齐备后才用 `codex exec --json --sandbox workspace-write -C <same-root> resume <exact-id> -` 恢复同一任务，权限不超过原授权。参数放 subcommand 前；不使用 bypass、--last 或新会话冒恢复。只读沙箱到获权工作区权限的精确resume必须加入 P0 H5：若宿主不支持，就不启用该 launcher 的无包自动写前准入；已有原 Planner 冻结包可直接准入，不把新增投影回合变成所有小任务强制成本。bootstrap是同一Executor的阶段，不是额外审查agent；它不能给自己签 INDEPENDENT。
+2. **候选 adapter 可以先校准，不能先自签交付。** CalibrationContext 允许读取 candidate adapter，在无产品效果fixture中调用原转换器和core纯判定；不要求 ACTIVE，结果只能 CalibrationReport。独立准入之后才形成ACTIVE adapter。consumer启用前，原已授权任务的真实结果通过同一finalizer的 shadow模式走完整读取/判定路径；Bridge `delivery check --shadow` 只输出诊断，status=STOP、reason=SHADOW_ONLY，extensions.evaluation记录would_allow，不创建Claim/report就绪。enable_consumer消费这些正/坏例记录和实际入口绑定，然后原任务正式调用一次 finalizer/check/report，才产生第一张正式claim。正式check不能接受shadow结果充当产品GateResult；shadow不再次运行产品、训练或账号。这样不用先有USER_READY才能启用，也不让首次适配绕过独立检查。
+3. **激活原子点只有一个。** activate_definition先写完整不可变记录、校准/决定和激活回执，最后在短锁内CAS原profile active binding作为唯一发布点；任何中断都不能暴露缺回执的ACTIVE。旧binding仍成立则继续旧定义，否则拒绝新ready。不要把“先CAS再写回执”实现成可见半状态。
+4. **正式出口不是自由填consumer_id。** ProjectAdapter.consumer_binding补充 `stage_bindings:[{stage:RequestedClaim.stage,entry_ref:Ref,report_root_ref:Ref,result_writer_ref:Ref}]`；正式consumer ID固定 D-LUC、D-BOB、D-MIC、D-SEM、D-AST、D-CUH、D-CARE。Bridge将实际dispatch入口/文件摘要、原任务launch绑定与本表比较，不只信调用者JSON标签；同UID不是防恶意执行者沙箱。04的finalizer只允许USER_READY，对原材料入口分别绑定REVIEW_BUNDLE_READY。报告manifest仅可由Bridge report生成，不能由candidate adapter自制；原task结果提交检查读取它。
+5. **回执扩展不重复存状态。** R1-AR03的能力使用回执沿原 Receipt，增加 `subject_kind:RESULT|FEEDBACK|EXECUTION_CAPABILITY|DEFINITION_ACTIVATION` 与 subject_ref；旧 feedback_or_result_ref 在 da/2 统一改名 subject_ref，含义通过subject_kind区分，禁止两字段同时写造成歧义。原摘要/真实接收者/观察/预算字段保留；定义与能力回执不自动关闭产品Feedback。已有D4示例名称属内容说明，正式序列化使用此唯一集合。
+6. **标准变化不能偷带产品通过。** DefinitionAdmission/ExecutionAdmission/ExecutionCapability均进入 Resolution/ObligationSet 的语义依赖；candidate、controls、authority、adapter入口、安装能力版本变化逐依赖失效，不因report-only提交变化误杀无关产品结果。旧da/1与本次返修前da/2草案都不具准入权；此da/2尚未发布，更新同一冻结候选，待本次Critic审，不新造da/3或新产品版本。
+7. **三条完整用户链重新走通。** Lucerna普通刷新请求→写前独立需求核对→加载既有视觉/状态能力→同任务补候选校准/独立激活→真实EXE旧quota/新刷新→独立原生审查→Complete-LucernaDelivery/check/report；错误680或假activated先返回同task修复。SeminarArc拍照结束/重启请求→Android/Compose相关能力→旧Room/媒体保护→校准后检查→同APK实际保存与独立Parent→Complete-SeminarArcDelivery；读错控件修观察器，不逼产品改错。CARE原批准训练请求→科学Planner从原请求冻结规模→Controller/Executor既有工具链→精确规模/模型/实际机制→finalizer材料→Controller和需要时科学Planner真实消费→finalize_delivery；充分负结果按负结论交付，12步假完整永不签。三条均不让用户承担原任务内部可读失败的搬运；平台/账号真实限制仍按原范围诚实等待。
