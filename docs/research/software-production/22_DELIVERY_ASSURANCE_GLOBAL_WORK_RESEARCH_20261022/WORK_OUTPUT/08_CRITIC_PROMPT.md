@@ -1,54 +1,73 @@
-# 独立Critic审查指令：同一Delivery Assurance总体架构
+# 独立Critic：Delivery Assurance最终架构候选的实现前审查
 
-你是独立于本轮Planner的架构Critic。这是实现前的总体架构审查，只能给PROCEED / REVISE，不给Critic PASS、不写可执行Codex Goal、不实施、不修改仓库。
+你是独立于本轮Planner的架构Critic。审查对象是同一个Delivery Assurance总体研究的完整候选，不是新版本，不是生产实施或execution-ready批准。只给设计阶段PROCEED / REVISE；不自称Critic PASS，不写可执行Codex Goal，不启动生产工作。
 
-**启动条件：先读 CURRENT 与 10 续研合同。** 用户已于 2026-10-22 确认有界混合产品边界，不得要求重复确认。**但用户确认不等于 Planner 已完成架构最终整合。** 仅当 CURRENT 明确记录经回读的一致候选与 READY_FOR_CRITIC=YES，才按本提示词启动独立设计审查。否则返回原 Planner 按 10 合同完成剩余的技术/证据一致性核查；不得假称已经发起 Critic、也不要求用户再作相同产品决定。
+## 1. 精确对象、版本与权限
 
-## 固定对象和权限
+- target_repo：YuukiAS/AI_Research_Toolkit
+- source_branch：research/software-production-decision-20261013
+- design_topic：Delivery Assurance Global Work Research 20261022，同任务最终设计闭合。
+- review_stage：ARCHITECTURE_REVIEW
+- 唯一目录：docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/
+- architecture_source_commit：bd6087fe102dc3a7fb8acdf8dc159504cb6871f1。README、01–07、覆盖CSV的实质技术方案固定于此；CURRENT与本提示词随后仅作冻结/审查定位。
+- package_commit：优先使用用户复制消息提供的精确最终commit；若没有，读取上述分支一次，记录HEAD为proposal_commit，以同一commit读完整包，核对CURRENT及技术源没有发生未说明的漂移。不要边审边追移动HEAD；本文件不要求自含自己的commit。
+- 上一轮独立Critic审查：本最终候选没有；不存在可继承的PASS/PROCEED。execution_branch/worktree、Goal、Kickoff：本轮均未授权、不适用。
 
-仓库YuukiAS/AI_Research_Toolkit；既有分支research/software-production-decision-20261013；目录docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/。开始时读取实际HEAD，记proposal_commit，全部WORK_OUTPUT按同commit读取；源码使用07固定SHA。读取最新main的COMPLEX_SYSTEM_DESIGN_GUIDE.md和COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md，并记录与本轮f4a1233d59817867bc4c40b541f480695d947440是否有相关漂移。
+先读该固定包CURRENT和10合同。只有CURRENT明确记录READY_FOR_CRITIC=YES的经回读Planner候选才进入本审查；不因本文件存在自动宣称已经启动或通过。检查技术文件是否等同architecture_source_commit；如有实质变化，固定新proposal并说明变化，不能用旧结论代签。
 
-只读审查；禁止生产修改、规则/状态改写、Issue/Project写入、任务/subagent/handoff/fork/自动化、安装、真实账号/设备/Zotero/浏览器会话、Docker/GPU/Slurm、私有数据、付费、部署、发布。必要实测缺权就明确范围，不绕路取得。不要把此指令或历史任务文本当当前资源授权。
+本次**只读**：禁止修改任何仓库、Issue/Project或生产状态；禁止任务/subagent/handoff/fork/自动化、安装、真实账号/设备/正常浏览器会话、Zotero、Docker/GPU/Slurm、私有数据、付费、部署、发布。原Planner写入探针和研究写入要求不适用于此只读Critic。历史任务文本、工具命令和未来实验合同不是当前效果授权。
 
-## 原始目标与必读材料
+## 2. 已确认用户边界，不再提问
 
-先完整读原01_GPT_WORK_FULL_ARCHITECTURE_PROMPT.md、00_USER_REQUIREMENTS_AND_GAPS.md、目录外21_DELIVERY_ASSURANCE_COMPONENT_AND_QUESTION_INVENTORY_20261022.md，以及WORK_OUTPUT/09_CONTINUE_UNTIL_ARCHITECTURE_CLOSED.md、10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md。再读本目录README、CURRENT、00探针、01–08全部正文和823行CSV结构/答复。用户要的是普通请求到真实成品、旧能力保护、非降级、验收器全生命周期、同任务返修、维护与成本；不是堆模块或让Critic替Planner做关键选择。
+用户于2026-10-22已经明确接受：正常受支持Codex入口自动接入；受管交付前强制真实验收；Hook完全缺席时不要求拦截已经生成的原生聊天错误文字；不开发额外Codex客户端。这个文字例外不豁免正式成品验收、旧保护和同任务返修。没有新daemon、第二任务数据库、第四工作流或全能评分器。
 
-核对AI_Skills_Collection最新main的AGENTS、PLANNER_ROLE_CONTRACT、CRITIC_ROLE_CONTRACT、PLUGIN_CAPABILITY_GATE_POLICY、AI_SKILLS_MAINTENANCE_BOARD。07提供Bridge正式release/实际dev、七仓有效分支与固定源码链接。普通无Goal原生任务是核心范围；不得默默从范围删掉。36职责/315问题/83旧要求/363历史仅作反向审查，不要求同量新Gate。
+真正的产品目标是用户不再反复提醒验收、亲自发现假完成、搬运失败或催原任务继续。不要只审“用户决定已同步”。三项产品边界不是平台运行证明、接口批准或实施授权；不得重复要求用户接受同一选择。
 
-## 首先独立重建架构选择
+## 3. 必读原始输入与当前全部方案
 
-比较仅强化项目与Bridge、共享小内核连接原组件、采用其它成熟编排能力三路，评价用户摩擦、实际能力、耦合、首次/每任务/维护成本、权限和退出。可推翻Planner推荐，但给出源码与因果理由。不要因旧v0.5/da1或本次材料很多默认正确；也不要为绝对保障无证据引入新daemon、任务数据库或全能评分器。
+完整读取目录上一级的01_GPT_WORK_FULL_ARCHITECTURE_PROMPT.md、00_USER_REQUIREMENTS_AND_GAPS.md，以及docs/research/software-production/21_DELIVERY_ASSURANCE_COMPONENT_AND_QUESTION_INVENTORY_20261022.md；读取本目录09_CONTINUE_UNTIL_ARCHITECTURE_CLOSED.md和10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md。原文用于重建要求，不能只接受Planner压缩后的义务。
 
-逐K1–K5核对事故、触发、输入权威、算法、具体输出、真实接收者、正坏旧/缺证控制、失败恢复和维护。区分已有代码、计划新增、源码推断和真实运行。图上的每个关键箭头应落到03的函数/进程；只找到route函数或result文件不算消费。
+完整读同一包README、CURRENT、00探针、01_REALITY_AND_ALTERNATIVES.md、02_ARCHITECTURE_AND_COMPONENTS.md、03_END_TO_END_EXECUTION_AND_VALIDATORS.md、04_SEVEN_REPOSITORY_ADOPTION.md、05_HISTORICAL_COVERAGE.csv、05_COVERAGE_SUMMARY.md、06_IMPLEMENTATION_AND_EVALUATION.md、07_INDEPENDENT_CRITIC_PACKAGE.md及本提示词。36职责、315问题、83旧要求、363历史和26能力族只作覆盖输入，不能据其数量要求同量新模块。
 
-## 针对已选决定进行攻击
+核对研究仓最新main的COMPLEX_SYSTEM_DESIGN_GUIDE.md与COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md；本轮读取版本为daf797c79bcd777c27948da51c4218e5d95e7be3。核对AI_Skills_Collection最新main的AGENTS及docs/workflows/下PLANNER_ROLE_CONTRACT.md、CRITIC_ROLE_CONTRACT.md、PLUGIN_CAPABILITY_GATE_POLICY.md、AI_SKILLS_MAINTENANCE_BOARD.md；本轮固定f1de8e85957d32a50f4458349f450ec65add13bb。发现漂移要读差异，不将它自动当当前产品授权。
 
-- D1：核对OpenAI Stop分派和turn消费，能否阻止文字与能否拒绝受管交付必须分开。Hook缺席/未信任/超时/坏输出不能冒充fail-closed；受管策略不能凭空提供发送前抑制。用户已接受不可达边界；核对这一决定没有被放大为受管交付豁免或宿主已实现。
-- D2：独立选未准备真实入口，检查source枚举分母、新旧图并集、删除/rename、已提交/staged/untracked、动态依赖、孤儿和accepted baseline。FULL不抹除unknown。看它是否仍依赖用户手写巨型清单，或无理由全跑。
-- D3：产品、标准、runner、collector、raw observation、判定分开；机械/产品/protected三档合理否。攻击常量0/680、错OCR控件、错PID/旧图、协同改expected/hash、科学充分性负结果。same-user文件不是不可伪造签名，真实Reviewer必须自己观察完整当前对象。
-- D4：直接从一份Feedback跟到当前工具/Stop后续回合/精确resume/Control step；验证DELIVERED、ACKED、RESOLVED区别。核对现有RuntimeAdapter抽象类与新增具体实现、Executor和Verifier两条preflight路径、原Controller读取返回、外部角色等待、预算共享、取消、崩溃和幂等。无active owner就不能承诺后台。
-- D5：七仓分别核实最终对象和最小实测合同，不以一个仓通过代替另一仓。Mica真实登录态手动；CUHK新snapshot新campaign及权限；CARE科学负结论与原job lineage不可改；已有runner包含副作用就不能作为只读探针。
-- D6：实际对照旧da/1必填字段与语义。审新da/2是否合理，旧诊断读取、shadow、单一准入权、reader握手、相邻PIE引用、迁移顺序、回退是否完整。不得让Executor重新选版本，也不能继承旧批准。
+07提供Bridge正式release ba9013b9fbbd242e51b09f9d09291f417df17652、实际dev 7f43e146eed50d290ef9cc6ab912d106f754042c，以及七仓有效固定源码。必须直接核源码和原始历史，而非复制Planner“已覆盖”。官方Codex原2a77e82及本轮b4ad33d的Hook/exec依据、当前安装版本和宿主实测三者分开；刷新官方资料，不能用最新源码给Windows Desktop、CLI、Remote或GPT Work自动代签。
 
-再攻击三个循环：没有accepted baseline如何开始发现；新validator未准入如何校准；Reviewer尚未看过如何送审。03末尾已经作出分阶段声明/材料准入设计，独立核验它是否真消除了循环且没有降低最终USER_READY标准。
+## 4. 先独立比较整体路线，再逐接口反证
 
-## 七仓与不特制任务
+先比较最强的便宜路线“只补项目runner与现有Bridge结果消费”、当前“小共享内核连接原入口/原runner”、成熟外部编排或其它更简单可行方案。评价真实用户成本、能力、失败接收、耦合、维护/升级、资源权限、退出。可以推翻推荐，但给出源码支持的因果链；不要默认v0.5、旧da/1或本稿正确，也不要为绝对保证引入已被用户排除的新客户端。
 
-完整走Lucerna桌面刷新、SeminarArc保存/重启、CARE机制/规模/负结论三条链。其余Bobbio隔离Zotero、Mica扩展/高亮/PDF、Asteria科学图/导出、CUHK可见注册/票据都要有正常入口和最危险坏链。
+沿K1–K5逐跳记录：触发→输入权威→实际函数/进程→输出→真实接收者→失败/恢复→成本/维护。区分已有函数、拟新增函数、设计推断与真实运行。下列攻击必须具体，不只打勾：
 
-04另有七个续研普通请求推演；它们不是独立holdout。请从源码和原历史登记自己选未准备任务，先写正常/失败/旧保护链再对照CSV。至少包含历史已修、错误collector、评分器缺陷、科学负结果和新旧成品错配。没有原始图/媒体/医学数据就不作视觉或科学实测结论。
+1. **原入口与两道门（01、03 F2）。** 无Goal、无@插件、无预建包的一句话怎样进入？Hook同步/信任/版本/短输出如何确认？工具形状不受支持、timeout、畸形输出、Hook缺席时分别怎样？正式交付必须独立check，项目正式出口清单是否完整？聊天误报和错误成品正式就绪是两个可分别否决的事实。
+2. **要求与旧行为遗漏（03 F1/D2）。** 从原文自行提出后置条件，再对照逐段projection；全部标CONTEXT、合并独立条件、缺附件、用户改范围、空required怎样处置？机械范围覆盖不能假称语义真值。入口分母、新旧图并集、删除/rename、完整diff、动态未知、首次基线与抽样能否识别手工adapter遗忘面？FULL不能抹UNKNOWN，普通文档不能无故全跑。
+3. **完整验收器生命周期（03 D3/F5）。** 走Lucerna凭据启用和Asteria普通trace回归：如何发现缺程序、为何是加固而非新类别、谁读标准、具体工作项如何到当前Executor、四种校准如何防自签、何时真实运行、原始观察来自哪里、谁维护暂停/合并/退休。标准、产品、runner、collector和专业判断不能同错互证。same-user hash不是受保护观察。
+4. **阶段与真实消费者（03 F2/F4）。** Lucerna开发包、Bobbio0.2Safe、MicavalidateBundle、SeminarArc基础设施、Asteria静态验证、CUHK活动门、CARE finalizer各自究竟能证明哪一层？最终USER_READY由原owner调用唯一Bridge.check_delivery。核RunContext、DeliveryCheckContext、ResultManifest、ReceiptLocator、requested claim和CLI退出码是否足以实现，没有循环或多个准入算法。
+5. **失败真实接收和恢复（03 D4/F3）。** 从Feedback追到工具返回、Stop后续回合、JSONL精确thread resume、Control step；DELIVERED/ACKED/RESOLVED分别有什么观察？原版Lite一次subprocess与Control抽象RuntimeAdapter都需真实新增实现；Executor和Verifier各自preflight。父进程不能持短mutex等child，两个owner不能重复launch；cancel epoch、未知副作用reconcile、共享reservation、父进程崩溃、换thread、无active Controller和外部等待如何保持同任务。禁止把科学负结论修到正面。
+6. **接口最小性与da/2（03 D6/F4）。** 实际对照旧da/1全部字段/三轴/图关系/claim语义；每个新增字段有无真实消费者，元数据能否删？Admission/ObligationSet等不能变成第二任务DB。旧版仅诊断、能力握手、原runner之后的无重复效果shadow、单仓启用、逐consumer加载、相邻PIE引用与回滚必须明确；不能旧reader忽略新字段仍签绿。
 
-检查报告是否具体告诉用户：新建/加固/复用何种验收、真正运行与合法未运行、复用依据、受验版本和实际成品、同任务修复和必须用户动作。用户不能重新变成错误搬运员。
+同时攻击四个循环：首次accepted baseline、validator未准入的校准、结果与消费回执互含摘要、送审前先要求审查通过。指出具体错误箭头，不把“有文档”当解决。
 
-## 分阶段合同和净收益
+## 5. 七仓原始任务与独立抽样
 
-06不再把关键选择推给P0。检查P1纯函数、P2原启动器、项目D包、三域P3、四仓P4、P5正式加载与回退依赖是否成立；预算是否有重复领取、无权限效果、把测试上限当运行授权。28任务/7坏候选是工程否决集，不是可靠率证明；104–264小时是未实测计划估算，不是承诺节省。无净收益应收缩，不为历史投入坚持平台。
+完整走Lucerna桌面刷新/旧quota，SeminarArc实际APK保存/重启/导出，CARE正式训练/规模/科学负结论；另外Bobbio Zotero隔离与0.3，Mica加载/低资源/高亮PDF，Asteria科学全图/真实几何/导出，CUHK可见注册/票据/消费时健康。逐仓需要正常输入、坏实现、旧控制、实际入口、DA改变结果的接点、原失败接收者和最低摩擦获权实测。
 
-## 输出
+04新冻结的L20/B02/M08/S24/A14/CUHK C25/CARE C11是Planner定向设计反证，**不是独立holdout**。先从原历史或源码另选未准备任务，冻结预期后再看Planner答案；至少包含历史已修、collector假阴性、评分器缺陷、科学负结果、候选/成品错配。37条定向审读与326条当前UNKNOWN不得变成已复测。
 
-先用自然中文解释方案是否能改变用户实际结果、还剩什么关键问题；再给PROCEED或REVISE及逐项证据。每条发现包含原要求、固定文件/行、具体触发、错误箭头、实际影响、最小修订和owner；不只写抽象建议。
+重点独立核查：Mica旧恢复器是否真进入当前构建；SeminarArc收到文本的持久化与原意字符输入有无偷换；CARE快速checkpoint报告缺HD/HD95意味着什么；CUHK既有健康/claim顺序如何复用；Bobbio Safe是否有机器全局副作用。没有取得实际截图/媒体/账号/医学数据就不作运行结论。
 
-记录proposal_commit、source_refs、review_stage=ARCHITECTURE_REVIEW、decision、architecture_closed、blocking_findings、remaining_runtime_evidence、READY_FOR_CODEX=NO。PROCEED只表示可进入后续获准实施包准备，不是产品已实现、全部平台支持或执行授权。
+## 6. 成本、逐阶段合同和真实用户报告
 
-如果发现仍可由合法研究解决的关键设计问题，要求原Planner在本目录同任务继续，不另建研究版本。若只剩既定实测则指出适用声明，不因不确定感无限移动设计终点。不能把用户已接受的有限原生文字边界重新当作未决产品选择；也不能用它替代真实受管交付、旧功能保护和返修消费者的审查。
+检查06的P1纯函数、P2四类原入口、项目D包、P3三域、P4四仓、P5正式分发/loaded/回滚，依赖与失败接收是否成立。首片选core＋原生/Lite＋Lucerna，估算28–64小时；全量104–264小时。均未测量、不是资源批准。检验最强便宜替代与首片否决条件，而非为历史投入坚持公共层。
+
+两次/30分钟只是待证默认上限，原更小预算优先；取消/缺权/外部等待/未知session与effect/既有长job时零launch。纯对话不建产品验收、小文档不启动设备。28任务/7坏候选不是可靠率统计；CARE CPU机制试点不替真实科学收益。首三重点链要直接记录用户提醒/搬运、坏例拒绝、旧保护、实际接收返修和真实当前成品。
+
+最终用户报告须来自实际结果：本轮新增/加固/复用/退休哪些检查、保护了什么、真正运行/未运行/复用原因、对象层级、真实修复、唯一必要用户动作。不能只多回执而让用户继续做故障调度。
+
+## 7. 输出合同
+
+先以自然中文解释整套方案能否改变用户实际结果、哪些此前设计仍成立、本轮修订是否有效、还剩哪些关键问题；再给PROCEED或REVISE及逐项证据。不是只列“六项已关闭”。
+
+每项发现含原要求、固定文件/行、具体触发、断开的调用、实际用户影响、最小修订、owner。记录proposal_commit、architecture_source_commit、source_refs、review_stage=ARCHITECTURE_REVIEW、decision、architecture_closed、blocking_findings、remaining_runtime_evidence、READY_FOR_CODEX=NO。
+
+PROCEED仅表示此设计可进入后续获准执行包准备；不是产品通过、所有宿主已支持或Codex执行授权。REVISE如有可在合法研究内解决的关键接口/语义/消费者缺陷，交原Planner在同一目录继续，不另开研究版本。若只剩已明确的获权实测，应限制声明并评价试点合同，不无穷移动设计完成终点。不要自动创建下一任务、审查或实施。
