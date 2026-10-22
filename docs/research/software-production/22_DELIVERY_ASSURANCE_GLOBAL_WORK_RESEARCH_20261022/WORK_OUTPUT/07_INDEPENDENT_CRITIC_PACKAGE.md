@@ -1,6 +1,6 @@
 # Delivery Assurance 独立审查材料与来源索引
 
-**当前未发起独立审查。** 用户已于 2026-10-22 接受 01 D1 的有界混合方案：正常受支持的 Codex 入口自动接入、受管交付强制核验、Hook 完全缺席时不保证禁止聊天已生成的错误完成文字；不另建 Codex 客户端。产品取舍不再等待用户；但本包尚需原 Planner 按 [10 续研合同](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md) 完整重审和回读，才能冻结独立 Critic 候选。本包存在不代表审查已经发起或生产实现完成。
+**当前未发起独立审查。** 用户已于 2026-10-22 接受 01 D1 的有界混合方案：正常受支持的 Codex 入口自动接入、受管交付强制核验、Hook 完全缺席时不保证禁止聊天已生成的错误完成文字；不另建 Codex 客户端。产品取舍不再等待用户；本包按 [10 续研合同](10_ACCEPTED_BOUNDARY_AND_FINAL_ARCHITECTURE_GPT_WORK_PROMPT.md) 完成技术收敛，冻结提交与最终核验状态由CURRENT记录。本包存在不代表审查已经发起或生产实现完成。
 
 ## 1. 原目标与推荐结果
 
@@ -10,7 +10,7 @@
 
 ## 2. 审查对象与唯一权威
 
-仓库YuukiAS/AI_Research_Toolkit，既有分支research/software-production-decision-20261013，本WORK_OUTPUT为唯一续研真值。开始独立审查前固定分支HEAD作为proposal_commit，所有研究文件按同commit读。不能用早期db8beae/b6ca旧包或旧da/1批准代签当前方案。09是用户续研合同，未被Planner修改。
+仓库YuukiAS/AI_Research_Toolkit，既有分支research/software-production-decision-20261013，本WORK_OUTPUT为唯一续研真值。开始独立审查前固定分支HEAD作为proposal_commit，所有研究文件按同commit读。不能用早期db8beae/b6ca旧包或旧da/1批准代签当前方案。09、10是用户续研合同，本轮均未修改。优先使用当前用户最终交接消息中的精确package commit；无消息时读取分支一次并固定HEAD，核对CURRENT的architecture_source_commit，不在审查中追随移动HEAD。
 
 读者主线：02整体因果链→03完整调用/字段/接收/恢复→04三条深链＋七仓合同/新请求推演→06阶段/成本/退出。01给事实/替代/官方边界；05给315问、83要求、363历史反向审查；本页提供源码。08为条件满足后可直接用的完整审查指令。README/CURRENT先解释可用状态，机器字段留详细合同。
 
@@ -27,9 +27,9 @@
 
 已修掉初稿的四个明确设计缺陷：Lite仅留文件没有续修选择；Control抽象adapter被误当可运行；结果Receipt与claim潜在循环；送审前要求独立审查通过的循环。没有把这些留给后续Codex决定。仍应由Critic寻找新缺陷。
 
-## 4. 当前唯一产品取舍与运行未证
+## 4. 已确认产品边界与运行未证
 
-**用户已作出的决定：** 已接受“正常受支持的原生入口尽量自动接入，受管交付前强制核验；Hook 缺席时不能保证拦截聊天中已生成的错误完成文字”。日常低摩擦及减少用户提醒、错误搬运仍是首要目标；当前需要按 10 合同核查实际支持范围与消费路径，不能以决定替代运行证据。
+**用户已作出的决定：** 已接受“正常受支持的原生入口尽量自动接入，受管交付前强制核验；Hook 缺席时不能保证拦截聊天中已生成的错误完成文字”。日常低摩擦及减少用户提醒、错误搬运仍是首要目标；实际支持范围和消费路径见01宿主矩阵、03 F1–F5，不能以设计决定替代运行证据。
 
 原生聊天绝对拦截的替代路线（另建受管展示入口或等待平台发送前门）已被用户明确放弃为本轮目标，不再要求重选；此决定不提供生产授权、不降低受管交付质量要求。该边界由10合同和用户当前消息正式确认；Critic 应审技术接线，不重复询问该选择。
 
@@ -208,6 +208,26 @@
 
 ## 8. 后续审查输出合同
 
-用户产品边界明确后，按08固定proposal commit只读独立审查。先中文解释该组合是否改变真实使用结果，再给PROCEED或REVISE（中间架构结论，不是PASS/执行许可）。每项缺陷带原要求、固定源码、具体请求、错误箭头、用户影响、最小修订与owner。不得用旧PROCEED、文件数或作者自评作判断。READY_FOR_CODEX恒NO；不写Goal、不发起生产工作。
+按08和CURRENT的固定proposal commit只读独立审查。先中文解释该组合是否改变真实使用结果，再给PROCEED或REVISE（中间架构结论，不是PASS/执行许可）。每项缺陷带原要求、固定源码、具体请求、错误箭头、用户影响、最小修订与owner。不得用旧PROCEED、文件数或作者自评作判断。READY_FOR_CODEX恒NO；不写Goal、不发起生产工作。
 
-当前不得因这个包已同步就宣布本任务完成或自动交Critic。唯一下一决定见CURRENT；收到明确选择后仍在本目录同任务更新，保留全部已完成技术设计和未证运行边界。
+最终CURRENT只有在全包固定提交回读和关键合同复核后才标Planner送审候选。下一入口是用户将08交给独立Critic；本任务不自动启动审查。Critic若发现关键设计缺陷，原Planner回同目录同一方案返修，不新增平行版本。用户无需再次作已确认的产品决定。
+
+## 9. 本次最终设计闭合的新增来源与检查重点
+
+本轮研究基线fd0e5e0fa4569aabd538fc1c21724bd97086c064；实际写探针7c35e1ade275e2b776a286e9c6713f894b4a6dda及CURRENT恢复均完整回读。旧阶段的26233f探针和f4a1233指南读取是历史，不替代本轮权限/版本检查。当前研究main为[daf797c](https://github.com/YuukiAS/AI_Research_Toolkit/tree/daf797c79bcd777c27948da51c4218e5d95e7be3)，[设计指南](https://github.com/YuukiAS/AI_Research_Toolkit/blob/daf797c79bcd777c27948da51c4218e5d95e7be3/COMPLEX_SYSTEM_DESIGN_GUIDE.md)未改；[解释标准](https://github.com/YuukiAS/AI_Research_Toolkit/blob/daf797c79bcd777c27948da51c4218e5d95e7be3/COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)新增关键替代比较和连续修订完整解释要求，已完整读取。AI Skills、Bridge、七仓有效源SHA仍匹配上列。
+
+官方Codex新固定[b4ad33d](https://github.com/openai/codex/tree/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895)与原2a77e82之间两提交未改前述Hook/turn/exec文件。新增读取[UserPromptSubmit](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/hooks/src/events/user_prompt_submit.rs)、[PreToolUse](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/hooks/src/events/pre_tool_use.rs)。官方Hooks与安全说明重新核查commandWindows、async、输出spill、session/agent身份与cloud差异；安装版本仍未知。
+
+F1封住“语义归纳后原要求消失”的结构缺口：保存全文范围、逐段映射、必需引用、当前模型反向读取、既有专业角色独立从原文重建；不假称纯函数能识别所有语义遗漏。F2逐仓区分材料就绪与USER_READY，并确定唯一Bridge.check_delivery消费者。F3分launch lease/短mutex、防父子互锁、共享reservation预算、实际ack和副作用核对。F4补全类型/旧枚举/摘要与无循环ReceiptLocator。F5以高风险凭据和普通关系追踪贯穿完整生命周期。06裁决最小完整首片及净收益否决，不把104–264小时变成总额授权。
+
+04新增反证先冻结在[0f9a8fd](https://github.com/YuukiAS/AI_Research_Toolkit/commit/0f9a8fd36c845955e0aa07e5e24b3850e11bc785)，然后追源；它们不是独立holdout，不改37/326历史证据计数。新增源如下：
+
+- Lucerna：[src-tauri/src/auth_intake.rs](https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/src-tauri/src/auth_intake.rs)；[src-tauri/src/lib.rs](https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/src-tauri/src/lib.rs)。
+- Bobbio：[scripts/Invoke-BobbioReaderAcceptanceSafe.ps1](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/scripts/Invoke-BobbioReaderAcceptanceSafe.ps1)。
+- Mica-for-ChatGPT：[scripts/build.mjs](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/scripts/build.mjs)；[extension/src/content.ts](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/extension/src/content.ts)；[extension/src/reliability/send-residual-recovery.ts](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/extension/src/reliability/send-residual-recovery.ts)；[extension/src/reliability/stale-composer-recovery.ts](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/extension/src/reliability/stale-composer-recovery.ts)；[docs/investigations/2026-09-07-stale-composer-clear-recovery.md](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/docs/investigations/2026-09-07-stale-composer-clear-recovery.md)。
+- SeminarArc：[prompts/tasks/0.5.x_exploratory_stress_result.md](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/prompts/tasks/0.5.x_exploratory_stress_result.md)；[scripts/run-blackbox-acceptance.ps1](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/scripts/run-blackbox-acceptance.ps1)；[scripts/verify-gpt-work-acceptance.ps1](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/scripts/verify-gpt-work-acceptance.ps1)。
+- Asteria：[src/architecture/trace.ts](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/src/architecture/trace.ts)；[scripts/validate-architecture-rc19.mjs](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/scripts/validate-architecture-rc19.mjs)。
+- CUHK_Date：[apps/api/src/app.ts](https://github.com/YuukiAS/CUHK_Date/blob/9f25c7754d3c80d0be74f5b71016320f55753ae6/apps/api/src/app.ts)；[apps/web/app/(root)/audit/handoff/handler.ts](https://github.com/YuukiAS/CUHK_Date/blob/9f25c7754d3c80d0be74f5b71016320f55753ae6/apps/web/app/\(root\)/audit/handoff/handler.ts)；[packages/api-contract/src/parent-delivery-gate.ts](https://github.com/YuukiAS/CUHK_Date/blob/9f25c7754d3c80d0be74f5b71016320f55753ae6/packages/api-contract/src/parent-delivery-gate.ts)。
+- CARE_Challenge：[scripts/training/run_srr_myops_fold0.py](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/training/run_srr_myops_fold0.py)；[prompts/tasks/20260629_pathology_checkpoint_selection.md](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/prompts/tasks/20260629_pathology_checkpoint_selection.md)；[results/20260629_pathology_checkpoint_selection/result.md](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/results/20260629_pathology_checkpoint_selection/result.md)；[scripts/ops/care_milestone_finalizer.py](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/ops/care_milestone_finalizer.py)。
+
+审查时必须尝试否决这些具体差别：Mica旧恢复器源码不在当前构建的content scripts；SeminarArc输入注入错误和已收到文本持久化分别判断；Bobbio Safe既含全局更新策略操作又仅证明0.2Reader；CARE快速报告明确少HD/HD95；CUHK消费时health在claim前检查已存在，DA应复用并保护而不是另造服务。Lucerna先验证再保存/启用的多步副作用必须有真实后置状态与恢复；Asteria当前方向遍历已有隔离，历史问题应用作回归而非声称当前仍坏。
