@@ -715,7 +715,7 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 
 ### 4. 规范字段与类型（实现必须照此，不交 Codex 自选）
 
-所有对象 UTF-8 JSON，顶层 object；必填 `schema_version:string="da/2"`、`object_type:string`。身份为非空 string 或具名结构，不允许 null 冒充空值；明确允许未知的内容用 `{status:"UNKNOWN",reason:string}`，不能写0。来源引用统一 `{repo,ref,path,blob_digest,scope}`；本地观察引用用 `{artifact_id,digest,locator,access_class}`，不得嵌入账号密钥。解析拒绝重复键、非法路径、必填缺失、未知 decision、未知主版本；扩展字段只许放 extensions，不获得准入语义。
+所有对象 UTF-8 JSON，顶层 object；必填 `schema_version:string="da/2"`、`object_type:string`。身份为非空 string 或具名结构，不允许 null 冒充空值；明确允许未知的内容用 `{status:"UNKNOWN",reason:string}`，不能写0。来源与观察引用的最终类型固定在F4；不可变Git来源与本地观察分别处理，不得嵌入账号密钥。解析拒绝重复键、非法路径、必填缺失、未知 decision、未知主版本；扩展字段只许放 extensions，不获得准入语义。
 
 **GateDescriptor 保留必填集合**：gate_ref、definition_version、authority_ref、authority_contract_ref、definition_digest、capability、failure_semantics、applicability、subject_types[]、target_roles[]、claim_support[]、normal_entry、evidence_requirements、judgment、regression_bank_refs[]、known_bad_refs[]、should_not_change_refs[]、invalidation、execution_requirements、calibration_requirement。normal_entry 必含 kind/root_ref/entry_ref 和 argv_schema 或 typed_parameters；不能把任意shell字符串当入口。evidence_requirements 必含 modality[]/fidelity[]/observer_requirement[]/required_observations[]/completeness_rule。judgment 必含 PASS/FAIL/UNKNOWN条件、rubric_ref与阈值约束。invalidation 必含 subject/target/runner/fixture/rubric/environment依赖及time_validity。execution_requirements 必含权限、cost_resource_ceiling、secret_classes、physical_target、long_run、side_effects。
 
@@ -804,13 +804,13 @@ check_delivery的context必须包含 `requested_claim` 和 `stage`。Obligation.
 1. 新 `prepare_admission` 先保存原请求原文、精确来源、上下文修订引用与附件清单。可信 Hook 的 prompt/session/turn/cwd 来自官方 `UserPromptSubmitRequest`；它只提供字符串，不保证已经提供附件内容或所有旧回合。附件、被用户明确引用的规范由当前模型通过已有授权工具读取，记录 digest/read status；不得扫描整份账号/主目录补上下文。原文保存在既有本地任务证据根，不默认进Git、不外传；密钥值只保留脱敏占位和受限引用。
 2. core 的 `partition_request` 按原文 UTF-8 字节范围生成无丢字的 source_units：标题/列表/句子/引用/代码段，保留顺序与整篇digest。这只是定位，不靠关键词判目标。模型先提出结果/旧保护/不降级/权限/成本/最终对象义务，再做一次**从原文反查**的 coverage projection：每个source_unit归到一个或多个 obligation，或明确 CONTEXT / SUPERSEDED / UNRESOLVED。不能以一条“满足全部要求”映射整篇；含多个可独立失败的后置条件必须分项。原文中的数字、否定、对象名、环境和“同时/仍/不能”由纯函数差异提示，提示不是专业判定。
 3. `compile_obligations` 校验全范围无缺口、引用仍同digest、撤销有较新的用户决定或合法authority、每项required有可观察postcondition及target。UNRESOLVED、无法读取的必需附件、未展开的引用、明显吞并条件、空required都会生成具体反馈。模型本可重读解决的事项回当前Executor；确需新的产品/科学选择才回原owner。低风险明确纯对话且没有交付/修改时允许NONE并记录理由，不因此创建验收任务。
-4. 在第一处受管写操作前要求映射完成；原生PreToolUse只对该宿主实际支持的工具形状做短时拒绝，未知工具不声称被拦。所有受管交付入口无条件重新检查 request digest、coverage projection、义务摘要与当前candidate。Hook漏执行但有原正式任务包时可据包重建；无包时由当前会话提交原请求的可定位来源并标注来源能力。只有模型重述、无法核对原请求时不能升级为可信原请求；保留SOURCE_CONTEXT_MISSING，不让用户重复编一份清单冒充原始要求。
+4. 在第一处受管写操作前要求映射完成；读取权威、Bridge自身证据根内的admission/投影草案写入属于自举操作，不要求先有产品PASS；不能把此例外扩为产品写入。原生PreToolUse只对该宿主实际支持的工具形状做短时拒绝，未知工具不声称被拦。所有受管交付入口无条件重新检查 request digest、coverage projection、义务摘要与当前candidate。Hook漏执行但有原正式任务包时可据包重建；无包时由当前会话提交原请求的可定位来源并标注来源能力。只有模型重述、无法核对原请求时不能升级为可信原请求；保留SOURCE_CONTEXT_MISSING，不让用户重复编一份清单冒充原始要求。
 5. 正式已有Reviewer/科学Planner核对高风险目标时，必须看到**原请求全文和未压缩权威条款**，并从它们独立提出应有后置条件，再对照投影；不是只读Producer义务表。普通机械任务不另开模型，当前模型的第二遍反查＋原文/新旧入口差异与已冻结反例作为有界防漏；剩余同源语义误判风险由试点漏检记录检验，不标成独立审查通过。
 6. 用户中途修正先新增scope_revision，保留旧原文和supersedes理由，禁止原子覆盖。新增要求立即加入expected；取消或降低原目标只有当前用户/原合法专业权威有权，执行者不能靠删除测试取消。变更时重算相关依赖、report/claim，旧结果只有语义不受影响才可重用。新任务与原任务无法确定且会改变范围才问用户；一般纠错直接沿原任务。
 
 **具体反证。** “新增余额，缺数据不能显示0，旧额度不能坏，而且别打开我的桌面”被归纳为“新增余额”时，后三段仍未归类，compile拒绝；把它们均标CONTEXT，当前反查必须说明其为何不约束行为，高风险原Reviewer从原文反推会否决。恶意或同错模型仍能写虚假理由，故本方案不把该机械检查当真值证明。三个试点必须主动注入这类遗漏，包括一条不含“必须”的隐含正常后置条件，记录漏检/误报与用户提醒次数。
 
-**精确结构补充。** ObligationSet新增 `request_coverage={source_digest,source_units:[{id,start_byte,end_byte,kind}],projection:[{unit_id,disposition,obligation_ids,reason_ref}],referenced_inputs:[{ref,read_status,digest_or_unknown}],review:{method:CURRENT_MODEL_REVERSE_READ|EXISTING_INDEPENDENT_ROLE,source_digest,receiver_ref,findings_refs}}`。字段参与语义摘要；core检查byte partition与映射，原owner负责语义。SurfaceEntry的accepted baseline与request coverage分别回答“以前正确什么”“这次要求什么”，不能互相替代。不存在第二份用户需求数据库。
+**精确结构补充。** ObligationSet新增 `request_coverage={source_digest,source_units:[{id,start_byte,end_byte,kind}],projection:[{unit_id,disposition,obligation_ids,reason_ref}],referenced_inputs:[{ref,read_status,digest_or_unknown}],review:{method:CURRENT_MODEL_REVERSE_READ|EXISTING_INDEPENDENT_ROLE,source_digest,receiver_ref,findings_refs}}`。字段参与语义摘要；core检查byte partition与映射，原owner负责语义。首次全新产品可在独立入口枚举证明没有旧产品时记录BASELINE_NOT_APPLICABLE；已有产品缺接受报告时，从现行正式合同与已授权独立观察建立基线，不能自动接受当前实现。未取得时仅相关旧保护claim未证，源发现/新检查仍可继续。SurfaceEntry的accepted baseline与request coverage分别回答“以前正确什么”“这次要求什么”，不能互相替代。不存在第二份用户需求数据库。
 
 ## 最终闭合合同 F2：把程序PASS与正式交付分开接线
 
@@ -836,9 +836,9 @@ check_delivery的context必须包含 `requested_claim` 和 `stage`。Obligation.
 
 ## 最终闭合合同 F3：没有死锁、重复预算或“回执代表修复”的恢复
 
-本次发现上文“原task排他锁”若由父进程跨子进程持有，子进程Hook/ack再取同锁会死锁。确定改为**两种用途、同一任务根的轻量文件**：launch lease只防两个父owner同时启动；state mutex只覆盖读—比较revision/cancel epoch—写事件/预算的短事务。父进程等待child时不持state mutex；child以session/launch token加入已存在lease，不再抢launch ownership。Hook用try-lock：占用则短时返回待处理上下文，不阻塞长测试；交付check拿不到一致快照则NOT_READY。无锁获取成功就不能写预算。
+本次发现上文“原task排他锁”若由父进程跨子进程持有，子进程Hook/ack再取同锁会死锁。确定改为**两种用途、同一任务根的轻量文件**：launch lease只防两个父owner同时启动；state mutex只覆盖读—比较revision/cancel epoch—写事件/预算的短事务。父进程等待child时不持state mutex；child以session/launch token加入已存在lease，不再抢launch ownership。Hook用try-lock：占用则短时返回待处理上下文，不阻塞长测试；交付check拿不到一致快照则返回STOP及STATE_SNAPSHOT_UNAVAILABLE，不能READY。无锁获取成功就不能写预算。
 
-O_CREAT|O_EXCL用于lease及短mutex，owner含host、PID和process-start identity；Windows读取该PID创建时间，Linux读取boot_id＋/proc/<pid>/stat starttime，macOS用本机进程创建时间API。只读取本次owner，不枚举别人的环境。OS接口不可用/身份不确定就停止自动launch，不按锁龄抢占。释放前比较完整owner nonce；不因为PID复用而删活锁。该设计不改Bridge原AGENTS写锁，preflight读源码本身不依赖那个写锁；真正需要写AGENTS的操作仍受原限制。
+O_CREAT|O_EXCL用于lease及短mutex，owner含host、PID和process-start identity；Windows读取该PID创建时间，Linux读取boot_id＋/proc/<pid>/stat starttime，其它OS没有已验证身份读取适配时不启用自动launch。只读取本次owner，不枚举别人的环境。OS接口不可用/身份不确定就停止自动launch，不按锁龄抢占。释放前比较完整owner nonce；不因为PID复用而删活锁。该设计不改Bridge原AGENTS写锁，preflight读源码本身不依赖那个写锁；真正需要写AGENTS的操作仍受原限制。
 
 预算规则具体为：在短mutex里为稳定feedback分配一次repair reservation，先写intent再发起；实际同session新回合ack/首个带feedback的修复调用，或父进程确认该resume启动，才转为已耗用。取消/启动失败且有证明未开始时释放reservation；崩溃且是否开始不明时保持占用，宁可停止额外launch，不多发一次有副作用的动作。Hook与parent读取同一counter，不能各得两次。普通初次实现和检查不算额外修复；重复同一反馈的展示/ack、解析重试、等待均不扣修复轮次。scope revision、换candidate、换campaign不重置task lineage预算。
 
@@ -851,3 +851,64 @@ Feedback逐跳示例（逻辑值不是运行记录）：W=SeminarArc/持久化/C
 持久写入采用不可变run/事件、flush并fsync文件、同目录replace、manifest最后提交；Unix fsync目录，Windows使用系统可用的写入刷新/替换API并在恢复时完整核验。若磁盘断电持久性无法由宿主保证，只承诺崩溃后可检测不完整并拒绝ready，不声称数据库级恰好一次。双父进程、父等child时child ack、reserve后崩溃、ack前取消、late result、重复resume六轨迹均纳入P2否决。
 
 每次原owner退出/交付/权限等待时调用 `delivery report`，从前后Descriptor版本、Resolution、实际run、claim与feedback事件派生：本轮新增/加固/合并/暂停/退休及原因，复用与实际运行，受保护旧能力，当前成品层级、失败归属与唯一必要用户动作。无新增明确说明既有类别够用；无人工动作写“无需额外操作”，不列内部日志让用户搬运。模板不新增模型调用，文字改写不能改机器事实。检查临时停用到期后重新准入需原校准/依赖仍有效；合并须迁移每个旧bad、obligation和consumer，不能只改名称。
+
+## 最终闭合合同 F4：da/2的唯一消费者、类型和轻量化裁决
+
+D6的字段是本次新接口提案，不能继承旧da/1结论。此次重读旧freeze的Descriptor、Adapter、TargetGraph、Result、Claim全部必填与含义；**保留领域约束，删去独立调度/数据库设想**。不删除观察来源、原请求或当前消费者以缩短JSON：分别删掉会重现Asteria同源假量测、Lucerna遗漏旧要求、FAIL无人读三类事故。报告装饰、全局评分、历史进度总表、账号内容都不是准入字段，放extensions也不得改变判定。
+
+正式数据流固定：项目runner→项目result adapter输出GateResult→Bridge ingest/check调用唯一workflow-core reader/evaluator→原交付owner消费Claim。项目不能另实现一套“通过算法”；安装Hook只调用Bridge；专业rubric仍归专业owner。Admission/ObligationSet/Resolution/Feedback/Receipt/Claim属于同一个Bridge/core协议的本地对象，不分别注册服务或数据库。TargetGraph嵌在ProjectAdapter，不额外要求一份重复图文件。
+
+### 类型约定与判定使用
+
+下表补足D6中仅列字段名的类型；旧E5/E7为内容说明而非完整wire样例，不能直接喂生产parser。
+
+- `Id`：非空字符串，不含NUL；`Digest`：64位小写SHA-256十六进制；Git commit/blob OID与内容SHA-256分字段，不能混用。
+- `Ref`：带kind的联合类型。`git`={kind,repo,commit,path,blob_oid,content_digest,scope}，commit必须不可变OID；`artifact`={kind,root_ref,path,digest,access_class:PUBLIC|TASK_LOCAL|RESTRICTED}，path为显式受权根下相对路径；`event`={kind,host_id,session_id,event_id,content_digest}。消费前按类别验证身份和读权限，引用本身不授权跨host访问。模型重述原话标来源不足，不自行生成可信event。
+- `Identity`={id,kind,semantic_digest,ref,bindings}，bindings为adapter固定identity规则声明的字段；未声明字段不参与判断。SOURCE须repo/commit与完整内容差异digest；BUILD/PACKAGE须输入digest和产物hash；INSTALLED须package/hash/实例或PID-start；DEPLOYED须服务/部署/DB schema快照；DATASET/GT须split/病例集合/预处理/标注版本；CHECKPOINT须model/pretrained/参数与训练lineage；PREDICTION须checkpoint/数据/几何；DOCUMENT/REPORT须内容与渲染对象。适用字段缺失不能仅填id；非适用字段用有依据的NOT_APPLICABLE，不伪造值。
+- `ClaimTuple`={target_set:Id[],capability_set:Id[],environment:Identity,time_window:{from,to_or_none},level:LOCAL_SOURCE|INTEGRATED|ARTIFACT_READY|INSTALLED|LIVE}。USER_READY仍是全部承诺的聚合谓词，不新增证据层级。
+- `AuthorityItem`、`AgentsItem`保留D6列出的所有键：refs用Ref，scope/path/branch_scope用string，digest用Digest，supersedes为Ref[]，effective_from为有时区ISO8601；ABSENT必须有本scope树枚举依据。不能依时间新旧解决专业权限冲突。
+- `Rule`={rule_id,owner_ref,rule_ref,parameters,required_inputs[]}；parameters只能绑定冻结参数schema的bool/int/decimal-string/enum/ref，不允许任意可执行表达式。通用core只执行本文固定规则；领域PASS/FAIL/UNKNOWN条件由冻结runner/rubric执行，Rule提供来源与比较依据。
+- `Limits`={wall_seconds_or_none,model_calls_or_none,resource_units[],effects[]}；每项资源含kind/unit/ceiling_decimal/authority_ref，NONE表示该维度无额外授予，不能当无限预算。效果含effect_id、目标、操作、幂等/核对方式和授权Ref。time、cost计数均非负，度量必须带单位；未测成本为UNKNOWN及理由，不能0。
+- `Provenance`={actor_id,role,host_id,session_or_process_identity,source_ref,allowed_scope_ref}。它记录可核验事实，不是数字签名；PROTECTED还需真实权限边界证据。
+- `Unknown`={status:UNKNOWN,reason,missing_refs[]}只允许在明示可未知的观察/成本/发现字段中；required身份/来源不能用它绕开结构验证。相应必需观察未知时decision只能UNKNOWN或已有独立FAIL，不能PASS。
+
+|对象字段组（D6全部字段均归于下列类型）|类型与真正消费者／规则|
+|---|---|
+|Descriptor gate_ref/definition_version/definition_digest/authority_ref/authority_contract_ref|Id/Id/Digest/Ref/Ref；core解析冻结定义与版本，Bridge核来源|
+|capability/failure_semantics/applicability|Id/Rule/Rule；core按权威选择义务，项目runner给专业失败语义，不执行任意脚本文本|
+|subject_types/target_roles/claim_support|枚举string[]/Id[]/ClaimTuple[]；core禁止跨对象升级|
+|normal_entry|{kind:CLI|FUNCTION|NATIVE|BROWSER|DEVICE|SCIENTIFIC,root_ref:Ref,entry_ref:Ref,argv_schema或typed_parameters:冻结JSON Schema}；Bridge检查参数/效果再调用，绝不eval shell|
+|evidence_requirements|modality/fidelity/observer_requirement使用旧freeze三轴枚举；required_observations为{observation_id,type,unit_or_none,source_rule:Rule}[]，completeness_rule为Rule；core验完整性，专业observer采值|
+|judgment|{pass:Rule,fail:Rule,unknown:Rule,rubric_ref:Ref,threshold_parameter_constraints:Rule[]}；专业runner判断，core检查来源/边界/缺证，不替代科学判断|
+|regression_bank_refs/known_bad_refs/should_not_change_refs|Ref[]；校准与生命周期迁移读取，required为空需有NOT_APPLICABLE权威不能直接省略|
+|invalidation|六种dependencies各Ref[]或Identity[]，time_validity为{mode:IMMUTABLE_INPUTS|CURRENT_INSTANCE|TTL,ttl_seconds_or_none,authority_ref}；core逐依赖判复用，实际observed_at参与时窗|
+|execution_requirements/calibration_requirement|前者保留permissions:string[]、cost_resource_ceiling:Limits、secret_classes:string[]、physical_target:Identity或有依据NONE、long_run:bool、side_effects:effect[]；后者Rule。Bridge和原runner拒绝未授权效果，校准入口读取四种控制|
+|protection_policy/lifecycle_binding|D6枚举固定；reference/observer/accepted refs均Ref，scope为Id[]，expiry为ISO8601或明确NONE，reason_ref必填。core禁止暂停required后签ready|
+|Adapter repo_identity/authority_ref/adapter_semantic_digest|Identity/Ref/Digest；Bridge实际repo和core语义匹配|
+|canonical_authority_set/agents_authority_set|AuthorityItem[]/AgentsItem[]；core权威冲突、真实加载核验|
+|normal_entry_refs/capability_refs/long_run_owner_refs/human_only_boundaries|Ref[]/Id[]/Provenance[]/effect[]；选测与执行owner/权限校验|
+|targets/edges|目标节点保留旧7键：target_id:Id,repo_identity:Identity,target_type:旧12类枚举,identity:Identity,environment:Identity,claim_ceiling:ClaimTuple[],authority_ref:Ref；边为{from_target:Id,relation:旧9种关系,to_target:Id}。core求闭包；节点/边引用不存在即缺口|
+|impact_rules/parameter_bindings/source_set_rules/environment_profiles/claim_ceilings|Rule[]/{name,value,authority_ref}[]/Rule[]/Identity[]/ClaimTuple[]；core按变化集/源集合选测与失效，Bridge核环境实际能力；参数不能降domain minimum|
+|surface_inventory_ref/discovery_contract/consumer_binding|库存Ref；提取器Ref[]、入口kind[]、unknown_edge_rule固定为D2扩围并保留缺口、baseline_ref为Ref或有依据Unknown；consumer为{consumer_id:Id,reader_version:Id,accepted_schema_versions:string[],entry_refs:Ref[],delivery_boundary_ref:Ref}|
+|Result task/workflow/run/gate_instance/gate_ref/definition_version|前两为{task_key,scope_revision,owner_ref}和{kind,task_ref,event_ref_or_none}；其余Id。Bridge与原owner核task/session/round，不从目录猜最新|
+|Result authority_ref与definition/adapter/source-set/invalidation摘要|Ref及Digest；core重新计算/比较；不得只信producer给的摘要|
+|Result candidate/subject/target/normal_entry/runner/fixture/rubric/environment identities|Identity或Identity[]；candidate确定同一个语义候选，collector在observation_binding单独定义；无fixture也需明确NONE依据|
+|Result observed_at/decision/reason_codes/covered/missing/evidence_refs/scope|ISO8601、PASS|FAIL|UNKNOWN、Id[]、Id[]、Id[]、Ref[]、TARGETED|BROAD|FULL；core用expected减covered且核scope，PASS不能带missing required|
+|Result actor_provenance/observer_provenance/cost/elapsed_time/claim_support|Provenance/Provenance/带单位计数或Unknown/非负毫秒整数或Unknown/ClaimTuple[]；Bridge验证消费与资源，core限制声明|
+|Result新增contract_binding/obligation_set_digest/observation_binding/consumption_ref|request Ref＋scope_revision非负整数＋authority Digest；Digest；collector/reference Identity＋trust tier＋raw Ref[]＋protected Ref或Unknown；稳定artifact Ref。Bridge先ingest记录消费，core随后核验，不需要修改result|
+|Admission|D6身份/引用使用上列类型；entry_kind为NATIVE|LITE|REVIEW|CONTROL|PROJECT，session_binding为{host_id,session_id,turn_id,agent_id_or_none}或有依据NOT_APPLICABLE，cancel_epoch/scope_revision非负整数；effect_refs为Ref[]，budget_ref/owner_ref/consumer_binding明确；由Bridge写入，core读取|
+|ObligationSet|D6集合保留；obligation含Id、Ref、target Id、postcondition:Rule、ClaimTuple要求、non_substitutable:Rule[]、gate_refs:Id[]、required_for_claims:Id[]、status:ACTIVE|SUPERSEDED|UNRESOLVED；F1 request_coverage必填；core禁止摘要不符、空required冒交付|
+|Resolution|mode=NONE|TARGETED|BROAD|FULL；selected/reuse/not_applicable分别{id,reason_ref,result_ref_or_none}[]，unresolved/unknown为{id,reason_ref,owner_ref}[]，effect_requirements为effect[]；当前Executor据此运行或补程序|
+|Feedback|D4字段使用Id/Ref/Identity与明确actual/expected值（单位按Rule）、classification为已有归因码、recipient的role Id及owner_ref:Provenance、allowed_write_scope为受权路径/对象Ref[]、invalidates为Id[]、next_check为Ref、budget_ref为Ref；Bridge/当前模型/原owner消费，不执行字段内命令|
+|Receipt|D6字段使用Ref/Digest/Identity/Provenance；delivery_observation/ack_observation分别为{status:OBSERVED|PENDING,at_or_none,event_ref_or_none}，resolution_result_refs为Ref[]；budget_usage对应同一reservation；桥接层派生DELIVERED/ACKED/RESOLVED，不要求项目另维护状态机|
+|Claim|D6全部身份/摘要/Ref[]按上列；allowed/denied为{requested_id,tuple,reason_refs}[]，unknown为{id,reason_ref}[]；report_ref是派生文本定位，不参与准入，不可因报告写失败产生循环。原正式交付owner读取，权限仍单独检查|
+
+实现需生成JSON Schema及固定跨语言fixture；不允许运行时猜类型。全部集合数组按稳定id排序，重复id拒绝；argv、步骤、原文source_units保持顺序。规范编码是UTF-8、对象key按Unicode码点排序、字符串JSON标准转义、不escape普通非ASCII、无空白，整数十进制；小数只用带单位字符串。实际观察时间、作用域、权限和时窗是语义输入，只有生成时间、展示字段、自身digest、派生report_ref不参与自身摘要。为每种对象冻结一份字节/摘要golden及一个缺字段坏例，三语言结果必须相同；不是让三方选不同JSON序列化器。
+
+### 能力协商、影子与回滚只有一条路线
+
+安装绑定必须含core payload digest、reader version、schema major、实际Bridge entry和project-adapter digest；新增 `delivery capabilities --binding <ref>` 只读返回这些值。启动和交付都比较安装绑定与实际加载，不按包名或PATH选择。da/2与未知major不兼容；旧da/1经诊断导入只输出缺项。暂未发现公开运行da/1 consumer不等私有不存在，首次握手遇到旧reader即该consumer不启用DA，不自动替换其安装。
+
+shadow在**原runner已合法执行之后**读其原始输出，不重复账号/训练、不签第二套ready。记录原阶段结论与新claim的差异并归因，低层PASS与USER_READY不同不算误报。单仓enable必须负例证明“去掉Hook、core丢失、无义务、错对象、旧reader”仍拒绝正式就绪；新reader正式启用后只有它的Claim可签DA交付。各仓独立适配，PIE相邻合同引用随维护更新而非首次必需依赖。
+
+回滚是回到经过验证的Bridge/core/adapter组合；没有旧da/2组合则关闭DA就绪签发、保留项目原专业检查与未决task，不用旧da/1替代签字。启用/停用由原项目配置/正式安装流程负责，运行过程中缺组件不能默默当停用。移除DA不会自动撤销历史义务、回归、产品数据或科学作业。
