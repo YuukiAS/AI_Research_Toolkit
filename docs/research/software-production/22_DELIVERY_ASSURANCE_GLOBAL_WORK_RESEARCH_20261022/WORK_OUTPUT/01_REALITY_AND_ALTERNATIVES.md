@@ -200,3 +200,29 @@ Bridge release仍 **ba9013b9fbbd242e51b09f9d09291f417df17652**，实际dev已到
 实际开发分支在本轮核对期间前进到 **f7caede593ea90f1a8f38fe33a7bcbc1dae3f94f**。相对 b3a435eb193bcba251b343d2dd5dd3ef580587ed 只有一项新增：[正常入口能力验收提案 v0.3](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/f7caede593ea90f1a8f38fe33a7bcbc1dae3f94f/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.3_2026-10-22.md)。生产代码、release与七仓固定源未因此改变；上文b3a435e链接继续准确，不冒称其为最新开发HEAD。
 
 v0.3把特定未来Persistent验收的六次通知上限落实到原run binding：helper启动前持久占位、终止保留一席、失败/未知不返还、Notifier核permit并禁止未经新授权重试。它仍待独立审查、不是现行实现或本研究权限。DA不接管通知、不另领SMTP/模型额度，也不把进度邮件当产品完成；共享返修预算不能重置既有通知授权。P0默认无通知/外部服务，当前研究未发任何消息或启动Persistent。AI Skills main仍ca10623f，研究main仍daf797c7。
+
+<a id="r2-reality"></a>
+## R2：必须区分“角色文件存在”和“角色真的运行”
+
+本轮独立Critic仅保留DA-AR-01、DA-AR-04，均ACCEPT；02/03/05设计关闭并保留。R2原文来自用户转交，无GitHub审查文件。研究分支原HEAD为9eacd550，实际写入探针见CURRENT历史ab3bb28d。
+
+最新AI Skills main仍ca10623fe028114cfafc5ec7e5350800d5c8259c，AGENTS、四份角色/治理合同重新读取且blob未变；研究main两份通用标准仍daf797c7。Bridge release仍ba9013b9，开发分支已到 **0de62cb7b6e98c4d12ae3f68bbe40b59588473eb**，相对上轮f7caede仅新增正常入口执行包文档，未改生产代码。那些包的授权不属于DA，未执行其中任何命令。
+
+|重新核实的源码/合同|实际事实|本轮设计影响|
+|---|---|---|
+|[reviewed_handoff.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0de62cb7b6e98c4d12ae3f68bbe40b59588473eb/ai_bridge_kit/reviewed_handoff.py) init_task/_initialize_task_files|写PLAN_REQUESTED、next_action=RUN_GPT_PLANNER；不发起外部GPT|创建Review文件不得计独立检查已启动|
+|[reviewed_runner.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0de62cb7b6e98c4d12ae3f68bbe40b59588473eb/ai_bridge_kit/reviewed_runner.py) watcher_once/eligible_events/run_codex_event|watcher启动Executor；当前返回thread_id=None；没有外部Planner启动器|保留已设计精确resume接线，但不能用它补不存在的Planner调用|
+|[现有Scheduled GPT模板](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0de62cb7b6e98c4d12ae3f68bbe40b59588473eb/templates/reviewed_handoff/prompts/REVIEWER_SCHEDULED_TASK.md)|真实执行面是已有ChatGPT安排任务＋GitHub；有NEEDS_GPT_PLANNER/后置review，没有初始PLAN_REQUESTED处理段|只有实际存在且获权的schedule绑定可接入；在同模板补首轮分支，不能把安装模板当schedule已配置|
+|[Control agent_flow.py](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0de62cb7b6e98c4d12ae3f68bbe40b59588473eb/ai_bridge_kit/agent_flow.py)|RuntimeAdapter.launch_role为抽象；launch_executor_with_preflight目前明确Executor-only|只有已具可运行原角色adapter的环境能自动调用Verifier；不能把抽象接口当运行能力|
+|[Text Review README](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0de62cb7b6e98c4d12ae3f68bbe40b59588473eb/templates/text_review/README.md)|明确为可选evidence producer，不是新GPT角色；外发、密钥、Actions及付费预算都有前置要求|不将Text Review直接升级为Planner审批，不默认启用API或上传原请求|
+|[Lucerna独立验收](https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/docs/workflows/LUCERNA_INDEPENDENT_RELEASE_ACCEPTANCE.md)|已有本机独立Reviewer/原orchestrator，允许独立Codex上下文；这是角色与运行要求，非现成Python自动启动函数|复用该角色，给出有限事前需求核对调用；本轮明确新增接线及权限条件，不把文档当已运行|
+|[SeminarArc AGENTS](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/AGENTS.md)、[Asteria AGENTS](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/AGENTS.md)|要求Codex直接写prompts/tasks/&lt;id&gt;_result.md或results/&lt;id&gt;_result.md；Asteria GPT Work默认仍含人工复制/返回动作|新增finalizer函数不足；必须把结果提交接入正常host结束边界。GPT Work人工传递不能说成自动回传|
+|[CARE Controller标准](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/prompts/CONTROLLER_COORDINATOR_RUNTIME_STANDARD.md)|原Controller监督Executor并写VERIFIED_COMPLETE；科学Planner归属、review_required边界明确|沿原Controller完成提交接check，不新增审查角色，不把job退出或文件存在当完成|
+
+六仓SHA未变。CUHK_Date main前进到 **269fce644563e58afcb131470c68d28969e1532c**；相比9f25c775改SEO canonical/crawl、静态shell补丁和相关文档，未改AGENTS或本研究Parent准备/事务入口。旧9f25c775链接保留为被审历史固定源码；本轮正常出口兼容性核对使用新SHA，不能推断其新部署、Search Console或索引效果已验证。
+
+### 两项问题的路线选择
+
+独立核对比较四种方式：自动创建Review文件（无执行者，拒绝）；把所有任务送新通用agent/API（增加权限/费用且违背既有角色，拒绝）；复用已有且实际可调用的项目Reviewer、Control角色或已配置Review schedule（选定，严格资格检查）；无上述能力时诚实人工恢复（必要边界，不标自动）。简单UI小改如既有样式内的间距/文案纠错不因“UI”二字自动升级Review；新语义/来源/安全/科学选择才按原风险规则独立核对。
+
+完成出口比较：七个历史专用脚本末尾各加finalizer（普通任务可能不经过，撤回）；要求模型每次记得调用（无法约束直接写result，拒绝作为唯一机制）；**Bridge正常host结束边界统一finish_delivery，七仓只提供项目证据/原结果路径映射**（选定）。现有项目runner继续产专业证据，原报告文件可写草稿，但只有正常结束接点校验并接受的提交才构成受管完成。不是七个新后台服务，也不假称能禁止任意进程写文字。
