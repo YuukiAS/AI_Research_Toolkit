@@ -259,3 +259,93 @@
 **CARE C11。** [run_srr_myops_fold0.py L986–1027](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/training/run_srr_myops_fold0.py#L986)实际按val_patch_loss保存并重新加载checkpoint_best后export；[原任务](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/prompts/tasks/20260629_pathology_checkpoint_selection.md)要求比较既有best/final并按病理指标选择，不允许改动在跑job。[历史result](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/results/20260629_pathology_checkpoint_selection/result.md)报告某些decode final较好、argmax更差，同时明确未计HD/HD95。DA因此不从文件名best或一个scalar判断：先绑定原科学任务选择规则→实际候选checkpoint集合和完整指标→独立selection输出hash→真正export读取同hash。若当前任务要求完整HD95但结果只有fast metrics，阻止完整排名claim，允许说明有限方向性结果；缺指标回原Controller合法评估，不能新投训练。已有足量600步help25/harm27的科学负结论仍按原链送Planner，不因排名不佳无限训练。本例只解析历史/源码，不把旧任务重新激活，也不替当前R2制定科学选择权重。
 
 上述新增反证已直接修订公共合同F1–F4：不能以源码存在代加载、不能以一个低层PASS升产品、不能把输入失真与保存失败混判、不能忽略隐含machine-global效果、不能把选定权重/指标在报告中省掉。后续正式试点仍另取未用于修复的输入；这七条不冒充未见评估。
+
+
+<a id="r1-ar04"></a>
+## R1 修订：DA-AR-04 七个可实施的最终消费者
+
+**处置 ACCEPT。** F2 指到了材料脚本和最终角色，却未给出七个可执行最终出口。本节冻结文件、函数、命令、合法阶段、专业输入、报告和恢复；它替换“由 Parent/Controller 最后消费”的模糊部分。所列文件都在固定源码中存在；**新增函数、参数和最终化分支尚未实现**，不能称当前已有 DA 支持。选择在原验收 CLI 加只读最终化分支，避免七个新守护程序，也避免把现有材料 PASS 硬改为产品 PASS。
+
+### 全部七仓共用的调用装配
+
+每个 D 包新增同文件内 finalizer 函数，冻结消费者 ID 为下表 ID。命令参数只接 F4 的 DeliveryCheckContext/ResultManifest；TaskKey、输出根、candidate、professional result refs 从已验证原 admission/项目合同获取，禁止路径通配或扫描“latest”。调用形式里的 <context>/<manifest> 是显式 JSON 文件路径，不是任意 shell 模板。
+
+统一顺序为：
+1. 原任务的报告/终态动作调用下表命令；它先检查合法任务阶段、ACTIVE adapter、当前 source/artifact identity、取消和原 owner 接管身份。只读最终化分支必须**在原脚本所有 build、设备/账号、网络和 job 操作之前 dispatch**。
+2. 项目 result adapter 把已获得的专业工件转换成 GateResult；保留 PASS/FAIL/UNKNOWN 和其真实观察层级，不调用未授权产品。
+3. finalizer 以参数数组执行 `ai-bridge delivery check --context <context> --results <manifest>`，即 **Bridge.check_delivery**。位置固定在“全部专业输入解析后、任何最终 READY 标记/报告写入前”。同时检查 exit=0、JSON.status=READY、requested ids 包含本次 USER_READY、candidate/scope/consumer 一致；其它结果返回原任务 Feedback，exit2/3，不能输出正式 READY。
+4. 仅成功时调用同 Bridge 的 `delivery report --context <context> --results <manifest> --claim <claim-ref>`。report 内重验 claim 仍属当前候选与原义务（不重跑产品），并在短 mutex 中原子写 report.md 和 report.manifest.json；Claim.report_ref 只作 locator，不参与 claim 摘要。report 失败或源已变不打印 READY。报告 manifest 绑定 claim digest、report bytes digest、consumer_id 和 candidate；派生报告不是新任务状态。
+5. 七仓固定正式报告位置均为原 task 已登记 result 根下 `delivery_assurance/report.md`（各根如下），原结果正文/用户答复引用该报告，并由原结果验证器拒绝“USER_READY=YES 但没有当前 report manifest/claim”的提交。材料脚本可以保留自身 PASS，必须注明 stage 和不足，不能被报告生成器提升。
+
+正式 delivery_boundary 是“指定 finalizer＋Bridge check/report＋原 task 完成验证”，不是任意模型写文件就算签发。Bridge::validate_final_report_binding 由原 launcher/项目结果提交前读取；Review 接 reviewed_handoff.validate_final_report_for_repository，Control 接 validate_executor_result/最终 transition，Lite run_delivery_cycle 和原生受管 report 工具返回接同一检查。七仓项目任务文本的最终动作也冻结为下表命令；不允许模型只写旧 result.md 自行完成。若某项目没有接上这个真实调用及负例，它就不能 enable_consumer。
+
+此机制能拒绝受管假报告，不能阻止同权限进程任意写一句“PASS”，也不撤回 Hook 缺席时原生聊天；这正是已接受的产品边界。原始产品报告、科学结果不会因模板变更消失。新接口只发布派生交付报告，不擅改原项目用户接受、发布或下一阶段状态。
+
+### D-LUC：Lucerna 原生最终化
+
+- **源码/函数**：[run-01056r3-final-native-campaign.ps1](https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/scripts/run-01056r3-final-native-campaign.ps1) 原末尾输出 FINAL_NATIVE_CAMPAIGN=PASS，但主要是 Producer 的 native/live/送审证据。拟在该文件增加 **Complete-LucernaDelivery** 和顶端 `-FinalizeDeliveryOnly -DeliveryContext <context> -ResultManifest <manifest>` 参数集；原 CandidateCommit 参数只对 campaign 参数集必填。最终化分支不执行旧 hardcoded 01056r3 campaign，不停进程、不构建、不访问 provider。
+- **实际调用者/状态**：原 LUCERNA_INDEPENDENT_RELEASE_ACCEPTANCE 的 local orchestrator 在 Reviewer 回传后调用此命令；接入时将原 final handoff 动作绑定此入口。允许条件是该候选原独立审查的 P0/P1/P2=0、mandatory matrix 全满足，packaging 可按合同 NOT_APPLICABLE；原三轮预算保持，不增 Control。
+- **输入**：该候选独立 Reviewer 的 REVIEW.md/acceptance.json、Reviewer 自己的 smoke→PID→capture、EXE/source hash、原 preflight 连续两次有效记录、provider 后置观察与旧 quota 回归。从 results/current_independent_acceptance/ 原工件选择后冻结为本 task 的不可变 refs，不能运行时读可变 latest 代签。
+- **check/报告**：Complete-LucernaDelivery 解析以上输入后调用 check，再 report 写 `results/<task_key>/delivery_assurance/report.md`；成功也只表示可交用户验收，不替用户最终喜好判断或自动安装发布。
+- **无 owner**：Reviewer 结果留原路径；恢复同原 orchestrator 后仅调用 FinalizeDeliveryOnly，先核源/EXE/PID新鲜性。过期则原任务重获必要观察，不重启全部 campaign。
+- **绕过负例 L-BYPASS**：仅拿 FINAL_NATIVE_CAMPAIGN=PASS 或复制 Producer 截图写“用户可用”；finalizer 缺独立输入/claim，report 与原 handoff 验证均拒绝，不能 DA enabled。
+
+### D-BOB：Bobbio 0.3 用户复核前最终化
+
+- **源码/函数**：[Invoke-BobbioAcceptance.ps1](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/scripts/Invoke-BobbioAcceptance.ps1) 增加 **Complete-BobbioDelivery**，命令 `powershell.exe -NoProfile -File scripts/Invoke-BobbioAcceptance.ps1 -FinalizeDeliveryOnly -DeliveryContext <context> -ResultManifest <manifest>`；用独立参数集，在 Zotero process/dataDir/缓存及机器策略操作前返回，不调用 ReaderSafe 的 Repair。
+- **实际调用者/状态**：原 milestone 最终 native acceptance 完成后的结果动作调用此函数。按 [0.3 controlling contract](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/docs/quality/GPT_WORK_PRODUCT_REVIEW_CONTRACT.md)，必须先 GPT_WORK_PRODUCT_READY、关闭产品阻因，再完成 FINAL_NATIVE_INTEGRATION_READY 所要求的隔离 Zotero enhanced-tool 实际验收，才申请 USER_REVIEW_READY。**MILESTONE_ACCEPTED 仍须真实用户接受，USER_READY 不替它。**
+- **输入**：当前0.3完整独立视觉/交互 review、完整状态/transition证据、最终隔离Zotero批注往返、PDF immutability、cache恢复、shortcut→当前EXE和原performance floors，全部同候选。旧0.2 ReaderSafe结果只能支持旧功能子项。
+- **check/报告**：Complete-BobbioDelivery 完成 milestone/结果解析后、输出 READY_FOR_USER_REVIEW 前 check/report；正式输出 `results/<task_key>/delivery_assurance/report.md`，原 `docs/audits/0.3.0/latest/REVIEW_INDEX.md` 只链接冻结报告，不成为 authority。
+- **无 owner**：当前任务恢复后执行同一只读最终化命令；缺 final native evidence 留明确下一验证，不触碰真实用户 Zotero 库。
+- **绕过负例 B-BYPASS**：只用0.2 Safe exit0或GPT Work全绿生成0.3 READY_FOR_USER_REVIEW；因缺当前最终隔离集成 claim 被拒，不自动推进main/0.4。
+
+### D-MIC：Mica acceptance CLI 的最终分支
+
+- **源码/函数**：[scripts/acceptance/cli.mjs](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/scripts/acceptance/cli.mjs#L30) 当前 candidate 只调用 validateBundle。新增命令 `node scripts/acceptance/cli.mjs finalize --delivery-context <context> --results <manifest>` → **finalizeDelivery**；不能把 candidate 分支直接改叫最终就绪。
+- **实际调用者/状态**：原 rebuild task 最后结果动作调用 finalize；Foundation→Low Memory→Highlighter→PDF 的本次 required 子范围满足，且真实加载身份/正常 Edge 最终手动证据覆盖所申请层级，才 USER_READY。允许诊断报告先保存，不虚构最终登录态自动化。
+- **输入**：原 validateBundle 分项、独立产品判断、source/build manifest/实际 loaded 版本，已授权正常 Edge 中相关短操作的结构化 Mica Copy report 与实际结果，所需低资源真机观察。手动只限仓库原本不可自动化的最终路径，不要求用户 DevTools 或反复搬运机器能直接读的失败。
+- **check/报告**：finalizeDelivery 先验证bundle与手动/独立证据身份，后 check/report；写 `results/<task_key>/delivery_assurance/report.md`。缺真实观察仍可说明“构建可供手动测试”，不能签包含真实站点承诺的 USER_READY。
+- **无 owner**：已有任务下次恢复运行 finalize，只读现有证据；账号状态/运行版本改变则相关观察失效，不另开登录 profile。
+- **绕过负例 M-BYPASS**：candidate exit0＋较低heap，缺process内存/高亮PDF或真实loaded版本，直接写 final READY；最终入口和报告绑定验证拒绝。旧未加载恢复器源文件不算当前能力。
+
+### D-SEM：SeminarArc 审查执行后的最终分支
+
+- **源码/函数**：[verify-gpt-work-acceptance.ps1](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/scripts/verify-gpt-work-acceptance.ps1#L206) 现有输出明确 GPT_WORK_EXECUTED=NO、READY_FOR_USER_REVIEW=NO。新增 **Complete-SeminarArcDelivery**，命令 `powershell.exe -NoProfile -File scripts/verify-gpt-work-acceptance.ps1 -FinalizeDeliveryOnly -DeliveryContext <context> -ResultManifest <manifest>`，顶端独立参数集在 dynamic probe/launcher/reset 前返回。
+- **实际调用者/状态**：原 task 的结果动作在 Parent 实际返回完整 P01–P08 或该任务冻结的合法相关审查范围后调用；基础设施准备状态不能进入最终就绪。
+- **输入**：独立 Parent 的实际 UI 审查结果、同 APK/signer/package/serial、B02强停重启持久化及所需B04/B07媒体/导出、实际输入文本与持久化读回分开记录。仅模拟器时，claim 不包含未测物理麦克风/相机/OEM。
+- **check/报告**：Complete-SeminarArcDelivery 读这些 refs 后 check/report，写 `results/<task_key>/delivery_assurance/report.md`；原 `prompts/tasks/<id>_result.md` 中完成判断只引用该claim。保持原任务键与旧result位置，不启新工作流。
+- **无 owner**：保存 Parent 结果；原 task 恢复后仅 finalizer，不再次reset设备；必要旧观察过期回原设备授权流程。
+- **绕过负例 S-BYPASS**：READY_TO_PASTE_PARENT=YES 或 SkipDynamicProbe 后试图写 READY_FOR_USER_REVIEW=YES；缺真实审查/当前观察，正式报告与task完成检查拒绝。
+
+### D-AST：Asteria RC 的最终分支
+
+- **源码/函数**：[validate-architecture-rc19.mjs](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/scripts/validate-architecture-rc19.mjs) 增加 **finalizeDelivery**，命令 `node scripts/validate-architecture-rc19.mjs --finalize-delivery --delivery-context <context> --results <manifest>`。在 createServer/现有投影检查前 dispatch；最终分支读已经产生的结果，不起Vite、不部署。
+- **实际调用者/状态**：原 RC19 task 在独立 [Parent W01/W05/W06](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/prompts/reviewers/ASTERIA_GPT_WORK_PARENT_ACCEPTANCE_RC19.md) 返回后，最终 result 动作调用此命令。必须同候选实际URL/visibleversion，原 required lanes 与科学真值约束满足；只准该RC范围，不能称stable。
+- **输入**：完整科学/视觉/交互结果、独立真实几何观察、全图/暗亮/trace和旧科学语义保护；源码 routeGestalt 的常量0只保留机械证据，不充当独立观察。
+- **check/报告**：finalizeDelivery 校验独立结果和候选后 check/report，写 `results/<task_key>/delivery_assurance/report.md`；旧 `result.md` 最终声明由相同claim约束。
+- **无 owner**：原task恢复调用同命令；部署identity变更即失效相关观察，不能偷做新部署或拿旧RC截图补足。
+- **绕过负例 A-BYPASS**：静态 ROUTE_GESTALT 全零＋源码未变就宣布图形可用；缺独立真实图与专业结果，报告拒绝。
+
+### D-CUH：CUHK_Date 活动完成后的最终分支
+
+- **源码/函数**：[verify-gpt-work-parent-delivery.ts](https://github.com/YuukiAS/CUHK_Date/blob/9f25c7754d3c80d0be74f5b71016320f55753ae6/scripts/verify-gpt-work-parent-delivery.ts#L97) 当前 L106加载凭据，L130–133查询live/token，L448–451写准备manifest并打印gate。因此新增 **finalizeDelivery**，命令 `pnpm exec tsx scripts/verify-gpt-work-parent-delivery.ts --finalize-delivery --delivery-context <context> --results <manifest>`；在L99 requiredArg及L106 credential load前 dispatch。旧顶层执行块封装为 prepareParentDelivery，按模式二选一，不能 finalizer 先意外查询账号。
+- **实际调用者/状态**：原 campaign 的 consolidated result 动作在本轮所有 required child/Parent结果返回后调用。准备态仍用原 evaluateParentDeliveryGate；完成态不能重跑“最终票据尚未消费”的准备规则，否则正常使用过的票据会被误拒。
+- **输入**：当前 source/web/API deployment/snapshot 下独立 UI注册、票据claim→auth→productstate→finalize及P1/P2结果，最终产品质量合同、必要隐私/重入/并发保护与授权层级。冻结输入决定是“注册可验收”还是更高发布范围；不因一轮活动绿就承诺全部生产已上线。
+- **check/报告**：finalizeDelivery 完成结果与snapshot核对后 check/report，写 `results/<task_key>/delivery_assurance/report.md`；原 campaign 报告只能引用该claim。不在 packages/api-contract 的纯 evaluateParentDeliveryGate 内塞进程或网络。
+- **无 owner**：原campaign/task恢复调用同一命令；快照变更沿原规则关闭旧活动，新的活动/账号动作须原授权，不自动重发ticket。
+- **绕过负例 C-BYPASS**：PARENT_DELIVERY_GATE=PASS 或旧部署Parent报告直接给新snapshot产品READY；缺当前独立结果/identity，拒绝报告。
+
+### D-CARE：CARE 同 Batch 最终结果分支
+
+- **源码/函数**：[care_milestone_finalizer.py](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/ops/care_milestone_finalizer.py#L367) 的 main 增加 **finalize_delivery** 和 `--stage delivery --delivery-context <context> --results <manifest>`。argparse后、任何sacct/aggregation/continuation/commit前进入只读最终化，保留现有 accounting/commit/all 语义；result-dir/task-key必须与context一致。
+- **实际调用者/状态**：原 Controller 验证完本 Batch、按原合同提交轻量packet后，其终态报告动作调用 `python scripts/ops/care_milestone_finalizer.py --task-key <key> --result-dir <root> --stage delivery --delivery-context <context> --results <manifest>`，实际Python绑定原环境。条件为原packet状态有效＋Controller的 VERIFIED_COMPLETE 有真实检查证据；任务若涉及最终科学结论，另须原科学Planner的当前结论处置。默认 review_required=false 不要求review.md；显式true才消费原Reviewer结果。
+- **输入**：与Executor不同的Controller实际diff/配置/运行核查、terminal accounting、真实训练规模/调用/模型数据checkpoint lineage、独立专业指标/adequacy及原Planner对科学结果的处置。原 required科学负结果可以作为“本次实验完成、方法未成立”的用户结果，不能被改成有效方法PASS。
+- **check/报告**：finalize_delivery 在以上语义确认后 check/report，写原 `results/<task_key>/delivery_assurance/report.md`；原Controller completion check/报告链接该claim。PACKET_COMMITTED_FOR_REVIEW、validator exit0、job COMPLETED都不是足够输入；不把该命令写成提交训练或下一Batch入口。
+- **无 owner**：证据留原task，原Controller合法恢复后只读finalize；科学Planner尚未返回时WAIT_EXTERNAL，不重提GPU/Slurm、不复活旧route、不以临时Reviewer替Planner。
+- **绕过负例 CARE-BYPASS**：validator_status=PASS但adequacy/训练规模不足或没被当前Controller消费，直接写 VERIFIED_COMPLETE/有效科学结果；交付检查与completion binding拒绝。充分负结果则保留负结论，不能盲修到正面。
+
+### 启用、回退和成本
+
+七个命令都必须先通过 R1-AR02 的 adapter 准入：正式出口清单、实际调用、原报告读取者、每仓上述绕过负例、正确候选正例、缺证 UNKNOWN、旧行为控制。**只新增函数未从正常任务终态实际调用，不算接通；目前七仓 DA enabled 均为 NO。** 在P0/P1/P2之后分别做一次原任务最终动作端到端证据；不能让纯helper测试代签。
+
+实现费用计入各D包；无需七个后台服务，最终化仅本地读结果、一次check和一次报告重验。维护时改finalizer/输出路径/专业门槛会改变adapter摘要并重准入；原文件含RC/历史任务名不自动泛化未来版本，下一版本须显式更新同一consumer binding。回退只停DA声明和接点，保留原专业验收/原报告与未解决义务；不能在同一尚未完成任务里将“停用DA”当作绕过最终标准。
