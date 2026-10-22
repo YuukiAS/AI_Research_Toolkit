@@ -413,7 +413,7 @@ native：on_stop只有在任务身份匹配、用户未中断、预算尚有且�
 3. 按required set逐项汇总，不平均、投票或用全绿摘要；缺行与重复冲突直接拒绝。
 4. source/unit成立可报告；installed/live/scientific结论不成立就明确保留，不能把部分完成写全任务done。
 5. 源码测试不授权安装/部署/发布，build成功也不证明实际加载。
-6. 唯一Bridge ingest_result/check_delivery调用core；项目adapter只翻译。材料阶段与USER_READY分开，七仓低层PASS不自动升级；04 R1-AR04逐仓冻结finalizer命令、check位置、report和原结果writer绑定；F2仅说明材料/最终层级。ReceiptLocator不含待生成回执摘要，消除循环。
+6. 唯一Bridge ingest_result/check_delivery调用core；项目adapter只翻译。材料阶段与USER_READY分开，七仓低层PASS不自动升级；04 R2-AR04逐仓绑定正常host完成检查、原result路径、独立输入和accept_submission；F2仅说明材料/最终层级。ReceiptLocator不含待生成回执摘要，消除循环。
 
 <a id="c24"></a>
 ### C24 失败代码如何自动变成下一步工作项
