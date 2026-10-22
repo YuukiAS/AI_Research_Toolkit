@@ -730,7 +730,7 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 
 **Admission**：task_identity、workflow_identity、request_ref、scope_revision、entry_kind、session_binding、source_bindings[]、candidate_identity、effect_refs[]、budget_ref、owner_ref、cancel_epoch、consumer_binding、claim_requested[]。无session的真实非交互runner可以在session_binding写NOT_APPLICABLE及依据，不能假造session。
 **ObligationSet**：contract_binding、candidate_scope、required[]、should_not_change[]、surface_inventory_ref、unknown_edges[]、unresolved[]、request_coverage（F1完整结构）、digest。每项 obligation={id,requirement_ref,target_ref,postcondition,claim_level,non_substitutable[],authority_ref,gate_refs[],required_for_claims[],status}；required为空只能在无交付声明的明确NONE任务成立。
-**Resolution**：admission_ref、obligation_set_digest、mode、selected[]、reuse[]、not_applicable[]、unresolved_obligations[]、unknown_edges[]、effect_requirements[]；各条带id和reason/ref，不仅列命令。
+**Resolution**：admission_ref、obligation_set_digest、mode、selected[]、reuse[]、not_applicable[]、unresolved_obligations[]、unknown_edges[]、effect_requirements[]、execution_capabilities[]（R1-AR03）；各条带id和reason/ref，不仅列命令。
 **Feedback/Receipt**：D4字段；Receipt={task_identity,feedback_or_result_ref,digest,candidate,recipient_session_or_owner,cancel_epoch,delivery_observation,ack_observation,resolution_result_refs[],budget_usage}。单调追加事件，不回写已见失败。
 **Claim**：task_identity、contract_binding、candidate_identity、obligation_set_digest、result_refs[]、receipt_refs[]、allowed_claims[]、denied_claims[]、remaining_unknowns[]、report_ref。每个claim保留旧tuple；本对象不颁发发布/账号/GPU权限。
 
@@ -1085,3 +1085,42 @@ SELF 必须全满足：局部可逆；既有标准能机械决定；不改专业
 无独立接收者时允许读源码、枚举入口、拟需求/定义草案、无外部效果诊断与冻结控制；已经独立准入且不受本缺口影响的合法产品子范围可继续。尚未准入的依赖产品写、受影响 USER_READY、首次定义激活均阻塞；REVIEW_BUNDLE_READY 可以声明完整可审材料，不能声明产品完成。原 scope/budget/effects 不变。
 
 负例：把“真实账户剩余额度”映射成“显示一个数字”仍有原文覆盖；独立角色从原话重建可信 limit/usage/当前账号后置条件，prepare_admission 拒绝原投影。把 async 审查写到错 scope_revision，owner 不消费；没有 watcher 时只记录待接收，不能假称自动恢复。把普通文档变更升全套 Control 也被 SELF 条件与成本控制反证。
+
+
+<a id="r1-ar03"></a>
+## R1 修订：DA-AR-03 成熟实现能力必须进入当前 Executor
+
+**处置 ACCEPT。** REQ-043/065 要求的不只是最后选验收。若界面从第一步就没有消费成熟设计能力，验收可能只能反复发现粗糙成品。选择在既有 Resolution 加 execution_capabilities[]，由当前模型和原启动器消费；不新建技能管理平台，不将 validator registry 当实现能力证明。
+
+### 选择依据与最小字段
+
+ProjectAdapter 增加 `execution_capability_rules:Rule[]`，只表达本项目哪些用户行为/改动需要哪些成熟能力和已验证等价实现。随 adapter 同摘要、同 R1-AR02 准入；未登记不代表不需要，原请求/代码发现的领域缺口返回 CAPABILITY_UNRESOLVED。选择由 core::select_execution_capabilities(obligations, change_scope, adapter_rules, installed_bindings) 完成；语义分类仍来自原请求映射及必要独立核对，不靠文件扩展名或关键词独断。
+
+Resolution.execution_capabilities[] 的每项固定为：
+`{id:Id,requirement_refs:Ref[],why: string,applicability:REQUIRED|NOT_APPLICABLE,provider_kind:PLUGIN|PROJECT_EQUIVALENT,selected_source_ref:Ref,installed_binding:{host_id,entry_path,version_or_content_revision,payload_digest},contract_digest:Digest,consumer:Provenance,load_evidence_ref:Ref或PENDING,invocation_evidence_ref:Ref或NOT_REQUIRED_WITH_AUTHORITY,impact:{status:PENDING|OBSERVED,implementation_refs:Ref[],result_refs:Ref[],explanation:string},equivalence_decision_ref:Ref或NOT_APPLICABLE,unavailable_reason_or_none,claim_limits:Id[]}`。
+NOT_APPLICABLE 条目只保留 id/requirement_refs/why 与依据，不伪填安装信息；REQUIRED 缺安装信息不得生成完整可执行 Resolution，保留 CAPABILITY_UNAVAILABLE Feedback。版本字段允许纯项目资料使用内容 commit/blob，不能给没有版本号的技能编 semver。
+
+输入规则按能力而非品牌选择。优先本仓已明确要求且已验证的实现，其次兼容的已安装专业 Plugin；同等候选按项目权威顺序，不让 Executor 任挑更弱能力。改变等价选择由 R1-AR01 的原独立 owner 核对能力范围、成熟使用证据和当前限制，写 equivalence_decision_ref；没有等价证据不允许“手写也一样”替代。
+
+### 正常执行的实际交接与消费
+
+1. prepare_admission 在第一次相关产品写入前解析上述条目；Bridge::bind_execution_capabilities 从既有安装收据和真实入口文件读取 version/digest，不能只扫“已安装列表”。不执行安装、更新或付费工具。
+2. Lite 的 _lite_task_prompt、Review 的 executor_prompt、Control 的 RoleLaunchRequest 所用冻结 payload、原生 on_prompt/当前工具返回均附上**本次所需的完整入口合同、定位与选择理由**。按能力原合同继续读相关 references，不能仅注入标题。长参考按任务范围加载，不递归读整套库。
+3. 当前 Executor 正常读取/调用该能力；Bridge::ack_execution_capability 复用原 Receipt（新增 subject_kind=EXECUTION_CAPABILITY，subject_ref 指本 Resolution 条目），记录真实文件读取/tool result 的事件及摘要、接收 session 和反馈 ID。ACK 只证明收到，不能证明理解，更不凭一句“我已使用”签 ACTUALLY_CONSUMED。
+4. `delivery prepare-run`（prepare_run_context 的 CLI）和 on_pre_tool_use 对相关产品写范围检查 required load evidence。需要工具/helper 的合同还须真实调用结果；纯指导型技能可由带摘要的实际读取＋实现影响证明，不强求不存在的运行命令。宿主不提供读事件时，当前任务通过 Bridge 显式读取返回完整内容并 ack；不得伪造隐藏插件调用 token。
+5. 实现后记录 impact：哪条能力规则导致哪个代码/设计/成品变化，由原 QA/专业 Reviewer 对最终完整结果核对。Bridge::check_delivery 检查 REQUIRED 项 load/invoke/impact 和 claim_limits；缺任一所需证据只准中间诊断，不能 USER_READY。影响必须落具体内容；“遵循最佳实践”无效。模型自述的 impact 不是独立专业质量判断。
+
+读取、调用、输出受影响、质量成立是四件事。日志不能证明模型内心思考；这里要求可观察的消费及结果符合合同。安装新版本使旧 loaded evidence 失效；同 thread resume 不证明 AGENTS/技能自动重新加载，仍沿 03 的 SOURCE_BINDING_STALE 和 P0 实际加载探针，不偷偷换 thread。
+
+### 准确触发与七仓等价能力
+
+- Lucerna/Bobbio 原生桌面、Mica 扩展、Asteria/CUHK 网页：改用户可见布局、交互、组件体系、状态呈现时要求适用成熟前端/视觉实现能力。Bobbio 的真实 docs/CURRENT_MILESTONE.md 已要求 canonical Figma/design grammar，故把该完整项目设计体系及实现合同作为已存在能力来源；泛用 frontend skill 不能覆盖它。若任务只修 Rust 后端映射，视觉能力不自动必选；影响显示状态的契约仍选对应界面验证。
+- SeminarArc：其 AGENTS 明定 .agents/skills/android-lead/SKILL.md 与 compose-expert/SKILL.md。Compose-heavy 任务选两者及相关引用；Room/后台架构选 android-lead 的相关领域，不自动跑全套网页设计。项目已成熟能力优先，不要求安装同名 Web Plugin。
+- CARE：训练/统计任务选择当前冻结科学方法、既有训练/评价工具链及原 Planner 合同；不触发前端。科研成稿确属任务时，才选相应专业写作能力，不能以一般文字 polish 改科学语义。
+- 普通 README 链接/后端计算/数据脚本：前端 NOT_APPLICABLE 要有 scope 理由；若实改公共 UI 契约则重算，不允许沿用先前 NOT_APPLICABLE。
+
+本表是选择规则，**不是宣称这些能力已在当前七仓安装、加载或通过**。源文件版本由任务实际 installed binding 冻结；本轮只读源码。PIE 0.3 提案不是已发布依赖；DA 受管 AGENTS 修改若当前合同要求三份证据，仍消费 AGENTS_CHANGE_PREVIEW.md、AGENTS_AUTHORITY_MAP.md、AGENTS_COVERAGE_REPORT.md，不因“轻量”删除要求。
+
+缺能力时：先使用已批准等价项目能力；不存在则当前任务可读源码、拟方案、做不依赖该能力的机械修复，相关实现/claim 标未满足。安装或新服务有独立权限时按原授权处理；不得 silently fallback 为低配实现。纯指导能力使用失败可重读原冻结入口一次，工具/版本错误回原能力维护者，不每次新建插件。
+
+负例：只写“用了 Frontend Design”无读取或影响→拒绝；读旧缓存而生成层已升级→拒绝；只登记 validator 但界面 capability 缺失→拒绝；给纯后端任务强行要求视觉全流程→NOT_APPLICABLE；Bobbio 使用项目 Figma 体系且证据齐全→可满足等价能力，不因 Plugin 名不同拒绝。维护只更新原 adapter 的规则和安装绑定，成本是相关任务的读取/必要调用与既有质量检查；不固定新增一次模型审查。
