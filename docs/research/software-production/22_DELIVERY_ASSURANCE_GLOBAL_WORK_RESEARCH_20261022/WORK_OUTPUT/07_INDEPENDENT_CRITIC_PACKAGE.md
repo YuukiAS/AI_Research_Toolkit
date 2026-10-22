@@ -278,3 +278,9 @@ F1封住“语义归纳后原要求消失”的结构缺口：保存全文范围
 - 总体估算130–316小时，首片36–80小时，先行P0仅4–8小时；未量测，未获一次性全部实施授权。
 
 本轮只完成研究文稿写入和固定源码核查。P0、七仓完整产品验收、实际安装/loaded证明全部仍未执行；各仓DA enabled=NO。独立Critic只能判断该设计是否足以进入下一步获权阶段，不能把本文转成生产PASS。
+
+### R1 冻结前最后一次 Bridge 刷新
+
+实际开发分支在本轮核对期间前进到 **f7caede593ea90f1a8f38fe33a7bcbc1dae3f94f**。相对 b3a435eb193bcba251b343d2dd5dd3ef580587ed 只有一项新增：[正常入口能力验收提案 v0.3](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/f7caede593ea90f1a8f38fe33a7bcbc1dae3f94f/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.3_2026-10-22.md)。生产代码、release与七仓固定源未因此改变；上文b3a435e链接继续准确，不冒称其为最新开发HEAD。
+
+v0.3把特定未来Persistent验收的六次通知上限落实到原run binding：helper启动前持久占位、终止保留一席、失败/未知不返还、Notifier核permit并禁止未经新授权重试。它仍待独立审查、不是现行实现或本研究权限。DA不接管通知、不另领SMTP/模型额度，也不把进度邮件当产品完成；共享返修预算不能重置既有通知授权。P0默认无通知/外部服务，当前研究未发任何消息或启动Persistent。AI Skills main仍ca10623f，研究main仍daf797c7。
