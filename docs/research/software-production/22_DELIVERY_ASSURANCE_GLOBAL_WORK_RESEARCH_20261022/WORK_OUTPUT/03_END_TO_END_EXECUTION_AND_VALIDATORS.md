@@ -718,9 +718,9 @@ Asteria 的静态脚本与浏览器脚本不能互称独立：两者共享常量
 
 **GateDescriptor 保留必填集合**：gate_ref、definition_version、authority_ref、authority_contract_ref、definition_digest、capability、failure_semantics、applicability、subject_types[]、target_roles[]、claim_support[]、normal_entry、evidence_requirements、judgment、regression_bank_refs[]、known_bad_refs[]、should_not_change_refs[]、invalidation、execution_requirements、calibration_requirement。normal_entry 必含 kind/root_ref/entry_ref 和 argv_schema 或 typed_parameters；不能把任意shell字符串当入口。evidence_requirements 必含 modality[]/fidelity[]/observer_requirement[]/required_observations[]/completeness_rule。judgment 必含 PASS/FAIL/UNKNOWN条件、rubric_ref与阈值约束。invalidation 必含 subject/target/runner/fixture/rubric/environment依赖及time_validity。execution_requirements 必含权限、cost_resource_ceiling、secret_classes、physical_target、long_run、side_effects。
 
-**新增 Descriptor 字段**：protection_policy={risk_tier:MECHANICAL|PRODUCT|PROTECTED,reference_source,observer_required,calibration_refs[],accepted_behavior_refs[]}；lifecycle_binding={owner_ref,state:ACTIVE|PAUSED|RETIRED,effective_scope,expiry_or_none,replacement_refs[],reason_ref}。required暂停/退休但无合法替代时不能准入，不把生命周期state当任务state。
+**新增 Descriptor 字段**：protection_policy={risk_tier:MECHANICAL|PRODUCT|PROTECTED,reference_source,observer_required,calibration_refs[],accepted_behavior_refs[]}；lifecycle_binding={owner_ref,state:CANDIDATE|CALIBRATING|ACTIVE|REJECTED|PAUSED|RETIRED,admission_ref,effective_scope,expiry_or_none,replacement_refs[],reason_ref}。required暂停/退休但无合法替代时不能准入，不把生命周期state当任务state。
 
-**ProjectAdapter 保留必填集合**：repo_identity、authority_ref、adapter_semantic_digest、canonical_authority_set[]、agents_authority_set[]、normal_entry_refs[]、capability_refs[]、targets[]、edges[]、impact_rules[]、parameter_bindings[]、source_set_rules[]、environment_profiles[]、claim_ceilings[]、long_run_owner_refs[]、human_only_boundaries[]。authority item保留 field_or_scope、authority_ref、canonical_locator、branch_or_release_scope、content_digest、supersedes[]、effective_from；AGENTS item保留 scope_root、agents_path或ABSENT、canonical_contract_refs、authority_ref、branch_or_release_scope、content_digest、supersedes、effective_from。新增 surface_inventory_ref；discovery_contract={extractor_refs[],supported_entry_kinds[],unknown_edge_rule,baseline_ref}；consumer_binding={consumer_id,reader_version,accepted_schema_versions[],entry_refs[],delivery_boundary_ref}。
+**ProjectAdapter 保留必填集合**：repo_identity、authority_ref、adapter_semantic_digest、canonical_authority_set[]、agents_authority_set[]、normal_entry_refs[]、capability_refs[]、targets[]、edges[]、impact_rules[]、parameter_bindings[]、source_set_rules[]、environment_profiles[]、claim_ceilings[]、long_run_owner_refs[]、human_only_boundaries[]。authority item保留 field_or_scope、authority_ref、canonical_locator、branch_or_release_scope、content_digest、supersedes[]、effective_from；AGENTS item保留 scope_root、agents_path或ABSENT、canonical_contract_refs、authority_ref、branch_or_release_scope、content_digest、supersedes、effective_from。新增 lifecycle_binding（与 Descriptor 同型，R1-AR02）；surface_inventory_ref；discovery_contract={extractor_refs[],supported_entry_kinds[],unknown_edge_rule,baseline_ref}；consumer_binding={consumer_id,reader_version,accepted_schema_versions[],entry_refs[],delivery_boundary_ref}。
 
 **GateResult 保留必填集合**：task_identity、workflow_identity、run_id、gate_instance_key、gate_ref、authority_ref、definition_version、definition_digest、adapter_semantic_digest、candidate_identity、source_set_identity、subject_identities[]、target_identities[]、normal_entry_identity、runner_identity、fixture_identity、rubric_identity、observed_at、environment_identity、decision、reason_codes[]、obligations_covered[]、obligations_missing[]、evidence_refs[]、invalidation_fingerprint、actor_provenance、observer_provenance、scope、cost、elapsed_time、claim_support[]。新增：
 - contract_binding={request_ref,scope_revision,authority_set_digest}；
@@ -760,7 +760,7 @@ DA在机器本地Bridge state根为原任务分别使用launch lease和短state 
 
 check_delivery的context必须包含 `requested_claim` 和 `stage`。Obligation.required_for_claims 显式列哪些声明需要该义务；继承最终用户义务集合不变，不能通过换stage取消义务。送审的 `REVIEW_BUNDLE_READY` 是原工作流的材料准入谓词，**不是新增用户交付层级**：它要求当前候选/原始观察/规定机械检查/可读完整材料，允许“尚待独立审查”以明确状态进入原Reviewer。之后USER_READY才要求全部最终义务及新鲜独立判断。ARTIFACT_READY/INSTALLED/LIVE仍是da/1保留的claim层级，不能把材料就绪改叫用户已完成。
 
-同理：定义尚未准入→先允许VALIDATOR_CALIBRATION输入候选程序和冻结坏例；不先要求该程序已有PASS。首次接入无accepted baseline允许生成discovery草案，但旧行为claim保持未证；不能把草案自己接受成基线。结果接收先ingest/Receipt，再evaluate_claim；反馈关闭只看新有效结果，不要求先有最终完成通知。这样每个依赖都有真实起点，无需伪造一个初始PASS。
+同理：定义尚未准入→通过 CalibrationContext/CalibrationReport 校准候选程序和冻结控制，不申请 RequestedClaim；正式 stage 枚举不包含校准，具体准入见 R1-AR02。首次接入无accepted baseline允许生成discovery草案，但旧行为claim保持未证；不能把草案自己接受成基线。结果接收先ingest/Receipt，再evaluate_claim；反馈关闭只看新有效结果，不要求先有最终完成通知。这样每个依赖都有真实起点，无需伪造一个初始PASS。
 
 ### Control完整角色动作表
 
@@ -937,7 +937,7 @@ shadow在**原runner已合法执行之后**读其原始输出，不重复账号/
 <a id="f5"></a>
 ## 最终闭合合同 F5：两种不同任务的完整验收器生命周期
 
-以下是按04固定源码设计的未来调用轨迹，**不是本次运行结果**。补程序默认在当前Executor内完成，不新增模型角色。机械规则来自既有明确合同且通过冻结反例校准时，由项目已经授予的开发权限准入；新增专业含义、修改标准或高风险独立观察仍交原合法专业owner。不存在“每多一个测试都要用户批准”的新流程。
+以下是按04固定源码设计的未来调用轨迹，**不是本次运行结果**。补程序默认在当前Executor内完成，不新增模型角色。机械规则仅满足 R1-AR02 的既有冻结 policy/控制集条件时才可自动准入；普通开发写权限本身不是批准权；新增专业含义、修改标准或高风险独立观察仍交原合法专业owner。不存在“每多一个测试都要用户批准”的新流程。
 
 ### 高风险例：Lucerna凭据保存后真正启用
 
@@ -974,3 +974,65 @@ PIE编辑项目长期指令，Bridge保留初始化模板，各安装器保留�
 **同thread恢复不能单独证明指令热加载。** 本任务修改AGENTS/Skill/正式authority之后，旧source绑定和相关结果失效；即使codex resume返回同id，也必须核实际加载/显式读取所证明的范围。当前工具重新读正文只证明显式读取，不自动证明native instruction chain已经刷新。若所需新的native加载能力没有证据，返回SOURCE_BINDING_STALE并保持相应claim未证，按原工作流已授权的fresh-entry/加载验证合同恢复；不得悄悄开另一thread假称精确resume成功。可独立的原任务工作仍继续。P2/P5新增一个“改指令后同id恢复但实际未加载”的拒绝例，不能让用户用行为出错替系统发现此事。
 
 Persistent仍只持有已授权进程寿命和进度观察；本研究不实现其新ETA提案。heartbeat、running、进度百分比、ETA和exit0都不能替代专业GateResult与最终Claim；缺/旧进度不直接判产品失败、不重提交job，原owner按现有recover/resolve诊断。新增提案的更严格progress contract若以后正式发布，则作为绑定的执行来源更新并做受影响回归，不现在改源或新建DA进度数据库。以上边界与F3的零重复副作用和外部等待规则一致。
+
+
+<a id="r1-ar02"></a>
+## R1 修订：DA-AR-02 定义准入，不让候选程序给自己签交付
+
+**处置 ACCEPT。** 原 D6 漏了候选状态，校准又用了不在 RequestedClaim.stage 内的词；“专业 owner 批准”也没有对象和消费者。本节替换这些不完整说法。选择“原任务中的定义准入记录”，不建 Validator Agent 服务，不把所有小回归都交模型审查；仅维护 registry 不能阻止未校准代码参与交付，故不选。
+
+### 两种调用与唯一状态含义
+
+RequestedClaim.stage **仍且仅为** REVIEW_BUNDLE_READY、USER_READY、INTERMEDIATE_EVIDENCE。删去 VALIDATOR_CALIBRATION 这个伪 stage。校准不是产品声明：使用独立的 CalibrationContext，调用候选程序，返回 CalibrationReport，绝不输出可供 evaluate_claim 使用的 GateResult。RunContext 仅用于正式产品验收，必须引用 ACTIVE 定义；校准不能借中间材料声明混入最终结果。
+
+GateDescriptor 与 ProjectAdapter 的 lifecycle_binding 统一为：
+`{owner_ref:Provenance,state:CANDIDATE|CALIBRATING|ACTIVE|REJECTED|PAUSED|RETIRED,admission_ref:Ref,effective_scope:Id[],expiry_or_none,replacement_refs:Ref[],reason_ref:Ref}`。
+CANDIDATE→CALIBRATING→ACTIVE 或 REJECTED；拒绝后修代码形成新 candidate digest、新记录，不能覆盖旧拒绝。ACTIVE 改程序/阈值/观察器/控制集/出口映射即新候选；旧 ACTIVE 只有在原范围依赖仍成立时可继续用。暂停不取消义务；退休须有替代覆盖或原目标合法撤销。
+
+定义的 definition_digest / adapter_semantic_digest 只覆盖可执行语义、依赖、标准与入口，不含 lifecycle_binding、准入记录或自身 digest，避免“激活后摘要变化又得重批”的循环。状态由下述追加记录和既有 profile 中 active binding 派生；不能信任候选文件自己写的 ACTIVE。没有第二任务状态库。
+
+### 最小定义准入记录及消费
+
+da/2 新增一个对象 DefinitionAdmission（沿用 F4 的 Ref、Digest、Provenance、ReceiptLocator 类型）：
+
+|字段|类型与用途|
+|---|---|
+|definition_id / kind|Id / VALIDATOR 或 PROJECT_ADAPTER|
+|candidate_ref / candidate_digest|Ref / Digest；实际文件及其语义摘要，Bridge 重算|
+|authority_ref / controls_ref|Ref / Ref；冻结正确性合同及控制集，不是 Executor 临时写的答案|
+|controls|四项 {kind:GOOD\|BAD\|MISSING\|UNCHANGED,fixture_ref:Ref,expected_ref:Ref}；每项可引用多例，禁止空 bad；不适用须原 authority 明确依据且不能免首次出口/旧功能控制|
+|risk / route|MECHANICAL\|PRODUCT\|PROTECTED / FROZEN_MECHANICAL\|INDEPENDENT_ROLE|
+|calibration_ref|CalibrationReport 的 Ref，未运行前用明确 PENDING；待定记录不能激活|
+|admission_authority|{policy_ref:Ref,role_binding:Provenance,decision_ref:Ref或PENDING}；机械路径指既有授予的机械准入政策，独立路径指实际角色决定及其执行证据|
+|state / activated_digest_or_none|上述状态 / Digest 或 NONE；仅 ACTIVE 的值必须等于 candidate_digest|
+|activation_receipt_locator / supersedes_ref_or_none|ReceiptLocator / Ref 或 NONE；引用上一追加记录，不覆盖它|
+
+CalibrationContext={schema_version,object_type,definition_admission_ref,candidate_ref,controls_ref,authority_ref,execution_scope_ref,budget_ref,output_locator}。Bridge `delivery definition calibrate --context <json>` → delivery.py::calibrate_definition → 原冻结校准 runner。只给候选只读输入、独立临时输出目录和已授权的无产品副作用环境；不得访问真实凭据/账号/设备来校准。需要真实观察的准入另列受权独立观察，缺证保持未激活。
+
+CalibrationReport={schema_version,object_type,definition_id,candidate_digest,authority_digest,controls_digest,runner_identity,observer_provenance,case_results:[{case_id,expected:PASS|FAIL|UNKNOWN,actual:PASS|FAIL|UNKNOWN,raw_evidence_ref}],calibration_ok:boolean,missing_cases:Id[]}。calibration_ok 表示**每个实际判定等于冻结预期**，不是所有产品案例 PASS。崩溃/超时不能伪装成预期 UNKNOWN；必须有正常解析的缺证判定和原始记录。
+
+新增命令都注册到现有 cli.py::build_parser，函数落同一个拟议 delivery.py：
+1. `delivery definition submit --context <json>` → submit_definition：验证原任务允许的定义写范围；冻结 candidate/authority/controls 和所选风险路径，写 CANDIDATE。
+2. 上述 calibrate：写 CALIBRATING 与不可变报告；失败写 REJECTED，向原 task 的 Feedback/Receipt 路径返回具体坏例，修复不允许改参考答案。
+3. `delivery definition activate --admission <ref> --decision <ref>` → activate_definition：校验四类预期、摘要、风险路径、角色权限和真实审查对象；在短 state mutex 内 CAS 既有 profile 的该 definition active binding；写激活回执，再原子发布 binding。中途崩溃只留下未消费记录，恢复核对 commit manifest，不能半激活。
+4. select_checks / prepare_run_context / check_delivery 三处均调用 core::validate_definition_admission；读取 active binding→记录→报告→回执，精确比对当前 digest 和依赖。伪写 ACTIVE、旧摘要、缺回执、未校准、暂停都不支持 USER_READY。Bridge check 消费回执，不由 validator 消费自己的批准。
+
+这里的 activation receipt 只引用已冻结 admission/报告/决定及当前 profile CAS 前后摘要；它本身不在 admission 的内容摘要中（仅稳定 locator）。不存在激活记录与回执互相等待。
+
+### 谁可以批准，什么时候需要独立人/角色
+
+FROZEN_MECHANICAL 必须同时满足：标准已有、阈值/观察方式不变、控制集在本候选前已由现有权威冻结、只是既有机械检查的小回归、无新专业含义、无重要 USER_READY 首次签发、无产品与检查同轮大改。Bridge 依据已有 policy 和校准报告自动激活；当前 Executor 可以写程序，但不能同时修改授权 policy、答案或受保护控制集来获得此路径。没有这些现成条件就进入独立路径，不能让 Executor “声明低风险”。
+
+下列任一项强制 INDEPENDENT_ROLE：新专业判断；新数据来源/观察器；视觉、交互、科研或统计含义；产品与 validator 同任务有实质联动修改；严重假绿；阈值/golden/坏例变化；首次支持重要 USER_READY；ProjectAdapter 首次接入或更换正式出口/旧功能映射。由 R1-AR01 选定的**已有项目 Reviewer、Review 的 GPT Planner/Reviewer、Control 的 Verifier/Planner 或科学 Planner**出具 decision_ref，role_binding 必须与候选作者不同且具有对应专业权威。
+
+决定对象直接包含 subject=definition_id、candidate_digest、controls_digest、authority_digest、verdict=APPROVE|REVISE、scope、reasons、reviewed_original_refs、role_receipt_ref。机械路径由 Bridge 按冻结 policy 生成机械决定；独立路径由原角色生成。原工作流 owner 的消费回执证明它已读取决定；activate_definition 才执行激活。Reviewer 只写自己的结果目录，不能改候选、产品、标准和控制样本；完整原始请求/附件/正式标准先给它，不能只给 Executor 摘要。subagent 可作为该既有角色的执行方式，但必须有真实只读沙箱/固定快照、权限证据和上述消费者。仅共享同一可写目录再换 prompt 不满足准入，当前任务也没有获权启动 subagent。
+
+普通审查隔离不自称安全对抗。PROTECTED 需要相应 OS/外部专业观察边界；哈希不能挡同权限恶意改写。无法取得所需边界时可做诊断/候选修复，required 独立判断保持 UNKNOWN，不激活、不签最终交付。
+
+### 验收器和 adapter 的完整反例
+
+教学例“固定显示 680”不是 Mathpix 实测：good 观测680/期望680→PASS；bad 观测680/期望500→FAIL；missing 缺可信额度→UNKNOWN；unchanged 旧 Codex 配额保护→PASS。候选 validator 若四例都 PASS，第二/第三例校准不符，必须 REJECTED；不是要求“B 的正常产品输入也失败”。重改坏例答案或用同一个错误公式生成 oracle 同样拒绝。
+
+ProjectAdapter 使用相同记录，无第二准入平台。GOOD=当前真实入口与合法结果能进正确 claim；BAD=直接调用旧 PASS/伪造最终报告、错候选或漏掉一个正式出口必须拒绝；MISSING=没有独立结果/没有 accepted baseline 保持未知；UNCHANGED=从真实旧入口独立抽查的保护边及原 runner 仍可运行。初次由原项目专业审查者从源码重建入口/旧功能，再批准 consumer_binding 与映射摘要。Bridge 的 enable_consumer（原安装/接入命令内部函数）只在 adapter ACTIVE、04 七仓 finalizer 与绕过负例均有证据时开启该 consumer。当前七仓均未完成这一实测，不标 DA enabled。
+
+修改定义由原 Executor 在原允许路径修，反馈原任务接收；改标准只由原 authority。控制集升级使相关激活失效，先校准再激活；合并/退休迁移原 bad/unchanged 与消费者。记录位于原 task 的 delivery_assurance/definitions/，active locator 仍在原项目 profile；中央维护沿原维护板 ADAPTING/DONE。机械准入不新增模型调用；独立路径复用本任务必要专业审查，其成本并入 06，不固定多开一个长期 agent。
