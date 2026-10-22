@@ -9,7 +9,7 @@
 - design_topic：Delivery Assurance Global Work Research 20261022，同任务最终设计闭合。
 - review_stage：ARCHITECTURE_REVIEW
 - 唯一目录：docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/
-- architecture_source_commit：bd6087fe102dc3a7fb8acdf8dc159504cb6871f1。README、01–07、覆盖CSV的实质技术方案固定于此；CURRENT与本提示词随后仅作冻结/审查定位。
+- architecture_source_commit：28eded9ff482ff2377804ebac012c0dc36e8ebe5。README、01–07、覆盖CSV的实质技术方案固定于此；CURRENT与本提示词随后仅作冻结/审查定位。
 - package_commit：优先使用用户复制消息提供的精确最终commit；若没有，读取上述分支一次，记录HEAD为proposal_commit，以同一commit读完整包，核对CURRENT及技术源没有发生未说明的漂移。不要边审边追移动HEAD；本文件不要求自含自己的commit。
 - 上一轮独立Critic审查：本最终候选没有；不存在可继承的PASS/PROCEED。execution_branch/worktree、Goal、Kickoff：本轮均未授权、不适用。
 
@@ -29,9 +29,9 @@
 
 完整读同一包README、CURRENT、00探针、01_REALITY_AND_ALTERNATIVES.md、02_ARCHITECTURE_AND_COMPONENTS.md、03_END_TO_END_EXECUTION_AND_VALIDATORS.md、04_SEVEN_REPOSITORY_ADOPTION.md、05_HISTORICAL_COVERAGE.csv、05_COVERAGE_SUMMARY.md、06_IMPLEMENTATION_AND_EVALUATION.md、07_INDEPENDENT_CRITIC_PACKAGE.md及本提示词。36职责、315问题、83旧要求、363历史和26能力族只作覆盖输入，不能据其数量要求同量新模块。
 
-核对研究仓最新main的COMPLEX_SYSTEM_DESIGN_GUIDE.md与COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md；本轮读取版本为daf797c79bcd777c27948da51c4218e5d95e7be3。核对AI_Skills_Collection最新main的AGENTS及docs/workflows/下PLANNER_ROLE_CONTRACT.md、CRITIC_ROLE_CONTRACT.md、PLUGIN_CAPABILITY_GATE_POLICY.md、AI_SKILLS_MAINTENANCE_BOARD.md；本轮固定f1de8e85957d32a50f4458349f450ec65add13bb。发现漂移要读差异，不将它自动当当前产品授权。
+核对研究仓最新main的COMPLEX_SYSTEM_DESIGN_GUIDE.md与COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md；本轮读取版本为daf797c79bcd777c27948da51c4218e5d95e7be3。核对AI_Skills_Collection最新main的AGENTS及docs/workflows/下PLANNER_ROLE_CONTRACT.md、CRITIC_ROLE_CONTRACT.md、PLUGIN_CAPABILITY_GATE_POLICY.md、AI_SKILLS_MAINTENANCE_BOARD.md；最后main为1cd3dfd303097265114ffd912ef003329e2c197b；上述五份正式文件已回读，blob与原f1de8e85957d32a50f4458349f450ec65add13bb完全一致。发现漂移要读差异，不将它自动当当前产品授权。
 
-07提供Bridge正式release ba9013b9fbbd242e51b09f9d09291f417df17652、实际dev 7f43e146eed50d290ef9cc6ab912d106f754042c，以及七仓有效固定源码。必须直接核源码和原始历史，而非复制Planner“已覆盖”。官方Codex原2a77e82及本轮b4ad33d的Hook/exec依据、当前安装版本和宿主实测三者分开；刷新官方资料，不能用最新源码给Windows Desktop、CLI、Remote或GPT Work自动代签。
+07提供Bridge正式release ba9013b9fbbd242e51b09f9d09291f417df17652、实际dev 71ad6874c1cde41548eb66a6c32cea615e055407（只比原代码基线7f43e146eed50d290ef9cc6ab912d106f754042c新增一份设计提案），以及七仓有效固定源码。必须直接核源码和原始历史，而非复制Planner“已覆盖”。官方Codex原2a77e82及本轮b4ad33d的Hook/exec依据、当前安装版本和宿主实测三者分开；刷新官方资料，不能用最新源码给Windows Desktop、CLI、Remote或GPT Work自动代签。
 
 ## 4. 先独立比较整体路线，再逐接口反证
 
@@ -45,6 +45,8 @@
 4. **阶段与真实消费者（03 F2/F4）。** Lucerna开发包、Bobbio0.2Safe、MicavalidateBundle、SeminarArc基础设施、Asteria静态验证、CUHK活动门、CARE finalizer各自究竟能证明哪一层？最终USER_READY由原owner调用唯一Bridge.check_delivery。核RunContext、DeliveryCheckContext、ResultManifest、ReceiptLocator、requested claim和CLI退出码是否足以实现，没有循环或多个准入算法。
 5. **失败真实接收和恢复（03 D4/F3）。** 从Feedback追到工具返回、Stop后续回合、JSONL精确thread resume、Control step；DELIVERED/ACKED/RESOLVED分别有什么观察？原版Lite一次subprocess与Control抽象RuntimeAdapter都需真实新增实现；Executor和Verifier各自preflight。父进程不能持短mutex等child，两个owner不能重复launch；cancel epoch、未知副作用reconcile、共享reservation、父进程崩溃、换thread、无active Controller和外部等待如何保持同任务。禁止把科学负结论修到正面。
 6. **接口最小性与da/2（03 D6/F4）。** 实际对照旧da/1全部字段/三轴/图关系/claim语义；每个新增字段有无真实消费者，元数据能否删？Admission/ObligationSet等不能变成第二任务DB。旧版仅诊断、能力握手、原runner之后的无重复效果shadow、单仓启用、逐consumer加载、相邻PIE引用与回滚必须明确；不能旧reader忽略新字段仍签绿。
+
+另查03/07末尾上游漂移处理：PIE保持编辑与模板owner边界，DA不依赖其先上线；同thread resume不证明AGENTS/Skill热加载，SOURCE_BINDING_STALE不能开新thread绕过；Persistent进度/ETA/exit0不是专业完成。新增相邻设计仍未获本任务实施授权。
 
 同时攻击四个循环：首次accepted baseline、validator未准入的校准、结果与消费回执互含摘要、送审前先要求审查通过。指出具体错误箭头，不把“有文档”当解决。
 
