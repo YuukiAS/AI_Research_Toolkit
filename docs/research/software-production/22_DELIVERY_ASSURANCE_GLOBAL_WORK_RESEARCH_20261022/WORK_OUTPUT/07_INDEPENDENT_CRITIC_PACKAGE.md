@@ -308,9 +308,9 @@ Bridge开发分支最新固定到 **76e2f14d5669867b2d4e3fa0950d8b2fedea7f35**�
 
 本轮新文档仍在同一WORK_OUTPUT：
 
-- [11 面向读者的中文说明](11_ARCHITECTURE_EXPLAINED.md)：按系统价值、角色与线程架构、Lucerna 执行路径、边界组织；区分程序、主线程、子进程、已有子代理和外部任务。技术追溯在末尾，未改变冻结设计。
-- [11 架构图 PNG](11_DELIVERY_ASSURANCE_ARCHITECTURE.png) / [SVG](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)：当前 Codex 主线程、Bridge Kit、workflow-core、项目验收程序、独立角色的运行与接收关系。
-- [12 Lucerna 执行图 PNG](12_LUCERNA_EXECUTION_FLOW.png) / [SVG](12_LUCERNA_EXECUTION_FLOW.svg)：四条泳道，真实历史问题的正常交付与错误返修设计推演，不冒充实测。两图均为 16:9、3840 × 2160 实际渲染，并检查高清与缩小显示。图示返修不构成新架构审查；已有实施前材料仍固定于 a88cf411f57a9ff9c55e43831f65401b399e1fff。
+- [11 面向读者的中文说明](11_ARCHITECTURE_EXPLAINED.md)：按系统价值、主调用链、Lucerna 六泳道执行、边界组织；说明程序、原任务和按需独立角色的不同责任。技术追溯在末尾，未改变冻结设计。
+- [11 架构图 PNG](11_DELIVERY_ASSURANCE_ARCHITECTURE.png) / [SVG](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)：从普通请求到最终交付的逻辑调用顺序；侧面虚线表示按需独立审查，橙红色回路表示失败经 Bridge Kit 回到原 Codex。
+- [12 Lucerna 执行图 PNG](12_LUCERNA_EXECUTION_FLOW.png) / [SVG](12_LUCERNA_EXECUTION_FLOW.svg)：用户、Codex、Bridge Kit、workflow-core、Lucerna 专业验收、独立审查者六条泳道，真实历史问题的正常交付与错误返修设计推演，不冒充实测。两图均为 16:9、3840 × 2160 实际渲染，并检查高清与缩小显示。图示返修不构成新架构审查；已有实施前材料仍固定于 a88cf411f57a9ff9c55e43831f65401b399e1fff。
 - [12分阶段审查包](12_STAGED_EXECUTION_REVIEW_PACKAGE.md)：沿原P0/P1/P2/D/P3/P4/P5，含目标、权限、预算、真实反例、接收、回滚和Capability Gates。正式执行放行条件与本轮研究权限分开；
 - [08](08_CRITIC_PROMPT.md)：下一轮唯一独立审查入口。
 

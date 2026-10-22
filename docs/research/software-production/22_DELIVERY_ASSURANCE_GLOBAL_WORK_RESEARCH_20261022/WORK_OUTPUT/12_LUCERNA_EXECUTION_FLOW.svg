@@ -1,72 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
-<title id="title">Lucerna 真实需求的执行路径</title><desc id="desc">四条泳道分别为我、Codex、系统检查、Lucerna真实结果。原始需求被核对，实现后观察实际窗口和状态数据。一致且证据齐全才能交付；故障被显示成正常时，系统把问题送回原任务修正并复查。此图基于历史问题推演，并非实际运行记录。</desc>
-<defs><style>text{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif}</style>
-<marker id="green" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto"><path d="M2 2L10 6L2 10" stroke="#087F73" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></marker>
-<marker id="red" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto"><path d="M2 2L10 6L2 10" stroke="#BA513C" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></marker>
-<marker id="amber" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto"><path d="M2 2L10 6L2 10" stroke="#9A682C" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></marker>
-</defs><rect width="1920" height="1080" fill="#FAFCFD"/>
-<text x="64" y="88" font-size="54" fill="#193243" font-weight="700" text-anchor="start">Lucerna：一个真实需求怎样完成</text>
-<text x="66" y="145" font-size="34" fill="#087F73" font-weight="600" text-anchor="start">检查中不应误报故障，真正故障必须提示。</text>
-<text x="66" y="190" font-size="25" fill="#536974" font-weight="400" text-anchor="start">基于真实历史问题的设计推演，尚未运行这条完整路径</text>
-<text x="1850" y="190" font-size="25" fill="#536974" font-weight="400" text-anchor="end">从上向下阅读</text>
-<rect x="54" y="220" width="408" height="774" rx="19" fill="#F0F3F6" stroke="none" stroke-width="2"/>
-<text x="258.0" y="271" font-size="32" fill="#193243" font-weight="700" text-anchor="middle">我</text>
-<path d="M76 292H440" stroke="#D5E1E5" stroke-width="2"/>
-<rect x="514" y="220" width="408" height="774" rx="19" fill="#F0F3F6" stroke="none" stroke-width="2"/>
-<text x="718.0" y="271" font-size="32" fill="#193243" font-weight="700" text-anchor="middle">Codex</text>
-<path d="M536 292H900" stroke="#D5E1E5" stroke-width="2"/>
-<rect x="974" y="220" width="428" height="774" rx="19" fill="#EDF6F2" stroke="none" stroke-width="2"/>
-<text x="1188.0" y="271" font-size="32" fill="#193243" font-weight="700" text-anchor="middle">系统检查</text>
-<path d="M996 292H1380" stroke="#D5E1E5" stroke-width="2"/>
-<rect x="1454" y="220" width="408" height="774" rx="19" fill="#EDF3F8" stroke="none" stroke-width="2"/>
-<text x="1658.0" y="271" font-size="32" fill="#193243" font-weight="700" text-anchor="middle">Lucerna 真实结果</text>
-<path d="M1476 292H1840" stroke="#D5E1E5" stroke-width="2"/>
-<rect x="88" y="328" width="340" height="125" rx="16" fill="#FFFFFF" stroke="#CCDCE5" stroke-width="2"/>
-<text x="258" y="372" font-size="31" fill="#193243" font-weight="700" text-anchor="middle">照常提出需求</text>
-<text x="258" y="417" font-size="27" fill="#536974" font-weight="400" text-anchor="middle">修正状态误报</text>
-<rect x="1008" y="322" width="360" height="181" rx="16" fill="#FFFFFF" stroke="#C3DED2" stroke-width="2"/>
-<text x="1188" y="363" font-size="30" fill="#193243" font-weight="700" text-anchor="middle">明确目标与旧保护</text>
-<text x="1188" y="407" font-size="26" fill="#536974" font-weight="400" text-anchor="middle">检查中不报故障</text>
-<text x="1188" y="445" font-size="26" fill="#536974" font-weight="400" text-anchor="middle">真故障仍提示，显示一致</text>
-<text x="1188" y="483" font-size="24" fill="#536974" font-weight="400" text-anchor="middle">必要时先独立核对</text>
-<path d="M428 391H1001" stroke="#087F73" fill="none" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
-<rect x="629.0" y="355" width="170" height="35" rx="5" fill="#FAFCFD" stroke="none" stroke-width="2"/>
-<text x="714" y="378" font-size="25" fill="#087F73" font-weight="500" text-anchor="middle">保留原始要求</text>
-<rect x="548" y="526" width="340" height="132" rx="16" fill="#FFFFFF" stroke="#CCDCE5" stroke-width="2"/>
-<text x="718" y="568" font-size="31" fill="#193243" font-weight="700" text-anchor="middle">在原任务中实现</text>
-<text x="718" y="609" font-size="25" fill="#536974" font-weight="400" text-anchor="middle">区分检查中与真正故障</text>
-<text x="718" y="644" font-size="25" fill="#536974" font-weight="400" text-anchor="middle">复用已有能力与检查</text>
-<path d="M1008 471H945V561H894" stroke="#087F73" fill="none" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
-<rect x="1488" y="526" width="340" height="139" rx="16" fill="#FFFFFF" stroke="#CCDCE5" stroke-width="2"/>
-<text x="1658" y="568" font-size="28" fill="#193243" font-weight="700" text-anchor="middle">实际窗口与状态数据</text>
-<text x="1658" y="610" font-size="25" fill="#536974" font-weight="400" text-anchor="middle">这次准备交付的程序</text>
-<text x="1658" y="646" font-size="25" fill="#536974" font-weight="400" text-anchor="middle">观察真实展示与交互</text>
-<path d="M888 623H1481" stroke="#087F73" fill="none" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
-<rect x="1040.5" y="586" width="295" height="35" rx="5" fill="#FAFCFD" stroke="none" stroke-width="2"/>
-<text x="1188" y="609" font-size="25" fill="#087F73" font-weight="500" text-anchor="middle">实现或修好后，重新运行</text>
-<rect x="1008" y="710" width="360" height="136" rx="16" fill="#FFFFFF" stroke="#C3DED2" stroke-width="2"/>
-<text x="1188" y="751" font-size="31" fill="#193243" font-weight="700" text-anchor="middle">核对真实表现</text>
-<text x="1188" y="791" font-size="25" fill="#536974" font-weight="400" text-anchor="middle">当前版本：数据与界面一致</text>
-<text x="1188" y="828" font-size="25" fill="#536974" font-weight="400" text-anchor="middle">旧功能、独立验收齐全</text>
-<path d="M1488 645H1425V776H1375" stroke="#087F73" fill="none" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
-<rect x="1391.0" y="687" width="68" height="34" rx="5" fill="#FAFCFD" stroke="none" stroke-width="2"/>
-<text x="1425" y="709" font-size="24" fill="#087F73" font-weight="500" text-anchor="middle">观察</text>
-<rect x="548" y="724" width="340" height="112" rx="16" fill="#FFF2EB" stroke="#E8B8A5" stroke-width="2"/>
-<text x="718" y="766" font-size="31" fill="#BA513C" font-weight="700" text-anchor="middle">原任务继续修复</text>
-<text x="718" y="808" font-size="25" fill="#BA513C" font-weight="400" text-anchor="middle">坏例：故障却显示成正常</text>
-<path d="M1008 777H894" stroke="#BA513C" fill="none" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#red)"/>
-<rect x="905.5" y="740" width="89" height="33" rx="5" fill="#FAFCFD" stroke="none" stroke-width="2"/>
-<text x="950" y="761" font-size="23" fill="#BA513C" font-weight="500" text-anchor="middle">不一致</text>
-<path d="M718 724V665" stroke="#BA513C" fill="none" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#red)"/>
-<text x="738" y="700" font-size="24" fill="#BA513C" font-weight="400" text-anchor="start">修正后复验</text>
-<text x="258" y="659" font-size="26" fill="#536974" font-weight="400" text-anchor="middle">不必搬运失败报告</text>
-<text x="258" y="703" font-size="26" fill="#536974" font-weight="400" text-anchor="middle">不必反复催修</text>
-<rect x="88" y="891" width="340" height="94" rx="16" fill="#E2F3EC" stroke="#BCDCCD" stroke-width="2"/>
-<text x="258" y="931" font-size="30" fill="#087F73" font-weight="700" text-anchor="middle">收到结果与证据</text>
-<text x="258" y="967" font-size="24" fill="#536974" font-weight="400" text-anchor="middle">说明已完成与未证部分</text>
-<path d="M1188 846V940H435" stroke="#087F73" fill="none" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
-<rect x="634.5" y="904" width="345" height="35" rx="5" fill="#FAFCFD" stroke="none" stroke-width="2"/>
-<text x="807" y="927" font-size="25" fill="#087F73" font-weight="500" text-anchor="middle">结束检查通过：证据支持完成</text>
-<rect x="54" y="1015" width="1808" height="50" rx="12" fill="#FBF2E6" stroke="none" stroke-width="2"/>
-<text x="960" y="1049" font-size="25" fill="#80582C" font-weight="400" text-anchor="middle">缺授权、观察不足或无原任务接收时，明确说明尚未完成，并保存恢复位置。</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc"><title id="title">Lucerna：检查中不应误报故障，真正故障必须提示</title><desc id="desc">六条泳道按时间顺序展示用户、Codex、Bridge Kit、workflow-core、Lucerna专业验收和独立审查者。坏例是真故障被显示成正常，失败经Bridge Kit返回同一Codex后修复再验。这是预期执行路径，尚未实施验证。</desc><defs><style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif}</style>
+<marker id="main" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 2L10 6L2 10" fill="none" stroke="#137F78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fail" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 2L10 6L2 10" fill="none" stroke="#BD5339" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="optional" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 2L10 6L2 10" fill="none" stroke="#456E92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs><rect width="1920" height="1080" fill="#FCFDFE"/>
+<text x="56" y="90" font-size="46" fill="#183342" font-weight="700" text-anchor="start">Lucerna：检查中不应误报故障，真正故障必须提示</text>
+<rect x="41" y="151" width="278" height="62" rx="12" fill="#F3F5F7" stroke="#CBD8E0" stroke-width="2"/>
+<text x="180" y="192" font-size="29" fill="#183342" font-weight="700" text-anchor="middle">用户</text>
+<path d="M180 215V1054" stroke="#C8D4DC" stroke-width="2" stroke-dasharray="5 9"/>
+<rect x="353" y="151" width="278" height="62" rx="12" fill="#EAF2FA" stroke="#CBD8E0" stroke-width="2"/>
+<text x="492" y="192" font-size="29" fill="#183342" font-weight="700" text-anchor="middle">Codex</text>
+<path d="M492 215V1054" stroke="#C8D4DC" stroke-width="2" stroke-dasharray="5 9"/>
+<rect x="665" y="151" width="278" height="62" rx="12" fill="#F0EFF8" stroke="#CBD8E0" stroke-width="2"/>
+<text x="804" y="192" font-size="29" fill="#183342" font-weight="700" text-anchor="middle">Bridge Kit</text>
+<path d="M804 215V1054" stroke="#C8D4DC" stroke-width="2" stroke-dasharray="5 9"/>
+<rect x="977" y="151" width="278" height="62" rx="12" fill="#EDF2F7" stroke="#CBD8E0" stroke-width="2"/>
+<text x="1116" y="192" font-size="29" fill="#183342" font-weight="700" text-anchor="middle">workflow-core</text>
+<path d="M1116 215V1054" stroke="#C8D4DC" stroke-width="2" stroke-dasharray="5 9"/>
+<rect x="1289" y="151" width="278" height="62" rx="12" fill="#E9F5EF" stroke="#CBD8E0" stroke-width="2"/>
+<text x="1428" y="192" font-size="29" fill="#183342" font-weight="700" text-anchor="middle">Lucerna 专业验收</text>
+<path d="M1428 215V1054" stroke="#C8D4DC" stroke-width="2" stroke-dasharray="5 9"/>
+<rect x="1601" y="151" width="278" height="62" rx="12" fill="#F5F3ED" stroke="#CBD8E0" stroke-width="2"/>
+<text x="1740" y="192" font-size="29" fill="#183342" font-weight="700" text-anchor="middle">独立审查者</text>
+<path d="M1740 215V1054" stroke="#C8D4DC" stroke-width="2" stroke-dasharray="5 9"/>
+<path d="M180 251H486" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="333.0" y="237" font-size="25" fill="#137F78" font-weight="400" text-anchor="middle">提出修复要求</text>
+<path d="M492 311H798" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="645.0" y="297" font-size="24" fill="#137F78" font-weight="400" text-anchor="middle">接入并保留原要求</text>
+<path d="M804 371H1110" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="957.0" y="357" font-size="24" fill="#137F78" font-weight="400" text-anchor="middle">原要求与已有功能</text>
+<rect x="969" y="383" width="294" height="38" rx="9" fill="#EDF2F7" stroke="#CBD8E0" stroke-width="2"/>
+<text x="1116" y="410" font-size="24" fill="#183342" font-weight="700" text-anchor="middle">确定检查与旧功能保护</text>
+<path d="M1116 461H810" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="963.0" y="447" font-size="24" fill="#137F78" font-weight="400" text-anchor="middle">范围与检查要求</text>
+<path d="M804 511H1734" fill="none" stroke="#456E92" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#optional)" stroke-dasharray="9 7"/>
+<text x="1269.0" y="497" font-size="25" fill="#456E92" font-weight="400" text-anchor="middle">必要时核对专业要求</text>
+<path d="M1740 561H810" fill="none" stroke="#456E92" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#optional)" stroke-dasharray="9 7"/>
+<text x="1275.0" y="547" font-size="25" fill="#456E92" font-weight="400" text-anchor="middle">独立意见</text>
+<path d="M804 611H498" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="651.0" y="597" font-size="24" fill="#137F78" font-weight="400" text-anchor="middle">按核定要求实现</text>
+<rect x="390" y="630" width="204" height="41" rx="9" fill="#EAF2FA" stroke="#CBD8E0" stroke-width="2"/>
+<text x="492" y="659" font-size="25" fill="#183342" font-weight="700" text-anchor="middle">修改 Lucerna</text>
+<path d="M492 691H1422" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="957.0" y="677" font-size="25" fill="#137F78" font-weight="400" text-anchor="middle">提交当前程序并验收</text>
+<rect x="1289" y="700" width="278" height="45" rx="9" fill="#E9F5EF" stroke="#CBD8E0" stroke-width="2"/>
+<text x="1428" y="732" font-size="25" fill="#183342" font-weight="700" text-anchor="middle">检查应用与状态数据</text>
+<rect x="350" y="753" width="1150" height="150" rx="12" fill="#FFF8F3" stroke="#E7BAA6" stroke-width="2" stroke-dasharray="9 7"/>
+<text x="371" y="783" font-size="24" fill="#BD5339" font-weight="700" text-anchor="start">若验收失败</text>
+<path d="M1428 787H810" fill="none" stroke="#BD5339" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fail)"/>
+<text x="1119.0" y="773" font-size="25" fill="#BD5339" font-weight="400" text-anchor="middle">真正故障被显示成正常</text>
+<path d="M804 841H498" fill="none" stroke="#BD5339" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fail)"/>
+<text x="651.0" y="827" font-size="24" fill="#BD5339" font-weight="400" text-anchor="middle">失败证据返回原任务</text>
+<rect x="405" y="852" width="174" height="35" rx="8" fill="#FFF0E8" stroke="#E5B39F" stroke-width="2"/>
+<text x="492" y="878" font-size="24" fill="#BD5339" font-weight="700" text-anchor="middle">修复原任务</text>
+<path d="M492 894H1422" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="957.0" y="880" font-size="24" fill="#137F78" font-weight="400" text-anchor="middle">修复后重新验收</text>
+<path d="M1428 745H1592V907H1435" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="1608" y="830" font-size="24" fill="#137F78" font-weight="400" text-anchor="start">检查通过</text>
+<path d="M1428 937H810" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="1119.0" y="923" font-size="24" fill="#137F78" font-weight="400" text-anchor="middle">当前版本的专业证据</text>
+<path d="M1428 947H1734" fill="none" stroke="#456E92" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#optional)" stroke-dasharray="9 7"/>
+<text x="1581.0" y="933" font-size="24" fill="#456E92" font-weight="400" text-anchor="middle">按需独立审查</text>
+<path d="M1740 987H810" fill="none" stroke="#456E92" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#optional)" stroke-dasharray="9 7"/>
+<text x="1275.0" y="973" font-size="24" fill="#456E92" font-weight="400" text-anchor="middle">独立结果</text>
+<rect x="689" y="994" width="230" height="39" rx="9" fill="#F0EFF8" stroke="#CBD8E0" stroke-width="2"/>
+<text x="804" y="1022" font-size="25" fill="#183342" font-weight="700" text-anchor="middle">最终交付检查</text>
+<path d="M804 1048H186" fill="none" stroke="#137F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#main)"/>
+<text x="495.0" y="1034" font-size="24" fill="#137F78" font-weight="400" text-anchor="middle">交付核验结果</text>
 </svg>

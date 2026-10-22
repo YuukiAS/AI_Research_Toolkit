@@ -4,11 +4,11 @@
 
 **独立 Critic R3 已给设计 PROCEED，五项 DA-AR 设计均关闭。系统尚未实施，READY_FOR_CODEX=NO，七仓 DA enabled 全部为 NO。** 结论由用户转交，没有另一个 GitHub 审查原件。固定审查包为 `7ca0f0f2c84cc9f29ec8df525797d17da168bd7b`，架构源为 `79fe13a6ce3480732e206b33029cfa3b9fcf9a78`。
 
-![Delivery Assurance：角色、程序与线程](11_DELIVERY_ASSURANCE_ARCHITECTURE.png)
+![Delivery Assurance：主调用链与返修回路](11_DELIVERY_ASSURANCE_ARCHITECTURE.png)
 
 ![Lucerna 真实需求的执行路径](12_LUCERNA_EXECUTION_FLOW.png)
 
-这次用两张图分开回答问题。第一张按运行身份区分当前 Codex 主线程、Bridge Kit 接线程序、workflow-core 规则库、项目验收工具、按需运行的独立审查线程和原外部任务。第二张沿 Lucerna“检查中不应误报故障，真正故障必须提示”的需求，展示实现、实际观察、失败回原任务修复和复验交付。两图均为设计解释，不是系统运行结果。
+两张图分别解释架构与执行。第一张从左到右显示用户、当前 Codex、Bridge Kit、workflow-core、产品实现、项目专业验收、最终交付检查和用户，独立审查从侧面按需介入，失败经 Bridge Kit 回到原 Codex。第二张用用户、Codex、Bridge Kit、workflow-core、Lucerna 专业验收、独立审查者六条泳道，按时间展示消息流动、正常通过与失败返修。两图均为设计解释，不是系统运行结果。
 
 [11 完整中文说明](11_ARCHITECTURE_EXPLAINED.md)先讲为什么需要系统，再解释架构与角色、Lucerna 执行和未实施边界。每张图均有实际渲染的高清 PNG 和可编辑 SVG：
 [架构图 PNG](11_DELIVERY_ASSURANCE_ARCHITECTURE.png) / [SVG](11_DELIVERY_ASSURANCE_ARCHITECTURE.svg)；
