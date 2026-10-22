@@ -108,7 +108,7 @@ A 可细分为仅修项目脚本，以及 Bridge 最窄启动/交付边界扩展
 
 ## 最后交叉核对的修订
 
-Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/src-tauri/src/zotero_client.rs#L242)已直接核对：read_attachment_annotations 242行、authorize_local_writes 407行、mutate_attachment_annotation 526行；写路径检查server identity、写能力和授权，不能从main推定。CUHK的campaign合同明确换部署snapshot须关闭旧Parent，本研究的“同任务”指产品目标/预算/问题lineage连续，不能复用过期活动。G6补充旧da/1必填或语义变更必须重新Planner/Critic冻结，03示例不是兼容声明。详见04补充边界及06随各阶段执行的能力核验。
+Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edfd6c5b11f81599bfcfc327be5964633a7b5/src-tauri/src/zotero_client.rs#L242)已直接核对：read_attachment_annotations 242行、authorize_local_writes 407行、mutate_attachment_annotation 526行；写路径检查server identity、写能力和授权，不能从main推定。CUHK的campaign合同明确换部署snapshot须关闭旧Parent，本研究的“同任务”指产品目标/预算/问题lineage连续，不能复用过期活动。G6补充旧da/1必填或语义变更必须重新Planner/Critic冻结，03示例不是兼容声明。详见04补充边界及06 R1-AR05：宿主探针现已前置于完整P1/P2，后续各阶段再验证对应实现。
 
 ## 续研裁决 D1：接入负责续修，交付边界负责准入
 
@@ -142,7 +142,7 @@ Bobbio develop的[真实API源码](https://github.com/YuukiAS/Bobbio/blob/a64edf
 
 交付入口每次独立核验，缓存必须绑定候选和依赖；Hook 无收据不自动等于产品坏，但缺少完整义务集就不能签发就绪。现有任务包可由交付入口重建义务并要求补验；无包任务可从同 session 的原请求建立轻量记录。没有请求来源时只能要求恢复原任务上下文，不能编造完成标准。
 
-**实测合同已确定：** 在获授权的同一宿主、同一受支持版本，顺序回放正常 Hook、未信任、禁用、超时、畸形输出、空理由、同任务续修和用户中断；每例使用无外部副作用的坏候选。检查两份独立结果：聊天是否发出误导文本、受管交付是否拒绝。前者失败不得用后者成功抵销。每宿主最多 8 个短例、每例一次初跑一次修复复跑；不使用账号、设备或付费资源。未满足的平台登记为未支持自动接入，保留手动原任务调用同一检查的低摩擦替代，不声称替代等价。
+**实测合同已确定：** 在获授权的同一宿主、同一受支持版本，顺序回放正常 Hook、未信任、禁用、超时、畸形输出、空理由、同任务续修和用户中断；每例使用无外部副作用的坏候选。检查两份独立结果：聊天是否发出误导文本、受管交付是否拒绝。前者失败不得用后者成功抵销。具体八组场景、回合数和时限已由06 R1-AR05统一替换；不使用账号、设备或付费资源。未满足的平台登记为未支持自动接入，保留手动原任务调用同一检查的低摩擦替代，不声称替代等价。
 
 ## 最终来源漂移核对
 
@@ -171,3 +171,26 @@ AI Skills main、Bridge release/实际dev和七仓有效分支收尾重新查询
 接入一次性成本是安装/核实精确载荷、信任当前定义和宿主机制回放，后续用户正常发话；不是每次重新@插件。采用项目/插件可信Hook而不强制管理员受管Hook，降低首次摩擦；已有企业策略可复用，但研究不要求改其策略。缺Hook仍须原项目正式交付gate工作；正式出口未绑定的项目只可报尚未接入，不能用边界声明假签产品。
 
 最新研究main为 `daf797c79bcd777c27948da51c4218e5d95e7be3`；设计指南未改，解释标准新增关键技术替代比较与连续修订完整判断，已读并应用。源码、当前安装版本、宿主实测在本表明确分开。
+
+<a id="r1-reality"></a>
+## R1 源码复查与五项路线裁决
+
+本轮以369b4ae4a534a7d87be11a36e7c4b3ca9114e0c7为被审包；Critic REVISE来自用户当前消息。五项均ACCEPT，上一包“核心设计全部闭合”的断言已撤回。03/04/06的R1合同是同一架构的修订，不是并列可选版本。
+
+|问题|比较过的可行做法|本轮唯一选择及现实依据|
+|---|---|---|
+|原请求误解|当前Executor自审；所有任务另开审查agent；按风险使用已有角色|最后一种。Bridge Review原本在PLAN_REQUESTED由GPT Planner冻结，再启动Executor；可在该边界消费独立原要求结果。当前watcher并没有凭空存在的事前Reviewer。CARE默认不启Reviewer，沿科学Planner/Controller，不能通用强加|
+|候选检查自签|registry标签；每次人工批准；冻结机械自动准入＋必要独立准入|最后一种。新增DefinitionAdmission及实际activate/check消费，校准与RequestedClaim分离；简单已冻结机械回归无需额外模型，重要专业观察必须独立|
+|低配实现|只在最终发现；一律加载前端；按义务选择实际成熟能力|最后一种。SeminarArc AGENTS明确android-lead/compose-expert；Bobbio明确Figma设计体系；这些项目能力可满足等价要求，不按Plugin名字强制替换|
+|最终消费者|角色名称；新中央汇报平台；原脚本内明确最终分支|最后一种。Lucerna原campaign仍主要Producer材料；Mica candidate只validateBundle；SeminarArc明确未执行GPT Work；CUHK活动准备门会检查未消费票据；CARE finalizer止于packet。均须独立最终分支，不能改词就算接通|
+|平台不确定性|先全量实现；纯模拟；真实宿主小探针先行|最后一种。源码有Hook/JSONL/resume不代表实际Desktop/Remote可用；P0不得运行七仓产品，失败按06固定矩阵修订P2后才投入公共层|
+
+最新读取：研究main **daf797c79bcd777c27948da51c4218e5d95e7be3**；两份系统设计/可信解释标准已读取。AI Skills main **ca10623fe028114cfafc5ec7e5350800d5c8259c**；当前Planner/Critic 1.7、Capability Gate 1.2和Maintenance合同已重新取回。相较前包只新增/调整PIE提案与审查提示：DA受管AGENTS修改如原合同要求三份证据，PIE仍应供给，不可按普通小编辑免除；尚未发布能力不当依赖。
+
+Bridge release仍 **ba9013b9fbbd242e51b09f9d09291f417df17652**，实际dev已到 **b3a435eb193bcba251b343d2dd5dd3ef580587ed**。相较71ad687只新增正常入口验收v0.2提案；本轮重新读取cli/reviewed_runner/reviewed_handoff/agent_flow/readiness与release入口，相关代码没有因提案出现就实现DA。该相邻提案不转移Persistent、通知或Host权限职责给DA。
+
+七仓固定SHA仍为04/07原表，分别查询实际有效分支及递归树并读取AGENTS与最终出口原文。新细节包括：CUHK脚本L106加载凭据、L130起做live查询，故最终分支必须在这些动作前分流；Bobbio USER_REVIEW_READY与MILESTONE_ACCEPTED不能合并；CARE默认无review.md不是缺陷；Mica当前真实登录态仍为手动验收。研究仓目标分支根AGENTS.md查询404，本轮遵循用户提供的AGENTS与正式研究合同，不伪称读到了该文件。
+
+官方Hook、非交互执行、AGENTS文档于本轮重新浏览；b4ad33d1固定Stop/turn/exec源码重新取回。H1–H8是待授权的实际证据合同，当前Windows Desktop、CLI、Remote都**NOT_TESTED**；没有把公开源码或旧0.160.1局部结果改写为当前支持。正常会话中断、只读到获权写入的精确resume、实际指令重新加载都必须先证明。GPT Work没有本轮等价入口证据，保留未支持说明。
+
+维护/成本选择同步改变：先4–8小时P0，再按支持矩阵选择原P2路线；R1总估算130–316小时，首片36–80小时，均非授权或实测。若高风险入口没有合法支持，不能先实现整个da/2等待平台补齐，也不能新造客户端。原用户目标与质量门槛不降低；只能明确该入口未支持，并使用已有、已证明的受管入口作为有损替代。
