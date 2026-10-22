@@ -964,3 +964,13 @@ shadow在**原runner已合法执行之后**读其原始输出，不重复账号/
 ### 每次任务的最小用户报告与字段消费
 
 Bridge.report从当前Claim/Resolution/Receipt和实际run manifest生成派生文本，不另调用模型、不另建报告DB。固定信息是：用户可用变化；新增/加固/复用/退休检查及理由（没有新增也说明）；受保护旧能力；实际run与合法reuse/未run原因；成品身份与允许层级；失败是否被实际接收及新结果；仍需用户的具体动作。只有真的需要用户时显示动作；正常成功不要求用户逐项确认。报告失败不倒推已有专业结果失效，但正式交付必须能返回可读摘要和证据定位，不能以没有报告而悄悄签完整交付。可从同一已验证Claim重建报告，不重跑产品。
+
+## 收尾上游漂移：指令加载与Persistent责任没有转移
+
+最终分支刷新发现AI Skills main新增PIE 0.3架构提案（1cd3dfd303097265114ffd912ef003329e2c197b），Bridge实际dev新增正常入口验收提案（71ad6874c1cde41548eb66a6c32cea615e055407）。compare均只新增一份设计文档；角色/AGENTS/正式policy、Bridge运行源码和release未变。此处消费的是相邻设计边界，不继承其批准或假设已实现。
+
+PIE编辑项目长期指令，Bridge保留初始化模板，各安装器保留自己的受管区；DA只核来源/实际加载与下游验收，不编辑项目正文或为普通代码任务强制跑PIE。da/2接入不依赖PIE 0.3先上线；相邻旧da/1引用仍按D6逐consumer迁移。
+
+**同thread恢复不能单独证明指令热加载。** 本任务修改AGENTS/Skill/正式authority之后，旧source绑定和相关结果失效；即使codex resume返回同id，也必须核实际加载/显式读取所证明的范围。当前工具重新读正文只证明显式读取，不自动证明native instruction chain已经刷新。若所需新的native加载能力没有证据，返回SOURCE_BINDING_STALE并保持相应claim未证，按原工作流已授权的fresh-entry/加载验证合同恢复；不得悄悄开另一thread假称精确resume成功。可独立的原任务工作仍继续。P2/P5新增一个“改指令后同id恢复但实际未加载”的拒绝例，不能让用户用行为出错替系统发现此事。
+
+Persistent仍只持有已授权进程寿命和进度观察；本研究不实现其新ETA提案。heartbeat、running、进度百分比、ETA和exit0都不能替代专业GateResult与最终Claim；缺/旧进度不直接判产品失败、不重提交job，原owner按现有recover/resolve诊断。新增提案的更严格progress contract若以后正式发布，则作为绑定的执行来源更新并做受影响回归，不现在改源或新建DA进度数据库。以上边界与F3的零重复副作用和外部等待规则一致。
