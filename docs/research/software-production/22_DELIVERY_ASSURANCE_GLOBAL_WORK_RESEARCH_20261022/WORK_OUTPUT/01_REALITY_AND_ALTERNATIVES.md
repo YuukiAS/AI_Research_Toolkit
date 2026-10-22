@@ -194,3 +194,9 @@ Bridge release仍 **ba9013b9fbbd242e51b09f9d09291f417df17652**，实际dev已到
 官方Hook、非交互执行、AGENTS文档于本轮重新浏览；b4ad33d1固定Stop/turn/exec源码重新取回。H1–H8是待授权的实际证据合同，当前Windows Desktop、CLI、Remote都**NOT_TESTED**；没有把公开源码或旧0.160.1局部结果改写为当前支持。正常会话中断、只读到获权写入的精确resume、实际指令重新加载都必须先证明。GPT Work没有本轮等价入口证据，保留未支持说明。
 
 维护/成本选择同步改变：先4–8小时P0，再按支持矩阵选择原P2路线；R1总估算130–316小时，首片36–80小时，均非授权或实测。若高风险入口没有合法支持，不能先实现整个da/2等待平台补齐，也不能新造客户端。原用户目标与质量门槛不降低；只能明确该入口未支持，并使用已有、已证明的受管入口作为有损替代。
+
+### R1 冻结前最后一次 Bridge 刷新
+
+实际开发分支在本轮核对期间前进到 **f7caede593ea90f1a8f38fe33a7bcbc1dae3f94f**。相对 b3a435eb193bcba251b343d2dd5dd3ef580587ed 只有一项新增：[正常入口能力验收提案 v0.3](https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/f7caede593ea90f1a8f38fe33a7bcbc1dae3f94f/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.3_2026-10-22.md)。生产代码、release与七仓固定源未因此改变；上文b3a435e链接继续准确，不冒称其为最新开发HEAD。
+
+v0.3把特定未来Persistent验收的六次通知上限落实到原run binding：helper启动前持久占位、终止保留一席、失败/未知不返还、Notifier核permit并禁止未经新授权重试。它仍待独立审查、不是现行实现或本研究权限。DA不接管通知、不另领SMTP/模型额度，也不把进度邮件当产品完成；共享返修预算不能重置既有通知授权。P0默认无通知/外部服务，当前研究未发任何消息或启动Persistent。AI Skills main仍ca10623f，研究main仍daf797c7。
