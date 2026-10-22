@@ -185,3 +185,41 @@
 [CUHK campaign正式合同](https://github.com/YuukiAS/CUHK_Date/blob/9f25c7754d3c80d0be74f5b71016320f55753ae6/docs/operations/blackbox-audit/CAMPAIGN_ORCHESTRATION.md)明确：新部署snapshot后旧Parent永久结束，不继续其尚未运行persona、不复用旧handoff；为新snapshot准备新的受影响persona活动。产品任务、问题来源与预算保持连续，活动创建仍受当前用户权限限制。相同snapshot的纯工具session loss只有符合原合同的有限恢复例外。DA不能用“同任务返修”覆盖这个边界，也不能据本研究自动创建Parent。
 
 [Mica Foundation r4](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/results/mica-product-system-rebuild/foundation-review-r4-repair.md)补证展示validator-only修复：完整placement proof的协调伪造负例被拒、dist不变可复用相应runtime证据；文档明确仍是review candidate且没有登录态最终验收。它支持语义输入失效设计，不支持same-user防伪已解决。
+
+## D5 七仓真实实验合同：设计已选择，运行尚未授权或证明
+
+以下上限是**拟议首轮试点资源上限，不是已测耗时或当前授权**。超时/超额保留未完成、回原owner重估，不能缩小样本/换方法后宣称原目标完成。每仓的最终Gate仍由上文现行产品合同决定；这里只限定证明 DA 接线的最小实验，不替代全部产品验收。普通一次模型修复和父进程resume共用03 D4预算；项目原流程更小上限优先。所有真设备/账号/部署/GPU动作在未来精确授权前为0次。
+
+|仓库／最终对象|确定的实施边界与首轮输入|必须成功、拒绝、保护的控制|实验上限、合法入口与回收|
+|---|---|---|---|
+|Lucerna／真实Windows EXE、托盘窗口和provider|扩展现有development-acceptance输出适配、provider-state测试和交付报告消费；两组quota输入＋缺值＋未观测/secondary failure；候选EXE hash/PID绑定|正常刷新确有后置变化；固定680/unknown变0/旧PID拒绝；旧Codex/OpenAI/Longleaf状态与退出/重开保留|机械层1次套件＋最多2次修复复跑；获权后1个隔离Windows会话、1个候选、最多2次启动/采集、60分钟；真实provider访问只对明确获权账户且最多2次刷新；退出仅关闭本次测试实例，原安装不覆盖，回退DA适配不动网络配置|
+|Bobbio／develop对应EXE＋指定隔离Zotero Reader|只改Safe runner结果适配/既有安全断言与受影响Reader回归；固定测试profile/dataDir/两份测试论文；before/after审核真实目录无变化|新增/改色/删除批注真实API读回且PDF字节不变；测试目录指真实dataDir、裸URL handler、旧0.2签0.3拒绝；论文切换和原批注cache重建保持|源码/fixture一轮＋最多2次复跑；真实阶段1个独立测试profile、2份非私有PDF、每篇1个测试annotation生命周期、90分钟；启动前断言失败则0次GUI动作；恢复前核对本次备份及测试profile身份，清理仅本次测试对象，不自动启动/关闭真实Zotero|
+|Mica／稳定dist路径实际加载的MV3扩展、最终PDF|复用preflight/focused/candidate/validateBundle；绑定release-config/build manifest/loaded identity；先Foundation→Low Memory→Highlighter→PDF按现行顺序|A/B/C同负载区分heap与process；关功能不算收益；错answer归属/ambiguous anchor拒绝；typing/IME、历史恢复、工具branch、高亮/PDF保持|fixture 1个全候选＋2次局部修复；目标类性能仅按原合同规模跑一次完整A/B/C，不缩水；最终正常Edge登录态必须用户手动，集中为一次不超过20分钟的现有验收清单，不让用户跑DevTools；未知宿主报告由内建功能导出。无自动登录，无新Release；失败禁用仅该候选扩展并保留旧稳定包|
+|SeminarArc／指定APK安装、持久库、导出ZIP|适配blackbox和verify-gpt-work最终结果；复用B02/B03/B04/B07；一个新测试seminar包含文字、照片、公式和已有录音控制|结束/强停/重启读回成功；只改UI不落盘、OCR读标签、导出漏媒体必须分清；photos-only不启动不必要foreground服务；旧录音与迁移保持|1个获权AVD，最多2次安装、2次强停复跑、90分钟；独立物理设备能力另列，最小1台/1次短录音/锁屏恢复/30分钟，需单独授权。清数据只限事先冻结的测试包/实例，有备份才回收；不能删用户会议|
+|Asteria／固定候选网页完整科学图和导出物|修routeGestalt/rc19RouteGestalt真实测量与基线diff；复用test:browser/regression，增加独立渲染几何与旧truth校准|好图正常、交叉/悬浮/缺观测/改旧validator已提交版本应被拒；trace-off不挪图、canonical关系/索引/导出保持；科学与整屏阅读分别判|本地隔离浏览器2个固定viewport×好/坏2图，共4组；一次修复重跑仅影响组，60分钟；固定公开URL只读核验需获权访问目标，部署次数0，若新部署必要另授权；独立审阅完整图一次，不能复用Producer截图当自己采集|
+|CUHK_Date／同snapshot Web/API/DB会话和有效campaign|复用hosted registration、parent preflight、evaluateParentDeliveryGate、ticket handler；绑定snapshot/surface health/quality/campaign/persona/lease|可见注册成功；API旁路冒充可见操作、过期票据、认证失败烧票、不同snapshot混签拒绝；并发单claim/失败release/原已注册回流保持|本地fake transport只证明事务逻辑；真实阶段一个获权staging snapshot/campaign，最多2个合成persona、1次正向注册、1次失败/重试、1组双请求并发，60分钟；邮件/短信费用默认0。不得动生产用户；换snapshot按原合同结束旧campaign，后续新活动须有授权，原产品task/budget不重置|
+|CARE／原批准task的checkpoint/预测/指标/归档|适配finalizer，保留科学协议；第一试点选**现有报告回放＋CPU机制fixture**，不恢复旧训练任务；随后在原授权科学任务首次实际运行时验证完整链|12步冒500、空预测、错GT、两次eval冒训练resume拒绝；600步help/harm负结果正确送Planner；no-T2/split/模型来源不可改；archive必须save/load后从官方entry消费|首轮最多10个既有/合成结果变异；CPU确定性fixture k=3,m=2对照两进程、总60秒；这些只能证明机械链。真实训练预算完全取该活动task冻结模型/样本/步数/Slurm资源，不预设新数；当前GPU/提交次数0。原job PENDING只等待，断线查lineage；不得取消job、删checkpoint、发送组织方邮件或上传archive|
+
+### 接收、修复与最终汇报的统一实测判据
+
+每仓试点必须留下同一个 task 下的原请求、selected/reused义务、坏候选运行、feedback id、真实接收/ack、允许范围内的修复、fresh run以及最终对象身份。只有Bad被拒没有Good可以完成，或只有Good没有旧保护，都不足以启用该仓。设备不可达时保留已完成机械部分，不签对应INSTALLED/LIVE/科学充分性；也不停止其它仓或公共设计。
+
+退出时撤掉新增DA准入调用但保留原专业runner、安全断言、有效新回归与历史事实。原产品用户数据/部署/作业不作为DA回滚对象。若新adapter本身错，先回退adapter并停止DA ready；不能让错adapter逼正确产品改坏。试点结果由原project owner接收，中央维护看板仅引用任务和consumer版本。
+
+每任务最终报告从实际记录生成，必须包括：受验版本/安装或部署身份；新建验收器及理由，或明确“本次无新增，复用足够”；旧程序加固/复用；真正运行的检查；复用旧结果的依据；合法未运行项及其声明限制；当前失败归属、同任务已修到哪里、确需用户的动作。避免把程序名列表当用户结果。报告摘要中的“完成”只能对应有证据的原交付范围。
+
+## 非特制功能压力推演：换一个普通请求仍能找到消费者
+
+这些是在续研中另选并补读源码的**设计演绎**，不是独立盲测PASS，也不是新功能实施授权。
+
+|普通请求与源码依据|入口→保护→选测→最终对象|故意坏结果怎样被收到和修复|
+|---|---|---|
+|Lucerna：恢复网络后别一直显示旧状态。已有provider_runtime freshness与background refresh|原生请求→ProviderState新鲜度/未知值义务→断线/恢复两输入＋旧quota→同EXE/PID刷新后的实际状态|只把stale标识清掉但observed_at不变，实际provider观察与UI不符；runner把actual/expected送当前Executor；修缓存/时间戳消费，重跑旧unknown语义，不重置真实账户|
+|Bobbio：切换论文后删除批注不能删到上一份。已有zotero_client read/mutate的attachment key|原task→attachment identity/往返/PDF不变→两论文隔离fixture及真实测试profile→原生Reader与Zotero读回|UI换论文但mutation还带旧key，before/after按两attachment比较能发现；当前Executor修调用绑定，不能改expected或清真实库；cache重建及旧批注仍验|
+|Mica：重复文字的高亮在导出PDF时不要跳错位置。补读 [pdf-export-model.ts](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/extension/src/features/pdf/pdf-export-model.ts) 和 [highlight-engine.ts](https://github.com/YuukiAS/Mica-for-ChatGPT/blob/0aee22f3e04c2b8bcfd36663d8f3a3918b56e23c/extension/src/features/highlighter/highlight-engine.ts)|createRecord/resolveRecord→buildModel/resolveHighlights/resolveAnchor→相同sourceSpan与唯一quote/prefix/suffix；选择PDF文本层与渲染、旧answer身份/数学选择保护→实际生成PDF|当前源码只接受唯一匹配，否则unresolved，durable/SETTLED不满足拒绝导出；坏变更取第一个重复文字应被known-bad拒绝。候选CLI把错误交原Executor，修锚定后同时验PDF与页面恢复；不能只验证JSON有highlights|
+|SeminarArc：导出会议不能悄悄丢照片或公式。补读 [SeminarExportAssembler.kt](https://github.com/YuukiAS/SeminarArc/blob/5652fe17ce60625f3ff7c758fcc0183f920189de/app/src/main/java/com/yuukias/seminararc/domain/export/SeminarExportAssembler.kt)|assemble→addAssetIfReadable/toExportFormulas→mediaAssets/skippedMedia＋READY且非空LaTeX→既有export runner检查ZIP实物和显示缺失；保护timeline排序、录音fallback、原笔记持久化|若导出引用了未打包文件但报告完整，独立ZIP目录/引用对照拒绝；文件不可读必须明确skipped，不能当完整交付。feedback回当前Executor分清实际文件缺失与打包bug；修复后重开ZIP及APK原记录|
+|Asteria：只聚焦一层后，导出的科学关系仍完整。补读 [projection.ts](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/src/architecture/projection.ts) 与 [export.ts](https://github.com/YuukiAS/Asteria/blob/193c033659a7612a99442763077217b130e9b756/src/architecture/export.ts)|projectLayerFocus限定view及boundary；exportArchitectureMarkdown遍历project entities/relations→明确视图投影与canonical导出不同目标→全图关系/导出符号＋视觉/trace控制|坏改动把聚焦后的subset写回canonical导致导出漏关系；独立原模型/Markdown关系集合对比先FAIL，当前Executor修数据流；若用户实际要“只导出视图”则是新产品选择须明确，不自行代换|
+|CUHK：登录失败后重试同一链接不应永久失效。已有handleAuditTicketSession claim→auth/state→finalize，失败release|原Parent任务→ticket/lease/expected state→失败后重新claim＋旧成功单消费＋并发冲突→同snapshot可见页面与API状态|先finalize再auth的坏序列会烧票；本地事务负例先拒绝，真实staging失败/重试观察再证；反馈由当前Parent工具返回接收，不新发campaign掩盖失败|
+|CARE：仅修单层预处理后重新打包，旧权重和正常病例不能改变。补读 [Attempt3 packaging](https://github.com/YuukiAS/CARE_Challenge/blob/75a40e454de43b64e59a0b0b438ff57ef2bb8345/scripts/packaging/run_care_myops_attempt3_single_slice_hotfix.py#L670)|原task→BASE_ARCHIVE身份/关键assets/正常病例不变→phase_functional的正常15例与混合病例、phase_archive save/load后官方entry、13例synthetic矩阵→实际archive/image ID和预测|只测工作镜像却打旧tar、混入Attempt2、load后少输出均不准archive ready；适配器将身份/缺病例送原Controller。源码docker_infer会清输出、phase_archive会改tag/load/rm，故绝不作为本轮只读探针执行；包装不改变科学路线，也不授权上传|
+
+这些推演反过来修订了公共算法：旧/新图并集防删除逃逸；多个最终对象各有claim，不能以JSON model代替PDF、工作镜像代替archive、视图子集代替canonical模型；同一错误必须带对象identity回原task。真正未见功能抽样仍按03 D2在冻结方案后由独立审查/试点进行，本轮不能自称独立验证。
