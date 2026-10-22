@@ -24,6 +24,8 @@ Windows Desktop、交互式 CLI 与 Remote 均单列 NOT_TESTED；不能从 `cod
 
 正式获权后，执行者在**同一获权维护任务**建立该 fixture，仅写无敏感 canary、输入、schema、事件桩、计数器、输出及项目级 Hook/AGENTS。普通非Git目录使用安装版本确实支持的 `--skip-git-repo-check`；固定官方源码 [exec cli.rs](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/exec/src/cli.rs#L35)有该参数，但安装版仍需实际确认。参数不支持则记不支持，**不创建临时Git分支、不升级CLI、不换目录规避**。
 
+本单元的调用形状已选：同一个固定binary以 `--ask-for-approval never exec --json --sandbox workspace-write --skip-git-repo-check -C <上述唯一fixture根> --output-schema <fixture内probe_response.schema.json> -` 读取无敏感stdin；精确resume仍用该binary、相同目录/权限/JSONL配置，传真实session ID，不用--last。只读工具边界子阶段使用read-only权限，不能因拒绝而提权。参数名称以冻结源码为依据；安装版不支持时记录UNSUPPORTED，不更换入口或放宽sandbox。该段是审查用调用合同，本轮没有运行。
+
 先做静态配置/权限检查：只记录当前 CODEX_HOME 位置、provider 类别与必要非敏感配置，沿当前用户正常登录。不得读取/输出 token、认证文件内容、私有会话历史；不得更换 CODEX_HOME、账户或 provider。若配置会额外启动未获权外部工具/连接器、写到 fixture 外，且现有受支持的**仅本进程/项目级**工具限制不能排除，停止模型启动并记录该边界；不改全局安全规则。
 
 这里最多允许未来授权中的 **一条新 CLI fixture 会话**及该精确 ID 的 resume；这是被测对象，非通用 Reviewer agent。原父任务保存/消费输出。没有新 app task、subagent、fork、handoff、schedule、daemon。正常 Hook 信任若需要用户确认，仅针对本 fixture 的正常信任项；不得绕过信任或把未信任当已执行。该项获权文本须由最终短 handoff 明确携带，不从当前研究授权推导。
