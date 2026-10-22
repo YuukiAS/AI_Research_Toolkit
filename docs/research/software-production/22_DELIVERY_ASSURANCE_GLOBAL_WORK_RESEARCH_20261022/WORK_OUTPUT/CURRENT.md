@@ -16,4 +16,6 @@ ALL_SEVEN_DA_ENABLED=NO
 
 本次再次核实GitHub push权限、精确研究分支及原包HEAD；本次提交同时作为实际写入/回读探针。既有01–07技术合同继续有效，不重新讨论已接受边界。完成解释和审查包前保持READY_FOR_CODEX=NO，不创建Codex执行Goal或任何任务。
 
-恢复点：读取最新main解释标准、设计指南与正式角色合同；准备Lucerna贯穿的图、成功/错误返修推演；明确最小先行P0及后续Lucerna/七仓包的进入、权限、预算、真实反例和回滚合同。所有产物仍在原WORK_OUTPUT。
+实质进展：已读最新 main 解释标准、设计指南、Planner/Critic/Capability Gate/Maintenance 合同。11_ARCHITECTURE_EXPLAINED.md 已以 Lucerna LR-STATE-001 真实任务贯穿，区分历史事实与成功/返修设计推演；11_DELIVERY_ASSURANCE_ARCHITECTURE.svg 已写入并逐字回读。解释提交 8195a38a4f551fce558bcad93aa35cfe0ba35ec2；图源提交 03304d4cf802541f346c94077148431ff5aa77de。
+
+恢复点：完成图稿视觉检查，准备 12 分阶段实施审查稿，按 P0→最小 Lucerna 完整链→七仓逐项接入冻结范围、正反例、预算、权限与回退；再更新唯一审查入口和固定全包。没有执行探针或产品。
