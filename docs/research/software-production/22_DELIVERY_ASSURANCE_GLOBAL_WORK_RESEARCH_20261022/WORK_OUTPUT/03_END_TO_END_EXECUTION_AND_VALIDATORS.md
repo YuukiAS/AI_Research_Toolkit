@@ -1026,7 +1026,7 @@ FROZEN_MECHANICAL 必须同时满足：标准已有、阈值/观察方式不变�
 
 教学例“固定显示 680”不是 Mathpix 实测：good 观测680/期望680→PASS；bad 观测680/期望500→FAIL；missing 缺可信额度→UNKNOWN；unchanged 旧 Codex 配额保护→PASS。候选 validator 若四例都 PASS，第二/第三例校准不符，必须 REJECTED；不是要求“B 的正常产品输入也失败”。重改坏例答案或用同一个错误公式生成 oracle 同样拒绝。
 
-ProjectAdapter 使用相同记录，无第二准入平台。GOOD=当前真实入口与合法结果能进正确 claim；BAD=直接调用旧 PASS/伪造最终报告、错候选或漏掉一个正式出口必须拒绝；MISSING=没有独立结果/没有 accepted baseline 保持未知；UNCHANGED=从真实旧入口独立抽查的保护边及原 runner 仍可运行。初次由原项目专业审查者从源码重建入口/旧功能，再批准 consumer_binding 与映射摘要。Bridge 的 enable_consumer（原安装/接入命令内部函数）只在 adapter ACTIVE、04 七仓 finalizer 与绕过负例均有证据时开启该 consumer。当前七仓均未完成这一实测，不标 DA enabled。
+ProjectAdapter 使用相同记录，无第二准入平台。GOOD=当前真实入口与合法结果能进正确 claim；BAD=直接调用旧 PASS/伪造最终报告、错候选或漏掉一个正式出口必须拒绝；MISSING=没有独立结果/没有 accepted baseline 保持未知；UNCHANGED=从真实旧入口独立抽查的保护边及原 runner 仍可运行。初次由原项目专业审查者从源码重建入口/旧功能，再批准 consumer_binding 与映射摘要。Bridge 的 enable_consumer（原安装/接入命令内部函数）只在 adapter ACTIVE、04 七仓正常host finish调用与绕过负例均有证据时开启该 consumer。当前七仓均未完成这一实测，不标 DA enabled。
 
 修改定义由原 Executor 在原允许路径修，反馈原任务接收；改标准只由原 authority。控制集升级使相关激活失效，先校准再激活；合并/退休迁移原 bad/unchanged 与消费者。记录位于原 task 的 delivery_assurance/definitions/，active locator 仍在原项目 profile；中央维护沿原维护板 ADAPTING/DONE。机械准入不新增模型调用；独立路径复用本任务必要专业审查，其成本并入 06，不固定多开一个长期 agent。
 
@@ -1043,7 +1043,15 @@ core::decide_admission_route仍由Bridge::prepare_admission在首次**依赖本�
 
 新数据来源、余额真实性、权限/密钥语义、原要求可能被解释成较弱结果、新科学方法/规模、阈值或核心产品行为选择，以及原合同指定的独立要求，走INDEPENDENT。已由独立科学Planner从相同原材料冻结的现行CARE合同可以直接复用；新要求超出范围就不能复用旧批准。定义准入的风险规则仍按AR02，不因此处SELF而豁免。
 
-Admission.execution_admission沿原字段，新增的只是其已有owner/source绑定所指的 **role_execution_binding**：
+沿R1保留并在此完整冻结字段，避免旧段替换后缺少定义。新增纯函数 `core::decide_admission_route(request_sources, authorities, change_scope, effect_scope, project_policy, available_owner_bindings)` 由 `delivery.py::prepare_admission` 调用；CLI `ai-bridge delivery admit --context <json>` 为同一函数。原文、附件、已激活政策或效果范围关键项未知时不能选择SELF，不能只信Executor自填风险。
+
+`execution_admission={mode:NATIVE|LITE|REVIEW|CONTROL|PROJECT,review_requirement:SELF|INDEPENDENT,reason_refs:Ref[],original_materials_ref:Ref,independent_result_ref:Ref或PENDING,owner_binding:Provenance,write_scope:Ref[],allowed_actions:READ_ONLY|BOUNDED_PRODUCT_WRITE,route_policy_ref:Ref,role_execution_binding_ref:Ref或NOT_APPLICABLE}`。这是不可变Admission revision，不是任务状态；变范围/原文/标准就失效相关决定。SELF的independent_result_ref写NOT_APPLICABLE及政策理由；PENDING仅限要求独立而未收到。
+
+确定的写前接点：run_lite_task在readiness后、产品subprocess前；run_codex_event在executor_prompt前且plan_transition从PLAN_FROZEN/REVISE派发时再核；launch_executor_with_preflight在adapter.launch_role前；原生on_pre_tool_use在P0已证覆盖的首次依赖修改工具前。项目自身模式使用其原host的同一接点，不依靠历史campaign。初次没有ACTIVE adapter仍可只读发现/拟候选与校准，不能用空adapter取得产品写权。
+
+独立输出固定 `request_admission={original_materials_digest:Digest,authority_digest:Digest,scope_revision:int,independently_derived_postconditions:Obligation[],comparison_findings:{source_refs:Ref[],kind:OMISSION|CONFLICT|NON_REQUIREMENT|AGREEMENT,explanation:string}[],decision:ADMIT|REVISE}`。不能用未知枚举冒ADMIT；材料缺失为REVISE并说明缺项。原PLAN/项目工件使用唯一标题“Delivery Assurance request_admission”下一个JSON块，多个/缺失/无法解析均不消费。角色来源由原launcher观察生成的RoleReceipt与结果Ref绑定，再由consume_requirement_review生成Receipt；不让尚未生成的回执digest放回输出造成循环。先独立列后置条件再对比；Executor不能删除独立发现，真实权威冲突交原角色澄清。
+
+独立传输引用的 **role_execution_binding**：
 `{role_authority_ref,transport:PROJECT_LOCAL_REVIEWER|REVIEW_SCHEDULED|CONTROL_BOUND_ROLE|EXTERNAL_MANUAL,entry_ref,host_or_service_identity,input_scope_ref,output_scope_ref,authorization_ref,budget_ref,return_consumer_ref,capability_evidence_ref}`。
 它保存在原项目profile并由Admission引用，不是角色注册服务或第二任务数据库。entry必须是下述确定入口之一；普通文件、自然语言角色名、抽象RuntimeAdapter、未启用schedule不能填“可自动”。
 
@@ -1053,13 +1061,13 @@ prepare_admission输出的执行选择仍为NATIVE/LITE/REVIEW/CONTROL/PROJECT�
 
 **适用对象**是项目已经定义的独立审查角色，例如Lucerna的LUCERNA_FINAL_PRODUCT_REVIEWER；不是给任何任务新增通用subagent。新增接线位于Bridge的拟议 `ai_bridge_kit/delivery.py::run_admission_review`，CLI固定为 `ai-bridge delivery admission-review --context <context> --binding <binding-ref>`。其有限本机分支 `run_project_reviewer_once` 用现有Codex非交互入口执行该项目角色的一次事前要求核对：
 
-`codex exec --json --sandbox read-only -C <frozen_review_input_root> --output-schema <request_admission_schema> -`
+`codex --ask-for-approval never exec --json --sandbox read-only -C <frozen_review_input_root> --output-schema <request_admission_schema> -`
 
 使用已发现的当前Codex可执行文件绝对路径及当前身份，不切CODEX_HOME、不另装客户端、不放任shell字符串。这条命令是未来接线合同，本轮未运行。它产生独立Reviewer上下文，**属于原项目角色的执行成本和权限**；机器政策要求每次批准新角色进程/任务时必须遵守，不能把项目文档当成用户当次授权。无合法授权就EXTERNAL_MANUAL，不偷偷fallback subagent。已有原生Reviewer子任务传输只有原项目原本使用且权限已明确允许时可作等效carrier，不能成为本方案默认依赖。
 
-输入由当前owner准备：原始请求全文、所有相关修订/附件、正式标准、接受基线、已授权源码快照与本轮目标范围；不是Executor摘要。角色先独立列后置条件，再与Executor投影比较。需求核对不执行产品、不访问设备或账号，也不把未来原生产品验收的权限一并带入。只读snapshot和实际工具允许集必须阻止候选/产品/控制样本写入；文件sandbox不代表MCP无外部写能力。实际host无法限制工具或无法提供必需原材料时，禁止这条自动分支，不能只靠prompt声称隔离。
+输入由当前owner准备：原始请求全文、所有相关修订/附件、正式标准、接受基线、已授权源码快照与本轮目标范围；不是Executor摘要。角色先独立列后置条件，再与Executor投影比较。需求核对不执行产品、不访问设备或账号，也不把未来原生产品验收的权限一并带入。只读snapshot和实际工具允许集必须阻止候选/产品/控制样本写入；文件sandbox不代表MCP无外部写能力。实际host无法限制工具或无法提供必需原材料时，禁止这条自动分支，不能只靠prompt声称隔离。原role binding必须列出已验证的配置/工具集合与精确CLI参数；只允许原请求读取、受限shell只读代码分析和结构化输出，禁写入型MCP、网络外发、角色再委派及提权；--ask-for-approval never使非交互进程不能靠提示升级权限。不得为实现这条路线擅改用户全局配置；现有身份不能满足就明确不支持。输入快照位于原repo下受权task目录，保留Git根识别与原身份，不创建worktree或切分支。
 
-Reviewer仅向stdout输出R1既有request_admission对象（原材料/authority摘要、scope、独立后置条件、差异、ADMIT或REVISE）。Bridge父进程记录实际命令身份、PID/start、独立thread id、输入摘要、输出/exit及原role receipt；父进程把结果写原任务 `delivery_assurance/admission/<scope_revision>/`。Reviewer不写生产目录或正式标准。随后 **consume_requirement_review** 验schema/来源/角色/原文/scope/预算并写Receipt；ADMIT才解开相关产品写入，REVISE交同一Executor修解释/计划。缺输出、错误scope、工具越权或原材料不全保持未准入。
+Reviewer的最终assistant消息只能包含上述request_admission JSON。--json的stdout本身是JSONL事件流，父进程从精确thread的终态assistant消息提取该JSON，并同时验证turn完成、退出状态和schema；不能把任意中间输出或最后一行当决定。Bridge父进程记录实际命令身份、PID/start、独立thread id、输入摘要、输出/exit及原role receipt；父进程把结果写原任务 `delivery_assurance/admission/<scope_revision>/`。Reviewer不写生产目录或正式标准。随后 **consume_requirement_review** 验schema/来源/角色/原文/scope/预算并写Receipt；ADMIT才解开相关产品写入，REVISE交同一Executor修解释/计划。缺输出、错误scope、工具越权或原材料不全保持未准入。
 
 **谁触发：** Lite的run_lite_task在启动产品Executor前直接调用；已有project orchestrator在派发Producer前调用；原生UserPromptSubmit只准备/返回该确定动作，当前Executor正常工具调用运行admission-review，PreToolUse拒绝先越过相关写入。短Hook不阻塞等待模型，不偷偷起后台任务。若当前宿主没有可调用的本机命令/角色通道，则该原生环境不能承诺自动独立核对。CLI无模型父进程的只读projection自举沿R1保留，不能把projection当Reviewer。
 
@@ -1074,6 +1082,9 @@ Reviewer仅向stdout输出R1既有request_admission对象（原材料/authority�
 获权的原owner在原任务branch发布REQUEST及PLAN_REQUESTED；既有scheduler下一次触发才开始工作。该分支先读原材料，从原文重建后置条件，写PLAN/request_admission，回读校验后最后写原CURRENT=PLAN_FROZEN。local watcher已有eligible_events再调用run_codex_event前，由prepare_admission/consume_requirement_review读取这份当前决定；从此进入原Executor及原精确resume设计。没有模型活跃时，**已在运行的原watcher**是耐久接收者；它不等于外部Planner启动者。没有活跃watcher或原生owner时，结果可持久保存，但automatic_return=false，恢复同task后先消费，不能宣称已送达。
 
 首轮scope/request摘要、schedule实际身份和返回artifacts必须吻合。等待不消耗review/repair轮次；沿原至少两小时正常外部等待规则，不能以两小时无回复自动判失败。scheduler禁用/权限故障有具体证据才走恢复。新增首轮处理不改Review的三个逻辑角色、不增加工作流、不扩大其人工审批/外发权限。
+
+
+原生需要耐久Review接收时，adopt_existing_mode仍按session/request摘要幂等复用同一task。仅在上面的schedule、原watcher、安装、元数据/精确分支策略与材料发布权限全部成立时调用现有reviewed_handoff.init_task；不启动watcher、不创建Codex任务、不擅改branch。REQUEST保留完整原文/附件refs，native证据根只存原task定位，不另维护CURRENT。原生当前回合停止依赖写入，既有watcher后来继续这一个逻辑task；若需换Codex执行session，明确记录原session→原Review task的关联，不能把这种已有模式接管说成原native thread精确resume。用户恢复原native task时只读接管状态，lease阻止双方同时执行。缺上述资格只准备自包含原Planner输入，不创建无接收者的任务文件。
 
 ### 4. Control与CARE：复用当前真正可运行的角色，而非抽象类
 
@@ -1188,3 +1199,9 @@ Review细节：现有模板需要同步“专业review先写、最终claim待原
 Stop只执行只读汇总和短原子报告步骤，不在2秒Hook里运行模型、设备或长测试；超时不产生Claim，当前原owner通过finish工具路径完成同一检查。宿主必须以已关闭AR05的P0证据验证Stop/返回性质；未证明或禁用时不能标“自动结束拦截”。native-only且没有活跃owner时不冒称自动恢复。
 
 **绕过测试统一形状：** 当前候选故意缺一个该仓必需的独立专业结果；让Executor不运行finish，直接写正常result路径并退出0/结束回合。实际原host完成接点必须调用finish，拒绝accept_submission和USER_READY，产生该缺项Feedback；随后同task补合法结果并重试才接受。测试调用的是正常host，不能直接调用helper冒替。未证此链的consumer保持DA disabled。
+
+### R2 提交身份与失败返回的补充约束
+
+finish使用原host观察的completion事件与现有lease/session token形成invocation记录，不信草稿中的自报host。报告/claim先不可变写入，accept_submission在短mutex内重核candidate、cancel_epoch与invocation后提交report.manifest；崩溃只留未接受的孤立文件，恢复重核后可复用，不回写已有Ref。原owner收到的stdout固定为{status:READY|REPAIR|WAIT|STOP,claim_ref_or_none,report_ref_or_none,feedback_refs,submission_accepted:boolean}，退出0必须是所请求阶段已被接受；2为未就绪，3为接口/身份错误。取消/权限等待可以结束当前活动，但submission_accepted=false；不能以不退出死循环强迫用户授权。
+
+独立要求REVISE只修当前投影/计划及其解释，不先改依赖产品；每scope一次正常独立调用，必要再审计入原角色预算，不自动重试格式坏输出。异步返回写错task/scope、旧role/template、cancel后迟到、已失效能力资格一律保留原证据而不解写锁。相同结果二次消费复用receipt，不再扣轮次或启动产品。未有独立接收能力时不支持的是“需要独立决定的该范围无人介入继续”，仍允许只读诊断、草案、已准入且不依赖缺口的合法子范围；最终USER_READY不放宽。
