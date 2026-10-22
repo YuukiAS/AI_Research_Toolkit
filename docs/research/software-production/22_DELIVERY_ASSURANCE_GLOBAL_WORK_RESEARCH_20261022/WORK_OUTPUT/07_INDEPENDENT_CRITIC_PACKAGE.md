@@ -316,3 +316,12 @@ Bridge开发分支最新固定到 **76e2f14d5669867b2d4e3fa0950d8b2fedea7f35**�
 技术权威03/04和823行CSV未改，五项已关闭机制没有放松。本轮文件仅是同一架构的解释及阶段落地视图；出现真实语义冲突必须修订并交Critic，不能选择较宽松文本执行。原R2 prompt由7ca0f0固定历史保存，当前08更新不是改写旧审查结论。
 
 独立审查者应打开SVG检查实际可读性，不仅扫描XML；从Lucerna原任务/修复记录核对“历史发生什么”和“DA拟怎样处理”没有混用。最终对象是未来同候选真实产品，图画得完整不证明调用已实现。
+
+
+### 用户允许审查草稿后的精确补齐
+
+用户在本任务明确回复“允许保存审查草稿，不授权执行”。[13 Canonical Goal草稿](13_P0_CANONICAL_GOAL_REVIEW_DRAFT.md)与[14 Kickoff Draft](14_P0_KICKOFF_REVIEW_DRAFT.md)均DRAFT/NOT_AUTHORIZED，首个可审执行范围只有原P0的本机非交互CLI；不得给全部生产实施一个有条件放行。
+
+本轮只做文件定位：命令首选C:\\Users\\humc2\\AppData\\Local\\OpenAI\\Codex\\bin\\codex.exe的SHA-256为DD4ADF302B112FDC30FCE509A5E261A0A6F1118DC58AC2DA636EB84E0A6B3E3E；另一个版本目录binary不同，不混用。未执行--version或任何Codex进程。13的fixture根只检查不存在，没有创建。官方固定[exec cli.rs](https://github.com/openai/codex/blob/b4ad33d1a3c10c9652dd57f7afd7a949f8f26895/codex-rs/exec/src/cli.rs#L35)重新读取，支持skip-git-repo-check/JSONL/精确resume的源码接口；当前安装版是否一致仍是P0待测事实。
+
+因此同版包现含Plan、目标审查草稿、启动范围草稿、架构解释与可读图。材料齐备只说明可以交独立Critic，并不等于其已批准、用户已授权或宿主已支持。生产源、七仓运行及安装状态均未改变。
