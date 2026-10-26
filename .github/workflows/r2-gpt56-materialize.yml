@@ -1,0 +1,55 @@
+name: R2 GPT56 materialize
+
+on:
+  push:
+    branches:
+      - research/complex-system-showcase-20261026-r2-gpt56
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: contains(github.event.head_commit.message, 'stage r2 materialization payload')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Reconstruct reviewed payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .r2-payload/payload.b64.* | tr -d '\n' | base64 -d > /tmp/r2-payload.tar.gz
+          echo "0849c90618940ce687ff23dbd6d30d6ab8653e11a7488cada319701f8dafb0e6  /tmp/r2-payload.tar.gz" | sha256sum -c -
+          tar -xzf /tmp/r2-payload.tar.gz
+      - name: Install browser checks
+        run: |
+          python -m pip install beautifulsoup4 playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Generate and verify delivery
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd docs/research/complex-system-showcase-20261026/r2/gpt56/prototype
+          node --check architecture-data.js
+          node --check app.js
+          python export-copy-audit.py
+          python export-architecture-model.py
+          python verify.py
+          python export-manifests.py
+          python -c 'import csv,json; from pathlib import Path; root=Path(".."); rows=list(csv.DictReader((root/"COPY_EDITORIAL_AUDIT.tsv").open(encoding="utf-8"), delimiter="\t")); assert len(rows)==467; assert json.loads(Path("qa-results.json").read_text(encoding="utf-8"))["overall_pass"] is True; assert len(list((root/"previews").glob("*.png")))==6'
+      - name: Commit final artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .r2-payload .github/workflows/r2-gpt56-materialize.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat(r2-gpt56): deliver interactive architecture prototype"
+          git push origin HEAD:${GITHUB_REF_NAME}
