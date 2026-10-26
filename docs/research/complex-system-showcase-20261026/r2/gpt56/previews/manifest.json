@@ -1,0 +1,54 @@
+{
+  "generated_on": "2026-10-26",
+  "source_manifest": "../prototype/source-manifest.json",
+  "screenshots": [
+    {
+      "file": "desktop-architecture.png",
+      "viewport": "1600 × 1000",
+      "state": "正常交付，默认全图",
+      "purpose": "完整架构首屏；没有节点被默认淡化。",
+      "sha256": "fdaaa96db7022513e54540d2ca512abfcdea1d01d559a027eb4d726e7074653d",
+      "bytes": 380321
+    },
+    {
+      "file": "desktop-component-bridge.png",
+      "viewport": "1600 × 1000",
+      "state": "正常交付，选中 Bridge Kit",
+      "purpose": "展示节点上下游高亮和责任检查器。",
+      "sha256": "570b17a0b9429381b2b8ef3c4af79e94302f819296a6233ccbc36b6b34af4ef3",
+      "bytes": 358312
+    },
+    {
+      "file": "desktop-failure-path.png",
+      "viewport": "1600 × 1000",
+      "state": "验收失败，返回原任务",
+      "purpose": "橙色返修回路与其余架构同时可见。",
+      "sha256": "4b5b4c4c6c9869ebe4b084b964f5be7166d6d8c2f2b32a397314730f91001b3e",
+      "bytes": 381933
+    },
+    {
+      "file": "desktop-connection-detail.png",
+      "viewport": "1600 × 1000",
+      "state": "验收失败，选中专业结果连接",
+      "purpose": "展示连接的传递内容、触发条件、接收者、接通条件和缺口。",
+      "sha256": "9026617701ade8e8548511797d1aa8da4c567fa86c553b3bac2dace5b87e2d5f",
+      "bytes": 345198
+    },
+    {
+      "file": "mobile-architecture.png",
+      "viewport": "390 × 844",
+      "state": "正常交付",
+      "purpose": "同一模型重排为纵向路径。",
+      "sha256": "39447c7a8e4ff8bb8e25c5ecd09ad38b41ecad540c6a5fcd51a576518d149e1a",
+      "bytes": 90017
+    },
+    {
+      "file": "mobile-regression-path.png",
+      "viewport": "390 × 844",
+      "state": "新修复破坏旧功能",
+      "purpose": "旧功能成为路径中的独立步骤。",
+      "sha256": "8a90a82b46e5b5584922875e4af900991726c137fe4164488d45f3c6ee4ba36c",
+      "bytes": 94227
+    }
+  ]
+}

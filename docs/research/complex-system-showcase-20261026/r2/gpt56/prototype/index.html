@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Delivery Assurance 目标架构的交互式设计原型：查看组件、连接、正常交付、失败返修和旧功能保护路径。">
+  <meta name="color-scheme" content="light">
+  <title>Delivery Assurance 架构</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="architecture-data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#architecture">跳到架构图</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="回到页面顶部">
+      <span class="brand-mark" aria-hidden="true">DA</span>
+      <span>Delivery Assurance</span>
+    </a>
+    <nav aria-label="页面导航">
+      <a href="#architecture">架构</a>
+      <a href="#lucerna">案例</a>
+      <a href="#decision">方案比较</a>
+      <a href="#evidence">证据</a>
+    </nav>
+    <p class="header-state"><span aria-hidden="true"></span>设计已审，尚未接入生产</p>
+  </header>
+
+  <main id="top">
+    <section class="architecture-section" id="architecture" aria-labelledby="architecture-title">
+      <div class="section-intro">
+        <div>
+          <p class="section-label">目标架构</p>
+          <h1 id="architecture-title">一次交付怎样完成验收、返修和复验</h1>
+          <p class="intro-copy">原任务仍由当前 Codex 负责。项目验收程序检查实际成品；Delivery Assurance 核对本次承诺和原有功能；Bridge Kit 负责绑定身份、运行与失败回传。</p>
+        </div>
+        <p class="scope-statement"><strong>目前做到哪一步</strong><br>这套目标架构已经通过设计审查。普通入口接线、自动返修和七个项目的正式启用仍未完成。</p>
+      </div>
+
+      <div class="scenario-toolbar" aria-label="选择运行情境">
+        <div class="scenario-copy">
+          <span>运行路径</span>
+          <strong id="scenario-title">正常交付</strong>
+        </div>
+        <div class="segmented-control" role="group" aria-label="运行情境">
+          <button type="button" data-scenario="success" aria-pressed="true">正常交付</button>
+          <button type="button" data-scenario="failure" aria-pressed="false">验收失败，返回原任务</button>
+          <button type="button" data-scenario="regression" aria-pressed="false">新修复破坏旧功能</button>
+        </div>
+        <p id="scenario-summary" class="scenario-summary" aria-live="polite">专业证据与当前候选一致，交付结论进入最终使用路径。</p>
+      </div>
+
+      <div class="architecture-shell">
+        <div class="diagram-column">
+          <div class="diagram-key" aria-label="图例">
+            <span><i class="legend-dot existing" aria-hidden="true"></i>已有能力</span>
+            <span><i class="legend-dot proposed" aria-hidden="true"></i>建议新增</span>
+            <span><i class="legend-line pending" aria-hidden="true"></i>待接线或待实测</span>
+            <span><i class="legend-line optional" aria-hidden="true"></i>按需使用</span>
+          </div>
+
+          <div class="diagram-stage" id="diagram-stage" aria-label="Delivery Assurance 组件与通信架构">
+            <div class="zones" aria-hidden="true">
+              <span style="--x: 0%; --w: 23%">原任务</span>
+              <span style="--x: 23%; --w: 39%">协调与交付判断</span>
+              <span style="--x: 62%; --w: 21%">专业证据</span>
+              <span style="--x: 83%; --w: 17%">结果消费</span>
+            </div>
+            <svg id="edge-layer" viewBox="0 0 1280 640" preserveAspectRatio="none" aria-label="组件之间的调用和数据传递"></svg>
+            <div id="node-layer" class="node-layer"></div>
+            <p class="diagram-note">实线是现有路径；虚线已经明确接收者，但仍需完成生产接线或实际运行验证。</p>
+          </div>
+
+          <div class="mobile-graph" id="mobile-graph" aria-label="手机端路径视图"></div>
+        </div>
+
+        <aside class="inspector" aria-labelledby="inspector-title">
+          <div class="inspector-head">
+            <p id="inspector-type">组件</p>
+            <span id="inspector-status" class="status-tag">建议新增</span>
+          </div>
+          <h2 id="inspector-title">Delivery Assurance</h2>
+          <p id="inspector-summary" class="inspector-summary">核对本次承诺、受影响的原有功能和当前候选，只在证据足够时允许相应的交付结论。</p>
+          <dl id="inspector-details" class="inspector-details"></dl>
+          <div class="scenario-card" aria-label="当前情境说明">
+            <p>当前情境</p>
+            <strong id="inspector-scenario-title">正常交付</strong>
+            <span id="inspector-next">下一位接收者：用户或下游流程</span>
+          </div>
+        </aside>
+      </div>
+
+      <p class="keyboard-help">节点和连线均可点击。使用 Tab 移动焦点，按 Enter 或空格查看详细信息。</p>
+      <p id="live-announcement" class="sr-only" aria-live="polite"></p>
+    </section>
+
+    <section class="case-section" id="lucerna" aria-labelledby="lucerna-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Lucerna 案例</p>
+          <h2 id="lucerna-title">修一个状态判断，也要验证误报、漏报和旧功能</h2>
+        </div>
+        <a href="https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/results/01054_final_independent_release_acceptance/repair-product-001.md">查看历史修复记录</a>
+      </div>
+
+      <div class="case-grid">
+        <article>
+          <p class="case-kind">历史事实</p>
+          <h3>两条路线可用，第三条仍在检查</h3>
+          <p>当 Bridge host 或 VS Code 只有“未观测”证据时，旧逻辑曾把整体状态升级为故障。修复后，只有确认的次级故障才会要求注意。</p>
+          <p class="case-boundary">定向回归已经通过；该回合没有重建 Windows 正式候选，也没有完成新的独立界面验收。</p>
+        </article>
+        <article>
+          <p class="case-kind">验收反例</p>
+          <h3>不能把确认故障也改成正常</h3>
+          <p>为了消除误报而压低所有告警，会漏掉真实故障。验收程序应同时检查“未观测保持中性”和“确认故障仍然提示”。</p>
+          <p class="case-boundary">这是用于检验架构的故意错误候选，不是 Lucerna 已发生的新故障。</p>
+        </article>
+        <article>
+          <p class="case-kind">旧功能保护</p>
+          <h3>修好检查态，不能弄坏原有可用路线</h3>
+          <p>如果新状态映射让 Main 或 Backup 从可用变成不可用，即使新增用例通过，也不能交付。旧功能必须进入同一批交付义务。</p>
+          <p class="case-boundary">这也是检验用反例，用来确认回归保护是否实际运行。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="decision-section" id="decision" aria-labelledby="decision-title">
+      <div class="section-heading compact">
+        <div>
+          <p class="section-label">方案比较</p>
+          <h2 id="decision-title">为什么选择窄交付层</h2>
+        </div>
+        <p>推荐方案复用各项目现有验收程序，不新建中央调度器、数据库或通用评分器。</p>
+      </div>
+
+      <div class="comparison-table" role="table" aria-label="三种架构路线比较">
+        <div class="comparison-row comparison-head" role="row">
+          <span role="columnheader">路线</span>
+          <span role="columnheader">能解决什么</span>
+          <span role="columnheader">主要问题</span>
+          <span role="columnheader">结论</span>
+        </div>
+        <div class="comparison-row" role="row">
+          <strong role="cell">只加固各项目测试</strong>
+          <span role="cell">专业标准留在项目内，中央依赖最少。</span>
+          <span role="cell">每个项目重复处理原要求、证据失效和失败回传；普通任务仍可能绕过正式入口。</span>
+          <span role="cell">作为公共层无收益时的退路。</span>
+        </div>
+        <div class="comparison-row recommended" role="row">
+          <strong role="cell">窄交付层 + 现有验收</strong>
+          <span role="cell">共享交付义务、候选身份、证据资格和失败递送；专业判断仍由项目负责。</span>
+          <span role="cell">需要一组小接口，并逐个证明正常入口确实消费结果。</span>
+          <span role="cell">推荐。</span>
+        </div>
+        <div class="comparison-row" role="row">
+          <strong role="cell">另建编排平台</strong>
+          <span role="cell">运行、重试和长任务管理更完整。</span>
+          <span role="cell">增加账户、持久状态和多主风险，仍不能提供项目要求和专业标准的真值。</span>
+          <span role="cell">不采用。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="evidence-section" id="evidence" aria-labelledby="evidence-title">
+      <div class="section-heading compact">
+        <div>
+          <p class="section-label">证据与投入</p>
+          <h2 id="evidence-title">先用一条真实任务判断这套架构值不值得继续</h2>
+        </div>
+      </div>
+
+      <div class="evidence-layout">
+        <article class="falsification">
+          <h3>最早的否决试验</h3>
+          <ol>
+            <li>确认当前 Windows 与命令行入口能绑定原任务、接回失败并停止重复启动。</li>
+            <li>在同一 Lucerna 候选中运行正常、确认故障、旧功能退化和缺证据四类对照。</li>
+            <li>观察失败是否回到原 Codex，修复后是否重新验收当前候选。</li>
+          </ol>
+          <p>若失败报告仍需用户搬运，或旧功能没有进入检查范围，就撤回公共层，继续使用项目内加固方案。</p>
+        </article>
+
+        <article class="estimate-note">
+          <h3>旧方案中的工作量估算</h3>
+          <dl>
+            <div><dt>宿主探针</dt><dd>4–8 小时</dd></div>
+            <div><dt>首个完整切片</dt><dd>40–88 小时</dd></div>
+            <div><dt>全套旧方案</dt><dd>138–332 小时</dd></div>
+          </dl>
+          <p>这些数字来自旧方案，是实施前估算，不是实际耗时、当前预算或已批准投入。这次分工调整后，实施范围需要重新估算。</p>
+        </article>
+
+        <article class="state-note">
+          <h3>当前能确认的状态</h3>
+          <ul>
+            <li><strong>已有：</strong>Bridge Kit、workflow-core、项目验收程序及部分独立复核路径。</li>
+            <li><strong>已审设计：</strong>Delivery Assurance 的职责、失败回原任务和最终交付检查。</li>
+            <li><strong>尚未证明：</strong>普通入口自动接入、跨插件实际消费、自动返修和七仓启用。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>交互原型，仅用于架构设计研究。未实施 Delivery Assurance，也未发布正式网站。</p>
+    <a href="../ARCHITECTURE_MODEL.md">查看完整架构模型</a>
+  </footer>
+
+  <noscript>此原型需要 JavaScript 才能切换情境和查看节点、连线详情。</noscript>
+</body>
+</html>
