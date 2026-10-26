@@ -8,6 +8,7 @@
 
 - [从科研想法到博士一作论文：通用科学研究标准](RESEARCH_IDEA_TO_FIRST_AUTHOR_PAPER_STANDARD.md)：从重要科学问题、原始文献与可证伪假设出发，经强基线、独立证据、原创贡献与第一作者主导形成可发表研究。
 - [复杂系统设计与交付标准](COMPLEX_SYSTEM_DESIGN_GUIDE.md)：怎样设计、实施和验收真实可用的复杂系统。
+- [AI 架构团队：用户需求](docs/research/architecture-workflow-20261026/01_USER_REQUIREMENTS_ZH.md)与[方案比较](docs/research/architecture-workflow-20261026/02_OPTIONS_AND_RECOMMENDED_MECHANISM_ZH.md)：记录跨项目长期要求，比较三种 AI 设计方式，给出并行协作、人工成本与架构交接建议（尚未自动化落地）。
 - [复杂架构的可信解释标准](COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)：怎样结合实际使用、因果机制与证据，向读者解释系统为何有用、当前真正做到了什么。
 - [AI 可靠工作体系：当前组件与设计边界](AI_RELIABILITY_SYSTEM_REFERENCE.md)：记录 Reasoned Design、Artifact Curation、Clear Writing、workflow-core、Delivery Assurance 与 Bridge Kit 的目标职责，供复杂系统展示研究引用；方案尚未实施。
 - [用户认可的复杂架构解释范例（2026-10-22）](docs/examples/ACCEPTED_COMPLEX_ARCHITECTURE_EXPLANATION_2026-10-22.md)：保留一次明确获得用户认可的完整版本对比、真实机制及证据边界解释，作为范例而非新的强制模板或产品验收结论。
