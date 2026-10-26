@@ -11,6 +11,7 @@
 - [复杂架构的可信解释标准](COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)：怎样结合实际使用、因果机制与证据，向读者解释系统为何有用、当前真正做到了什么。
 - [AI 可靠工作体系：当前组件与设计边界](AI_RELIABILITY_SYSTEM_REFERENCE.md)：记录 Reasoned Design、Artifact Curation、Clear Writing、workflow-core、Delivery Assurance 与 Bridge Kit 的目标职责，供复杂系统展示研究引用；方案尚未实施。
 - [用户认可的复杂架构解释范例（2026-10-22）](docs/examples/ACCEPTED_COMPLEX_ARCHITECTURE_EXPLANATION_2026-10-22.md)：保留一次明确获得用户认可的完整版本对比、真实机制及证据边界解释，作为范例而非新的强制模板或产品验收结论。
+- [Mica：路线图完整却漏了真实界面取证](docs/examples/MICA_REAL_UI_EVIDENCE_GATE_FAILURE_2026-10-26_ZH.md)：记录关键外部测试前提未落实导致开发停滞的例子，以及如何局部继续开发。
 
 ## 新机器使用流程
 
