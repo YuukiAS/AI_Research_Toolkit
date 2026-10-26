@@ -1,0 +1,136 @@
+{
+  "capturedAt": "2026-10-26T14:10:07.141Z",
+  "browser": "151.0.7922.34",
+  "platform": "win32",
+  "sourceSHA256": {
+    "index.html": "600a2395aa350cc9a12213b42b1abb59fffcd67bdde74b5a70183a8d14c0a1fe",
+    "content.cjs": "a0a38baa25594da0ec839fad80ed06804e453112b3eb5507b3d2b6ea6901ff4f",
+    "layout.cjs": "1bff09e02a23e30e080000a208ec79af5bc88e0a1dd5a7a3c90372d774cfac19",
+    "app.js": "0687a204d34f05f701bdedb0be125cdb4f43e1a5f5c1c04114d21020d66c0518",
+    "styles.css": "5222eaf6d41443906dadce159561121593293d09c4d44fd534f2fc544325768d",
+    "build.cjs": "f823a6ee982e060edfe10a2e9cd529559550da5537c9e483d5764827adcfe853",
+    "model.json": "6409d706f8389df99325add0a22849606cda25609438f59cc627fecf5c142404"
+  },
+  "checks": [
+    {
+      "check": "1440×1000 首屏完整主图",
+      "bottom": 802.421875,
+      "result": "pass"
+    },
+    {
+      "check": "14 个组件详情与实际上下游",
+      "result": "pass"
+    },
+    {
+      "check": "16 条连接的载荷、消费者与状态",
+      "result": "pass"
+    },
+    {
+      "check": "3 情境 19 步、顺序、首尾边界和反向操作",
+      "result": "pass"
+    },
+    {
+      "check": "双端全部连接标签不覆盖节点",
+      "result": "pass"
+    },
+    {
+      "check": "320 / 360 / 390 / 768 / 1024 / 1280 / 1440 CSS 像素无横向溢出",
+      "result": "pass"
+    },
+    {
+      "check": "手机全部节点、边、19 步及关闭后焦点回到原对象",
+      "result": "pass"
+    },
+    {
+      "check": "Enter / Space、Escape 与手机弹层 Tab 焦点约束",
+      "result": "pass"
+    },
+    {
+      "check": "减少动态效果偏好",
+      "result": "pass"
+    },
+    {
+      "check": "无脚本保留全图、正文和依据；提示交互限制",
+      "result": "pass"
+    }
+  ],
+  "errors": [],
+  "textCount": 272,
+  "screens": [
+    {
+      "file": "previews/desktop-overview.png",
+      "width": 1440,
+      "height": 1000,
+      "fullPage": false,
+      "sha256": "73249fae45ffc7984786569694ad83044329f8b0d49c9ceb55ce5c76328dc07e"
+    },
+    {
+      "file": "previews/desktop-component.png",
+      "width": 1440,
+      "height": 1000,
+      "fullPage": false,
+      "sha256": "86573b2cfc029507c9463779125e5c600965a60880019bdc62de320289c0ced2"
+    },
+    {
+      "file": "previews/desktop-connection.png",
+      "width": 1440,
+      "height": 1000,
+      "fullPage": false,
+      "sha256": "20267b18bcea5dfe07f725fe8e1108d9ab3d5084f9ddd80dab4b533aa98cf2a1"
+    },
+    {
+      "file": "previews/desktop-failure.png",
+      "width": 1440,
+      "height": 1000,
+      "fullPage": false,
+      "sha256": "97872aa2690c95194439b73a76416b67461e4864ebb61e0888b36c5beac99b3b"
+    },
+    {
+      "file": "previews/desktop-repair.png",
+      "width": 1440,
+      "height": 1000,
+      "fullPage": false,
+      "sha256": "6274844b9761b04c0460db100d68657bf9cc44cb2e54bc8e4fe469ebd3218d6b"
+    },
+    {
+      "file": "previews/desktop-regression.png",
+      "width": 1440,
+      "height": 1000,
+      "fullPage": false,
+      "sha256": "3f217aff9b37ffd0305196eb4a7c3c15a12f6b8c24e68c1e173133e36be0a073"
+    },
+    {
+      "file": "previews/complete-website.png",
+      "width": 1440,
+      "height": 1000,
+      "fullPage": true,
+      "sha256": "99f4564d14dad7928ecfa6ab745a66e843056c08405d48b49f3ec3dcda4fc6d4"
+    },
+    {
+      "file": "previews/mobile-overview.png",
+      "width": 390,
+      "height": 844,
+      "fullPage": true,
+      "sha256": "476bbf3105f4fe783c84f1165debab01ada6c9da34635d38ece807173b1b6c6d"
+    },
+    {
+      "file": "previews/mobile-first-screen.png",
+      "width": 390,
+      "height": 844,
+      "fullPage": false,
+      "sha256": "61a294cb461164b58869440386a3d09cc421fe70cba5b1d9742e15281792f584"
+    },
+    {
+      "file": "previews/mobile-component.png",
+      "width": 390,
+      "height": 844,
+      "fullPage": false,
+      "sha256": "7ee1a5a9b1205c2c2a2ddad67ede209bbcce85f50ecf94c00638ee3e0b7f1ac3"
+    },
+    {
+      "file": "previews/architecture.png",
+      "sha256": "a303bbdc6bfa235183dcaa9888437b1e3638017548a1ead5962cefa5b3607686",
+      "element": "svg.desktop"
+    }
+  ]
+}
