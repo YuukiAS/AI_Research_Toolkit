@@ -1,0 +1,56 @@
+{
+  "observedOn": "2026-10-26",
+  "method": "Connected GitHub source reads; blob identity is not runtime validation",
+  "files": [
+    {
+      "key": "11ty/buildawesome:package.json",
+      "gitBlob": "21ade051cd405fad736cd61e6ea318d6e783ec93",
+      "url": "https://github.com/11ty/buildawesome/blob/main/package.json"
+    },
+    {
+      "key": "withastro/astro:packages/astro/package.json",
+      "gitBlob": "3bb9c200b60d9238f54e8a0d1a3b9b21f5ad8fbb",
+      "url": "https://github.com/withastro/astro/blob/main/packages/astro/package.json"
+    },
+    {
+      "key": "vuejs/vitepress:package.json",
+      "gitBlob": "0c8ca0845634475eeddef75fefacc5592af43a49",
+      "url": "https://github.com/vuejs/vitepress/blob/main/package.json"
+    },
+    {
+      "key": "facebook/docusaurus:packages/docusaurus/package.json",
+      "gitBlob": "16cd79799fc70cfb66e76f5313a765f6ebf8ebc0",
+      "url": "https://github.com/facebook/docusaurus/blob/main/packages/docusaurus/package.json"
+    },
+    {
+      "key": "xyflow/xyflow:README.md",
+      "gitBlob": "116e99c700ee30bbd29f1631c5b84c897d3631ac",
+      "url": "https://github.com/xyflow/xyflow/blob/main/README.md"
+    },
+    {
+      "key": "observablehq/plot:package.json",
+      "gitBlob": "007363bf97826fa8ef748dc6f3fd20c7f5bb67c6",
+      "url": "https://github.com/observablehq/plot/blob/main/package.json"
+    },
+    {
+      "key": "carbon-design-system/carbon:README.md",
+      "gitBlob": "f8db2b80a8e14257ce61715822b141d81049f3ad",
+      "url": "https://github.com/carbon-design-system/carbon/blob/main/README.md"
+    },
+    {
+      "key": "alphagov/govuk-frontend:README.md",
+      "gitBlob": "2e87903bd92bcfc88d35217dd6b54f6edd12afed",
+      "url": "https://github.com/alphagov/govuk-frontend/blob/main/README.md"
+    }
+  ],
+  "additional": [
+    {
+      "key": "11ty/buildawesome@v3.1.7:package.json",
+      "gitBlob": "71524ae42ffe48f839f8784a8be2ebd3db678e0d"
+    },
+    {
+      "key": "automerge/automerge:LICENSE",
+      "gitBlob": "18812465f040a79603e588aec3153f1d68cdeac6"
+    }
+  ]
+}

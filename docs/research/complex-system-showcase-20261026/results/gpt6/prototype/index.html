@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="用一个真实误报案例，理解 Delivery Assurance 如何连接要求、成品、证据和返修。设计研究，尚未部署。">
+  <title>Delivery Assurance · 系统观察室</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="interactions.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header">
+  <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">∴</span>系统观察室</a>
+  <nav aria-label="正文导航"><a href="#walk">一次交付</a><a href="#parts">组件分工</a><a href="#evidence">证据与边界</a></nav>
+  <span class="edition">设计研究 / 2026.10</span>
+</header>
+<main id="main">
+<section class="hero wrap" id="top" aria-labelledby="title">
+  <div class="hero-copy">
+    <p class="eyebrow">AI 可靠工作体系 <span>/</span> Delivery Assurance</p>
+    <h1 id="title">交付之前，<br>先证明它做到了。</h1>
+    <p class="lead">把原始要求、旧功能和当前成品的证据连起来。发现问题后，交回原任务修复，减少你亲自找错、催验收的工作。</p>
+    <p class="availability"><span aria-hidden="true"></span><strong>尚未部署</strong> · 旧方案已通过设计审查，新的职责分工仍是候选。</p>
+    <a class="primary-link" href="#walk">看一次交付怎样被判断 <span aria-hidden="true">↘</span></a>
+  </div>
+  <figure class="case-cover">
+    <figcaption><span>来自 Lucerna 的真实问题</span><span class="small">历史状态重绘</span></figcaption>
+    <div class="case-number"><strong>2<span>/3</span></strong><p>访问路线可用，<br>整体却曾被误报为故障。</p></div>
+    <div class="route-row"><span>Main</span><span class="state good">● 可用</span></div>
+    <div class="route-row"><span>Backup</span><span class="state good">● 可用</span></div>
+    <div class="route-row"><span>Tailscale</span><span class="state neutral">◌ 检查中</span></div>
+    <div class="case-lesson"><span class="lesson-rule" aria-hidden="true"></span><p><strong>尚未观察到，不等于已经故障。</strong><br>但消除误报，也不能掩盖真正的故障。</p></div>
+    <a class="source-link" href="https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/results/01054_final_independent_release_acceptance/repair-product-001.md">查看原修复记录 <span aria-hidden="true">↗</span></a>
+  </figure>
+</section>
+<div class="reading-line wrap"><span>判断一次交付，需要连起</span><ol><li>原始要求</li><li>当前成品</li><li>专业证据</li><li>接收与返修</li></ol></div>
+
+<section class="chapter wrap" id="walk" aria-labelledby="walk-title">
+  <div class="section-heading"><div><p class="eyebrow">一次交付</p><h2 id="walk-title">同一个要求，<br class="mobile-break">三种结果。</h2></div><p class="section-intro">“检查中别误报故障，真正故障仍要提醒。”<br>切换候选，看改变了什么、谁应该接着处理。</p></div>
+  <p class="scope-note">以下是基于历史问题的<strong>设计推演</strong>，不是 DA 已经执行的测试，也不是 Lucerna 的实时状态。</p>
+  <div class="scenario-controls" role="group" aria-label="选择推演候选" hidden>
+    <button type="button" data-scenario="good" aria-pressed="true">符合要求</button>
+    <button type="button" data-scenario="bad" aria-pressed="false">掩盖真故障</button>
+    <button type="button" data-scenario="regression" aria-pressed="false">旧功能退化</button>
+  </div>
+  <p id="scenario-announcement" class="sr-only" aria-live="polite"></p>
+  <article class="scenario" data-panel="good" aria-labelledby="good-title">
+    <div class="observation">
+      <p class="panel-kicker">符合要求 / 预期表现</p><h3 id="good-title">检查可以继续，<br>已可用的连接照常可用。</h3>
+      <div class="comparison"><div><span class="column-label">输入事实</span><p>Main、Backup 已可用<br>Tailscale 检查中<br>辅助状态尚未观测</p></div><div><span class="column-label">候选应显示</span><p><strong class="good">整体可用</strong><br>未观测项保持中性<br>标题、摘要、详情一致</p></div></div>
+      <p class="explanation">这里观察的是“哪些状态会被当成故障”。不能因为有一个未知项，就把整台系统标成不可用。</p>
+    </div>
+    <div class="decision" data-tone="good"><p class="panel-kicker">交付判断 / 条件成立时</p><h3>证据齐全，才可交付</h3><ul class="checks"><li>正确与错误状态均通过对照</li><li>受影响的旧连接、状态展示不退化</li><li>本次 EXE 与真实窗口观察一致</li><li>必要的独立审查属于同一候选</li></ul><p>项目验收程序提供观察，DA 核对必需项及版本；原工作流消费结论后，才向用户报告相应范围已完成。</p></div>
+  </article>
+  <article class="scenario" data-panel="bad" aria-labelledby="bad-title">
+    <div class="observation"><p class="panel-kicker">故意错误的候选 / 非历史实测</p><h3 id="bad-title">把所有状态都画成正常，<br>也能“消除”误报。</h3><div class="comparison"><div><span class="column-label">输入事实</span><p>Main、Backup 可用<br><strong class="bad">Bridge 次级故障已确认</strong><br>故障证据有效</p></div><div><span class="column-label">错误候选显示</span><p><strong class="good">一切正常</strong><br>没有需要注意的提示<br>真实故障被掩盖</p></div></div><p class="explanation">正确结果应是“需要注意”，同时保留可用连接。验收要同时检查误报与漏报，不能只看画面是否变绿。</p></div>
+    <div class="decision" data-tone="bad"><p class="panel-kicker">交付判断 / 推演预期</p><h3>拒绝这个候选</h3><p class="decision-reason">真实故障没有被提醒，原始要求尚未满足。</p><dl class="feedback"><dt>失败证据</dt><dd>确认故障的输入、窗口实际展示、预期状态与候选身份</dd><dt>下一位接收者</dt><dd>原 Codex 任务，修复状态映射并重新验收</dd><dt>不得替代</dt><dd>删除这个坏例、放松标准，或拿旧截图证明新版本</dd></dl></div>
+    <details class="repair-path" open><summary>失败怎样回到原任务，而不是留下一份报告？</summary><ol><li><span>项目验收 → DA</span><p>原运行器返回实际与预期、原始观察和候选身份；DA 判定哪项承诺没有满足。</p></li><li><span>workflow-core → Bridge → 原 Codex</span><p>路由到原任务的活跃执行者；Bridge 传递准确身份和反馈。必须观察到接收与后续处理，写出文件不算送达。</p></li><li><span>修复后的候选 → 重新验收</span><p>Codex 修映射，重跑正例、坏例与受影响旧行为。新 EXE 重新观察，过期截图和独立意见失效。</p></li></ol><p class="boundary">只在已证明支持的入口和原预算内续修。用户取消、权限不足或没有活跃接收者时，保存原任务恢复点；不承诺后台自行唤醒。</p></details>
+  </article>
+  <article class="scenario" data-panel="regression" aria-labelledby="regression-title">
+    <div class="observation"><p class="panel-kicker">故意引入的旧功能退化 / 非历史实测</p><h3 id="regression-title">新误报消失了，<br>原来可用的路线却显示不可用。</h3><div class="comparison"><div><span class="column-label">受保护的旧行为</span><p>Main 仍有可用证据<br>已有连接正确展示<br>接受基线中的行为不变</p></div><div><span class="column-label">错误候选显示</span><p><strong class="bad">Main 不可用</strong><br>新状态映射破坏旧展示<br>本次新用例仍可能通过</p></div></div><p class="explanation">修改共享状态逻辑时，要沿入口与依赖找回受影响的旧行为。只跑新增测试，会漏掉这个错误。</p></div>
+    <div class="decision" data-tone="bad"><p class="panel-kicker">交付判断 / 推演预期</p><h3>旧功能也是交付条件</h3><dl class="feedback"><dt>检查从哪里来</dt><dd>已接受的版本、正式产品合同，以及本次改动的反向消费者</dd><dt>失败交给谁</dt><dd>原 Codex 修共享映射；重新运行受影响回归与当前窗口观察</dd><dt>范围未知时</dt><dd>保留覆盖缺口；全跑现有测试也不能把未知改成通过</dd></dl></div>
+  </article>
+  <details class="evidence-rule"><summary>如果测试全绿，却没有本次应用的观察呢？</summary><p><strong>仍不能证明真实交付。</strong>源码测试、构建产物、实际 EXE、运行实例和窗口观察必须对应。缺少当前观察时明确“尚未证明”，不把缺测算作成功。检查程序自身还须用正确、错误、缺证据和旧行为四类对照校准；有重要专业判断时，由既有独立权威批准适用版本。</p></details>
+</section>
+
+<section class="chapter parts-section" id="parts" aria-labelledby="parts-title"><div class="wrap">
+  <div class="section-heading"><div><p class="eyebrow">必要的分工</p><h2 id="parts-title">一次交付，<br>谁对什么负责。</h2></div><p class="section-intro">交付判断、专业事实和合法运行分别负责。<br>展开任一部件，看它接收什么、把结果交给谁。</p></div>
+  <div class="ownership-note"><span class="caption">本页采用的目标分工</span><p>旧 R3 把共享交付判断放在 workflow-core 附近。当前推荐将它归入独立 <strong>Delivery Assurance</strong>，workflow-core 负责调用编排，Bridge 保持薄基础设施。<strong>这是设计调整，尚未完成接线。</strong></p></div>
+  <div class="parts-layout"><aside class="parts-aside"><p>判断能否交付，<br>需要专业证据；<br>产生失败意见，<br>还需要有人接收。</p><a href="#evidence">核查各层证据 ↗</a></aside>
+  <div class="component-list">
+    <details id="component-da" open><summary><span>Delivery Assurance</span><em>确定这次能否交付</em></summary><div class="component-body"><dl><dt>由谁启动</dt><dd>受控开发入口中，由 workflow-core／原工作流调用；完成时再次检查。</dd><dt>权威输入</dt><dd>批准目标、正式领域标准、已接受旧行为、当前候选与专业结果。</dd><dt>怎样处理</dt><dd>核对义务覆盖与证据资格，识别缺测、过期、错候选；不自创专业阈值。</dd><dt>交给谁</dt><dd>将可声明范围或具体失败交给原工作流；失败再回原 Codex。</dd></dl><p class="counterfactual"><strong>少了它：</strong>各项测试可能分别通过，却没有人核对它们是否共同证明了这次承诺。</p></div></details>
+    <details id="component-runner"><summary><span>项目专业验收</span><em>观察真实成品</em></summary><div class="component-body"><dl><dt>由谁启动</dt><dd>当前 Codex 按所选义务，调用项目已有运行器。</dd><dt>权威输入</dt><dd>冻结的专业标准、当前应用、合法环境、可靠的对照及观察方式。</dd><dt>怎样处理</dt><dd>运行适用测试，检查当前窗口或最终产物，记录原始观察。缺权限就是缺证。</dd><dt>交给谁</dt><dd>原始结果交 DA；采集器错误交采集负责人，产品错误交原 Codex。</dd></dl><p class="counterfactual"><strong>少了它：</strong>只剩报告里的“通过”，无法发现数据与实际画面互相矛盾。</p></div></details>
+    <details id="component-codex"><summary><span>当前 Codex</span><em>实现并继续修复</em></summary><div class="component-body"><dl><dt>由谁启动</dt><dd>用户照常提出目标，或原工作流将合法反馈送回当前任务。</dd><dt>权威输入</dt><dd>原请求、项目约定、所需专业能力、实际与预期的失败证据。</dd><dt>怎样处理</dt><dd>实现产品；标准已定而缺程序时补验收器。不能为通过而降低目标。</dd><dt>交给谁</dt><dd>候选交项目运行器；新证据回 DA。标准冲突交原专业负责人。</dd></dl><p class="counterfactual"><strong>少了它：</strong>失败被识别后停在报告里，用户仍得重新组织一次修复。</p></div></details>
+    <details id="component-workflow"><summary><span>workflow-core</span><em>组合能力，安排接收者</em></summary><div class="component-body"><dl><dt>由谁启动</dt><dd>复杂任务进入现有执行流程时；简单问答无需完整编排。</dd><dt>权威输入</dt><dd>当前宿主实际可用的能力、任务依赖和原工作流。</dd><dt>怎样处理</dt><dd>选择需要的插件与顺序，核实输出被下游消费；缺失能力不能只登记为已调用。</dd><dt>交给谁</dt><dd>能力与行动交当前 Codex；DA 失败路由给具名接收者。</dd></dl><p class="counterfactual"><strong>少了它：</strong>复杂任务容易遗漏应使用的专业能力，或生成无人接收的检查意见。单领域小任务可直接调用。</p></div></details>
+    <details id="component-bridge"><summary><span>Bridge Kit</span><em>保持身份与合法恢复</em></summary><div class="component-body"><dl><dt>由谁启动</dt><dd>既有受管入口或已验证的宿主接点调用。</dd><dt>权威输入</dt><dd>原任务身份、工作目录、授权、预算、候选标识与反馈引用。</dd><dt>怎样处理</dt><dd>在原边界内递送和恢复；取消、身份不明或预算耗尽时不再启动。</dd><dt>交给谁</dt><dd>精确反馈交存活的原执行回合，运行及消费回执交原工作流。</dd></dl><p class="counterfactual"><strong>少了它：</strong>需要退出后恢复的受管路径可能找不到正确任务，或重复执行。已有等价项目入口可以复用，不为 DA 增建常驻服务。</p></div></details>
+    <details id="component-review"><summary><span>必要的独立审查</span><em>制止产品和标准一起放宽</em></summary><div class="component-body"><dl><dt>何时需要</dt><dd>重要专业判断、新验收定义或项目合同明确要求时；不因修改了 UI 就一律触发。</dd><dt>权威输入</dt><dd>原始要求、先于候选冻结的标准、当前完整产物与原始证据。</dd><dt>怎样处理</dt><dd>沿已有合法角色核对；审查者不能修改产品、标准或受保护答案。</dd><dt>交给谁</dt><dd>准确版本的意见回原任务负责人，由 DA 核对其适用性；无通道则保留未证。</dd></dl><p class="counterfactual"><strong>在需要时少了它：</strong>实现者可以把测试和产品同时改松，自行证明错误结果正确。</p></div></details>
+  </div></div>
+  <details class="ecosystem"><summary>它与整个 AI 可靠工作体系怎样配合？</summary><div class="ecosystem-grid"><p><strong>Reasoned Design</strong><br>在需要重大判断或完整方案时，研究目标、替代路线与遗漏。它形成有依据的方案，DA 核对已经批准的承诺。</p><p><strong>Artifact Curation</strong><br>判断成品元素是否值得保留，由领域制作端实施取舍。它不能以简洁为由删掉已承诺能力。</p><p><strong>Clear Writing</strong><br>把核实后的机制、结果与边界说清楚。语言润色不能升级证据或把设计写成可用产品。</p></div><p class="boundary">这些能力按任务需要组合，不要求每次经过全部组件。新跨插件自动调用仍需真实入口验证；本页没有调用尚未实现的 DA 或 Artifact Curation 插件。</p></details>
+</div></section>
+
+<section class="chapter wrap" id="evidence" aria-labelledby="evidence-title">
+  <div class="section-heading"><div><p class="eyebrow">可信到哪一步</p><h2 id="evidence-title">把证据放在<br>它能证明的位置。</h2></div><p class="section-intro">源码、历史修复和设计审查各有价值。<br>它们尚不能共同代替一次真实交付。</p></div>
+  <div class="evidence-row"><div><span class="evidence-tag">历史记录</span><h3>Lucerna 的状态误报及定向修复</h3></div><p>固定版本记录了根因、旧实现失败及修复后回归。该轮没有重建、启动 Windows 正式候选，也没有新的独立界面验收。</p><a href="https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/results/01054_final_independent_release_acceptance/repair-product-001.md">查修复记录 ↗</a></div>
+  <div class="evidence-row"><div><span class="evidence-tag">设计已审</span><h3>旧 DA 的 R3 方案</h3></div><p>PROCEED 是设计阶段结论，由用户转交记录。普通入口接入、实际返修、七仓启用和最终产品验收没有因此完成。</p><a href="https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md">查原研究状态 ↗</a></div>
+  <div class="evidence-row"><div><span class="evidence-tag proposal">当前建议</span><h3>独立 DA，薄 Bridge，按需编排</h3></div><p>本页推荐更新的责任分工。旧 workflow-core 的保护在迁移证明出现前保留；不直接照搬整套旧接口与七仓工程。</p><a href="https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md">查总体候选 ↗</a></div>
+  <details class="evidence-rule"><summary>查看原任务、状态源码与验收器依据</summary><ul class="source-list"><li><a href="https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/prompts/tasks/01054_final_independent_release_acceptance.md">Lucerna 原任务：独立验收与状态真实含义</a></li><li><a href="https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/src-tauri/src/longleaf.rs#L1889">后端：排除明确的未观测证据</a></li><li><a href="https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/src/longleaf-presentation.ts#L44">前端：统一文案与严重度</a></li><li><a href="https://github.com/YuukiAS/Lucerna/blob/79dd2875d3da33c6a6d80e5e35bea812b84c1ceb/scripts/test-longleaf-presentation.mjs">回归：检查中、未观测与真正故障的区分</a></li><li><a href="https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/03_END_TO_END_EXECUTION_AND_VALIDATORS.md">旧 DA 调用合同：定义校准、候选绑定和反馈消费者</a></li></ul><p>历史修复是有来源的证据；上方三个候选是为解释判定规则而构造的情境。它们没有连接真实应用，也没有运行产品测试。</p></details>
+  <div class="tradeoff"><div><p class="eyebrow">值得增加这一层吗</p><h3>先和“只补强项目测试”竞争。</h3><p>直接补强已有运行器最便宜，也能修掉已知缺陷。如果问题只是某个项目少一条回归，应优先这样做。</p><p>DA 只有在跨任务反复出现“漏验承诺、用错版本、失败没人接”时才有额外价值。首个试点若没有减少其中任何一种真实损失，就退回项目测试路线。</p></div><div class="costs"><p class="caption">旧 R3 工程估算 · 非实测 · 新方案尚待重估</p><div><strong>4–8 <small>小时</small></strong><span>先行宿主探针</span></div><div><strong>40–88 <small>小时</small></strong><span>首个完整切片，已含探针</span></div><div><strong>138–332 <small>小时</small></strong><span>旧七仓全量方案，已含首片</span></div><p>这些数字不能相加；不含外部等待、新科学训练等资源费用，也不是本页批准的实施预算。</p></div></div>
+</section>
+
+<section class="next-section" id="next"><div class="wrap next-layout"><div><p class="eyebrow">唯一下一步</p><h2>先证明一次失败，<br>真的回到了原任务。</h2><p>先验证目标宿主的接入与恢复，再用 Lucerna 的一个冻结小任务检验最薄判定链。不要从七仓铺开。</p></div><details><summary>查看可否决的首个试点</summary><ol><li>正确候选能交付，真故障被掩盖和旧功能退化必须被拒绝。</li><li>漏跑、空结果、错候选与旧截图不能获得正式完成结论。</li><li>原 Codex 实际收到失败并修复；新候选重新取证后才能接受。</li><li>取消后不再启动；无活跃接收者时只保存恢复点。</li><li>记录误拦、增量耗时和用户提醒／搬运次数；只多了回执却没减少真实损失，就否决推广。</li></ol><p>这是后续验证建议，需另行授权。本次止于网站设计原型。</p></details></div></section>
+</main>
+<footer class="wrap"><a class="wordmark" href="#top">系统观察室</a><p>Delivery Assurance / 资料核对：2026-10-26<br>静态设计原型 · 不连接生产系统</p><a href="../DA_STORY_AND_EVIDENCE.md">完整样例与证据索引 ↗</a></footer>
+</body>
+</html>

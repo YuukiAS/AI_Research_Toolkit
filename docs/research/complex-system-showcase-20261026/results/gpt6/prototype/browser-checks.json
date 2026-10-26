@@ -1,0 +1,247 @@
+{
+  "date": "2026-10-26T11:25:34.559Z",
+  "browser": "151.0.7922.34",
+  "method": "Headless Chromium; local static files; author verification, not independent user comprehension or DA product acceptance",
+  "checks": [
+    {
+      "keyboardSkipLink": {
+        "focused": true,
+        "top": 12,
+        "clipped": "none"
+      }
+    },
+    {
+      "case": "good",
+      "visible": true,
+      "otherPanelsHidden": true,
+      "pressed": true
+    },
+    {
+      "case": "bad",
+      "visible": true,
+      "otherPanelsHidden": true,
+      "pressed": true
+    },
+    {
+      "case": "regression",
+      "visible": true,
+      "otherPanelsHidden": true,
+      "pressed": true
+    },
+    {
+      "component": "bridge",
+      "expanded": true
+    },
+    {
+      "keyboardSpaceSelect": true
+    },
+    {
+      "keyboardDetails": true
+    },
+    {
+      "anchors": [
+        {
+          "href": "#main",
+          "exists": true
+        },
+        {
+          "href": "#top",
+          "exists": true
+        },
+        {
+          "href": "#walk",
+          "exists": true
+        },
+        {
+          "href": "#parts",
+          "exists": true
+        },
+        {
+          "href": "#evidence",
+          "exists": true
+        },
+        {
+          "href": "#walk",
+          "exists": true
+        },
+        {
+          "href": "#evidence",
+          "exists": true
+        },
+        {
+          "href": "#top",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1024,
+      "viewport": 1024,
+      "document": 1024,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1920,
+      "viewport": 1920,
+      "document": 1920,
+      "noHorizontalOverflow": true
+    },
+    {
+      "zoom": {
+        "method": "CSS layout zoom 200%, not a native browser zoom or screen-reader test",
+        "viewport": 1440,
+        "document": 1440
+      }
+    },
+    {
+      "commonTouchTargets": [
+        {
+          "text": "一次交付",
+          "height": 44
+        },
+        {
+          "text": "组件分工",
+          "height": 44
+        },
+        {
+          "text": "证据与边界",
+          "height": 44
+        },
+        {
+          "text": "看一次交付怎样被判断 ↘",
+          "height": 61.59375
+        },
+        {
+          "text": "符合要求",
+          "height": 50
+        },
+        {
+          "text": "掩盖真故障",
+          "height": 50
+        },
+        {
+          "text": "旧功能退化",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "withoutJavascript": {
+        "scenarioCount": 3,
+        "componentCount": 6
+      }
+    },
+    {
+      "transferWidth": 320,
+      "noHorizontalOverflow": true
+    },
+    {
+      "transferWidth": 390,
+      "noHorizontalOverflow": true
+    },
+    {
+      "transferWidth": 768,
+      "noHorizontalOverflow": true
+    },
+    {
+      "transferWidth": 1024,
+      "noHorizontalOverflow": true
+    },
+    {
+      "transferWidth": 1440,
+      "noHorizontalOverflow": true
+    },
+    {
+      "transferWidth": 1920,
+      "noHorizontalOverflow": true
+    },
+    {
+      "representativeTokenContrast": [
+        {
+          "foreground": "#192f2b",
+          "background": "#f7f8f4",
+          "ratio": 13.28
+        },
+        {
+          "foreground": "#56655e",
+          "background": "#f7f8f4",
+          "ratio": 5.76
+        },
+        {
+          "foreground": "#285e45",
+          "background": "#eaf0e5",
+          "ratio": 6.52
+        },
+        {
+          "foreground": "#973f2d",
+          "background": "#fbede6",
+          "ratio": 5.99
+        },
+        {
+          "foreground": "#4e6357",
+          "background": "#eaf0e5",
+          "ratio": 5.57
+        },
+        {
+          "foreground": "#765524",
+          "background": "#f7f8f4",
+          "ratio": 6.36
+        },
+        {
+          "foreground": "#c9d7ca",
+          "background": "#192f2b",
+          "ratio": 9.48
+        },
+        {
+          "foreground": "#ffffff",
+          "background": "#192f2b",
+          "ratio": 14.16
+        }
+      ],
+      "scope": "Representative text pairs, not a complete automated accessibility audit"
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "sourceHashes": {
+    "index.html": "cefc12206c8e3241535376cb93c6b71a7b96b2c3c7ce639a00684426aae58b0b",
+    "styles.css": "dce605f0ca45736b02d5b5a4d97618a298c0f4c8c97817f36d291e60621c9bce",
+    "interactions.js": "44724775e10ca040f606386caab8f065973693b9aebbfce985025e4724ce656c",
+    "transfer.html": "0990910067deba2b4b89549007ae2caf266453102daaef105388711e75deda1d"
+  },
+  "screenshotFiles": [
+    "desktop-components.png",
+    "desktop-failure.png",
+    "desktop-full.png",
+    "desktop-home.png",
+    "mobile-failure.png",
+    "mobile-full.png",
+    "mobile-home.png",
+    "transfer-desktop.png",
+    "transfer-mobile.png"
+  ]
+}

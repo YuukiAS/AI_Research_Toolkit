@@ -1,0 +1,20 @@
+[
+  {
+    "name": "govuk",
+    "url": "https://design-system.service.gov.uk/components/details/",
+    "title": "Details – GOV.UK Design System",
+    "captured": true
+  },
+  {
+    "name": "carbon",
+    "url": "https://carbondesignsystem.com/components/content-switcher/usage/",
+    "title": "Content switcher | Carbon Design System",
+    "captured": true
+  },
+  {
+    "name": "eleventy",
+    "url": "https://www.11ty.dev/docs/",
+    "title": "Getting Started — Eleventy",
+    "captured": true
+  }
+]
