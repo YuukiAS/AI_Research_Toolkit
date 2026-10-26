@@ -1,0 +1,248 @@
+{
+  "date": "2026-10-26",
+  "commit": "ff778d9683d8ee41bd9fd1a11c9bc4a563530c68",
+  "branch": "research/complex-system-showcase-20261026-gpt6",
+  "method": "Connected GitHub fetch_file; all text and binary contents read from the fixed remote commit, returned Git blob identities matched locally computed byte identities",
+  "files": [
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/.gitattributes",
+      "gitBlob": "3cbcf0f16e405d74be3293d9603a2b02a5a7f805",
+      "localGitBlob": "3cbcf0f16e405d74be3293d9603a2b02a5a7f805",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/.gitattributes"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/DA_STORY_AND_EVIDENCE.md",
+      "gitBlob": "3d274ef858b78bfab817b7bf4df7e20e966ac294",
+      "localGitBlob": "3d274ef858b78bfab817b7bf4df7e20e966ac294",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/DA_STORY_AND_EVIDENCE.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/DESIGN_DECISION.md",
+      "gitBlob": "3e79389e7ea65c3a380802fda10d683b2cfa20d8",
+      "localGitBlob": "3e79389e7ea65c3a380802fda10d683b2cfa20d8",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/DESIGN_DECISION.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/browser-checks.json",
+      "gitBlob": "9063a7afba1bff543ac9efc50c80e65e5b89ecb3",
+      "localGitBlob": "9063a7afba1bff543ac9efc50c80e65e5b89ecb3",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/browser-checks.json"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/index.html",
+      "gitBlob": "82938107856c55ddfc818bef7a853a806aebf86b",
+      "localGitBlob": "82938107856c55ddfc818bef7a853a806aebf86b",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/index.html"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/interactions.js",
+      "gitBlob": "118e0306ae8cf219b8fd5a38c359aad67d9e9c64",
+      "localGitBlob": "118e0306ae8cf219b8fd5a38c359aad67d9e9c64",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/interactions.js"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-components.png",
+      "gitBlob": "d6aaa40e434bc0425a9045e1a4920f5667e8b0a9",
+      "localGitBlob": "d6aaa40e434bc0425a9045e1a4920f5667e8b0a9",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-components.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-failure.png",
+      "gitBlob": "6469a2c8a946e4e279f5466ccd93988574a60590",
+      "localGitBlob": "6469a2c8a946e4e279f5466ccd93988574a60590",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-failure.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-full.png",
+      "gitBlob": "26ac6adf193513e729e206c7fcdcae54bfaaf0b7",
+      "localGitBlob": "26ac6adf193513e729e206c7fcdcae54bfaaf0b7",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-full.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-home.png",
+      "gitBlob": "4fa85930dcb2c919d8d312d44eb090b4bf519732",
+      "localGitBlob": "4fa85930dcb2c919d8d312d44eb090b4bf519732",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/desktop-home.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/mobile-failure.png",
+      "gitBlob": "888a1c6c678ca60b36a220bd477695ff48383afb",
+      "localGitBlob": "888a1c6c678ca60b36a220bd477695ff48383afb",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/mobile-failure.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/mobile-full.png",
+      "gitBlob": "2f8dd99668c33dbace7064c02878d4529a4eeb4f",
+      "localGitBlob": "2f8dd99668c33dbace7064c02878d4529a4eeb4f",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/mobile-full.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/mobile-home.png",
+      "gitBlob": "662d99c0964be2bafe5a4e7db121dea4450083d5",
+      "localGitBlob": "662d99c0964be2bafe5a4e7db121dea4450083d5",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/mobile-home.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/transfer-desktop.png",
+      "gitBlob": "e1d84190016e6127f9c2ca910b1fa1c05c18e10f",
+      "localGitBlob": "e1d84190016e6127f9c2ca910b1fa1c05c18e10f",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/transfer-desktop.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/transfer-mobile.png",
+      "gitBlob": "e38affe8699aada06bf52acdf028b0756aa0872b",
+      "localGitBlob": "e38affe8699aada06bf52acdf028b0756aa0872b",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/previews/transfer-mobile.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/README.md",
+      "gitBlob": "bfe593cb0725c6fded757367854773a14653c3e8",
+      "localGitBlob": "bfe593cb0725c6fded757367854773a14653c3e8",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/README.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/styles.css",
+      "gitBlob": "b993113f3d40acf4339cfebced72da5188a018ed",
+      "localGitBlob": "b993113f3d40acf4339cfebced72da5188a018ed",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/styles.css"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/transfer.html",
+      "gitBlob": "0aecf7eee29328b34bdf458af87aef2b0bb90634",
+      "localGitBlob": "0aecf7eee29328b34bdf458af87aef2b0bb90634",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/transfer.html"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype/verify.cjs",
+      "gitBlob": "b550bd97b21f0d98bd83a71a414692302d869524",
+      "localGitBlob": "b550bd97b21f0d98bd83a71a414692302d869524",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype/verify.cjs"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/prototype-bundle.zip",
+      "gitBlob": "01ae7f00b921a61295ffdffc35f598dd9bef9c79",
+      "localGitBlob": "01ae7f00b921a61295ffdffc35f598dd9bef9c79",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/prototype-bundle.zip"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/11_DELIVERY_ASSURANCE_ARCHITECTURE.png",
+      "gitBlob": "332487ea8d7d2b316a89e9986d2cd7dd188dbc1e",
+      "localGitBlob": "332487ea8d7d2b316a89e9986d2cd7dd188dbc1e",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/11_DELIVERY_ASSURANCE_ARCHITECTURE.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/12_LUCERNA_EXECUTION_FLOW.png",
+      "gitBlob": "e91a1616630f89ebd3b783d748344e65de1ab1a8",
+      "localGitBlob": "e91a1616630f89ebd3b783d748344e65de1ab1a8",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/12_LUCERNA_EXECUTION_FLOW.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/browser-observation.json",
+      "gitBlob": "8bfd5c77fc91c7720c96c44be405a7c596fe9494",
+      "localGitBlob": "8bfd5c77fc91c7720c96c44be405a7c596fe9494",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/browser-observation.json"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/carbon.png",
+      "gitBlob": "a266717f628606d11af0a0a6323c6bc34e6b499b",
+      "localGitBlob": "a266717f628606d11af0a0a6323c6bc34e6b499b",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/carbon.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/eleventy.png",
+      "gitBlob": "029c7318fd7481a16b81e632d78967517fd322d7",
+      "localGitBlob": "029c7318fd7481a16b81e632d78967517fd322d7",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/eleventy.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/govuk.png",
+      "gitBlob": "9e017263ef0be1fb2a9ba0f6522f95edcabee36c",
+      "localGitBlob": "9e017263ef0be1fb2a9ba0f6522f95edcabee36c",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/govuk.png"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/README.md",
+      "gitBlob": "9a8140f1b37c7f902c281e1426585f76478c23b9",
+      "localGitBlob": "9a8140f1b37c7f902c281e1426585f76478c23b9",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/README.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/references/source-manifest.json",
+      "gitBlob": "a8d4d65e7406b3c7558fd2572470d0625a1a9e32",
+      "localGitBlob": "a8d4d65e7406b3c7558fd2572470d0625a1a9e32",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/references/source-manifest.json"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/RESEARCH_RECORD.md",
+      "gitBlob": "e0fef4f8327283fdff9b59f736836f0205f103cd",
+      "localGitBlob": "e0fef4f8327283fdff9b59f736836f0205f103cd",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/RESEARCH_RECORD.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/REUSABLE_TEMPLATE_AND_ACCEPTANCE.md",
+      "gitBlob": "44704979692946258e1233fbf7b12065b88241c1",
+      "localGitBlob": "44704979692946258e1233fbf7b12065b88241c1",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/REUSABLE_TEMPLATE_AND_ACCEPTANCE.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/SOURCE_REGISTER.md",
+      "gitBlob": "5e794c803475aa1bbc9a9d1641519a0937b38456",
+      "localGitBlob": "5e794c803475aa1bbc9a9d1641519a0937b38456",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/SOURCE_REGISTER.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/VISUAL_QA.md",
+      "gitBlob": "2ff89e6fff666f5dcf1f4e094ef787225421fa2a",
+      "localGitBlob": "2ff89e6fff666f5dcf1f4e094ef787225421fa2a",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/VISUAL_QA.md"
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/results/gpt6/WRITE_ACCESS_CHECK.md",
+      "gitBlob": "900255aeee4d65a803b604759248dc25c43cdea8",
+      "localGitBlob": "900255aeee4d65a803b604759248dc25c43cdea8",
+      "match": true,
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ff778d9683d8ee41bd9fd1a11c9bc4a563530c68/docs/research/complex-system-showcase-20261026/results/gpt6/WRITE_ACCESS_CHECK.md"
+    }
+  ],
+  "scopeCheck": {
+    "base": "a5070288cd7625658524218c83c411fb93475cc6",
+    "head": "ff778d9683d8ee41bd9fd1a11c9bc4a563530c68",
+    "aheadBy": 3,
+    "behindBy": 0,
+    "fileCount": 33,
+    "allFilesWithinOwnDeliveryDirectory": true
+  },
+  "note": "This record covers the complete 33-file design candidate before adding RESULT.md and this record. The final index-and-record commit is separately reread from GitHub at task closure."
+}
