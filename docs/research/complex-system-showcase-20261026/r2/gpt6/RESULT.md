@@ -10,6 +10,6 @@
 
 未测真机与读屏器；未实现、运行或部署 DA。交付止于设计与原型。GitHub 不执行 HTML，下载后可以离线浏览全部交互。
 
-分支：`research/complex-system-showcase-20261026-r2-gpt6`。最终交付提交及逐文件远端核对记录将在封存时写入本页；本页自身的后续索引提交不改变原型与截图。
+分支：`research/complex-system-showcase-20261026-r2-gpt6`。最终原型与截图提交：[e6ec342baecddfa43dde414ad57384bd33900dba](https://github.com/YuukiAS/AI_Research_Toolkit/commit/e6ec342baecddfa43dde414ad57384bd33900dba)。35 个文件已从该提交回读，与本地内容及 Git blob SHA 全部一致，改动均在本目录；[逐文件核对记录](checks/REMOTE_VERIFY.json)保留具体身份。本页与核对记录另作封存提交，原型和截图不再改变；最终封存 SHA 见本页 GitHub 最新提交及交付回复。
 
 [完整设计](DESIGN.md) · [架构模型](ARCHITECTURE_MODEL.md) · [研究依据](RESEARCH.md) · [逐句记录](COPY_EDITORIAL_AUDIT.tsv) · [开发验收](ACCEPTANCE.md)

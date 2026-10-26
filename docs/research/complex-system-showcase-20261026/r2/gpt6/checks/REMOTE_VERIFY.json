@@ -1,0 +1,295 @@
+{
+  "verified_commit": "e6ec342baecddfa43dde414ad57384bd33900dba",
+  "repository": "YuukiAS/AI_Research_Toolkit",
+  "branch": "research/complex-system-showcase-20261026-r2-gpt6",
+  "common_baseline": "6236ea3edc4dd03fd1b367f1b721b9896d71d3ef",
+  "verified_at_utc": "2026-10-26 14:20:13 UTC",
+  "method": "通过已连接 GitHub 逐文件读取 base64，与本地上传内容及 Git blob SHA 比较。",
+  "file_count": 35,
+  "scope_only": "docs/research/complex-system-showcase-20261026/r2/gpt6/",
+  "changed_paths": [
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/ACCEPTANCE.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/ARCHITECTURE_MODEL.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/COPY_EDITORIAL_AUDIT.tsv",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/COPY_REVIEW.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/DESIGN.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/QA.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/RESEARCH.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/RESULT.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/TEMPLATE.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/WRITE_CHECK.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/browser-report.json",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/export-review.cjs",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/verify.cjs",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/visible-text.json",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/visible-text.txt",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/README.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/architecture.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/complete-website.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-component.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-connection.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-failure.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-overview.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-regression.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-repair.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/mobile-component.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/mobile-first-screen.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/mobile-overview.png",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/README.md",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/app.js",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/build.cjs",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/content.cjs",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/index.html",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/layout.cjs",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/model.json",
+    "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/styles.css"
+  ],
+  "files": [
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/ACCEPTANCE.md",
+      "bytes": 4046,
+      "expectedBlob": "8624139abd77a25666237b0b4f5bcbf49d83cece",
+      "remoteBlob": "8624139abd77a25666237b0b4f5bcbf49d83cece",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/ARCHITECTURE_MODEL.md",
+      "bytes": 30703,
+      "expectedBlob": "760270703108b1fd3383404fddb7dc5a25f42545",
+      "remoteBlob": "760270703108b1fd3383404fddb7dc5a25f42545",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/COPY_EDITORIAL_AUDIT.tsv",
+      "bytes": 382894,
+      "expectedBlob": "d4f2ecfb8c80d016b3ba303dfa5f21345728d3b7",
+      "remoteBlob": "d4f2ecfb8c80d016b3ba303dfa5f21345728d3b7",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/COPY_REVIEW.md",
+      "bytes": 4894,
+      "expectedBlob": "a70b722d48dfded6bbd6f807fbe9b01dc14f4449",
+      "remoteBlob": "a70b722d48dfded6bbd6f807fbe9b01dc14f4449",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/DESIGN.md",
+      "bytes": 7550,
+      "expectedBlob": "279bbfa43fcabb9f30c22db339301c16bdc7f243",
+      "remoteBlob": "279bbfa43fcabb9f30c22db339301c16bdc7f243",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/QA.md",
+      "bytes": 3591,
+      "expectedBlob": "b85fde264f2425715bd145585c7a48e0306b376f",
+      "remoteBlob": "b85fde264f2425715bd145585c7a48e0306b376f",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/RESEARCH.md",
+      "bytes": 8801,
+      "expectedBlob": "9c44ecf69f55426539a255dd2db07b3b06f661b6",
+      "remoteBlob": "9c44ecf69f55426539a255dd2db07b3b06f661b6",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/RESULT.md",
+      "bytes": 1492,
+      "expectedBlob": "780e25c031d13fa3aed16a13a7c50cff62d0e7a4",
+      "remoteBlob": "780e25c031d13fa3aed16a13a7c50cff62d0e7a4",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/TEMPLATE.md",
+      "bytes": 2870,
+      "expectedBlob": "6a54d17d6467e64b6339381745536f18b82c043e",
+      "remoteBlob": "6a54d17d6467e64b6339381745536f18b82c043e",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/WRITE_CHECK.md",
+      "bytes": 1253,
+      "expectedBlob": "789b95ec65e7d8db1e99b8d6cdd7d8f94170462d",
+      "remoteBlob": "789b95ec65e7d8db1e99b8d6cdd7d8f94170462d",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/browser-report.json",
+      "bytes": 4123,
+      "expectedBlob": "eaf6d7a2d5c649737efd0026e763036a31dd1c98",
+      "remoteBlob": "eaf6d7a2d5c649737efd0026e763036a31dd1c98",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/export-review.cjs",
+      "bytes": 3776,
+      "expectedBlob": "1c15ff455c251b00dd5e951635cd4ff143eac149",
+      "remoteBlob": "1c15ff455c251b00dd5e951635cd4ff143eac149",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/verify.cjs",
+      "bytes": 10467,
+      "expectedBlob": "64063934f8a45f00527a622a8b010639764c48b4",
+      "remoteBlob": "64063934f8a45f00527a622a8b010639764c48b4",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/visible-text.json",
+      "bytes": 384149,
+      "expectedBlob": "3d9c2bcb2a8aea071a97908b52621e42316e2f6f",
+      "remoteBlob": "3d9c2bcb2a8aea071a97908b52621e42316e2f6f",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/checks/visible-text.txt",
+      "bytes": 22892,
+      "expectedBlob": "51496c24841062e4b568b8f3ff4f353b5a819d0c",
+      "remoteBlob": "51496c24841062e4b568b8f3ff4f353b5a819d0c",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/README.md",
+      "bytes": 1269,
+      "expectedBlob": "044c6a7321f5c46cc7d2143573d710d28b989235",
+      "remoteBlob": "044c6a7321f5c46cc7d2143573d710d28b989235",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/architecture.png",
+      "bytes": 84612,
+      "expectedBlob": "5826fdb07d3cd2067287ba4be873240a2b51f1d0",
+      "remoteBlob": "5826fdb07d3cd2067287ba4be873240a2b51f1d0",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/complete-website.png",
+      "bytes": 344740,
+      "expectedBlob": "6cc2e2de0c72cc9906f3a9bbea6ec8d7782eb01e",
+      "remoteBlob": "6cc2e2de0c72cc9906f3a9bbea6ec8d7782eb01e",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-component.png",
+      "bytes": 168538,
+      "expectedBlob": "9738622d47057298a6c568b012a9273e3b0a35fb",
+      "remoteBlob": "9738622d47057298a6c568b012a9273e3b0a35fb",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-connection.png",
+      "bytes": 158560,
+      "expectedBlob": "9664c830967e4e061940c523379f932343b1c6fb",
+      "remoteBlob": "9664c830967e4e061940c523379f932343b1c6fb",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-failure.png",
+      "bytes": 171178,
+      "expectedBlob": "ea6c829272fa1c7f41c15a6e9091e99147a4cf44",
+      "remoteBlob": "ea6c829272fa1c7f41c15a6e9091e99147a4cf44",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-overview.png",
+      "bytes": 166324,
+      "expectedBlob": "b863dedc9bc5deee7b093d80df11e77f1271ff74",
+      "remoteBlob": "b863dedc9bc5deee7b093d80df11e77f1271ff74",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-regression.png",
+      "bytes": 168123,
+      "expectedBlob": "9e7c226b538fc0591884190e3b3101937865a067",
+      "remoteBlob": "9e7c226b538fc0591884190e3b3101937865a067",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/desktop-repair.png",
+      "bytes": 170641,
+      "expectedBlob": "6ac33aff8072e46ac690dba9cf4ce238a9758b1b",
+      "remoteBlob": "6ac33aff8072e46ac690dba9cf4ce238a9758b1b",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/mobile-component.png",
+      "bytes": 49700,
+      "expectedBlob": "34194b896edf82c6dbfd64475d42126e855a2735",
+      "remoteBlob": "34194b896edf82c6dbfd64475d42126e855a2735",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/mobile-first-screen.png",
+      "bytes": 38592,
+      "expectedBlob": "5e20f8437c69cd8ef54ccefb1df5df2de13b64bc",
+      "remoteBlob": "5e20f8437c69cd8ef54ccefb1df5df2de13b64bc",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/previews/mobile-overview.png",
+      "bytes": 213600,
+      "expectedBlob": "6fea2e2e3435648750063ba29fef434e262248c3",
+      "remoteBlob": "6fea2e2e3435648750063ba29fef434e262248c3",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/README.md",
+      "bytes": 1148,
+      "expectedBlob": "c38df7b8922e2d5cb2afb5d6f1be25e1d7acb5c2",
+      "remoteBlob": "c38df7b8922e2d5cb2afb5d6f1be25e1d7acb5c2",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/app.js",
+      "bytes": 7118,
+      "expectedBlob": "803af294c60fc29fed1d906e21dbdbacfeb4895b",
+      "remoteBlob": "803af294c60fc29fed1d906e21dbdbacfeb4895b",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/build.cjs",
+      "bytes": 7608,
+      "expectedBlob": "3b318a59d85742daafe2a7f8e94140d89753de81",
+      "remoteBlob": "3b318a59d85742daafe2a7f8e94140d89753de81",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/content.cjs",
+      "bytes": 36329,
+      "expectedBlob": "538a74cb72dfacfb6191beebedd09b0b3fac7589",
+      "remoteBlob": "538a74cb72dfacfb6191beebedd09b0b3fac7589",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/index.html",
+      "bytes": 100176,
+      "expectedBlob": "f8b864451f2a2decac32b768b383394bfa2f1370",
+      "remoteBlob": "f8b864451f2a2decac32b768b383394bfa2f1370",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/layout.cjs",
+      "bytes": 2326,
+      "expectedBlob": "6e02df3f14715ec39bb78d3064dc5fb906873b1e",
+      "remoteBlob": "6e02df3f14715ec39bb78d3064dc5fb906873b1e",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/model.json",
+      "bytes": 53026,
+      "expectedBlob": "1321fc9cc8966aca6934f67dd96acced6b33a65a",
+      "remoteBlob": "1321fc9cc8966aca6934f67dd96acced6b33a65a",
+      "exactBase64Match": true
+    },
+    {
+      "path": "docs/research/complex-system-showcase-20261026/r2/gpt6/prototype/styles.css",
+      "bytes": 12904,
+      "expectedBlob": "54ca339042355bc2f112430cd1ffaa9f1636ac9b",
+      "remoteBlob": "54ca339042355bc2f112430cd1ffaa9f1636ac9b",
+      "exactBase64Match": true
+    }
+  ],
+  "seal_note": "后续封存提交只更新 RESULT.md 并加入本记录，不改变原型或截图。封存后再次远端回读全部最终文件；最终封存 SHA 由用户回复提供，避免本文件自引用哈希。"
+}
