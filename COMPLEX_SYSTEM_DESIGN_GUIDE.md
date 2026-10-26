@@ -6,6 +6,8 @@
 
 本指南不代替目标仓库 AGENTS、专业规范、安全边界、独立审查或用户授权。任务简单时应复用成熟流程，不机械开展大型架构研究；任务涉及多个组件、专业含义、重要数据、复杂恢复或重大失败代价时，使用完整标准。
 
+**如何让 AI 低打扰地产出完整架构：** 用户的长期要求独立保存在 [需求记录](docs/research/architecture-workflow-20261026/01_USER_REQUIREMENTS_ZH.md)；[并行 AI 架构团队的方案比较与具体交接机制](docs/research/architecture-workflow-20261026/02_OPTIONS_AND_RECOMMENDED_MECHANISM_ZH.md)讨论三种流程、成本和停止条件。后者目前是设计推荐，尚未验证为自动运行的系统。
+
 ## 默认落地办法：一次设计、先试关键前提、持续开发
 
 **适用范围**：已有仓库和用户目标，要求尽快得到真正可用的产品或科研结果。优先用当前 Chat、Codex、GPT Work、项目原测试和专业插件完成；**不等 Reasoned Design、Delivery Assurance 等新插件上线**，也不因为设计未能预知未来所有问题就无限重开 Planner–Critic。目标仓库已经规定的强制审查、权限和发布规则仍须遵守，但不得自行添加额外审查轮次。
