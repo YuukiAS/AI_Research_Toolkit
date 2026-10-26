@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Delivery Assurance 复杂系统展示模板的静态高保真设计原型">
+  <title>Delivery Assurance｜交付之前，先确认任务真的完成了</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" data-page-top>
+    <div class="header-inner">
+      <a class="wordmark" href="#top" aria-label="Delivery Assurance 首页">
+        <span class="wordmark-mark" aria-hidden="true">DA</span>
+        <span><strong>Delivery Assurance</strong><small>复杂系统展示样例</small></span>
+      </a>
+      <nav class="site-nav" aria-label="主要导航">
+        <a href="#story">任务怎样被接住</a>
+        <a href="#components">组件为什么存在</a>
+        <a href="#evidence">证据到哪一步</a>
+      </nav>
+      <a class="header-status" href="#evidence"><span class="status-dot" aria-hidden="true"></span>设计完成，系统未接通</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">交付保障系统 · 第一版完整样例</p>
+          <h1 id="hero-title">交付之前，先确认任务真的完成了。</h1>
+          <p class="hero-lede">Delivery Assurance 把原始承诺、项目验收和当前候选的证据放在同一条链上。缺证或失败时，它把具体问题交回原任务继续修复；证据不足时，不允许把“测试跑过”写成“产品可用”。</p>
+          <div class="hero-actions" aria-label="页面快捷入口">
+            <a class="button button-primary" href="#story">看一次任务怎样被接住</a>
+            <a class="button button-quiet" href="#evidence">先看真实完成度</a>
+          </div>
+        </div>
+        <aside class="truth-panel" aria-labelledby="truth-heading">
+          <p class="truth-kicker">当前边界</p>
+          <h2 id="truth-heading">设计有依据，生产能力尚未成立</h2>
+          <dl class="truth-list">
+            <div><dt><span class="status-swatch status-design" aria-hidden="true"></span>已形成</dt><dd>职责架构、Lucerna 验收合同、源码修复与确定性回归</dd></div>
+            <div><dt><span class="status-swatch status-missing" aria-hidden="true"></span>仍缺少</dt><dd>宿主探针、正式入口接线、同一 Windows 候选的独立界面复验、七仓启用</dd></div>
+          </dl>
+          <p class="truth-note">因此本页只说明系统如何设计、哪些机制已有来源、下一步需要证明什么；不宣称 Delivery Assurance 已投入使用。</p>
+        </aside>
+      </div>
+      <div class="shell compact-ledger" aria-label="核心判断">
+        <div><span>它解决什么</span><strong>防止降级实现、旧功能破坏和绿色测试掩盖真实缺口</strong></div>
+        <div><span>它不替代什么</span><strong>不替代项目测试、专业验收、Codex 实现和 Bridge 运行底层</strong></div>
+        <div><span>最先证明什么</span><strong>一个 Lucerna 真实候选能识别坏实现、返回原任务，并保护已有行为</strong></div>
+      </div>
+    </section>
+
+    <section class="section story-section" id="story" aria-labelledby="story-title">
+      <div class="shell">
+        <div class="section-intro split-heading">
+          <div>
+            <p class="eyebrow">一条真实任务链</p>
+            <h2 id="story-title">同一项修复，必须同时回答三件事</h2>
+          </div>
+          <p>下面使用 Lucerna 的真实历史问题：当主要访问仍可用、次级路线处于检查中或没有观测证据时，整体不应误报不可用；真正次级故障仍应提示；修复也不能破坏已有正常入口。</p>
+        </div>
+
+        <div class="story-switcher" role="tablist" aria-label="选择任务结果">
+          <button type="button" role="tab" aria-selected="true" data-story-tab="normal">正常完成</button>
+          <button type="button" role="tab" aria-selected="false" data-story-tab="failure">发现失败</button>
+          <button type="button" role="tab" aria-selected="false" data-story-tab="regression">旧功能保护</button>
+        </div>
+
+        <div class="story-stage" data-story-stage="normal">
+          <div class="stage-rail" aria-label="交付流程五个阶段">
+            <button type="button" class="stage-step is-active" data-stage="0"><span>01</span><strong>入口登记</strong><small>冻结对象</small></button>
+            <button type="button" class="stage-step" data-stage="1"><span>02</span><strong>义务收束</strong><small>明确不能降级</small></button>
+            <button type="button" class="stage-step" data-stage="2"><span>03</span><strong>项目验证</strong><small>运行专业入口</small></button>
+            <button type="button" class="stage-step" data-stage="3"><span>04</span><strong>独立复核</strong><small>观察同一候选</small></button>
+            <button type="button" class="stage-step" data-stage="4"><span>05</span><strong>交付结论</strong><small>声明与证据一致</small></button>
+          </div>
+          <article class="stage-detail" aria-live="polite">
+            <div class="stage-detail-header">
+              <p class="stage-index" data-stage-index>01 / 05</p>
+              <span class="evidence-label evidence-design" data-stage-status>设计机制</span>
+            </div>
+            <h3 data-stage-title>先固定“正在验收哪一个候选”</h3>
+            <p class="stage-summary" data-stage-summary>记录来源提交、构建产物、运行实例和任务承诺。后续任何源码变化都使旧复核失效，避免拿旧截图签发新版本。</p>
+            <dl class="stage-contract">
+              <div><dt>进入什么</dt><dd data-stage-input>原任务、确切提交、Windows 发布候选、必须保护的既有行为</dd></div>
+              <div><dt>实际动作</dt><dd data-stage-action>Bridge 只提供任务身份和合法运行接点；Delivery Assurance 绑定验收对象与承诺</dd></div>
+              <div><dt>产生什么</dt><dd data-stage-output>同一候选的身份记录，交给项目验证和独立复核消费</dd></div>
+              <div><dt>怎样证伪</dt><dd data-stage-falsify>提交、构建、进程或截图来自不同候选；或者身份无法从正常入口取得</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="story-consequence" data-story-consequence>
+          <span class="consequence-mark" aria-hidden="true">→</span>
+          <p><strong>正常完成：</strong>同一发布候选通过项目正常入口和独立复核，证据覆盖新要求与相邻旧行为，才允许写“可交付”。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section components-section" id="components" aria-labelledby="components-title">
+      <div class="shell">
+        <div class="section-intro split-heading">
+          <div>
+            <p class="eyebrow">组件合同</p>
+            <h2 id="components-title">每个组件只拥有一项不可替代的责任</h2>
+          </div>
+          <p>选择一个组件，查看它为何存在、接收什么、把结果交给谁，以及删除以后会失去什么。状态标签描述当前事实，不描述愿望。</p>
+        </div>
+
+        <div class="component-explorer">
+          <div class="component-list" role="listbox" aria-label="系统组件">
+            <button type="button" role="option" aria-selected="true" data-component="delivery-assurance"><span>交付判断</span><strong>Delivery Assurance</strong><small class="inline-state is-proposed">拟建插件</small></button>
+            <button type="button" role="option" aria-selected="false" data-component="workflow-core"><span>能力路由</span><strong>workflow-core</strong><small class="inline-state is-existing">已有能力</small></button>
+            <button type="button" role="option" aria-selected="false" data-component="bridge-kit"><span>运行底层</span><strong>Bridge Kit</strong><small class="inline-state is-existing">已有能力</small></button>
+            <button type="button" role="option" aria-selected="false" data-component="project-validation"><span>专业事实</span><strong>项目验收入口</strong><small class="inline-state is-partial">部分已有</small></button>
+            <button type="button" role="option" aria-selected="false" data-component="independent-review"><span>独立观察</span><strong>新鲜复核者</strong><small class="inline-state is-partial">合同已有</small></button>
+            <button type="button" role="option" aria-selected="false" data-component="reasoned-design"><span>方案依据</span><strong>Reasoned Design</strong><small class="inline-state is-proposed">拟建插件</small></button>
+            <button type="button" role="option" aria-selected="false" data-component="artifact-curation"><span>内容取舍</span><strong>Artifact Curation</strong><small class="inline-state is-proposed">拟建技能</small></button>
+            <button type="button" role="option" aria-selected="false" data-component="clear-writing"><span>读者表达</span><strong>Clear Writing</strong><small class="inline-state is-existing">已有能力</small></button>
+          </div>
+
+          <article class="component-detail" aria-live="polite">
+            <div class="component-heading">
+              <div><p data-component-role>交付判断</p><h3 data-component-title>Delivery Assurance</h3></div>
+              <span class="evidence-label evidence-proposed" data-component-status>拟建插件</span>
+            </div>
+            <p class="component-purpose" data-component-purpose>把原始承诺转成不可降级的验收义务，判断当前候选还缺什么证据，以及此刻允许作出怎样的交付声明。</p>
+            <dl class="component-contract">
+              <div><dt>何时触发</dt><dd data-component-trigger>正式软件交付、重要集成变化、首个真实纵向功能和最终候选</dd></div>
+              <div><dt>权威输入</dt><dd data-component-input>用户确认目标、项目正式约定、已接受旧行为、当前候选的项目验收结果</dd></div>
+              <div><dt>输出给谁</dt><dd data-component-output>缺口交给原 Codex 继续修复；放行结论交给最终用户说明</dd></div>
+              <div><dt>失败怎么办</dt><dd data-component-failure>标准不清则返回专业负责人补齐；证据缺失或版本不一致则保持未通过</dd></div>
+            </dl>
+            <div class="removal-test">
+              <span>删除它会怎样</span>
+              <p data-component-removal>项目可能各自有测试，但没有一方负责证明“所有承诺都被当前候选覆盖”，绿色局部结果仍可被扩大成产品完成。</p>
+            </div>
+            <div class="responsibility-line"><span>明确不做</span><p data-component-notdo>不编写项目领域测试，不接管 Codex，不负责插件路由，也不创建新的常驻调度器。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section evidence-section" id="evidence" aria-labelledby="evidence-title">
+      <div class="shell">
+        <div class="section-intro split-heading">
+          <div>
+            <p class="eyebrow">证据账本</p>
+            <h2 id="evidence-title">相信到哪一步，只由证据类型决定</h2>
+          </div>
+          <p>同一事实旁边同时写明“能证明什么”和“不能证明什么”。设计评审、源码、确定性回归和真实发布候选分别占据不同层级。</p>
+        </div>
+
+        <div class="evidence-key" aria-label="证据状态图例">
+          <span><i class="key-verified" aria-hidden="true"></i>真实观察或现有源码</span>
+          <span><i class="key-design" aria-hidden="true"></i>已审设计</span>
+          <span><i class="key-missing" aria-hidden="true"></i>仍待证明</span>
+        </div>
+
+        <div class="evidence-ledger">
+          <details open>
+            <summary><span class="evidence-id">E1</span><strong>真实问题</strong><span>检查中或未观测曾被误写成故障</span><em class="ledger-state state-observed">历史事实</em></summary>
+            <div class="evidence-body"><p><b>支持：</b>Lucerna 的历史修复记录明确说明，次级 <code>MISSING</code> 与恢复动作曾错误提升整体严重度，界面出现中性文案却继承严重状态。</p><p><b>不支持：</b>不能据此证明 Delivery Assurance 已经发现或阻止了该问题；当时修复发生在项目任务内部。</p></div>
+          </details>
+          <details>
+            <summary><span class="evidence-id">E2</span><strong>源码与回归</strong><span>未观测、检查中和确认故障已有分离规则</span><em class="ledger-state state-observed">源码存在</em></summary>
+            <div class="evidence-body"><p><b>支持：</b>固定提交中的 Rust 聚合逻辑、展示映射和确定性测试可以区分“没有证据”“正在检查”“确认失败”。</p><p><b>不支持：</b>Producer 记录同时声明尚未重建并启动正式 Windows 发布候选，也没有新的独立界面复验。</p></div>
+          </details>
+          <details>
+            <summary><span class="evidence-id">E3</span><strong>架构评审</strong><span>R3 设计获得继续推进结论</span><em class="ledger-state state-design">设计通过</em></summary>
+            <div class="evidence-body"><p><b>支持：</b>职责、失败回路、候选身份与证据复用形成了可实施的设计方向。</p><p><b>不支持：</b><code>PROCEED</code> 和“设计闭合”不等于宿主接线、自动调用或七仓生产启用。</p></div>
+          </details>
+          <details>
+            <summary><span class="evidence-id">E4</span><strong>生产能力</strong><span>宿主探针、入口接线、回传和七仓启用尚缺</span><em class="ledger-state state-missing">未验证</em></summary>
+            <div class="evidence-body"><p><b>需要看到：</b>受支持宿主的真实能力探针；同一 Lucerna 候选的好例、坏例、旧功能、缺证与绕过测试；失败结果确实回到原任务继续处理。</p><p><b>当前声明：</b>系统仍处设计与试点准备阶段。</p></div>
+          </details>
+          <details>
+            <summary><span class="evidence-id">E5</span><strong>投入估计</strong><span>宿主探针 4–8 小时，首条纵向 40–88 小时</span><em class="ledger-state state-design">计划估计</em></summary>
+            <div class="evidence-body"><p><b>支持：</b>用于比较先做小探针还是直接建设完整体系。</p><p><b>不支持：</b>这些是研究阶段估计，不是已经消耗的实际工时，也不是交付日期承诺。</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section decision-section" id="decision" aria-labelledby="decision-title">
+      <div class="shell decision-grid">
+        <div class="decision-main">
+          <p class="eyebrow">唯一推荐方案</p>
+          <h2 id="decision-title">用独立的 Delivery Assurance 守住交付边界，保持路由与运行底层克制</h2>
+          <p>旧 R3 设计把共享判断靠近 workflow-core 与 Bridge。新的总体架构已经明确：workflow-core 只负责能力发现、组合和消费确认；Bridge Kit 只负责身份、权限、运行接点与结果递送；Delivery Assurance 单独拥有验收义务、证据缺口和交付声明。这种拆分更容易独立调用、独立测试，也避免基础设施自我批准。</p>
+          <div class="decision-lines">
+            <div><span>网站实现</span><strong>Astro 静态内容站 + 结构化内容模式 + 两个局部原生交互岛</strong></div>
+            <div><span>首个试点</span><strong>Lucerna：一项真实状态修复、一项相邻旧功能、一个故意坏候选</strong></div>
+            <div><span>停止条件</span><strong>若试点不能减少漏检、用户催促和报告搬运，删除共享 DA 层，仅保留项目回归</strong></div>
+          </div>
+        </div>
+        <aside class="next-proof" aria-labelledby="next-proof-title">
+          <p>下一项真正有价值的证据</p>
+          <h3 id="next-proof-title">证明失败能在同一任务里被接住</h3>
+          <ol>
+            <li>冻结一个确切 Windows 发布候选。</li>
+            <li>故意保留“检查中误报故障”或破坏相邻旧行为。</li>
+            <li>让项目入口与独立复核产生当前候选证据。</li>
+            <li>确认 DA 阻止交付并把缺口交回原 Codex。</li>
+            <li>修复后重新构建、重新复核，再决定是否放行。</li>
+          </ol>
+          <p class="next-proof-note">本轮不执行以上产品开发，只交付可审阅设计与静态原型。</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div><strong>Delivery Assurance 复杂系统展示样例</strong><p>静态设计原型 · 2026-10-26 · 不代表生产功能已启用</p></div>
+      <a href="#top">返回顶部</a>
+    </div>
+  </footer>
+
+  <script src="prototype.js"></script>
+</body>
+</html>
