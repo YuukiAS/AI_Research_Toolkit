@@ -1,0 +1,24 @@
+digraph Architecture {
+graph [rankdir=LR, bgcolor="transparent", pad=0.25, nodesep=0.45, ranksep=0.75, splines=polyline, outputorder=edgesfirst, fontname="sans-serif"];
+node [shape=box, style="rounded,filled", fillcolor="white", color="#cbd3de", penwidth=1.2, fontname="sans-serif", fontsize=14, margin="0.20,0.17"];
+edge [fontname="sans-serif", fontsize=10, fontcolor="#637083", color="#9aa6b7", penwidth=1.2, arrowsize=0.65];
+"mica.offscreen-rendering" [id="node-mica.offscreen-rendering", label="离屏历史渲染", ];
+"mica.connector-continuity" [id="node-mica.connector-continuity", label="连接器输入框连续显示", ];
+"mica.stale-clear" [id="node-mica.stale-clear", label="旧草稿清除恢复", ];
+"mica.dom" [id="node-mica.dom", label="ChatGPT \n原生页面", fillcolor="#f3f5f7", color="#dde2e8"];
+"mica.lifecycle" [id="node-mica.lifecycle", label="连接器生命周期", ];
+"mica.surface" [id="node-mica.surface", label="用户可见界面", fillcolor="#f3f5f7", color="#dde2e8"];
+"mica.future-adapter" [id="node-mica.future-adapter", label="统一站点适配层", ];
+"mica.future-answer" [id="node-mica.future-answer", label="共享回答模型", ];
+"mica.dom" -> "mica.offscreen-rendering" [id="edge-mica-messages--0", label="挂载消息", tooltip="当前 DOM 窗口内的消息节点与角色标记", ];
+"mica.dom" -> "mica.lifecycle" [id="edge-mica-events--0", label="连接器事件", tooltip="连接器上下文、输入框与本轮身份", ];
+"mica.dom" -> "mica.stale-clear" [id="edge-mica-clear-intent--0", label="清空与重挂载", tooltip="真实清空观察、旧文本指纹、输入框身份", ];
+"mica.offscreen-rendering" -> "mica.surface" [id="edge-mica-render-output--0", label="渲染隔离", tooltip="只施加到远端安全消息的类与占位高度", ];
+"mica.connector-continuity" -> "mica.surface" [id="edge-mica-shell--0", label="短暂视觉副本", tooltip="不可编辑、不可点击、对辅助技术隐藏的输入框视觉副本", ];
+"mica.stale-clear" -> "mica.surface" [id="edge-mica-clear-output--0", label="恢复空白", tooltip="匹配已清空旧草稿后的有限原生删除动作", ];
+"mica.stale-clear" -> "mica.connector-continuity" [id="edge-mica-clear-exclusion--0", label="恢复互斥", tooltip="旧草稿恢复正在进行的状态", ];
+"mica.dom" -> "mica.future-adapter" [id="edge-mica-adapter-future--0", label="统一识别", tooltip="设计约定的消息、操作和站点状态", style=dashed];
+"mica.future-adapter" -> "mica.future-answer" [id="edge-mica-answer-future--0", label="语义回答", tooltip="版本化的回答文档", style=dashed];
+"mica.dom" -> "mica.connector-continuity" [id="edge-mica-input-trigger--0", label="普通输入事件", tooltip="focusin / beforeinput / input 等 DOM 事件", ];
+"mica.lifecycle" -> "mica.connector-continuity" [id="edge-mica-signal--0", label="共享信号", tooltip="连接器生命周期锁存事件", ];
+}

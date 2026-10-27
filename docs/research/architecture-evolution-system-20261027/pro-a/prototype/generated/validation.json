@@ -1,0 +1,16 @@
+{
+  "modelTests": {
+    "passed": 13,
+    "failed": 0,
+    "command": "node tests/model.test.mjs",
+    "log": "model-test-output.txt"
+  },
+  "historyBaseline": {
+    "sameBaselineExit": 0,
+    "modifiedHistoryExit": 1,
+    "rejection": "HISTORY_REWRITTEN"
+  },
+  "htmlSha256": "b716d50d816a155293f37ae2911258f1ab1311bf179795c977de8225890ce965",
+  "uiReportMatchesHtml": true,
+  "generatedAt": "2026-10-27T08:03:57.865915+00:00"
+}

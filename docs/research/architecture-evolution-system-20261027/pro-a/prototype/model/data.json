@@ -1,0 +1,5138 @@
+{
+  "schemaVersion": "0.1",
+  "title": "架构工作集",
+  "builtFrom": "pro-a independent research, pinned sources read 2026-10-27",
+  "projects": [
+    {
+      "id": "mica",
+      "title": "Mica",
+      "subtitle": "浏览器扩展 · 真实实现",
+      "tagline": "沿着真实事件，理解输入与显示如何保持稳定。",
+      "scope": "代表性范围：离屏渲染、连接器连续显示、旧草稿恢复；不声称覆盖全部扩展功能。",
+      "observed": {
+        "repo": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+        "date": "2026-10-27",
+        "note": "本轮为只读源码与历史审查，未操作真实ChatGPT、未运行Mica测试、未证明当前线上兼容或性能。"
+      },
+      "defaultRevision": "mica-current",
+      "defaultComponent": "mica.connector-continuity",
+      "anchors": {
+        "mica-runtime-version": {
+          "id": "mica-runtime-version",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "scripts/release-config.mjs",
+          "kind": "config",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/release-config.mjs#L1-L6",
+          "title": "MACHINE_VERSION / BUILD_LABEL",
+          "symbol": "MACHINE_VERSION / BUILD_LABEL",
+          "lines": [
+            1,
+            6
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "94f0ffa8c6d232683747c3d09aac81638711e165a5994ed03dc3f4f07f53cd50"
+        },
+        "mica-turn-selectors": {
+          "id": "mica-turn-selectors",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "selector",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L25-L52",
+          "title": "TURN_SELECTOR / ROLE_SELECTOR / COMPOSER_SELECTOR",
+          "symbol": "TURN_SELECTOR / ROLE_SELECTOR / COMPOSER_SELECTOR",
+          "lines": [
+            25,
+            52
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "796c406c2b06b5c95c854bd70c8d3efb6b26422bbd9df615de8c79a04a44df6a",
+          "preview": "const TURN_SELECTOR = [\n    \"[data-message-author-role]\",\n    \"[data-testid^='conversation-turn-']\",\n    \"[data-testid*='conversation-turn']\"\n  ].join(\",\");\n  const ROLE_SELECTOR = \"[data-message-author-role='user'], [data-message-author-role='assistant'], [data-message-author-role='tool']\";"
+        },
+        "mica-observer": {
+          "id": "mica-observer",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L231-L262",
+          "title": "setupObservers",
+          "symbol": "setupObservers",
+          "lines": [
+            231,
+            262
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "e6c5aa0fe567527075a2b8fa0a11cc3f27afc284ecd28fc7bd480904118ac524"
+        },
+        "mica-schedule-scan": {
+          "id": "mica-schedule-scan",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L723-L737",
+          "title": "scheduleScan",
+          "symbol": "scheduleScan",
+          "lines": [
+            723,
+            737
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "102e29732078aad58fa61fcb87ebfa5fee529e80eecb80d0d7045e6c2caf6eab"
+        },
+        "mica-scan": {
+          "id": "mica-scan",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L739-L842",
+          "title": "scanAndApply",
+          "symbol": "scanAndApply",
+          "lines": [
+            739,
+            842
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "49450cd32bf1c24d30133a72f2fde2dca8eb33e448e6b190bcd7ee63df159caa"
+        },
+        "mica-collect-turns": {
+          "id": "mica-collect-turns",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L844-L874",
+          "title": "collectConversationTurns",
+          "symbol": "collectConversationTurns",
+          "lines": [
+            844,
+            874
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "69b2da5ab44ca7cf68661c2542de2f776fc4ef203b85d3227cecb6621cd722fa"
+        },
+        "mica-protect-turns": {
+          "id": "mica-protect-turns",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L984-L1000",
+          "title": "getProtectedIndexes",
+          "symbol": "getProtectedIndexes",
+          "lines": [
+            984,
+            1000
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "254d0b2815db23ce30a008209908c6d08385c13072679010a78b11fe6013fd93"
+        },
+        "mica-apply": {
+          "id": "mica-apply",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L1041-L1070",
+          "title": "applyOptimization / removeOptimization / clearOptimization",
+          "symbol": "applyOptimization / removeOptimization / clearOptimization",
+          "lines": [
+            1041,
+            1070
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "0c2e78c00a4506ed20a6e9e798f1071207d1b30dc54f5786db59f30c1abc672f"
+        },
+        "mica-native-mode": {
+          "id": "mica-native-mode",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/content.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L1317-L1331",
+          "title": "enterNativeSafeMode",
+          "symbol": "enterNativeSafeMode",
+          "lines": [
+            1317,
+            1331
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "1c703723694467e558d32940b26ab7d7994a3c30c649a7c11dbdcd54bff148dd"
+        },
+        "mica-latch": {
+          "id": "mica-latch",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-lifecycle-signal.ts#L83-L110",
+          "title": "latchConnectorLifecycle",
+          "symbol": "latchConnectorLifecycle",
+          "lines": [
+            83,
+            110
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "7d0b6061656da3a7705373834e8b327f20e1a5cb91322cfff3d112b301e5b36f"
+        },
+        "mica-latch-event": {
+          "id": "mica-latch-event",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-lifecycle-signal.ts#L334-L340",
+          "title": "dispatchLatchEvent",
+          "symbol": "dispatchLatchEvent",
+          "lines": [
+            334,
+            340
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "1caeaf58213c134b4f8fd1004a04d37f6e14f5b29b5f99abee08f523f4bd65fd"
+        },
+        "mica-continuity-selector": {
+          "id": "mica-continuity-selector",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "selector",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L6-L8",
+          "title": "SURFACE_SELECTOR / CONNECTOR_PILL_SELECTOR",
+          "symbol": "SURFACE_SELECTOR / CONNECTOR_PILL_SELECTOR",
+          "lines": [
+            6,
+            8
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "ecae71de1cec2e1d4357a909466946e7672e76d0118fa5b27700681a8f1ab446",
+          "preview": "const CONNECTOR_LIFECYCLE_EVENT = \"mica-connector-lifecycle-latched\";\n  const SURFACE_SELECTOR = \"[data-composer-surface='true']\";\n  const CONNECTOR_PILL_SELECTOR = \"[data-inline-selection-pill][data-symbol='ecosystemMention'][data-id^='plugin:'], [data-inline-selection-pill][data-id^='plugin:'], [data-system-hint-type^='plugin:']\";"
+        },
+        "mica-continuity-trigger": {
+          "id": "mica-continuity-trigger",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L69-L92",
+          "title": "attachListeners / handleSharedConnectorLifecycle",
+          "symbol": "attachListeners / handleSharedConnectorLifecycle",
+          "lines": [
+            69,
+            92
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "51eb38dd9baf9d3464faeb2818838fe10fef7080ee7fd07b59c75a53296ddfd1"
+        },
+        "mica-continuity-observer": {
+          "id": "mica-continuity-observer",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L135-L174",
+          "title": "startObserver / handleMutations / scheduleSnapshotRefresh",
+          "symbol": "startObserver / handleMutations / scheduleSnapshotRefresh",
+          "lines": [
+            135,
+            174
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "9e0ac7d8498a84a260b1f44518d184655eafce0c0ed409bedf128344ab6a25a9"
+        },
+        "mica-continuity-snapshot": {
+          "id": "mica-continuity-snapshot",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L203-L247",
+          "title": "refreshSnapshot",
+          "symbol": "refreshSnapshot",
+          "lines": [
+            203,
+            247
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "5d762ded041dbf7e9711f100f7f424695c5d4631f0902195de7f2d5dab0a3953"
+        },
+        "mica-continuity-shell": {
+          "id": "mica-continuity-shell",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L249-L285",
+          "title": "showShell",
+          "symbol": "showShell",
+          "lines": [
+            249,
+            285
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "1e5ab7ef9d1182d79375a6763bd8a1147ecfce852a211f4f7cae805e6e27a3be"
+        },
+        "mica-continuity-cleanup": {
+          "id": "mica-continuity-cleanup",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L306-L344",
+          "title": "cleanup / continuitySkipReason",
+          "symbol": "cleanup / continuitySkipReason",
+          "lines": [
+            306,
+            344
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "d61c0df825636f2a33962eeee5f36e25cea0bb94ec4c4fd1789e4ca34cb5d277"
+        },
+        "mica-stale-intent": {
+          "id": "mica-stale-intent",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/stale-composer-recovery.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L167-L222",
+          "title": "beginPendingFullClear",
+          "symbol": "beginPendingFullClear",
+          "lines": [
+            167,
+            222
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "6dd92a83e23c912e8bf2854cf7794cbf8fbe5e945a3b4f914b1a1d8b72f71239"
+        },
+        "mica-stale-confirm": {
+          "id": "mica-stale-confirm",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/stale-composer-recovery.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L224-L252",
+          "title": "confirmPendingClear",
+          "symbol": "confirmPendingClear",
+          "lines": [
+            224,
+            252
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "940f2712c58658cd05bbd33259cef9fa8e020eb5a34450b4be95d6181a38ec2a"
+        },
+        "mica-stale-guard": {
+          "id": "mica-stale-guard",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/stale-composer-recovery.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L293-L423",
+          "title": "armGuard / tickGuard",
+          "symbol": "armGuard / tickGuard",
+          "lines": [
+            293,
+            423
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "b8e5bb34cbd3134088f0245915e0a6700af2485dda16351d48c5e1dcebf1cf49"
+        },
+        "mica-stale-settle": {
+          "id": "mica-stale-settle",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/stale-composer-recovery.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L425-L503",
+          "title": "enterSettling / completeSettling / attemptRecovery",
+          "symbol": "enterSettling / completeSettling / attemptRecovery",
+          "lines": [
+            425,
+            503
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "ca4f44ee363b6da58e59612f860c1f400705e8de0a37ba519939272932b17066"
+        },
+        "mica-stale-final": {
+          "id": "mica-stale-final",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/stale-composer-recovery.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L602-L642",
+          "title": "completeTombstoneIfCurrent / markFinalClearStable",
+          "symbol": "completeTombstoneIfCurrent / markFinalClearStable",
+          "lines": [
+            602,
+            642
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "cb521dad87e862f09511cb0c8239d07c0b7b6d0c1408ccab69c3007d988e9601"
+        },
+        "mica-stale-user-cancel": {
+          "id": "mica-stale-user-cancel",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "extension/src/reliability/stale-composer-recovery.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L161-L165",
+          "title": "handleNewUserInput",
+          "symbol": "handleNewUserInput",
+          "lines": [
+            161,
+            165
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "4be7d9643081e9e5f903362d06afcef161ef40668fe8f038cc351eef129197c4"
+        },
+        "mica-test-hotpath": {
+          "id": "mica-test-hotpath",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "tests/fixtures/composer-typing-hotpath.html",
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/tests/fixtures/composer-typing-hotpath.html#L193-L229",
+          "title": "run / checks",
+          "symbol": "run / checks",
+          "lines": [
+            193,
+            229
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "d9d7ef3fe883c2594270b2be572de3cabc9f79f01368963938b62762f9e62823"
+        },
+        "mica-test-native-mode": {
+          "id": "mica-test-native-mode",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "scripts/run-e2e.mjs",
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/run-e2e.mjs#L83-L102",
+          "title": "small mounted / disabled / longThreadOff assertions",
+          "symbol": "small mounted / disabled / longThreadOff assertions",
+          "lines": [
+            83,
+            102
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "50bbc832b9dabe116d675543edc6e732154a6c7a514b72998fe5762592b37e3e"
+        },
+        "mica-test-protected-input": {
+          "id": "mica-test-protected-input",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "scripts/run-e2e.mjs",
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/run-e2e.mjs#L577-L587",
+          "title": "compareWithBaseline",
+          "symbol": "compareWithBaseline",
+          "lines": [
+            577,
+            587
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "9cbe33d645b55f0e9c80dff2469699b43ad2044ba5c087a7106d6f4474b91f31"
+        },
+        "mica-test-hotpath-runner": {
+          "id": "mica-test-hotpath-runner",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "scripts/run-e2e.mjs",
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/run-e2e.mjs#L183-L221",
+          "title": "runTypingHotpathCase",
+          "symbol": "runTypingHotpathCase",
+          "lines": [
+            183,
+            221
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "45b2f21fdab82ad08396aeb84890ac6847e556959d5a4530734590ed82ff10ac"
+        },
+        "mica-test-lifecycle": {
+          "id": "mica-test-lifecycle",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "tests/fixtures/connector-mention-lifecycle.html",
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/tests/fixtures/connector-mention-lifecycle.html#L218-L237",
+          "title": "checks",
+          "symbol": "checks",
+          "lines": [
+            218,
+            237
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "fb47acce88d7236ba3f2f5afe5ce80b0c32c1aef7b419499f4c31c71564a19cd"
+        },
+        "mica-test-stale": {
+          "id": "mica-test-stale",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "tests/fixtures/connector-mention-lifecycle.html",
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/tests/fixtures/connector-mention-lifecycle.html#L545-L591",
+          "title": "runRepeatedStaleClearCase",
+          "symbol": "runRepeatedStaleClearCase",
+          "lines": [
+            545,
+            591
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "f71644688fb11d3d1c105656c4ca9b85832f83de77b276e6642f3accf97fa7b9"
+        },
+        "mica-test-lifecycle-runner": {
+          "id": "mica-test-lifecycle-runner",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "scripts/run-e2e.mjs",
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/run-e2e.mjs#L145-L180",
+          "title": "runConnectorMentionLifecycleCase",
+          "symbol": "runConnectorMentionLifecycleCase",
+          "lines": [
+            145,
+            180
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "7dbfac66b6323e2b17fca16922d35f0dab9f199939a8f748de519e10be32330b"
+        },
+        "mica-old-input-listeners": {
+          "id": "mica-old-input-listeners",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L56-L67",
+          "title": "attachListeners",
+          "symbol": "attachListeners",
+          "lines": [
+            56,
+            67
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "4281d3b497764fc2b3c642f5d5150c3befc5ececf07bf323b27e1978e3683cdd"
+        },
+        "mica-old-reclone": {
+          "id": "mica-old-reclone",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L86-L108",
+          "title": "handlePotentialMentionEvent / beginLifecycle",
+          "symbol": "handlePotentialMentionEvent / beginLifecycle",
+          "lines": [
+            86,
+            108
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "59a65425bb43b341dc2749ad6c8ede72f3cf0eaa5cd2f09361c3a0c39f1b42e7"
+        },
+        "mica-old-polling": {
+          "id": "mica-old-polling",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L167-L171",
+          "title": "ensureTimer",
+          "symbol": "ensureTimer",
+          "lines": [
+            167,
+            171
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "ed143462f722e6eeb815ee640b57387c60d4698328b0ad16925c537161ff52c2"
+        },
+        "mica-old-version": {
+          "id": "mica-old-version",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "path": "scripts/release-config.mjs",
+          "kind": "config",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/scripts/release-config.mjs#L1-L6",
+          "title": "MACHINE_VERSION / BUILD_LABEL",
+          "symbol": "MACHINE_VERSION / BUILD_LABEL",
+          "lines": [
+            1,
+            6
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "95deb19f8a79c16eb906df12bf63d9ba77cc5a68d790c24424f436050129e2b0"
+        },
+        "mica-planned-adapter": {
+          "id": "mica-planned-adapter",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "docs/product/MICA_PRODUCT_SYSTEM_V1.md",
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/product/MICA_PRODUCT_SYSTEM_V1.md#L300-L327",
+          "title": "4.1 Platform adapter",
+          "symbol": "4.1 Platform adapter",
+          "lines": [
+            300,
+            327
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "6e478263b6af09501443bd24f940eaab64fccf985776ed4f4bec4e443882d769"
+        },
+        "mica-planned-answer-model": {
+          "id": "mica-planned-answer-model",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "docs/product/MICA_PRODUCT_SYSTEM_V1.md",
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/product/MICA_PRODUCT_SYSTEM_V1.md#L384-L436",
+          "title": "4.3 Stable semantic answer model",
+          "symbol": "4.3 Stable semantic answer model",
+          "lines": [
+            384,
+            436
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "888ff968c460a213a419951c979190c40b428bc972dce1644f3647b3b20093f0"
+        },
+        "mica-review-boundary": {
+          "id": "mica-review-boundary",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "docs/reviews/2026-10-12-mica-product-system-critic-r2-verdict.md",
+          "kind": "review",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/reviews/2026-10-12-mica-product-system-critic-r2-verdict.md#L1-L21",
+          "title": "Planner/specification admission verdict only",
+          "symbol": "Planner/specification admission verdict only",
+          "lines": [
+            1,
+            21
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "baf6cb2026096a620a25ef9fa6f96e3a33f9780cd0ee8c04178c3eaf09d632ca"
+        },
+        "mica-scope-change": {
+          "id": "mica-scope-change",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "docs/reviews/2026-10-12-mica-product-system-critic-r2-verdict.md",
+          "kind": "decision",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/reviews/2026-10-12-mica-product-system-critic-r2-verdict.md#L21-L39",
+          "title": "Post-R2 user priority amendment",
+          "symbol": "Post-R2 user priority amendment",
+          "lines": [
+            21,
+            39
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "8b1a369f00ed82590f4807ec9ffbfdc965255e83036c35674113e6c4d3376863"
+        },
+        "mica-review-r1": {
+          "id": "mica-review-r1",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "path": "docs/reviews/2026-10-12-mica-product-system-critic-r1-disposition.md",
+          "kind": "review",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/reviews/2026-10-12-mica-product-system-critic-r1-disposition.md#L8-L24",
+          "title": "Accepted P1 findings",
+          "symbol": "Accepted P1 findings",
+          "lines": [
+            8,
+            24
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "daf447e9fceaad4a71d1f5950f72840d8bb6c090e4d12790cda65078e098283b"
+        },
+        "mica-old-shared-signal": {
+          "id": "mica-old-shared-signal",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "path": "extension/src/reliability/connector-continuity.ts",
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L96-L103",
+          "title": "handleSharedConnectorLifecycle",
+          "symbol": "handleSharedConnectorLifecycle",
+          "lines": [
+            96,
+            103
+          ],
+          "visibility": "public",
+          "check": "pinned-source-read",
+          "fragmentSha256": "63b12ba6c1da474da81b17423b28e941bf93d501c7b0346f578db058ca7d0a9b"
+        },
+        "mica-fix-record": {
+          "id": "mica-fix-record",
+          "title": "0.1.7 修复提交",
+          "repo": "YuukiAS/Mica-for-ChatGPT",
+          "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+          "path": "",
+          "lines": [],
+          "kind": "decision",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/commit/aa4ce52581fff2e207d1f93600becbb3018b0efc",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        }
+      },
+      "evidence": [
+        {
+          "id": "mica.offscreen-rendering-source",
+          "title": "当前实现已核对",
+          "basis": "source",
+          "claim": "对应机制在固定提交中有定义和消费路径。",
+          "anchors": [
+            "mica-observer",
+            "mica-schedule-scan",
+            "mica-turn-selectors",
+            "mica-collect-turns",
+            "mica-scan",
+            "mica-protect-turns",
+            "mica-apply",
+            "mica-native-mode",
+            "mica-scan"
+          ],
+          "limits": "仅证明源码事实；不证明当前真实站点表现。"
+        },
+        {
+          "id": "mica.offscreen-rendering-tests",
+          "title": "测试定义可定位",
+          "basis": "test-definition",
+          "claim": "仓库中存在覆盖相应行为的场景与断言。",
+          "anchors": [
+            "mica-test-native-mode",
+            "mica-test-protected-input"
+          ],
+          "limits": "本轮未运行；不能显示为测试通过。"
+        },
+        {
+          "id": "mica.connector-continuity-source",
+          "title": "当前实现已核对",
+          "basis": "source",
+          "claim": "对应机制在固定提交中有定义和消费路径。",
+          "anchors": [
+            "mica-latch",
+            "mica-latch-event",
+            "mica-continuity-trigger",
+            "mica-continuity-observer",
+            "mica-continuity-selector",
+            "mica-continuity-snapshot",
+            "mica-continuity-shell",
+            "mica-continuity-cleanup",
+            "mica-continuity-shell",
+            "mica-continuity-cleanup"
+          ],
+          "limits": "仅证明源码事实；不证明当前真实站点表现。"
+        },
+        {
+          "id": "mica.connector-continuity-tests",
+          "title": "测试定义可定位",
+          "basis": "test-definition",
+          "claim": "仓库中存在覆盖相应行为的场景与断言。",
+          "anchors": [
+            "mica-test-lifecycle",
+            "mica-test-hotpath-runner"
+          ],
+          "limits": "本轮未运行；不能显示为测试通过。"
+        },
+        {
+          "id": "mica.stale-clear-source",
+          "title": "当前实现已核对",
+          "basis": "source",
+          "claim": "对应机制在固定提交中有定义和消费路径。",
+          "anchors": [
+            "mica-stale-intent",
+            "mica-stale-confirm",
+            "mica-stale-guard",
+            "mica-stale-settle",
+            "mica-stale-settle",
+            "mica-stale-user-cancel",
+            "mica-stale-final",
+            "mica-test-stale"
+          ],
+          "limits": "仅证明源码事实；不证明当前真实站点表现。"
+        },
+        {
+          "id": "mica.stale-clear-tests",
+          "title": "测试定义可定位",
+          "basis": "test-definition",
+          "claim": "仓库中存在覆盖相应行为的场景与断言。",
+          "anchors": [
+            "mica-test-stale",
+            "mica-test-lifecycle-runner"
+          ],
+          "limits": "本轮未运行；不能显示为测试通过。"
+        },
+        {
+          "id": "mica-lifecycle-source",
+          "title": "发布与消费路径",
+          "basis": "source",
+          "claim": "共享生命周期事件具有真实发布函数与消费者。",
+          "anchors": [
+            "mica-latch-event",
+            "mica-continuity-trigger"
+          ],
+          "limits": "静态调用核对不等于运行事件已观测。"
+        },
+        {
+          "id": "mica-fix-trigger",
+          "title": "输入热路径修复记录",
+          "basis": "repository-record",
+          "claim": "仓库记录指出：普通输入重建视觉快照，导致性能回归。",
+          "anchors": [
+            "mica-fix-record",
+            "mica-old-input-listeners",
+            "mica-old-reclone",
+            "mica-old-polling"
+          ],
+          "limits": "原因由修复记录和代码共同支持；未重新测量真实站点耗时。"
+        },
+        {
+          "id": "mica-old-observation",
+          "title": "0.1.6 历史源码",
+          "basis": "source",
+          "claim": "旧组件直接监听普通输入，并以 60 毫秒轮询检测。",
+          "anchors": [
+            "mica-old-input-listeners",
+            "mica-old-reclone",
+            "mica-old-polling"
+          ],
+          "limits": "只覆盖本次核对的连接器机制。"
+        },
+        {
+          "id": "mica-rebuild-review",
+          "title": "10 月 12 日规格审查",
+          "basis": "design-review",
+          "claim": "统一适配层与回答模型的规格已获准。",
+          "anchors": [
+            "mica-planned-adapter",
+            "mica-planned-answer-model",
+            "mica-review-boundary"
+          ],
+          "limits": "该审查明确不证明代码、界面、性能或真实站点兼容。"
+        }
+      ],
+      "revisions": [
+        {
+          "id": "mica-before",
+          "label": "0.1.6 · 修复前",
+          "date": "2026-09-08",
+          "scope": [
+            "mica.connector-continuity"
+          ],
+          "context": "除连接器及其触发边外，其他节点沿用当前工作集；这不是 0.1.6 全系统快照。",
+          "code": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "design": "历史运行机制，据固定源码回建",
+          "components": [
+            {
+              "id": "mica.offscreen-rendering",
+              "title": "离屏历史渲染",
+              "role": "在原生页面仍挂载大量消息时降低离屏渲染成本；识别不稳或挂载窗口较小时保持原生。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-observer",
+                  "mica-schedule-scan",
+                  "mica-turn-selectors",
+                  "mica-collect-turns",
+                  "mica-scan",
+                  "mica-protect-turns",
+                  "mica-apply",
+                  "mica-native-mode"
+                ],
+                "note": "真实 TypeScript 已定位；本轮未操作真实 ChatGPT，也未重跑产品测试。"
+              },
+              "evidence": [
+                "mica.offscreen-rendering-source",
+                "mica.offscreen-rendering-tests"
+              ],
+              "mechanism": [
+                {
+                  "type": "steps",
+                  "items": [
+                    {
+                      "title": "观察结构，合并扫描",
+                      "body": "MutationObserver忽略仅输入框内的变动；输入生命周期活跃时暂停重扫；其余变化合并到下一帧。",
+                      "anchors": [
+                        "mica-observer",
+                        "mica-schedule-scan"
+                      ]
+                    },
+                    {
+                      "title": "确认消息窗口",
+                      "body": "从main中的角色标记和conversation-turn选择器收集消息；结构含糊时撤销优化，进入原生保护模式。",
+                      "anchors": [
+                        "mica-turn-selectors",
+                        "mica-collect-turns",
+                        "mica-scan"
+                      ]
+                    },
+                    {
+                      "title": "保护交互，再降渲染成本",
+                      "body": "最近消息、视口附近消息、编辑、流式生成、工具与授权等区域保持原生；仅给远端安全消息添加渲染隔离类和占位高度。",
+                      "anchors": [
+                        "mica-protect-turns",
+                        "mica-apply"
+                      ]
+                    },
+                    {
+                      "title": "小窗口转回原生",
+                      "body": "小于阈值时移除优化，断开文档变更与尺寸观察，保留低频状态探测。关闭功能也撤销本组件影响。",
+                      "anchors": [
+                        "mica-native-mode",
+                        "mica-scan"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "contract",
+                  "title": "扫描只处理当前挂载窗口",
+                  "rows": [
+                    [
+                      "定位",
+                      "TURN_SELECTOR / ROLE_SELECTOR / COMPOSER_SELECTOR"
+                    ],
+                    [
+                      "保护集合",
+                      "最近消息、视口附近、编辑、流式生成、工具与授权区域"
+                    ],
+                    [
+                      "写入",
+                      "远端安全消息的渲染隔离类与占位高度"
+                    ],
+                    [
+                      "退出",
+                      "结构含糊、窗口较小或用户关闭 → 撤销本组件影响"
+                    ]
+                  ],
+                  "anchors": [
+                    "mica-turn-selectors",
+                    "mica-protect-turns",
+                    "mica-apply"
+                  ]
+                }
+              ],
+              "open": [
+                "代码中的mounted turns只表示当前DOM窗口，不能当完整对话长度。",
+                "2026-09-01真实设备观察为仓库内历史证据，不能证明2026-10-27线上结构或性能。"
+              ],
+              "detail": true
+            },
+            {
+              "id": "mica.connector-continuity",
+              "title": "连接器输入框连续显示",
+              "role": "在原生输入框短暂卸载时提供视觉连续性；历史版本在普通输入热路径重建快照。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-old-input-listeners",
+                  "mica-old-reclone",
+                  "mica-old-polling",
+                  "mica-old-shared-signal"
+                ],
+                "note": "此组件定位到真实 0.1.6 提交；其余组件在图中仅作当前上下文。"
+              },
+              "evidence": [
+                "mica-old-observation"
+              ],
+              "mechanism": [
+                {
+                  "type": "sequence",
+                  "items": [
+                    {
+                      "title": "直接监听普通输入",
+                      "body": "组件注册 focusin、beforeinput、input、click、pointerdown、keydown。",
+                      "anchors": [
+                        "mica-old-input-listeners"
+                      ]
+                    },
+                    {
+                      "title": "每次进入生命周期",
+                      "body": "连接器上下文锁存后，普通输入也可进入 beginLifecycle 并重新克隆输入框。",
+                      "anchors": [
+                        "mica-old-reclone"
+                      ]
+                    },
+                    {
+                      "title": "定时检查",
+                      "body": "以 60 毫秒固定轮询检查当前输入框。",
+                      "anchors": [
+                        "mica-old-polling"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "prose",
+                  "body": "已撤销的是高频触发机制。短暂副本不可交互、发送与清除互斥、条件不足回到原生等保护仍保留。"
+                },
+                {
+                  "type": "prose",
+                  "body": "共享连接器生命周期信号在 0.1.6 已经存在；后续修复保留这个入口，撤销的是普通输入的直接触发。",
+                  "anchors": [
+                    "mica-old-shared-signal"
+                  ]
+                }
+              ],
+              "open": [
+                "这只是视觉连续性，不能提供可靠发送或修改输入内容。",
+                "快照过期、缺少定位或与清除/发送冲突时保留原生。"
+              ],
+              "detail": true
+            },
+            {
+              "id": "mica.stale-clear",
+              "title": "旧草稿清除恢复",
+              "role": "用户已确认清空后，若原生重新挂载又带回同一份旧草稿，有限次恢复空白，并保护用户的新输入。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-stale-intent",
+                  "mica-stale-confirm",
+                  "mica-stale-guard",
+                  "mica-stale-settle",
+                  "mica-stale-user-cancel",
+                  "mica-stale-final",
+                  "mica-test-stale"
+                ],
+                "note": "真实 TypeScript 已定位；本轮未操作真实 ChatGPT，也未重跑产品测试。"
+              },
+              "evidence": [
+                "mica.stale-clear-source",
+                "mica.stale-clear-tests"
+              ],
+              "mechanism": [
+                {
+                  "type": "state",
+                  "states": [
+                    "已确认清空",
+                    "等待旧草稿",
+                    "稳定后恢复",
+                    "最终安静"
+                  ],
+                  "transitions": [
+                    [
+                      "已确认清空",
+                      "等待旧草稿",
+                      "记录指纹"
+                    ],
+                    [
+                      "等待旧草稿",
+                      "稳定后恢复",
+                      "同内容重新挂载"
+                    ],
+                    [
+                      "稳定后恢复",
+                      "等待旧草稿",
+                      "再次挂载，有限重试"
+                    ],
+                    [
+                      "稳定后恢复",
+                      "最终安静",
+                      "安静窗口满足"
+                    ]
+                  ],
+                  "exit": "用户有新输入：立即取消；次数或时间耗尽：停止恢复。"
+                },
+                {
+                  "type": "steps",
+                  "items": [
+                    {
+                      "title": "先确认用户清空",
+                      "body": "全选删除或剪切产生候选，随后必须在同一目标上观察到真实空文本；普通输入不进入恢复。",
+                      "anchors": [
+                        "mica-stale-intent",
+                        "mica-stale-confirm"
+                      ]
+                    },
+                    {
+                      "title": "等待并识别旧草稿返回",
+                      "body": "记录本轮身份、旧文本指纹与输入框身份；重新挂载后只处理匹配旧内容的候选，经过稳定等待再操作。",
+                      "anchors": [
+                        "mica-stale-guard",
+                        "mica-stale-settle"
+                      ]
+                    },
+                    {
+                      "title": "有限恢复，不抢新输入",
+                      "body": "每次使用原生删除路径并复查，最多3次、总时限12秒；用户插入、粘贴等新输入立即取消本轮。",
+                      "anchors": [
+                        "mica-stale-settle",
+                        "mica-stale-user-cancel"
+                      ]
+                    },
+                    {
+                      "title": "区分一次清空与最终稳定",
+                      "body": "一次删空只记录本次恢复；后续重新挂载会重置安静窗口。安静窗口满足后才标记最终稳定，耗尽则明确结束。",
+                      "anchors": [
+                        "mica-stale-final",
+                        "mica-test-stale"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "open": [],
+              "detail": true
+            },
+            {
+              "id": "mica.dom",
+              "title": "ChatGPT 原生页面",
+              "role": "提供当前挂载消息、输入框和连接器交互。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [
+                  "mica-turn-selectors",
+                  "mica-continuity-selector"
+                ],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "这是扩展依赖的外部界面。DOM 选择器是兼容边界，不能把当前匹配成功永久当作站点接口合同。"
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "mica.lifecycle",
+              "title": "连接器生命周期",
+              "role": "发布已锁存的连接器上下文与本轮身份。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-latch",
+                  "mica-latch-event"
+                ],
+                "note": ""
+              },
+              "evidence": [
+                "mica-lifecycle-source"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "latchConnectorLifecycle 保存连接器上下文；dispatchLatchEvent 发布共享生命周期事件。连续显示组件从该事件进入有界观察。",
+                  "anchors": [
+                    "mica-latch",
+                    "mica-latch-event"
+                  ]
+                }
+              ],
+              "detail": false
+            },
+            {
+              "id": "mica.surface",
+              "title": "用户可见界面",
+              "role": "保持原生消息显示与连续输入。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [
+                  "mica-continuity-shell",
+                  "mica-apply"
+                ],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "这是用户实际看到的结果。视觉副本没有编辑、点击或发送权；缺少安全条件时维持原生行为。"
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "mica.future-adapter",
+              "title": "统一站点适配层",
+              "role": "集中定位消息、回答操作和输入状态。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "mica-planned-adapter"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "拟议目录不是源码锚点。此处没有虚构 package 或 function。"
+              },
+              "evidence": [
+                "mica-rebuild-review"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "10 月 12 日重建设计约定统一 ChatGPT 适配层。当前固定 main 中尚无该目录；现行选择器仍由既有模块持有。",
+                  "anchors": [
+                    "mica-planned-adapter"
+                  ]
+                },
+                {
+                  "type": "contract",
+                  "title": "设计与现行代码的距离",
+                  "rows": [
+                    [
+                      "拟议位置",
+                      "extension/src/platform/chatgpt/"
+                    ],
+                    [
+                      "现行位置",
+                      "content.ts 与 reliability 模块"
+                    ],
+                    [
+                      "状态",
+                      "规格已获准；运行实现尚未迁移"
+                    ]
+                  ],
+                  "anchors": [
+                    "mica-planned-adapter",
+                    "mica-review-boundary"
+                  ]
+                }
+              ],
+              "detail": true,
+              "layer": "future"
+            },
+            {
+              "id": "mica.future-answer",
+              "title": "共享回答模型",
+              "role": "让后续回答能力消费同一份版本化语义结果。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "mica-planned-answer-model"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "当前固定代码没有对应模型实现。"
+              },
+              "evidence": [
+                "mica-rebuild-review"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "适配层拟产出稳定回答文档。它属于新产品设计，不能从已有 DOM 操作推定该模型已经实现。",
+                  "anchors": [
+                    "mica-planned-answer-model"
+                  ]
+                }
+              ],
+              "detail": true,
+              "layer": "future"
+            }
+          ],
+          "relations": [
+            {
+              "id": "mica-messages",
+              "from": "mica.dom",
+              "to": "mica.offscreen-rendering",
+              "label": "挂载消息",
+              "object": "当前 DOM 窗口内的消息节点与角色标记",
+              "at": "setupObservers → scheduleScan → collectConversationTurns",
+              "reality": "observed",
+              "anchors": [
+                "mica-observer",
+                "mica-collect-turns"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-events",
+              "from": "mica.dom",
+              "to": "mica.lifecycle",
+              "label": "连接器事件",
+              "object": "连接器上下文、输入框与本轮身份",
+              "at": "latchConnectorLifecycle",
+              "reality": "observed",
+              "anchors": [
+                "mica-latch"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-clear-intent",
+              "from": "mica.dom",
+              "to": "mica.stale-clear",
+              "label": "清空与重挂载",
+              "object": "真实清空观察、旧文本指纹、输入框身份",
+              "at": "confirmPendingClear → armGuard",
+              "reality": "observed",
+              "anchors": [
+                "mica-stale-confirm",
+                "mica-stale-guard"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-render-output",
+              "from": "mica.offscreen-rendering",
+              "to": "mica.surface",
+              "label": "渲染隔离",
+              "object": "只施加到远端安全消息的类与占位高度",
+              "at": "applyOptimization；退出时 removeOptimization",
+              "reality": "observed",
+              "anchors": [
+                "mica-apply"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-shell",
+              "from": "mica.connector-continuity",
+              "to": "mica.surface",
+              "label": "短暂视觉副本",
+              "object": "不可编辑、不可点击、对辅助技术隐藏的输入框视觉副本",
+              "at": "refreshSnapshot → showShell → cleanup",
+              "reality": "observed",
+              "anchors": [
+                "mica-continuity-snapshot",
+                "mica-continuity-shell",
+                "mica-continuity-cleanup"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-clear-output",
+              "from": "mica.stale-clear",
+              "to": "mica.surface",
+              "label": "恢复空白",
+              "object": "匹配已清空旧草稿后的有限原生删除动作",
+              "at": "attemptRecovery；新输入则 handleNewUserInput 取消",
+              "reality": "observed",
+              "anchors": [
+                "mica-stale-settle",
+                "mica-stale-user-cancel"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-clear-exclusion",
+              "from": "mica.stale-clear",
+              "to": "mica.connector-continuity",
+              "label": "恢复互斥",
+              "object": "旧草稿恢复正在进行的状态",
+              "at": "continuitySkipReason 拒绝显示副本",
+              "reality": "observed",
+              "anchors": [
+                "mica-continuity-cleanup"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "mica-adapter-future",
+              "from": "mica.dom",
+              "to": "mica.future-adapter",
+              "label": "统一识别",
+              "object": "设计约定的消息、操作和站点状态",
+              "at": "尚无运行接线",
+              "reality": "proposed",
+              "anchors": [
+                "mica-planned-adapter"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-answer-future",
+              "from": "mica.future-adapter",
+              "to": "mica.future-answer",
+              "label": "语义回答",
+              "object": "版本化的回答文档",
+              "at": "尚无运行接线",
+              "reality": "proposed",
+              "anchors": [
+                "mica-planned-answer-model"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-input-trigger",
+              "from": "mica.dom",
+              "to": "mica.connector-continuity",
+              "label": "普通输入事件",
+              "object": "focusin / beforeinput / input 等 DOM 事件",
+              "at": "handlePotentialMentionEvent → beginLifecycle → 快照重建",
+              "reality": "observed",
+              "anchors": [
+                "mica-old-input-listeners",
+                "mica-old-reclone"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "mica-signal",
+              "from": "mica.lifecycle",
+              "to": "mica.connector-continuity",
+              "label": "共享信号",
+              "object": "连接器生命周期锁存事件",
+              "at": "dispatchLatchEvent → handleSharedConnectorLifecycle",
+              "reality": "observed",
+              "anchors": [
+                "mica-old-input-listeners",
+                "mica-old-shared-signal"
+              ],
+              "kind": "control"
+            }
+          ]
+        },
+        {
+          "id": "mica-current",
+          "label": "0.1.7 · 当前工作集",
+          "date": "2026-10-27",
+          "scope": "system",
+          "context": "运行代码为 0.1.7；右侧虚线分支为 10 月 12 日已获准、尚未迁移的重建设计。",
+          "code": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "design": "现行运行机制 + 10 月 12 日规格",
+          "components": [
+            {
+              "id": "mica.offscreen-rendering",
+              "title": "离屏历史渲染",
+              "role": "在原生页面仍挂载大量消息时降低离屏渲染成本；识别不稳或挂载窗口较小时保持原生。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-observer",
+                  "mica-schedule-scan",
+                  "mica-turn-selectors",
+                  "mica-collect-turns",
+                  "mica-scan",
+                  "mica-protect-turns",
+                  "mica-apply",
+                  "mica-native-mode"
+                ],
+                "note": "真实 TypeScript 已定位；本轮未操作真实 ChatGPT，也未重跑产品测试。"
+              },
+              "evidence": [
+                "mica.offscreen-rendering-source",
+                "mica.offscreen-rendering-tests"
+              ],
+              "mechanism": [
+                {
+                  "type": "steps",
+                  "items": [
+                    {
+                      "title": "观察结构，合并扫描",
+                      "body": "MutationObserver忽略仅输入框内的变动；输入生命周期活跃时暂停重扫；其余变化合并到下一帧。",
+                      "anchors": [
+                        "mica-observer",
+                        "mica-schedule-scan"
+                      ]
+                    },
+                    {
+                      "title": "确认消息窗口",
+                      "body": "从main中的角色标记和conversation-turn选择器收集消息；结构含糊时撤销优化，进入原生保护模式。",
+                      "anchors": [
+                        "mica-turn-selectors",
+                        "mica-collect-turns",
+                        "mica-scan"
+                      ]
+                    },
+                    {
+                      "title": "保护交互，再降渲染成本",
+                      "body": "最近消息、视口附近消息、编辑、流式生成、工具与授权等区域保持原生；仅给远端安全消息添加渲染隔离类和占位高度。",
+                      "anchors": [
+                        "mica-protect-turns",
+                        "mica-apply"
+                      ]
+                    },
+                    {
+                      "title": "小窗口转回原生",
+                      "body": "小于阈值时移除优化，断开文档变更与尺寸观察，保留低频状态探测。关闭功能也撤销本组件影响。",
+                      "anchors": [
+                        "mica-native-mode",
+                        "mica-scan"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "contract",
+                  "title": "扫描只处理当前挂载窗口",
+                  "rows": [
+                    [
+                      "定位",
+                      "TURN_SELECTOR / ROLE_SELECTOR / COMPOSER_SELECTOR"
+                    ],
+                    [
+                      "保护集合",
+                      "最近消息、视口附近、编辑、流式生成、工具与授权区域"
+                    ],
+                    [
+                      "写入",
+                      "远端安全消息的渲染隔离类与占位高度"
+                    ],
+                    [
+                      "退出",
+                      "结构含糊、窗口较小或用户关闭 → 撤销本组件影响"
+                    ]
+                  ],
+                  "anchors": [
+                    "mica-turn-selectors",
+                    "mica-protect-turns",
+                    "mica-apply"
+                  ]
+                }
+              ],
+              "open": [
+                "代码中的mounted turns只表示当前DOM窗口，不能当完整对话长度。",
+                "2026-09-01真实设备观察为仓库内历史证据，不能证明2026-10-27线上结构或性能。"
+              ],
+              "detail": true
+            },
+            {
+              "id": "mica.connector-continuity",
+              "title": "连接器输入框连续显示",
+              "role": "连接器选择导致原生输入框短暂卸载时，以不可交互的短暂副本减少闪烁。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-latch",
+                  "mica-latch-event",
+                  "mica-continuity-trigger",
+                  "mica-continuity-observer",
+                  "mica-continuity-selector",
+                  "mica-continuity-snapshot",
+                  "mica-continuity-shell",
+                  "mica-continuity-cleanup"
+                ],
+                "note": "真实 TypeScript 已定位；本轮未操作真实 ChatGPT，也未重跑产品测试。"
+              },
+              "evidence": [
+                "mica.connector-continuity-source",
+                "mica.connector-continuity-tests"
+              ],
+              "mechanism": [
+                {
+                  "type": "sequence",
+                  "items": [
+                    {
+                      "title": "锁存连接器上下文",
+                      "body": "共享连接器信号发布生命周期事件，组件只消费该事件和页面退出事件，不再直接监听普通输入。",
+                      "anchors": [
+                        "mica-latch",
+                        "mica-latch-event",
+                        "mica-continuity-trigger"
+                      ]
+                    },
+                    {
+                      "title": "按结构变更缓存",
+                      "body": "在有界生命周期内观察节点增删：输入框结构变化调度存在检查，连接器结构变化另外调度快照刷新，两者都合并到下一帧。共享信号也会调度首次快照。",
+                      "anchors": [
+                        "mica-continuity-observer",
+                        "mica-continuity-selector"
+                      ]
+                    },
+                    {
+                      "title": "短暂显示只读副本",
+                      "body": "原生输入框消失且快照仍新鲜时显示副本。发送或旧草稿清除正在进行时放弃；副本不可编辑、不可点击、对辅助技术隐藏。",
+                      "anchors": [
+                        "mica-continuity-snapshot",
+                        "mica-continuity-shell",
+                        "mica-continuity-cleanup"
+                      ]
+                    },
+                    {
+                      "title": "恢复或到期即清理",
+                      "body": "检测到原生输入框返回即撤下副本；副本最多显示2秒，每次生命周期信号将观察期限延至其后4.2秒，关闭、跳转或到期会断开观察并清理排程。",
+                      "anchors": [
+                        "mica-continuity-shell",
+                        "mica-continuity-cleanup"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "open": [
+                "这只是视觉连续性，不能提供可靠发送或修改输入内容。",
+                "快照过期、缺少定位或与清除/发送冲突时保留原生。"
+              ],
+              "detail": true
+            },
+            {
+              "id": "mica.stale-clear",
+              "title": "旧草稿清除恢复",
+              "role": "用户已确认清空后，若原生重新挂载又带回同一份旧草稿，有限次恢复空白，并保护用户的新输入。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-stale-intent",
+                  "mica-stale-confirm",
+                  "mica-stale-guard",
+                  "mica-stale-settle",
+                  "mica-stale-user-cancel",
+                  "mica-stale-final",
+                  "mica-test-stale"
+                ],
+                "note": "真实 TypeScript 已定位；本轮未操作真实 ChatGPT，也未重跑产品测试。"
+              },
+              "evidence": [
+                "mica.stale-clear-source",
+                "mica.stale-clear-tests"
+              ],
+              "mechanism": [
+                {
+                  "type": "state",
+                  "states": [
+                    "已确认清空",
+                    "等待旧草稿",
+                    "稳定后恢复",
+                    "最终安静"
+                  ],
+                  "transitions": [
+                    [
+                      "已确认清空",
+                      "等待旧草稿",
+                      "记录指纹"
+                    ],
+                    [
+                      "等待旧草稿",
+                      "稳定后恢复",
+                      "同内容重新挂载"
+                    ],
+                    [
+                      "稳定后恢复",
+                      "等待旧草稿",
+                      "再次挂载，有限重试"
+                    ],
+                    [
+                      "稳定后恢复",
+                      "最终安静",
+                      "安静窗口满足"
+                    ]
+                  ],
+                  "exit": "用户有新输入：立即取消；次数或时间耗尽：停止恢复。"
+                },
+                {
+                  "type": "steps",
+                  "items": [
+                    {
+                      "title": "先确认用户清空",
+                      "body": "全选删除或剪切产生候选，随后必须在同一目标上观察到真实空文本；普通输入不进入恢复。",
+                      "anchors": [
+                        "mica-stale-intent",
+                        "mica-stale-confirm"
+                      ]
+                    },
+                    {
+                      "title": "等待并识别旧草稿返回",
+                      "body": "记录本轮身份、旧文本指纹与输入框身份；重新挂载后只处理匹配旧内容的候选，经过稳定等待再操作。",
+                      "anchors": [
+                        "mica-stale-guard",
+                        "mica-stale-settle"
+                      ]
+                    },
+                    {
+                      "title": "有限恢复，不抢新输入",
+                      "body": "每次使用原生删除路径并复查，最多3次、总时限12秒；用户插入、粘贴等新输入立即取消本轮。",
+                      "anchors": [
+                        "mica-stale-settle",
+                        "mica-stale-user-cancel"
+                      ]
+                    },
+                    {
+                      "title": "区分一次清空与最终稳定",
+                      "body": "一次删空只记录本次恢复；后续重新挂载会重置安静窗口。安静窗口满足后才标记最终稳定，耗尽则明确结束。",
+                      "anchors": [
+                        "mica-stale-final",
+                        "mica-test-stale"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "open": [],
+              "detail": true
+            },
+            {
+              "id": "mica.dom",
+              "title": "ChatGPT 原生页面",
+              "role": "提供当前挂载消息、输入框和连接器交互。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [
+                  "mica-turn-selectors",
+                  "mica-continuity-selector"
+                ],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "这是扩展依赖的外部界面。DOM 选择器是兼容边界，不能把当前匹配成功永久当作站点接口合同。"
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "mica.lifecycle",
+              "title": "连接器生命周期",
+              "role": "发布已锁存的连接器上下文与本轮身份。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "mica-latch",
+                  "mica-latch-event"
+                ],
+                "note": ""
+              },
+              "evidence": [
+                "mica-lifecycle-source"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "latchConnectorLifecycle 保存连接器上下文；dispatchLatchEvent 发布共享生命周期事件。连续显示组件从该事件进入有界观察。",
+                  "anchors": [
+                    "mica-latch",
+                    "mica-latch-event"
+                  ]
+                }
+              ],
+              "detail": false
+            },
+            {
+              "id": "mica.surface",
+              "title": "用户可见界面",
+              "role": "保持原生消息显示与连续输入。",
+              "design": {
+                "state": null,
+                "refs": [],
+                "basis": "source-reconstruction"
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [
+                  "mica-continuity-shell",
+                  "mica-apply"
+                ],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "这是用户实际看到的结果。视觉副本没有编辑、点击或发送权；缺少安全条件时维持原生行为。"
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "mica.future-adapter",
+              "title": "统一站点适配层",
+              "role": "集中定位消息、回答操作和输入状态。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "mica-planned-adapter"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "拟议目录不是源码锚点。此处没有虚构 package 或 function。"
+              },
+              "evidence": [
+                "mica-rebuild-review"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "10 月 12 日重建设计约定统一 ChatGPT 适配层。当前固定 main 中尚无该目录；现行选择器仍由既有模块持有。",
+                  "anchors": [
+                    "mica-planned-adapter"
+                  ]
+                },
+                {
+                  "type": "contract",
+                  "title": "设计与现行代码的距离",
+                  "rows": [
+                    [
+                      "拟议位置",
+                      "extension/src/platform/chatgpt/"
+                    ],
+                    [
+                      "现行位置",
+                      "content.ts 与 reliability 模块"
+                    ],
+                    [
+                      "状态",
+                      "规格已获准；运行实现尚未迁移"
+                    ]
+                  ],
+                  "anchors": [
+                    "mica-planned-adapter",
+                    "mica-review-boundary"
+                  ]
+                }
+              ],
+              "detail": true,
+              "layer": "future"
+            },
+            {
+              "id": "mica.future-answer",
+              "title": "共享回答模型",
+              "role": "让后续回答能力消费同一份版本化语义结果。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "mica-planned-answer-model"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "当前固定代码没有对应模型实现。"
+              },
+              "evidence": [
+                "mica-rebuild-review"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "适配层拟产出稳定回答文档。它属于新产品设计，不能从已有 DOM 操作推定该模型已经实现。",
+                  "anchors": [
+                    "mica-planned-answer-model"
+                  ]
+                }
+              ],
+              "detail": true,
+              "layer": "future"
+            }
+          ],
+          "relations": [
+            {
+              "id": "mica-messages",
+              "from": "mica.dom",
+              "to": "mica.offscreen-rendering",
+              "label": "挂载消息",
+              "object": "当前 DOM 窗口内的消息节点与角色标记",
+              "at": "setupObservers → scheduleScan → collectConversationTurns",
+              "reality": "observed",
+              "anchors": [
+                "mica-observer",
+                "mica-collect-turns"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-events",
+              "from": "mica.dom",
+              "to": "mica.lifecycle",
+              "label": "连接器事件",
+              "object": "连接器上下文、输入框与本轮身份",
+              "at": "latchConnectorLifecycle",
+              "reality": "observed",
+              "anchors": [
+                "mica-latch"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-signal",
+              "from": "mica.lifecycle",
+              "to": "mica.connector-continuity",
+              "label": "共享信号",
+              "object": "连接器生命周期锁存事件",
+              "at": "dispatchLatchEvent → handleSharedConnectorLifecycle",
+              "reality": "observed",
+              "anchors": [
+                "mica-latch-event",
+                "mica-continuity-trigger"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "mica-clear-intent",
+              "from": "mica.dom",
+              "to": "mica.stale-clear",
+              "label": "清空与重挂载",
+              "object": "真实清空观察、旧文本指纹、输入框身份",
+              "at": "confirmPendingClear → armGuard",
+              "reality": "observed",
+              "anchors": [
+                "mica-stale-confirm",
+                "mica-stale-guard"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-render-output",
+              "from": "mica.offscreen-rendering",
+              "to": "mica.surface",
+              "label": "渲染隔离",
+              "object": "只施加到远端安全消息的类与占位高度",
+              "at": "applyOptimization；退出时 removeOptimization",
+              "reality": "observed",
+              "anchors": [
+                "mica-apply"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-shell",
+              "from": "mica.connector-continuity",
+              "to": "mica.surface",
+              "label": "短暂视觉副本",
+              "object": "不可编辑、不可点击、对辅助技术隐藏的输入框视觉副本",
+              "at": "refreshSnapshot → showShell → cleanup",
+              "reality": "observed",
+              "anchors": [
+                "mica-continuity-snapshot",
+                "mica-continuity-shell",
+                "mica-continuity-cleanup"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-clear-output",
+              "from": "mica.stale-clear",
+              "to": "mica.surface",
+              "label": "恢复空白",
+              "object": "匹配已清空旧草稿后的有限原生删除动作",
+              "at": "attemptRecovery；新输入则 handleNewUserInput 取消",
+              "reality": "observed",
+              "anchors": [
+                "mica-stale-settle",
+                "mica-stale-user-cancel"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-clear-exclusion",
+              "from": "mica.stale-clear",
+              "to": "mica.connector-continuity",
+              "label": "恢复互斥",
+              "object": "旧草稿恢复正在进行的状态",
+              "at": "continuitySkipReason 拒绝显示副本",
+              "reality": "observed",
+              "anchors": [
+                "mica-continuity-cleanup"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "mica-adapter-future",
+              "from": "mica.dom",
+              "to": "mica.future-adapter",
+              "label": "统一识别",
+              "object": "设计约定的消息、操作和站点状态",
+              "at": "尚无运行接线",
+              "reality": "proposed",
+              "anchors": [
+                "mica-planned-adapter"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "mica-answer-future",
+              "from": "mica.future-adapter",
+              "to": "mica.future-answer",
+              "label": "语义回答",
+              "object": "版本化的回答文档",
+              "at": "尚无运行接线",
+              "reality": "proposed",
+              "anchors": [
+                "mica-planned-answer-model"
+              ],
+              "kind": "data"
+            }
+          ]
+        }
+      ],
+      "changes": [
+        {
+          "id": "mica-typing-fix",
+          "from": "mica-before",
+          "to": "mica-current",
+          "title": "普通输入不再重建视觉快照",
+          "kind": "bug-fix",
+          "scope": [
+            "mica.connector-continuity"
+          ],
+          "reason": "连接器上下文锁存后，普通输入进入重型 DOM 快照路径；仓库修复记录将其定位为输入性能回归。",
+          "triggers": [
+            "mica-fix-trigger"
+          ],
+          "decisionAnchors": [
+            "mica-fix-record"
+          ],
+          "changed": [
+            "撤销组件自身的普通输入监听与固定轮询",
+            "保留共享生命周期入口，新增有界 MutationObserver 与合帧处理",
+            "新增 20/200 字符与输入法热路径回归"
+          ],
+          "unchanged": [
+            "副本始终不可交互",
+            "发送和旧草稿恢复期间不显示副本",
+            "显示硬上限 2 秒，快照新鲜度 2.5 秒",
+            "缺少安全条件时维持原生",
+            "共享连接器生命周期信号入口"
+          ],
+          "capabilityEffect": "用户仍获得短暂视觉连续性，同时普通输入不再触发该组件的快照重建；实际性能收益本轮未重新测量。",
+          "implementation": "新消费路径已在当前 main 中；测试源码存在，本轮未执行。",
+          "anchors": [
+            "mica-old-input-listeners",
+            "mica-old-reclone",
+            "mica-continuity-trigger",
+            "mica-continuity-observer",
+            "mica-test-hotpath-runner"
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "id": "normal",
+          "label": "正常输入",
+          "nodes": [
+            "mica.dom",
+            "mica.lifecycle",
+            "mica.connector-continuity",
+            "mica.surface"
+          ],
+          "edges": [
+            "mica-events",
+            "mica-signal",
+            "mica-shell",
+            "mica-input-trigger"
+          ],
+          "note": "有连接器上下文才进入有界观察；普通输入不直接重建快照。"
+        },
+        {
+          "id": "recovery",
+          "label": "失败与恢复",
+          "nodes": [
+            "mica.dom",
+            "mica.stale-clear",
+            "mica.connector-continuity",
+            "mica.surface"
+          ],
+          "edges": [
+            "mica-clear-intent",
+            "mica-clear-output",
+            "mica-clear-exclusion",
+            "mica-shell"
+          ],
+          "note": "旧内容重新挂载才尝试有限恢复；新输入立即取消，清除期间连续显示让路。"
+        },
+        {
+          "id": "protection",
+          "label": "已有能力保护",
+          "nodes": [
+            "mica.dom",
+            "mica.offscreen-rendering",
+            "mica.surface"
+          ],
+          "edges": [
+            "mica-messages",
+            "mica-render-output"
+          ],
+          "note": "当前交互、流式生成及工具区域保持原生；结构不稳或挂载窗口较小则撤销优化。"
+        }
+      ],
+      "notices": [
+        {
+          "title": "新设计与代码同时存在",
+          "body": "统一适配层和共享回答模型已经写入获准规格，当前 main 尚未迁移。虚线表示设计关系。",
+          "anchors": [
+            "mica-planned-adapter",
+            "mica-review-boundary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da",
+      "title": "Delivery Assurance",
+      "subtitle": "交付保障 · 设计候选",
+      "tagline": "先把责任与接线想清楚，再谈实现是否完成。",
+      "scope": "研究范围：交付义务、能力编排、任务回传和项目验收的职责边界。图中 DA 新接线均未实施。",
+      "observed": {
+        "repo": "YuukiAS/AI_Skills_Collection",
+        "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+        "date": "2026-10-27",
+        "note": "两版都是设计来源；新职责方案仍为 PROPOSAL。本轮没有部署插件、钩子或受管交付入口。"
+      },
+      "defaultRevision": "da-current",
+      "defaultComponent": "da.assurance",
+      "anchors": {
+        "da-old": {
+          "id": "da-old",
+          "title": "旧设计：共享规则与执行接点",
+          "repo": "YuukiAS/AI_Research_Toolkit",
+          "commit": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/02_ARCHITECTURE_AND_COMPONENTS.md",
+          "lines": [
+            1,
+            57
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/02_ARCHITECTURE_AND_COMPONENTS.md#L1-L57",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-old-flow": {
+          "id": "da-old-flow",
+          "title": "旧设计：执行、证据与返修",
+          "repo": "YuukiAS/AI_Research_Toolkit",
+          "commit": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/03_END_TO_END_EXECUTION_AND_VALIDATORS.md",
+          "lines": [
+            1,
+            169
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/03_END_TO_END_EXECUTION_AND_VALIDATORS.md#L1-L169",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-old-status": {
+          "id": "da-old-status",
+          "title": "旧设计范围与实施状态",
+          "repo": "YuukiAS/AI_Research_Toolkit",
+          "commit": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md",
+          "lines": [],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-current": {
+          "id": "da-current",
+          "title": "新职责划分仍为候选",
+          "repo": "YuukiAS/AI_Skills_Collection",
+          "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+          "path": "docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+          "lines": [
+            1,
+            38
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md#L1-L38",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-assurance": {
+          "id": "da-assurance",
+          "title": "Delivery Assurance 的独占职责",
+          "repo": "YuukiAS/AI_Skills_Collection",
+          "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+          "path": "docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+          "lines": [
+            89,
+            100
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md#L89-L100",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-workflow": {
+          "id": "da-workflow",
+          "title": "能力发现、组合与接收者",
+          "repo": "YuukiAS/AI_Skills_Collection",
+          "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+          "path": "docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+          "lines": [
+            74,
+            87
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md#L74-L87",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-bridge": {
+          "id": "da-bridge",
+          "title": "Bridge 的运行边界",
+          "repo": "YuukiAS/AI_Skills_Collection",
+          "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+          "path": "docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+          "lines": [
+            102,
+            106
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md#L102-L106",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-roadmap": {
+          "id": "da-roadmap",
+          "title": "实施顺序与尚未完成项",
+          "repo": "YuukiAS/AI_Skills_Collection",
+          "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+          "path": "docs/design/ai-reliability-architecture/ROADMAP.md",
+          "lines": [],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ROADMAP.md",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-reference": {
+          "id": "da-reference",
+          "title": "共同输入与明确边界",
+          "repo": "YuukiAS/AI_Research_Toolkit",
+          "commit": "23a1c4840f665e66f7af95ffadaadd96dc999e7f",
+          "path": "AI_RELIABILITY_SYSTEM_REFERENCE.md",
+          "lines": [
+            1,
+            68
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/23a1c4840f665e66f7af95ffadaadd96dc999e7f/AI_RELIABILITY_SYSTEM_REFERENCE.md#L1-L68",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-gaps": {
+          "id": "da-gaps",
+          "title": "标准与检查程序缺口的不同接收者",
+          "repo": "YuukiAS/AI_Skills_Collection",
+          "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+          "path": "docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+          "lines": [
+            128,
+            143
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md#L128-L143",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        },
+        "da-separation": {
+          "id": "da-separation",
+          "title": "职责拆分的理由",
+          "repo": "YuukiAS/AI_Skills_Collection",
+          "commit": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+          "path": "docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+          "lines": [
+            162,
+            168
+          ],
+          "kind": "design",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md#L162-L168",
+          "visibility": "public",
+          "check": "pinned-source-read"
+        }
+      },
+      "evidence": [
+        {
+          "id": "da-old-record",
+          "title": "旧设计审查与边界",
+          "basis": "design-record",
+          "claim": "旧 R3 设计在原范围内有通过记录；新增执行路径未实施。",
+          "anchors": [
+            "da-old-status",
+            "da-old"
+          ],
+          "limits": "不能把旧设计通过沿用为新职责方案批准。"
+        },
+        {
+          "id": "da-proposal",
+          "title": "新职责候选",
+          "basis": "proposal",
+          "claim": "10 月 26 日候选把交付判定、能力编排和低层运行分别归属。",
+          "anchors": [
+            "da-current",
+            "da-workflow",
+            "da-assurance",
+            "da-bridge"
+          ],
+          "limits": "这是方案来源，不是生产实现或新方案审批记录。"
+        }
+      ],
+      "revisions": [
+        {
+          "id": "da-before",
+          "label": "旧设计 · 共享规则库",
+          "date": "历史 R3 设计",
+          "scope": "system",
+          "context": "历史设计范围内曾通过；代码和新接线尚未完成。",
+          "code": null,
+          "design": "Toolkit 旧 R3 设计",
+          "components": [
+            {
+              "id": "da.requirements",
+              "title": "目标与已接受能力",
+              "role": "给出本次用户能力、原始约束和不能破坏的旧行为。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "目标与标准来自用户和原项目正式来源。重要产品含义、架构及科学标准由 Chat 或原领域权威决定；实现者不能自行削减。",
+                  "anchors": [
+                    "da-old",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "da.workflow",
+              "title": "能力与任务编排",
+              "role": "共享规则与工作编排合在同一职责层。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "已有 workflow-core 底座；新职责迁移和接线尚未验证。"
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "旧设计的共享规则库依据已整理的要求、项目标准与旧行为，形成义务、选测和可支持的声明。实际执行由 Bridge 和项目原调用者负责。",
+                  "anchors": [
+                    "da-old",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "detail": true,
+              "owner": "workflow-core"
+            },
+            {
+              "id": "da.assurance",
+              "title": "共享交付规则",
+              "role": "旧设计把验收义务、选择与证据资格集中在 workflow-core 的规则库。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "旧共享规则库及所列新增接线尚未实施；不将拟议函数列为真实源码。"
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "原设计由 Bridge 调共享规则库，再交当前 Codex 与项目验收执行。旧审批只覆盖当时的设计，不证明任何新增接线已经实现。",
+                  "anchors": [
+                    "da-old",
+                    "da-old-flow"
+                  ]
+                },
+                {
+                  "type": "contract",
+                  "title": "旧职责归属",
+                  "rows": [
+                    [
+                      "workflow-core",
+                      "整理验收义务、旧行为保护、选测与证据资格"
+                    ],
+                    [
+                      "Bridge",
+                      "身份、执行、回传，以及最终交付检查接点"
+                    ],
+                    [
+                      "项目",
+                      "真实验收与专业事实"
+                    ]
+                  ],
+                  "anchors": [
+                    "da-old",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "detail": true,
+              "owner": "workflow-core 内的规则库",
+              "open": [
+                "普通宿主的受管完成接点仍需验证。",
+                "缺少标准或合法观察条件时，不能形成交付完成结论。"
+              ]
+            },
+            {
+              "id": "da.bridge",
+              "title": "任务身份与回传",
+              "role": "接入原任务、调用规则库、回传失败，并承担最终交付检查接点。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "已有 Bridge 底座；本轮没有把 DA 的未来接线标成已经运行。"
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "保留原请求和任务身份，调用共享规则库，回传失败，并在原任务合法完成接点执行最终交付检查。新增接线尚未实施。",
+                  "anchors": [
+                    "da-old",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "detail": true,
+              "owner": "Bridge Kit"
+            },
+            {
+              "id": "da.executor",
+              "title": "项目实现",
+              "role": "按照已明确的设计修改产品和检查程序。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "Codex 可以报告代码事实、运行已授权测试、补齐按明确标准编写的测试。遇到缺少核心机制或设计无法落地时，带着约束和反例返回 Chat；不能自行发明产品机制。",
+                  "anchors": [
+                    "da-old",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "da.checks",
+              "title": "项目专业验收",
+              "role": "在真实对象上运行项目自己的标准、检查与观察。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "各项目已有验收不代表 DA 统一接线已完成。"
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "项目负责公式、阈值、数据、成品和真实运行的专业充分性。测试程序、测试运行、原始观察和结论分别留存。",
+                  "anchors": [
+                    "da-old",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "detail": true
+            },
+            {
+              "id": "da.review",
+              "title": "必要的独立判断",
+              "role": "查遗漏、反例和复杂质量；发现问题后交回设计负责人。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "已有独立审查角色按需要核对原要求、验收器或成品；共享规则库提出需要，由 Bridge 或原合法调用者启动和接回结果。",
+                  "anchors": [
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "da.delivery",
+              "title": "可解释的交付结论",
+              "role": "用户看到已满足、仍未证明和下一步需要解决什么。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "da-old",
+                  "da-old-flow"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [
+                "da-old-record"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "旧设计要求正常结束入口实际消费交付检查；未证明宿主接入前不能承诺拦截所有原生完成文字。",
+                  "anchors": [
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            }
+          ],
+          "relations": [
+            {
+              "id": "da-input",
+              "from": "da.requirements",
+              "to": "da.workflow",
+              "label": "任务目标",
+              "object": "用户目标、约束和已接受能力",
+              "at": "进入原任务",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-obligations",
+              "from": "da.requirements",
+              "to": "da.assurance",
+              "label": "交付承诺",
+              "object": "原要求、冻结标准和旧行为",
+              "at": "形成验收义务",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-compose",
+              "from": "da.workflow",
+              "to": "da.bridge",
+              "label": "调用与接收者",
+              "object": "所需能力、执行接点和结果接收者",
+              "at": "不由 Bridge 决定用什么能力",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-execute",
+              "from": "da.bridge",
+              "to": "da.executor",
+              "label": "原任务执行",
+              "object": "准确任务身份、设计范围和剩余权限",
+              "at": "原合法执行入口",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-check-request",
+              "from": "da.assurance",
+              "to": "da.checks",
+              "label": "验收义务",
+              "object": "必需新能力、旧行为和观察范围",
+              "at": "领域／项目确定专业标准，原 runner 按标准执行",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-candidate",
+              "from": "da.executor",
+              "to": "da.checks",
+              "label": "真实候选",
+              "object": "具体候选产品、输入及运行对象",
+              "at": "项目正常验收入口",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-evidence",
+              "from": "da.checks",
+              "to": "da.assurance",
+              "label": "证据与缺口",
+              "object": "同候选证据、失败和未观测项",
+              "at": "逐义务核对，不能合成总绿灯",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-feedback",
+              "from": "da.assurance",
+              "to": "da.bridge",
+              "label": "返修原因",
+              "object": "应有结果、实际结果、来源和接收者",
+              "at": "沿原工作流回传",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-independent",
+              "from": "da.workflow",
+              "to": "da.review",
+              "label": "按需审查",
+              "object": "存在判断风险的原始材料与候选",
+              "at": "逻辑审查需求，由 Bridge 或已有合法调用者执行；规则库不启动模型。",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-review-return",
+              "from": "da.review",
+              "to": "da.assurance",
+              "label": "独立发现",
+              "object": "遗漏、反例或专业判断及其证据",
+              "at": "只提供证据，不取代设计权",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-claim",
+              "from": "da.bridge",
+              "to": "da.delivery",
+              "label": "可支持的声明",
+              "object": "逐项满足范围、未决项和证据",
+              "at": "旧设计：Bridge 的最终交付检查接点",
+              "reality": "proposed",
+              "anchors": [
+                "da-old",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            }
+          ]
+        },
+        {
+          "id": "da-current",
+          "label": "10 月 26 日 · 职责候选",
+          "date": "2026-10-26",
+          "scope": "system",
+          "context": "新候选仍为 PROPOSAL。组件和连接的设计可以完整阅读，不能推定已存在相应函数。",
+          "code": null,
+          "design": "跨插件职责候选",
+          "components": [
+            {
+              "id": "da.requirements",
+              "title": "目标与已接受能力",
+              "role": "给出本次用户能力、原始约束和不能破坏的旧行为。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-reference"
+                ]
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "目标与标准来自用户和原项目正式来源。重要产品含义、架构及科学标准由 Chat 或原领域权威决定；实现者不能自行削减。",
+                  "anchors": [
+                    "da-reference",
+                    "da-current"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "da.workflow",
+              "title": "能力与任务编排",
+              "role": "发现可用能力，安排必要阶段，并确定谁接收结果。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-workflow"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "已有 workflow-core 底座；新职责迁移和接线尚未验证。"
+              },
+              "evidence": [
+                "da-proposal"
+              ],
+              "mechanism": [
+                {
+                  "type": "steps",
+                  "items": [
+                    {
+                      "title": "核对真实可用能力",
+                      "body": "分开源仓库登记、已安装产物和本次实际加载。",
+                      "anchors": [
+                        "da-workflow"
+                      ]
+                    },
+                    {
+                      "title": "组成必要工作路径",
+                      "body": "按任务选择领域能力与独立判断，不要求每项任务经过所有组件。",
+                      "anchors": [
+                        "da-workflow"
+                      ]
+                    },
+                    {
+                      "title": "保留接收者",
+                      "body": "每次调用都有真实接收方；只有文件写出，不代表反馈已被接收。",
+                      "anchors": [
+                        "da-workflow"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "detail": true,
+              "owner": "workflow-core"
+            },
+            {
+              "id": "da.assurance",
+              "title": "Delivery Assurance",
+              "role": "依据已批准承诺与项目标准，核对交付义务、旧能力保护及证据适用性。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-assurance"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "独立插件及新接线尚未实施。旧研究中的拟议函数不能充当生产锚点。"
+              },
+              "evidence": [
+                "da-proposal"
+              ],
+              "mechanism": [
+                {
+                  "type": "steps",
+                  "items": [
+                    {
+                      "title": "从承诺形成验收义务",
+                      "body": "读取原要求、冻结标准与已接受旧行为。不能从现成测试清单反推全部需求。",
+                      "anchors": [
+                        "da-assurance",
+                        "da-old-flow"
+                      ]
+                    },
+                    {
+                      "title": "求影响并暴露缺口",
+                      "body": "联看改动前后依赖与真实消费者。标准缺失回到设计；标准已有但测试程序缺失交原实现者。",
+                      "anchors": [
+                        "da-gaps",
+                        "da-old-flow"
+                      ]
+                    },
+                    {
+                      "title": "核对证据适用性",
+                      "body": "逐项比较候选、标准、输入、检查程序、观察者和运行条件；未运行仍是未知。",
+                      "anchors": [
+                        "da-assurance",
+                        "da-old-flow"
+                      ]
+                    },
+                    {
+                      "title": "形成有限结论并回传",
+                      "body": "只允许证据支持的交付范围；失败沿原任务回到原接收者。没有活跃接收者时保留恢复点。",
+                      "anchors": [
+                        "da-assurance",
+                        "da-bridge"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "contract",
+                  "title": "判断依据与结果",
+                  "rows": [
+                    [
+                      "输入",
+                      "原始要求、已接受行为、候选身份、项目标准"
+                    ],
+                    [
+                      "区分",
+                      "标准缺失 / 检查程序缺失 / 未观测 / 明确失败"
+                    ],
+                    [
+                      "输出",
+                      "可支持的声明、未决项、证据引用、明确接收者"
+                    ],
+                    [
+                      "关键限制",
+                      "领域正确性由项目标准和真实验收证明"
+                    ]
+                  ],
+                  "anchors": [
+                    "da-assurance",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "detail": true,
+              "owner": "独立 Delivery Assurance 插件",
+              "open": [
+                "普通宿主的受管完成接点仍需验证。",
+                "缺少标准或合法观察条件时，不能形成交付完成结论。"
+              ]
+            },
+            {
+              "id": "da.bridge",
+              "title": "任务身份与回传",
+              "role": "提供合法执行、权限、钩子、既有恢复和结果递送。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-bridge"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "已有 Bridge 底座；本轮没有把 DA 的未来接线标成已经运行。"
+              },
+              "evidence": [
+                "da-proposal"
+              ],
+              "mechanism": [
+                {
+                  "type": "sequence",
+                  "items": [
+                    {
+                      "title": "保留原任务身份",
+                      "body": "把请求和合法执行接点对应到原任务；不建立第二套任务数据库。",
+                      "anchors": [
+                        "da-bridge"
+                      ]
+                    },
+                    {
+                      "title": "递送结果给原接收者",
+                      "body": "DA 产出缺口或失败；workflow-core 选择原任务下一处理；Bridge 只负责递送到明确接收者。",
+                      "anchors": [
+                        "da-bridge"
+                      ]
+                    },
+                    {
+                      "title": "在原权限内恢复",
+                      "body": "接收者退出、用户取消或预算耗尽时停止；不虚构后台自动唤醒。",
+                      "anchors": [
+                        "da-bridge",
+                        "da-old-flow"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "detail": true,
+              "owner": "Bridge Kit"
+            },
+            {
+              "id": "da.executor",
+              "title": "项目实现",
+              "role": "按照已明确的设计修改产品和检查程序。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-reference"
+                ]
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "Codex 可以报告代码事实、运行已授权测试、补齐按明确标准编写的测试。遇到缺少核心机制或设计无法落地时，带着约束和反例返回 Chat；不能自行发明产品机制。",
+                  "anchors": [
+                    "da-reference"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "da.checks",
+              "title": "项目专业验收",
+              "role": "在真实对象上运行项目自己的标准、检查与观察。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-assurance"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "各项目已有验收不代表 DA 统一接线已完成。"
+              },
+              "evidence": [
+                "da-proposal"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "项目负责公式、阈值、数据、成品和真实运行的专业充分性。测试程序、测试运行、原始观察和结论分别留存。",
+                  "anchors": [
+                    "da-assurance",
+                    "da-old-flow"
+                  ]
+                }
+              ],
+              "detail": true
+            },
+            {
+              "id": "da.review",
+              "title": "必要的独立判断",
+              "role": "查遗漏、反例和复杂质量；发现问题后交回设计负责人。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-reference"
+                ]
+              },
+              "implementation": {
+                "state": "external",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "GPT Work 在需要独立高智力判断时介入。发现问题不自动取得最终设计权，也不为每次机械修复增加一轮审查。",
+                  "anchors": [
+                    "da-reference",
+                    "da-current"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            },
+            {
+              "id": "da.delivery",
+              "title": "可解释的交付结论",
+              "role": "用户看到已满足、仍未证明和下一步需要解决什么。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "da-roadmap"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": ""
+              },
+              "evidence": [],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "受管交付入口消费核验结果。未验证的宿主不能承诺拦截所有原生聊天文字；保存报告也不等于最终提交被接受。",
+                  "anchors": [
+                    "da-old-flow",
+                    "da-roadmap"
+                  ]
+                }
+              ],
+              "kind": "boundary",
+              "detail": false
+            }
+          ],
+          "relations": [
+            {
+              "id": "da-input",
+              "from": "da.requirements",
+              "to": "da.workflow",
+              "label": "任务目标",
+              "object": "用户目标、约束和已接受能力",
+              "at": "进入原任务",
+              "reality": "proposed",
+              "anchors": [
+                "da-workflow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-obligations",
+              "from": "da.requirements",
+              "to": "da.assurance",
+              "label": "交付承诺",
+              "object": "原要求、冻结标准和旧行为",
+              "at": "形成验收义务",
+              "reality": "proposed",
+              "anchors": [
+                "da-assurance"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-compose",
+              "from": "da.workflow",
+              "to": "da.bridge",
+              "label": "调用与接收者",
+              "object": "所需能力、执行接点和结果接收者",
+              "at": "不由 Bridge 决定用什么能力",
+              "reality": "proposed",
+              "anchors": [
+                "da-workflow",
+                "da-bridge"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-execute",
+              "from": "da.bridge",
+              "to": "da.executor",
+              "label": "原任务执行",
+              "object": "准确任务身份、设计范围和剩余权限",
+              "at": "原合法执行入口",
+              "reality": "proposed",
+              "anchors": [
+                "da-bridge"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-check-request",
+              "from": "da.assurance",
+              "to": "da.checks",
+              "label": "验收义务",
+              "object": "必需新能力、旧行为和观察范围",
+              "at": "领域／项目确定专业标准，原 runner 按标准执行",
+              "reality": "proposed",
+              "anchors": [
+                "da-assurance"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-candidate",
+              "from": "da.executor",
+              "to": "da.checks",
+              "label": "真实候选",
+              "object": "具体候选产品、输入及运行对象",
+              "at": "项目正常验收入口",
+              "reality": "proposed",
+              "anchors": [
+                "da-old-flow"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-evidence",
+              "from": "da.checks",
+              "to": "da.assurance",
+              "label": "证据与缺口",
+              "object": "同候选证据、失败和未观测项",
+              "at": "逐义务核对，不能合成总绿灯",
+              "reality": "proposed",
+              "anchors": [
+                "da-assurance"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-feedback",
+              "from": "da.assurance",
+              "to": "da.workflow",
+              "label": "返修原因",
+              "object": "应有结果、实际结果、来源和接收者",
+              "at": "workflow-core 选择原任务下一处理，Bridge 按明确接收者递送",
+              "reality": "proposed",
+              "anchors": [
+                "da-assurance",
+                "da-workflow",
+                "da-bridge"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-independent",
+              "from": "da.workflow",
+              "to": "da.review",
+              "label": "按需审查",
+              "object": "存在判断风险的原始材料与候选",
+              "at": "有价值才调用；结果仍回原负责人",
+              "reality": "proposed",
+              "anchors": [
+                "da-current"
+              ],
+              "kind": "control"
+            },
+            {
+              "id": "da-review-return",
+              "from": "da.review",
+              "to": "da.assurance",
+              "label": "独立发现",
+              "object": "遗漏、反例或专业判断及其证据",
+              "at": "只提供证据，不取代设计权",
+              "reality": "proposed",
+              "anchors": [
+                "da-current"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "da-claim",
+              "from": "da.assurance",
+              "to": "da.delivery",
+              "label": "可支持的声明",
+              "object": "逐项满足范围、未决项和证据",
+              "at": "由受管提交接点实际消费",
+              "reality": "proposed",
+              "anchors": [
+                "da-assurance",
+                "da-old-flow"
+              ],
+              "kind": "data"
+            }
+          ]
+        }
+      ],
+      "changes": [
+        {
+          "id": "da-ownership",
+          "from": "da-before",
+          "to": "da-current",
+          "title": "把交付判定从共享规则与运行底座中分离",
+          "kind": "architecture-revision",
+          "scope": [
+            "da.requirements",
+            "da.workflow",
+            "da.assurance",
+            "da.bridge",
+            "da.executor",
+            "da.checks",
+            "da.review",
+            "da.delivery"
+          ],
+          "reason": "新的总体方案需要明确交付规则、能力编排、低层运行各自唯一责任，避免 workflow-core 和 Bridge 承担所有质量判断。",
+          "triggers": [
+            "da-proposal"
+          ],
+          "decisionAnchors": [
+            "da-current",
+            "da-separation"
+          ],
+          "changed": [
+            "Delivery Assurance 成为独立职责所有者",
+            "workflow-core 保留能力组合、顺序和接收者",
+            "Bridge 只保留任务身份、权限、执行和递送",
+            "可支持的交付声明归 DA，受管入口负责消费"
+          ],
+          "unchanged": [
+            "项目保留专业标准与真实验收责任",
+            "失败沿原任务回传",
+            "用户取消和权限边界继续有效",
+            "不能以测试绿灯替代真实成品证据"
+          ],
+          "capabilityEffect": "减少跨层责任重叠；用户仍应得到同一任务中的可解释交付与返修。运行效果尚未验证。",
+          "implementation": "新独立插件和职责迁移尚未实施；旧设计中的拟议路径不作已有实现展示。",
+          "anchors": [
+            "da-old",
+            "da-old-flow",
+            "da-current",
+            "da-roadmap",
+            "da-separation"
+          ],
+          "focus": [
+            "da.assurance",
+            "da.workflow",
+            "da.bridge"
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "id": "normal",
+          "label": "正常交付",
+          "nodes": [
+            "da.requirements",
+            "da.assurance",
+            "da.workflow",
+            "da.bridge",
+            "da.executor",
+            "da.checks",
+            "da.delivery"
+          ],
+          "edges": [
+            "da-input",
+            "da-obligations",
+            "da-compose",
+            "da-execute",
+            "da-check-request",
+            "da-candidate",
+            "da-evidence",
+            "da-claim"
+          ],
+          "note": "这是预期设计路径，正式接线、候选核验和受管出口仍需实现。"
+        },
+        {
+          "id": "recovery",
+          "label": "失败与返修",
+          "nodes": [
+            "da.checks",
+            "da.assurance",
+            "da.bridge",
+            "da.executor",
+            "da.workflow"
+          ],
+          "edges": [
+            "da-evidence",
+            "da-feedback",
+            "da-execute",
+            "da-candidate",
+            "da-compose"
+          ],
+          "note": "旧设计由 Bridge 接回失败；新候选由 workflow-core 选择下一处理、Bridge 递送。两版都须回到真实原接收者，取消或接收者退出时保留恢复点。"
+        },
+        {
+          "id": "protection",
+          "label": "已有能力保护",
+          "nodes": [
+            "da.requirements",
+            "da.assurance",
+            "da.checks"
+          ],
+          "edges": [
+            "da-obligations",
+            "da-check-request",
+            "da-evidence"
+          ],
+          "note": "从已接受旧能力和改动前后依赖得到检查范围；没有覆盖证据的部分继续保留。"
+        }
+      ],
+      "notices": [
+        {
+          "title": "设计存在，运行接线尚不存在",
+          "body": "可阅读完整机制并追溯职责修改；实现页明确为空，不展示候选函数冒充源码。",
+          "anchors": [
+            "da-current",
+            "da-roadmap"
+          ]
+        }
+      ],
+      "layout": {
+        "direction": "TB",
+        "ranksep": 0.45,
+        "ranks": [
+          [
+            "da.requirements"
+          ],
+          [
+            "da.workflow",
+            "da.assurance",
+            "da.review"
+          ],
+          [
+            "da.bridge",
+            "da.executor",
+            "da.checks"
+          ],
+          [
+            "da.delivery"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat",
+      "title": "CAT-TRACE",
+      "subtitle": "科研方法 · 算法演进",
+      "tagline": "追踪算法为何改变，也保留尚未解决的边界。",
+      "scope": "代表性范围：C01 数值原语、C04 参考引擎、匿名零槽位；外围模块作为依赖上下文。",
+      "observed": {
+        "repo": "YuukiAS/CAT-TRACE",
+        "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+        "date": "2026-10-27",
+        "note": "本轮实际读取固定提交、相关设计与源码；未执行科研测试或实验。"
+      },
+      "defaultRevision": "cat-current",
+      "defaultComponent": "c04",
+      "anchors": {
+        "authority": {
+          "id": "authority",
+          "title": "项目权限与公开边界",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "AGENTS.md",
+          "lines": [
+            3,
+            11
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/AGENTS.md#L3-L11",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "evolution": {
+          "id": "evolution",
+          "title": "按模块记录修订",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md",
+          "lines": [
+            10,
+            21
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md#L10-L21",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "maintenance": {
+          "id": "maintenance",
+          "title": "模块维护规则",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md",
+          "lines": [
+            858,
+            860
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md#L858-L860",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "system": {
+          "id": "system",
+          "title": "系统职责与依赖",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md",
+          "lines": [
+            32,
+            49
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md#L32-L49",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-old": {
+          "id": "c01-old",
+          "title": "尾部原语的原案与反例",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md",
+          "lines": [
+            129,
+            155
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md#L129-L155",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-new": {
+          "id": "c01-new",
+          "title": "三段数值公式",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md",
+          "lines": [
+            156,
+            174
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md#L156-L174",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-r3": {
+          "id": "c01-r3",
+          "title": "近零反例与明确修订",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/reviews/CRITIC_REVIEW_R3_RESOLUTION.md",
+          "lines": [
+            50,
+            64
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/reviews/CRITIC_REVIEW_R3_RESOLUTION.md#L50-L64",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-code": {
+          "id": "c01-code",
+          "title": "尾部数值原语",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/src/ct_math.cpp",
+          "lines": [
+            11,
+            91
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/src/ct_math.cpp#L11-L91",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-api": {
+          "id": "c01-api",
+          "title": "Rcpp 调用入口",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/src/ct_math.cpp",
+          "lines": [
+            94,
+            123
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/src/ct_math.cpp#L94-L123",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-test": {
+          "id": "c01-test",
+          "title": "数值参照与切换边界测试",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/tests/testthat/test-math-stability.R",
+          "lines": [
+            1,
+            24
+          ],
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/tests/testthat/test-math-stability.R#L1-L24",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-report": {
+          "id": "c01-report",
+          "title": "阶段执行记录",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "results/017_cat_trace_implementation_alpha/stages/A1_c01_numerical_kernel/executor_result.md",
+          "lines": [
+            1,
+            5
+          ],
+          "kind": "evidence",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/results/017_cat_trace_implementation_alpha/stages/A1_c01_numerical_kernel/executor_result.md#L1-L5",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-oracle": {
+          "id": "c01-oracle",
+          "title": "独立高精度参照的生成与边界",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/oracles/C01_LOGPHI_REFERENCE_GENERATION.md",
+          "lines": [
+            1,
+            27
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/oracles/C01_LOGPHI_REFERENCE_GENERATION.md#L1-L27",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-consumer": {
+          "id": "c01-consumer",
+          "title": "单列数值内核调用位置",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/src/ct_probit.cpp",
+          "lines": [
+            16,
+            52
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/src/ct_probit.cpp#L16-L52",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c01-laplace": {
+          "id": "c01-laplace",
+          "title": "单列求解入口",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/src/ct_probit.cpp",
+          "lines": [
+            110,
+            213
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/src/ct_probit.cpp#L110-L213",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-old-code": {
+          "id": "c04-old-code",
+          "title": "v0.1.1 正常迭代入口",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "bea7aca3ba51bcd4883b9105765bfbbad5eddadc",
+          "path": "package/TRACE/R/cat-trace-reference.R",
+          "lines": [
+            934,
+            958
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/bea7aca3ba51bcd4883b9105765bfbbad5eddadc/package/TRACE/R/cat-trace-reference.R#L934-L958",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-new-code": {
+          "id": "c04-new-code",
+          "title": "v0.1.2 正常迭代入口",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/R/cat-trace-reference.R",
+          "lines": [
+            1028,
+            1052
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R#L1028-L1052",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-likelihood": {
+          "id": "c04-likelihood",
+          "title": "观测似然计算",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/R/cat-trace-reference.R",
+          "lines": [
+            857,
+            868
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R#L857-L868",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-target": {
+          "id": "c04-target",
+          "title": "积分掉潜变量的目标",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/R/cat-trace-reference.R",
+          "lines": [
+            870,
+            902
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R#L870-L902",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-transition": {
+          "id": "c04-transition",
+          "title": "新的组成更新",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/R/cat-trace-reference.R",
+          "lines": [
+            950,
+            995
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R#L950-L995",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-retained": {
+          "id": "c04-retained",
+          "title": "保留但退出正常路径的旧函数",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/R/cat-trace-reference.R",
+          "lines": [
+            904,
+            948
+          ],
+          "kind": "code",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R#L904-L948",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-cause": {
+          "id": "c04-cause",
+          "title": "机制调查后的设计决定",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/reviews/C04_REF_V0_1_1_AUGMENTATION_FORENSICS_GPT_AUDIT.md",
+          "lines": [
+            57,
+            72
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/reviews/C04_REF_V0_1_1_AUGMENTATION_FORENSICS_GPT_AUDIT.md#L57-L72",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-plan": {
+          "id": "c04-plan",
+          "title": "单个更新步骤的明确替换",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/C04_REF_V0_1_2_Z_COLLAPSED_COMPOSITION_PLAN.md",
+          "lines": [
+            313,
+            372
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/C04_REF_V0_1_2_Z_COLLAPSED_COMPOSITION_PLAN.md#L313-L372",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-invariants": {
+          "id": "c04-invariants",
+          "title": "模型与外部接口保持不变",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/C04_REF_V0_1_2_Z_COLLAPSED_COMPOSITION_PLAN.md",
+          "lines": [
+            28,
+            42
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/C04_REF_V0_1_2_Z_COLLAPSED_COMPOSITION_PLAN.md#L28-L42",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-review": {
+          "id": "c04-review",
+          "title": "独立设计审查与边界",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/reviews/CRITIC_REVIEW_C04_REF_V0_1_2_R2_RESOLUTION.md",
+          "lines": [
+            17,
+            45
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/reviews/CRITIC_REVIEW_C04_REF_V0_1_2_R2_RESOLUTION.md#L17-L45",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-tests": {
+          "id": "c04-tests",
+          "title": "生产迭代与旧潜变量回归测试",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "package/TRACE/tests/testthat/test-reference-c04-ref-v0-1-2.R",
+          "lines": [
+            296,
+            337
+          ],
+          "kind": "test",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/tests/testthat/test-reference-c04-ref-v0-1-2.R#L296-L337",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "c04-result": {
+          "id": "c04-result",
+          "title": "实现结果与正式可靠性边界",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "results/c04-ref--z-collapsed-composition-repair/result.md",
+          "lines": [
+            1,
+            29
+          ],
+          "kind": "evidence",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/results/c04-ref--z-collapsed-composition-repair/result.md#L1-L29",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "version-policy": {
+          "id": "version-policy",
+          "title": "四类身份与版本语义",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/decisions/2026-09-22_cat_trace_implementation_identity_versioning.md",
+          "lines": [
+            27,
+            91
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/decisions/2026-09-22_cat_trace_implementation_identity_versioning.md#L27-L91",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "zero-old": {
+          "id": "zero-old",
+          "title": "零列近似原案与撤销",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md",
+          "lines": [
+            351,
+            394
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md#L351-L394",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "zero-revocation": {
+          "id": "zero-revocation",
+          "title": "明确替换旧算法条款",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/reviews/CRITIC_REVIEW_R1_RESOLUTION.md",
+          "lines": [
+            20,
+            29
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/reviews/CRITIC_REVIEW_R1_RESOLUTION.md#L20-L29",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "zero-probe": {
+          "id": "zero-probe",
+          "title": "独立数值反例",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/probes/ZERO_SLOT_LAPLACE_FINDING.md",
+          "lines": [
+            1,
+            19
+          ],
+          "kind": "evidence",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/probes/ZERO_SLOT_LAPLACE_FINDING.md#L1-L19",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "zero-new": {
+          "id": "zero-new",
+          "title": "新积分表示的机制说明",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md",
+          "lines": [
+            76,
+            154
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md#L76-L154",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "zero-open": {
+          "id": "zero-open",
+          "title": "最新候选与尚未解除的边界",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md",
+          "lines": [
+            271,
+            279
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md#L271-L279",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "zero-clarification": {
+          "id": "zero-clarification",
+          "title": "更新后的科学说明",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "presentations/group_meetings/2026-10-21/CAT_TRACE_ANONYMOUS_ZERO_COLUMNS_INFERENCE_20261021.md",
+          "lines": [
+            163,
+            198
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/presentations/group_meetings/2026-10-21/CAT_TRACE_ANONYMOUS_ZERO_COLUMNS_INFERENCE_20261021.md#L163-L198",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "current-index": {
+          "id": "current-index",
+          "title": "模块当前状态索引",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/README.md",
+          "lines": [
+            9,
+            32
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/README.md#L9-L32",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "old-roadmap": {
+          "id": "old-roadmap",
+          "title": "旧路线图",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "ROADMAP.md",
+          "lines": [
+            1,
+            9
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/ROADMAP.md#L1-L9",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "profile-drift": {
+          "id": "profile-drift",
+          "title": "执行记录较索引前进",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "results/c04-ref--alpha-cloud-reference-profile/result.md",
+          "lines": [
+            1,
+            8
+          ],
+          "kind": "evidence",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/results/c04-ref--alpha-cloud-reference-profile/result.md#L1-L8",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "logging": {
+          "id": "logging",
+          "title": "后续长运行的可观察性要求",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/decisions/2026-09-23_long_running_statistical_run_observability.md",
+          "lines": [
+            1,
+            30
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/decisions/2026-09-23_long_running_statistical_run_observability.md#L1-L30",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        },
+        "zero-error": {
+          "id": "zero-error",
+          "title": "重数误差、导数与未验证边界",
+          "repo": "YuukiAS/CAT-TRACE",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "path": "docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md",
+          "lines": [
+            156,
+            180
+          ],
+          "kind": "document",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md#L156-L180",
+          "visibility": "private",
+          "check": "pinned-source-read"
+        }
+      },
+      "evidence": [
+        {
+          "id": "cat-c01-source",
+          "title": "稳定数值原语已定位",
+          "basis": "source",
+          "claim": "三段数值处理、补偿求和及实际调用路径可在固定源码定位。",
+          "anchors": [
+            "c01-code",
+            "c01-api",
+            "c01-consumer",
+            "c01-laplace"
+          ],
+          "limits": "源代码核查；没有重新运行数值测试。"
+        },
+        {
+          "id": "cat-c01-reported",
+          "title": "数值参照与阶段记录",
+          "basis": "reported-test",
+          "claim": "仓库保存参照测试定义与历史阶段执行记录。",
+          "anchors": [
+            "c01-test",
+            "c01-oracle",
+            "c01-report"
+          ],
+          "limits": "历史记录的范围不扩展为全系统正确性。"
+        },
+        {
+          "id": "cat-c01-trigger",
+          "title": "合法近零输入反例",
+          "basis": "review",
+          "claim": "独立审查指出中间溢出，要求明确数值区域和求和方法。",
+          "anchors": [
+            "c01-r3",
+            "c01-old"
+          ],
+          "limits": "本轮复核记录，没有重新生成反例。"
+        },
+        {
+          "id": "cat-c04-source",
+          "title": "正常迭代已替换",
+          "basis": "source",
+          "claim": "最后的组成更新调用消去潜变量后的目标；旧 helper 仍保留。",
+          "anchors": [
+            "c04-new-code",
+            "c04-transition",
+            "c04-retained"
+          ],
+          "limits": "存在、被调用、统计可靠性分别判断。"
+        },
+        {
+          "id": "cat-c04-reported",
+          "title": "正确性与可靠性分开",
+          "basis": "reported-test",
+          "claim": "实现记录提供正确性证据，同时保留正式可靠性未通过的边界。",
+          "anchors": [
+            "c04-tests",
+            "c04-result"
+          ],
+          "limits": "本轮未重跑科研计算；不能合成“全部验证完成”。"
+        },
+        {
+          "id": "cat-c04-trigger",
+          "title": "机制调查与设计决定",
+          "basis": "investigation",
+          "claim": "机制调查推动组成更新的条件依赖修订。",
+          "anchors": [
+            "c04-cause",
+            "c04-plan",
+            "c04-review"
+          ],
+          "limits": "设计审查不替代正式可靠性验收。"
+        },
+        {
+          "id": "cat-zero-counterexample",
+          "title": "局部近似反例",
+          "basis": "experiment-report",
+          "claim": "独立数值反例导致普通局部近似路线撤销。",
+          "anchors": [
+            "zero-probe",
+            "zero-revocation"
+          ],
+          "limits": "只转述原记录；不公开实验数值或原始输入。"
+        },
+        {
+          "id": "cat-zero-proposal",
+          "title": "积分候选仍待闭合",
+          "basis": "proposal",
+          "claim": "新的积分表示保留统计目标，但生产算法仍未闭合。",
+          "anchors": [
+            "zero-new",
+            "zero-open",
+            "zero-clarification"
+          ],
+          "limits": "统计目标与候选表示可说明；求积、导数、平滑性和成本尚未闭合。"
+        },
+        {
+          "id": "cat-scope",
+          "title": "按模块登记的边界",
+          "basis": "design-record",
+          "claim": "当前模块与依赖由源文和实施索引提供。",
+          "anchors": [
+            "system",
+            "current-index",
+            "zero-open"
+          ],
+          "limits": "源文并非所有模块在同一时间已经就绪。"
+        },
+        {
+          "id": "cat-drift",
+          "title": "来源之间存在状态差异",
+          "basis": "source-conflict",
+          "claim": "实施索引仍写 READY，直接执行记录已写 EXECUTED_UNAUDITED。",
+          "anchors": [
+            "current-index",
+            "profile-drift"
+          ],
+          "limits": "显示索引待同步与未审查边界，不自动升格为已通过。"
+        },
+        {
+          "id": "cat-c04-old-source",
+          "title": "v0.1.1 的真实迭代入口",
+          "basis": "source",
+          "claim": "旧实现的最终组成更新以当前潜变量为条件。",
+          "anchors": [
+            "c04-old-code"
+          ],
+          "limits": "只核对旧实现，不引用后续计划或结果来替旧版批准。"
+        }
+      ],
+      "revisions": [
+        {
+          "id": "cat-before",
+          "label": "C04 v0.1.1 · 局部回看",
+          "date": "历史实现",
+          "scope": [
+            "c04"
+          ],
+          "context": "仅 C04 回看 v0.1.1；其他模块沿用当前上下文，不能把它当作当时全系统快照。",
+          "code": "bea7aca3ba51bcd4883b9105765bfbbad5eddadc",
+          "design": "旧组成更新机制",
+          "components": [
+            {
+              "id": "c02",
+              "title": "数据与身份",
+              "role": "固定列身份、分组与输入语义。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "system",
+                  "current-index"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "本轮只定位模块职责，不将状态索引等同完整实现核验。"
+              },
+              "evidence": [
+                "cat-scope"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "先确定数据身份与变换，合成数据合同已有实现；真实数据配置需要独立证据。"
+                }
+              ],
+              "open": [],
+              "detail": false,
+              "tag": ""
+            },
+            {
+              "id": "c01",
+              "title": "稳定数值原语",
+              "role": "为单列求解提供稳定概率、梯度与曲率。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "c01-new",
+                  "c01-report"
+                ]
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "c01-code",
+                  "c01-api",
+                  "c01-consumer",
+                  "c01-laplace"
+                ],
+                "note": "已定位 C++ 原语、R 接口、实际消费者与参照测试。"
+              },
+              "evidence": [
+                "cat-c01-source",
+                "cat-c01-reported"
+              ],
+              "mechanism": [
+                {
+                  "type": "algorithm",
+                  "items": [
+                    {
+                      "title": "识别数值区域",
+                      "body": "按输入所在数值区间选择冻结的等价表达式。",
+                      "anchors": [
+                        "c01-code"
+                      ]
+                    },
+                    {
+                      "title": "稳定计算尾部量",
+                      "body": "分别处理直接差、消减误差与深负尾；补偿求和算法明确。",
+                      "anchors": [
+                        "c01-code"
+                      ]
+                    },
+                    {
+                      "title": "供单列求解消费",
+                      "body": "尾部量进入单列后验目标、梯度和曲率，再用于求解。",
+                      "anchors": [
+                        "c01-consumer"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "prose",
+                  "body": "验证另行进行：测试绑定独立参照和切换边界，不在每次数值原语调用中重跑参照生成。",
+                  "anchors": [
+                    "c01-test",
+                    "c01-oracle",
+                    "c01-report"
+                  ]
+                }
+              ],
+              "open": [],
+              "detail": true,
+              "tag": "C01"
+            },
+            {
+              "id": "c04",
+              "title": "独立参考引擎",
+              "role": "以独立推断路线检查小规模后验与近似计算。",
+              "design": {
+                "state": null,
+                "basis": "source-reconstruction",
+                "refs": [
+                  "c04-old-code"
+                ]
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "c04-old-code"
+                ],
+                "note": "定位到真实 v0.1.1 实现。其余模块只作当前上下文。"
+              },
+              "evidence": [
+                "cat-c04-old-source"
+              ],
+              "mechanism": [
+                {
+                  "type": "sequence",
+                  "items": [
+                    {
+                      "title": "重新抽取潜变量",
+                      "body": "由当前状态产生本轮潜变量。",
+                      "anchors": [
+                        "c04-old-code"
+                      ]
+                    },
+                    {
+                      "title": "条件更新参数",
+                      "body": "沿既有顺序更新其他参数。",
+                      "anchors": [
+                        "c04-old-code"
+                      ]
+                    },
+                    {
+                      "title": "基于当前潜变量更新组成",
+                      "body": "最后步骤仍以当前潜变量为条件。",
+                      "anchors": [
+                        "c04-old-code"
+                      ]
+                    },
+                    {
+                      "title": "进入下一轮",
+                      "body": "由新参数继续下一次迭代。",
+                      "anchors": [
+                        "c04-old-code"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "open": [
+                "此局部回看核对旧实现；旧审批和当时的全部验证状态未重新构建。"
+              ],
+              "detail": true,
+              "tag": "C04"
+            },
+            {
+              "id": "zero",
+              "title": "匿名零槽位积分",
+              "role": "保留未发现信息，并按组聚合计算。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "zero-old",
+                  "zero-revocation",
+                  "zero-new",
+                  "zero-open"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "尚无生产函数锚点；研究探针不充当生产实现。"
+              },
+              "evidence": [
+                "cat-zero-counterexample",
+                "cat-zero-proposal"
+              ],
+              "mechanism": [
+                {
+                  "type": "algorithm",
+                  "items": [
+                    {
+                      "title": "保留未发现信息",
+                      "body": "按原模型保留匿名零槽位及其重数。",
+                      "anchors": [
+                        "zero-old"
+                      ]
+                    },
+                    {
+                      "title": "更换积分表示",
+                      "body": "候选方案解析处理稀有截距，改用最大值分位数表示。",
+                      "anchors": [
+                        "zero-new"
+                      ]
+                    },
+                    {
+                      "title": "控制累计误差",
+                      "body": "以重数加权的目标与导数尺度检查数值误差。",
+                      "anchors": [
+                        "zero-error",
+                        "zero-clarification"
+                      ]
+                    },
+                    {
+                      "title": "等待算法闭合",
+                      "body": "求积、求根、导数和成本仍需完整验证。",
+                      "anchors": [
+                        "zero-open"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "open": [
+                "GAP-01 与 GAP-04 尚未解除。",
+                "计算提案与正式实现授权分开。"
+              ],
+              "detail": true,
+              "tag": ""
+            },
+            {
+              "id": "c03",
+              "title": "共享参数生产推断",
+              "role": "合并显式列与匿名零槽位贡献。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "system",
+                  "zero-open",
+                  "current-index"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "生产推断仍依赖未闭合的零槽位算法。"
+              },
+              "evidence": [
+                "cat-scope"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "外层共享参数计算依赖单列原语和独立零槽位积分。关键依赖未闭合，保留设计关系但不声称已接通。"
+                }
+              ],
+              "open": [
+                "GAP-01：匿名零槽位的生产积分算法未闭合。",
+                "GAP-04：正式校准预注册仍未解除；这是另一项边界。"
+              ],
+              "detail": false,
+              "tag": "C03"
+            },
+            {
+              "id": "discovery",
+              "title": "发现预测与校准",
+              "role": "将模型结果转成未来发现与校准结论。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "system",
+                  "zero-open"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "本轮只定位模块职责，不将状态索引等同完整实现核验。"
+              },
+              "evidence": [
+                "cat-scope"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "下游依赖生产推断与正式校准设计；局部原语成功不自动解锁。"
+                }
+              ],
+              "open": [],
+              "detail": false,
+              "tag": ""
+            }
+          ],
+          "relations": [
+            {
+              "id": "data-c01",
+              "from": "c02",
+              "to": "c01",
+              "label": "单列输入",
+              "object": "单列正观测行索引与设计矩阵；先验和控制由数值内核合同另供",
+              "at": "ct_probit_laplace 的输入边界；本切片未核验完整 C02→该入口的生产接线",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c01-laplace"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "data-c04",
+              "from": "c02",
+              "to": "c04",
+              "label": "小规模参考输入",
+              "object": "小规模观测、协变量与列／组身份",
+              "at": "参考迭代消费数据合同；先验、控制与状态另供",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c04-old-code"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "c01-c03",
+              "from": "c01",
+              "to": "c03",
+              "label": "显式列贡献",
+              "object": "显式列局部积分贡献与求解／失败状态",
+              "at": "拟由外层共享参数目标汇总；生产消费接口尚未实现",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c01-laplace"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "zero-c03",
+              "from": "zero",
+              "to": "c03",
+              "label": "未发现信息贡献",
+              "object": "按组及重数汇总的匿名零列贡献，以及梯度／曲率与误差控制要求",
+              "at": "拟议生产目标的零槽位项；GAP-01 未闭合，没有真实生产 routine",
+              "reality": "proposed",
+              "anchors": [
+                "zero-open",
+                "zero-error"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "c04-c03",
+              "from": "c04",
+              "to": "c03",
+              "label": "独立核对",
+              "object": "同一冻结模型与小规模输入上的参考后验／比较证据",
+              "at": "计划用于近似结果核对；不能自动作为生产验收真值。",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c04-old-code"
+              ],
+              "kind": "evidence"
+            },
+            {
+              "id": "c03-discovery",
+              "from": "c03",
+              "to": "discovery",
+              "label": "共享参数后验",
+              "object": "共享参数后验及其适用范围，供发现预测／校准使用",
+              "at": "设计依赖；生产推断受阻，尚无已验证消费接口",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "zero-open"
+              ],
+              "kind": "data"
+            }
+          ]
+        },
+        {
+          "id": "cat-current",
+          "label": "当前 · C04 v0.1.2",
+          "date": "2026-10-27",
+          "scope": "system",
+          "context": "C04 已替换最后的组成更新；匿名零槽位仍为候选，正式可靠性边界继续保留。",
+          "code": "0d829fb17c458a076a15ec51893e917960107c21",
+          "design": "当前设计 + 模块历史",
+          "components": [
+            {
+              "id": "c02",
+              "title": "数据与身份",
+              "role": "固定列身份、分组与输入语义。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "system",
+                  "current-index"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "本轮只定位模块职责，不将状态索引等同完整实现核验。"
+              },
+              "evidence": [
+                "cat-scope"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "先确定数据身份与变换，合成数据合同已有实现；真实数据配置需要独立证据。"
+                }
+              ],
+              "open": [],
+              "detail": false,
+              "tag": ""
+            },
+            {
+              "id": "c01",
+              "title": "稳定数值原语",
+              "role": "为单列求解提供稳定概率、梯度与曲率。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "c01-new",
+                  "c01-report"
+                ]
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "c01-code",
+                  "c01-api",
+                  "c01-consumer",
+                  "c01-laplace"
+                ],
+                "note": "已定位 C++ 原语、R 接口、实际消费者与参照测试。"
+              },
+              "evidence": [
+                "cat-c01-source",
+                "cat-c01-reported"
+              ],
+              "mechanism": [
+                {
+                  "type": "algorithm",
+                  "items": [
+                    {
+                      "title": "识别数值区域",
+                      "body": "按输入所在数值区间选择冻结的等价表达式。",
+                      "anchors": [
+                        "c01-code"
+                      ]
+                    },
+                    {
+                      "title": "稳定计算尾部量",
+                      "body": "分别处理直接差、消减误差与深负尾；补偿求和算法明确。",
+                      "anchors": [
+                        "c01-code"
+                      ]
+                    },
+                    {
+                      "title": "供单列求解消费",
+                      "body": "尾部量进入单列后验目标、梯度和曲率，再用于求解。",
+                      "anchors": [
+                        "c01-consumer"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "prose",
+                  "body": "验证另行进行：测试绑定独立参照和切换边界，不在每次数值原语调用中重跑参照生成。",
+                  "anchors": [
+                    "c01-test",
+                    "c01-oracle",
+                    "c01-report"
+                  ]
+                }
+              ],
+              "open": [],
+              "detail": true,
+              "tag": "C01"
+            },
+            {
+              "id": "c04",
+              "title": "独立参考引擎",
+              "role": "以独立推断路线检查小规模后验与近似计算。",
+              "design": {
+                "state": "accepted",
+                "refs": [
+                  "c04-result",
+                  "current-index"
+                ]
+              },
+              "implementation": {
+                "state": "located",
+                "anchors": [
+                  "c04-new-code",
+                  "c04-likelihood",
+                  "c04-target",
+                  "c04-transition"
+                ],
+                "note": "正常迭代已采用新更新；旧函数仍在文件中，但已退出正常调用。"
+              },
+              "evidence": [
+                "cat-c04-source",
+                "cat-c04-reported"
+              ],
+              "mechanism": [
+                {
+                  "type": "formula",
+                  "title": "消元改变更新条件",
+                  "math": "p(y | θ) = ∫ p(y, z | θ) dz",
+                  "body": "这里用通用边缘化恒等式说明“消去潜变量”。实际目标密度和执行顺序以固定源文及 routine 为准。",
+                  "anchors": [
+                    "c04-likelihood",
+                    "c04-target",
+                    "c04-transition"
+                  ]
+                },
+                {
+                  "type": "sequence",
+                  "items": [
+                    {
+                      "title": "重新抽取潜变量",
+                      "body": "每轮从当前参数状态重新抽取潜变量。",
+                      "anchors": [
+                        "c04-new-code"
+                      ]
+                    },
+                    {
+                      "title": "条件更新参数",
+                      "body": "高斯块与已有尺度、位置更新继续遵守冻结顺序。",
+                      "anchors": [
+                        "c04-new-code"
+                      ]
+                    },
+                    {
+                      "title": "最后更新组成",
+                      "body": "最终组成步骤使用消去潜变量后的观测似然。",
+                      "anchors": [
+                        "c04-transition"
+                      ]
+                    },
+                    {
+                      "title": "保存并进入下一轮",
+                      "body": "该步骤之后不再使用旧潜变量，下一轮从新状态重新抽取。",
+                      "anchors": [
+                        "c04-plan"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "open": [
+                "独立设计审查、实现存在、正确性证据、正式可靠性各自成立到不同范围，不能合成一个完成标记。",
+                "当前登记仍保留正式可靠性未通过的边界；本轮未重跑科研计算。"
+              ],
+              "detail": true,
+              "tag": "C04"
+            },
+            {
+              "id": "zero",
+              "title": "匿名零槽位积分",
+              "role": "保留未发现信息，并按组聚合计算。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "zero-old",
+                  "zero-revocation",
+                  "zero-new",
+                  "zero-open"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "尚无生产函数锚点；研究探针不充当生产实现。"
+              },
+              "evidence": [
+                "cat-zero-counterexample",
+                "cat-zero-proposal"
+              ],
+              "mechanism": [
+                {
+                  "type": "algorithm",
+                  "items": [
+                    {
+                      "title": "保留未发现信息",
+                      "body": "按原模型保留匿名零槽位及其重数。",
+                      "anchors": [
+                        "zero-old"
+                      ]
+                    },
+                    {
+                      "title": "更换积分表示",
+                      "body": "候选方案解析处理稀有截距，改用最大值分位数表示。",
+                      "anchors": [
+                        "zero-new"
+                      ]
+                    },
+                    {
+                      "title": "控制累计误差",
+                      "body": "以重数加权的目标与导数尺度检查数值误差。",
+                      "anchors": [
+                        "zero-error",
+                        "zero-clarification"
+                      ]
+                    },
+                    {
+                      "title": "等待算法闭合",
+                      "body": "求积、求根、导数和成本仍需完整验证。",
+                      "anchors": [
+                        "zero-open"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "open": [
+                "GAP-01 与 GAP-04 尚未解除。",
+                "计算提案与正式实现授权分开。"
+              ],
+              "detail": true,
+              "tag": ""
+            },
+            {
+              "id": "c03",
+              "title": "共享参数生产推断",
+              "role": "合并显式列与匿名零槽位贡献。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "system",
+                  "zero-open",
+                  "current-index"
+                ]
+              },
+              "implementation": {
+                "state": "absent",
+                "anchors": [],
+                "note": "生产推断仍依赖未闭合的零槽位算法。"
+              },
+              "evidence": [
+                "cat-scope"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "外层共享参数计算依赖单列原语和独立零槽位积分。关键依赖未闭合，保留设计关系但不声称已接通。"
+                }
+              ],
+              "open": [
+                "GAP-01：匿名零槽位的生产积分算法未闭合。",
+                "GAP-04：正式校准预注册仍未解除；这是另一项边界。"
+              ],
+              "detail": false,
+              "tag": "C03"
+            },
+            {
+              "id": "discovery",
+              "title": "发现预测与校准",
+              "role": "将模型结果转成未来发现与校准结论。",
+              "design": {
+                "state": "proposed",
+                "refs": [
+                  "system",
+                  "zero-open"
+                ]
+              },
+              "implementation": {
+                "state": "unmapped",
+                "anchors": [],
+                "note": "本轮只定位模块职责，不将状态索引等同完整实现核验。"
+              },
+              "evidence": [
+                "cat-scope"
+              ],
+              "mechanism": [
+                {
+                  "type": "prose",
+                  "body": "下游依赖生产推断与正式校准设计；局部原语成功不自动解锁。"
+                }
+              ],
+              "open": [],
+              "detail": false,
+              "tag": ""
+            }
+          ],
+          "relations": [
+            {
+              "id": "data-c01",
+              "from": "c02",
+              "to": "c01",
+              "label": "单列输入",
+              "object": "单列正观测行索引与设计矩阵；先验和控制由数值内核合同另供",
+              "at": "ct_probit_laplace 的输入边界；本切片未核验完整 C02→该入口的生产接线",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c01-laplace"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "data-c04",
+              "from": "c02",
+              "to": "c04",
+              "label": "小规模参考输入",
+              "object": "小规模观测、协变量与列／组身份",
+              "at": "参考迭代消费数据合同；先验、控制与状态另供",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c04-new-code"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "c01-c03",
+              "from": "c01",
+              "to": "c03",
+              "label": "显式列贡献",
+              "object": "显式列局部积分贡献与求解／失败状态",
+              "at": "拟由外层共享参数目标汇总；生产消费接口尚未实现",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c01-laplace"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "zero-c03",
+              "from": "zero",
+              "to": "c03",
+              "label": "未发现信息贡献",
+              "object": "按组及重数汇总的匿名零列贡献，以及梯度／曲率与误差控制要求",
+              "at": "拟议生产目标的零槽位项；GAP-01 未闭合，没有真实生产 routine",
+              "reality": "proposed",
+              "anchors": [
+                "zero-open",
+                "zero-error"
+              ],
+              "kind": "data"
+            },
+            {
+              "id": "c04-c03",
+              "from": "c04",
+              "to": "c03",
+              "label": "独立核对",
+              "object": "同一冻结模型与小规模输入上的参考后验／比较证据",
+              "at": "计划用于近似结果核对；不能自动作为生产验收真值。",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "c04-result"
+              ],
+              "kind": "evidence"
+            },
+            {
+              "id": "c03-discovery",
+              "from": "c03",
+              "to": "discovery",
+              "label": "共享参数后验",
+              "object": "共享参数后验及其适用范围，供发现预测／校准使用",
+              "at": "设计依赖；生产推断受阻，尚无已验证消费接口",
+              "reality": "proposed",
+              "anchors": [
+                "system",
+                "zero-open"
+              ],
+              "kind": "data"
+            }
+          ]
+        }
+      ],
+      "changes": [
+        {
+          "id": "c01-near-zero-fix",
+          "from": "c01-earlier-design",
+          "to": "c01-three-region",
+          "title": "为合法输入重新划分数值区域",
+          "kind": "design-correction",
+          "scope": [
+            "c01"
+          ],
+          "reason": "独立审查找到合法输入的中间溢出反例。",
+          "triggers": [
+            "cat-c01-trigger"
+          ],
+          "decisionAnchors": [
+            "c01-r3",
+            "c01-new"
+          ],
+          "changed": [
+            "数值分区",
+            "补偿求和算法",
+            "切换边界测试"
+          ],
+          "unchanged": [
+            "统计对象",
+            "对外数值职责"
+          ],
+          "capabilityEffect": "稳定处理合法数值输入；统计对象不变。",
+          "implementation": "已在真实数值原语中找到对应分支。",
+          "anchors": [
+            "c01-code",
+            "c01-test"
+          ],
+          "historyOnly": true,
+          "beforeTitle": "修订前：单一负尾处理",
+          "before": "原设计未充分区分接近零与深负尾的数值风险。",
+          "beforeAnchors": [
+            "c01-old"
+          ],
+          "afterTitle": "当前：分段稳定原语",
+          "after": "按不同数值区域使用明确公式，并固定补偿求和与测试。",
+          "afterAnchors": [
+            "c01-new"
+          ]
+        },
+        {
+          "id": "c04-collapse",
+          "from": "cat-before",
+          "to": "cat-current",
+          "title": "最终组成更新改用消元后的似然",
+          "kind": "implementation-revision",
+          "scope": [
+            "c04"
+          ],
+          "reason": "机制调查使设计者决定修改组成更新的条件依赖。",
+          "triggers": [
+            "cat-c04-trigger"
+          ],
+          "decisionAnchors": [
+            "c04-plan",
+            "c04-review",
+            "c04-invariants"
+          ],
+          "changed": [
+            "组成更新采用的似然",
+            "最后一个更新步骤",
+            "跨轮状态回归测试"
+          ],
+          "unchanged": [
+            "模型",
+            "先验",
+            "科学目标",
+            "对外接口",
+            "正式验收门槛"
+          ],
+          "capabilityEffect": "修正参考推断的条件依赖；模型与正式门槛不变。",
+          "implementation": "正常迭代已调用新函数；旧函数仅保留为历史参照。",
+          "anchors": [
+            "c04-plan",
+            "c04-invariants",
+            "c04-old-code",
+            "c04-new-code",
+            "c04-retained",
+            "c04-tests"
+          ],
+          "historyOnly": false,
+          "beforeTitle": "C04-REF v0.1.1",
+          "before": "最终组成更新以当前潜变量为条件。",
+          "beforeAnchors": [
+            "c04-old-code"
+          ],
+          "afterTitle": "C04-REF v0.1.2",
+          "after": "替换最终组成步骤，并保持下一轮潜变量刷新。",
+          "afterAnchors": [
+            "c04-new-code"
+          ]
+        },
+        {
+          "id": "zero-withdrawal",
+          "from": "zero-original",
+          "to": "zero-proposal",
+          "title": "撤销普通局部近似，保留积分候选",
+          "kind": "rejected-route",
+          "scope": [
+            "zero"
+          ],
+          "reason": "独立数值反例表明局部近似可能遗漏关键尾部质量。",
+          "triggers": [
+            "cat-zero-counterexample"
+          ],
+          "decisionAnchors": [
+            "zero-revocation",
+            "zero-open"
+          ],
+          "changed": [
+            "撤销普通零列局部近似",
+            "新增独立积分模块",
+            "下游就绪条件"
+          ],
+          "unchanged": [
+            "匿名槽位不能删除",
+            "组内按重数聚合",
+            "统计目标"
+          ],
+          "capabilityEffect": "生产推断仍受阻，不能用局部数值成功替代全模型闭合。",
+          "implementation": "候选设计仍未形成生产实现；不得生成虚构函数锚点。",
+          "anchors": [
+            "zero-revocation",
+            "zero-open"
+          ],
+          "historyOnly": true,
+          "beforeTitle": "原案：复用单列局部近似",
+          "before": "尝试用普通局部近似计算匿名全零列。",
+          "beforeAnchors": [
+            "zero-old"
+          ],
+          "afterTitle": "当前：独立积分候选",
+          "after": "保留统计目标，研究另一种积分表示与误差控制。",
+          "afterAnchors": [
+            "zero-open"
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "id": "normal",
+          "label": "正常计算",
+          "nodes": [
+            "c02",
+            "c01",
+            "c03",
+            "discovery"
+          ],
+          "edges": [
+            "data-c01",
+            "c01-c03",
+            "c03-discovery"
+          ],
+          "note": "图中是模块依赖；完整生产链仍受未闭合模块限制，不能推定已经运行。"
+        },
+        {
+          "id": "recovery",
+          "label": "阻塞传播",
+          "nodes": [
+            "zero",
+            "c03",
+            "discovery"
+          ],
+          "edges": [
+            "zero-c03",
+            "c03-discovery"
+          ],
+          "note": "零槽位算法未闭合，影响外层生产推断及下游预测；参考引擎的实现不能解除这个 blocker。"
+        },
+        {
+          "id": "protection",
+          "label": "模型不变项",
+          "nodes": [
+            "c02",
+            "c01",
+            "c04"
+          ],
+          "edges": [],
+          "note": "C04 修订保持模型、先验、科学目标、外部接口和正式验收门槛。"
+        }
+      ],
+      "notices": [
+        {
+          "title": "索引与直接记录不一致",
+          "body": "入口索引标为 READY，执行记录已推进到 EXECUTED_UNAUDITED。应同步索引，不能自动认定已审查。",
+          "anchors": [
+            "current-index",
+            "profile-drift"
+          ]
+        },
+        {
+          "title": "源码有访问权限",
+          "body": "这里仅展示必要机制摘要与永久链接。原始私有文档、源码片段和实验数据没有打包进页面。",
+          "anchors": [
+            "authority"
+          ]
+        }
+      ]
+    }
+  ]
+}

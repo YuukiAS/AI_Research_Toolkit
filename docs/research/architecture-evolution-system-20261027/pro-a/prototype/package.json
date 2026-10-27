@@ -1,0 +1,14 @@
+{
+  "name": "architecture-workset-pro-a-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node tests/model.test.mjs"
+  },
+  "devDependencies": {
+    "@viz-js/viz": "3.25.0"
+  },
+  "engines": {"node": ">=20"}
+}

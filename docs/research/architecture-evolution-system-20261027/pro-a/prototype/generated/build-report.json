@@ -1,0 +1,88 @@
+{
+  "generator": "@viz-js/viz 3.25.0 (build-time only)",
+  "graphvizVersion": "14.1.3",
+  "projects": 3,
+  "sourceAnchors": 90,
+  "validation": [
+    {
+      "project": "mica",
+      "errors": [],
+      "warnings": [
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "mica.future-adapter",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "mica.future-answer",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "mica.future-adapter",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "mica.future-answer",
+          "message": "设计存在，实现仍未建立。"
+        }
+      ]
+    },
+    {
+      "project": "da",
+      "errors": [],
+      "warnings": [
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "da.assurance",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "da.delivery",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "da.assurance",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "da.delivery",
+          "message": "设计存在，实现仍未建立。"
+        }
+      ]
+    },
+    {
+      "project": "cat",
+      "errors": [],
+      "warnings": [
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "zero",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "c03",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "zero",
+          "message": "设计存在，实现仍未建立。"
+        },
+        {
+          "code": "IMPLEMENTATION_PENDING",
+          "object": "c03",
+          "message": "设计存在，实现仍未建立。"
+        }
+      ]
+    }
+  ],
+  "history": "One union layout per project; old snapshots are explicitly scoped.",
+  "runtimeDependencies": 0
+}

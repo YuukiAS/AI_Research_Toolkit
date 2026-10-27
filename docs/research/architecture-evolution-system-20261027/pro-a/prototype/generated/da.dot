@@ -1,0 +1,30 @@
+digraph Architecture {
+graph [rankdir=TB, bgcolor="transparent", pad=0.25, nodesep=0.45, ranksep=0.45, splines=polyline, outputorder=edgesfirst, fontname="sans-serif"];
+node [shape=box, style="rounded,filled", fillcolor="white", color="#cbd3de", penwidth=1.2, fontname="sans-serif", fontsize=14, margin="0.20,0.17"];
+edge [fontname="sans-serif", fontsize=10, fontcolor="#637083", color="#9aa6b7", penwidth=1.2, arrowsize=0.65];
+"da.requirements" [id="node-da.requirements", label="目标与已接受能力", fillcolor="#f3f5f7", color="#dde2e8"];
+"da.workflow" [id="node-da.workflow", label="能力与任务编排", ];
+"da.assurance" [id="node-da.assurance", label="Delivery\n Assurance", ];
+"da.bridge" [id="node-da.bridge", label="任务身份与回传", ];
+"da.executor" [id="node-da.executor", label="项目实现", fillcolor="#f3f5f7", color="#dde2e8"];
+"da.checks" [id="node-da.checks", label="项目专业验收", ];
+"da.review" [id="node-da.review", label="必要的独立判断", fillcolor="#f3f5f7", color="#dde2e8"];
+"da.delivery" [id="node-da.delivery", label="可解释的交付结论", fillcolor="#f3f5f7", color="#dde2e8"];
+"da.requirements" -> "da.workflow" [id="edge-da-input--0", label="任务目标", tooltip="用户目标、约束和已接受能力", style=dashed];
+"da.requirements" -> "da.assurance" [id="edge-da-obligations--0", label="交付承诺", tooltip="原要求、冻结标准和旧行为", style=dashed];
+"da.workflow" -> "da.bridge" [id="edge-da-compose--0", label="调用与接收者", tooltip="所需能力、执行接点和结果接收者", style=dashed];
+"da.bridge" -> "da.executor" [id="edge-da-execute--0", label="原任务执行", tooltip="准确任务身份、设计范围和剩余权限", style=dashed];
+"da.assurance" -> "da.checks" [id="edge-da-check-request--0", label="验收义务", tooltip="必需新能力、旧行为和观察范围", style=dashed];
+"da.executor" -> "da.checks" [id="edge-da-candidate--0", label="真实候选", tooltip="具体候选产品、输入及运行对象", style=dashed];
+"da.checks" -> "da.assurance" [id="edge-da-evidence--0", label="证据与缺口", tooltip="同候选证据、失败和未观测项", style=dashed];
+"da.assurance" -> "da.bridge" [id="edge-da-feedback--0", label="返修原因", tooltip="应有结果、实际结果、来源和接收者", style=dashed];
+"da.workflow" -> "da.review" [id="edge-da-independent--0", label="按需审查", tooltip="存在判断风险的原始材料与候选", style=dashed];
+"da.review" -> "da.assurance" [id="edge-da-review-return--0", label="独立发现", tooltip="遗漏、反例或专业判断及其证据", style=dashed];
+"da.bridge" -> "da.delivery" [id="edge-da-claim--0", label="可支持的声明", tooltip="逐项满足范围、未决项和证据", style=dashed];
+"da.assurance" -> "da.workflow" [id="edge-da-feedback--1", label="返修原因", tooltip="应有结果、实际结果、来源和接收者", style=dashed];
+"da.assurance" -> "da.delivery" [id="edge-da-claim--1", label="可支持的声明", tooltip="逐项满足范围、未决项和证据", style=dashed];
+{ rank=same; "da.requirements"; }
+{ rank=same; "da.workflow"; "da.assurance"; "da.review"; }
+{ rank=same; "da.bridge"; "da.executor"; "da.checks"; }
+{ rank=same; "da.delivery"; }
+}

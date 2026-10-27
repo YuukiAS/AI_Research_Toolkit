@@ -1,0 +1,361 @@
+{
+  "observedAt": "2026-10-27T07:57:55.200Z",
+  "nodeVersion": "v24.22.1",
+  "playwrightVersion": "1.62.1",
+  "htmlSha256": "b716d50d816a155293f37ae2911258f1ab1311bf179795c977de8225890ce965",
+  "baseURL": "file:///workspace/scratch/305af6c03db0/toolkit/docs/research/architecture-evolution-system-20261027/pro-a/prototype/index.html",
+  "viewports": {
+    "desktop": {
+      "width": 1600,
+      "height": 1000
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "environment": {
+    "isolatedBrowser": true,
+    "externalLinksOpened": false,
+    "customFontconfig": true
+  },
+  "checks": [
+    {
+      "name": "desktop: current architecture has bound, accessible nodes and hides the removed input edge",
+      "passed": true,
+      "details": {
+        "title": "架构工作集 · Mica",
+        "nodes": 8,
+        "oldInputEdgeHidden": true,
+        "screenshot": "desktop-mica-overview.png"
+      }
+    },
+    {
+      "name": "desktop: graph component opens its mechanism and a pinned implementation link",
+      "passed": true,
+      "details": {
+        "href": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L231-L262",
+        "sourceWasNotOpened": true,
+        "screenshot": "desktop-mica-implementation.png"
+      }
+    },
+    {
+      "name": "desktop: relation pointer selection shows concrete producer, consumer and interaction point",
+      "passed": true,
+      "details": {
+        "route": "旧草稿清除恢复\n连接器输入框连续显示",
+        "selectedStroke": "rgb(43, 105, 175)"
+      }
+    },
+    {
+      "name": "desktop: old Mica revision retains shared signal and uses old source commits",
+      "passed": true,
+      "details": {
+        "revision": "mica-before",
+        "hrefs": [
+          "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L56-L67",
+          "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L86-L108",
+          "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L167-L171",
+          "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L96-L103"
+        ]
+      }
+    },
+    {
+      "name": "desktop: semantic comparison and causal history distinguish changes from context",
+      "passed": true,
+      "details": {
+        "changedComponents": 1,
+        "changedRelations": 1,
+        "historyHasCauseEvidenceAndLimits": true,
+        "screenshot": "desktop-mica-diff.png"
+      }
+    },
+    {
+      "name": "desktop: Delivery Assurance honestly exposes design without production implementation",
+      "passed": true,
+      "details": {
+        "sourceKinds": [
+          "设计来源fd6916a · L89–100",
+          "设计来源ae2766a · L1–169",
+          "设计来源fd6916a · L128–143",
+          "设计来源fd6916a · L102–106",
+          "设计来源fd6916a · L1–38",
+          "设计来源fd6916a · L74–87"
+        ],
+        "screenshot": "desktop-da-design.png"
+      }
+    },
+    {
+      "name": "desktop: old DA same-endpoint relation resolves only its historical source anchors",
+      "passed": true,
+      "details": {
+        "revision": "da-before",
+        "anchorIds": [
+          "da-old",
+          "da-old-flow"
+        ]
+      }
+    },
+    {
+      "name": "desktop: comparison can open both old and new DA feedback endpoints",
+      "passed": true,
+      "details": {
+        "oldRoute": "Delivery Assurance\n任务身份与回传",
+        "newRoute": "Delivery Assurance\n能力与任务编排"
+      }
+    },
+    {
+      "name": "desktop: CAT evolution and private source boundaries remain explicit",
+      "passed": true,
+      "details": {
+        "screenshot": "desktop-cat-evolution.png",
+        "privateSourceCount": 9,
+        "privatePreviews": 0,
+        "blockerComponent": "匿名零槽位积分",
+        "sourceLinksWereNotOpened": true
+      }
+    },
+    {
+      "name": "desktop: Tab reaches graph controls; Enter activates graph relation and node",
+      "passed": true,
+      "details": {
+        "tabTrail": [
+          {
+            "id": "compare-button",
+            "role": null
+          },
+          {
+            "id": "",
+            "role": null
+          },
+          {
+            "id": "",
+            "role": null
+          },
+          {
+            "id": "",
+            "role": null
+          },
+          {
+            "id": "",
+            "role": null
+          },
+          {
+            "id": "",
+            "role": null
+          },
+          {
+            "id": "edge-mica-render-output--0",
+            "edge": "mica-render-output",
+            "role": "button"
+          }
+        ],
+        "focusAfterNodeActivation": "node-mica.stale-clear",
+        "tabArrowNavigation": true
+      }
+    },
+    {
+      "name": "mobile: complete readable component list without document horizontal overflow",
+      "passed": true,
+      "details": {
+        "width": 390,
+        "documentWidth": 390,
+        "labels": [
+          {
+            "text": "离屏历史渲染",
+            "fontSize": "12px"
+          },
+          {
+            "text": "连接器输入框连续显示",
+            "fontSize": "12px"
+          },
+          {
+            "text": "旧草稿清除恢复",
+            "fontSize": "12px"
+          },
+          {
+            "text": "ChatGPT 原生页面",
+            "fontSize": "12px"
+          },
+          {
+            "text": "连接器生命周期",
+            "fontSize": "12px"
+          },
+          {
+            "text": "用户可见界面",
+            "fontSize": "12px"
+          },
+          {
+            "text": "统一站点适配层",
+            "fontSize": "12px"
+          },
+          {
+            "text": "共享回答模型",
+            "fontSize": "12px"
+          }
+        ],
+        "screenshot": "mobile-mica.png"
+      }
+    },
+    {
+      "name": "mobile: component activation reveals mechanism, source binding, and return to system",
+      "passed": true,
+      "details": {
+        "detailBox": {
+          "x": 17,
+          "y": -0.859375,
+          "width": 356,
+          "height": 1085.46875
+        },
+        "href": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L224-L252",
+        "returnHeadingBox": {
+          "x": 17,
+          "y": 0.609375,
+          "width": 356,
+          "height": 44.84375
+        },
+        "sourceWasNotOpened": true
+      }
+    },
+    {
+      "name": "mobile: relation list and optional horizontal graph remain usable without body overflow",
+      "passed": true,
+      "details": {
+        "relationDetailBox": {
+          "x": 17,
+          "y": 272.140625,
+          "width": 356,
+          "height": 474.484375
+        },
+        "relationReturnBox": {
+          "x": 17,
+          "y": 0.609375,
+          "width": 356,
+          "height": 44.84375
+        },
+        "widths": {
+          "client": 354,
+          "scroll": 730,
+          "body": 390
+        },
+        "scrollLeft": 200
+      }
+    },
+    {
+      "name": "mobile: DA design and CAT project can be read without horizontal page overflow",
+      "passed": true,
+      "details": {
+        "screenshot": "mobile-da.png",
+        "daAbsent": true,
+        "catAccessible": true
+      }
+    }
+  ],
+  "screenshots": [
+    "screenshots/desktop-mica-overview.png",
+    "screenshots/desktop-mica-implementation.png",
+    "screenshots/desktop-mica-diff.png",
+    "screenshots/desktop-da-design.png",
+    "screenshots/desktop-cat-evolution.png",
+    "screenshots/mobile-mica.png",
+    "screenshots/mobile-da.png"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "browserVersion": "131.0.6778.204",
+  "passed": 14,
+  "failed": 0,
+  "scope": "Limited prototype UI verification only. No Mica, DA or CAT-TRACE production execution; no private source links opened; no full accessibility certification.",
+  "visualReview": {
+    "reviewedAt": "2026-10-27T08:00:14.311972+00:00",
+    "method": "Actually inspected changed desktop DA current architecture and Mica comparison screenshots, plus a focused DA comparison screenshot. Five unchanged screenshots retain the earlier direct visual review, verified by SHA-256.",
+    "findings": [
+      "DA four-row layout keeps all eight component labels legible in the 1600 × 1000 current and comparison views; no material label collision observed.",
+      "Old and new DA feedback labels remain independently clickable and show their correct receivers: task identity/return and capability/task orchestration.",
+      "Mica semantic comparison retains shared lifecycle signal, shows the removed ordinary-input edge, and distinguishes unrelated current context from historically unchanged items.",
+      "The seven published screenshots match the offline file-entry run; mobile detail/return scroll and optional graph scrolling remain covered by the 14 checks."
+    ],
+    "limits": [
+      "Limited prototype UI verification; not a full accessibility or cross-browser certification.",
+      "No DA, Mica or CAT-TRACE production behavior was executed and no external/private source link was opened."
+    ],
+    "sha256": {
+      "screenshots/desktop-cat-evolution.png": "58697c8573c511172d31d4425c946fd573e23304a0f619f5c460f9c45296913d",
+      "screenshots/desktop-da-design.png": "23dc770c52e3803b73e5049c67ba705b6964fa4bd90470bf3950ed01252ea258",
+      "screenshots/desktop-mica-diff.png": "beb6fb572f6305b3e716cdf53377514dc98ebcc9177792a0171b4b3764b4e502",
+      "screenshots/desktop-mica-implementation.png": "f98adcc4d4a6643cef4df8d1a2fdf142fa3e30fd59b1c87cbfb7b043ea154bfb",
+      "screenshots/desktop-mica-overview.png": "824e796950b3b4ab511d3e2e1ed1a78f23261e006854b7a51c35a9c2b1ea026c",
+      "screenshots/mobile-da.png": "c1c87f8f3432230216c2c727add5995082fd19157f7dfa03a3e9ba6b72d462be",
+      "screenshots/mobile-mica.png": "2cc0aad679cfb3620aca17c1c1b18018dcd03e1a381d262ca2f4681604d4082e"
+    },
+    "unchangedSincePriorVisualReview": [
+      "screenshots/desktop-cat-evolution.png",
+      "screenshots/desktop-mica-implementation.png",
+      "screenshots/desktop-mica-overview.png",
+      "screenshots/mobile-da.png",
+      "screenshots/mobile-mica.png"
+    ],
+    "offlineFileEntryVerified": true,
+    "daFocusedReview": {
+      "currentLabelCount": 20,
+      "comparisonLabelCount": 30,
+      "oldFeedbackRoute": "Delivery Assurance\n任务身份与回传",
+      "newFeedbackRoute": "Delivery Assurance\n能力与任务编排",
+      "labelBoundingBoxIntersections": {
+        "current": [
+          [
+            "Delivery",
+            " Assurance",
+            70.49,
+            3.92
+          ]
+        ],
+        "comparison": [
+          [
+            "目标与已接受能力",
+            "Δ",
+            9.96,
+            10.44
+          ],
+          [
+            "能力与任务编排",
+            "Δ",
+            7.66,
+            10.44
+          ],
+          [
+            "Delivery",
+            " Assurance",
+            70.49,
+            3.92
+          ],
+          [
+            "任务身份与回传",
+            "Δ",
+            7.66,
+            10.44
+          ],
+          [
+            "项目专业验收",
+            "Δ",
+            5.37,
+            10.44
+          ],
+          [
+            "必要的独立判断",
+            "Δ",
+            7.66,
+            10.44
+          ],
+          [
+            "可解释的交付结论",
+            "Δ",
+            9.96,
+            10.44
+          ]
+        ]
+      },
+      "intersectionInterpretation": "The remaining rectangle intersections are the two lines within the same Delivery Assurance label and the small delta marker at node corners. Direct visual inspection found labels legible and no collision between different component labels or relation labels; delta-marker corner spacing remains a minor polish item, not a failed interaction or missing content."
+    }
+  }
+}

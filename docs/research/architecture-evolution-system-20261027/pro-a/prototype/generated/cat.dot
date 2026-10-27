@@ -1,0 +1,17 @@
+digraph Architecture {
+graph [rankdir=LR, bgcolor="transparent", pad=0.25, nodesep=0.45, ranksep=0.75, splines=polyline, outputorder=edgesfirst, fontname="sans-serif"];
+node [shape=box, style="rounded,filled", fillcolor="white", color="#cbd3de", penwidth=1.2, fontname="sans-serif", fontsize=14, margin="0.20,0.17"];
+edge [fontname="sans-serif", fontsize=10, fontcolor="#637083", color="#9aa6b7", penwidth=1.2, arrowsize=0.65];
+"c02" [id="node-c02", label="数据与身份", ];
+"c01" [id="node-c01", label="稳定数值原语", ];
+"c04" [id="node-c04", label="独立参考引擎", ];
+"zero" [id="node-zero", label="匿名零槽位积分", ];
+"c03" [id="node-c03", label="共享参数生产推断", ];
+"discovery" [id="node-discovery", label="发现预测与校准", ];
+"c02" -> "c01" [id="edge-data-c01--0", label="单列输入", tooltip="单列正观测行索引与设计矩阵；先验和控制由数值内核合同另供", style=dashed];
+"c02" -> "c04" [id="edge-data-c04--0", label="小规模参考输入", tooltip="小规模观测、协变量与列／组身份", style=dashed];
+"c01" -> "c03" [id="edge-c01-c03--0", label="显式列贡献", tooltip="显式列局部积分贡献与求解／失败状态", style=dashed];
+"zero" -> "c03" [id="edge-zero-c03--0", label="未发现信息贡献", tooltip="按组及重数汇总的匿名零列贡献，以及梯度／曲率与误差控制要求", style=dashed];
+"c04" -> "c03" [id="edge-c04-c03--0", label="独立核对", tooltip="同一冻结模型与小规模输入上的参考后验／比较证据", style=dashed];
+"c03" -> "discovery" [id="edge-c03-discovery--0", label="共享参数后验", tooltip="共享参数后验及其适用范围，供发现预测／校准使用", style=dashed];
+}
