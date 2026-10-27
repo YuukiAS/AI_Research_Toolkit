@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-10-27T09:17:36.475Z",
+  "pass": true,
+  "checks_passed": 35,
+  "checks_total": 35,
+  "errors": [],
+  "checks": [
+    {
+      "name": "gpt6 revised title",
+      "pass": true,
+      "evidence": "交付前，谁检查什么"
+    },
+    {
+      "name": "gpt6 default detail <= 3 fields",
+      "pass": true,
+      "evidence": 3
+    },
+    {
+      "name": "gpt6 nodes preserved",
+      "pass": true,
+      "evidence": "14 nodes rendered in desktop and mobile SVG source"
+    },
+    {
+      "name": "gpt6 failure path",
+      "pass": true,
+      "evidence": "确认故障却显示正常"
+    },
+    {
+      "name": "gpt6 regression path",
+      "pass": true,
+      "evidence": "新逻辑弄坏旧入口"
+    },
+    {
+      "name": "gpt6 mobile path visible",
+      "pass": true,
+      "evidence": ".mobile-route"
+    },
+    {
+      "name": "gpt56 revised title",
+      "pass": true,
+      "evidence": "失败怎样回到原任务"
+    },
+    {
+      "name": "gpt56 default detail <= 3 fields",
+      "pass": true,
+      "evidence": 3
+    },
+    {
+      "name": "gpt56 nodes preserved",
+      "pass": true,
+      "evidence": 13
+    },
+    {
+      "name": "gpt56 edges preserved",
+      "pass": true,
+      "evidence": 18
+    },
+    {
+      "name": "gpt56 failure path",
+      "pass": true,
+      "evidence": "当前版本不符合要求，失败交回原 Codex；修复后重新检查。"
+    },
+    {
+      "name": "gpt56 regression path",
+      "pass": true,
+      "evidence": "新用例通过，但旧入口失效；当前版本不能交付。"
+    },
+    {
+      "name": "gpt56 mobile path visible",
+      "pass": true,
+      "evidence": ".mobile-graph"
+    },
+    {
+      "name": "gpt6 before preserves index.html",
+      "pass": true,
+      "evidence": "600a2395aa350cc9a12213b42b1abb59fffcd67bdde74b5a70183a8d14c0a1fe"
+    },
+    {
+      "name": "gpt6 before preserves styles.css",
+      "pass": true,
+      "evidence": "5222eaf6d41443906dadce159561121593293d09c4d44fd534f2fc544325768d"
+    },
+    {
+      "name": "gpt6 before preserves app.js",
+      "pass": true,
+      "evidence": "0687a204d34f05f701bdedb0be125cdb4f43e1a5f5c1c04114d21020d66c0518"
+    },
+    {
+      "name": "gpt56 before preserves index.html",
+      "pass": true,
+      "evidence": "bce736f1dfcdf1f39d487f299729c20544b14eef3c7f1110c177651ece109823"
+    },
+    {
+      "name": "gpt56 before preserves styles.css",
+      "pass": true,
+      "evidence": "6dac628d4b1e93f70c5cf571999acf51636d713e2e3a88ef0ce87bc83db84ab1"
+    },
+    {
+      "name": "gpt56 before preserves app.js",
+      "pass": true,
+      "evidence": "ead1dfbd4a4c6e28eb58212da6aaeb687eabb3d99d6440e361ee525d49abb631"
+    },
+    {
+      "name": "screenshot before/gpt6/desktop-default.png",
+      "pass": true,
+      "evidence": 167359
+    },
+    {
+      "name": "screenshot before/gpt6/component-detail.png",
+      "pass": true,
+      "evidence": 161876
+    },
+    {
+      "name": "screenshot before/gpt6/failure-path.png",
+      "pass": true,
+      "evidence": 170487
+    },
+    {
+      "name": "screenshot before/gpt6/mobile-default.png",
+      "pass": true,
+      "evidence": 38761
+    },
+    {
+      "name": "screenshot before/gpt56/desktop-default.png",
+      "pass": true,
+      "evidence": 252424
+    },
+    {
+      "name": "screenshot before/gpt56/component-detail.png",
+      "pass": true,
+      "evidence": 252702
+    },
+    {
+      "name": "screenshot before/gpt56/failure-path.png",
+      "pass": true,
+      "evidence": 273805
+    },
+    {
+      "name": "screenshot before/gpt56/mobile-default.png",
+      "pass": true,
+      "evidence": 53575
+    },
+    {
+      "name": "screenshot after/gpt6/desktop-default.png",
+      "pass": true,
+      "evidence": 149682
+    },
+    {
+      "name": "screenshot after/gpt6/component-detail.png",
+      "pass": true,
+      "evidence": 138477
+    },
+    {
+      "name": "screenshot after/gpt6/failure-path.png",
+      "pass": true,
+      "evidence": 145517
+    },
+    {
+      "name": "screenshot after/gpt6/mobile-default.png",
+      "pass": true,
+      "evidence": 39791
+    },
+    {
+      "name": "screenshot after/gpt56/desktop-default.png",
+      "pass": true,
+      "evidence": 213516
+    },
+    {
+      "name": "screenshot after/gpt56/component-detail.png",
+      "pass": true,
+      "evidence": 205717
+    },
+    {
+      "name": "screenshot after/gpt56/failure-path.png",
+      "pass": true,
+      "evidence": 232286
+    },
+    {
+      "name": "screenshot after/gpt56/mobile-default.png",
+      "pass": true,
+      "evidence": 42974
+    }
+  ]
+}

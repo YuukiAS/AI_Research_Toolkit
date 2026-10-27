@@ -1,0 +1,27 @@
+CASE_ID	SITE	CONTEXT	ORIGINAL_VISIBLE_CONTENT	ERROR_TYPE	CORRECT_DISPOSITION	REVISED_CONTENT_OR_ACTION	WHY	OWNER
+CS-001	gpt6	首屏标题	交付验收怎样工作	报告式自我说明	REWRITE	交付前，谁检查什么	标题应从读者的判断任务出发，不解释网站自己“怎样工作”。	Clear Writing
+CS-002	gpt56	首屏标题	一次交付怎样完成验收、返修和复验	过度完整标题	REWRITE	失败怎样回到原任务	原题把整个流程塞进标题；修订版只抓住这套架构最有辨识度的问题。	Clear Writing
+CS-003	gpt6	组件详情	为什么需要 / 接收什么 / 交给谁 / 去掉以后 / 目前情况	固定字段强制填充	MERGE	每个组件改为一句摘要，只有确有增量时再保留 1–3 条事实。	Artifact Curation
+CS-004	gpt56	组件详情	为什么存在 / 需要什么 / 交出什么 / 谁接收 / 少了会怎样 / 当前状态	固定字段强制填充	MERGE	每个组件改为一句摘要，按对象需要保留边界或当前缺口。	Artifact Curation
+CS-005	gpt6	组件详情字段	去掉以后	为完整而制造的假设	DELETE	删除字段；若确有交付风险，改写成具体边界。	Artifact Curation
+CS-006	gpt56	组件详情字段	少了会怎样	为完整而制造的假设	DELETE	删除字段；必要事实并入摘要。	Artifact Curation
+CS-007	gpt6	架构图下方说明	以下是按方案推演的三种结果，采用同一个 Lucerna 状态修复任务。	元说明重复	DELETE	删除	情境按钮、步骤和案例标题已经说明内容性质。	Artifact Curation
+CS-008	gpt6	案例表后注	最后一行是本原型构造的旧功能回归情境。	反例标注重复	DELETE	删除	表格内容和路径名称已经清楚标出回归，不需要再替读者解释一次。	Artifact Curation
+CS-009	gpt56	方案比较区	三种架构路线的四列表格	研究过程占据产品主层	RELOCATE	主层只保留“共享层只保存交付义务、候选身份、证据资格和失败去向”；未采用路线折叠下沉。	Artifact Curation
+CS-010	gpt56	投入区	宿主探针 / 首个完整切片 / 全套旧方案三张并列信息	次要信息占据主层	RELOCATE	折叠为“旧方案估算”	估算可追溯，但不是理解系统的首要信息。	Artifact Curation
+CS-011	gpt6	下一步区	旧方案估计：宿主探针 4–8 小时，首个完整试点 40–88 小时，七仓全量 138–332 小时……	次要信息占据主层	RELOCATE	折叠为“旧方案估算”，保留范围包含关系和非预算边界。	信息下沉不能丢失关键限定。	Artifact Curation + Writing Fidelity
+CS-012	gpt56	页眉与首屏	设计已审，尚未接入生产；目前做到哪一步；当前能确认的状态	同一状态多点重复	MERGE	设计已审 · 尚未接入生产；首屏只补充普通入口、自动返修和七仓接线尚未实测。	状态应有一个主位置，其余位置只补充新的边界。	Artifact Curation
+CS-013	gpt6	证据区	已有依据与待验证环节下的四个并列折叠区	页面级重复	MERGE	保留“已有事实”和“还没证明的关键接线”两组。	四组内容反复解释“历史回归不等于当前成品验收”。	Artifact Curation
+CS-014	gpt56	连线详情	传递内容 / 何时发生 / 实际接收者 / 怎样算接通 / 当前缺口	连线详情过度完整	MERGE	传递 / 接收与用途 / 当前（仅待接线时）	箭头已经表达发生方向，不需要每条线都填五个槽位。	Artifact Curation
+CS-015	gpt56	连线详情字段	何时发生	低信息增量字段	DELETE	删除；确有条件时并入“接收与用途”。	大多数触发条件只是改写连线动作。	Artifact Curation
+CS-016	gpt6	动态失败步骤	DA 记录违反要求的实际与预期结果……workflow-core 指回原任务……是否收到需要实测确认。	单步复述整条架构	REWRITE	失败包含版本、证据和差异，由 Bridge Kit 送回同一个 Codex 任务。	动态步骤只应交代这一刻发生的动作和证据变化。	Clear Writing
+CS-017	gpt56	节点状态徽标	已有；DA 接线待证	内部状态包装	REWRITE	已有，接线待证	删去不影响用户判断的内部前缀，保留实施边界。	Clear Writing
+CS-018	gpt6	手机版架构区	1710px 高的完整 SVG 架构图	桌面结构直接缩到手机	RELOCATE	手机默认显示五步路径和组件入口；完整关系图保留在桌面。	响应式不是缩放，而是重新安排首要任务。	Frontend Design + Artifact Curation
+CS-019	gpt56	手机版架构区	当前路径列表	适合手机的任务结构	KEEP	保留并压缩节点副标题	路径列表比缩小后的关系图更符合手机阅读。	Frontend Design
+CS-020	both	节点名称	Delivery Assurance / Bridge Kit / workflow-core	必要对象名称	KEEP	保持原名	专有名词负责定位真实组件，不能为了“自然”随意翻译或换名。	Writing Fidelity
+CS-021	both	技术边界	证据必须属于当前版本；旧截图不能沿用。	必要风险边界	KEEP	保留并置于成品或交付判断附近	减少文字不能以丢失版本归属为代价。	Writing Fidelity
+CS-022	both	旧功能路径	新用例通过，但旧入口失效；当前版本不能交付。	必要失败条件	KEEP	保留	这是理解交付判断的关键机制，不是“负面措辞”噪声。	Writing Fidelity
+CS-023	gpt56	Clear Writing 组件说明	不替前端决定文本是否该出现，也不替项目改变结论。	能力边界	KEEP	不替前端决定文字是否该出现。	这是 Clear Writing 与 Artifact Curation 的关键职责分界，只需压缩表达。	Clear Writing
+CS-024	both	全页连续文本	每个区域单句正确，但标题、状态、节点详情、案例和证据反复解释同一事实。	整页仍像 GPT 报告	MERGE	建立页面级重复清单，合并后再做连续纯文本阅读。	句子级自然度不能替代整页内容取舍。	Artifact Curation + Clear Writing
+CS-025	gpt56	案例卡片标签	历史事实 / 验收反例 / 旧功能保护	咨询幻灯片式平行标签	DELETE	保留三个事实标题，不再额外贴类别标签。	标题已经区分三种情况，标签没有新的信息。	Artifact Curation
+CS-026	both	空白与密度	所有槽位都有标题、解释、状态和来源	用填满证明完整	DELETE	允许组件只有一句摘要，也允许折叠区默认关闭。	留白是层级的一部分，不是缺少内容。	Artifact Curation + Frontend Design

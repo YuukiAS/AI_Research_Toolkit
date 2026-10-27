@@ -1,0 +1,41 @@
+{
+  "generated_on": "2026-10-26",
+  "files": {
+    "index.html": {
+      "sha256": "bce736f1dfcdf1f39d487f299729c20544b14eef3c7f1110c177651ece109823",
+      "bytes": 11677
+    },
+    "architecture-data.js": {
+      "sha256": "e76d303d0adcb5d7be838b6d21ee1e7e094e91aae00b83b074432c4e45315af2",
+      "bytes": 23285
+    },
+    "app.js": {
+      "sha256": "ead1dfbd4a4c6e28eb58212da6aaeb687eabb3d99d6440e361ee525d49abb631",
+      "bytes": 13069
+    },
+    "styles.css": {
+      "sha256": "6dac628d4b1e93f70c5cf571999acf51636d713e2e3a88ef0ce87bc83db84ab1",
+      "bytes": 21708
+    },
+    "verify.py": {
+      "sha256": "64fad79a614d0edbec780ecc6191c42e11f0e4943a8dc15adcce28ded91e24ce",
+      "bytes": 8294
+    },
+    "export-copy-audit.py": {
+      "sha256": "7c6a605b933020d8f1654a425b82e973a5245ea4074ca47a48523b23cf88dd1f",
+      "bytes": 16493
+    },
+    "export-architecture-model.py": {
+      "sha256": "49614bf0982ef7ec7e4142d03ebb1ff1e523e4d93bf063dba92519644d19d9b4",
+      "bytes": 5767
+    },
+    "export-manifests.py": {
+      "sha256": "b6c2b0f47f75f7fad6d8f340073824ad14bcbf5f47c34a5057587b9140259981",
+      "bytes": 3993
+    },
+    "README.md": {
+      "sha256": "41067f5d0204c6af807349ef3a7c2c833e2be6bac54947327889f796c6bd8df2",
+      "bytes": 1477
+    }
+  }
+}

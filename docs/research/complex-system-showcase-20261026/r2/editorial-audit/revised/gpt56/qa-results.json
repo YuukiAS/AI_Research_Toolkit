@@ -1,0 +1,63 @@
+{
+  "desktop_initial": {
+    "label": "desktop_initial",
+    "metrics": {
+      "title": "Delivery Assurance 架构",
+      "width": 1600,
+      "scrollWidth": 1600,
+      "height": 1000,
+      "meaningfulText": true,
+      "diagramVisible": true,
+      "mobileGraphVisible": false,
+      "nodeCount": 13,
+      "edgeCount": 18,
+      "dimmedCount": 0,
+      "nodeOverlapPairs": [],
+      "h1": "一次交付怎样完成验收、返修和复验"
+    },
+    "console_errors": [],
+    "console_warnings": [],
+    "horizontal_overflow": false
+  },
+  "component_interaction": {
+    "selected": "Bridge Kit",
+    "related_nodes": 2,
+    "pass": true
+  },
+  "failure_scenario": {
+    "title": "验收失败，返回原任务",
+    "failure_edges": 2,
+    "dimmed_count": 0,
+    "pass": true
+  },
+  "keyboard_edge": {
+    "selected": "专业结果",
+    "pass": true
+  },
+  "mobile_initial": {
+    "label": "mobile_initial",
+    "metrics": {
+      "title": "Delivery Assurance 架构",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 844,
+      "meaningfulText": true,
+      "diagramVisible": false,
+      "mobileGraphVisible": true,
+      "nodeCount": 13,
+      "edgeCount": 18,
+      "dimmedCount": 0,
+      "nodeOverlapPairs": [],
+      "h1": "一次交付怎样完成验收、返修和复验"
+    },
+    "console_errors": [],
+    "console_warnings": [],
+    "horizontal_overflow": false
+  },
+  "mobile_regression": {
+    "title": "新修复破坏旧功能",
+    "steps": 6,
+    "pass": true
+  },
+  "overall_pass": true
+}
