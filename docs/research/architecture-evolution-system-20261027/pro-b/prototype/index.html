@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Architecture Ledger · 架构演进账本</title>
+  <meta name="description" content="复杂系统架构、实现绑定与因果演进的静态交互原型" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" aria-label="Architecture Ledger">
+      <span class="brand-mark">AL</span>
+      <span class="brand-copy"><strong>Architecture Ledger</strong><small>设计、实现与证据的同一视图</small></span>
+    </div>
+    <nav id="projectTabs" class="project-tabs" aria-label="项目切换"></nav>
+    <div class="top-actions">
+      <label class="select-wrap"><span>修订</span><select id="revisionSelect" aria-label="选择架构修订"></select></label>
+      <button id="compareButton" class="button button-secondary" type="button" data-test="compare-button">与父修订比较</button>
+      <button id="checksButton" class="button button-primary" type="button" data-test="checks-button">完整性检查 <span id="checkCount" class="count-pill">0</span></button>
+    </div>
+  </header>
+
+  <section class="project-strip" aria-live="polite">
+    <div><span id="projectKind" class="project-kind"></span><strong id="projectName"></strong><span id="projectDescription"></span></div>
+    <div id="projectRepo" class="repo-label"></div>
+  </section>
+
+  <main class="workspace">
+    <aside class="sidebar" aria-label="组件目录">
+      <div class="panel-head">
+        <div><small>架构对象</small><h1>组件目录</h1></div>
+        <button id="collapseSidebar" class="icon-button" type="button" aria-label="折叠目录">‹</button>
+      </div>
+      <label class="search-box"><span aria-hidden="true">⌕</span><input id="componentSearch" type="search" placeholder="搜索组件" /></label>
+      <div class="legend-inline" aria-label="状态图例"><span><i class="dot design"></i>设计</span><span><i class="dot implementation"></i>实现</span><span><i class="dot evidence"></i>证据</span></div>
+      <div id="componentList" class="component-list"></div>
+      <footer class="sidebar-foot">默认显示当前状态；历史仅在需要时展开。</footer>
+    </aside>
+
+    <section class="canvas-panel" aria-label="架构视图">
+      <div class="view-toolbar">
+        <div id="viewTabs" class="segmented" role="tablist" aria-label="路径视图">
+          <button data-view="current" class="active" type="button">当前架构</button>
+          <button data-view="normal" type="button">正常路径</button>
+          <button data-view="failure" type="button">失败路径</button>
+          <button data-view="recovery" type="button">恢复路径</button>
+        </div>
+        <div class="revision-meta"><span id="revisionState"></span><span class="divider">|</span><span id="revisionDate"></span></div>
+      </div>
+      <div id="diffBanner" class="diff-banner" hidden></div>
+      <div id="canvasViewport" class="canvas-viewport">
+        <svg id="architectureGraph" viewBox="0 0 780 520" role="img" aria-label="系统架构拓扑">
+          <defs>
+            <marker id="arrow-normal" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z"></path></marker>
+            <marker id="arrow-failure" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z"></path></marker>
+            <marker id="arrow-recovery" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z"></path></marker>
+          </defs>
+          <g id="edgeLayer"></g>
+          <g id="nodeLayer"></g>
+        </svg>
+        <div class="canvas-caption"><span id="canvasHint"></span><span class="diff-legend"><i class="change-add"></i>新增 <i class="change-modify"></i>修改 <i class="change-remove"></i>撤销</span></div>
+      </div>
+    </section>
+
+    <aside id="inspector" class="inspector" aria-label="对象详情">
+      <div class="inspector-head">
+        <div><small id="inspectorGroup"></small><h2 id="inspectorTitle">选择组件</h2></div>
+        <button id="closeInspector" class="icon-button" type="button" aria-label="关闭详情">›</button>
+      </div>
+      <p id="inspectorSummary" class="inspector-summary"></p>
+      <div id="statusAxes" class="status-axes"></div>
+      <div id="inspectorTabs" class="inspector-tabs" role="tablist">
+        <button data-tab="mechanism" class="active" type="button">机制</button>
+        <button data-tab="implementation" type="button">实现</button>
+        <button data-tab="evolution" type="button">演进</button>
+      </div>
+      <div id="inspectorBody" class="inspector-body"></div>
+    </aside>
+  </main>
+
+  <dialog id="checksDialog" class="checks-dialog">
+    <div class="dialog-head"><div><small>结构与事实边界</small><h2>完整性检查</h2></div><button id="closeChecksTop" class="icon-button" type="button" aria-label="关闭">×</button></div>
+    <div id="checkSummary" class="check-summary"></div>
+    <div id="checkItems" class="check-items"></div>
+    <div class="dialog-foot"><p>检查器只暴露矛盾、缺口和漂移；它不替代产品或科学判断。</p><button id="closeChecks" class="button button-primary" type="button">关闭</button></div>
+  </dialog>
+
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

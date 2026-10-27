@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "checks": [
+    "JSON Schema Draft 2020-12",
+    "浏览器数据包与结构化账本一致",
+    "跨对象引用、三轴状态和因果变更完整性",
+    "Markdown 本地链接",
+    "原型入口与四类截图资产"
+  ],
+  "projects": 3,
+  "revisions": 5,
+  "objects": {
+    "anchor": 29,
+    "component": 23,
+    "decision": 2,
+    "evidence": 3,
+    "issue": 5,
+    "mechanism": 23,
+    "relation": 20
+  },
+  "warnings": [
+    "delivery-assurance/da-r1/da-requirements/da-doc-current: 锚点仍待验证"
+  ],
+  "errors": []
+}

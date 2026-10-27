@@ -1,0 +1,1781 @@
+{
+  "schemaVersion": "0.1",
+  "generatedAt": "2026-10-27T16:00:00+08:00",
+  "projects": [
+    {
+      "id": "delivery-assurance",
+      "name": "Delivery Assurance",
+      "kind": "design_system",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "description": "复杂交付的能力切片、实现、真实入口与恢复闭环。",
+      "currentRevision": "da-r2",
+      "revisions": [
+        {
+          "id": "da-r1",
+          "parent": null,
+          "title": "末端验收型交付",
+          "date": "2026-10-13",
+          "status": "superseded",
+          "commit": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "summary": "需求、实现、末端验收依次发生；恢复与正常入口没有进入每个切片。",
+          "reason": "早期研究基线。",
+          "triggerEvidenceIds": [],
+          "components": [
+            {
+              "id": "da-requirements",
+              "name": "能力与边界合同",
+              "shortName": "能力与边界合同",
+              "group": "定义",
+              "category": "核心组件",
+              "responsibility": "把用户能力、不可降级边界和真实失败写成冻结合同。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-req-mech",
+                  "type": "data_contract",
+                  "title": "能力合同",
+                  "summary": "从用户结果反推必须成立的正常路径、失败路径和保护项。",
+                  "steps": [
+                    "用户能力",
+                    "不可降级边界",
+                    "失败语义",
+                    "证据需求"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "da-doc-current",
+                  "kind": "document_section",
+                  "repo": "YuukiAS/AI_Research_Toolkit",
+                  "commit": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+                  "path": "docs/research/software-production/README.md",
+                  "summary": "Delivery Assurance 当前研究入口",
+                  "required": false,
+                  "verified": false,
+                  "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/README.md"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 90,
+                "y": 70
+              }
+            },
+            {
+              "id": "da-implementation",
+              "name": "实现任务",
+              "shortName": "实现任务",
+              "group": "实施",
+              "category": "核心组件",
+              "responsibility": "将设计交给 Codex，并在开发结束后汇总实现结果。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-impl-v1",
+                  "type": "narrative",
+                  "title": "旧实施模式",
+                  "summary": "以完整实现任务为中心，验收主要发生在末尾。"
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 370,
+                "y": 70
+              }
+            },
+            {
+              "id": "da-final-gate",
+              "name": "末端验收",
+              "shortName": "末端验收",
+              "group": "验证",
+              "category": "核心组件",
+              "responsibility": "开发结束后检查测试、截图和完成报告。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-final-v1",
+                  "type": "narrative",
+                  "title": "末端 Gate",
+                  "summary": "对已完成产物做集中检查。"
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 650,
+                "y": 70
+              }
+            }
+          ],
+          "relations": [
+            {
+              "id": "da-r1-a",
+              "source": "da-requirements",
+              "target": "da-implementation",
+              "type": "control",
+              "label": "完整需求",
+              "payload": "冻结需求和范围",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "da-r1-b",
+              "source": "da-implementation",
+              "target": "da-final-gate",
+              "type": "evidence",
+              "label": "完成报告",
+              "payload": "测试、截图、状态说明",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            }
+          ],
+          "changes": [],
+          "decisions": [],
+          "evidence": [],
+          "issues": []
+        },
+        {
+          "id": "da-r2",
+          "parent": "da-r1",
+          "title": "能力切片与真实入口闭环",
+          "date": "2026-10-27",
+          "status": "frozen",
+          "commit": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "summary": "把正常入口、失败恢复和证据生产前移到每个交付切片；仍诚实标记为设计态。",
+          "reason": "末端 Gate 无法防止开发过程中的降级和设计空白。",
+          "triggerEvidenceIds": [
+            "da-ev-user"
+          ],
+          "components": [
+            {
+              "id": "da-requirements",
+              "name": "能力与边界合同",
+              "shortName": "能力与边界合同",
+              "group": "定义",
+              "category": "核心组件",
+              "responsibility": "把用户能力、不可降级边界、失败语义和受保护行为冻结。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-req-mech2",
+                  "type": "data_contract",
+                  "title": "能力合同",
+                  "summary": "先定义真实用户结果，再约束组件、入口和证据。",
+                  "steps": [
+                    "用户结果",
+                    "边界与非目标",
+                    "正常/失败/恢复语义",
+                    "受保护能力"
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 65,
+                "y": 55
+              }
+            },
+            {
+              "id": "da-slice",
+              "name": "交付切片",
+              "shortName": "交付切片",
+              "group": "设计",
+              "category": "核心组件",
+              "responsibility": "把复杂交付拆成可独立实现、真实验收和恢复的能力切片。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-slice-mech",
+                  "type": "algorithm",
+                  "title": "切片形成",
+                  "summary": "每个切片同时绑定能力、风险、正常入口、失败证据和恢复。",
+                  "steps": [
+                    "识别能力闭环",
+                    "冻结不可降级边界",
+                    "指定正常入口",
+                    "定义失败与恢复",
+                    "形成实现包"
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [
+                "DA-ASSUMPTION-01"
+              ],
+              "tags": [],
+              "position": {
+                "x": 325,
+                "y": 55
+              }
+            },
+            {
+              "id": "da-package",
+              "name": "冻结实现包",
+              "shortName": "冻结实现包",
+              "group": "实施",
+              "category": "核心组件",
+              "responsibility": "向 Codex 提供已决定的机制、接口、失败行为和验收边界。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "partial",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-package-mech",
+                  "type": "data_contract",
+                  "title": "Codex 实施包",
+                  "summary": "不允许临时发明产品机制或以实现困难降低需求。",
+                  "invariants": [
+                    "核心机制由 Chat 冻结",
+                    "设计空白返回 Chat"
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 585,
+                "y": 55
+              }
+            },
+            {
+              "id": "da-entry",
+              "name": "正常入口验证",
+              "shortName": "正常入口验证",
+              "group": "验证",
+              "category": "核心组件",
+              "responsibility": "从用户实际入口验证完整能力，而不是只检查内部 fixture。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-entry-mech",
+                  "type": "sequence",
+                  "title": "真实入口 Gate",
+                  "summary": "启动真实入口、执行代表任务、收集产物和失败证据。",
+                  "steps": [
+                    "启动正常入口",
+                    "完成代表任务",
+                    "检查完整产物",
+                    "记录失败链"
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 585,
+                "y": 235
+              }
+            },
+            {
+              "id": "da-evidence",
+              "name": "证据与独立审查",
+              "shortName": "证据与独立审查",
+              "group": "审查",
+              "category": "核心组件",
+              "responsibility": "区分机械证据、产品证据和专业正确性，必要时由 GPT Work 独立审查。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-evidence-mech",
+                  "type": "narrative",
+                  "title": "证据分层",
+                  "summary": "结构、运行、用户结果和专业判断不能互相替代。"
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 325,
+                "y": 235
+              }
+            },
+            {
+              "id": "da-recovery",
+              "name": "返修与恢复闭环",
+              "shortName": "返修与恢复闭环",
+              "group": "恢复",
+              "category": "核心组件",
+              "responsibility": "将失败归因到需求、设计、实现、证据或环境，并回到受影响组件。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "da-recovery-mech",
+                  "type": "state_machine",
+                  "title": "返修闭环",
+                  "summary": "失败不自动重开架构；先区分实现缺陷与设计缺陷。",
+                  "states": [
+                    "FAILURE",
+                    "CLASSIFY",
+                    "FIX_IMPLEMENTATION",
+                    "RETURN_DESIGN",
+                    "REVALIDATE"
+                  ],
+                  "transitions": [
+                    {
+                      "from": "FAILURE",
+                      "to": "CLASSIFY",
+                      "guard": "收集真实失败证据"
+                    },
+                    {
+                      "from": "CLASSIFY",
+                      "to": "FIX_IMPLEMENTATION",
+                      "guard": "设计仍成立"
+                    },
+                    {
+                      "from": "CLASSIFY",
+                      "to": "RETURN_DESIGN",
+                      "guard": "核心机制不成立"
+                    },
+                    {
+                      "from": "FIX_IMPLEMENTATION",
+                      "to": "REVALIDATE",
+                      "guard": "修复完成"
+                    },
+                    {
+                      "from": "RETURN_DESIGN",
+                      "to": "REVALIDATE",
+                      "guard": "新修订已冻结"
+                    }
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 65,
+                "y": 235
+              }
+            }
+          ],
+          "relations": [
+            {
+              "id": "da-r2-a",
+              "source": "da-requirements",
+              "target": "da-slice",
+              "type": "control",
+              "label": "冻结能力",
+              "payload": "能力、边界、失败语义",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "da-r2-b",
+              "source": "da-slice",
+              "target": "da-package",
+              "type": "control",
+              "label": "实施合同",
+              "payload": "机制、接口、风险、验收",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "da-r2-c",
+              "source": "da-package",
+              "target": "da-entry",
+              "type": "control",
+              "label": "正式候选",
+              "payload": "正常入口与完整产物",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "da-r2-d",
+              "source": "da-entry",
+              "target": "da-evidence",
+              "type": "evidence",
+              "label": "真实运行证据",
+              "payload": "完整任务、产物、失败链",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "da-r2-e",
+              "source": "da-evidence",
+              "target": "da-recovery",
+              "type": "evidence",
+              "label": "finding",
+              "payload": "缺陷类型、证据强度、影响对象",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "da-r2-f",
+              "source": "da-recovery",
+              "target": "da-slice",
+              "type": "control",
+              "label": "返修决定",
+              "payload": "同修订修复或返回设计",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "recovery"
+            }
+          ],
+          "changes": [
+            {
+              "targetType": "component",
+              "targetId": "da-slice",
+              "kind": "add",
+              "summary": "新增能力切片作为交付单位",
+              "before": null,
+              "after": "每个切片绑定正常入口、失败与恢复",
+              "reason": "末端验收无法约束开发过程",
+              "triggerEvidenceIds": [
+                "da-ev-user"
+              ],
+              "impact": [
+                "da-package",
+                "da-entry",
+                "da-recovery"
+              ],
+              "alignment": "behind",
+              "unchanged": [
+                "用户能力仍由需求合同定义"
+              ]
+            },
+            {
+              "targetType": "component",
+              "targetId": "da-final-gate",
+              "kind": "supersede",
+              "summary": "末端验收不再是唯一保障",
+              "before": "开发结束后集中检查",
+              "after": "验证进入每个切片并保留最终整体 Gate",
+              "reason": "真实问题常在开发中被静默降级",
+              "triggerEvidenceIds": [
+                "da-ev-user"
+              ],
+              "impact": [
+                "da-entry",
+                "da-evidence"
+              ],
+              "alignment": "not_applicable",
+              "unchanged": [
+                "最终整体检查仍保留"
+              ]
+            }
+          ],
+          "decisions": [
+            {
+              "id": "da-dec-1",
+              "title": "交付保障前移",
+              "question": "验收应只在开发结束后发生吗？",
+              "outcome": "把正常入口、证据和恢复绑定到每个能力切片。",
+              "reason": "降低晚期返工和静默降级。",
+              "status": "accepted",
+              "evidenceIds": [
+                "da-ev-user"
+              ],
+              "impact": [
+                "da-slice",
+                "da-entry",
+                "da-recovery"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "da-ev-user",
+              "type": "user_feedback",
+              "title": "真实项目长期暴露末端验收不足",
+              "summary": "多个项目出现降级实现、假数据和晚期返工，说明验收必须进入生产过程。",
+              "source": "复杂交付需求汇总",
+              "strength": "decisive",
+              "anchors": []
+            }
+          ],
+          "issues": [
+            {
+              "id": "DA-ASSUMPTION-01",
+              "type": "unverified_assumption",
+              "title": "正式生产机制尚未落地",
+              "summary": "当前只验证了设计模型，没有可声称为生产实现的 package 或 function。",
+              "severity": "boundary",
+              "targets": [
+                "da-slice",
+                "da-entry"
+              ],
+              "evidenceIds": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mica",
+      "name": "Mica",
+      "kind": "software",
+      "repo": "YuukiAS/Mica-for-ChatGPT",
+      "description": "ChatGPT Chromium 扩展中的长线程优化和可靠性恢复。",
+      "currentRevision": "mica-r1",
+      "revisions": [
+        {
+          "id": "mica-r1",
+          "parent": null,
+          "title": "当前实现 0.1.7",
+          "date": "2026-10-27",
+          "status": "frozen",
+          "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+          "summary": "真实 Chromium extension 的 DOM 扫描、stale composer 恢复和 connector continuity。",
+          "reason": "固定当前可追溯实现。",
+          "triggerEvidenceIds": [
+            "mica-ev-code"
+          ],
+          "components": [
+            {
+              "id": "mica-dom",
+              "name": "ChatGPT DOM",
+              "shortName": "ChatGPT DOM",
+              "group": "外部依赖",
+              "category": "外部依赖",
+              "responsibility": "提供 turn、composer、connector pill 和生命周期变化；不由 Mica 控制。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "mica-dom-contract",
+                  "type": "data_contract",
+                  "title": "DOM 观测合同",
+                  "summary": "通过 selector 与 mounted/unmounted 事实读取页面，不改写 ChatGPT 内部状态。",
+                  "steps": [
+                    "定位 turn/composer",
+                    "观察 childList",
+                    "过滤 Mica 自身节点",
+                    "更新诊断"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "mica-content-file",
+                  "kind": "file",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/content.ts",
+                  "summary": "主 content script",
+                  "required": true,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts"
+                },
+                {
+                  "id": "mica-turn-selector",
+                  "kind": "selector",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/content.ts",
+                  "summary": "消息回合 selector",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "TURN_SELECTOR",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts"
+                },
+                {
+                  "id": "mica-composer-selector",
+                  "kind": "selector",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/content.ts",
+                  "summary": "composer selector",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "COMPOSER_SELECTOR",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 45,
+                "y": 100
+              }
+            },
+            {
+              "id": "mica-scan",
+              "name": "长线程扫描",
+              "shortName": "长线程扫描",
+              "group": "核心",
+              "category": "核心组件",
+              "responsibility": "基于 DOM 变化维护长线程窗口、状态和受保护区域。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "mica-scan-seq",
+                  "type": "sequence",
+                  "title": "扫描与保护",
+                  "summary": "初始化设置和 observer；批量处理 DOM 变化；保护 composer 与特殊节点。",
+                  "steps": [
+                    "initialize",
+                    "setupObservers",
+                    "MutationObserver 批次",
+                    "扫描 turn",
+                    "更新状态"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "mica-content-init",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/content.ts",
+                  "summary": "初始化主路径",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "initialize",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts"
+                },
+                {
+                  "id": "mica-special-selector",
+                  "kind": "selector",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/content.ts",
+                  "summary": "不可优化的特殊节点",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "SPECIAL_SELECTOR",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 330,
+                "y": 45
+              }
+            },
+            {
+              "id": "mica-stale",
+              "name": "Stale composer 恢复",
+              "shortName": "Stale composer 恢复",
+              "group": "可靠性",
+              "category": "核心组件",
+              "responsibility": "完整清空或重挂载后，有限尝试恢复不可用 composer，并验证结果。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "validated"
+              },
+              "mechanisms": [
+                {
+                  "id": "mica-stale-sm",
+                  "type": "state_machine",
+                  "title": "有限恢复状态机",
+                  "summary": "只在可靠完整清空意图、旧载荷指纹匹配且无新输入时恢复。",
+                  "states": [
+                    "PENDING_CLEAR",
+                    "WAITING_FOR_REMOUNT",
+                    "SETTLING",
+                    "RECOVERING",
+                    "VERIFYING",
+                    "FINAL_CLEAR_STABLE",
+                    "EXHAUSTED"
+                  ],
+                  "transitions": [
+                    {
+                      "from": "PENDING_CLEAR",
+                      "to": "WAITING_FOR_REMOUNT",
+                      "guard": "确认目标 composer 为空"
+                    },
+                    {
+                      "from": "WAITING_FOR_REMOUNT",
+                      "to": "SETTLING",
+                      "guard": "旧载荷指纹重新出现"
+                    },
+                    {
+                      "from": "SETTLING",
+                      "to": "RECOVERING",
+                      "guard": "稳定窗口后仍匹配"
+                    },
+                    {
+                      "from": "RECOVERING",
+                      "to": "VERIFYING",
+                      "guard": "执行原生删除"
+                    },
+                    {
+                      "from": "VERIFYING",
+                      "to": "WAITING_FOR_REMOUNT",
+                      "guard": "局部清空成功但 tombstone 尚活跃"
+                    },
+                    {
+                      "from": "VERIFYING",
+                      "to": "EXHAUSTED",
+                      "guard": "达到最多三次"
+                    },
+                    {
+                      "from": "WAITING_FOR_REMOUNT",
+                      "to": "FINAL_CLEAR_STABLE",
+                      "guard": "静默窗口后保持为空"
+                    }
+                  ],
+                  "invariants": [
+                    "新用户输入取消 guard",
+                    "硬上限 12 秒",
+                    "最多三次恢复"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "mica-stale-file",
+                  "kind": "file",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/stale-composer-recovery.ts",
+                  "summary": "stale composer 恢复实现",
+                  "required": true,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts"
+                },
+                {
+                  "id": "mica-begin-clear",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/stale-composer-recovery.ts",
+                  "summary": "建立可靠完整清空候选",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "beginPendingFullClear",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts"
+                },
+                {
+                  "id": "mica-arm-guard",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/stale-composer-recovery.ts",
+                  "summary": "建立有限 tombstone guard",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "armGuard",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts"
+                },
+                {
+                  "id": "mica-attempt",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/stale-composer-recovery.ts",
+                  "summary": "执行有限恢复",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "attemptRecovery",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts"
+                },
+                {
+                  "id": "mica-verify",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/stale-composer-recovery.ts",
+                  "summary": "验证恢复",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "verifyRecovery",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts"
+                },
+                {
+                  "id": "mica-e2e",
+                  "kind": "test",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "scripts/run-e2e.mjs",
+                  "summary": "浏览器端到端入口",
+                  "required": false,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/run-e2e.mjs"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 330,
+                "y": 235
+              }
+            },
+            {
+              "id": "mica-connector",
+              "name": "连接器连续性",
+              "shortName": "连接器连续性",
+              "group": "可靠性",
+              "category": "核心组件",
+              "responsibility": "在已锁存 connector 生命周期中，短暂提供不可交互视觉连续性并与其他恢复机制互斥。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "validated"
+              },
+              "mechanisms": [
+                {
+                  "id": "mica-connector-seq",
+                  "type": "sequence",
+                  "title": "Connector 生命周期",
+                  "summary": "锁存上下文、观察 DOM、缓存清理后的 clone、composer 缺失时显示短命 shell、返回后清理。",
+                  "steps": [
+                    "beginLifecycle",
+                    "startObserver",
+                    "refreshSnapshot",
+                    "checkComposerPresence",
+                    "showShell",
+                    "removeShell"
+                  ],
+                  "invariants": [
+                    "真实发送活跃时跳过",
+                    "stale clear 活跃时跳过",
+                    "shell 不可交互",
+                    "硬上限 2 秒"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "mica-connector-file",
+                  "kind": "file",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/connector-continuity.ts",
+                  "summary": "connector continuity 实现",
+                  "required": true,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts"
+                },
+                {
+                  "id": "mica-surface-selector",
+                  "kind": "selector",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/connector-continuity.ts",
+                  "summary": "composer surface selector",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "SURFACE_SELECTOR",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts"
+                },
+                {
+                  "id": "mica-pill-selector",
+                  "kind": "selector",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/connector-continuity.ts",
+                  "summary": "connector pill selector",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "CONNECTOR_PILL_SELECTOR",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts"
+                },
+                {
+                  "id": "mica-begin-life",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/connector-continuity.ts",
+                  "summary": "开始有限生命周期",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "beginLifecycle",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts"
+                },
+                {
+                  "id": "mica-refresh",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/connector-continuity.ts",
+                  "summary": "刷新清理后的快照",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "refreshSnapshot",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts"
+                },
+                {
+                  "id": "mica-shell",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/connector-continuity.ts",
+                  "summary": "显示短命 shell",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "showShell",
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts"
+                },
+                {
+                  "id": "mica-connector-e2e",
+                  "kind": "test",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "scripts/run-e2e.mjs",
+                  "summary": "connector mention lifecycle 与 continuity 回归入口",
+                  "required": true,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/run-e2e.mjs"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 645,
+                "y": 100
+              }
+            }
+          ],
+          "relations": [
+            {
+              "id": "mica-rel-dom-scan",
+              "source": "mica-dom",
+              "target": "mica-scan",
+              "type": "data",
+              "label": "DOM 变化",
+              "payload": "turn/composer mounted 状态",
+              "failure": "",
+              "mechanismPoint": "MutationObserver",
+              "style": "normal"
+            },
+            {
+              "id": "mica-rel-dom-stale",
+              "source": "mica-dom",
+              "target": "mica-stale",
+              "type": "state",
+              "label": "composer 生命周期",
+              "payload": "完整清空、重挂载、文本指纹",
+              "failure": "",
+              "mechanismPoint": "input/keydown/observer",
+              "style": "failure"
+            },
+            {
+              "id": "mica-rel-dom-conn",
+              "source": "mica-dom",
+              "target": "mica-connector",
+              "type": "state",
+              "label": "surface 变化",
+              "payload": "connector latch、surface 与 pill",
+              "failure": "",
+              "mechanismPoint": "shared lifecycle event",
+              "style": "normal"
+            },
+            {
+              "id": "mica-rel-stale-conn",
+              "source": "mica-stale",
+              "target": "mica-connector",
+              "type": "constraint",
+              "label": "恢复互斥",
+              "payload": "stale clear active 时禁止 continuity shell",
+              "failure": "",
+              "mechanismPoint": "continuitySkipReason",
+              "style": "recovery"
+            }
+          ],
+          "changes": [],
+          "decisions": [],
+          "evidence": [
+            {
+              "id": "mica-ev-code",
+              "type": "implementation_observation",
+              "title": "固定提交中的真实 TypeScript 实现",
+              "summary": "selector、MutationObserver、有限状态机、硬上限和测试入口均可定位。",
+              "source": "YuukiAS/Mica-for-ChatGPT@7059c0dc24b908b57bd0e1f475142ba4f4520621",
+              "strength": "supporting",
+              "anchors": [
+                {
+                  "id": "mica-ev-a",
+                  "kind": "file",
+                  "repo": "YuukiAS/Mica-for-ChatGPT",
+                  "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+                  "path": "extension/src/reliability/stale-composer-recovery.ts",
+                  "summary": "恢复实现证据",
+                  "required": false,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts"
+                }
+              ]
+            }
+          ],
+          "issues": [
+            {
+              "id": "mica-boundary-prod",
+              "type": "stale_evidence",
+              "title": "生产页面仍需持续真实 UI 验证",
+              "summary": "仓库测试和固定提交不自动证明未来 ChatGPT DOM 变化下长期可靠。",
+              "severity": "boundary",
+              "targets": [
+                "mica-dom",
+                "mica-scan"
+              ],
+              "evidenceIds": [
+                "mica-ev-code"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-trace",
+      "name": "CAT-TRACE",
+      "kind": "research_method",
+      "repo": "YuukiAS/CAT-TRACE",
+      "description": "目录感知无限 JSDM 的模型、数值算法、参考引擎与生产 blocker。",
+      "currentRevision": "cat-r2",
+      "revisions": [
+        {
+          "id": "cat-r1",
+          "parent": null,
+          "title": "普通零列局部 Laplace",
+          "date": "2026-09-15",
+          "status": "superseded",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "summary": "零槽位沿用普通列的局部 Laplace；其余 C01/C04 已形成独立闭合模块。",
+          "reason": "原始生产积分方案。",
+          "triggerEvidenceIds": [],
+          "components": [
+            {
+              "id": "cat-c01",
+              "name": "C01 数值原语",
+              "shortName": "C01 数值原语",
+              "group": "数值基础",
+              "category": "核心组件",
+              "responsibility": "稳定计算 probit 尾部、梯度和曲率。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "validated"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-c01-alg",
+                  "type": "algorithm",
+                  "title": "三段稳定尾部算法",
+                  "summary": "按数值区间选择等价表达并用高精度 oracle 验证。",
+                  "steps": [
+                    "t≥-1：direct gap",
+                    "-10<t<-1：expm1 gap",
+                    "t≤-10：Mills + Neumaier"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "cat-c01-cpp",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "package/TRACE/src/ct_math.cpp",
+                  "summary": "稳定 probit 尾部 routine",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "ct_probit_tail_terms",
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/src/ct_math.cpp"
+                },
+                {
+                  "id": "cat-c01-test",
+                  "kind": "test",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "package/TRACE/tests/testthat/test-math-stability.R",
+                  "summary": "数值稳定性测试",
+                  "required": true,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/tests/testthat/test-math-stability.R"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 55,
+                "y": 55
+              }
+            },
+            {
+              "id": "cat-c03",
+              "name": "C03 生产共享参数引擎",
+              "shortName": "C03 生产共享参数引擎",
+              "group": "生产推断",
+              "category": "核心组件",
+              "responsibility": "组合单列 profile objective、外层 BFGS 与数值曲率。",
+              "boundary": "",
+              "status": {
+                "design": "proposed",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-c03-alg",
+                  "type": "algorithm",
+                  "title": "生产 profile",
+                  "summary": "每个共享参数位置冷启动内层列问题并组成 profile objective。",
+                  "steps": [
+                    "内层冷启动",
+                    "组成 profile",
+                    "BFGS",
+                    "Richardson gradient/Hessian",
+                    "Gaussian hyper draws"
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 330,
+                "y": 55
+              }
+            },
+            {
+              "id": "cat-zero",
+              "name": "匿名零槽位",
+              "shortName": "匿名零槽位",
+              "group": "生产积分",
+              "category": "核心组件",
+              "responsibility": "以一个全零列积分乘重数纳入未发现列。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-zero-old",
+                  "type": "formula",
+                  "title": "普通局部 Laplace",
+                  "summary": "对全零列使用与普通列相同的 mode-local Laplace。",
+                  "formula": "log I_0 ≈ h(θ̂)+d/2 log(2π)-1/2 log|H|"
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 330,
+                "y": 235
+              }
+            },
+            {
+              "id": "cat-c04",
+              "name": "C04 参考引擎",
+              "shortName": "C04 参考引擎",
+              "group": "参考推断",
+              "category": "核心组件",
+              "responsibility": "以 Albert–Chib MCMC 提供小规模 finite-p 参考。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "validated"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-c04-alg",
+                  "type": "algorithm",
+                  "title": "Albert–Chib sweep",
+                  "summary": "与 Laplace 独立的潜变量和 block/slice 更新。",
+                  "steps": [
+                    "truncated normal Z",
+                    "Gaussian column blocks",
+                    "shared blocks",
+                    "slice scales/shares",
+                    "diagnostics"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "cat-c04-r",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "package/TRACE/R/cat-trace-reference.R",
+                  "summary": "参考引擎入口",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "ref_ct_fit",
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R"
+                },
+                {
+                  "id": "cat-c04-result",
+                  "kind": "result",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "results/c04-ref--z-collapsed-composition-repair/result.md",
+                  "summary": "C04 结果",
+                  "required": false,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/results/c04-ref--z-collapsed-composition-repair/result.md"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 645,
+                "y": 55
+              }
+            },
+            {
+              "id": "cat-downstream",
+              "name": "C05/C06/C10 下游",
+              "shortName": "C05/C06/C10 下游",
+              "group": "后续",
+              "category": "核心组件",
+              "responsibility": "发现、校准和可扩展生产路径。",
+              "boundary": "",
+              "status": {
+                "design": "proposed",
+                "implementation": "none",
+                "evidence": "none"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-downstream-n",
+                  "type": "narrative",
+                  "title": "下游依赖",
+                  "summary": "依赖 production zero-slot 积分和 C03。"
+                }
+              ],
+              "anchors": [],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 645,
+                "y": 235
+              }
+            }
+          ],
+          "relations": [
+            {
+              "id": "cat-r1-a",
+              "source": "cat-c01",
+              "target": "cat-c03",
+              "type": "dependency",
+              "label": "数值原语",
+              "payload": "单列梯度、Hessian 与 Laplace",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "cat-r1-b",
+              "source": "cat-zero",
+              "target": "cat-c03",
+              "type": "data",
+              "label": "零槽位积分",
+              "payload": "log I_0 与重数 n_0",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "cat-r1-c",
+              "source": "cat-c03",
+              "target": "cat-downstream",
+              "type": "dependency",
+              "label": "生产后验",
+              "payload": "发现、校准和扩展",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "cat-r1-d",
+              "source": "cat-c04",
+              "target": "cat-c03",
+              "type": "evidence",
+              "label": "独立参考",
+              "payload": "小规模 posterior 对照",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            }
+          ],
+          "changes": [],
+          "decisions": [],
+          "evidence": [],
+          "issues": []
+        },
+        {
+          "id": "cat-r2",
+          "parent": "cat-r1",
+          "title": "撤销零槽位普通局部 Laplace",
+          "date": "2026-09-16",
+          "status": "frozen",
+          "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+          "summary": "确定性反例撤销正式积分器；保留模型与重数结构，明确 production blocker。",
+          "reason": "局部模式无法表示由远尾 discovery mass 主导的积分。",
+          "triggerEvidenceIds": [
+            "cat-ev-zero"
+          ],
+          "components": [
+            {
+              "id": "cat-c01",
+              "name": "C01 数值原语",
+              "shortName": "C01 数值原语",
+              "group": "数值基础",
+              "category": "核心组件",
+              "responsibility": "稳定计算 probit 尾部、梯度和曲率。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "validated"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-c01-alg",
+                  "type": "algorithm",
+                  "title": "三段稳定尾部算法",
+                  "summary": "按数值区间选择等价表达并用高精度 oracle 验证。",
+                  "steps": [
+                    "t≥-1：direct gap",
+                    "-10<t<-1：expm1 gap",
+                    "t≤-10：Mills + Neumaier"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "cat-c01-cpp",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "package/TRACE/src/ct_math.cpp",
+                  "summary": "稳定 probit 尾部 routine",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "ct_probit_tail_terms",
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/src/ct_math.cpp"
+                },
+                {
+                  "id": "cat-c01-test",
+                  "kind": "test",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "package/TRACE/tests/testthat/test-math-stability.R",
+                  "summary": "数值稳定性测试",
+                  "required": true,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/tests/testthat/test-math-stability.R"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 55,
+                "y": 55
+              }
+            },
+            {
+              "id": "cat-c03",
+              "name": "C03 生产共享参数引擎",
+              "shortName": "C03 生产共享参数引擎",
+              "group": "生产推断",
+              "category": "核心组件",
+              "responsibility": "组合单列 profile objective、外层 BFGS 与数值曲率。",
+              "boundary": "",
+              "status": {
+                "design": "open",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-c03-alg",
+                  "type": "algorithm",
+                  "title": "生产 profile",
+                  "summary": "每个共享参数位置冷启动内层列问题并组成 profile objective。",
+                  "steps": [
+                    "内层冷启动",
+                    "组成 profile",
+                    "BFGS",
+                    "Richardson gradient/Hessian",
+                    "Gaussian hyper draws"
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [
+                "GAP-01",
+                "GAP-04"
+              ],
+              "tags": [],
+              "position": {
+                "x": 330,
+                "y": 55
+              }
+            },
+            {
+              "id": "cat-zero",
+              "name": "匿名零槽位",
+              "shortName": "匿名零槽位",
+              "group": "生产积分",
+              "category": "核心组件",
+              "responsibility": "以远尾 discovery complement 精确控制匿名全零槽位积分；具体求积仍开放。",
+              "boundary": "",
+              "status": {
+                "design": "open",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-zero-new",
+                  "type": "formula",
+                  "title": "Discovery complement 候选",
+                  "summary": "保留有限截断模型，以发现补量表达积分并直接控制重数放大的 log error。",
+                  "formula": "A_g=E[1-L_{0g}],  log I_{0g}=log(1-A_g),  control n_{0g}|Δ log I_{0g}|",
+                  "invariants": [
+                    "不能删除零槽位",
+                    "重数聚合只证明记账等价",
+                    "求积、误差估计和梯度尚未冻结"
+                  ]
+                }
+              ],
+              "anchors": [],
+              "issues": [
+                "GAP-01"
+              ],
+              "tags": [],
+              "position": {
+                "x": 330,
+                "y": 235
+              }
+            },
+            {
+              "id": "cat-c04",
+              "name": "C04 参考引擎",
+              "shortName": "C04 参考引擎",
+              "group": "参考推断",
+              "category": "核心组件",
+              "responsibility": "以 Albert–Chib MCMC 提供小规模 finite-p 参考。",
+              "boundary": "",
+              "status": {
+                "design": "accepted",
+                "implementation": "linked",
+                "evidence": "validated"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-c04-alg",
+                  "type": "algorithm",
+                  "title": "Albert–Chib sweep",
+                  "summary": "与 Laplace 独立的潜变量和 block/slice 更新。",
+                  "steps": [
+                    "truncated normal Z",
+                    "Gaussian column blocks",
+                    "shared blocks",
+                    "slice scales/shares",
+                    "diagnostics"
+                  ]
+                }
+              ],
+              "anchors": [
+                {
+                  "id": "cat-c04-r",
+                  "kind": "symbol",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "package/TRACE/R/cat-trace-reference.R",
+                  "summary": "参考引擎入口",
+                  "required": true,
+                  "verified": true,
+                  "symbol": "ref_ct_fit",
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R"
+                },
+                {
+                  "id": "cat-c04-result",
+                  "kind": "result",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "results/c04-ref--z-collapsed-composition-repair/result.md",
+                  "summary": "C04 结果",
+                  "required": false,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/results/c04-ref--z-collapsed-composition-repair/result.md"
+                }
+              ],
+              "issues": [],
+              "tags": [],
+              "position": {
+                "x": 645,
+                "y": 55
+              }
+            },
+            {
+              "id": "cat-downstream",
+              "name": "C05/C06/C10 下游",
+              "shortName": "C05/C06/C10 下游",
+              "group": "后续",
+              "category": "核心组件",
+              "responsibility": "发现、校准和可扩展生产路径。",
+              "boundary": "",
+              "status": {
+                "design": "open",
+                "implementation": "none",
+                "evidence": "checked"
+              },
+              "mechanisms": [
+                {
+                  "id": "cat-downstream-n",
+                  "type": "narrative",
+                  "title": "下游依赖",
+                  "summary": "依赖 production zero-slot 积分和 C03。"
+                }
+              ],
+              "anchors": [],
+              "issues": [
+                "GAP-01"
+              ],
+              "tags": [],
+              "position": {
+                "x": 645,
+                "y": 235
+              }
+            }
+          ],
+          "relations": [
+            {
+              "id": "cat-r2-a",
+              "source": "cat-c01",
+              "target": "cat-c03",
+              "type": "dependency",
+              "label": "数值原语",
+              "payload": "单列梯度、Hessian 与普通列 Laplace",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            },
+            {
+              "id": "cat-r2-b",
+              "source": "cat-zero",
+              "target": "cat-c03",
+              "type": "constraint",
+              "label": "开放积分合同",
+              "payload": "未冻结 deterministic quadrature，禁止实施",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "failure"
+            },
+            {
+              "id": "cat-r2-c",
+              "source": "cat-c03",
+              "target": "cat-downstream",
+              "type": "dependency",
+              "label": "阻断传播",
+              "payload": "C03 未闭合则 C05/C06/C10 不开放",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "failure"
+            },
+            {
+              "id": "cat-r2-d",
+              "source": "cat-c04",
+              "target": "cat-c03",
+              "type": "evidence",
+              "label": "独立参考",
+              "payload": "仅在 diagnostics 通过的小规模场景对照",
+              "failure": "",
+              "mechanismPoint": "",
+              "style": "normal"
+            }
+          ],
+          "changes": [
+            {
+              "targetType": "component",
+              "targetId": "cat-zero",
+              "kind": "supersede",
+              "summary": "撤销普通 zero-column local Laplace",
+              "before": "围绕极负后验模式的局部 Laplace",
+              "after": "discovery complement 候选；具体求积开放",
+              "reason": "确定性反例证明远尾质量被遗漏",
+              "triggerEvidenceIds": [
+                "cat-ev-zero"
+              ],
+              "impact": [
+                "cat-c03",
+                "cat-downstream"
+              ],
+              "alignment": "not_applicable",
+              "unchanged": [
+                "有限截断模型保留",
+                "零槽位必须进入后验",
+                "重数聚合记账保留"
+              ]
+            },
+            {
+              "targetType": "component",
+              "targetId": "cat-c03",
+              "kind": "modify",
+              "summary": "C03 从可计划实现改为被 GAP-01 阻断",
+              "before": "生产 profile 设计大体冻结",
+              "after": "只有不含 zero-slot 的底层部分可继续",
+              "reason": "正式积分器不再成立",
+              "triggerEvidenceIds": [
+                "cat-ev-zero"
+              ],
+              "impact": [
+                "cat-downstream"
+              ],
+              "alignment": "behind",
+              "unchanged": [
+                "BFGS/Richardson 方向不因本 finding 改变"
+              ]
+            }
+          ],
+          "decisions": [
+            {
+              "id": "cat-dec-zero",
+              "title": "撤销普通零列局部 Laplace",
+              "question": "普通列的 mode-local Laplace 能否直接用于匿名全零槽位？",
+              "outcome": "不能作为正式积分器；研究 discovery complement。",
+              "reason": "误差经 n_zero 放大，可能改变共享参数后验。",
+              "status": "accepted",
+              "evidenceIds": [
+                "cat-ev-zero"
+              ],
+              "impact": [
+                "cat-zero",
+                "cat-c03",
+                "cat-downstream"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "cat-ev-zero",
+              "type": "experimental_counterexample",
+              "title": "普通局部 Laplace 错过 discovery tail mass",
+              "summary": "确定性反例显示 mode-local 近似把单个零列积分推近 1；小误差乘大量 n_zero 后成为重大 log error。",
+              "source": "Critic R1 / A1 与演进文档模块 7",
+              "strength": "decisive",
+              "anchors": [
+                {
+                  "id": "cat-evolution-doc",
+                  "kind": "document_section",
+                  "repo": "YuukiAS/CAT-TRACE",
+                  "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+                  "path": "docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md",
+                  "summary": "模块式演进记录",
+                  "required": false,
+                  "verified": true,
+                  "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_IMPLEMENTATION_ARCHITECTURE_EVOLUTION_20260916.md"
+                }
+              ]
+            }
+          ],
+          "issues": [
+            {
+              "id": "GAP-01",
+              "type": "blocker",
+              "title": "匿名零槽位 production integral 未唯一化",
+              "summary": "q≥1 时确定性求积、节点、误差估计、梯度兼容和成本仍未冻结。",
+              "severity": "block",
+              "targets": [
+                "cat-zero",
+                "cat-c03",
+                "cat-downstream"
+              ],
+              "evidenceIds": [
+                "cat-ev-zero"
+              ]
+            },
+            {
+              "id": "CAT-C04-BOUNDARY",
+              "type": "unverified_assumption",
+              "title": "C04 不是生产算法",
+              "summary": "只支持 small finite-p reference；诊断失败时不能作为 gold standard。",
+              "severity": "boundary",
+              "targets": [
+                "cat-c04"
+              ],
+              "evidenceIds": []
+            },
+            {
+              "id": "GAP-04",
+              "type": "blocker",
+              "title": "正式 S1B/C06 预注册尚未关闭",
+              "summary": "生产近似的覆盖场景、误差门槛与校准决策尚未形成可执行预注册。",
+              "severity": "block",
+              "targets": [
+                "cat-c03",
+                "cat-downstream"
+              ],
+              "evidenceIds": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

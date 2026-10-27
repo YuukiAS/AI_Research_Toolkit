@@ -1,0 +1,704 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/architecture-ledger.schema.json",
+  "title": "Architecture Ledger",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "projects"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/project"
+      }
+    }
+  },
+  "$defs": {
+    "status": {
+      "type": "object",
+      "required": [
+        "design",
+        "implementation",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "design": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "open",
+            "superseded"
+          ]
+        },
+        "implementation": {
+          "enum": [
+            "none",
+            "partial",
+            "linked"
+          ]
+        },
+        "evidence": {
+          "enum": [
+            "none",
+            "checked",
+            "validated"
+          ]
+        }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "repo",
+        "commit",
+        "path",
+        "summary"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "file",
+            "symbol",
+            "selector",
+            "schema",
+            "rule",
+            "prompt_block",
+            "formula",
+            "test",
+            "result",
+            "document_section"
+          ]
+        },
+        "repo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{7,40}$"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "lines": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        },
+        "verified": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "mechanism": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "title",
+        "summary"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "state_machine",
+            "sequence",
+            "algorithm",
+            "formula",
+            "data_contract",
+            "narrative",
+            "subgraph"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "to",
+              "guard"
+            ],
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "guard": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "formula": {
+          "type": "string"
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "failures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "component": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "group",
+        "responsibility",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "responsibility": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundary": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "mechanisms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mechanism"
+          }
+        },
+        "anchors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anchor"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "position": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": [
+        "id",
+        "source",
+        "target",
+        "type",
+        "label",
+        "payload"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "data",
+            "control",
+            "state",
+            "constraint",
+            "evidence",
+            "dependency"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "string"
+        },
+        "failure": {
+          "type": "string"
+        },
+        "mechanismPoint": {
+          "type": "string"
+        },
+        "style": {
+          "enum": [
+            "normal",
+            "failure",
+            "recovery",
+            "proposed"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "title",
+        "summary",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "user_feedback",
+            "work_review",
+            "independent_research",
+            "experimental_counterexample",
+            "implementation_observation",
+            "test",
+            "incident",
+            "external_change",
+            "performance_measurement",
+            "scientific_result",
+            "product_decision"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "strength": {
+          "enum": [
+            "observation",
+            "supporting",
+            "decisive"
+          ]
+        },
+        "anchors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anchor"
+          }
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "question",
+        "outcome",
+        "reason",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "outcome": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "superseded",
+            "rejected"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "impact": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "title",
+        "summary",
+        "severity",
+        "targets"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "blocker",
+            "design_gap",
+            "implementation_drift",
+            "missing_anchor",
+            "unverified_assumption",
+            "stale_evidence"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "block",
+            "review",
+            "boundary"
+          ]
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "change": {
+      "type": "object",
+      "required": [
+        "targetType",
+        "targetId",
+        "kind",
+        "summary",
+        "reason",
+        "alignment"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "targetType": {
+          "enum": [
+            "component",
+            "relation",
+            "mechanism",
+            "anchor",
+            "decision",
+            "evidence",
+            "issue"
+          ]
+        },
+        "targetId": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "add",
+            "modify",
+            "remove",
+            "supersede",
+            "align_implementation",
+            "evidence_update"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "before": {},
+        "after": {},
+        "reason": {
+          "type": "string"
+        },
+        "triggerEvidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "impact": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "alignment": {
+          "enum": [
+            "not_applicable",
+            "behind",
+            "partial",
+            "aligned",
+            "drifted"
+          ]
+        },
+        "unchanged": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "revision": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "date",
+        "status",
+        "components",
+        "relations"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "parent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "frozen",
+            "superseded"
+          ]
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{7,40}$"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "triggerEvidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/component"
+          }
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relation"
+          }
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/change"
+          }
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/decision"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/issue"
+          }
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "repo",
+        "currentRevision",
+        "revisions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "design_system",
+            "software",
+            "research_method",
+            "ai_capability"
+          ]
+        },
+        "repo": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "currentRevision": {
+          "type": "string"
+        },
+        "revisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/revision"
+          }
+        }
+      }
+    }
+  }
+}
