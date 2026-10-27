@@ -1,0 +1,72 @@
+{
+  "label": "Exact-function control-flow recheck with TEST_DOUBLE inputs",
+  "source_commit": "f5050863e19ab99b5d2e26e46d8fe321007d901e",
+  "source_path": "scripts/final_project/validate_release_v3.py",
+  "source_url": "https://github.com/YuukiAS/STAT5060-TA/blob/f5050863e19ab99b5d2e26e46d8fe321007d901e/scripts/final_project/validate_release_v3.py",
+  "source_git_blob_sha1": "0bf3bc66c79d5615a5f81d9b28af87b9104aabf5",
+  "source_sha256": "20bb06eff3db1c58cdc34871cb7efb165eea54ee3bfbebb91b642c0683364b75",
+  "source_bytes": 34384,
+  "hash_verified": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "execution_boundary": {
+    "function": "combine_semantic_states",
+    "module_imported": false,
+    "only_ast_extracted_function_executed": true,
+    "input_evidence_type": "TEST_DOUBLE",
+    "qualified_m_flag_is_test_double": true,
+    "real_model_run": false,
+    "product_acceptance": false,
+    "course_acceptance": false
+  },
+  "observed_implementation_defect_reproduced": true,
+  "result": {
+    "P01": {
+      "content_verdict": "PASS",
+      "evidence_status": "COMPLETE",
+      "blocker_class": "NONE",
+      "failure_code": "",
+      "receipt_refs": [
+        {
+          "kind": "D",
+          "digest": "test-double-digest"
+        },
+        {
+          "kind": "TEST_DOUBLE"
+        }
+      ]
+    },
+    "P05": {
+      "content_verdict": "NOT_EVALUATED",
+      "evidence_status": "PARTIAL",
+      "blocker_class": "COVERAGE",
+      "failure_code": "BLOCKED_COVERAGE_INCOMPLETE",
+      "receipt_refs": [
+        {
+          "kind": "TEST_DOUBLE"
+        }
+      ]
+    },
+    "P09": {
+      "content_verdict": "NOT_EVALUATED",
+      "evidence_status": "PARTIAL",
+      "blocker_class": "COVERAGE",
+      "failure_code": "BLOCKED_COVERAGE_INCOMPLETE",
+      "receipt_refs": [
+        {
+          "kind": "TEST_DOUBLE"
+        }
+      ]
+    },
+    "P11": {
+      "content_verdict": "NOT_EVALUATED",
+      "evidence_status": "PARTIAL",
+      "blocker_class": "COVERAGE",
+      "failure_code": "BLOCKED_COVERAGE_INCOMPLETE",
+      "receipt_refs": [
+        {
+          "kind": "TEST_DOUBLE"
+        }
+      ]
+    }
+  }
+}

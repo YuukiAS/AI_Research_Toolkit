@@ -1,0 +1,2399 @@
+{
+  "schema_version": 1,
+  "run_id": "pro-a",
+  "repository": "YuukiAS/AI_Skills_Collection",
+  "analysis_date": "2026-10-27",
+  "access_constraints": {
+    "current_round_other_branches_read": false,
+    "github_writes": false,
+    "real_scheduler_commands": false
+  },
+  "evidence_semantics": {
+    "OBSERVED": "Directly read repository record/source; runtime results documentary, not rerun",
+    "INFERRED": "Counterfactual/causal interpretation",
+    "UNKNOWN": "Not measured/not enough evidence",
+    "ASSUMED": "Not used for probabilities in this dataset"
+  },
+  "timeline": [
+    {
+      "id": "SR01",
+      "stage": "routing v0.1",
+      "categories": [
+        "DESIGN_GAP",
+        "EXTERNAL_FACT"
+      ],
+      "evidence_ids": [
+        "R01"
+      ],
+      "summary": "Cancel/resubmit breaks JobId/dependencies/arrays; state query may race a RUNNING transition; lack of prohibition is not affirmative site permission.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "review -> bounded design correction",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No product implementation located at this design stage",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Ownership/state/failure trace could expose the gap; fields alone insufficient",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Read-only Slurm semantics plus bounded state transition fake useful; real site update only if selecting that path",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Observed high-value independent findings",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR02",
+      "stage": "routing v0.2 design PASS",
+      "categories": [
+        "OTHER"
+      ],
+      "evidence_ids": [
+        "R02"
+      ],
+      "summary": "Old-scope architecture accepted; no production execution claim.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "approval before package",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No observed invalidation",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Records scope and PASS domain",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "No new common risk proven",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Review succeeded on frozen scope",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR03",
+      "stage": "routing v0.2 execution review",
+      "categories": [
+        "NEW_REQUIREMENT"
+      ],
+      "evidence_ids": [
+        "R03"
+      ],
+      "summary": "User adds stable resource recommendation, earliest uncovered weekly capacity, workload modes.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "new product input -> expanded design",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Explicitly documented new user requirements",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No implemented code loss shown",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Can expose omissions only after new requirements enter capability inventory",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Fact probe does not decide new product requirements",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Reviewer correctly preserves conditional validity of old scope",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR04",
+      "stage": "routing v0.3",
+      "categories": [
+        "DESIGN_GAP"
+      ],
+      "evidence_ids": [
+        "R04"
+      ],
+      "summary": "Recurring preference is not bounded recurring mutation authorization.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "finding -> enrollment design",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No implemented code loss shown",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Capability -> permission -> state -> consumer trace strong opportunity",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "No need to mutate real scheduler to see consent gap",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Observed valuable authorization review",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR05",
+      "stage": "routing v0.4",
+      "categories": [
+        "NEW_REQUIREMENT"
+      ],
+      "evidence_ids": [
+        "R05"
+      ],
+      "summary": "User explicitly requires open-source unknown-site/no-registry portability.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "new requirement -> design",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Explicit user requirement in review",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No implemented code loss shown",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Inventory should version new requirement rather than retroactively label gap",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Read-only target site discovery can run parallel after requirement",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Review relevant; not proved drift",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR06",
+      "stage": "routing v0.5",
+      "categories": [
+        "OTHER"
+      ],
+      "evidence_ids": [
+        "R06"
+      ],
+      "summary": "Version-class mismatch: new repository capability calls for MINOR instead of PATCH.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "metadata correction was made before next PASS",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No product invalidation",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Release contract structural check",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "No technical probe needed",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Relevant but low architecture information; complete architecture rerun likely waste",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR07",
+      "stage": "routing v0.6 package",
+      "categories": [
+        "OTHER"
+      ],
+      "evidence_ids": [
+        "R07",
+        "R08"
+      ],
+      "summary": "Full documented mechanism, normal installed G6, resource/capacity G7/G8; execution PASS.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "formal implementation depends on frozen package",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "None at this checkpoint",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Useful readiness contract",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Site probe conditional with explicit unsupported behavior",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "PASS remains scoped",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR08",
+      "stage": "routing implementation -> R1",
+      "categories": [
+        "IMPLEMENTATION_BUG",
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "R09",
+        "R08"
+      ],
+      "summary": "PF1 missing scope fields, PF2 early return, PF3 installed G6 missing, PF4 normalized private identifier leak.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "implementation review -> local repairs",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local code repairs observed; whole architecture invalidation not supported",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Mapping tests to frozen obligations exposes missing G6; cannot ensure source semantics automatically",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Independent deterministic installed normal-entry cases valuable",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "High-value semantic/code acceptance",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR09",
+      "stage": "routing R2",
+      "categories": [
+        "IMPLEMENTATION_BUG"
+      ],
+      "evidence_ids": [
+        "R10"
+      ],
+      "summary": "Partial PF1/PF2 repairs leave timezone hash and explicit-occurrence alternate path wrong.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "prior repair -> verification -> same-family repair",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local code repair",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Track unresolved invariant not just finding ID checklist",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Run neighboring branches of same invariant",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Useful bounded review; may be replaced by strong independent acceptance",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR10",
+      "stage": "routing R3",
+      "categories": [
+        "IMPLEMENTATION_BUG"
+      ],
+      "evidence_ids": [
+        "R11"
+      ],
+      "summary": "Timezone hashed as authorization metadata but ignored by recurrence; tests encode wrong answer.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "source review -> local timezone repair",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local algorithm repair; preserved state model",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Required field exists; a nonempty-field gate alone fails",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Independent expected-result oracle catches different caller/family timezones",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Observed valuable review; 320 green tests not adequate",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR11",
+      "stage": "routing R4",
+      "categories": [
+        "IMPLEMENTATION_BUG"
+      ],
+      "evidence_ids": [
+        "R12"
+      ],
+      "summary": "DST fold/gap still not fail-closed under exact bounded repair contract.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "same PF5 repair -> deterministic recheck",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local calendar branch repair",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Requirement-specific failure cases required",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Deterministic timezone fixture; no Slurm probe",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Local review has information; third architect does not",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR12",
+      "stage": "routing release integration",
+      "categories": [
+        "OTHER"
+      ],
+      "evidence_ids": [
+        "R13"
+      ],
+      "summary": "Parallel main/version integration recovery and final 5.4.2/skill0.3 closure.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "final candidate -> CI/review -> integration",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No scheduling mechanism invalidation shown",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Artifact/source identity checks",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Targeted integration verification",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Final acceptance useful without resetting design",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SR13",
+      "stage": "routing race policy follow-up",
+      "categories": [
+        "NEW_REQUIREMENT"
+      ],
+      "evidence_ids": [
+        "R14"
+      ],
+      "summary": "Separate authorized bounded-opt-in policy change.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "new policy authority -> bounded update",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Separate policy task documented",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local policy implementation change",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Version requirements and authority",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "No generic review can decide user policy",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Must not retroactively mark prior review wrong",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC01",
+      "stage": "cancel v0.3 initial",
+      "categories": [
+        "DESIGN_GAP",
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P01"
+      ],
+      "summary": "Broad H100/partition/ownership protection and trusted-executor aspirations; Hook failure risk already identified.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "policy/authority must precede enforcement design",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Incident and user direction described",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Need real user-entry and failure scope contracts",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Harmless true host Hook failure probe is already motivated",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Independent product scope and threat model audit potentially useful",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC02",
+      "stage": "StageA/Oct16 implementation",
+      "categories": [
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P02",
+        "C01"
+      ],
+      "summary": "Offline central safe-cancel, terminal confirmer, DII/CARE adapters precede proven normal Longleaf boundary.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "candidate -> review -> production stage",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Later candidates rejected; exact reused fraction UNKNOWN",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Separate offline candidate claim from deployment proof",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Probe canonical entry before broad adapters",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Review can identify open claims but cannot establish runtime",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC03",
+      "stage": "fresh confirmation v1",
+      "categories": [
+        "SCOPE_RESET"
+      ],
+      "evidence_ids": [
+        "P03"
+      ],
+      "summary": "Reject old production scope; partition-only policy and terminal-confirmed guard.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "scope reset -> redesign -> old candidate rejection",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Explicit product reset recorded; original full dialogue unavailable",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Three old candidates not deployable; waste fraction UNKNOWN",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Blind user scenario investigation may catch scope mismatch",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Probe cannot decide user's desired protection scope",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Second design could offer simpler alternative; probability UNKNOWN",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC04",
+      "stage": "native chat v2",
+      "categories": [
+        "DESIGN_GAP",
+        "EXTERNAL_FACT"
+      ],
+      "evidence_ids": [
+        "P04",
+        "P05"
+      ],
+      "summary": "Native root request_user_input; persisted confirmed state consumed by next shell, PATH shim.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "fact discovery -> revised confirmation mechanism",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Chat-only requirement recorded",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Old terminal package rejected; code waste fraction UNKNOWN",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Specify producer/consumer/trust domain",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Read source+schema and harmless chat callback probe",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Independent trust analysis more useful than another prose-completeness pass",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC05",
+      "stage": "v2 -> v2.1",
+      "categories": [
+        "DESIGN_GAP"
+      ],
+      "evidence_ids": [
+        "P06"
+      ],
+      "summary": "ER-V2-01 identifies same-privilege confirmed-file forgery; trusted host callback owns exact mutation.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "review finding -> architecture owner change",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Design correction before approved implementation",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Owner graph helps but filled payload fields not enough",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "No-Slurm forgery/privilege probe possible; design already sufficient to reject",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Observed independently found core flaw",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC06",
+      "stage": "v2.1 PASS -> Phase0",
+      "categories": [
+        "EXTERNAL_FACT",
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P07",
+        "P08"
+      ],
+      "summary": "Linked worktree Hook discovery targets canonical checkout; no product implementation started; standalone clone recovery.",
+      "core_mechanism_changed": {
+        "value": "deployment topology only",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "real capability probe -> topology decision",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "PRODUCT_IMPLEMENTATION=NOT_STARTED; early prevention positive control",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Ensure probe evidence required for exact topology",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Observed probe detected issue before product code",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Extra Pro cannot replace topology observation",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC07",
+      "stage": "user-deferred candidate runtime probe",
+      "categories": [
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P09"
+      ],
+      "summary": "User moves live trust/native chat probe to canonical production stage; candidate ready for independent review only.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "review -> separately authorized production probe",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Explicitly superseded prerequisite",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Represent evidence debt and prevent claim upgrade",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Probe intentionally deferred; not retrospectively blame omission",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Reviewer must preserve candidate-only verdict",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC08",
+      "stage": "shim -> host Hook",
+      "categories": [
+        "DESIGN_GAP"
+      ],
+      "evidence_ids": [
+        "C02",
+        "C03"
+      ],
+      "summary": "Real implementation deletes shim/session/binder and changes execution owner to trusted host Hook.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "implemented mechanism -> alternative boundary",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Deleted/replaced artifacts OBSERVED; hours/fraction UNKNOWN",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Stable policy core vs enforcement adapter would contain change",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Early host capability probe could support decision earlier",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Alternative design could matter before writing full candidates",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC09",
+      "stage": "project-local -> global Hook",
+      "categories": [
+        "DESIGN_GAP"
+      ],
+      "evidence_ids": [
+        "C04",
+        "C05"
+      ],
+      "summary": "One user global installation replaces per-project configuration; permission profile removed.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "owner/deployment choice -> implementation change",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Project config/runtime artifacts replaced",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Cross-cwd consumers and ownership graph",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Probe in representative cwd/root lifetime",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Another Pro valuable only for unresolved boundary, not catalog facts",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC10",
+      "stage": "global Hook PASS before v3",
+      "categories": [
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P10",
+        "P11"
+      ],
+      "summary": "Catalog/trust/fake tests PASS; interpreter pathname frozen without proving host loader/startup/failure semantics.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "later host fact invalidates prior readiness inference",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Installer/launcher subsequently replaced",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Block killer runtime claim with no real evidence",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "High-value harmless host startup and failure probe",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Shared-assumption review may repeat blind spot",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC11",
+      "stage": "v3 runtime redesign",
+      "categories": [
+        "EXTERNAL_FACT",
+        "DESIGN_GAP"
+      ],
+      "evidence_ids": [
+        "P12",
+        "P01"
+      ],
+      "summary": "libpython startup failure exit127 is nonblocking at host; portable qualifier and fail-closed outer supervisor selected.",
+      "core_mechanism_changed": {
+        "value": true,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "external fact -> architecture judgment -> runtime implementation",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Runtime layer redesign, routing semantics preserved",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Evidence gate necessary; nonempty mechanism insufficient",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Directly tests disputed premise; stronger than third text architect",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Independent review may ask correct question; cannot prove host outcome",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC12",
+      "stage": "session A/B",
+      "categories": [
+        "EXTERNAL_FACT",
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P13"
+      ],
+      "summary": "Catalog loaded new files but old session kept snapshot; fresh session proves actual deny.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "install/trust -> fresh session -> probe",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Native trust action recorded",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local session/install contract change",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Evidence must bind execution-session identity",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Harmless actual current/fresh session contrast",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "No new architecture needed",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC13",
+      "stage": "G4 resource amendment",
+      "categories": [
+        "EXTERNAL_FACT"
+      ],
+      "evidence_ids": [
+        "P14",
+        "P13"
+      ],
+      "summary": "NoGPU CPU-only fixture rejected QOSMinGRES; no Job created.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "read-only resource facts -> fixture amendment",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "New exact test-resource authority needed",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Test resource contract only",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "External fixture assumptions tracked",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Read-only scheduler rules before actual test submission",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Fact inquiry preferred over full design",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC14",
+      "stage": "native question schema mismatch",
+      "categories": [
+        "IMPLEMENTATION_BUG",
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P15",
+        "P16"
+      ],
+      "summary": "Six-key candidate question incompatible with exposed four-key schema and normalized is_other.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "failure -> bounded code correction -> local verification",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Stop then same-plan repair authority documented",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local schema serializer/validator fix",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Contract compatibility can be checked before product probe",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Read exposed schema+harmless question; no live Job needed",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "No independent complete design needed",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC15",
+      "stage": "current-root MCP transport",
+      "categories": [
+        "EXTERNAL_FACT",
+        "EVIDENCE_GAP"
+      ],
+      "evidence_ids": [
+        "P17",
+        "P25"
+      ],
+      "summary": "User-authorized MCP transport; current visible chat sentinel launches, no card/audit; catalog/connection alone insufficient.",
+      "core_mechanism_changed": {
+        "value": "confirmation transport changes; core target/reservation stable",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "transport implementation -> visible-root probe",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Explicit direct-user transport authority",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Transport replaced; reusable safety core",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "User-visible consumer and current root must be concrete",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Real visible-root harmless vertical probe essential",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Cause not uniquely known from first failure; do not invent",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC16",
+      "stage": "pending/root field repair",
+      "categories": [
+        "IMPLEMENTATION_BUG"
+      ],
+      "evidence_ids": [
+        "P18"
+      ],
+      "summary": "Optional agent_id absent in root template; concrete root/pending nonce binding implemented.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "runtime diagnostic -> bounded fix",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Explicit limited repair authority",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local template/pending interface correction",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Required vs optional input fields",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Harmless root event and negative cases",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Local Codex fix; no new Pro",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC17",
+      "stage": "P0 isolation repair",
+      "categories": [
+        "DESIGN_GAP"
+      ],
+      "evidence_ids": [
+        "P19",
+        "P24",
+        "P12"
+      ],
+      "summary": "Guard drift blocks unrelated Bash; outer scope-first parser preserves unrelated commands while cancellation fails closed.",
+      "core_mechanism_changed": {
+        "value": "local failure-containment policy changed",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "negative user impact -> boundary repair",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Limited repair authority documented",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "Local guard scope/runtime fix; not whole product",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Downstream consumer and failure matrix could expose blast radius",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Runtime-failure cancellation+unrelated-command pair",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Blindspot scenario audit valuable",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC18",
+      "stage": "live confirmations and revised retain acceptance",
+      "categories": [
+        "NEW_REQUIREMENT",
+        "OTHER"
+      ],
+      "evidence_ids": [
+        "P20",
+        "P21",
+        "P22"
+      ],
+      "summary": "Two actual wire confirms; live held-job retain remains NOT_RUN; user explicitly changes gate to harmless UI retain+deterministic retain.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "actual response -> reconcile -> explicit acceptance decision",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": "Acceptance waiver explicitly authorized",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No core runtime change; no third Job",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Never rename missing evidence PASS",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Harmless mapping probe gets desired evidence without more Jobs",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Product acceptance belongs to user, not automatic Codex scope reduction",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    },
+    {
+      "id": "SC19",
+      "stage": "formal release",
+      "categories": [
+        "OTHER"
+      ],
+      "evidence_ids": [
+        "P23"
+      ],
+      "summary": "Final same-runtime release5.5.2/skill0.5,406tests/CI,formal install identity.",
+      "core_mechanism_changed": {
+        "value": false,
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "serial_dependency": {
+        "value": "candidate accepted -> release identity/CI/install",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "human_intervention": {
+        "value": null,
+        "status": "UNKNOWN",
+        "basis": "repository record"
+      },
+      "implementation_invalidation": {
+        "value": "No further invalidation in inspected records",
+        "status": "OBSERVED",
+        "basis": "repository record"
+      },
+      "counterfactual": {
+        "asteria_completeness": {
+          "assessment": "Claim-specific identity closure",
+          "status": "INFERRED"
+        },
+        "codex_probe": {
+          "assessment": "Final installed entry evidence",
+          "status": "INFERRED"
+        },
+        "independent_review": {
+          "assessment": "Stop after acceptance rather than endless new Critic",
+          "status": "INFERRED"
+        },
+        "detection_probability": {
+          "status": "UNKNOWN",
+          "value": null
+        }
+      }
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "S-RUNTIME-01",
+      "name": "Hook process failure fails open despite candidate PASS",
+      "benchmark_type": "RETROSPECTIVE_ANALYSIS_NOT_BLIND",
+      "cutoff_commit": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "snapshot_read_directly": true,
+      "pre_cutoff_packet": [
+        {
+          "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+          "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/results/hpc--slurm-cancel-production-closure/RESULT.md"
+        },
+        {
+          "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+          "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py"
+        },
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+          "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "blob": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        }
+      ],
+      "pre_cutoff_available_facts": [
+        "Candidate RESULT=PASS is backed by fake scheduler tests and trusted catalog identities.",
+        "Installer resolves its own sys.executable and hashes target file but does not qualify actual host loader environment.",
+        "Earlier October13 design had already identified non-blocking ordinary Hook failures; generic failure risk is not hindsight-only."
+      ],
+      "held_out_later_outcome": {
+        "evidence_ids": [
+          "P12"
+        ],
+        "observed_record": "Desktop remote app-server cannot locate libpython3.12.so.1.0; Hook exits127 before Python code; host treats ordinary failure nonblocking; original Bash executes.",
+        "classification": [
+          "EXTERNAL_FACT",
+          "DESIGN_GAP",
+          "EVIDENCE_GAP"
+        ],
+        "raw_log_replayed": false
+      },
+      "candidate_predictions": [
+        {
+          "mechanism": "Asteria evidence gate",
+          "epistemic": "INFERRED",
+          "expected_increment": "Block assertion of production enforcement until actual host normal+failure evidence exists.",
+          "cannot_prove": "Cannot itself predict library name or host behavior."
+        },
+        {
+          "mechanism": "CODEX_MINIMAL_PROBE",
+          "epistemic": "INFERRED",
+          "expected_increment": "Run harmless marker through real Hook entry; separately induce child startup/failure and require original command launch count zero.",
+          "cannot_prove": "Unit-launch smoke alone does not establish host denial; synthetic scheduler alone does not prove runtime."
+        },
+        {
+          "mechanism": "SECOND_OR_THIRD_PRO",
+          "epistemic": "UNKNOWN",
+          "expected_increment": "May notice unproved premise; exact benefit unmeasured and likely correlated if same documents.",
+          "cannot_prove": "No observed independent-designer experiment."
+        }
+      ],
+      "success_criterion": "Before product deployment freeze, explicitly identify ordinary Hook error may permit original Bash and demand actual host evidence or select fail-closed outer owner; no need to name libpython version.",
+      "negative_control": "A design claiming extra PATH wrapper without testing real selected host boundary does not score as detection.",
+      "best_next_action": "CODEX_MINIMAL_PROBE when the already authorized verification point is reached; apply explicit user candidate-only deferral first if still active; never assert production enforcement from fake tests.",
+      "possible_blast_radius_reduction": "Keep launcher/runtime adapter separate from partition policy, one-shot reservation and consumer workflow.",
+      "limitations": [
+        "Current analyst saw outcome before snapshot; not causal estimate.",
+        "User earlier explicitly deferred candidate live probe; preserving authorization must not be scored as negligence.",
+        "Actual probability and time saved UNKNOWN."
+      ],
+      "root_source_verification": {
+        "original": {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "ref": "a92dc4729e9c5bd2740c5d1bd967daa40f13e8d3",
+          "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "blob": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/a92dc4729e9c5bd2740c5d1bd967daa40f13e8d3/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        "cutoff": {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+          "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "blob": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        "same_blob": true,
+        "conclusion": "Generic non-blocking Hook-failure risk existed in original October13 design; exact loader fact remains later outcome."
+      }
+    },
+    {
+      "case_id": "S-AUTH-02",
+      "name": "Persisted confirmed file is not trusted authority",
+      "benchmark_type": "RETROSPECTIVE_ANALYSIS_NOT_BLIND",
+      "cutoff_commit": "38a76797439c6b29098aade7539270cbc51e8836",
+      "snapshot_read_directly": true,
+      "pre_cutoff_packet": [
+        {
+          "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+          "ref": "38a76797439c6b29098aade7539270cbc51e8836",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/38a76797439c6b29098aade7539270cbc51e8836/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md"
+        }
+      ],
+      "pre_cutoff_available_facts": [
+        "Native tool callback writes confirmed artifact.",
+        "Ordinary shell guard consumes artifact on later shell invocation.",
+        "Same sandbox/Unix identity can write comparable files; anti-forgery testing deferred to executor."
+      ],
+      "held_out_later_outcome": {
+        "evidence_ids": [
+          "P06"
+        ],
+        "observed_record": "ER-V2-01 accepted; trusted PostToolUse callback becomes exact execution owner; next-shell confirmed authority removed.",
+        "classification": [
+          "DESIGN_GAP"
+        ],
+        "raw_log_replayed": false
+      },
+      "candidate_predictions": [
+        {
+          "mechanism": "Asteria ownership trace",
+          "epistemic": "INFERRED",
+          "expected_increment": "Exposes cross-boundary producer/consumer and asks capability provenance.",
+          "cannot_prove": "All fields can be filled while authority is still forgeable."
+        },
+        {
+          "mechanism": "Independent adversarial review",
+          "epistemic": "OBSERVED",
+          "expected_increment": "Historical Critic actually identified core flaw before approved implementation.",
+          "cannot_prove": "Does not prove all future reviews have comparable detection."
+        },
+        {
+          "mechanism": "No-Slurm local privilege probe",
+          "epistemic": "INFERRED",
+          "expected_increment": "Demonstrate ordinary writer can synthesize artifact; optional because design premises already sufficient.",
+          "cannot_prove": "Cannot establish complete host trust without later host qualification."
+        }
+      ],
+      "success_criterion": "Identify ordinary shell as able to synthesize accepted authority; require trusted execution-owner change or genuine proven isolation, not just stronger file schema.",
+      "negative_control": "More signatures/hashes stored in same writable privilege domain do not count.",
+      "best_next_action": "RETURN_TO_ARCHITECT",
+      "possible_blast_radius_reduction": "Authority-owner change is core and cannot be disguised as local serializer bug.",
+      "limitations": [
+        "No strict blind comparison.",
+        "Current report lacks raw full v2 Critic chat; accepted finding in v2.1 proposal is primary documentary evidence."
+      ]
+    },
+    {
+      "case_id": "S-WORKTREE-03",
+      "name": "Early Phase0 probe prevents product implementation on wrong Hook topology",
+      "benchmark_type": "RETROSPECTIVE_ANALYSIS_NOT_BLIND_POSITIVE_CONTROL",
+      "cutoff_commit": "c3879065c782f1b0a03107a927bb3176a8788d02",
+      "snapshot_read_directly": true,
+      "pre_cutoff_packet": [
+        {
+          "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+          "ref": "c3879065c782f1b0a03107a927bb3176a8788d02",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/c3879065c782f1b0a03107a927bb3176a8788d02/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md"
+        }
+      ],
+      "pre_cutoff_available_facts": [
+        "Package is approved but capability probe remains Phase0.",
+        "Candidate uses linked worktree topology and project Hook discovery.",
+        "Product implementation conditioned on capability."
+      ],
+      "held_out_later_outcome": {
+        "evidence_ids": [
+          "P08"
+        ],
+        "observed_record": "Config preflight PASS but Hook discovery reads canonical checkout rather than candidate; capability FAIL; PRODUCT_IMPLEMENTATION=NOT_STARTED; standalone clone chosen.",
+        "classification": [
+          "EXTERNAL_FACT",
+          "EVIDENCE_GAP"
+        ],
+        "raw_log_replayed": false
+      },
+      "candidate_predictions": [
+        {
+          "mechanism": "Existing early Codex probe",
+          "epistemic": "OBSERVED",
+          "expected_increment": "Actually caught external topology incompatibility before product code.",
+          "cannot_prove": "Not evidence new protocol invented early probes."
+        },
+        {
+          "mechanism": "Asteria freeze scope",
+          "epistemic": "INFERRED",
+          "expected_increment": "Distinguish design-approved probe package from implementation-ready capability.",
+          "cannot_prove": "Does not execute discovery."
+        }
+      ],
+      "success_criterion": "Execute harmless config+Hook same-topology check before product mutation and keep failure as NO_IMPLEMENTATION.",
+      "negative_control": "Counting Phase0 as wasted full product implementation falsely disadvantages baseline.",
+      "best_next_action": "CODEX_MINIMAL_PROBE",
+      "possible_blast_radius_reduction": "Change environment topology only before consumer implementation.",
+      "limitations": [
+        "Observed benefit exists inside historical Planner–Critic process itself.",
+        "Later user-authorized probe deferral is separate event."
+      ]
+    },
+    {
+      "case_id": "S-ROUTING-04",
+      "name": "Complete architecture can still be implemented incorrectly",
+      "benchmark_type": "RETROSPECTIVE_ANALYSIS_NOT_BLIND_NEGATIVE_CONTROL",
+      "cutoff_commit": "ce7f606e75dfa2bc7029b68655657c2d3d5b5d04",
+      "snapshot_read_directly": true,
+      "pre_cutoff_packet": [
+        {
+          "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+          "ref": "ce7f606e75dfa2bc7029b68655657c2d3d5b5d04",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/ce7f606e75dfa2bc7029b68655657c2d3d5b5d04/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md"
+        }
+      ],
+      "pre_cutoff_available_facts": [
+        "Earliest uncovered recurrence and one active+one successor specified.",
+        "Timezone and enrollment window/action scope specified.",
+        "Installed persistent capacity G6 explicitly cannot be replaced by unit tests."
+      ],
+      "held_out_later_outcome": {
+        "evidence_ids": [
+          "R09",
+          "R10",
+          "R11",
+          "R12"
+        ],
+        "observed_record": "Early-return alternate paths, missing installedG6, unused family timezone, DST fold/gap defects discovered in implementation reviews.",
+        "classification": [
+          "IMPLEMENTATION_BUG",
+          "EVIDENCE_GAP"
+        ],
+        "raw_log_replayed": false
+      },
+      "candidate_predictions": [
+        {
+          "mechanism": "Implementation-readiness challenge",
+          "epistemic": "INFERRED",
+          "expected_increment": "Have unfamiliar implementer trace covered N -> missing N+1 and caller timezone differing from family; extract independent expected results.",
+          "cannot_prove": "Cannot find specific future code bug before code exists."
+        },
+        {
+          "mechanism": "Work black-box acceptance",
+          "epistemic": "INFERRED",
+          "expected_increment": "Separate oracle from implementation tests; catch tests mirroring incorrect algorithm.",
+          "cannot_prove": "No controlled Work trial exists."
+        },
+        {
+          "mechanism": "Third complete Pro architecture",
+          "epistemic": "UNKNOWN",
+          "expected_increment": "Little architecture information if requirement is already explicit.",
+          "cannot_prove": "Cannot guarantee correct code."
+        }
+      ],
+      "success_criterion": "Keep design frozen; direct bounded LOCAL_CODEX_FIX; test full invariant family and actual installed entry without expanding product.",
+      "negative_control": "Do not score later bug as preexisting design omission merely because discovered post-PASS.",
+      "best_next_action": "LOCAL_CODEX_FIX",
+      "possible_blast_radius_reduction": "Calendar/enrollment/test owner local; no scheduler controller or new gate needed.",
+      "limitations": [
+        "Outcome-aware case selection.",
+        "Exact implementation labor/time saved UNKNOWN."
+      ],
+      "stage_split": {
+        "before_outcome": "Assess completeness of planned tests and allow only scoped implementation; do not claim to detect future unwritten bugs.",
+        "after_outcome": "LOCAL_CODEX_FIX for already-frozen semantic violations; implementation returns are not automatically architecture resets."
+      }
+    },
+    {
+      "case_id": "S-BOUNDARY-05",
+      "name": "Fail-closed guard must contain impact on unrelated consumers",
+      "benchmark_type": "RETROSPECTIVE_ANALYSIS_NOT_BLIND",
+      "cutoff_commit": "a49f6dfcc48539a4dbead7ecae45f4b3cf398a7b",
+      "snapshot_read_directly": true,
+      "pre_cutoff_packet": [
+        {
+          "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+          "ref": "a49f6dfcc48539a4dbead7ecae45f4b3cf398a7b",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/a49f6dfcc48539a4dbead7ecae45f4b3cf398a7b/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md"
+        }
+      ],
+      "pre_cutoff_available_facts": [
+        "Proposal explicitly denies entire Bash call when full checker unavailable.",
+        "G2 unrelated regression only promises normal behavior once runtime healthy.",
+        "Global Hook spans unrelated commands and repositories."
+      ],
+      "held_out_later_outcome": {
+        "evidence_ids": [
+          "P19",
+          "P24"
+        ],
+        "observed_record": "Source/runtime drift blocks ordinary git status; scope prefilter moved to trusted outer declaration before mutable runtime checks.",
+        "classification": [
+          "DESIGN_GAP"
+        ],
+        "raw_log_replayed": false
+      },
+      "candidate_predictions": [
+        {
+          "mechanism": "Asteria consumer+failure matrix",
+          "epistemic": "INFERRED",
+          "expected_increment": "Require unrelated command consumer behavior under dependency failure, not only healthy guard.",
+          "cannot_prove": "Designer may deliberately choose blanket deny; deciding acceptability remains product/reliability judgment."
+        },
+        {
+          "mechanism": "Work blindspot scenarios",
+          "epistemic": "INFERRED",
+          "expected_increment": "Ask what happens to all non-Slurm coding if guard runtime breaks.",
+          "cannot_prove": "Unknown detection probability."
+        },
+        {
+          "mechanism": "Representative failure-path probe",
+          "epistemic": "INFERRED",
+          "expected_increment": "Pair cancellation deny and unrelated git/ls/printf success under runtime drift.",
+          "cannot_prove": "Cannot exhaust arbitrary shell language."
+        }
+      ],
+      "success_criterion": "Before freeze explicitly constrain blast radius or record approved tradeoff; later change local to guard adapter.",
+      "negative_control": "Calling all fail-closed behavior correct regardless unrelated capability outage fails rubric.",
+      "best_next_action": "WORK_BLINDSPOT_AUDIT",
+      "possible_blast_radius_reduction": "Outer stable scope classifier; cancellation ambiguous inputs deny; unrelated commands independent of mutable protected-cancel runtime.",
+      "limitations": [
+        "Later acceptance expectations may be refined; original globaldeny was explicitly designed, not absent field.",
+        "Semantic review needed in addition to structural gate."
+      ]
+    }
+  ],
+  "observed_metrics": {
+    "routing_proposals": {
+      "value": 6,
+      "status": "OBSERVED",
+      "definition": "v0.1-v0.6 files"
+    },
+    "routing_design_reviews": {
+      "value": 6,
+      "status": "OBSERVED"
+    },
+    "routing_execution_reviews": {
+      "value": 2,
+      "status": "OBSERVED"
+    },
+    "routing_prefinal_reviews": {
+      "value": 4,
+      "status": "OBSERVED",
+      "warning": "implementation reviews, not four architecture resets"
+    },
+    "routing_prefinal_finding_ids": {
+      "value": 5,
+      "status": "OBSERVED"
+    },
+    "protected_post_implementation_core_returns_lower_bound": {
+      "value": 2,
+      "status": "INFERRED",
+      "definition": "old-production->v1scope reset; global-hook candidate->v3runtime; excludes localbug/fixture repair"
+    },
+    "human_minutes": {
+      "value": null,
+      "status": "UNKNOWN"
+    },
+    "model_wallclock_wait": {
+      "value": null,
+      "status": "UNKNOWN"
+    },
+    "total_ai_calls": {
+      "value": null,
+      "status": "UNKNOWN"
+    },
+    "discarded_implementation_fraction": {
+      "value": null,
+      "status": "UNKNOWN"
+    },
+    "second_pro_detection_probability": {
+      "value": null,
+      "status": "UNKNOWN"
+    },
+    "probe_detection_probability": {
+      "value": null,
+      "status": "UNKNOWN"
+    }
+  },
+  "sources": [
+    {
+      "id": "R01",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_1_2026-09-24.md",
+      "title": "routing v0.1: identity/race authority",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_1_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R02",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "title": "routing v0.2 architecture PASS",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R03",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "title": "new user requirements after v0.2",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R04",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_3_2026-09-24.md",
+      "title": "recurring mutation authorization",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_3_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R05",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_4_2026-09-24.md",
+      "title": "new portability requirement",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_4_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R06",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_5_2026-09-24.md",
+      "title": "release version classification",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_5_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R07",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "title": "v0.6 execution PASS",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R08",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "ce7f606e75dfa2bc7029b68655657c2d3d5b5d04",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+      "title": "actual v0.6 cutoff execution plan",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/ce7f606e75dfa2bc7029b68655657c2d3d5b5d04/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R09",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R1_2026-10-02.md",
+      "title": "routing implementation R1",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R1_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R10",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R2_2026-10-02.md",
+      "title": "routing implementation R2",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R2_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R11",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R3_2026-10-02.md",
+      "title": "timezone not consumed by algorithm",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R3_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R12",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R4_2026-10-02.md",
+      "title": "DST fold/gap local repair",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R4_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R13",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/INTEGRATION_RELEASE_CLOSURE_2026-10-03.md",
+      "title": "routing final release closure",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/INTEGRATION_RELEASE_CLOSURE_2026-10-03.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R14",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-race-policy-bounded-opt-in/RESULT.md",
+      "title": "separate policy change",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-race-policy-bounded-opt-in/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P01",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "title": "early threat model including non-blocking Hook failures",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P02",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_PLAN_V0_1_2026-10-16.md",
+      "title": "broad old protection Stage A and production closure",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_PLAN_V0_1_2026-10-16.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P03",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_PROPOSAL_V1_2026-10-17.md",
+      "title": "product scope reset and terminal-confirmed guard",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_PROPOSAL_V1_2026-10-17.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P04",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_2026-10-18.md",
+      "title": "native chat confirmation v2",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P05",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "38a76797439c6b29098aade7539270cbc51e8836",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+      "title": "v2 cutoff execution package",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/38a76797439c6b29098aade7539270cbc51e8836/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P06",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_1_2026-10-18.md",
+      "title": "ER-V2-01: confirmation authority boundary",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_1_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P07",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "c3879065c782f1b0a03107a927bb3176a8788d02",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "title": "v2.1 PASS cutoff before worktree probe",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/c3879065c782f1b0a03107a927bb3176a8788d02/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P08",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "title": "Phase 0 fail and standalone-clone recovery",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P09",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "b8ed6c3d3e40f5c32130e56f0b78ae7c9aea2772",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "title": "user explicitly defers live candidate Hook probe",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/b8ed6c3d3e40f5c32130e56f0b78ae7c9aea2772/results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P10",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "title": "global Hook candidate RESULT PASS before runtime redesign",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P11",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "title": "historical installer freezes installer Python",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P12",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+      "title": "loader failure root cause; portable runtime design",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P13",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/SESSION_AB_EVIDENCE.md",
+      "title": "stale session snapshot versus fresh Hook normal entry",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/SESSION_AB_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P14",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_G4_RESOURCE_AMENDMENT_V3_1_2026-10-20.md",
+      "title": "QOSMinGRES; scheduler test resource amendment",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_G4_RESOURCE_AMENDMENT_V3_1_2026-10-20.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P15",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/AMENDED_G4_EVIDENCE.md",
+      "title": "native four-key schema versus six-key candidate",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/AMENDED_G4_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P16",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/NATIVE_SCHEMA_REPAIR_EVIDENCE.md",
+      "title": "bounded implementation repair",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/NATIVE_SCHEMA_REPAIR_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P17",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/MCP_VERTICAL_EVIDENCE.md",
+      "title": "current-visible-root vertical probe FAIL",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/MCP_VERTICAL_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P18",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/PENDING_BINDING_REPAIR_EVIDENCE.md",
+      "title": "optional agent placeholder and pending/root identity",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/PENDING_BINDING_REPAIR_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P19",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/P0_FAILURE_ISOLATION_EVIDENCE.md",
+      "title": "unrelated Bash denied during guard drift; containment repair",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/P0_FAILURE_ISOLATION_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P20",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/LIVE_CONFIRMATION_EVIDENCE.md",
+      "title": "actual same-root confirm path",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/LIVE_CONFIRMATION_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P21",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/REPLACEMENT_G4_EVIDENCE.md",
+      "title": "second held Job; confirm wire and missing retain",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/REPLACEMENT_G4_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P22",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/REVISED_G4_ACCEPTANCE.md",
+      "title": "explicit user waiver and harmless real retain mapping",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/REVISED_G4_ACCEPTANCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P23",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/FINAL_RELEASE_CLOSURE.md",
+      "title": "formal release 5.5.2/0.5 closure",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/FINAL_RELEASE_CLOSURE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P24",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "title": "final runtime qualification and outer scope guard",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P25",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "title": "complete maintained result narrative",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "C01",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "b4815a35f708078184bff27b34f185fea6938cc3",
+      "path": null,
+      "title": "old production protection implementation",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/b4815a35f708078184bff27b34f185fea6938cc3",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C02",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "343628c896af90946f151ab1be993bc63114ebf2",
+      "path": null,
+      "title": "v2.1 shim candidate implementation",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/343628c896af90946f151ab1be993bc63114ebf2",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C03",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "577b1608e3a8335d7bd057b1584e5479ed5205aa",
+      "path": null,
+      "title": "replace shim with trusted host Hook",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/577b1608e3a8335d7bd057b1584e5479ed5205aa",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C04",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "da5e88bb6c1fb94e0cf66dd1d8409e9ab9fcf2c0",
+      "path": null,
+      "title": "switch project-local to one global Hook",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/da5e88bb6c1fb94e0cf66dd1d8409e9ab9fcf2c0",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C05",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "4453808e02388725f47d3c0a278e5494fdd55478",
+      "path": null,
+      "title": "remove Slurm-specific permission profile",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/4453808e02388725f47d3c0a278e5494fdd55478",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    }
+  ],
+  "quality_notes": [
+    "No strict blinded retrospective was run.",
+    "User-originated requirement changes separated from old design omissions.",
+    "Historical earlyprobe success retained as baseline strength.",
+    "Final acceptance waiver not relabeled historical missing keep test PASS.",
+    "No arbitrary probability estimates.",
+    "Current Critic role contract v1.7 already defines local Codex repair, stop after two no-new-evidence debate rounds, and unique next prompt; these are baseline capabilities, not claimed innovations."
+  ]
+}

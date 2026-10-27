@@ -1,0 +1,463 @@
+{
+  "run_id": "pro-a",
+  "scope": "cross-project subset; GitHub read-only",
+  "research_mode": "retrospective, not blinded",
+  "numeric_probabilities": "UNKNOWN; no detection-rate estimates",
+  "cases": [
+    {
+      "id": "X-MICA-01",
+      "project": "Mica",
+      "kind": "retrospective_analysis",
+      "classification": [
+        "EXTERNAL_FACT",
+        "IMPLEMENTATION_BUG",
+        "EVIDENCE_GAP"
+      ],
+      "cutoff": {
+        "commit": "9522b74c9eccc8a4ded557e6fae9acb92e1db352",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "paths": [
+          "extension/src/content.ts",
+          "docs/investigations/2026-09-03-composer-lifecycle-regression.md"
+        ]
+      },
+      "knowledge_at_cutoff": [
+        "已出现真实输入框消失问题，并已有编辑静默防护",
+        "历史代码精确匹配 contenteditable=true",
+        "合成浏览器测试不等于当前真实ChatGPT编辑器"
+      ],
+      "future_outcome": {
+        "commit": "63ee889ebf90e3636176fdc3945f48d2d56acf6a",
+        "observed": "编辑事件覆盖扩展到其它合法contenteditable取值及后代目标；观察器在编辑窗口断开",
+        "evidence_status": "OBSERVED"
+      },
+      "mechanisms": {
+        "asteria": "可要求事件来源、状态、失效条件和证据；不能自己识别真实DOM变体",
+        "blindspot": "独立列举平台变体和观察器热路径有针对性信息价值",
+        "second_pro": "若只是重复现有选择器，信息增量低；未知",
+        "probe": "真实隐私安全诊断可直接验证事件是否命中；合成fixture需从真实报告派生",
+        "readiness": "追问每种编辑器事件是否能到达保护代码，但仅文档不能证明运行"
+      },
+      "expected_next_action": "CODEX_FACT_CHECK",
+      "scope": "有界界面事实与针对性本地回归；不允许自动化用户正常登录会话",
+      "architecture_reset_observed": false,
+      "user_intervention_proxy": "文档记录至少两份诊断报告及一次扩展禁用A/B；独立介入次数UNKNOWN",
+      "wasted_work": "UNKNOWN",
+      "blind_test_valid": false,
+      "limitations": [
+        "已读后续结果",
+        "未重新访问真实登录会话",
+        "无法从提交数推算人工或等待时间"
+      ],
+      "sources": [
+        "M1"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only."
+    },
+    {
+      "id": "X-MICA-02",
+      "project": "Mica",
+      "kind": "retrospective_analysis",
+      "classification": [
+        "DESIGN_GAP",
+        "SCOPE_RESET"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "2a33a57ca7e65c3dd72a741e861c7bf39dcab71c",
+        "paths": [
+          "docs/tasks/2026-10-05-mica-product-recovery-current-gpt-ui.md"
+        ]
+      },
+      "knowledge_at_cutoff": [
+        "goal_owner: Codex",
+        "Goal要求Codex先固定产品工作、弹窗信息架构、恢复行为等",
+        "最终需要可长期日用的扩展"
+      ],
+      "future_outcome": {
+        "commit": "977ba28f4ef4998367faf1e3c5f3ecb23723e6cd",
+        "observed": "10-05 Goal在10-12被明确替代；R1接受11项P1合同缺口，R2闭合后优先级收窄不重审",
+        "evidence_status": "OBSERVED"
+      },
+      "mechanisms": {
+        "asteria": "把所有用户能力映射到责任与机制，可显示核心决定仍未冻结",
+        "blindspot": "从用户任务而非Goal执行清单检查产品收益与诊断负担",
+        "second_pro": "存在多种产品组织和适配边界时可能有值；未实测",
+        "probe": "真实DOM取证解决事实，但不能替代用户路径和架构裁决",
+        "readiness": "实施者只读即可指出自己被要求决定产品合同，返回架构师"
+      },
+      "expected_next_action": "RETURN_TO_ARCHITECT",
+      "architecture_reset_observed": true,
+      "implementation_started_before_reset": "UNKNOWN",
+      "codex_core_decision_proxy": "Goal明确下放至少产品工作、信息架构、恢复动作三类决定；非实际执行次数",
+      "wasted_work": "UNKNOWN",
+      "blind_test_valid": false,
+      "limitations": [
+        "不能证明被替代Goal实际造成了多少作废代码",
+        "后续V1尚未由本研究运行验收"
+      ],
+      "sources": [
+        "M2",
+        "M3"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only."
+    },
+    {
+      "id": "X-CAT-01",
+      "project": "CAT-TRACE",
+      "kind": "retrospective_analysis_with_arithmetic_recheck",
+      "classification": [
+        "DESIGN_GAP",
+        "EVIDENCE_GAP"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/CAT-TRACE",
+        "commit": "560267ecd818197c448b24cf7673dfc8dafae911",
+        "paths": [
+          "docs/model/catalog_aware/CAT_TRACE_CODE_IMPLEMENTATION_MASTER_PLAN_20260909.md"
+        ]
+      },
+      "knowledge_at_cutoff": [
+        "全零列Laplace对数贡献按匿名槽位数相乘",
+        "计划包含显式和聚合一致性检查",
+        "单列目标近似精度与下游乘数契约未证明"
+      ],
+      "future_outcome": {
+        "commit": "d05aa16b8f28d911207035c94752de3ee9ae683d",
+        "observed": "确定性全零积分反例否定普通Laplace作为该范围内通用生产近似；保留统计目标，重开计算路线",
+        "evidence_status": "OBSERVED"
+      },
+      "mechanisms": {
+        "asteria": "可显示下游重数与误差预算缺失；字段完整无法证明数值准确",
+        "blindspot": "询问重复近似误差如何累积以及正控来源",
+        "second_pro": "也可能共享普通Laplace直觉，不能假定独立检出",
+        "probe": "n=1解析正控和低维独立积分直接反驳关键前提",
+        "readiness": "应发现必须由Codex选择尚未确定积分器，禁止临时补算法"
+      },
+      "expected_next_action": "CODEX_MINIMAL_PROBE",
+      "probe_contract": "固定合成参数、无真实数据、无拟合、只检验积分与重数误差；结果返回设计者",
+      "local_recheck": {
+        "file": "cat_zero_probe_recheck.json",
+        "script": "recheck_zero_slot.py",
+        "n": 100,
+        "p": 1000,
+        "gamma": 3,
+        "weighted_log_error": 15.628557795647275,
+        "evidence_status": "OBSERVED",
+        "original_script_replay": "BLOCKED_MISSING_MPMATH",
+        "recheck_type": "Independent standard-library deterministic arithmetic, not original full replay"
+      },
+      "architecture_reset_observed": "计算模块改定；统计模型未变",
+      "wasted_work": "UNKNOWN",
+      "blind_test_valid": false,
+      "limitations": [
+        "本研究已知反例",
+        "非高维积分验证",
+        "两档数值一致不是严格误差上界"
+      ],
+      "sources": [
+        "C1a",
+        "C1b"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only."
+    },
+    {
+      "id": "X-CAT-02",
+      "project": "CAT-TRACE",
+      "kind": "retrospective_positive_control",
+      "classification": [
+        "IMPLEMENTATION_BUG",
+        "OTHER"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/CAT-TRACE",
+        "commit": "99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0",
+        "paths": [
+          "docs/implementation/reviews/CRITIC_REVIEW_R6_RESOLUTION.md",
+          "docs/implementation/16_IMPLEMENTATION_ALPHA_EXECUTION_PLAN.md"
+        ]
+      },
+      "knowledge_at_cutoff": [
+        "R6只放行C00/C01/合成C02/有限p C04参考引擎",
+        "匿名槽位、真实数据与后续模块继续阻塞",
+        "固定算法、DGP、种子与10k/20k/40k诊断预算"
+      ],
+      "future_outcome": {
+        "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+        "observed": "Alpha执行固定实验9/12目标通过，C01/C02保留；Beta归因区分Helmert和非有限值实现缺陷与混合问题",
+        "evidence_status": "OBSERVED"
+      },
+      "mechanisms": {
+        "asteria": "局部依赖图保护已完成模块并防止把子链通过泛化为整项目通过",
+        "blindspot": "检查数值算法正控独立性和同目标比较，但不能保证采样效率",
+        "second_pro": "没有证据说明增加设计者可预知实际ESS",
+        "probe": "小规模真实参考运行可提供混合证据；这属于科学实验，不宜要求设计文档保证通过",
+        "readiness": "核对算法唯一、失败预算和返回责任明确即可批准有限实验实现"
+      },
+      "expected_next_action": "RETURN_TO_ARCHITECT",
+      "scope": "失败后仅计算方案可能改变；已确定编码错误可LOCAL_CODEX_FIX；统计模型不因诊断失败自动重设",
+      "architecture_reset_observed": false,
+      "implementation_to_design_return_observed": true,
+      "wasted_work": "C01/C02保留；其余作废工作量UNKNOWN",
+      "blind_test_valid": false,
+      "limitations": [
+        "不能把实验性能失败自动算冻结错误",
+        "Alpha结果一处MODEL_PLAN_CHANGE_REQUIRED_NOW=YES须与后续正式归因NO一并阅读"
+      ],
+      "sources": [
+        "C2a",
+        "C2b",
+        "C2c"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only.",
+      "stage_split": {
+        "before_outcome": "Respect the limited R6 experiment approval and scientific blockers; do not predict unseen convergence outcome.",
+        "after_outcome": "Classify numerical facts, local bugs and needed algorithm decisions before routing."
+      }
+    },
+    {
+      "id": "X-CAT-03",
+      "project": "CAT-TRACE",
+      "kind": "retrospective_positive_control",
+      "classification": [
+        "EVIDENCE_GAP",
+        "OTHER"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/CAT-TRACE",
+        "commit": "0d829fb17c458a076a15ec51893e917960107c21",
+        "paths": [
+          "docs/implementation/C04_REF_RELIABILITY_INVESTIGATION_CHRONICLE_20260923.md"
+        ]
+      },
+      "knowledge_at_cutoff": [
+        "历史第11节提出向量化维度怀疑；该知识截点由历史叙述重建，未获得严格pre-discovery commit",
+        "固定GH81数值oracle已失败"
+      ],
+      "future_outcome": {
+        "commit": "ba0a1efbfc2558d7cb6eb05126ecd52f2fd571b9",
+        "observed": "专门取证否定向量化bug；两独立积分960/960稳定，根因为固定GH近似精度",
+        "evidence_status": "OBSERVED"
+      },
+      "mechanisms": {
+        "asteria": "必须记录怀疑与验证状态；不得把推断写成已知缺陷",
+        "blindspot": "复核缺陷归因与参数约束",
+        "second_pro": "文字意见不如直接数值比较",
+        "probe": "逐候选与向量化比较、两种独立积分直接裁决",
+        "readiness": "通过后只冻结被证实路线，不保留已被反驳的blocker"
+      },
+      "expected_next_action": "CODEX_FACT_CHECK",
+      "architecture_reset_observed": false,
+      "wasted_work": "UNKNOWN",
+      "blind_test_valid": false,
+      "limitations": [
+        "无法形成严格cutoff盲测",
+        "当前文件追加了纠正，不能只引用先前怀疑"
+      ],
+      "sources": [
+        "C3"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only."
+    },
+    {
+      "id": "X-STAT-01",
+      "project": "STAT5060 Validator",
+      "kind": "retrospective_positive_control",
+      "classification": [
+        "IMPLEMENTATION_BUG"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/STAT5060-TA",
+        "commit": "435cd51f994df593d384972fe0c5f548bbe18b8d",
+        "paths": [
+          "results/validator-system-architecture-research-20261022/execution-package-v1/COMMON_CONTRACT.md"
+        ]
+      },
+      "knowledge_at_cutoff": [
+        "批准共享API与三路确定性代码并行开发",
+        "D与M必须按规则合取而不能靠拒绝所有输入宣称可靠",
+        "课程规则与oracle禁止执行者改写"
+      ],
+      "future_outcome": {
+        "commit": "f5050863e19ab99b5d2e26e46d8fe321007d901e",
+        "observed": "Project combine_semantic_states的d_ready缺P05/P09/P11，使三条D+M规则无可达PASS路径",
+        "evidence_status": "OBSERVED_CODE_READ"
+      },
+      "mechanisms": {
+        "asteria": "可规定每规则成功/失败/缺证据路径，但不能保证实现未漏映射",
+        "blindspot": "独立实现验收检查正路径可达性有直接信息增量",
+        "second_pro": "没有证据表明重做全产品设计是必要修复",
+        "probe": "局部正路径及确定性结果投射回归；无需真实模型花费",
+        "readiness": "设计前陌生实施者应识别状态逻辑，仍不能替代实际代码验收"
+      },
+      "expected_next_action": "LOCAL_CODEX_FIX",
+      "architecture_reset_observed": false,
+      "implementation_to_design_return_required": false,
+      "wasted_work": "有限接线修复；精确工作量UNKNOWN",
+      "blind_test_valid": false,
+      "limitations": [
+        "本研究静态核对代码，未调用正式模型M",
+        "代码批准并未声称整系统可靠"
+      ],
+      "sources": [
+        "S1a",
+        "S1b",
+        "S1c"
+      ],
+      "local_recheck": {
+        "script": "recheck_project_positive_path.py",
+        "result": "stat_positive_path_recheck.json",
+        "basis": "Exact-function isolated control-flow execution with explicit TEST_DOUBLE, not legitimate M",
+        "P01": "PASS",
+        "P05": "BLOCKED_COVERAGE_INCOMPLETE",
+        "P09": "BLOCKED_COVERAGE_INCOMPLETE",
+        "P11": "BLOCKED_COVERAGE_INCOMPLETE"
+      },
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only.",
+      "stage_split": {
+        "before_outcome": "Evaluate contract and planned positive controls, not future code lines.",
+        "after_outcome": "LOCAL_CODEX_FIX after exact implementation/control-flow evidence is supplied."
+      }
+    },
+    {
+      "id": "X-STAT-02",
+      "project": "STAT5060 Validator",
+      "kind": "retrospective_scope_control",
+      "classification": [
+        "EVIDENCE_GAP",
+        "EXTERNAL_FACT"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/STAT5060-TA",
+        "commit": "435cd51f994df593d384972fe0c5f548bbe18b8d",
+        "paths": [
+          "results/validator-system-architecture-research-20261022/execution-package-v1/COMMON_CONTRACT.md"
+        ]
+      },
+      "knowledge_at_cutoff": [
+        "真实原生M需要有效上下文来源与实际响应",
+        "当前模型探针授权为0，后续需单独取得",
+        "代码开发范围明确与正式课程能力分离"
+      ],
+      "future_outcome": {
+        "commit": "76dc93ce7aaf2b91b60fd4003daa8be75ff54588",
+        "observed": "独立验收仍无真实模型正路径，无法证明Longleaf运行时提供所需原生上下文字段",
+        "evidence_status": "OBSERVED_RECORDED_GAP"
+      },
+      "mechanisms": {
+        "asteria": "标注evidence pending，拒绝整链validated或正式发布声明",
+        "blindspot": "审查拒收所有输入与真正可用的区别",
+        "second_pro": "模型数量无法提供宿主真实字段",
+        "probe": "受授权的最小真实正/负路径能够直接核对运行环境",
+        "readiness": "允许不依赖M的独立代码模块；不允许宣称整个模型验收链已冻结为可用"
+      },
+      "expected_next_action": "CODEX_MINIMAL_PROBE",
+      "authorization": "正式调用需遵守原范围；当前本研究不执行",
+      "architecture_reset_observed": false,
+      "wasted_work": "UNKNOWN",
+      "blind_test_valid": false,
+      "limitations": [
+        "未观测到运行时一定缺字段；这里只证明仍缺正路径证据",
+        "不可将有界代码PASS算假整系统PASS"
+      ],
+      "sources": [
+        "S1a",
+        "S1c"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only."
+    },
+    {
+      "id": "X-CW-01",
+      "project": "Clear Writing",
+      "kind": "retrospective_analysis",
+      "classification": [
+        "EVIDENCE_GAP",
+        "REVIEW_DRIFT",
+        "OTHER"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/AI_Skills_Collection",
+        "commit": "79d620a0c60cdd086dd5828c8686bac843291cda",
+        "paths": [
+          "results/055_clear_writing_release_convergence/FROZEN_AB_RUBRIC.md"
+        ],
+        "original_input_available": false
+      },
+      "knowledge_at_cutoff": [
+        "产品为保真改写，无权选择科学定义",
+        "输出品质与来源保真、外部事实应分别判断",
+        "最终审核者未取得F2原源文"
+      ],
+      "future_outcome": {
+        "commit": "df9186a949dc36f09bcefcc78b93c830d845adb4",
+        "observed": "机器评审正确发现早停文字/公式矛盾但误归插件缺陷；源文对照后改归来源缺陷，候选不改",
+        "evidence_status": "OBSERVED_REVIEW_AND_ADJUDICATION"
+      },
+      "mechanisms": {
+        "asteria": "可检查评审结论权限是否匹配其可见输入",
+        "blindspot": "独立读者观察可发现真歧义；归因需源文",
+        "second_pro": "再设计写作架构没有直接信息增量",
+        "probe": "取得原源文/成稿对照比重复审输出重要",
+        "readiness": "评审输入缺源文时不得授予来源保真因果归因能力"
+      },
+      "expected_next_action": "WORK_BLINDSPOT_AUDIT",
+      "scope": "审阅原始材料与成稿后做归因；若只剩恢复合同变更再回Chat裁定",
+      "architecture_reset_observed": false,
+      "product_candidate_preserved": true,
+      "blind_test_valid": false,
+      "limitations": [
+        "本研究未取得私有F2全文",
+        "REVIEW_DRIFT仅指错误产品归因，读者质量观察仍有效",
+        "不提供精确节省调用/时间估计"
+      ],
+      "sources": [
+        "W1"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only."
+    },
+    {
+      "id": "X-CW-02",
+      "project": "Clear Writing",
+      "kind": "retrospective_positive_control",
+      "classification": [
+        "IMPLEMENTATION_BUG"
+      ],
+      "cutoff": {
+        "repository": "YuukiAS/AI_Skills_Collection",
+        "commit": "79d620a0c60cdd086dd5828c8686bac843291cda",
+        "paths": [
+          "results/055_clear_writing_release_convergence/PREFINAL_CRITIC_REVIEW_C6.md"
+        ],
+        "original_input_available": false
+      },
+      "knowledge_at_cutoff": [
+        "候选正文与插件身份冻结",
+        "PDF第6页表格有裁切，需要真实渲染验收"
+      ],
+      "future_outcome": {
+        "commit": "5d4b1432f96742646e00ad279a054359b1aec1da",
+        "observed": "任务局部表格渲染参数修复；源文和Markdown摘要不变；14页复核后继续既定流程",
+        "evidence_status": "OBSERVED_REVIEW_RECORD"
+      },
+      "mechanisms": {
+        "asteria": "候选、源文、渲染身份分开，限制失效范围",
+        "blindspot": "实际渲染可直接观察裁切",
+        "second_pro": "无须全架构竞争",
+        "probe": "渲染已是直接产物，局部重渲染及全稿回归",
+        "readiness": "无需改变产品机制"
+      },
+      "expected_next_action": "LOCAL_CODEX_FIX",
+      "architecture_reset_observed": false,
+      "product_candidate_preserved": true,
+      "blind_test_valid": false,
+      "limitations": [
+        "未取得原私有PDF并亲自重渲染",
+        "原记录中PREFINAL PASS只限其阶段"
+      ],
+      "sources": [
+        "W2"
+      ],
+      "strict_input_index": "PRE_CUTOFF_INPUT_INDEX.json is authoritative for participant inputs; source aliases here are retrospective references only."
+    }
+  ]
+}

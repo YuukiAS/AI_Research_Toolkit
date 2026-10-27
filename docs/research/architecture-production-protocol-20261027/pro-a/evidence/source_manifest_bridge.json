@@ -1,0 +1,373 @@
+{
+  "run_id": "pro-a",
+  "repo": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+  "read_only": true,
+  "coverage": "Main history 2026-10-12 to 2026-10-19 plus historical work/bridge-core--product-scope-reset through 2026-10-22. No current round pro-b/work material read.",
+  "sources": [
+    {
+      "key": "B01",
+      "label": "初始 0.11.0 Proposal v0.1",
+      "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+      "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+      "blob_sha": "3a4343cbad84b8b3bfb64aefdd7f5b32143e96f2",
+      "sections": "A–D 能力包、G14、原始 TODO 追溯",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md"
+    },
+    {
+      "key": "B02",
+      "label": "Proposal v0.2 与三个设计 blocker",
+      "ref": "2e12226859446ad55067e19f08fc6b450f459c9b",
+      "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md",
+      "blob_sha": "4c96e0a5a146b2be251421d7a3aecf9a318493be",
+      "sections": "§0；A2 reciprocal worktree；隔离对象读取 probe",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2e12226859446ad55067e19f08fc6b450f459c9b/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md"
+    },
+    {
+      "key": "B03",
+      "label": "首个 Execution Plan v0.2",
+      "ref": "3e0370c7b1993ba2f6cba600aaed6a741892cb16",
+      "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md",
+      "blob_sha": "f386e1f98d0d4d4f1ada737df4d6bc6eb35a1310",
+      "sections": "审查修订、G01–G14、residual implementation",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/3e0370c7b1993ba2f6cba600aaed6a741892cb16/docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md"
+    },
+    {
+      "key": "B04",
+      "label": "第一批上下文/就绪实现",
+      "ref": "26c57fab885c209bc3944a640453c1a66e3f61a8",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/26c57fab885c209bc3944a640453c1a66e3f61a8"
+    },
+    {
+      "key": "B05",
+      "label": "实现后 readiness 审查修复",
+      "ref": "646dfa03f7f54ebf74b2e6b5edb93d5c4d4a6c6c",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/646dfa03f7f54ebf74b2e6b5edb93d5c4d4a6c6c"
+    },
+    {
+      "key": "B06",
+      "label": "safety gaps 修复",
+      "ref": "8ff3bba99eb4aa9be3aead26fd3698841d6c7604",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/8ff3bba99eb4aa9be3aead26fd3698841d6c7604"
+    },
+    {
+      "key": "B07",
+      "label": "recovery/source preflight 硬化",
+      "ref": "b9956c9c306c9d65a3e54583271bd071801c936c",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/b9956c9c306c9d65a3e54583271bd071801c936c"
+    },
+    {
+      "key": "B08",
+      "label": "Final Scope Recovery Proposal",
+      "ref": "524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da",
+      "path": "docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md",
+      "blob_sha": "79a11d8b73dd79e879d9852e0bc3ffd851aca12b",
+      "sections": "§1、§3、§4、§5",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da/docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md"
+    },
+    {
+      "key": "B09",
+      "label": "Scope Recovery execution v0.1",
+      "ref": "cb605eb2fd4fe7e54a6e1a2d92173e45ce81d56f",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.1_2026-10-16.md",
+      "blob_sha": "aab55c11f50cf3744fdf33fbd4c3adc90eccf457",
+      "sections": "范围、Goal、任务分工",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/cb605eb2fd4fe7e54a6e1a2d92173e45ce81d56f/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.1_2026-10-16.md"
+    },
+    {
+      "key": "B10",
+      "label": "Scope Recovery execution v0.2",
+      "ref": "798c8a6562bd31f14e1d260ec041a12ef98ae8ce",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.2_2026-10-16.md",
+      "blob_sha": "74590c5d260b1faa105861d62d82d60a9a2a31e0",
+      "sections": "ER11-01–03",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/798c8a6562bd31f14e1d260ec041a12ef98ae8ce/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.2_2026-10-16.md"
+    },
+    {
+      "key": "B11",
+      "label": "Scope Recovery execution v0.3",
+      "ref": "e2f41f87bc827b145398456e3b11098130672ca9",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.3_2026-10-16.md",
+      "blob_sha": "8c9ef921b69933120da575c9dfb6478f662e7ffa",
+      "sections": "用户确认 dedicated Progress thread",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/e2f41f87bc827b145398456e3b11098130672ca9/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.3_2026-10-16.md"
+    },
+    {
+      "key": "B12",
+      "label": "Scope Recovery execution v0.4",
+      "ref": "a03742ed07d00d36e3436f64a17e92c40a51064e",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.4_2026-10-17.md",
+      "blob_sha": "a7559e6071cf388668d4f55115eedf102341711c",
+      "sections": "ER11-04–07、normal entry、首次 materialize",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a03742ed07d00d36e3436f64a17e92c40a51064e/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.4_2026-10-17.md"
+    },
+    {
+      "key": "B13",
+      "label": "Scope Recovery execution v0.5",
+      "ref": "f67ac9155c1a844f171afbeef03e8169b8eec6fc",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md",
+      "blob_sha": "2e319be50fd3a96d4f8fcdd4935c4ff2bb6f216d",
+      "sections": "shared app-server、notifier setup、Control authority",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/f67ac9155c1a844f171afbeef03e8169b8eec6fc/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md"
+    },
+    {
+      "key": "B14",
+      "label": "Scope Recovery execution v0.6",
+      "ref": "ae15269908dbe5b7666bb347897b8839dfd0fb49",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.6_2026-10-18.md",
+      "blob_sha": "fd808130cff8d15aa5cc0257d3d35dbd6062a302",
+      "sections": "ER11-08–13、full functional",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ae15269908dbe5b7666bb347897b8839dfd0fb49/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.6_2026-10-18.md"
+    },
+    {
+      "key": "B15",
+      "label": "v0.6 全平台 quiescence 与 reader isolation 硬化",
+      "ref": "16ae5fefe8747e54a6db60bd155311daff1efed7",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/16ae5fefe8747e54a6db60bd155311daff1efed7"
+    },
+    {
+      "key": "B16",
+      "label": "向 Control Critic 添加产品审查责任",
+      "ref": "fa560cb36f8203866e9d3e237d6879578377be0e",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/fa560cb36f8203866e9d3e237d6879578377be0e"
+    },
+    {
+      "key": "B17",
+      "label": "撤销 Control Critic 责任扩张",
+      "ref": "4fdae84d99b53b442fb3cafd04c4c7a5722061d3",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/4fdae84d99b53b442fb3cafd04c4c7a5722061d3"
+    },
+    {
+      "key": "B18",
+      "label": "v0.7 execution-ready REVISE",
+      "ref": "ace8f6507e61e6b53af5a3e83ba01c275ee6fc9c",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.7_2026-10-18.md",
+      "blob_sha": "d035b3b6cdad549b9164ace183d3c4ff03a09cba",
+      "sections": "两处 summary 与 quiescence 规则冲突",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ace8f6507e61e6b53af5a3e83ba01c275ee6fc9c/docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.7_2026-10-18.md"
+    },
+    {
+      "key": "B19",
+      "label": "Scope Recovery v0.8 plan",
+      "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+      "blob_sha": "efe7f0322da4d377994183ce03ff44dd54085eb3",
+      "sections": "R7 修复、reader、G14",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md"
+    },
+    {
+      "key": "B20",
+      "label": "v0.8 execution-ready PASS",
+      "ref": "35a976e79c036f6e68ba70e9d2364abc1c274a45",
+      "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+      "blob_sha": "698b06ed82ae1ef8907f3857f1a081ebf8b8e03c",
+      "sections": "R0 与执行授权阶段界限",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/35a976e79c036f6e68ba70e9d2364abc1c274a45/docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md"
+    },
+    {
+      "key": "B21",
+      "label": "第二批 full-functional 实现",
+      "ref": "e0f7a328a76e464d154cd1a4295b563b473f8023",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/e0f7a328a76e464d154cd1a4295b563b473f8023"
+    },
+    {
+      "key": "B22",
+      "label": "app-server transport 与 development canary",
+      "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/511164258101e426da62c96b12e9803e8e7bd8a5"
+    },
+    {
+      "key": "B23",
+      "label": "真实 development canary 原始记录",
+      "ref": "da9f6d2b34c00e87e00622b9234bbada786c1760",
+      "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+      "sections": "observations / runtime_capability_gaps",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/da9f6d2b34c00e87e00622b9234bbada786c1760/results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json"
+    },
+    {
+      "key": "B24",
+      "label": "Product Scope Reset Proposal v0.1",
+      "ref": "0120b99a501e4193078233bc4ec824dcb1dcac75",
+      "path": "docs/design/0.11.0_product_scope_reset_proposal_v0.1_2026-10-19.md",
+      "blob_sha": "36599480e61c0bb652c62c1131db14ed46b01aba",
+      "sections": "§1–§7",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0120b99a501e4193078233bc4ec824dcb1dcac75/docs/design/0.11.0_product_scope_reset_proposal_v0.1_2026-10-19.md"
+    },
+    {
+      "key": "B25",
+      "label": "Reset Proposal Critic REVISE",
+      "ref": "d293e525491b7db823435e15ffa3318bed251960",
+      "path": "docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md",
+      "blob_sha": "c9f84179e07133925bd62f28d3168c84475de8ab",
+      "sections": "Clear Writing、dirty scope、Persistent recovery、migration",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/d293e525491b7db823435e15ffa3318bed251960/docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md"
+    },
+    {
+      "key": "B26",
+      "label": "Reset Proposal v0.2",
+      "ref": "ce77f24e5dadd083d4beecf9b6e922e94192b372",
+      "path": "docs/design/0.11.0_product_scope_reset_proposal_v0.2_2026-10-19.md",
+      "blob_sha": "f9edd328829e8b68f53aaa6520d1bea9cf0395cf",
+      "sections": "五能力、migration",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ce77f24e5dadd083d4beecf9b6e922e94192b372/docs/design/0.11.0_product_scope_reset_proposal_v0.2_2026-10-19.md"
+    },
+    {
+      "key": "B27",
+      "label": "Reset design PASS",
+      "ref": "4ccc40cc5ab061bb1fbbd74f34b5d9976ad10122",
+      "path": "docs/design/0.11.0_product_scope_reset_critic_review_v0.2_2026-10-19.md",
+      "blob_sha": "aa45de049e13f329aecbf9b8c10dfded035f8b3b",
+      "sections": "逐 finding 关闭",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/4ccc40cc5ab061bb1fbbd74f34b5d9976ad10122/docs/design/0.11.0_product_scope_reset_critic_review_v0.2_2026-10-19.md"
+    },
+    {
+      "key": "B28",
+      "label": "Reset execution plan v0.1",
+      "ref": "a0ff37926dba44993f29c680d5a355221fc55c72",
+      "path": "docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md",
+      "blob_sha": "633b8b13dda2aa8c6fcc2211ddc80dbaff43ef1c",
+      "sections": "C1–C5",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a0ff37926dba44993f29c680d5a355221fc55c72/docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md"
+    },
+    {
+      "key": "B29",
+      "label": "Reset execution-ready PASS",
+      "ref": "a9c03b4a36c185aa98b00006c08ef600ba77d094",
+      "path": "docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md",
+      "blob_sha": "fe81c8ff6918a3929b22a6259be307073eff4ddd",
+      "sections": "§3、§7、§8、§12",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a9c03b4a36c185aa98b00006c08ef600ba77d094/docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md"
+    },
+    {
+      "key": "B30",
+      "label": "Reset 实施 checkpoint",
+      "ref": "be4a97949e65690fcfc236956de3e89768079b77",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/be4a97949e65690fcfc236956de3e89768079b77"
+    },
+    {
+      "key": "B31",
+      "label": "Integrated architecture v3",
+      "ref": "894f8bb3eb99e6363902febd08bccae73d517d1c",
+      "path": "docs/design/0.11.0_integrated_product_architecture_v3_2026-10-19.md",
+      "blob_sha": "fa77fe672c0073d91049a0c5c37cd543b7888845",
+      "sections": "八个 V2 blocker；共享 notifier；progress owner；恢复",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/894f8bb3eb99e6363902febd08bccae73d517d1c/docs/design/0.11.0_integrated_product_architecture_v3_2026-10-19.md"
+    },
+    {
+      "key": "B32",
+      "label": "Integrated architecture v4",
+      "ref": "61004a64effacad08c792140fafbf5a72ea874bf",
+      "path": "docs/design/0.11.0_integrated_product_architecture_v4_2026-10-19.md",
+      "blob_sha": "43e2613b90ad83c2872d7e78b5a45bff7e6e9bd7",
+      "sections": "单一 machine config authority",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/61004a64effacad08c792140fafbf5a72ea874bf/docs/design/0.11.0_integrated_product_architecture_v4_2026-10-19.md"
+    },
+    {
+      "key": "B33",
+      "label": "Integrated v4 实施",
+      "ref": "542832ed098013148c8bc8c53b7a59a6878bb014",
+      "path": null,
+      "sections": "commit diff",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/542832ed098013148c8bc8c53b7a59a6878bb014"
+    },
+    {
+      "key": "B34",
+      "label": "Final repair v6",
+      "ref": "2813318a7a5b4763e8f6b0a12d8d659cb193a09b",
+      "path": "docs/design/0.11.0_integrated_product_architecture_v6_2026-10-20.md",
+      "blob_sha": "b9abcb804e0a7f153ce84c91c55366cd5ecd89d3",
+      "sections": "正式 writing-style route 与最小修订",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2813318a7a5b4763e8f6b0a12d8d659cb193a09b/docs/design/0.11.0_integrated_product_architecture_v6_2026-10-20.md"
+    },
+    {
+      "key": "B35",
+      "label": "0.11.0 正常入口最终实施验收",
+      "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+      "path": "results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md",
+      "blob_sha": "75f37a654f2918d247e8ea01477609ca9521f909",
+      "sections": "真实 child、两次模型、两次 Gmail、边界",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md"
+    },
+    {
+      "key": "B36",
+      "label": "0.11.1 正式发行与 Longleaf closure",
+      "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+      "path": "results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md",
+      "blob_sha": "550f1896465b40d5a13af21ac116f0afe0adb551",
+      "sections": "cadence patch、release readback、496 tests",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md"
+    },
+    {
+      "key": "B37",
+      "label": "0.11.1 发布后正常入口审查",
+      "ref": "71ad6874c1cde41548eb66a6c32cea615e055407",
+      "path": "docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.1_2026-10-22.md",
+      "blob_sha": "1bfe7449d74e2f575fe2443fefeb58e9b8bf607a",
+      "sections": "§0、§1.2、§3、§4",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/71ad6874c1cde41548eb66a6c32cea615e055407/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.1_2026-10-22.md"
+    },
+    {
+      "key": "B38",
+      "label": "0.11.2 candidate prefinal handoff",
+      "ref": "2813318a7a5b4763e8f6b0a12d8d659cb193a09b",
+      "path": "results/bridge-core--normal-entry-acceptance/PREFINAL_CRITIC_HANDOFF.md",
+      "blob_sha": "3014fec3fea748edf511b25c01783329b8b3fcd1",
+      "sections": "非 live 证据，未发布",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2813318a7a5b4763e8f6b0a12d8d659cb193a09b/results/bridge-core--normal-entry-acceptance/PREFINAL_CRITIC_HANDOFF.md"
+    },
+    {
+      "key": "B39",
+      "label": "初始 snapshot 已存在的 Persistent 主动进度 TODO",
+      "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+      "path": "docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md",
+      "blob_sha": "c708974f64817948a43db29ea9ea822e106af5f6",
+      "sections": "Sept23 用户确认；主动周期报告；领域 producer",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md"
+    },
+    {
+      "key": "B40",
+      "label": "0.11.1 closure 当时已存在的 candidate audit/C4 原始证据索引",
+      "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+      "path": "results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md",
+      "blob_sha": "ce3a75eedaaa390664aa0c1875caffd14537d710",
+      "sections": "C4 615秒量化进度，Notify OFF",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md"
+    },
+    {
+      "key": "B41",
+      "label": "检查器修正前的初始 development canary",
+      "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+      "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+      "blob_sha": "6ef44e62793cc997a997a9af01c63d4f5cb98094",
+      "sections": "原始 display validation failure 与 reader 诊断",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/511164258101e426da62c96b12e9803e8e7bd8a5/results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json"
+    },
+    {
+      "key": "B42",
+      "label": "0.11.0 正式 release 推进与远端读回原始证据",
+      "ref": "1eb93341db9af42c2ced19a3e0fbb0dfb3bdca51",
+      "path": "results/bridge-core--product-scope-reset/v6/391ff88/FORMAL_RELEASE_CLOSURE.json",
+      "sections": "RELEASE_NEW_SHA、REMOTE_RELEASE_READBACK、consumer version",
+      "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/1eb93341db9af42c2ced19a3e0fbb0dfb3bdca51/results/bridge-core--product-scope-reset/v6/391ff88/FORMAL_RELEASE_CLOSURE.json"
+    }
+  ]
+}

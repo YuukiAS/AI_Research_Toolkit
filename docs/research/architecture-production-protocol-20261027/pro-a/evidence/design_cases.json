@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "run_id": "pro-a",
+  "analysis_mode": "RETROSPECTIVE_ANALYSIS_NOT_BLIND",
+  "cases": [
+    {
+      "case_id": "R-DA-01",
+      "project": "Delivery Assurance",
+      "kind": "DESIGN_ONLY_SCOPE_CONTROL",
+      "classification": [
+        "DESIGN_GAP",
+        "EVIDENCE_GAP",
+        "OTHER"
+      ],
+      "observed": "Earlier user gap register demands actual mechanisms/consumers/normal entry; later staged package explicitly preserves READY_FOR_CODEX=NO and first host probe scope. No production implementation claimed.",
+      "sources": [
+        {
+          "repository": "YuukiAS/AI_Research_Toolkit",
+          "ref": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/00_USER_REQUIREMENTS_AND_GAPS.md",
+          "blob": "346a8b393388c0085a6a6433c3e3a2c2178f9129",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/00_USER_REQUIREMENTS_AND_GAPS.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        {
+          "repository": "YuukiAS/AI_Research_Toolkit",
+          "ref": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md",
+          "blob": "36ee75c7e3dfceca5dfab3dbf9adce5d7c9b7520",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        {
+          "repository": "YuukiAS/AI_Research_Toolkit",
+          "ref": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+          "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/12_STAGED_EXECUTION_REVIEW_PACKAGE.md",
+          "blob": "b01b093e246abbd0f083a304c28fa1bb33e9a70e",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/12_STAGED_EXECUTION_REVIEW_PACKAGE.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        }
+      ],
+      "inference": "Concrete capability wiring and evidence-bound P0 prevent a design PROCEED from being misread as product enabled.",
+      "strict_blind_test_eligible": false,
+      "reason": "Sources establish design evolution and honest scope; no sealed pre-discovery product failure replay was executed.",
+      "expected_policy": "Keep stage and authorization distinct; only an exact authorized probe may proceed."
+    },
+    {
+      "case_id": "R-AST-01",
+      "project": "Asteria",
+      "kind": "CURRENT_IMPLEMENTATION_SCOPE_CONTROL",
+      "classification": [
+        "OTHER"
+      ],
+      "observed": "rc.19 product and fixed fixture bridge have explicit limited implementation/evidence scope; live GitHub ingestion is not implemented.",
+      "sources": [
+        {
+          "repository": "YuukiAS/Asteria",
+          "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+          "path": "README.md",
+          "blob": "98b0c3ab190de8a6674a302f29801ab04621b672",
+          "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/README.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        {
+          "repository": "YuukiAS/Asteria",
+          "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+          "path": "src/architecture/schema.ts",
+          "blob": "675fd706b615ec8b0ec34699a10e18888f2ec321",
+          "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/schema.ts",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        {
+          "repository": "YuukiAS/Asteria",
+          "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+          "path": "src/architecture/repositoryBridge.ts",
+          "blob": "d1dca56694bc48f054d7ca8d32677491a340db5f",
+          "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/repositoryBridge.ts",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        {
+          "repository": "YuukiAS/Asteria",
+          "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+          "path": "results/asteria--rc19-layout-first-graph-convergence/result.md",
+          "blob": "4ddc5ac763da785ceb52b70e5ee8244d46f2ba02",
+          "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/results/asteria--rc19-layout-first-graph-convergence/result.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        }
+      ],
+      "inference": "A completeness contract may reuse semantics but cannot claim current Asteria already enforces generic Freeze.",
+      "strict_blind_test_eligible": false,
+      "reason": "Current fixed-ref scope analysis, not prospective detection.",
+      "expected_policy": "Separate proposed contract from installed tool and preserve independent product acceptance."
+    },
+    {
+      "case_id": "R-SHOW-01",
+      "project": "complex-system-showcase",
+      "kind": "SHARED_PRODUCT_BLINDSPOT",
+      "classification": [
+        "DESIGN_GAP",
+        "EVIDENCE_GAP"
+      ],
+      "observed": "Two evaluated candidates still required later editorial/product corrections to repetitive fields and readability.",
+      "sources": [
+        {
+          "repository": "YuukiAS/AI_Research_Toolkit",
+          "ref": "515c66acd5aa0c972ef5b0e97e336894d1932a8c",
+          "path": "docs/research/complex-system-showcase-20261026/r2/comparison/COMPARISON.md",
+          "blob": "f7d3f0419d520773dac5825f40f8877f3cdc505c",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/515c66acd5aa0c972ef5b0e97e336894d1932a8c/docs/research/complex-system-showcase-20261026/r2/comparison/COMPARISON.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        {
+          "repository": "YuukiAS/AI_Research_Toolkit",
+          "ref": "ce8442b799e0096b79367da701289255bfa23bd3",
+          "path": "docs/research/complex-system-showcase-20261026/r2/editorial-audit/EDITORIAL_AND_CURATION_AUDIT.md",
+          "blob": "6940169e9b484fd39cb326cd5e32f008a643dc72",
+          "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ce8442b799e0096b79367da701289255bfa23bd3/docs/research/complex-system-showcase-20261026/r2/editorial-audit/EDITORIAL_AND_CURATION_AUDIT.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        }
+      ],
+      "inference": "More candidates and structural completeness cannot guarantee good product presentation; independent original-user task review can add a different perspective.",
+      "strict_blind_test_eligible": false,
+      "reason": "Researcher read both later comparison and audit; did not independently render original prototypes.",
+      "expected_policy": "Targeted product acceptance rather than more mandatory completeness UI fields."
+    }
+  ]
+}

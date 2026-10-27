@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "run_id": "pro-a",
+  "validated_date_utc": "2026-10-27",
+  "scope": "Research deliverables only; no production deployment or runtime experiment",
+  "python_execution_exit_codes": {
+    "routing_selector": 0,
+    "sensitivity": 0,
+    "cat_standard_library_recheck": 0,
+    "stat_exact_function_recheck": 0
+  },
+  "routing_scenarios_checked": 23,
+  "json_and_python_syntax": "PASS",
+  "relative_markdown_links_checked": 74,
+  "relative_markdown_link_errors": [],
+  "benchmark_records": 24,
+  "strict_workflow_benchmark_run": false,
+  "isolated_input_micro_replays": 2,
+  "micro_replay_archived_hashes": "PASS",
+  "results": [
+    {
+      "result": "evidence/routing_results.json",
+      "parsed": true,
+      "sha256": "a020443b82e8f3da4a4f99cb2f8fac77180b50eb2c5066828311348695602fca"
+    },
+    {
+      "result": "evidence/cat_zero_probe_recheck.json",
+      "parsed": true,
+      "sha256": "edda1831e78d45132e413aa0f02c2a328fc0694722040851fce070b7874ccc91"
+    },
+    {
+      "result": "evidence/stat_positive_path_recheck.json",
+      "parsed": true,
+      "sha256": "bf6393144e6ed1daf743fa4b0be641d5a68d339b7afc7eacc32fff224f3532f0"
+    },
+    {
+      "result": "evidence/sensitivity_results.json",
+      "parsed": true,
+      "sha256": "e59e7ef1d510333b9045747e7db19b20fb50d353b5d3468c1eb17767765d5f64"
+    }
+  ],
+  "resolved_boundary_findings": [
+    "Unknown issue dependencies now require an explicit list; missing dependencies return to architect.",
+    "Explicit user evidence deferral is preserved and applied by current Chat with original authorization, not forced into immediate probe or false Freeze.",
+    "Historical input eligibility excludes outcome-bearing current investigation/chronicle; exact October13 Slurm design reread at original and cutoff confirms same Git blob.",
+    "CAT/STAT/routing action labels distinguish before-outcome planning from after-outcome local repair."
+  ],
+  "limitations": [
+    "No claim that unit checks validate AI judgment or protocol efficiency.",
+    "Original historical mpmath script was NOT_RUN; independent standard-library alternative only.",
+    "STAT test inputs are TEST_DOUBLE and not actual qualified model evidence.",
+    "Runtime observations in historical source records were not rerun here.",
+    "Micro-replays use fresh context and instruction-only file isolation, not a full matched workflow experiment."
+  ],
+  "files_excluding_this_manifest": [
+    {
+      "path": "ASTERIA_COMPLETENESS_ROLE.md",
+      "bytes": 9596,
+      "sha256": "2cd72420462cfc50be3f2276c566eb5cbdab022bfb8d3c85e9068eb5f9e84e41",
+      "git_blob_sha1": "520a14e27d54cf17ebf6b915571edb4361429b43"
+    },
+    {
+      "path": "BASELINE_PLANNER_CRITIC.md",
+      "bytes": 7570,
+      "sha256": "6f671c0a096f9be99c7571226ea32d515286810e671187bcf0241a368cbca324",
+      "git_blob_sha1": "47e9bcc49ca0ec062d258da00be5f4d6a00fa3b7"
+    },
+    {
+      "path": "BENCHMARK_DATA.json",
+      "bytes": 8493,
+      "sha256": "7b1e57c7e5347fa82926dd75cf968614e42a3d0814babc2f2b15cb5c8fbd94f9",
+      "git_blob_sha1": "cc3b9cd4eb2f249b8efb35b5606a9906f437753c"
+    },
+    {
+      "path": "BRIDGE_KIT_011_FAILURE_ANALYSIS.md",
+      "bytes": 41414,
+      "sha256": "55ddfb34568bc3454aa8ed0b29163320b877531859cbe594e5dd7fdb7487cbe2",
+      "git_blob_sha1": "f5fc6e7374544b3c744747179a423237c4b72432"
+    },
+    {
+      "path": "CALIBRATION_PLAN.md",
+      "bytes": 10270,
+      "sha256": "f4886e46ede68967a550332f6aacae39e413c59ff051ac838ee66c10fadba582",
+      "git_blob_sha1": "7ff0973854594a990a2a712d3de125f1f8a48e0a"
+    },
+    {
+      "path": "CANDIDATE_PROTOCOLS.md",
+      "bytes": 8957,
+      "sha256": "fd490fe095fe4132e0ccce7af3c1d5623cca89a579fb80edd3cebe7384fe8ba0",
+      "git_blob_sha1": "23d8255b1133603fcbae8101cc02292ccc4e4735"
+    },
+    {
+      "path": "CROSS_PROJECT_CASES.md",
+      "bytes": 21921,
+      "sha256": "3041a2bcfcaebdd88b751f706fcc931c23ed2ca36e8f8e83e720cd2413775e03",
+      "git_blob_sha1": "1d64568823bf23dcd17c884ec29b00c9f3ccf8f3"
+    },
+    {
+      "path": "DYNAMIC_ROUTING_POLICY.md",
+      "bytes": 11336,
+      "sha256": "d73a3d224d0368c4231880fb2a9556146207eb52081cf6a7d71be429ada00b87",
+      "git_blob_sha1": "b5529b3392ca41a6d1c043f9ca02f2d188f9a08d"
+    },
+    {
+      "path": "FINAL_PROTOCOL.md",
+      "bytes": 14087,
+      "sha256": "1fd30fe9814b7756965dc2df223d016c949c9ed7c963ad1f5c1bd503cfae598a",
+      "git_blob_sha1": "9b2e04c8e224e77975f4547c793b0b4a260450f0"
+    },
+    {
+      "path": "FREEZE_AND_HANDOFF.md",
+      "bytes": 9255,
+      "sha256": "74d76b90a52bdb4bb6b1abcfb1167d8c35f35576ab30a87c7b639202e2774df3",
+      "git_blob_sha1": "b7dbe9c35fe069e58ff9f5d08c246341576fee01"
+    },
+    {
+      "path": "HISTORICAL_BENCHMARK.md",
+      "bytes": 16931,
+      "sha256": "75a9f334935ad25ffa3ee897e7458b3e30e120e02de42fd45d29f831b4d90640",
+      "git_blob_sha1": "68efd1bf52c91857ed12b1497debee1619386363"
+    },
+    {
+      "path": "IMPLEMENTATION_READINESS_CHALLENGE.md",
+      "bytes": 6642,
+      "sha256": "d25da67ae85c1e6c364d1758a1ff3cd3afa9357af51192aae78045eda00b0bef",
+      "git_blob_sha1": "5b8f1665511270e529e0037fb26539a03e54eedd"
+    },
+    {
+      "path": "REFERENCES.md",
+      "bytes": 9135,
+      "sha256": "7e0b4062ef5d6d525cd4e6ccf725fc723e6dc1543e6873fdefeeb10c8137610f",
+      "git_blob_sha1": "514f7cbe6678451182148ad4f0252a0274c4a3d1"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 8181,
+      "sha256": "6e6fb0c888fb50f7f6ecdd0e359720c00ffcbb257816be6b462af2d4fc2075ec",
+      "git_blob_sha1": "afa3501126d59902b179799adf7cd523ac8b1d1e"
+    },
+    {
+      "path": "SENSITIVITY_ANALYSIS.md",
+      "bytes": 11189,
+      "sha256": "5d0a01b58d1af031dd1ab5dd85a45168489bc54b7a1e48fddde42b921fbcd4b1",
+      "git_blob_sha1": "47f0ee5ed3322a48bb37e2380af9eb6a0fd622d9"
+    },
+    {
+      "path": "SLURM_ROUTING_AND_CANCEL_FAILURE_ANALYSIS.md",
+      "bytes": 56299,
+      "sha256": "8f96a80e28afa419cef8133a14af3fbf3ece9d9fd98d509c8082f13fbcaea9a4",
+      "git_blob_sha1": "fedbbb1de61f78ae5215018f6fe9ffaaa8391adf"
+    },
+    {
+      "path": "analysis/README.md",
+      "bytes": 3379,
+      "sha256": "42993b363822621b4dcd723e37773c19ede0c11395eb022cdb51106e31e90a2b",
+      "git_blob_sha1": "5acb0e2be20fa1f8420eb06636ee6c5f36e7669e"
+    },
+    {
+      "path": "analysis/recheck_project_positive_path.py",
+      "bytes": 4797,
+      "sha256": "e8974d6ebb55623b2568c8a84ed59c6d3c493a7bf882d37a0b7cddb08eff23ba",
+      "git_blob_sha1": "1dc40adb8f934272710bebd667e30bca14487f07"
+    },
+    {
+      "path": "analysis/recheck_zero_slot.py",
+      "bytes": 2502,
+      "sha256": "056b2b00893c92af95b0820bde5ee5804fd3ba69adf879ea0f69b4b7381b1153",
+      "git_blob_sha1": "33cd628436bc5f26de6f448e04bb8f73389f4443"
+    },
+    {
+      "path": "analysis/routing_scenarios.json",
+      "bytes": 16776,
+      "sha256": "c1cadf3766fa541161f4f7deabcefec0ceb620d6e347dfd1d3bfff94018c54d6",
+      "git_blob_sha1": "5ec435b446bde092b93265317a8d446414c2d430"
+    },
+    {
+      "path": "analysis/routing_selector.py",
+      "bytes": 6714,
+      "sha256": "439cb9391dcfcfe7788359de4e65781beb653a84df9865808d8714c2c22f4762",
+      "git_blob_sha1": "18b207430cc07032274c95b12e966cfc310eb83f"
+    },
+    {
+      "path": "analysis/sensitivity.py",
+      "bytes": 10135,
+      "sha256": "12f5b6053cae96c73371a933b28ad9de968a707e6ca0e55b09a05dedf5f3ab35",
+      "git_blob_sha1": "8cb6e7d1cfe93d68b1afdfea30b51f708bd1f418"
+    },
+    {
+      "path": "evidence/CUTOFF_MICRO_REPLAY_REPORT.md",
+      "bytes": 3339,
+      "sha256": "4835298585461c7540198e8a5c800eb6a8f98873802a2cfb8752f21db01d1a34",
+      "git_blob_sha1": "9d5508415e35e292833d888785a6ff33f96cc648"
+    },
+    {
+      "path": "evidence/PRE_CUTOFF_INPUT_INDEX.json",
+      "bytes": 27702,
+      "sha256": "58df5f54596070c7198fa479cc943059d2f0b55fc5ed601b6348270376750abc",
+      "git_blob_sha1": "708bfb289228837c5c0ec1d432bc92e72b4c814f"
+    },
+    {
+      "path": "evidence/bridge_cases.json",
+      "bytes": 54148,
+      "sha256": "85cfc8605efd17c6157b1805bdb82d8f833cf21ea19ef2c9278063e2ee7338b3",
+      "git_blob_sha1": "671eed7e7a74fc6c78f14be75ee96686ec688b35"
+    },
+    {
+      "path": "evidence/cat_zero_probe_recheck.json",
+      "bytes": 1764,
+      "sha256": "edda1831e78d45132e413aa0f02c2a328fc0694722040851fce070b7874ccc91",
+      "git_blob_sha1": "a671941ce8584e5f6d42371b523c94c390072fff"
+    },
+    {
+      "path": "evidence/cat_zero_probe_replay.json",
+      "bytes": 365,
+      "sha256": "f75c695bafdd5ba9d3d3549395d645663dd63613763aa81cb02dcd06952be996",
+      "git_blob_sha1": "d82c2b7ec1e888f8481261e130f2a4377c62b87d"
+    },
+    {
+      "path": "evidence/cross_cases.json",
+      "bytes": 20394,
+      "sha256": "4571c163615e67948cdac8f981ef53ec27dfc1c6172846a8a110c0c0eda05468",
+      "git_blob_sha1": "f4d6e15ce03e1cb6d0fbb6f920d08542208f0100"
+    },
+    {
+      "path": "evidence/cutoff_micro_replays.json",
+      "bytes": 5741,
+      "sha256": "0d564870d5e5ae5e27a1cebfd358d1fb26879532523461837515565b24d1b226",
+      "git_blob_sha1": "624a4ae7a7800d61e96d03e9df34d0f9f8f9bad2"
+    },
+    {
+      "path": "evidence/cutoff_replay_01.md",
+      "bytes": 10343,
+      "sha256": "6993fcd985b116941410ba2aa93a11b979106cfe7d5153cd028cf762cc5e527c",
+      "git_blob_sha1": "0412df0599d08f50971d3f29ee4151802a51af79"
+    },
+    {
+      "path": "evidence/cutoff_replay_02.md",
+      "bytes": 9357,
+      "sha256": "a968f84767e029028bc941bebe46fab56461ad2c3b69242548f7e7b3f6a6ec82",
+      "git_blob_sha1": "01be99acabce8c414218a3319b78e7b5a49974c1"
+    },
+    {
+      "path": "evidence/design_cases.json",
+      "bytes": 7422,
+      "sha256": "7792e90058f3bcf554bca0795eda50f281ba55ece9374e038466501e4a68da4a",
+      "git_blob_sha1": "424f23aed25d035e931a4ad47a9fa63b136d7eb2"
+    },
+    {
+      "path": "evidence/recheck_execution_manifest.json",
+      "bytes": 1139,
+      "sha256": "2d3b40801b0bcbebc5449ff7d61396654355b4bf8f7712edd78a258d91053dbc",
+      "git_blob_sha1": "40042690cfaf3dcc8b375219ca561fafee1fdc7a"
+    },
+    {
+      "path": "evidence/routing_results.json",
+      "bytes": 6864,
+      "sha256": "a020443b82e8f3da4a4f99cb2f8fac77180b50eb2c5066828311348695602fca",
+      "git_blob_sha1": "e52be31ff0128849b02ce73099c8f3aedb07ae3f"
+    },
+    {
+      "path": "evidence/sensitivity_results.json",
+      "bytes": 16647,
+      "sha256": "e59e7ef1d510333b9045747e7db19b20fb50d353b5d3468c1eb17767765d5f64",
+      "git_blob_sha1": "13929387b267318402e63a8cc822c02b6b28e25d"
+    },
+    {
+      "path": "evidence/slurm_cases.json",
+      "bytes": 92156,
+      "sha256": "9dc5a1195f9e89ac5df1271232165b4b58bfb5fd99902fe6b34144e8584d23d2",
+      "git_blob_sha1": "cda913edb020342c0055572b2d76fe2c1dfba47f"
+    },
+    {
+      "path": "evidence/source_manifest_bridge.json",
+      "bytes": 20394,
+      "sha256": "185ca763e2655af24fe0f4c7b48d84512f5b1846ed906be687ccabde0babd16b",
+      "git_blob_sha1": "5033b2d0062f6135c7f5d030ba507ff715037a4f"
+    },
+    {
+      "path": "evidence/source_manifest_cross.json",
+      "bytes": 15249,
+      "sha256": "75bcc190379677bc70831b4632d82cf8b47fe7f61a70f3e6a4d4de1736169e64",
+      "git_blob_sha1": "2ba246a49ae92421ec6e4c3f50420f2793a2bcca"
+    },
+    {
+      "path": "evidence/source_manifest_root.json",
+      "bytes": 12246,
+      "sha256": "7171b3803ab7c7985e1e9ae3f6b1b775cf85f2a2ee95574bffd13162d5d34336",
+      "git_blob_sha1": "d9dab8eb05e98fcfa50a9dce85e422a4fa541b3e"
+    },
+    {
+      "path": "evidence/source_manifest_slurm.json",
+      "bytes": 66141,
+      "sha256": "d323f2fad66c27dc93e737000e8a21bd0b8166e7bd14c116ce990b975ae84528",
+      "git_blob_sha1": "ab446511a2147cbd8301eddae7d2af091fc251a4"
+    },
+    {
+      "path": "evidence/stat_positive_path_recheck.json",
+      "bytes": 2161,
+      "sha256": "bf6393144e6ed1daf743fa4b0be641d5a68d339b7afc7eacc32fff224f3532f0",
+      "git_blob_sha1": "b6d9bf6989448f1f74a87c9160084bdf5242cf66"
+    }
+  ]
+}

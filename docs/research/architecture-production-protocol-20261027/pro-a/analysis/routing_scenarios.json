@@ -1,0 +1,618 @@
+[
+  {
+    "id": "bridge_reader_unknown",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Known critical premise has only fixture evidence.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "reader-isolation",
+          "kind": "FACT_RUNTIME",
+          "high_impact": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "CODEX_MINIMAL_PROBE"
+  },
+  {
+    "id": "bridge_missing_caller",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Codex would have to invent periodic ownership.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "periodic-owner",
+          "kind": "CORE_DESIGN",
+          "high_impact": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "RETURN_TO_ARCHITECT"
+  },
+  {
+    "id": "slurm_fake_confirm_authority",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Evidence has refuted the chosen authority boundary.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "same-uid-token",
+          "kind": "CORE_CHANGE",
+          "high_impact": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "RETURN_TO_ARCHITECT"
+  },
+  {
+    "id": "slurm_runtime_plus_blindspot",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Two independent questions are ready in the same wave.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "host-failure",
+          "kind": "FACT_RUNTIME",
+          "high_impact": true,
+          "can_parallel": true,
+          "depends_on": []
+        },
+        {
+          "id": "ordinary-command-path",
+          "kind": "BLINDSPOT",
+          "high_impact": true,
+          "can_parallel": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "CODEX_MINIMAL_PROBE"
+  },
+  {
+    "id": "slurm_timezone_bug",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Observed implementation violates a frozen timezone contract.",
+    "input": {
+      "stage": "implementation",
+      "issues": [
+        {
+          "id": "timezone-consumer",
+          "kind": "IMPLEMENTATION_BUG",
+          "high_impact": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true,
+      "scope_frozen": true
+    },
+    "expected_next_action": "LOCAL_CODEX_FIX"
+  },
+  {
+    "id": "clear_writing_source_unknown",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Check original source before attributing a formula mismatch.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "source-attribution",
+          "kind": "FACT_READ",
+          "high_impact": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "CODEX_FACT_CHECK"
+  },
+  {
+    "id": "competing_core_routes",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Distinct feasible routes alter ownership and migration cost.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "core-route",
+          "kind": "ROUTE_COMPETITION",
+          "high_impact": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "SECOND_INDEPENDENT_DESIGN"
+  },
+  {
+    "id": "product_options_not_prepared",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Do useful preparation before asking a product question.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "scope",
+          "kind": "PRODUCT_DECISION",
+          "high_impact": true,
+          "options_prepared": false,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "RETURN_TO_ARCHITECT"
+  },
+  {
+    "id": "product_options_prepared",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Remaining value choice is genuinely not inferable.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "scope",
+          "kind": "PRODUCT_DECISION",
+          "high_impact": true,
+          "options_prepared": true,
+          "depends_on": []
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "USER_PRODUCT_DECISION"
+  },
+  {
+    "id": "cold_reader_pending",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Complete candidate still needs a cold implementer for L scope.",
+    "input": {
+      "stage": "design",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": false,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "CODEX_READINESS_CHALLENGE"
+  },
+  {
+    "id": "ready_for_implementation",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "All supplied evidence judgments and permissions are positive.",
+    "input": {
+      "stage": "design",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "FREEZE_AND_IMPLEMENT"
+  },
+  {
+    "id": "design_only_complete",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "User asked for architecture only.",
+    "input": {
+      "stage": "design",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": false,
+      "execution_authorized": true
+    },
+    "expected_next_action": "FREEZE_AND_END"
+  },
+  {
+    "id": "new_execution_permission",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "A concrete package exists but new effects need authorization.",
+    "input": {
+      "stage": "design",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": false
+    },
+    "expected_next_action": "USER_EXECUTION_AUTHORIZATION"
+  },
+  {
+    "id": "missing_premise_gate",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Unknown must not silently become true.",
+    "input": {
+      "stage": "design",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "RETURN_TO_ARCHITECT"
+  },
+  {
+    "id": "fixture_is_not_runtime",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Explicit unproved premise prevents freeze even without a classified issue.",
+    "input": {
+      "stage": "design",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": null,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "RETURN_TO_ARCHITECT"
+  },
+  {
+    "id": "implementation_verification",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Known design exists; actual candidate is still unverified.",
+    "input": {
+      "stage": "implementation",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true,
+      "scope_frozen": true,
+      "verification_passed": false
+    },
+    "expected_next_action": "CODEX_VERIFY"
+  },
+  {
+    "id": "independent_product_acceptance",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Actual tests pass; product quality still needs independent judgment.",
+    "input": {
+      "stage": "acceptance",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true,
+      "scope_frozen": true,
+      "verification_passed": true,
+      "independent_acceptance_required": true,
+      "acceptance_passed": false
+    },
+    "expected_next_action": "WORK_FINAL_ACCEPTANCE"
+  },
+  {
+    "id": "task_complete",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "No reason to add another review once required evidence is complete.",
+    "input": {
+      "stage": "acceptance",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true,
+      "scope_frozen": true,
+      "verification_passed": true,
+      "independent_acceptance_required": true,
+      "acceptance_passed": true
+    },
+    "expected_next_action": "CLOSE_TASK"
+  },
+  {
+    "id": "local_change_done",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "No independent product judgment required by this bounded change.",
+    "input": {
+      "stage": "implementation",
+      "issues": [],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true,
+      "scope_frozen": true,
+      "verification_passed": true,
+      "independent_acceptance_required": false
+    },
+    "expected_next_action": "CLOSE_TASK"
+  },
+  {
+    "id": "cyclic_dependencies",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "A broken input dependency graph cannot result in freeze.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "a",
+          "kind": "FACT_READ",
+          "high_impact": true,
+          "depends_on": [
+            "b"
+          ]
+        },
+        {
+          "id": "b",
+          "kind": "CORE_DESIGN",
+          "high_impact": true,
+          "depends_on": [
+            "a"
+          ]
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "RETURN_TO_ARCHITECT"
+  },
+  {
+    "id": "fact_before_product",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Product options depend on an unresolved factual input.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "fact",
+          "kind": "FACT_READ",
+          "high_impact": true,
+          "depends_on": []
+        },
+        {
+          "id": "product",
+          "kind": "PRODUCT_DECISION",
+          "high_impact": true,
+          "options_prepared": true,
+          "depends_on": [
+            "fact"
+          ]
+        }
+      ],
+      "gates": {
+        "capabilities": true,
+        "mechanisms": true,
+        "paths": true,
+        "premises": true,
+        "findings": true,
+        "scope_identity": true
+      },
+      "readiness_required": true,
+      "readiness_passed": true,
+      "execution_requested": true,
+      "execution_authorized": true
+    },
+    "expected_next_action": "CODEX_FACT_CHECK"
+  },
+  {
+    "id": "missing_dependencies",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Unknown issue dependencies are not an empty dependency list.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "unclassified-runtime",
+          "kind": "FACT_RUNTIME"
+        }
+      ]
+    },
+    "expected_next_action": "RETURN_TO_ARCHITECT"
+  },
+  {
+    "id": "explicit_user_probe_deferral",
+    "state_status": "ASSUMED_FOR_RULE_CHECK",
+    "explanation": "Apply concrete existing authorization inside current Chat; do not force probe or falsely freeze.",
+    "input": {
+      "stage": "design",
+      "issues": [
+        {
+          "id": "runtime-not-tested",
+          "kind": "FACT_RUNTIME",
+          "depends_on": []
+        }
+      ],
+      "explicit_evidence_deferral": true,
+      "authorization_ref": "ASSUMED_USER_INSTRUCTION_REFERENCE",
+      "authorized_candidate_scope": "ASSUMED_CODE_ONLY_CANDIDATE_SCOPE",
+      "scope_frozen": false
+    },
+    "expected_next_action": "APPLY_EXISTING_USER_DECISION"
+  }
+]

@@ -1,0 +1,622 @@
+{
+  "schema_version": 1,
+  "purpose": "Reproducible assumed-parameter sensitivity and scheduling examples only",
+  "empirical_probability_estimates": false,
+  "numeric_encoding": "Exact decimal quantities are strings; counts and synthetic durations are integers",
+  "script_sha256": "12f5b6053cae96c73371a933b28ad9de968a707e6ca0e55b09a05dedf5f3ab35",
+  "expected_value_grid": {
+    "parameter_status": "ASSUMED",
+    "real_parameter_status": {
+      "p": "UNKNOWN",
+      "q": "UNKNOWN",
+      "L": "UNKNOWN",
+      "R": "UNKNOWN",
+      "c": "UNKNOWN"
+    },
+    "assumed_model": "Delta = p*q*(L-R)-c; k=c/(L-R); Delta/(L-R)=p*q-k",
+    "conditions": [
+      "L > R; c and L-R use the same cost unit",
+      "p is probability of the relevant flaw, q is conditional actionable detection given that flaw",
+      "L-R is the loss reduction if detection leads to correction",
+      "No empirical estimate or independence across reviewers is asserted"
+    ],
+    "grid_is_not_a_probability_distribution": true,
+    "grid": [
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.1",
+        "k": "0.01",
+        "p_times_q": "0.002",
+        "normalized_net_value": "-0.008",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.1",
+        "k": "0.05",
+        "p_times_q": "0.002",
+        "normalized_net_value": "-0.048",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.1",
+        "k": "0.2",
+        "p_times_q": "0.002",
+        "normalized_net_value": "-0.198",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.1",
+        "k": "0.5",
+        "p_times_q": "0.002",
+        "normalized_net_value": "-0.498",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.4",
+        "k": "0.01",
+        "p_times_q": "0.008",
+        "normalized_net_value": "-0.002",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.4",
+        "k": "0.05",
+        "p_times_q": "0.008",
+        "normalized_net_value": "-0.042",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.4",
+        "k": "0.2",
+        "p_times_q": "0.008",
+        "normalized_net_value": "-0.192",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.4",
+        "k": "0.5",
+        "p_times_q": "0.008",
+        "normalized_net_value": "-0.492",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.8",
+        "k": "0.01",
+        "p_times_q": "0.016",
+        "normalized_net_value": "0.006",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.8",
+        "k": "0.05",
+        "p_times_q": "0.016",
+        "normalized_net_value": "-0.034",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.8",
+        "k": "0.2",
+        "p_times_q": "0.016",
+        "normalized_net_value": "-0.184",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.02",
+        "q": "0.8",
+        "k": "0.5",
+        "p_times_q": "0.016",
+        "normalized_net_value": "-0.484",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.1",
+        "k": "0.01",
+        "p_times_q": "0.01",
+        "normalized_net_value": "0.00",
+        "sign": "ZERO"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.1",
+        "k": "0.05",
+        "p_times_q": "0.01",
+        "normalized_net_value": "-0.04",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.1",
+        "k": "0.2",
+        "p_times_q": "0.01",
+        "normalized_net_value": "-0.19",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.1",
+        "k": "0.5",
+        "p_times_q": "0.01",
+        "normalized_net_value": "-0.49",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.4",
+        "k": "0.01",
+        "p_times_q": "0.04",
+        "normalized_net_value": "0.03",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.4",
+        "k": "0.05",
+        "p_times_q": "0.04",
+        "normalized_net_value": "-0.01",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.4",
+        "k": "0.2",
+        "p_times_q": "0.04",
+        "normalized_net_value": "-0.16",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.4",
+        "k": "0.5",
+        "p_times_q": "0.04",
+        "normalized_net_value": "-0.46",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.8",
+        "k": "0.01",
+        "p_times_q": "0.08",
+        "normalized_net_value": "0.07",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.8",
+        "k": "0.05",
+        "p_times_q": "0.08",
+        "normalized_net_value": "0.03",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.8",
+        "k": "0.2",
+        "p_times_q": "0.08",
+        "normalized_net_value": "-0.12",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.8",
+        "k": "0.5",
+        "p_times_q": "0.08",
+        "normalized_net_value": "-0.42",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.1",
+        "k": "0.01",
+        "p_times_q": "0.05",
+        "normalized_net_value": "0.04",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.1",
+        "k": "0.05",
+        "p_times_q": "0.05",
+        "normalized_net_value": "0.00",
+        "sign": "ZERO"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.1",
+        "k": "0.2",
+        "p_times_q": "0.05",
+        "normalized_net_value": "-0.15",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.1",
+        "k": "0.5",
+        "p_times_q": "0.05",
+        "normalized_net_value": "-0.45",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.4",
+        "k": "0.01",
+        "p_times_q": "0.20",
+        "normalized_net_value": "0.19",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.4",
+        "k": "0.05",
+        "p_times_q": "0.20",
+        "normalized_net_value": "0.15",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.4",
+        "k": "0.2",
+        "p_times_q": "0.20",
+        "normalized_net_value": "0.00",
+        "sign": "ZERO"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.4",
+        "k": "0.5",
+        "p_times_q": "0.20",
+        "normalized_net_value": "-0.30",
+        "sign": "NEGATIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.8",
+        "k": "0.01",
+        "p_times_q": "0.40",
+        "normalized_net_value": "0.39",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.8",
+        "k": "0.05",
+        "p_times_q": "0.40",
+        "normalized_net_value": "0.35",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.8",
+        "k": "0.2",
+        "p_times_q": "0.40",
+        "normalized_net_value": "0.20",
+        "sign": "POSITIVE"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.8",
+        "k": "0.5",
+        "p_times_q": "0.40",
+        "normalized_net_value": "-0.10",
+        "sign": "NEGATIVE"
+      }
+    ],
+    "exact_break_even_rows": [
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.1",
+        "q": "0.1",
+        "k": "0.01",
+        "p_times_q": "0.01",
+        "normalized_net_value": "0.00",
+        "sign": "ZERO"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.1",
+        "k": "0.05",
+        "p_times_q": "0.05",
+        "normalized_net_value": "0.00",
+        "sign": "ZERO"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "p": "0.5",
+        "q": "0.4",
+        "k": "0.2",
+        "p_times_q": "0.20",
+        "normalized_net_value": "0.00",
+        "sign": "ZERO"
+      }
+    ],
+    "checks": {
+      "exact_break_even": true,
+      "nondecreasing_in_p": true,
+      "nondecreasing_in_q": true,
+      "nonincreasing_in_k": true,
+      "both_signs_exist_no_universal_preference": true
+    }
+  },
+  "shared_blindness_model": {
+    "parameter_status": "ASSUMED",
+    "real_parameter_status": {
+      "p": "UNKNOWN",
+      "q": "UNKNOWN",
+      "s": "UNKNOWN"
+    },
+    "formula": "m_N/p = s + (1-s)*(1-q)^N",
+    "meaning_of_s": "Assumed fraction of flaws undetectable by every reviewer in this mixture model; NOT Pearson correlation",
+    "assumptions": [
+      "s of the flaws are shared blind spots that all N reviewers miss",
+      "Only in the remaining 1-s class, each reviewer independently detects with probability q",
+      "Reported marginal reductions are divided by unknown p, not absolute empirical risk reductions",
+      "This mixture model is illustrative and not inferred from historical cases"
+    ],
+    "rows": [
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0",
+        "q": "0.6",
+        "N": 1,
+        "m_N_over_p": "0.4",
+        "m_previous_over_p": "1",
+        "marginal_miss_reduction_over_p": "0.6",
+        "residual_floor_over_p": "0"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0",
+        "q": "0.6",
+        "N": 2,
+        "m_N_over_p": "0.16",
+        "m_previous_over_p": "0.4",
+        "marginal_miss_reduction_over_p": "0.24",
+        "residual_floor_over_p": "0"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0",
+        "q": "0.6",
+        "N": 3,
+        "m_N_over_p": "0.064",
+        "m_previous_over_p": "0.16",
+        "marginal_miss_reduction_over_p": "0.096",
+        "residual_floor_over_p": "0"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0.5",
+        "q": "0.6",
+        "N": 1,
+        "m_N_over_p": "0.70",
+        "m_previous_over_p": "1",
+        "marginal_miss_reduction_over_p": "0.30",
+        "residual_floor_over_p": "0.5"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0.5",
+        "q": "0.6",
+        "N": 2,
+        "m_N_over_p": "0.580",
+        "m_previous_over_p": "0.70",
+        "marginal_miss_reduction_over_p": "0.120",
+        "residual_floor_over_p": "0.5"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0.5",
+        "q": "0.6",
+        "N": 3,
+        "m_N_over_p": "0.5320",
+        "m_previous_over_p": "0.580",
+        "marginal_miss_reduction_over_p": "0.0480",
+        "residual_floor_over_p": "0.5"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0.9",
+        "q": "0.6",
+        "N": 1,
+        "m_N_over_p": "0.94",
+        "m_previous_over_p": "1",
+        "marginal_miss_reduction_over_p": "0.06",
+        "residual_floor_over_p": "0.9"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0.9",
+        "q": "0.6",
+        "N": 2,
+        "m_N_over_p": "0.916",
+        "m_previous_over_p": "0.94",
+        "marginal_miss_reduction_over_p": "0.024",
+        "residual_floor_over_p": "0.9"
+      },
+      {
+        "parameter_status": "ASSUMED",
+        "s": "0.9",
+        "q": "0.6",
+        "N": 3,
+        "m_N_over_p": "0.9064",
+        "m_previous_over_p": "0.916",
+        "marginal_miss_reduction_over_p": "0.0096",
+        "residual_floor_over_p": "0.9"
+      }
+    ],
+    "checks": {
+      "miss_ratio_nondecreasing_in_s": true,
+      "miss_ratio_nonincreasing_in_N": true,
+      "marginal_reduction_nonincreasing_in_N": true,
+      "marginal_identity_exact": true
+    }
+  },
+  "general_conditional_formula": {
+    "status": "MATHEMATICAL_IDENTITY_WITH_DEFINED_CONDITIONAL_PROBABILITIES",
+    "formula": "m_N = p * product_{i=1..N}(1-q_i)",
+    "definition": "q_i = P(actionable detection by i | flaw exists, all previous i-1 reviews missed)",
+    "derivation": "Chain rule of conditional probability, not reviewer independence",
+    "zero_probability_path": "If a previous all-missed event has probability zero, m_N remains zero; later conditionals on that event need not be defined",
+    "real_p_and_q_i": "UNKNOWN",
+    "limitation": "Tracks a fixed flaw and specified review events; revisions that create new flaws require a larger model"
+  },
+  "critical_path_example": {
+    "parameter_status": "ASSUMED",
+    "duration_unit": "synthetic minutes; not observed runtime or human work time",
+    "comparison_type": "Same task set, durations, and required dependencies; different scheduling only",
+    "task_duration_status": "ASSUMED",
+    "dependency_status": "ASSUMED",
+    "tasks": [
+      {
+        "id": "main_design",
+        "duration": 60,
+        "depends_on": []
+      },
+      {
+        "id": "work_audit",
+        "duration": 40,
+        "depends_on": []
+      },
+      {
+        "id": "probe",
+        "duration": 30,
+        "depends_on": []
+      },
+      {
+        "id": "synthesis",
+        "duration": 30,
+        "depends_on": [
+          "main_design",
+          "work_audit",
+          "probe"
+        ]
+      },
+      {
+        "id": "cold_handoff",
+        "duration": 20,
+        "depends_on": [
+          "synthesis"
+        ]
+      }
+    ],
+    "task_count_in_both_schedules": 5,
+    "total_task_minutes_in_both_schedules": 180,
+    "sequential_schedule": {
+      "task_times": {
+        "main_design": {
+          "start": 0,
+          "finish": 60
+        },
+        "work_audit": {
+          "start": 60,
+          "finish": 100
+        },
+        "probe": {
+          "start": 100,
+          "finish": 130
+        },
+        "synthesis": {
+          "start": 130,
+          "finish": 160
+        },
+        "cold_handoff": {
+          "start": 160,
+          "finish": 180
+        }
+      },
+      "makespan_minutes": 180
+    },
+    "parallel_schedule": {
+      "task_times": {
+        "main_design": {
+          "start": 0,
+          "finish": 60
+        },
+        "work_audit": {
+          "start": 0,
+          "finish": 40
+        },
+        "probe": {
+          "start": 0,
+          "finish": 30
+        },
+        "synthesis": {
+          "start": 60,
+          "finish": 90
+        },
+        "cold_handoff": {
+          "start": 90,
+          "finish": 110
+        }
+      },
+      "makespan_minutes": 110
+    },
+    "within_example_makespan_difference_minutes": 70,
+    "real_workflow_savings": "UNKNOWN",
+    "conditions": [
+      "The first three tasks can independently use the raw inputs",
+      "At least three suitable concurrent execution slots are available",
+      "No communication overhead, contention, changed output quality, or rework is modeled",
+      "If a probe requires a design decision first, its dependency must be changed and the example recomputed"
+    ],
+    "excluded_noncomparable_example": {
+      "status": "REJECTED_AS_COMPARISON",
+      "serial_P60_C40_R30_C20_cold20": 170,
+      "parallel_design60_work40_probe30_then_synthesis30_cold20": 110,
+      "reason": "The task sets and total task minutes differ; 170 versus 110 does not isolate scheduling or workflow benefit"
+    },
+    "checks": {
+      "same_task_set_and_durations": true,
+      "all_dependencies_satisfied": true,
+      "parallel_schedule_no_longer_than_sequential": true
+    }
+  },
+  "all_embedded_assertions_passed": true
+}

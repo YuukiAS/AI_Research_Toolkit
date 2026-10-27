@@ -1,0 +1,213 @@
+{
+  "scope": "pro-a historical research; no current pro-b/work inputs",
+  "sources": [
+    {
+      "id": "evo_a_method",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "c733aa065d9ad102a64bb5f5f55453cd31a7e7bc",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-a/ARCHITECTURE_DESIGN_METHOD.md",
+      "blob": "6ddc0a1fecfeff23b9eef2ae6f86d123e0f71330",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/c733aa065d9ad102a64bb5f5f55453cd31a7e7bc/docs/research/architecture-evolution-system-20261027/pro-a/ARCHITECTURE_DESIGN_METHOD.md"
+    },
+    {
+      "id": "evo_a_binding",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "c733aa065d9ad102a64bb5f5f55453cd31a7e7bc",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-a/SOURCE_OF_TRUTH_AND_IMPLEMENTATION_BINDING.md",
+      "blob": "8609971697824975d38863a1bca18969bd06e2cf",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/c733aa065d9ad102a64bb5f5f55453cd31a7e7bc/docs/research/architecture-evolution-system-20261027/pro-a/SOURCE_OF_TRUTH_AND_IMPLEMENTATION_BINDING.md"
+    },
+    {
+      "id": "evo_a_result",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "c733aa065d9ad102a64bb5f5f55453cd31a7e7bc",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-a/RESULT.md",
+      "blob": "4200fd6c96fee98abc0d77ac818f145ec0940aeb",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/c733aa065d9ad102a64bb5f5f55453cd31a7e7bc/docs/research/architecture-evolution-system-20261027/pro-a/RESULT.md"
+    },
+    {
+      "id": "evo_b_method",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "4322881023b40f70352d5cc380c585d90098fb12",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-b/ARCHITECTURE_DESIGN_METHOD.md",
+      "blob": "ee528f38c044d3b8d4e7b2ae00fdc47308038e87",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/4322881023b40f70352d5cc380c585d90098fb12/docs/research/architecture-evolution-system-20261027/pro-b/ARCHITECTURE_DESIGN_METHOD.md"
+    },
+    {
+      "id": "evo_b_semantic",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "4322881023b40f70352d5cc380c585d90098fb12",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-b/SEMANTIC_MODEL.md",
+      "blob": "5ca239a8aaee276488523bae69e153ea84b9d495",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/4322881023b40f70352d5cc380c585d90098fb12/docs/research/architecture-evolution-system-20261027/pro-b/SEMANTIC_MODEL.md"
+    },
+    {
+      "id": "evo_b_result",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "4322881023b40f70352d5cc380c585d90098fb12",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-b/RESULT.md",
+      "blob": "78cd0d27338f4f269a3ca2486968521c26f85c74",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/4322881023b40f70352d5cc380c585d90098fb12/docs/research/architecture-evolution-system-20261027/pro-b/RESULT.md"
+    },
+    {
+      "id": "showcase_audit",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "ce8442b799e0096b79367da701289255bfa23bd3",
+      "path": "docs/research/complex-system-showcase-20261026/r2/editorial-audit/EDITORIAL_AND_CURATION_AUDIT.md",
+      "blob": "6940169e9b484fd39cb326cd5e32f008a643dc72",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ce8442b799e0096b79367da701289255bfa23bd3/docs/research/complex-system-showcase-20261026/r2/editorial-audit/EDITORIAL_AND_CURATION_AUDIT.md"
+    },
+    {
+      "id": "showcase_comparison",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "515c66acd5aa0c972ef5b0e97e336894d1932a8c",
+      "path": "docs/research/complex-system-showcase-20261026/r2/comparison/COMPARISON.md",
+      "blob": "f7d3f0419d520773dac5825f40f8877f3cdc505c",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/515c66acd5aa0c972ef5b0e97e336894d1932a8c/docs/research/complex-system-showcase-20261026/r2/comparison/COMPARISON.md"
+    },
+    {
+      "id": "asteria_agents",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "AGENTS.md",
+      "blob": "ea922f25cb549c1fb9dbeb62eead28fedb712fc1",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/AGENTS.md"
+    },
+    {
+      "id": "asteria_current",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "docs/notes/2026-10-04_asteria_current_state_and_cat_trace_bridge_plan.md",
+      "blob": "43846a68135a80da64b39fbeafb0eb761cbae125",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/docs/notes/2026-10-04_asteria_current_state_and_cat_trace_bridge_plan.md"
+    },
+    {
+      "id": "asteria_schema",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/schema.ts",
+      "blob": "675fd706b615ec8b0ec34699a10e18888f2ec321",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/schema.ts"
+    },
+    {
+      "id": "asteria_types",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/types.ts",
+      "blob": "5580c3a3e9dafc2a5b8d24d09cac5d2770b83de7",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/types.ts"
+    },
+    {
+      "id": "asteria_code_todo",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "docs/notes/2026-09-15_asteria_github_code_trace_todo.md",
+      "blob": "48de7fdc7248cd7eaffdb233b0d359b991df3b39",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/docs/notes/2026-09-15_asteria_github_code_trace_todo.md"
+    },
+    {
+      "id": "asteria_readme",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "README.md",
+      "blob": "98b0c3ab190de8a6674a302f29801ab04621b672",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/README.md"
+    },
+    {
+      "id": "asteria_bridge",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/repositoryBridge.ts",
+      "blob": "d1dca56694bc48f054d7ca8d32677491a340db5f",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/repositoryBridge.ts"
+    },
+    {
+      "id": "asteria_rc19",
+      "repo": "YuukiAS/Asteria",
+      "ref": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "results/asteria--rc19-layout-first-graph-convergence/result.md",
+      "blob": "4ddc5ac763da785ceb52b70e5ee8244d46f2ba02",
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/results/asteria--rc19-layout-first-graph-convergence/result.md"
+    },
+    {
+      "id": "evo_a_model",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "c733aa065d9ad102a64bb5f5f55453cd31a7e7bc",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-a/prototype/model-core.mjs",
+      "blob": "1d0df907cbd0f09aee1aba888b46a1ab3f285189",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/c733aa065d9ad102a64bb5f5f55453cd31a7e7bc/docs/research/architecture-evolution-system-20261027/pro-a/prototype/model-core.mjs"
+    },
+    {
+      "id": "evo_b_validator",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "4322881023b40f70352d5cc380c585d90098fb12",
+      "path": "docs/research/architecture-evolution-system-20261027/pro-b/validate_ledger.py",
+      "blob": "12afd55d0b7b5c64ddbfc6c83aae26e4e6cb9c37",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/4322881023b40f70352d5cc380c585d90098fb12/docs/research/architecture-evolution-system-20261027/pro-b/validate_ledger.py"
+    },
+    {
+      "id": "da_current",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+      "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md",
+      "blob": "36ee75c7e3dfceca5dfab3dbf9adce5d7c9b7520",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md"
+    },
+    {
+      "id": "da_explained",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+      "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/11_ARCHITECTURE_EXPLAINED.md",
+      "blob": "0e6b68c1b065e23388682c3f598d692417277ed3",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/11_ARCHITECTURE_EXPLAINED.md"
+    },
+    {
+      "id": "da_user_gaps",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+      "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/00_USER_REQUIREMENTS_AND_GAPS.md",
+      "blob": "346a8b393388c0085a6a6433c3e3a2c2178f9129",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/00_USER_REQUIREMENTS_AND_GAPS.md"
+    },
+    {
+      "id": "da_p0_review",
+      "repo": "YuukiAS/AI_Research_Toolkit",
+      "ref": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+      "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/12_STAGED_EXECUTION_REVIEW_PACKAGE.md",
+      "blob": "b01b093e246abbd0f083a304c28fa1bb33e9a70e",
+      "url": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/12_STAGED_EXECUTION_REVIEW_PACKAGE.md"
+    },
+    {
+      "id": "slurm_v03_original",
+      "repo": "YuukiAS/AI_Skills_Collection",
+      "ref": "a92dc4729e9c5bd2740c5d1bd967daa40f13e8d3",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "blob": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/a92dc4729e9c5bd2740c5d1bd967daa40f13e8d3/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md"
+    },
+    {
+      "id": "slurm_v03_at_cutoff",
+      "repo": "YuukiAS/AI_Skills_Collection",
+      "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "blob": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md"
+    },
+    {
+      "id": "cat_r6_at_cutoff",
+      "repo": "YuukiAS/CAT-TRACE",
+      "ref": "99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0",
+      "path": "docs/implementation/reviews/CRITIC_REVIEW_R6_RESOLUTION.md",
+      "blob": "11acf240f57aab2c120522196c573039834b19d3",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0/docs/implementation/reviews/CRITIC_REVIEW_R6_RESOLUTION.md"
+    },
+    {
+      "id": "cat_plan_at_cutoff",
+      "repo": "YuukiAS/CAT-TRACE",
+      "ref": "99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0",
+      "path": "docs/implementation/16_IMPLEMENTATION_ALPHA_EXECUTION_PLAN.md",
+      "blob": "50e7429922b51495a79b1cafb0beeb0bec92fc78",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0/docs/implementation/16_IMPLEMENTATION_ALPHA_EXECUTION_PLAN.md"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "status": "NOT_RUN",
+  "reason": "Original historical script import failed: ModuleNotFoundError: No module named 'mpmath'. The default and primary runtime exposed the same missing dependency.",
+  "alternative": "Independent standard-library arithmetic recheck in recheck_zero_slot.py and cat_zero_probe_recheck.json. No claim of full original-script replay."
+}

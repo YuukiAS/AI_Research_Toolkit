@@ -1,0 +1,1079 @@
+{
+  "run_id": "pro-a",
+  "scope": "slurm only; no pro-b/work current-round sources",
+  "pinned_repository_main": "5d4b1432f96742646e00ad279a054359b1aec1da",
+  "selected": [
+    {
+      "id": "R01",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_1_2026-09-24.md",
+      "title": "routing v0.1: identity/race authority",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_1_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R02",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "title": "routing v0.2 architecture PASS",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R03",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "title": "new user requirements after v0.2",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R04",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_3_2026-09-24.md",
+      "title": "recurring mutation authorization",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_3_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R05",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_4_2026-09-24.md",
+      "title": "new portability requirement",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_4_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R06",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_5_2026-09-24.md",
+      "title": "release version classification",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_5_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R07",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "title": "v0.6 execution PASS",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R08",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "ce7f606e75dfa2bc7029b68655657c2d3d5b5d04",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+      "title": "actual v0.6 cutoff execution plan",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/ce7f606e75dfa2bc7029b68655657c2d3d5b5d04/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R09",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R1_2026-10-02.md",
+      "title": "routing implementation R1",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R1_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R10",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R2_2026-10-02.md",
+      "title": "routing implementation R2",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R2_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R11",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R3_2026-10-02.md",
+      "title": "timezone not consumed by algorithm",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R3_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R12",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R4_2026-10-02.md",
+      "title": "DST fold/gap local repair",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R4_2026-10-02.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R13",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-workflows-routing-refactor/INTEGRATION_RELEASE_CLOSURE_2026-10-03.md",
+      "title": "routing final release closure",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/INTEGRATION_RELEASE_CLOSURE_2026-10-03.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "R14",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-race-policy-bounded-opt-in/RESULT.md",
+      "title": "separate policy change",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-race-policy-bounded-opt-in/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P01",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "title": "early threat model including non-blocking Hook failures",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P02",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_PLAN_V0_1_2026-10-16.md",
+      "title": "broad old protection Stage A and production closure",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_PLAN_V0_1_2026-10-16.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P03",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_PROPOSAL_V1_2026-10-17.md",
+      "title": "product scope reset and terminal-confirmed guard",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_PROPOSAL_V1_2026-10-17.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P04",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_2026-10-18.md",
+      "title": "native chat confirmation v2",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P05",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "38a76797439c6b29098aade7539270cbc51e8836",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+      "title": "v2 cutoff execution package",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/38a76797439c6b29098aade7539270cbc51e8836/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P06",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_1_2026-10-18.md",
+      "title": "ER-V2-01: confirmation authority boundary",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_1_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P07",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "c3879065c782f1b0a03107a927bb3176a8788d02",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "title": "v2.1 PASS cutoff before worktree probe",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/c3879065c782f1b0a03107a927bb3176a8788d02/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P08",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "title": "Phase 0 fail and standalone-clone recovery",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P09",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "b8ed6c3d3e40f5c32130e56f0b78ae7c9aea2772",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "title": "user explicitly defers live candidate Hook probe",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/b8ed6c3d3e40f5c32130e56f0b78ae7c9aea2772/results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P10",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "title": "global Hook candidate RESULT PASS before runtime redesign",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P11",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "title": "historical installer freezes installer Python",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P12",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+      "title": "loader failure root cause; portable runtime design",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P13",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/SESSION_AB_EVIDENCE.md",
+      "title": "stale session snapshot versus fresh Hook normal entry",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/SESSION_AB_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P14",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_G4_RESOURCE_AMENDMENT_V3_1_2026-10-20.md",
+      "title": "QOSMinGRES; scheduler test resource amendment",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_G4_RESOURCE_AMENDMENT_V3_1_2026-10-20.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P15",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/AMENDED_G4_EVIDENCE.md",
+      "title": "native four-key schema versus six-key candidate",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/AMENDED_G4_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P16",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/NATIVE_SCHEMA_REPAIR_EVIDENCE.md",
+      "title": "bounded implementation repair",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/NATIVE_SCHEMA_REPAIR_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P17",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/MCP_VERTICAL_EVIDENCE.md",
+      "title": "current-visible-root vertical probe FAIL",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/MCP_VERTICAL_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P18",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/PENDING_BINDING_REPAIR_EVIDENCE.md",
+      "title": "optional agent placeholder and pending/root identity",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/PENDING_BINDING_REPAIR_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P19",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/P0_FAILURE_ISOLATION_EVIDENCE.md",
+      "title": "unrelated Bash denied during guard drift; containment repair",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/P0_FAILURE_ISOLATION_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P20",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/LIVE_CONFIRMATION_EVIDENCE.md",
+      "title": "actual same-root confirm path",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/LIVE_CONFIRMATION_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P21",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/REPLACEMENT_G4_EVIDENCE.md",
+      "title": "second held Job; confirm wire and missing retain",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/REPLACEMENT_G4_EVIDENCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P22",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/REVISED_G4_ACCEPTANCE.md",
+      "title": "explicit user waiver and harmless real retain mapping",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/REVISED_G4_ACCEPTANCE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P23",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/FINAL_RELEASE_CLOSURE.md",
+      "title": "formal release 5.5.2/0.5 closure",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/FINAL_RELEASE_CLOSURE.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P24",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "title": "final runtime qualification and outer scope guard",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "P25",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "title": "complete maintained result narrative",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "epistemic": "OBSERVED_REPOSITORY_RECORD"
+    },
+    {
+      "id": "C01",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "b4815a35f708078184bff27b34f185fea6938cc3",
+      "path": null,
+      "title": "old production protection implementation",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/b4815a35f708078184bff27b34f185fea6938cc3",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C02",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "343628c896af90946f151ab1be993bc63114ebf2",
+      "path": null,
+      "title": "v2.1 shim candidate implementation",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/343628c896af90946f151ab1be993bc63114ebf2",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C03",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "577b1608e3a8335d7bd057b1584e5479ed5205aa",
+      "path": null,
+      "title": "replace shim with trusted host Hook",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/577b1608e3a8335d7bd057b1584e5479ed5205aa",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C04",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "da5e88bb6c1fb94e0cf66dd1d8409e9ab9fcf2c0",
+      "path": null,
+      "title": "switch project-local to one global Hook",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/da5e88bb6c1fb94e0cf66dd1d8409e9ab9fcf2c0",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    },
+    {
+      "id": "C05",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "ref": "4453808e02388725f47d3c0a278e5494fdd55478",
+      "path": null,
+      "title": "remove Slurm-specific permission profile",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/commit/4453808e02388725f47d3c0a278e5494fdd55478",
+      "epistemic": "OBSERVED_COMMIT_PATCH"
+    }
+  ],
+  "downloaded": [
+    {
+      "path": "automation/reviewed_handoff/tasks/hpc--slurm-cancel-production-closure/CURRENT.json",
+      "sha": "b293421f9612b5dffcba594b42ec6b8fde7e3a89",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/automation/reviewed_handoff/tasks/hpc--slurm-cancel-production-closure/CURRENT.json",
+      "characters": 479
+    },
+    {
+      "path": "automation/reviewed_handoff/tasks/hpc--slurm-cancel-production-closure/PLAN.md",
+      "sha": "33433dff21beef13a082e672956b8990db1c00e3",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/automation/reviewed_handoff/tasks/hpc--slurm-cancel-production-closure/PLAN.md",
+      "characters": 11254
+    },
+    {
+      "path": "automation/reviewed_handoff/tasks/hpc--slurm-cancel-production-closure/REQUEST.md",
+      "sha": "dd92f7a1dce5ad3ee6001ef2afd1ec3e9c85e204",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/automation/reviewed_handoff/tasks/hpc--slurm-cancel-production-closure/REQUEST.md",
+      "characters": 660
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_G4_RESOURCE_AMENDMENT_V3_1_2026-10-20.md",
+      "sha": "e93673b9fe1fda4c53e9615fb65b514b37f303b5",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_G4_RESOURCE_AMENDMENT_V3_1_2026-10-20.md",
+      "characters": 4904
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_EXECUTION_PLAN_V3_2026-10-19.md",
+      "sha": "7849b62c543a3c3e51295e9957f1660371e3407b",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_EXECUTION_PLAN_V3_2026-10-19.md",
+      "characters": 19751
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_KICKOFF_DRAFT_V3_2026-10-19.md",
+      "sha": "ff2f39f5f9d69bc250e4e73fbb826aaf5950c645",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_KICKOFF_DRAFT_V3_2026-10-19.md",
+      "characters": 8276
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+      "sha": "cde329bd930e36ac1efe0ae068ff05c5482a72fc",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+      "characters": 17234
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "sha": "7f0df6953ba7dfaeb705ab56f6fcd649fb84c7bf",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "characters": 31381
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+      "sha": "8026dfaf44abfe01b46cb8d4f15067df60b70800",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+      "characters": 17063
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_KICKOFF_DRAFT_V2_1_2026-10-18.md",
+      "sha": "ad52dc5d9623b39df8dd50197e51b04bbcf785fa",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_KICKOFF_DRAFT_V2_1_2026-10-18.md",
+      "characters": 14167
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_KICKOFF_DRAFT_V2_2026-10-18.md",
+      "sha": "ab907df4b57c348cc7f81fae982716b47646e877",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_KICKOFF_DRAFT_V2_2026-10-18.md",
+      "characters": 7045
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_1_2026-10-18.md",
+      "sha": "26760ae8bb0a19809f1048436fa14aba0bb4e49a",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_1_2026-10-18.md",
+      "characters": 16370
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_2026-10-18.md",
+      "sha": "bc62264c6010b3e5371885899138f72c03095250",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_2026-10-18.md",
+      "characters": 18916
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_EXECUTION_PLAN_V1_2026-10-17.md",
+      "sha": "078e6c190f1a94d08adfc816acd978538d8d0895",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_EXECUTION_PLAN_V1_2026-10-17.md",
+      "characters": 12913
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_KICKOFF_DRAFT_V1_2026-10-17.md",
+      "sha": "4e1cbadb0680f82d19a20e2c345a86bc3c1cd4b1",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_KICKOFF_DRAFT_V1_2026-10-17.md",
+      "characters": 4135
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_PROPOSAL_V1_2026-10-17.md",
+      "sha": "eddcf4881020518841730e77e8db85b591513a79",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_PROPOSAL_V1_2026-10-17.md",
+      "characters": 20253
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_EXECUTION_PLAN_V0_3_2026-10-13.md",
+      "sha": "fb5a9502d97c503cf7612c37addeef67464ad506",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_EXECUTION_PLAN_V0_3_2026-10-13.md",
+      "characters": 11394
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_KICKOFF_DRAFT_V0_3_2026-10-13.md",
+      "sha": "0aa65a1f6602bed6a3e14fdf715784187765a9c7",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_KICKOFF_DRAFT_V0_3_2026-10-13.md",
+      "characters": 3753
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "sha": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+      "characters": 11537
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_KICKOFF_DRAFT_V0_1_2026-10-16.md",
+      "sha": "90214d51688c05e1b3f27717251bfef84212a740",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_KICKOFF_DRAFT_V0_1_2026-10-16.md",
+      "characters": 11335
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_PLAN_V0_1_2026-10-16.md",
+      "sha": "087dd8e0dd04f6808297587c87dc0d0d0ecc9ecd",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_PRODUCTION_CLOSURE_PLAN_V0_1_2026-10-16.md",
+      "characters": 12053
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_1_2026-09-24.md",
+      "sha": "a297616cc508a1b2e3c470e773c96faad01e08bd",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_1_2026-09-24.md",
+      "characters": 13386
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "sha": "db1fe378973be59dda93b0e2d7e6673cea13912c",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "characters": 12324
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_3_2026-09-24.md",
+      "sha": "596ae1defbf9b092309a18c068ef3668a1e93da0",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_3_2026-09-24.md",
+      "characters": 17007
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_4_2026-09-24.md",
+      "sha": "77c3f2481377603b05f3c388e15fe4019f88c248",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_4_2026-09-24.md",
+      "characters": 14753
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_5_2026-09-24.md",
+      "sha": "bcab6f1a7d59d6feaa765a42e61572fdb7d53c71",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_5_2026-09-24.md",
+      "characters": 13643
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "sha": "004d2abb1bc05fc36364aa7351e4c7fa2719b035",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "characters": 7376
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "sha": "3c311c569b4e6b719181a95a6ac0abb23c7bcda8",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_2_2026-09-24.md",
+      "characters": 22765
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "sha": "2f9418ab5d8d0d0a9e1c91d5c6b6bc1acf87b36b",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_6_2026-09-24.md",
+      "characters": 11871
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_2_2026-09-24.md",
+      "sha": "a8307a6269603c33308415a8a73fcf6a6de61bd1",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_2_2026-09-24.md",
+      "characters": 14633
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+      "sha": "63f6174e321a731ee503b66d301b14c5aca05214",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+      "characters": 29285
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_1_2026-09-24.md",
+      "sha": "f66ead54ed7c6a2eebd9b68f64aaad4d00d2fd9a",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_1_2026-09-24.md",
+      "characters": 15325
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_2_2026-09-24.md",
+      "sha": "ee67e0bed62ab5295f2a2c63d17246d8e6d24a6d",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_2_2026-09-24.md",
+      "characters": 18957
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_3_2026-09-24.md",
+      "sha": "b2532cbb2a87b41ee283b4fe8cf311fd0c9e6de4",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_3_2026-09-24.md",
+      "characters": 25796
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_4_2026-09-24.md",
+      "sha": "4217b036e7e4d549280a6d137e2fc0db572e38e4",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_4_2026-09-24.md",
+      "characters": 18543
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_5_2026-09-24.md",
+      "sha": "62c9dbf772ab7c3703ff12bb1afb0923feef7a0b",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_5_2026-09-24.md",
+      "characters": 21925
+    },
+    {
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_6_2026-09-24.md",
+      "sha": "495ed0d1a9ff107c58249efb07b3df42b098cde3",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_6_2026-09-24.md",
+      "characters": 18442
+    },
+    {
+      "path": "docs/goals/SLURM_WORKFLOWS_ROUTING_REFACTOR_GOAL_V0_2.md",
+      "sha": "0dadb1829ee51a6a32925b5b59c5d3de6f8ad3a7",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/SLURM_WORKFLOWS_ROUTING_REFACTOR_GOAL_V0_2.md",
+      "characters": 4579
+    },
+    {
+      "path": "docs/goals/SLURM_WORKFLOWS_ROUTING_REFACTOR_GOAL_V0_6.md",
+      "sha": "17bb0e533351faa38b522e4e94e7120755ac706f",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/SLURM_WORKFLOWS_ROUTING_REFACTOR_GOAL_V0_6.md",
+      "characters": 5454
+    },
+    {
+      "path": "docs/goals/hpc--slurm-cancel-human-confirmation-goal-draft-v0_3.md",
+      "sha": "a0eac5f46822e6bdfc198a0c1fd55bb08ccc9c73",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/hpc--slurm-cancel-human-confirmation-goal-draft-v0_3.md",
+      "characters": 5848
+    },
+    {
+      "path": "docs/goals/hpc--slurm-cancel-production-closure-goal-v0_1.md",
+      "sha": "025cc2e4630798e2f12432c98609d692ca5f4c6f",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/hpc--slurm-cancel-production-closure-goal-v0_1.md",
+      "characters": 15457
+    },
+    {
+      "path": "docs/goals/hpc--slurm-cancel-production-closure-goal-v3.md",
+      "sha": "fcfb13b13053f990b84e948dad9494d6cc3806c6",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/hpc--slurm-cancel-production-closure-goal-v3.md",
+      "characters": 7459
+    },
+    {
+      "path": "docs/goals/hpc--slurm-protected-partition-chat-confirmation-goal-v2.md",
+      "sha": "13276e4ee78ef50f72791a00ce0729ea6b81b68f",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/hpc--slurm-protected-partition-chat-confirmation-goal-v2.md",
+      "characters": 13744
+    },
+    {
+      "path": "docs/goals/hpc--slurm-protected-partition-chat-confirmation-goal-v2_1.md",
+      "sha": "6fc95000af8fd95fec8144cbcb8eb4e63beb1c38",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/hpc--slurm-protected-partition-chat-confirmation-goal-v2_1.md",
+      "characters": 25327
+    },
+    {
+      "path": "docs/goals/hpc--slurm-protected-partition-fresh-confirmation-goal-v1.md",
+      "sha": "f7e6263eeebec6211ff64a91cad8909aba11b12e",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/goals/hpc--slurm-protected-partition-fresh-confirmation-goal-v1.md",
+      "characters": 13551
+    },
+    {
+      "path": "docs/operations/prompts/SLURM_WORKFLOWS_ROUTING_REFACTOR_KICKOFF_V0_2.md",
+      "sha": "0df9b5a8c4317d2a04005323f1d4dfbc66fef160",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/operations/prompts/SLURM_WORKFLOWS_ROUTING_REFACTOR_KICKOFF_V0_2.md",
+      "characters": 5246
+    },
+    {
+      "path": "docs/operations/prompts/SLURM_WORKFLOWS_ROUTING_REFACTOR_KICKOFF_V0_6.md",
+      "sha": "3ce427ed94e15668050769e74c5907aaff8d8e4f",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/operations/prompts/SLURM_WORKFLOWS_ROUTING_REFACTOR_KICKOFF_V0_6.md",
+      "characters": 10681
+    },
+    {
+      "path": "docs/skill-todos/slurm-workflows.md",
+      "sha": "e8394da6190723e65b2be3615238375d94fec16f",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/docs/skill-todos/slurm-workflows.md",
+      "characters": 6912
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/AMENDED_G4_EVIDENCE.md",
+      "sha": "5b02bb445f0a3e6a49c16df551275c17c23bf229",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/AMENDED_G4_EVIDENCE.md",
+      "characters": 6539
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/EXECUTION_EVIDENCE.md",
+      "sha": "d4c10fc11fa71919dfebe830be1114d14282cf45",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/EXECUTION_EVIDENCE.md",
+      "characters": 6017
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/FINAL_RELEASE_CLOSURE.md",
+      "sha": "c637d5242f92f53559d55bc1517cf19200ee70cf",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/FINAL_RELEASE_CLOSURE.md",
+      "characters": 6998
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/FINAL_REPORT.md",
+      "sha": "ae5d1f1501d37816aefd12346bcdc03eb42f8a43",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/FINAL_REPORT.md",
+      "characters": 971
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/INDEPENDENT_FINAL_REVIEW.md",
+      "sha": "3f4248ae6bc785857e5b1b7d90a16413577b7462",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/INDEPENDENT_FINAL_REVIEW.md",
+      "characters": 7103
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/LIVE_CONFIRMATION_EVIDENCE.md",
+      "sha": "d2d6a4ea57c2ff0459215df7a58dfc56b569d8f3",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/LIVE_CONFIRMATION_EVIDENCE.md",
+      "characters": 5399
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/MCP_VERTICAL_EVIDENCE.md",
+      "sha": "7df0846f28fe0498df75bc011a8d2375276ac271",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/MCP_VERTICAL_EVIDENCE.md",
+      "characters": 4316
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/NATIVE_SCHEMA_REPAIR_EVIDENCE.md",
+      "sha": "bee646dae0a2845a8180c50bdcf1c5d64cfcc4d0",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/NATIVE_SCHEMA_REPAIR_EVIDENCE.md",
+      "characters": 6194
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/P0_FAILURE_ISOLATION_EVIDENCE.md",
+      "sha": "aa4a62960dc12d0fc31b0804b3413c9acefda61c",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/P0_FAILURE_ISOLATION_EVIDENCE.md",
+      "characters": 3316
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/PENDING_BINDING_REPAIR_EVIDENCE.md",
+      "sha": "1a58340716bc9e23b88af34cf6fb8784d4837415",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/PENDING_BINDING_REPAIR_EVIDENCE.md",
+      "characters": 4072
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/RELEASE_CANDIDATE_IDENTITY.md",
+      "sha": "523d8194f3209403b8d20d72b6ace65046ddb679",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/RELEASE_CANDIDATE_IDENTITY.md",
+      "characters": 2509
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/REPLACEMENT_G4_EVIDENCE.md",
+      "sha": "a47edb4761cf1e1c924bd6c6727cc14a2929c59f",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/REPLACEMENT_G4_EVIDENCE.md",
+      "characters": 5897
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "sha": "e73733cdd008d35a9a431161a1f98e6e28e39733",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "characters": 18946
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/REVIEW_1.md",
+      "sha": "336cfd343badae1bc75d3eeb18eb34f60cd522be",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/REVIEW_1.md",
+      "characters": 7291
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/REVISED_G4_ACCEPTANCE.md",
+      "sha": "e1095fd158053fcde783859f550feeb4ad0dd6cf",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/REVISED_G4_ACCEPTANCE.md",
+      "characters": 3209
+    },
+    {
+      "path": "results/hpc--slurm-cancel-production-closure/SESSION_AB_EVIDENCE.md",
+      "sha": "7b7cbae1a9ad0a69298dc8e97ef3e7417d7a6392",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-cancel-production-closure/SESSION_AB_EVIDENCE.md",
+      "characters": 9174
+    },
+    {
+      "path": "results/hpc--slurm-race-policy-bounded-opt-in/CENTRAL_RELEASE_CLOSURE_2026-10-04.md",
+      "sha": "e95fc2cb85d991543be829730865be977369d035",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-race-policy-bounded-opt-in/CENTRAL_RELEASE_CLOSURE_2026-10-04.md",
+      "characters": 3889
+    },
+    {
+      "path": "results/hpc--slurm-race-policy-bounded-opt-in/FINAL_CRITIC_REVIEW_2026-10-04.md",
+      "sha": "04fc7bb8f5c5805901f3dcfda1b5dee00691dd04",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-race-policy-bounded-opt-in/FINAL_CRITIC_REVIEW_2026-10-04.md",
+      "characters": 8027
+    },
+    {
+      "path": "results/hpc--slurm-race-policy-bounded-opt-in/FINAL_CRITIC_REVIEW_R2_2026-10-04.md",
+      "sha": "bb59f9e4c990b9c445b4e69604a188c7c524c307",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-race-policy-bounded-opt-in/FINAL_CRITIC_REVIEW_R2_2026-10-04.md",
+      "characters": 5090
+    },
+    {
+      "path": "results/hpc--slurm-race-policy-bounded-opt-in/FINAL_CRITIC_REVIEW_R3_2026-10-04.md",
+      "sha": "63ea5513b7253367e56a885d89c3178b78b3fa27",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-race-policy-bounded-opt-in/FINAL_CRITIC_REVIEW_R3_2026-10-04.md",
+      "characters": 5249
+    },
+    {
+      "path": "results/hpc--slurm-race-policy-bounded-opt-in/RESULT.md",
+      "sha": "a13c0c9350480bb752f88fe5aa0bb13517d8186d",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-race-policy-bounded-opt-in/RESULT.md",
+      "characters": 10752
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/CODEX_POST_INTEGRATION_REPAIR_PROMPT.md",
+      "sha": "9016aed228d87fc90e3605c41d474bd20740cb97",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/CODEX_POST_INTEGRATION_REPAIR_PROMPT.md",
+      "characters": 8659
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/FINAL_CRITIC_REVIEW_2026-10-03.md",
+      "sha": "95c2ab7cbd069d47b8aa6d465b1ba02297fd97e8",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/FINAL_CRITIC_REVIEW_2026-10-03.md",
+      "characters": 8883
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/INTEGRATION_RELEASE_CLOSURE_2026-10-03.md",
+      "sha": "a8604c5cbf8a1b943228d47b741708299082a1bf",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/INTEGRATION_RELEASE_CLOSURE_2026-10-03.md",
+      "characters": 3759
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_CRITIC_REVIEW_2026-10-02.md",
+      "sha": "214a9693ee62f71d44b96e828b9f700b5f99f9ea",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_CRITIC_REVIEW_2026-10-02.md",
+      "characters": 9304
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_CRITIC_REVIEW_R2_2026-10-03.md",
+      "sha": "e081522b7a818c827953f71e9baeb98ab7376c31",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_CRITIC_REVIEW_R2_2026-10-03.md",
+      "characters": 5935
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_EXECUTOR_HANDOFF_2026-10-03.md",
+      "sha": "6ce56e8a420da9f82463a5cf0bd705985eea1a24",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_EXECUTOR_HANDOFF_2026-10-03.md",
+      "characters": 5451
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_PLAN_2026-10-02.md",
+      "sha": "d3abfe410e65fb8f9629d59ef8930f66ebd6bf66",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_PLAN_2026-10-02.md",
+      "characters": 5371
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_PLAN_V2_2026-10-03.md",
+      "sha": "53af0b035dbb94f6a2e1e3b43ff98d302eb3cc25",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_PLAN_V2_2026-10-03.md",
+      "characters": 6942
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R1_2026-10-02.md",
+      "sha": "b211018d108392820c2f57d56fd2709de47a10ff",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R1_2026-10-02.md",
+      "characters": 6703
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R2_2026-10-02.md",
+      "sha": "13f9b735fe1f48e0835b185c4c50ee22635c7504",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R2_2026-10-02.md",
+      "characters": 5433
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R3_2026-10-02.md",
+      "sha": "b4659ee2ce86522d602c04c30559a590e6d2eb1d",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R3_2026-10-02.md",
+      "characters": 6865
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R4_2026-10-02.md",
+      "sha": "f7a706e8627bc5f2a13bb24c74e060437e469cbc",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PLANNER_REPAIR_HANDOFF_R4_2026-10-02.md",
+      "characters": 7050
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R1_2026-10-02.md",
+      "sha": "401ede646b0d7cbb9871958fcf7f8f35e48740d8",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R1_2026-10-02.md",
+      "characters": 11206
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R2_2026-10-02.md",
+      "sha": "3aea65a83bb377485f6874f0fc90766388e431a0",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R2_2026-10-02.md",
+      "characters": 9907
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R3_2026-10-02.md",
+      "sha": "6902b33d9c2c2640a2648e968fbd50941778eb14",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R3_2026-10-02.md",
+      "characters": 8259
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R4_2026-10-02.md",
+      "sha": "1a28b02bd188186c0ab6aa3370c52a7b8d7a0c68",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R4_2026-10-02.md",
+      "characters": 7491
+    },
+    {
+      "path": "results/hpc--slurm-workflows-routing-refactor/RESULT.md",
+      "sha": "cee4265b5abca0273afb9aac945daaedc3cab38f",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/hpc--slurm-workflows-routing-refactor/RESULT.md",
+      "characters": 14139
+    },
+    {
+      "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "sha": "5db93547d4511af2b1c61edee2759d88e4c29220",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "characters": 34622
+    },
+    {
+      "path": "skills/tools/hpc/slurm-workflows/scripts/slurm_cancel_hook.py",
+      "sha": "b31d5fc2417e2810fef0195c18b584bddefefa10",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/skills/tools/hpc/slurm-workflows/scripts/slurm_cancel_hook.py",
+      "characters": 24599
+    },
+    {
+      "path": "skills/tools/hpc/slurm-workflows/scripts/slurm_protected_cancel_mcp.py",
+      "sha": "dfd1c7e1ba1d91d087ebca648ccaffd37a7aad28",
+      "ref": "5d4b1432f96742646e00ad279a054359b1aec1da",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/skills/tools/hpc/slurm-workflows/scripts/slurm_protected_cancel_mcp.py",
+      "characters": 19824
+    }
+  ],
+  "note": "OBSERVED means directly read immutable repository record or source, not independently rerun on HPC. Raw host logs referenced by the repository were not accessible or reproduced; their contents are documentary evidence.",
+  "historical_snapshots_read_directly": [
+    {
+      "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "characters": 4674,
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/results/hpc--slurm-cancel-production-closure/RESULT.md"
+    },
+    {
+      "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+      "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+      "characters": 15408,
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py"
+    },
+    {
+      "ref": "38a76797439c6b29098aade7539270cbc51e8836",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+      "characters": 17064,
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/38a76797439c6b29098aade7539270cbc51e8836/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md"
+    },
+    {
+      "ref": "a49f6dfcc48539a4dbead7ecae45f4b3cf398a7b",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+      "characters": 17235,
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/a49f6dfcc48539a4dbead7ecae45f4b3cf398a7b/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md"
+    },
+    {
+      "ref": "b8ed6c3d3e40f5c32130e56f0b78ae7c9aea2772",
+      "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+      "characters": 10171,
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/b8ed6c3d3e40f5c32130e56f0b78ae7c9aea2772/results/hpc--slurm-cancel-production-closure/RESULT.md"
+    },
+    {
+      "ref": "c3879065c782f1b0a03107a927bb3176a8788d02",
+      "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+      "characters": 27990,
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/c3879065c782f1b0a03107a927bb3176a8788d02/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md"
+    },
+    {
+      "ref": "ce7f606e75dfa2bc7029b68655657c2d3d5b5d04",
+      "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+      "characters": 29286,
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/ce7f606e75dfa2bc7029b68655657c2d3d5b5d04/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md"
+    }
+  ],
+  "governance_read": [
+    "AGENTS.md",
+    "docs/workflows/PLANNER_ROLE_CONTRACT.md",
+    "docs/workflows/CRITIC_ROLE_CONTRACT.md",
+    "docs/workflows/PLUGIN_CAPABILITY_GATE_POLICY.md"
+  ]
+}

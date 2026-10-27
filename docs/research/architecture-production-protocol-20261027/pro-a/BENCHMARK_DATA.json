@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "run_id": "pro-a",
+  "research_date": "2026-10-27",
+  "analysis_mode": "RETROSPECTIVE_ANALYSIS_NOT_BLIND",
+  "case_count": 24,
+  "independent_statistical_sample_count": "UNKNOWN; related cases cluster within projects and failure mechanisms",
+  "input_index": "evidence/PRE_CUTOFF_INPUT_INDEX.json",
+  "source_manifests": [
+    "evidence/source_manifest_bridge.json",
+    "evidence/source_manifest_slurm.json",
+    "evidence/source_manifest_cross.json",
+    "evidence/source_manifest_root.json"
+  ],
+  "metric_policy": "Counts of commits/reports/PASS are not quality measures; lower bounds and calendar spans are not model calls or human time.",
+  "cases": [
+    {
+      "case_id": "BR-01_PERIODIC_REPORT_WITHOUT_CALLER",
+      "detail_file": "evidence/bridge_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "BR-02_WORKTREE_QUIESCENCE",
+      "detail_file": "evidence/bridge_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "BR-03_V08_PASS_RUNTIME_REFUTATION",
+      "detail_file": "evidence/bridge_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN",
+      "isolated_input_micro_replay": "evidence/cutoff_micro_replays.json"
+    },
+    {
+      "case_id": "BR-04_RESET_CAPABILITY_LOSS",
+      "detail_file": "evidence/bridge_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "BR-05_OVER_SCOPED_DISPLAY_CHECK",
+      "detail_file": "evidence/bridge_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "POST_FAILURE_DIAGNOSIS_BEFORE_CORRECTION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "BR-06_RELEASED_CAPABILITY_SCOPE",
+      "detail_file": "evidence/bridge_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "POST_RELEASE_EVIDENCE_SCOPE",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "BR-07_PROBE_AND_CRITIC_POSITIVE_CONTROL",
+      "detail_file": "evidence/bridge_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "S-RUNTIME-01",
+      "detail_file": "evidence/slurm_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "S-AUTH-02",
+      "detail_file": "evidence/slurm_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN",
+      "isolated_input_micro_replay": "evidence/cutoff_micro_replays.json"
+    },
+    {
+      "case_id": "S-WORKTREE-03",
+      "detail_file": "evidence/slurm_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "S-ROUTING-04",
+      "detail_file": "evidence/slurm_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "STAGE_SPLIT",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "S-BOUNDARY-05",
+      "detail_file": "evidence/slurm_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-MICA-01",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "PARTIAL_PINNED_CODE_ONLY",
+      "phase": "CODE_INSPECTION_NO_CONTEMPORANEOUS_USER_REPORT_PACKET",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-MICA-02",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-CAT-01",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-CAT-02",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "STAGE_SPLIT",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-CAT-03",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "HISTORY_ONLY_INSUFFICIENT_PRE_CUTOFF_PACKET",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-STAT-01",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "STAGE_SPLIT",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-STAT-02",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-CW-01",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "HISTORY_ONLY_INSUFFICIENT_PRE_CUTOFF_PACKET",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "X-CW-02",
+      "detail_file": "evidence/cross_cases.json",
+      "detail_id_key": "id",
+      "input_status": "HISTORY_ONLY_INSUFFICIENT_PRE_CUTOFF_PACKET",
+      "phase": "PRE_DECISION",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "R-DA-01",
+      "detail_file": "evidence/design_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "HISTORY_ONLY_SCOPE_ANALYSIS",
+      "phase": "DESIGN_ONLY_SCOPE_CONTROL",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "R-AST-01",
+      "detail_file": "evidence/design_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "HISTORY_ONLY_SCOPE_ANALYSIS",
+      "phase": "CURRENT_IMPLEMENTATION_SCOPE_CONTROL",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    },
+    {
+      "case_id": "R-SHOW-01",
+      "detail_file": "evidence/design_cases.json",
+      "detail_id_key": "case_id",
+      "input_status": "HISTORY_ONLY_SCOPE_ANALYSIS",
+      "phase": "SHARED_PRODUCT_BLINDSPOT",
+      "strict_blind_test_executed": false,
+      "probability_estimate": "UNKNOWN"
+    }
+  ],
+  "supplemental_micro_replays": "evidence/cutoff_micro_replays.json",
+  "strict_blind_workflow_benchmark_executed": false
+}

@@ -1,0 +1,299 @@
+{
+  "scope": "pro-a internal cross-project history only",
+  "snapshot_commits": {
+    "YuukiAS/Mica-for-ChatGPT": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+    "YuukiAS/CAT-TRACE": "0d829fb17c458a076a15ec51893e917960107c21",
+    "YuukiAS/STAT5060-TA": "76dc93ce7aaf2b91b60fd4003daa8be75ff54588",
+    "YuukiAS/AI_Skills_Collection": "5d4b1432f96742646e00ad279a054359b1aec1da"
+  },
+  "references": [
+    {
+      "label": "完整原始记录",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/investigations/2026-09-03-composer-lifecycle-regression.md"
+    },
+    {
+      "label": "问题发现前代码",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9522b74c9eccc8a4ded557e6fae9acb92e1db352/extension/src/content.ts"
+    },
+    {
+      "label": "修订提交",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/commit/63ee889ebf90e3636176fdc3945f48d2d56acf6a"
+    },
+    {
+      "label": "原生重挂载与删除恢复调查",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/investigations/2026-09-07-stale-composer-clear-recovery.md"
+    },
+    {
+      "label": "10-05原始Goal",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/2a33a57ca7e65c3dd72a741e861c7bf39dcab71c/docs/tasks/2026-10-05-mica-product-recovery-current-gpt-ui.md"
+    },
+    {
+      "label": "失效标记提交",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/commit/977ba28f4ef4998367faf1e3c5f3ecb23723e6cd"
+    },
+    {
+      "label": "R1处置",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/reviews/2026-10-12-mica-product-system-critic-r1-disposition.md"
+    },
+    {
+      "label": "R2结论及收窄优先级",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/reviews/2026-10-12-mica-product-system-critic-r2-verdict.md"
+    },
+    {
+      "label": "产品系统",
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/product/MICA_PRODUCT_SYSTEM_V1.md"
+    },
+    {
+      "label": "探针前主计划",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/560267ecd818197c448b24cf7673dfc8dafae911/docs/model/catalog_aware/CAT_TRACE_CODE_IMPLEMENTATION_MASTER_PLAN_20260909.md"
+    },
+    {
+      "label": "全零积分发现",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/d05aa16b8f28d911207035c94752de3ee9ae683d/docs/implementation/probes/ZERO_SLOT_LAPLACE_FINDING.md"
+    },
+    {
+      "label": "原始探针脚本",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/d05aa16b8f28d911207035c94752de3ee9ae683d/docs/implementation/probes/zero_slot_laplace_probe.py"
+    },
+    {
+      "label": "R6限定批准",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0/docs/implementation/reviews/CRITIC_REVIEW_R6_RESOLUTION.md"
+    },
+    {
+      "label": "Alpha原执行结果",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/results/017_cat_trace_implementation_alpha/result.md"
+    },
+    {
+      "label": "Beta缺口与归因登记",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/07_DECISION_AND_GAP_LEDGER.md"
+    },
+    {
+      "label": "数值取证原结果",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/ba0a1efbfc2558d7cb6eb05126ecd52f2fd571b9/results/c04-ref--alpha-integral-numerical-forensics/result.md"
+    },
+    {
+      "label": "完整演进与错误怀疑撤销",
+      "url": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/C04_REF_RELIABILITY_INVESTIGATION_CHRONICLE_20260923.md"
+    },
+    {
+      "label": "代码范围执行前审查",
+      "url": "https://github.com/YuukiAS/STAT5060-TA/blob/76dc93ce7aaf2b91b60fd4003daa8be75ff54588/results/validator-system-architecture-research-20261022/execution-package-v1/CRITIC_FINAL_PARALLEL_EXECUTION_REVIEW_V1.md"
+    },
+    {
+      "label": "当时共享合同",
+      "url": "https://github.com/YuukiAS/STAT5060-TA/blob/435cd51f994df593d384972fe0c5f548bbe18b8d/results/validator-system-architecture-research-20261022/execution-package-v1/COMMON_CONTRACT.md"
+    },
+    {
+      "label": "被审实现",
+      "url": "https://github.com/YuukiAS/STAT5060-TA/blob/f5050863e19ab99b5d2e26e46d8fe321007d901e/scripts/final_project/validate_release_v3.py"
+    },
+    {
+      "label": "限定修复",
+      "url": "https://github.com/YuukiAS/STAT5060-TA/blob/76dc93ce7aaf2b91b60fd4003daa8be75ff54588/results/validator-system-architecture-research-20261022/independent-acceptance-v1/REPAIR_PROJECT_V1.md"
+    },
+    {
+      "label": "独立完整审查报告",
+      "url": "https://github.com/YuukiAS/STAT5060-TA/blob/76dc93ce7aaf2b91b60fd4003daa8be75ff54588/results/validator-system-architecture-research-20261022/independent-acceptance-v1/STAT5060_VALIDATOR_INDEPENDENT_ACCEPTANCE_REPORT_V1.md"
+    },
+    {
+      "label": "原始机器评审",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/055_clear_writing_release_convergence/text_review/TEXT_REVIEW.json"
+    },
+    {
+      "label": "来源归因裁决",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/df9186a949dc36f09bcefcc78b93c830d845adb4/results/055_clear_writing_release_convergence/FINAL_TERRA_B001_CRITIC_ADJUDICATION.md"
+    },
+    {
+      "label": "局部渲染修复复审",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/055_clear_writing_release_convergence/PREFINAL_CRITIC_REVIEW_C6_R2.md"
+    },
+    {
+      "label": "保留候选的最终收口记录",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/5d4b1432f96742646e00ad279a054359b1aec1da/results/055_clear_writing_release_convergence/FINAL_REPORT.md"
+    }
+  ],
+  "read_source_cache": [
+    {
+      "local_file": "sources/AI_Skills_Collection__5d4b143__results__055_clear_writing_release_convergence__PREFINAL_CRITIC_REVIEW_C6_R2.md",
+      "sha256": "017bc0d85bd76ab72e545462379a81ec0d1aeb370eed8545cbe893850b319752",
+      "bytes": 6274
+    },
+    {
+      "local_file": "sources/AI_Skills_Collection__docs__design__clear-writing__NEXT_RELEASE_PROPOSAL.md",
+      "sha256": "4c4088fd8f93832f31765523c9c5383451f74b19406a501ea02812d52dedae2b",
+      "bytes": 39555
+    },
+    {
+      "local_file": "sources/AI_Skills_Collection__docs__plugin-todos__writing-style.md",
+      "sha256": "86896e58c4bb903ec8937acc25b6c47f453f273b367f716b590ee3e01d542853",
+      "bytes": 83421
+    },
+    {
+      "local_file": "sources/AI_Skills_Collection__results__055_clear_writing_release_convergence__FINAL_REPORT.md",
+      "sha256": "45060b6ac44c7a9b20cb5313f62f530b93a5af97528cc083bd4b4b75ccabdc30",
+      "bytes": 5380
+    },
+    {
+      "local_file": "sources/AI_Skills_Collection__results__055_clear_writing_release_convergence__FINAL_TERRA_B001_CRITIC_ADJUDICATION.md",
+      "sha256": "abb9a350e26a66a7c5ad1a365841b0a8c98b8e900f5fb896335d511ba5c7a9a7",
+      "bytes": 8359
+    },
+    {
+      "local_file": "sources/AI_Skills_Collection__results__055_clear_writing_release_convergence__text_review__TEXT_REVIEW.json",
+      "sha256": "6ede9ee41f5321a97379e0408438b6b5dd44cfadf6ae54de1c70a99a61577947",
+      "bytes": 12058
+    },
+    {
+      "local_file": "sources/CAT-TRACE__0d829fb__docs__implementation__probes__zero_slot_laplace_probe.py",
+      "sha256": "e1c4e079d75a2ed89f89e27e46855b37308a76e498bb9c8fbda2eb3b2107c0ef",
+      "bytes": 4792
+    },
+    {
+      "local_file": "sources/CAT-TRACE__0d829fb__results__017_cat_trace_implementation_alpha__result.md",
+      "sha256": "0e95079e91209342b5a1b7907f17fb3160bf705d1fc38dcee3a9d52de8706338",
+      "bytes": 5830
+    },
+    {
+      "local_file": "sources/CAT-TRACE__0e1682a__docs__implementation__16_IMPLEMENTATION_ALPHA_EXECUTION_PLAN.md",
+      "sha256": "8bf2be2df734079f48fd415febbb29b58725b01e3387e2b01b0c4064ebd8a533",
+      "bytes": 12884
+    },
+    {
+      "local_file": "sources/CAT-TRACE__560267e__docs__model__catalog_aware__CAT_TRACE_CODE_IMPLEMENTATION_MASTER_PLAN_20260909.md",
+      "sha256": "7a25fb00a2dafc95f6b649011fbfafdfc498bbcfb8a8a0a703b89c6fc661cc17",
+      "bytes": 48716
+    },
+    {
+      "local_file": "sources/CAT-TRACE__ba0a1ef__results__c04-ref--alpha-integral-numerical-forensics__result.md",
+      "sha256": "e3bcad1bf866ded46d0956d58e38a08def37bc9ca63968a3581b625f4e61f92d",
+      "bytes": 4537
+    },
+    {
+      "local_file": "sources/CAT-TRACE__docs__implementation__07_DECISION_AND_GAP_LEDGER.md",
+      "sha256": "b9fba09b6b6eebb3aed85f433e038a4b0dafc4605762f715d2ea21d874df424e",
+      "bytes": 7041
+    },
+    {
+      "local_file": "sources/CAT-TRACE__docs__implementation__C04_REF_RELIABILITY_INVESTIGATION_CHRONICLE_20260923.md",
+      "sha256": "6b9f3c4cf34e8b53f2963d69d875b00bd2567a95fe40e49a9b803b8da6e40f45",
+      "bytes": 32087
+    },
+    {
+      "local_file": "sources/CAT-TRACE__docs__implementation__probes__ZERO_SLOT_LAPLACE_FINDING.md",
+      "sha256": "976657301f4d916e85c2dab2686a8bef95a67ce178aa7d5592319fb11c1dc9c0",
+      "bytes": 3780
+    },
+    {
+      "local_file": "sources/CAT-TRACE__docs__implementation__reviews__CRITIC_REVIEW_R6_RESOLUTION.md",
+      "sha256": "c96a075fa964b2715aecf535a0b18ab498f8e53c48b4f853adca9c3f4a8c63ab",
+      "bytes": 2931
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__2a33a57__docs__tasks__2026-10-05-mica-product-recovery-current-gpt-ui.md",
+      "sha256": "6ed672b01e62442676ce645edf86b6116421ce99d55b1909b3b9567797ef9d70",
+      "bytes": 27630
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__7059c0d__docs__reviews__2026-10-12-mica-product-system-critic-r1-disposition.md",
+      "sha256": "47d48124c5842bbb9cd5e414423a4549e905b8467085b289a1deecf35ce66fc0",
+      "bytes": 5467
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__9522b74__extension__src__content.ts",
+      "sha256": "f46bf8efadf80705effc2aed7ba107a93e560ab5bf917a9f4fccbcad53b9394f",
+      "bytes": 65948
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__docs__investigations__2026-09-03-composer-lifecycle-regression.md",
+      "sha256": "cd9df171d43732aab007a4e947ead0b2b61c939d99b1d48982cbe6aceb8f0e77",
+      "bytes": 10218
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__docs__investigations__2026-09-07-stale-composer-clear-recovery.md",
+      "sha256": "9294d102ef0db1f95959b8baa8ae753c66001bcf14585c8f8cc8609bee4b32d7",
+      "bytes": 5303
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__docs__product__MICA_PRODUCT_SYSTEM_V1.md",
+      "sha256": "3b8a565a536120bf7d62e34267e614ef5d77a28d08e444edb1b53333380ceec2",
+      "bytes": 39181
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__docs__reviews__2026-10-12-mica-product-system-critic-r2-verdict.md",
+      "sha256": "2f7db299459e034e435d4eee4aebf48b2d1c29dade4cd59be28ea3907d19d765",
+      "bytes": 1779
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__docs__reviews__2026-10-12-mica-product-system-rebuild-critic.md",
+      "sha256": "7f273defa80954bed997467450e2a89b46db6fb71bd7e8615deea53cb65799cb",
+      "bytes": 8170
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__docs__tasks__2026-10-05-mica-product-recovery-current-gpt-ui.md",
+      "sha256": "a6fc89e9d1d2b593717961da46c67ecb9afc4a5a17ef57522253cf82c91ef648",
+      "bytes": 28045
+    },
+    {
+      "local_file": "sources/Mica-for-ChatGPT__extension__src__content.ts",
+      "sha256": "9d8d3d4b944afc61bec74f658b6ad44e980626bdd94f42d2d48986efa218a9f0",
+      "bytes": 84478
+    },
+    {
+      "local_file": "sources/STAT5060-TA__435cd51__results__validator-system-architecture-research-20261022__execution-package-v1__COMMON_CONTRACT.md",
+      "sha256": "e6a522643cecb7f38bc3a6d9736c199983fd4903c497b02d0a78234ea487c06d",
+      "bytes": 19017
+    },
+    {
+      "local_file": "sources/STAT5060-TA__76dc93c__results__validator-system-architecture-research-20261022__independent-acceptance-v1__REPAIR_TUTORIAL_SHARED_V1.md",
+      "sha256": "573d07fe32637b7b8293b71c75f7b010ebd3634de4960e37ff430d62a70709f4",
+      "bytes": 5408
+    },
+    {
+      "local_file": "sources/STAT5060-TA__76dc93c__results__validator-system-architecture-research-20261022__independent-acceptance-v1__evidence__b1_audit.json",
+      "sha256": "f9d4ed4cce71e77861e523901eda5b523e20d43f317a6af4b4e5ce0aa446ce71",
+      "bytes": 20178
+    },
+    {
+      "local_file": "sources/STAT5060-TA__f505086__scripts__final_project__validate_release_v3.py",
+      "sha256": "20bb06eff3db1c58cdc34871cb7efb165eea54ee3bfbebb91b642c0683364b75",
+      "bytes": 34384,
+      "repository": "YuukiAS/STAT5060-TA",
+      "commit": "f5050863e19ab99b5d2e26e46d8fe321007d901e",
+      "repo_path": "scripts/final_project/validate_release_v3.py",
+      "git_blob_sha1": "0bf3bc66c79d5615a5f81d9b28af87b9104aabf5",
+      "source_url": "https://github.com/YuukiAS/STAT5060-TA/blob/f5050863e19ab99b5d2e26e46d8fe321007d901e/scripts/final_project/validate_release_v3.py",
+      "cache_correction": "Removed exactly one cache-added final newline; resulting bytes match GitHub API blob SHA. The AST function was unchanged."
+    },
+    {
+      "local_file": "sources/STAT5060-TA__results__validator-system-architecture-research-20261022__execution-package-v1__CRITIC_FINAL_PARALLEL_EXECUTION_REVIEW_V1.md",
+      "sha256": "f51b919773ef3abad785c2b24e16de7242c58b7aa331de3980620b847800e423",
+      "bytes": 8787
+    },
+    {
+      "local_file": "sources/STAT5060-TA__results__validator-system-architecture-research-20261022__independent-acceptance-v1__AUDIT_COUNTS.json",
+      "sha256": "1d49a6e314b6552dd03202080c45f5f583c7537b8f0f463be56d6303115b563c",
+      "bytes": 439
+    },
+    {
+      "local_file": "sources/STAT5060-TA__results__validator-system-architecture-research-20261022__independent-acceptance-v1__REPAIR_PROJECT_V1.md",
+      "sha256": "73fb75e852b91d3629c4bdd5fc32b31f4454fcbb91d4d256179efefba6b49152",
+      "bytes": 13475
+    },
+    {
+      "local_file": "sources/STAT5060-TA__results__validator-system-architecture-research-20261022__independent-acceptance-v1__STAT5060_VALIDATOR_INDEPENDENT_ACCEPTANCE_REPORT_V1.md",
+      "sha256": "83d33103ab67ad7d7a0c908a36dbc57a7acb9b4e236d775120c8d8754a575f91",
+      "bytes": 37330
+    },
+    {
+      "local_file": "sources/STAT5060-TA__results__validator-system-architecture-research-20261022__independent-acceptance-v1__evidence__q6_numeric_audit.json",
+      "sha256": "8fb45f319706d477284f4069278236465cc0b45308fb55bcb20e4ccadba69132",
+      "bytes": 1026
+    }
+  ],
+  "strict_blind_test": false,
+  "notes": [
+    "References point to inspected files or immutable history anchors confirmed by their file-commit lineage.",
+    "Current snapshots contain historical records and are not themselves pre-discovery blind inputs.",
+    "Private original Clear Writing source/PDF not obtained; only original machine review and formal adjudication inspected."
+  ]
+}

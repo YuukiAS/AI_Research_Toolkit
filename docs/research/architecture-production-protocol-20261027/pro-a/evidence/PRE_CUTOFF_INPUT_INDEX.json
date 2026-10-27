@@ -1,0 +1,479 @@
+{
+  "schema_version": 1,
+  "run_id": "pro-a",
+  "analysis_mode": "RETROSPECTIVE_ANALYSIS_NOT_BLIND",
+  "not_participant_packet": true,
+  "rules": [
+    "This is scorer-side source eligibility metadata, not a neutral participant prompt.",
+    "Fetch only immutable exact files. Strip diagnostic labels and all outcome metadata before use.",
+    "Do not grant future-branch navigation; do not mix latest files with historical filenames.",
+    "Direct source reads establish input existence, not unbiased model detection or a complete historical runtime.",
+    "Actual permissions and contemporaneous user deferral remain part of original input."
+  ],
+  "cases": [
+    {
+      "research_case_id": "BR-01_PERIODIC_REPORT_WITHOUT_CALLER",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B39",
+          "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+          "path": "docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B01",
+          "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B03",
+          "ref": "3e0370c7b1993ba2f6cba600aaed6a741892cb16",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/3e0370c7b1993ba2f6cba600aaed6a741892cb16/docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Do not supply case title, diagnostic ID, knowledge summary, future outcome, minimal probe specification or scoring criteria to participant."
+    },
+    {
+      "research_case_id": "BR-02_WORKTREE_QUIESCENCE",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B02",
+          "ref": "2e12226859446ad55067e19f08fc6b450f459c9b",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2e12226859446ad55067e19f08fc6b450f459c9b/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Do not supply case title, diagnostic ID, knowledge summary, future outcome, minimal probe specification or scoring criteria to participant."
+    },
+    {
+      "research_case_id": "BR-03_V08_PASS_RUNTIME_REFUTATION",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B19",
+          "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B20",
+          "ref": "35a976e79c036f6e68ba70e9d2364abc1c274a45",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/35a976e79c036f6e68ba70e9d2364abc1c274a45/docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Do not supply case title, diagnostic ID, knowledge summary, future outcome, minimal probe specification or scoring criteria to participant."
+    },
+    {
+      "research_case_id": "BR-04_RESET_CAPABILITY_LOSS",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B08",
+          "ref": "524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da",
+          "path": "docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da/docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B13",
+          "ref": "f67ac9155c1a844f171afbeef03e8169b8eec6fc",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/f67ac9155c1a844f171afbeef03e8169b8eec6fc/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B25",
+          "ref": "d293e525491b7db823435e15ffa3318bed251960",
+          "path": "docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/d293e525491b7db823435e15ffa3318bed251960/docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B28",
+          "ref": "a0ff37926dba44993f29c680d5a355221fc55c72",
+          "path": "docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a0ff37926dba44993f29c680d5a355221fc55c72/docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B29",
+          "ref": "a9c03b4a36c185aa98b00006c08ef600ba77d094",
+          "path": "docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a9c03b4a36c185aa98b00006c08ef600ba77d094/docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Do not supply case title, diagnostic ID, knowledge summary, future outcome, minimal probe specification or scoring criteria to participant."
+    },
+    {
+      "research_case_id": "BR-05_OVER_SCOPED_DISPLAY_CHECK",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "POST_FAILURE_DIAGNOSIS_BEFORE_CORRECTION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "source_id": "B19",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+          "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/511164258101e426da62c96b12e9803e8e7bd8a5/results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+          "source_id": "B41",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        }
+      ],
+      "excluded": [
+        {
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/511164258101e426da62c96b12e9803e8e7bd8a5",
+          "reason": "Commit navigation is not a file allowlist; the directly read canary file is already provided."
+        }
+      ],
+      "restriction": "Do not supply case title, diagnostic ID, knowledge summary, future outcome, minimal probe specification or scoring criteria to participant."
+    },
+    {
+      "research_case_id": "BR-06_RELEASED_CAPABILITY_SCOPE",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "POST_RELEASE_EVIDENCE_SCOPE",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+          "path": "results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md",
+          "source_id": "B35",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+          "path": "results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md",
+          "source_id": "B36",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+          "path": "results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md",
+          "source_id": "B40",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Do not supply case title, diagnostic ID, knowledge summary, future outcome, minimal probe specification or scoring criteria to participant."
+    },
+    {
+      "research_case_id": "BR-07_PROBE_AND_CRITIC_POSITIVE_CONTROL",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_FREEZE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "source_id": "B01",
+          "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+          "read_evidence": "Explicit fixed-ref source read by pro-a Bridge evidence task"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Do not supply case title, diagnostic ID, knowledge summary, future outcome, minimal probe specification or scoring criteria to participant."
+    },
+    {
+      "research_case_id": "S-RUNTIME-01",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+          "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/results/hpc--slurm-cancel-production-closure/RESULT.md",
+          "read_evidence": "Direct fixed-ref read; later maintained same-path files excluded"
+        },
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+          "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+          "read_evidence": "Direct fixed-ref read; later maintained same-path files excluded"
+        },
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "ref": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+          "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "blob": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/1b8df2c1f2b93de1605d571f5125cd4aaa99fd20/docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+          "read_evidence": "Direct fixed-ref read; later maintained same-path files excluded"
+        }
+      ],
+      "restriction": "Retain contemporaneous user scope and probe deferral. Outcome and diagnostic title are scoring-side only. No score for predicting future unimplemented bugs."
+    },
+    {
+      "research_case_id": "S-AUTH-02",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+          "ref": "38a76797439c6b29098aade7539270cbc51e8836",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/38a76797439c6b29098aade7539270cbc51e8836/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+          "read_evidence": "Direct fixed-ref read; later maintained same-path files excluded"
+        }
+      ],
+      "restriction": "Retain contemporaneous user scope and probe deferral. Outcome and diagnostic title are scoring-side only. No score for predicting future unimplemented bugs."
+    },
+    {
+      "research_case_id": "S-WORKTREE-03",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+          "ref": "c3879065c782f1b0a03107a927bb3176a8788d02",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/c3879065c782f1b0a03107a927bb3176a8788d02/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+          "read_evidence": "Direct fixed-ref read; later maintained same-path files excluded"
+        }
+      ],
+      "restriction": "Retain contemporaneous user scope and probe deferral. Outcome and diagnostic title are scoring-side only. No score for predicting future unimplemented bugs."
+    },
+    {
+      "research_case_id": "S-ROUTING-04",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "STAGE_SPLIT",
+      "inputs": [
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+          "ref": "ce7f606e75dfa2bc7029b68655657c2d3d5b5d04",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/ce7f606e75dfa2bc7029b68655657c2d3d5b5d04/docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+          "read_evidence": "Direct fixed-ref read; later maintained same-path files excluded"
+        }
+      ],
+      "restriction": "Retain contemporaneous user scope and probe deferral. Outcome and diagnostic title are scoring-side only. No score for predicting future unimplemented bugs."
+    },
+    {
+      "research_case_id": "S-BOUNDARY-05",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+          "ref": "a49f6dfcc48539a4dbead7ecae45f4b3cf398a7b",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/a49f6dfcc48539a4dbead7ecae45f4b3cf398a7b/docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+          "read_evidence": "Direct fixed-ref read; later maintained same-path files excluded"
+        }
+      ],
+      "restriction": "Retain contemporaneous user scope and probe deferral. Outcome and diagnostic title are scoring-side only. No score for predicting future unimplemented bugs."
+    },
+    {
+      "research_case_id": "X-MICA-01",
+      "input_status": "PARTIAL_PINNED_CODE_ONLY",
+      "phase": "CODE_INSPECTION_NO_CONTEMPORANEOUS_USER_REPORT_PACKET",
+      "inputs": [
+        {
+          "repository": "YuukiAS/Mica-for-ChatGPT",
+          "ref": "9522b74c9eccc8a4ded557e6fae9acb92e1db352",
+          "path": "extension/src/content.ts",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9522b74c9eccc8a4ded557e6fae9acb92e1db352/extension/src/content.ts",
+          "read_evidence": "Direct fixed-ref read in pro-a cross-project evidence task; raw cache recorded in source_manifest_cross.json"
+        }
+      ],
+      "excluded": [
+        {
+          "path": "docs/investigations/2026-09-03-composer-lifecycle-regression.md",
+          "reason": "Contemporaneous existence and absence of later conclusions not certified; current investigation is outcome-side only."
+        }
+      ],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-MICA-02",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/Mica-for-ChatGPT",
+          "ref": "2a33a57ca7e65c3dd72a741e861c7bf39dcab71c",
+          "path": "docs/tasks/2026-10-05-mica-product-recovery-current-gpt-ui.md",
+          "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/2a33a57ca7e65c3dd72a741e861c7bf39dcab71c/docs/tasks/2026-10-05-mica-product-recovery-current-gpt-ui.md",
+          "read_evidence": "Direct fixed-ref read in pro-a cross-project evidence task; raw cache recorded in source_manifest_cross.json"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-CAT-01",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/CAT-TRACE",
+          "ref": "560267ecd818197c448b24cf7673dfc8dafae911",
+          "path": "docs/model/catalog_aware/CAT_TRACE_CODE_IMPLEMENTATION_MASTER_PLAN_20260909.md",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/560267ecd818197c448b24cf7673dfc8dafae911/docs/model/catalog_aware/CAT_TRACE_CODE_IMPLEMENTATION_MASTER_PLAN_20260909.md",
+          "read_evidence": "Direct fixed-ref read in pro-a cross-project evidence task; raw cache recorded in source_manifest_cross.json"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-CAT-02",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "STAGE_SPLIT",
+      "inputs": [
+        {
+          "repository": "YuukiAS/CAT-TRACE",
+          "ref": "99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0",
+          "path": "docs/implementation/reviews/CRITIC_REVIEW_R6_RESOLUTION.md",
+          "blob": "11acf240f57aab2c120522196c573039834b19d3",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0/docs/implementation/reviews/CRITIC_REVIEW_R6_RESOLUTION.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        },
+        {
+          "repository": "YuukiAS/CAT-TRACE",
+          "ref": "99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0",
+          "path": "docs/implementation/16_IMPLEMENTATION_ALPHA_EXECUTION_PLAN.md",
+          "blob": "50e7429922b51495a79b1cafb0beeb0bec92fc78",
+          "url": "https://github.com/YuukiAS/CAT-TRACE/blob/99ba6bd1f4ef96078ba3e0ebc8b49670650edaa0/docs/implementation/16_IMPLEMENTATION_ALPHA_EXECUTION_PLAN.md",
+          "read_evidence": "Direct fixed-ref read in this research"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-CAT-03",
+      "input_status": "HISTORY_ONLY_INSUFFICIENT_PRE_CUTOFF_PACKET",
+      "phase": "PRE_DECISION",
+      "inputs": [],
+      "excluded": [
+        {
+          "path": "docs/implementation/C04_REF_RELIABILITY_INVESTIGATION_CHRONICLE_20260923.md",
+          "reason": "Append-only outcome chronicle or missing exact original input/PDF; no qualified pre-discovery packet."
+        }
+      ],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-STAT-01",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "STAGE_SPLIT",
+      "inputs": [
+        {
+          "repository": "YuukiAS/STAT5060-TA",
+          "ref": "435cd51f994df593d384972fe0c5f548bbe18b8d",
+          "path": "results/validator-system-architecture-research-20261022/execution-package-v1/COMMON_CONTRACT.md",
+          "url": "https://github.com/YuukiAS/STAT5060-TA/blob/435cd51f994df593d384972fe0c5f548bbe18b8d/results/validator-system-architecture-research-20261022/execution-package-v1/COMMON_CONTRACT.md",
+          "read_evidence": "Direct fixed-ref read in pro-a cross-project evidence task; raw cache recorded in source_manifest_cross.json"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-STAT-02",
+      "input_status": "PINNED_INPUTS_READ_NOT_BLIND_TESTED",
+      "phase": "PRE_DECISION",
+      "inputs": [
+        {
+          "repository": "YuukiAS/STAT5060-TA",
+          "ref": "435cd51f994df593d384972fe0c5f548bbe18b8d",
+          "path": "results/validator-system-architecture-research-20261022/execution-package-v1/COMMON_CONTRACT.md",
+          "url": "https://github.com/YuukiAS/STAT5060-TA/blob/435cd51f994df593d384972fe0c5f548bbe18b8d/results/validator-system-architecture-research-20261022/execution-package-v1/COMMON_CONTRACT.md",
+          "read_evidence": "Direct fixed-ref read in pro-a cross-project evidence task; raw cache recorded in source_manifest_cross.json"
+        }
+      ],
+      "excluded": [],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-CW-01",
+      "input_status": "HISTORY_ONLY_INSUFFICIENT_PRE_CUTOFF_PACKET",
+      "phase": "PRE_DECISION",
+      "inputs": [],
+      "excluded": [
+        {
+          "path": "results/055_clear_writing_release_convergence/FROZEN_AB_RUBRIC.md",
+          "reason": "Append-only outcome chronicle or missing exact original input/PDF; no qualified pre-discovery packet."
+        }
+      ],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "X-CW-02",
+      "input_status": "HISTORY_ONLY_INSUFFICIENT_PRE_CUTOFF_PACKET",
+      "phase": "PRE_DECISION",
+      "inputs": [],
+      "excluded": [
+        {
+          "path": "results/055_clear_writing_release_convergence/PREFINAL_CRITIC_REVIEW_C6.md",
+          "reason": "Append-only outcome chronicle or missing exact original input/PDF; no qualified pre-discovery packet."
+        }
+      ],
+      "restriction": "Only exact files here are participant candidates. Aliased references, future results, local analyst rechecks and diagnosis-specific parameters are not neutral input."
+    },
+    {
+      "research_case_id": "R-DA-01",
+      "input_status": "HISTORY_ONLY_SCOPE_ANALYSIS",
+      "phase": "DESIGN_ONLY_SCOPE_CONTROL",
+      "inputs": [],
+      "reason": "Sources establish design evolution and honest scope; no sealed pre-discovery product failure replay was executed."
+    },
+    {
+      "research_case_id": "R-AST-01",
+      "input_status": "HISTORY_ONLY_SCOPE_ANALYSIS",
+      "phase": "CURRENT_IMPLEMENTATION_SCOPE_CONTROL",
+      "inputs": [],
+      "reason": "Current fixed-ref scope analysis, not prospective detection."
+    },
+    {
+      "research_case_id": "R-SHOW-01",
+      "input_status": "HISTORY_ONLY_SCOPE_ANALYSIS",
+      "phase": "SHARED_PRODUCT_BLINDSPOT",
+      "inputs": [],
+      "reason": "Researcher read both later comparison and audit; did not independently render original prototypes."
+    }
+  ]
+}

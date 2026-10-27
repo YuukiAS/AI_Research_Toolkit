@@ -1,0 +1,31 @@
+{
+  "stat_positive_path_recheck.json": {
+    "returncode": 0,
+    "isolated_python": true,
+    "cwd": "/tmp",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "-I",
+      "/workspace/scratch/d3e60a3b1293/proa_evidence/cross/recheck_project_positive_path.py",
+      "--source",
+      "/workspace/scratch/d3e60a3b1293/proa_evidence/cross/sources/STAT5060-TA__f505086__scripts__final_project__validate_release_v3.py"
+    ],
+    "script_sha256": "e8974d6ebb55623b2568c8a84ed59c6d3c493a7bf882d37a0b7cddb08eff23ba"
+  },
+  "cat_zero_probe_recheck.json": {
+    "returncode": 0,
+    "isolated_python": true,
+    "cwd": "/tmp",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "-I",
+      "/workspace/scratch/d3e60a3b1293/proa_evidence/cross/recheck_zero_slot.py"
+    ],
+    "script_sha256": "056b2b00893c92af95b0820bde5ee5804fd3ba69adf879ea0f69b4b7381b1153"
+  },
+  "wrong_source_rejected": {
+    "returncode": 2,
+    "rejected_before_parse_or_exec": true,
+    "fixture": "synthetic one-line non-product file; deleted after check"
+  }
+}

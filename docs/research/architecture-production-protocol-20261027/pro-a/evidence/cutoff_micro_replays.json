@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "run_id": "pro-a",
+  "mode": "ISOLATED_INPUT_MICRO_REPLAY_NOT_WORKFLOW_BENCHMARK",
+  "captured_by_parent_utc": "2026-10-27 14:31:57 UTC",
+  "assignment_rule": "Two fresh agents, fork_turns=none; only neutral packet directory files allowed; no other files/network/agents/product actions; up to eight substantive issues; allowed to conclude ready; choose one next actor; parent had already seen historical outcome.",
+  "strict_blind_workflow_comparison": false,
+  "candidate_protocol_prompt_supplied": false,
+  "baseline_arm": false,
+  "historical_runtime_executed": false,
+  "reviewers_scoring_blind_to_method": false,
+  "probability_or_efficiency_estimate": "UNKNOWN; no rates or causal effect estimated",
+  "limitations": [
+    "Cases selected by outcome-aware parent, not random or preregistered before history research.",
+    "Input isolation instruction-based rather than infrastructure-enforced.",
+    "One judgment per case, no full Planner-Critic or dynamic-protocol run.",
+    "Parent scores qualitatively and knows outcomes; no independent adjudicator.",
+    "No time/cost-matched comparison and no live historical runtime replay."
+  ],
+  "records": [
+    {
+      "packet": "packet_01",
+      "research_case_id": "BR-03_V08_PASS_RUNTIME_REFUTATION",
+      "new_context": true,
+      "parent_history_forwarded": false,
+      "input_isolation": "Instruction-only exact local file allowlist; not a separately enforced filesystem/network sandbox. Agent reports compliance.",
+      "inputs": [
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "git_blob_sha1": "efe7f0322da4d377994183ce03ff44dd54085eb3",
+          "participant_input_sha256": "0f06d0e9c5d9ff01f726df7f20d51fa6fe3874217ed29ba5a38b890d1adca370",
+          "transformation": "Exact canonical bytes plus one final LF introduced by text cache; no other change."
+        },
+        {
+          "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+          "ref": "35a976e79c036f6e68ba70e9d2364abc1c274a45",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/35a976e79c036f6e68ba70e9d2364abc1c274a45/docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+          "git_blob_sha1": "698b06ed82ae1ef8907f3857f1a081ebf8b8e03c",
+          "participant_input_sha256": "e929d5617b58c72635288bd1874547fda4476ba1b5a7fdeef44fe3efe1c46b5c",
+          "transformation": "Exact canonical bytes plus one final LF introduced by text cache; no other change."
+        }
+      ],
+      "output_captured_before_outcome_reveal": true,
+      "outcome_was_not_sent_to_participant": true,
+      "raw_output_sha256": "1dc664740694a8e849ac9ea3e57cef1b13bc367ef342c0b54d134a1fd388cd47",
+      "archived_output_sha256": "6993fcd985b116941410ba2aa93a11b979106cfe7d5153cd028cf762cc5e527c",
+      "archived_output": "evidence/cutoff_replay_01.md",
+      "archive_change": "Only original scratch input locators replaced with exact immutable GitHub source URLs; predictions unchanged.",
+      "selected_next_action": "CODEX_MINIMAL_PROBE",
+      "parent_qualitative_assessment": "Identified formal reader skill-selection/isolation premise and declined broad implementation until actual runtime observation; also asked display persistence/viewer questions. Did not predict exact ignored-field outcome or minimize everything to zero turns."
+    },
+    {
+      "packet": "packet_02",
+      "research_case_id": "S-AUTH-02",
+      "new_context": true,
+      "parent_history_forwarded": false,
+      "input_isolation": "Instruction-only exact local file allowlist; not a separately enforced filesystem/network sandbox. Agent reports compliance.",
+      "inputs": [
+        {
+          "repository": "YuukiAS/AI_Skills_Collection",
+          "ref": "38a76797439c6b29098aade7539270cbc51e8836",
+          "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/AI_Skills_Collection/blob/38a76797439c6b29098aade7539270cbc51e8836/docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_2026-10-18.md",
+          "git_blob_sha1": "8026dfaf44abfe01b46cb8d4f15067df60b70800",
+          "participant_input_sha256": "14e893fe4e5bc981472c7c30f1baf306a1692ff235d704deabfecfed09ad8d07",
+          "transformation": "Exact canonical bytes plus one final LF introduced by text cache; no other change."
+        }
+      ],
+      "output_captured_before_outcome_reveal": true,
+      "outcome_was_not_sent_to_participant": true,
+      "raw_output_sha256": "c129e95cb00494c861c4dadd8bdc6a0650e1fbc9b36619a8b2e183eba340efb2",
+      "archived_output_sha256": "a968f84767e029028bc941bebe46fab56461ad2c3b69242548f7e7b3f6a6ec82",
+      "archived_output": "evidence/cutoff_replay_02.md",
+      "archive_change": "Only original scratch input locators replaced with exact immutable GitHub source URLs; predictions unchanged.",
+      "selected_next_action": "CODEX_FACT_CHECK",
+      "parent_qualitative_assessment": "Identified missing authenticity boundary between real client response and shell-created confirmed state; requested existing-platform fact check before Phase1; did not invent trusted-callback replacement."
+    }
+  ]
+}

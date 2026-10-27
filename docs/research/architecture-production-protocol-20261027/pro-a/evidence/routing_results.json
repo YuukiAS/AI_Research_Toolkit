@@ -1,0 +1,241 @@
+{
+  "purpose": "ASSUMED_STATE_ROUTING_CHECK_NOT_HISTORICAL_DETECTION",
+  "results": [
+    {
+      "id": "bridge_reader_unknown",
+      "result": {
+        "next_action": "CODEX_MINIMAL_PROBE",
+        "recipient": "Codex",
+        "reason": "Resolve reader-isolation",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "bridge_missing_caller",
+      "result": {
+        "next_action": "RETURN_TO_ARCHITECT",
+        "recipient": "Chat / Pro",
+        "reason": "Resolve periodic-owner",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "slurm_fake_confirm_authority",
+      "result": {
+        "next_action": "RETURN_TO_ARCHITECT",
+        "recipient": "Chat / Pro",
+        "reason": "Resolve same-uid-token",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "slurm_runtime_plus_blindspot",
+      "result": {
+        "next_action": "CODEX_MINIMAL_PROBE",
+        "recipient": "Codex",
+        "reason": "Resolve host-failure",
+        "parallel": [
+          {
+            "issue": "ordinary-command-path",
+            "next_action": "WORK_BLINDSPOT_AUDIT",
+            "recipient": "GPT Work"
+          }
+        ],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "slurm_timezone_bug",
+      "result": {
+        "next_action": "LOCAL_CODEX_FIX",
+        "recipient": "Codex",
+        "reason": "Resolve timezone-consumer",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "clear_writing_source_unknown",
+      "result": {
+        "next_action": "CODEX_FACT_CHECK",
+        "recipient": "Codex",
+        "reason": "Resolve source-attribution",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "competing_core_routes",
+      "result": {
+        "next_action": "SECOND_INDEPENDENT_DESIGN",
+        "recipient": "Independent Pro",
+        "reason": "Resolve core-route",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "product_options_not_prepared",
+      "result": {
+        "next_action": "RETURN_TO_ARCHITECT",
+        "recipient": "Chat / Pro",
+        "reason": "Prepare concrete product options before asking user",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "product_options_prepared",
+      "result": {
+        "next_action": "USER_PRODUCT_DECISION",
+        "recipient": "User",
+        "reason": "Resolve scope",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "cold_reader_pending",
+      "result": {
+        "next_action": "CODEX_READINESS_CHALLENGE",
+        "recipient": "Independent Codex",
+        "reason": "Cold implementer has not passed within scope",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "ready_for_implementation",
+      "result": {
+        "next_action": "FREEZE_AND_IMPLEMENT",
+        "recipient": "Codex",
+        "reason": "All supplied gates and necessary cold-read passed",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "design_only_complete",
+      "result": {
+        "next_action": "FREEZE_AND_END",
+        "recipient": "Chat / Pro",
+        "reason": "Design-only request complete within scope",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "new_execution_permission",
+      "result": {
+        "next_action": "USER_EXECUTION_AUTHORIZATION",
+        "recipient": "User",
+        "reason": "Concrete handoff ready; new execution authorization outstanding",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "missing_premise_gate",
+      "result": {
+        "next_action": "RETURN_TO_ARCHITECT",
+        "recipient": "Chat / Pro",
+        "reason": "Classify unresolved gates: premises",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "fixture_is_not_runtime",
+      "result": {
+        "next_action": "RETURN_TO_ARCHITECT",
+        "recipient": "Chat / Pro",
+        "reason": "Classify unresolved gates: premises",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "implementation_verification",
+      "result": {
+        "next_action": "CODEX_VERIFY",
+        "recipient": "Codex",
+        "reason": "Current candidate verification incomplete",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "independent_product_acceptance",
+      "result": {
+        "next_action": "WORK_FINAL_ACCEPTANCE",
+        "recipient": "GPT Work",
+        "reason": "Independent product evidence still needed",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "task_complete",
+      "result": {
+        "next_action": "CLOSE_TASK",
+        "recipient": "Chat / Pro",
+        "reason": "Current bounded delivery and required acceptance complete",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "local_change_done",
+      "result": {
+        "next_action": "CLOSE_TASK",
+        "recipient": "Chat / Pro",
+        "reason": "Current bounded delivery and required acceptance complete",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "cyclic_dependencies",
+      "result": {
+        "next_action": "RETURN_TO_ARCHITECT",
+        "recipient": "Chat / Pro",
+        "reason": "No actionable dependency root; resolve dependency cycle",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "fact_before_product",
+      "result": {
+        "next_action": "CODEX_FACT_CHECK",
+        "recipient": "Codex",
+        "reason": "Resolve fact",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "missing_dependencies",
+      "result": {
+        "next_action": "RETURN_TO_ARCHITECT",
+        "recipient": "Chat / Pro",
+        "reason": "Issue type/dependencies not assessed",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    },
+    {
+      "id": "explicit_user_probe_deferral",
+      "result": {
+        "next_action": "APPLY_EXISTING_USER_DECISION",
+        "recipient": "Current Chat / Pro",
+        "reason": "Apply the recorded candidate-only authorization immediately; retain UNKNOWN evidence and no global Freeze. This exception requires the original instruction, not generic auto-dispatch.",
+        "parallel": [],
+        "convergence_owner": "Chat / Pro"
+      }
+    }
+  ]
+}

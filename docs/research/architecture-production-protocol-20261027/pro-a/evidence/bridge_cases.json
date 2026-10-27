@@ -1,0 +1,1068 @@
+{
+  "schema": "architecture-production-retrospective-cases.v1",
+  "run_id": "pro-a",
+  "repository": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+  "analysis_mode": "RETROSPECTIVE_NOT_BLIND",
+  "forbidden_sources": "Current 20261027 Toolkit pro-b and work task branches; none accessed",
+  "probability_policy": {
+    "detection_probability": "UNKNOWN",
+    "counterfactual_success_rate": "UNKNOWN",
+    "observed_event_rate": "Not estimated; selected negative case, incomplete denominator"
+  },
+  "case_count": 7,
+  "cases": [
+    {
+      "case_id": "BR-01_PERIODIC_REPORT_WITHOUT_CALLER",
+      "title": "主动周期报告已有需求，但中间函数被误当能力完成",
+      "cutoff": {
+        "ref": "3e0370c7b1993ba2f6cba600aaed6a741892cb16",
+        "time_utc": "2026-10-12T06:25:38Z",
+        "stage": "Execution package v0.2; exact separate final PASS artifact not claimed"
+      },
+      "knowledge_at_cutoff": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "初始 snapshot 已存在的 TODO 明确要求主动报告，非仅 on-demand status；项目拥有真实 producer，Bridge 提供可复用报告/运输。",
+          "初始执行方案把 Persistent Run 剩余工作表述为把现有合法 producer 接到 notifier，没有闭合周期触发与 consumer 的完整实现责任。"
+        ],
+        "sources": [
+          {
+            "source_id": "B39",
+            "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+            "path": "docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md"
+          },
+          {
+            "source_id": "B01",
+            "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+            "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md"
+          },
+          {
+            "source_id": "B03",
+            "ref": "3e0370c7b1993ba2f6cba600aaed6a741892cb16",
+            "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/3e0370c7b1993ba2f6cba600aaed6a741892cb16/docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md"
+          }
+        ],
+        "questions_available_then": [
+          "谁定期调用 report_progress_file？",
+          "由哪个正常启动入口保证该 caller 存在？",
+          "用户从哪个入口接收更新？",
+          "计时依据是 last observation 还是 last logical delivery？"
+        ]
+      },
+      "future_outcome": {
+        "evidence_status": "OBSERVED",
+        "ref": "524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da",
+        "facts": [
+          "scope recovery 承认原能力仍 PARTIAL：缺周期 owner、原线程主动 delivery，cadence 会刷屏与饥饿。",
+          "该文明确称恢复原 0.9.0 已冻结语义。"
+        ],
+        "sources": [
+          {
+            "source_id": "B08",
+            "ref": "524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da",
+            "path": "docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da/docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md"
+          }
+        ],
+        "labels": [
+          "DESIGN_GAP",
+          "EVIDENCE_GAP",
+          "IMPLEMENTATION_BUG"
+        ],
+        "new_requirement_status": "Periodic reporting requirement pre-existed; later dedicated Progress thread choice is excluded from this case."
+      },
+      "mechanism": {
+        "asteria": {
+          "conclusion": "能力→producer→调用者→状态→consumer 强制映射能暴露显性断点",
+          "evidence_status": "INFERRED",
+          "basis": "缺 owner/caller 是可定位的空字段/边",
+          "limit": "若整项能力从输入中漏掉，结构检查不会自己恢复",
+          "detection_probability": "UNKNOWN"
+        },
+        "work_blindspot": {
+          "conclusion": "从旧 TODO 独立提出长期任务无人查看时如何主动更新",
+          "evidence_status": "INFERRED",
+          "basis": "旧 TODO 在 cutoff 已存在",
+          "limit": "未实测 Work 检出率",
+          "detection_probability": "UNKNOWN"
+        },
+        "second_pro": {
+          "conclusion": "可能设计出有明确 supervisor/caller 的路线",
+          "evidence_status": "INFERRED",
+          "basis": "原目标允许独立设计",
+          "limit": "不能保证；共同忽略 TODO 会相关失败",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_fact_check": {
+          "conclusion": "只读搜索 caller 和正常入口可判定函数是否被周期消费",
+          "evidence_status": "INFERRED",
+          "basis": "后来 scope proposal 从已有代码得出这一事实",
+          "limit": "不能让 Codex 替产品决定周期 owner",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_probe": {
+          "conclusion": "受控时钟小试验能暴露刷屏/饥饿；生命周期最小启动可检验 caller",
+          "evidence_status": "INFERRED",
+          "basis": "问题是时间状态和调用关系",
+          "limit": "只测试 reporter 不足以证明真实 producer 存在",
+          "detection_probability": "UNKNOWN"
+        },
+        "readiness_challenge": {
+          "conclusion": "陌生实施者必须指定需要改的启动入口与周期 owner；若无法回答则返架构",
+          "evidence_status": "INFERRED",
+          "basis": "原包遗漏的是明确实施责任",
+          "limit": "只读者不能自行补选 supervisor 架构",
+          "detection_probability": "UNKNOWN"
+        }
+      },
+      "expected_next_action": "RETURN_TO_ARCHITECT for owner/caller; LOCAL_CODEX_FIX for already-frozen cadence bugs after design clarified",
+      "benchmark_rules": {
+        "must_find": [
+          "周期 caller/owner 未闭合",
+          "函数存在不等于主动能力",
+          "保留真实 producer ownership"
+        ],
+        "false_positive": [
+          "把用户后来要求 dedicated thread 倒算初始缺陷",
+          "以补一个 status CLI 宣称完成主动报告"
+        ],
+        "outcome_hidden_until_prediction": true
+      },
+      "limitations": [
+        "已看过后续材料；本轮为 retrospective analysis",
+        "独立模型的注意力和检出率 UNKNOWN",
+        "初始所有聊天与确切 PASS 时间不可见"
+      ],
+      "cutoff_input_allowlist": [
+        {
+          "source_id": "B39",
+          "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+          "path": "docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/TODO_PERSISTENT_RUN_PROGRESS_ETA_REPORTING.md"
+        },
+        {
+          "source_id": "B01",
+          "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md"
+        },
+        {
+          "source_id": "B03",
+          "ref": "3e0370c7b1993ba2f6cba600aaed6a741892cb16",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/3e0370c7b1993ba2f6cba600aaed6a741892cb16/docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md"
+        }
+      ]
+    },
+    {
+      "case_id": "BR-02_WORKTREE_QUIESCENCE",
+      "title": "事务成功不能证明生产环境可安全交换工作树",
+      "cutoff": {
+        "ref": "2e12226859446ad55067e19f08fc6b450f459c9b",
+        "time_utc": "2026-10-12T03:05:05Z",
+        "stage": "Revised proposal after accepted Critic blockers and disposable probes"
+      },
+      "knowledge_at_cutoff": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "双 dirty linked worktree 交换已用 disposable Git 2.47.3/Linux 试验验证，涉及 staged/unstaged/untracked、HEAD 与中断回滚。",
+          "生产环境 quiescence、main worktree、submodule、cross-fs 和活动进程属于额外风险；一次成功事务未证明无并发活动。"
+        ],
+        "sources": [
+          {
+            "source_id": "B02",
+            "ref": "2e12226859446ad55067e19f08fc6b450f459c9b",
+            "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2e12226859446ad55067e19f08fc6b450f459c9b/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md"
+          }
+        ],
+        "questions_available_then": [
+          "什么 authority 能阻止新进程在检查后进入工作树？",
+          "ps/procfs/lsof 只读扫描能否形成排他租约？",
+          "没有该 primitive 时是禁止交换、人工操作，还是改变产品范围？"
+        ]
+      },
+      "future_outcome": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "v0.6 硬化为所有平台生产 pre-move deny，仅保留 disposable transaction 测试。",
+          "v0.7 摘要仍保留 Linux/procfs 例外，被 Critic 要求纠正。",
+          "product reset 删除自动 exchange/journal，因为缺可靠排他 primitive。"
+        ],
+        "sources": [
+          {
+            "source_id": "B15",
+            "ref": "16ae5fefe8747e54a6db60bd155311daff1efed7",
+            "path": null,
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/16ae5fefe8747e54a6db60bd155311daff1efed7"
+          },
+          {
+            "source_id": "B18",
+            "ref": "ace8f6507e61e6b53af5a3e83ba01c275ee6fc9c",
+            "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.7_2026-10-18.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/ace8f6507e61e6b53af5a3e83ba01c275ee6fc9c/docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.7_2026-10-18.md"
+          },
+          {
+            "source_id": "B24",
+            "ref": "0120b99a501e4193078233bc4ec824dcb1dcac75",
+            "path": "docs/design/0.11.0_product_scope_reset_proposal_v0.1_2026-10-19.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0120b99a501e4193078233bc4ec824dcb1dcac75/docs/design/0.11.0_product_scope_reset_proposal_v0.1_2026-10-19.md"
+          },
+          {
+            "source_id": "B30",
+            "ref": "be4a97949e65690fcfc236956de3e89768079b77",
+            "path": null,
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/be4a97949e65690fcfc236956de3e89768079b77"
+          }
+        ],
+        "labels": [
+          "EXTERNAL_FACT",
+          "DESIGN_GAP",
+          "EVIDENCE_GAP"
+        ]
+      },
+      "mechanism": {
+        "asteria": {
+          "conclusion": "把 safety claim 的 authority 和 proof 分离会标出未证前提",
+          "evidence_status": "INFERRED",
+          "basis": "requirement 与证据实际只覆盖不同命题",
+          "limit": "描述完整的扫描机制仍可能语义错误",
+          "detection_probability": "UNKNOWN"
+        },
+        "work_blindspot": {
+          "conclusion": "以 concurrent process 和检查后启动的反例挑战全局安全主张",
+          "evidence_status": "INFERRED",
+          "basis": "风险从原始并发场景可提出",
+          "limit": "不能证明不存在未知平台排他能力",
+          "detection_probability": "UNKNOWN"
+        },
+        "second_pro": {
+          "conclusion": "可独立选择仅上下文绑定与原生 worktree，不自动 exchange",
+          "evidence_status": "INFERRED",
+          "basis": "reset 后路线显示有替代机制",
+          "limit": "不是已观测模型竞争结果",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_fact_check": {
+          "conclusion": "先查实际 Git/runtime 是否提供可供本产品使用的排他 authority",
+          "evidence_status": "INFERRED",
+          "basis": "关键问题是平台能力，不是更多 transaction unit tests",
+          "limit": "API absence 需限定版本和操作面",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_probe": {
+          "conclusion": "代表性 concurrency probe 可反证扫描与 move 间窗口",
+          "evidence_status": "INFERRED",
+          "basis": "已有 transaction probe 可复用",
+          "limit": "通过有限并发样例不能证明所有竞争不存在",
+          "detection_probability": "UNKNOWN"
+        },
+        "readiness_challenge": {
+          "conclusion": "必须能解释 preflight 与 mutation 之间由谁保持排他条件",
+          "evidence_status": "INFERRED",
+          "basis": "可实施安全合同不可留给 Codex发明",
+          "limit": "陌生实施者能力有限且不得扩大产品",
+          "detection_probability": "UNKNOWN"
+        }
+      },
+      "expected_next_action": "CODEX_FACT_CHECK on exclusion primitive, then RETURN_TO_ARCHITECT if absent",
+      "benchmark_rules": {
+        "must_find": [
+          "区分事务一致性与生产排他性",
+          "不能用进程扫描作为完整 authority"
+        ],
+        "false_positive": [
+          "否认已完成 disposable probe 的价值",
+          "把生产全禁止归为普通实现 bug"
+        ],
+        "outcome_hidden_until_prediction": true
+      },
+      "limitations": [
+        "并非严格盲测",
+        "没有真实各平台持续并发实验",
+        "最终删掉能力含产品裁决，不能完全由 probe 替代"
+      ],
+      "cutoff_input_allowlist": [
+        {
+          "source_id": "B02",
+          "ref": "2e12226859446ad55067e19f08fc6b450f459c9b",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2e12226859446ad55067e19f08fc6b450f459c9b/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md"
+        }
+      ]
+    },
+    {
+      "case_id": "BR-03_V08_PASS_RUNTIME_REFUTATION",
+      "title": "execution-ready PASS 之后，零模型 reader probe 才否定核心平台前提",
+      "cutoff": {
+        "ref": "35a976e79c036f6e68ba70e9d2364abc1c274a45",
+        "time_utc": "2026-10-18T13:35:14Z",
+        "stage": "Actual execution-ready PASS",
+        "reviewed_candidate": "bbd14ce66b462ba2dbcecc6ad06d851598a3aacc"
+      },
+      "knowledge_at_cutoff": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "v0.8 要求 fresh ephemeral reader 在选定 CODEX_HOME 下回读 instructionSources=[] 并禁止 multi-agent。",
+          "不能通过偷偷换 CODEX_HOME、修改全局 AGENTS 或额外 daemon 满足合同。",
+          "最后 Critic 只复核 R7 两处摘要残余矛盾，其他 accepted 设计保持。",
+          "Plan/Goal/Kickoff 与最终 G01–G14 已详细定义，但 reader 前提尚无所选实际 runtime 的直接通过证据。"
+        ],
+        "sources": [
+          {
+            "source_id": "B19",
+            "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+            "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md"
+          },
+          {
+            "source_id": "B20",
+            "ref": "35a976e79c036f6e68ba70e9d2364abc1c274a45",
+            "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/35a976e79c036f6e68ba70e9d2364abc1c274a45/docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md"
+          }
+        ],
+        "questions_available_then": [
+          "所选 CLI/schema 是否真的支持这些 thread-local 配置？",
+          "实际 effective instructionSources 能否为空？",
+          "若失败，是否会阻断其他成熟功能发布？"
+        ]
+      },
+      "future_outcome": {
+        "evidence_status": "OBSERVED",
+        "implementation_ref": "e0f7a328a76e464d154cd1a4295b563b473f8023",
+        "failure_evidence_ref": "da9f6d2b34c00e87e00622b9234bbada786c1760",
+        "reset_ref": "0120b99a501e4193078233bc4ec824dcb1dcac75",
+        "facts": [
+          "实施新增 reader/display 与多工作流接线。",
+          "真实 Codex CLI 0.160.1 的默认和 project_doc_max_bytes=0 ephemeral reader 均仍加载全局 AGENTS。",
+          "multiAgentMode 请求的 schema 标记 @deprecated Ignored。",
+          "canary status=FAIL_CLOSED; runtime_capability_classification=UNSUPPORTED_WITH_EVIDENCE; durable_progress_threads_created=0; reader_turns_used=0; final_g01_g14_started=false。",
+          "PASS 到 product reset 文档间隔 3 小时 16 分 14 秒。"
+        ],
+        "sources": [
+          {
+            "source_id": "B21",
+            "ref": "e0f7a328a76e464d154cd1a4295b563b473f8023",
+            "path": null,
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/e0f7a328a76e464d154cd1a4295b563b473f8023"
+          },
+          {
+            "source_id": "B23",
+            "ref": "da9f6d2b34c00e87e00622b9234bbada786c1760",
+            "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/da9f6d2b34c00e87e00622b9234bbada786c1760/results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json"
+          },
+          {
+            "source_id": "B24",
+            "ref": "0120b99a501e4193078233bc4ec824dcb1dcac75",
+            "path": "docs/design/0.11.0_product_scope_reset_proposal_v0.1_2026-10-19.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/0120b99a501e4193078233bc4ec824dcb1dcac75/docs/design/0.11.0_product_scope_reset_proposal_v0.1_2026-10-19.md"
+          }
+        ],
+        "labels": [
+          "EXTERNAL_FACT",
+          "EVIDENCE_GAP",
+          "DESIGN_GAP",
+          "SCOPE_RESET"
+        ]
+      },
+      "mechanism": {
+        "asteria": {
+          "conclusion": "关键 external assumption 无 exact runtime evidence 应阻止完整 Freeze",
+          "evidence_status": "INFERRED",
+          "basis": "该前提否定时 reader 架构不可执行且影响整片 G14",
+          "limit": "结构本身不能推导真实接口结果；必须把无 evidence 当阻塞",
+          "detection_probability": "UNKNOWN"
+        },
+        "work_blindspot": {
+          "conclusion": "能质疑可选表达为何阻断主运行和全部发布",
+          "evidence_status": "INFERRED",
+          "basis": "不同候选共享 app-server 假设时独立反例有价值",
+          "limit": "读更多设计不能代替机器probe",
+          "detection_probability": "UNKNOWN"
+        },
+        "second_pro": {
+          "conclusion": "可能提出一次性 codex exec + fallback 与独立 CLI/status",
+          "evidence_status": "INFERRED",
+          "basis": "后来reset实际采用较薄路线",
+          "limit": "候选可能相关；没有证据保证第二Pro能识别该接口限制",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_fact_check": {
+          "conclusion": "读所选tag/schema可发现 deprecated ignored 参数",
+          "evidence_status": "INFERRED",
+          "basis": "后来canary有精确schema信息",
+          "limit": "全局 AGENTS实际加载仍需运行环境",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_probe": {
+          "conclusion": "最应前移：固定身份的 ephemeral zero-turn reader，读取有效配置与schema",
+          "evidence_status": "INFERRED",
+          "basis": "后来失败发生在任何 reader model turn 和 durable display分配之前",
+          "limit": "counterfactual须假定当时可访问同一目标host/CLI；无实测前移效果",
+          "detection_probability": "UNKNOWN"
+        },
+        "readiness_challenge": {
+          "conclusion": "若仅问模块拆分会通过；必须指出未验证平台前提并请求probe",
+          "evidence_status": "INFERRED",
+          "basis": "文件完整且易拆任务但依赖不存在能力",
+          "limit": "不允许 implementer 静默改CODEX_HOME或选另一架构",
+          "detection_probability": "UNKNOWN"
+        }
+      },
+      "expected_next_action": "CODEX_MINIMAL_PROBE",
+      "minimal_probe_spec": {
+        "inputs": [
+          "same selected Codex CLI 0.160.1",
+          "same selected CODEX_HOME",
+          "ephemeral zero-turn thread",
+          "requested isolation fields"
+        ],
+        "observations": [
+          "effective instructionSources",
+          "effective multi-agent control or explicit unsupported",
+          "no turn/start",
+          "no durable display allocation"
+        ],
+        "kill_condition": "instructionSources cannot be empty or disabling delegation is unsupported under frozen constraints",
+        "architecture_response": "RETURN_TO_ARCHITECT; preserve independent capabilities and revise reader adapter boundary",
+        "model_turn_budget": 0,
+        "actual_detection_probability": "UNKNOWN"
+      },
+      "benchmark_rules": {
+        "must_find": [
+          "Freeze blocker is unproved platform premise",
+          "probe before full implementation",
+          "only affected architectural decision reopened"
+        ],
+        "false_positive": [
+          "claim PASS meant final product validated",
+          "silently downgrade safety requirement",
+          "require third Pro before platform fact probe"
+        ],
+        "outcome_hidden_until_prediction": true
+      },
+      "limitations": [
+        "retrospective, not strict blindtest",
+        "no precise implementation-hours saved",
+        "full causal responsibility of author/critic not inferable from Git alone"
+      ],
+      "cutoff_input_allowlist": [
+        {
+          "source_id": "B19",
+          "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md"
+        },
+        {
+          "source_id": "B20",
+          "ref": "35a976e79c036f6e68ba70e9d2364abc1c274a45",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/35a976e79c036f6e68ba70e9d2364abc1c274a45/docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md"
+        }
+      ]
+    },
+    {
+      "case_id": "BR-04_RESET_CAPABILITY_LOSS",
+      "title": "简化执行包 PASS 后再次恢复已有能力与责任合同",
+      "cutoff": {
+        "ref": "a9c03b4a36c185aa98b00006c08ef600ba77d094",
+        "time_utc": "2026-10-18T17:35:53Z",
+        "stage": "Actual reset execution-ready PASS",
+        "reviewed_candidate": "f4d39d5b4845d48d8c598971cab0fba1b9821c8e"
+      },
+      "knowledge_at_cutoff": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "reset proposal经过独立design critic；Critic保留一次Clear Writing，补dirty scope、恢复和migration。",
+          "execution-ready PASS 批准 C1–C5 并列明删除 machine notifier profile。",
+          "旧 scope recovery 已有机器复用、任务通知能力和主动进度承诺。",
+          "PASS 声称当前 Codex不需要再用probe决定产品范围，可进入reset implementation。"
+        ],
+        "sources": [
+          {
+            "source_id": "B08",
+            "ref": "524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da",
+            "path": "docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da/docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md"
+          },
+          {
+            "source_id": "B13",
+            "ref": "f67ac9155c1a844f171afbeef03e8169b8eec6fc",
+            "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/f67ac9155c1a844f171afbeef03e8169b8eec6fc/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md"
+          },
+          {
+            "source_id": "B25",
+            "ref": "d293e525491b7db823435e15ffa3318bed251960",
+            "path": "docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/d293e525491b7db823435e15ffa3318bed251960/docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md"
+          },
+          {
+            "source_id": "B28",
+            "ref": "a0ff37926dba44993f29c680d5a355221fc55c72",
+            "path": "docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a0ff37926dba44993f29c680d5a355221fc55c72/docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md"
+          },
+          {
+            "source_id": "B29",
+            "ref": "a9c03b4a36c185aa98b00006c08ef600ba77d094",
+            "path": "docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a9c03b4a36c185aa98b00006c08ef600ba77d094/docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md"
+          }
+        ],
+        "questions_available_then": [
+          "删除 machine profile 后每台机器配一次能力由谁承接？",
+          "恢复入口能否让用户避免手删state？",
+          "count/fraction有实际producer/cadence合同和下游caller吗？",
+          "复杂度删减是否误删用户能力？"
+        ]
+      },
+      "future_outcome": {
+        "evidence_status": "OBSERVED",
+        "implementation_ref": "be4a97949e65690fcfc236956de3e89768079b77",
+        "redesign_ref": "894f8bb3eb99e6363902febd08bccae73d517d1c",
+        "facts": [
+          "reset checkpoint 已实施大范围删除并增加one-shot adapter。",
+          "integrated v3关闭八类blocker，含producer合同、recover/resolve、machine唯一notifier配置/legacy迁移/retry、四consumer、bounded delivery、writer事务和统一冻结包。",
+          "v4另行删除process-level SMTP override以保持单一配置真值。"
+        ],
+        "sources": [
+          {
+            "source_id": "B30",
+            "ref": "be4a97949e65690fcfc236956de3e89768079b77",
+            "path": null,
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/be4a97949e65690fcfc236956de3e89768079b77"
+          },
+          {
+            "source_id": "B31",
+            "ref": "894f8bb3eb99e6363902febd08bccae73d517d1c",
+            "path": "docs/design/0.11.0_integrated_product_architecture_v3_2026-10-19.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/894f8bb3eb99e6363902febd08bccae73d517d1c/docs/design/0.11.0_integrated_product_architecture_v3_2026-10-19.md"
+          },
+          {
+            "source_id": "B32",
+            "ref": "61004a64effacad08c792140fafbf5a72ea874bf",
+            "path": "docs/design/0.11.0_integrated_product_architecture_v4_2026-10-19.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/61004a64effacad08c792140fafbf5a72ea874bf/docs/design/0.11.0_integrated_product_architecture_v4_2026-10-19.md"
+          },
+          {
+            "source_id": "B33",
+            "ref": "542832ed098013148c8bc8c53b7a59a6878bb014",
+            "path": null,
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/542832ed098013148c8bc8c53b7a59a6878bb014"
+          }
+        ],
+        "labels": [
+          "DESIGN_GAP",
+          "EVIDENCE_GAP",
+          "SCOPE_RESET"
+        ],
+        "new_requirement_status": "MIXED_OR_UNKNOWN for each integrated item because v1/v2 attachments and full chat not all versioned; machine-once and proactive reporting have clear earlier anchors."
+      },
+      "mechanism": {
+        "asteria": {
+          "conclusion": "删除组件时必须检查accepted capability去向、替代owner与normal entry",
+          "evidence_status": "INFERRED",
+          "basis": "旧能力账本与新迁移矩阵可逐项比对",
+          "limit": "reason字段单独不能保护能力",
+          "detection_probability": "UNKNOWN"
+        },
+        "work_blindspot": {
+          "conclusion": "新机器/新repo/断线恢复/长任务场景能揭示抽象简化丢失的结果",
+          "evidence_status": "INFERRED",
+          "basis": "场景不依赖具体候选",
+          "limit": "不能对全部v3项声称不是新增要求",
+          "detection_probability": "UNKNOWN"
+        },
+        "second_pro": {
+          "conclusion": "在scope reset时有价值：从原目标独立提出最小完整方案",
+          "evidence_status": "INFERRED",
+          "basis": "必须独立于被删代码与当前简化框架",
+          "limit": "不能默认跑第三完整设计",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_fact_check": {
+          "conclusion": "可列出当前machine config/producer/caller不存在的事实",
+          "evidence_status": "INFERRED",
+          "basis": "源码与文档对应性可检查",
+          "limit": "不能替Chat决定是否删除用户能力",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_probe": {
+          "conclusion": "两repo共享配置和坏JSON/恢复/timeout最小链可检验合同",
+          "evidence_status": "INFERRED",
+          "basis": "v3后来形成明确normal-entry probes",
+          "limit": "若用户能力从合同删除，probe按错合同仍可通过",
+          "detection_probability": "UNKNOWN"
+        },
+        "readiness_challenge": {
+          "conclusion": "除了能拆模块，还要从每项accepted能力反向找实施责任",
+          "evidence_status": "INFERRED",
+          "basis": "reset包形式完整且可编码仍可能产品不完整",
+          "limit": "readiness不独占产品决定",
+          "detection_probability": "UNKNOWN"
+        }
+      },
+      "expected_next_action": "RETURN_TO_ARCHITECT for capability preservation; WORK_BLINDSPOT_AUDIT if source capability inventory itself uncertain",
+      "benchmark_rules": {
+        "must_find": [
+          "component deletion versus capability deletion",
+          "machine-once ownership",
+          "恢复与producer真实责任"
+        ],
+        "false_positive": [
+          "把所有v3 finding都当用户新增",
+          "否认reset Critic保住Clear Writing的价值",
+          "把未来v3答案直接写进cutoff输入"
+        ],
+        "outcome_hidden_until_prediction": true
+      },
+      "limitations": [
+        "partial chat/attachments missing",
+        "there is no measured second-Pro comparison",
+        "no proof every integrated v3 blocker individually causes full reset"
+      ],
+      "cutoff_input_allowlist": [
+        {
+          "source_id": "B08",
+          "ref": "524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da",
+          "path": "docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/524bba6b1af6a5c9d43a3fc6fbe76ee5c35264da/docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md"
+        },
+        {
+          "source_id": "B13",
+          "ref": "f67ac9155c1a844f171afbeef03e8169b8eec6fc",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/f67ac9155c1a844f171afbeef03e8169b8eec6fc/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md"
+        },
+        {
+          "source_id": "B25",
+          "ref": "d293e525491b7db823435e15ffa3318bed251960",
+          "path": "docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/d293e525491b7db823435e15ffa3318bed251960/docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md"
+        },
+        {
+          "source_id": "B28",
+          "ref": "a0ff37926dba44993f29c680d5a355221fc55c72",
+          "path": "docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a0ff37926dba44993f29c680d5a355221fc55c72/docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md"
+        },
+        {
+          "source_id": "B29",
+          "ref": "a9c03b4a36c185aa98b00006c08ef600ba77d094",
+          "path": "docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a9c03b4a36c185aa98b00006c08ef600ba77d094/docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md"
+        }
+      ]
+    },
+    {
+      "case_id": "BR-05_OVER_SCOPED_DISPLAY_CHECK",
+      "title": "检查器错判应局部修复，不能每个失败都重开架构",
+      "cutoff": {
+        "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+        "time_utc": "2026-10-18T16:13:54Z",
+        "stage": "Development canary diagnosis, not final candidate"
+      },
+      "knowledge_at_cutoff": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "display thread运行零model turns。",
+          "初始 validator 因 instructionSources 非空拒绝 display，连接关闭后未观察 durable thread。",
+          "reader与display的执行能力不同。"
+        ],
+        "sources": [
+          {
+            "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+            "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+            "source_id": "B19"
+          },
+          {
+            "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+            "path": null,
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/511164258101e426da62c96b12e9803e8e7bd8a5",
+            "source_id": "B22"
+          },
+          {
+            "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+            "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/511164258101e426da62c96b12e9803e8e7bd8a5/results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+            "source_id": "B41"
+          }
+        ],
+        "questions_available_then": [
+          "被禁止的效果是否在该组件实际可能发生？",
+          "是否把reader约束错误施加到0turn显示？"
+        ]
+      },
+      "future_outcome": {
+        "evidence_status": "OBSERVED",
+        "ref": "da9f6d2b34c00e87e00622b9234bbada786c1760",
+        "facts": [
+          "修正display和reader validation分工。",
+          "先做ephemeral zero-turn reader preflight，避免消耗display allocation。",
+          "reader仍有独立真实runtime缺口，因此检查器修复未伪装整体PASS。"
+        ],
+        "sources": [
+          {
+            "source_id": "B23",
+            "ref": "da9f6d2b34c00e87e00622b9234bbada786c1760",
+            "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/da9f6d2b34c00e87e00622b9234bbada786c1760/results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json"
+          }
+        ],
+        "labels": [
+          "IMPLEMENTATION_BUG",
+          "OTHER"
+        ]
+      },
+      "mechanism": {
+        "asteria": {
+          "conclusion": "组件内部effect、model-turn权限与validation相对应可暴露过度约束",
+          "evidence_status": "INFERRED",
+          "basis": "0turn display与reader责任不同",
+          "limit": "不能自动判定平台持久化全部语义",
+          "detection_probability": "UNKNOWN"
+        },
+        "work_blindspot": {
+          "conclusion": "可能提供不相关finding识别，但无需为局部checker错置固定启动Work",
+          "evidence_status": "INFERRED",
+          "basis": "已明确可由code证据判定",
+          "limit": "重复全审会增加等待",
+          "detection_probability": "UNKNOWN"
+        },
+        "second_pro": {
+          "conclusion": "信息价值低",
+          "evidence_status": "INFERRED",
+          "basis": "错误不需要重新决定产品拓扑",
+          "limit": "若另有独立runtime反证，应单独路由BR-03",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_fact_check": {
+          "conclusion": "确认0turn display无model能力以及validator实际条件",
+          "evidence_status": "INFERRED",
+          "basis": "程序调用与schema可读",
+          "limit": "仍需保留正常display持久化检查",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_probe": {
+          "conclusion": "局部零turn复核检查器边界即可",
+          "evidence_status": "INFERRED",
+          "basis": "观察结果直接区分validator和产品机制",
+          "limit": "不是授权真实模型副作用",
+          "detection_probability": "UNKNOWN"
+        },
+        "readiness_challenge": {
+          "conclusion": "不适用：本案已到实现局部错误",
+          "evidence_status": "INFERRED",
+          "basis": "架构owner和禁止effect已确定",
+          "limit": "不得自动RETURN_TO_ARCHITECT",
+          "detection_probability": "UNKNOWN"
+        }
+      },
+      "expected_next_action": "LOCAL_CODEX_FIX",
+      "benchmark_rules": {
+        "must_find": [
+          "checker scope error",
+          "retain separate reader runtime blocker"
+        ],
+        "false_positive": [
+          "整片架构因无模型display加载AGENTS而必须推翻",
+          "修完checker就宣布reader supported"
+        ],
+        "outcome_hidden_until_prediction": true
+      },
+      "limitations": [
+        "初始 raw canary 已按 cutoff 5111642 重新读取；后续 correction 仅列在 outcome",
+        "本轮仍已接触后续材料，retrospective only"
+      ],
+      "cutoff_input_allowlist": [
+        {
+          "ref": "a6c0a3e0ecc59147fa83714c07a15244f1f2c36b",
+          "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/a6c0a3e0ecc59147fa83714c07a15244f1f2c36b/docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+          "source_id": "B19"
+        },
+        {
+          "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+          "path": null,
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/commit/511164258101e426da62c96b12e9803e8e7bd8a5",
+          "source_id": "B22"
+        },
+        {
+          "ref": "511164258101e426da62c96b12e9803e8e7bd8a5",
+          "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/511164258101e426da62c96b12e9803e8e7bd8a5/results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+          "source_id": "B41"
+        }
+      ]
+    },
+    {
+      "case_id": "BR-06_RELEASED_CAPABILITY_SCOPE",
+      "title": "0.11.1真实发布不等于所有进度路径已获相同强度证明",
+      "cutoff": {
+        "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+        "production_ref": "ba9013b9fbbd242e51b09f9d09291f417df17652",
+        "time_utc": "2026-10-20T04:16:46Z",
+        "stage": "Formal 0.11.1 release closure and available results; production source exact ba9013b"
+      },
+      "knowledge_at_cutoff": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "0.11.0 final candidate 391ff88真实通过persistent-run start→child→supervisor→notifier→writing-style→Gmail两通知链。",
+          "该链child约5秒、progress_mode=none，不证明长时间量化进度与ETA。",
+          "另有约615秒三量化点、Notify OFF的C4证据，不能拼成一个全链正例。",
+          "0.11.1修cadence并有496项单元测试与同SHA CI；该patch未再跑live模型或邮件。"
+        ],
+        "sources": [
+          {
+            "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+            "path": "results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md",
+            "source_id": "B35"
+          },
+          {
+            "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+            "path": "results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md",
+            "source_id": "B36"
+          },
+          {
+            "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+            "path": "results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md",
+            "source_id": "B40"
+          }
+        ],
+        "questions_available_then": [
+          "status与notification是否读同一last-good解释结果？",
+          "producer停报如何与持续原值区分？",
+          "exit前最后一次有效进度是否被读取？",
+          "证据覆盖是否只够限定路径？"
+        ]
+      },
+      "future_outcome": {
+        "evidence_status": "OBSERVED",
+        "ref": "71ad6874c1cde41548eb66a6c32cea615e055407",
+        "facts": [
+          "源码审查指出可无理由沿用progress mode none；producer身份字段不证明持续上报。",
+          "缺独立producer失联时钟；status与binding.last_good_progress读取路径可能不同；exit前缺末次读取。",
+          "新0.11.2候选仅在已负责机制内修复并补证，旧成功能力不全部作废。"
+        ],
+        "sources": [
+          {
+            "source_id": "B37",
+            "ref": "71ad6874c1cde41548eb66a6c32cea615e055407",
+            "path": "docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.1_2026-10-22.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/71ad6874c1cde41548eb66a6c32cea615e055407/docs/design/0.11.1_normal_entry_capability_acceptance_proposal_v0.1_2026-10-22.md"
+          },
+          {
+            "source_id": "B38",
+            "ref": "2813318a7a5b4763e8f6b0a12d8d659cb193a09b",
+            "path": "results/bridge-core--normal-entry-acceptance/PREFINAL_CRITIC_HANDOFF.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2813318a7a5b4763e8f6b0a12d8d659cb193a09b/results/bridge-core--normal-entry-acceptance/PREFINAL_CRITIC_HANDOFF.md"
+          }
+        ],
+        "labels": [
+          "DESIGN_GAP",
+          "IMPLEMENTATION_BUG",
+          "EVIDENCE_GAP"
+        ],
+        "incident_status": "Source-supported gaps, not a claim that every issue was observed in a user's production run."
+      },
+      "mechanism": {
+        "asteria": {
+          "conclusion": "关系consumer和单一状态owner可暴露status/邮件语义分叉",
+          "evidence_status": "INFERRED",
+          "basis": "architecture对齐输出事实应有明确owner",
+          "limit": "不能用json schema一致推导业务含义一致",
+          "detection_probability": "UNKNOWN"
+        },
+        "work_blindspot": {
+          "conclusion": "用连续长任务的完整用户journey查证据边界，比逐模块绿色更合适",
+          "evidence_status": "INFERRED",
+          "basis": "旧短canary与长Notify OFF不等价",
+          "limit": "不能把没找到原始artifact直接判代码失败",
+          "detection_probability": "UNKNOWN"
+        },
+        "second_pro": {
+          "conclusion": "现有路线清楚，价值低",
+          "evidence_status": "INFERRED",
+          "basis": "缺口归属既有Persistent观察机制",
+          "limit": "不需完整第三架构",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_fact_check": {
+          "conclusion": "从source/status和last_good消费链确定局部不一致",
+          "evidence_status": "INFERRED",
+          "basis": "已被10-22proposal源码审查实际完成",
+          "limit": "不等同生产事件复现",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_probe": {
+          "conclusion": "受控停报/半写/末次更新加连续正常入口可验证",
+          "evidence_status": "INFERRED",
+          "basis": "针对剩余真实风险",
+          "limit": "不重复所有已通过外部live链",
+          "detection_probability": "UNKNOWN"
+        },
+        "readiness_challenge": {
+          "conclusion": "如果状态owner已确定，直接局部修复并补代表性路径",
+          "evidence_status": "INFERRED",
+          "basis": "readiness不把缺证全部升级成重设计",
+          "limit": "产品是否允许none理由仍由Chat判定",
+          "detection_probability": "UNKNOWN"
+        }
+      },
+      "expected_next_action": "CODEX_FACT_CHECK, then LOCAL_CODEX_FIX within frozen state ownership; WORK_FINAL_ACCEPTANCE on complete affected journey",
+      "benchmark_rules": {
+        "must_find": [
+          "short canary limited scope",
+          "single progress snapshot owner",
+          "no fake whole-product failure"
+        ],
+        "false_positive": [
+          "0.11.1未发布",
+          "496tests等于所有正常入口完整",
+          "未复现生产incident被写成事故频率"
+        ],
+        "outcome_hidden_until_prediction": true
+      },
+      "limitations": [
+        "reading-source counterexample, not universal incident",
+        "cutoff sources re-fetched at exact 7f43e146; later proposal excluded from then-known inputs",
+        "qualitative support only"
+      ],
+      "cutoff_input_allowlist": [
+        {
+          "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+          "path": "results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/v6/391ff88/FINAL_IMPLEMENTATION_REPORT.md",
+          "source_id": "B35"
+        },
+        {
+          "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+          "path": "results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/0.11.1/FINAL_REPORT.md",
+          "source_id": "B36"
+        },
+        {
+          "ref": "7f43e146eed50d290ef9cc6ab912d106f754042c",
+          "path": "results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/7f43e146eed50d290ef9cc6ab912d106f754042c/results/bridge-core--product-scope-reset/CANDIDATE_AUDIT.md",
+          "source_id": "B40"
+        }
+      ]
+    },
+    {
+      "case_id": "BR-07_PROBE_AND_CRITIC_POSITIVE_CONTROL",
+      "title": "传统流程确实获得了有价值的新信息",
+      "cutoff": {
+        "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+        "time_utc": "2026-10-12T02:21:01Z",
+        "stage": "Initial proposal"
+      },
+      "knowledge_at_cutoff": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "初始proposal包含dirty worktree与partial clone读取路线。",
+          "真实caller及安全Git对象读取存在待解决问题。"
+        ],
+        "sources": [
+          {
+            "source_id": "B01",
+            "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+            "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md"
+          }
+        ]
+      },
+      "future_outcome": {
+        "evidence_status": "OBSERVED",
+        "facts": [
+          "独立Critic指出BC11-D01–03，促成disposable双worktree和只读原.git的隔离object reader实验。",
+          "试验直接检验staged/unstaged/untracked保留、回滚和缺blob读取，并明确限定目标。"
+        ],
+        "sources": [
+          {
+            "source_id": "B02",
+            "ref": "2e12226859446ad55067e19f08fc6b450f459c9b",
+            "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md",
+            "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/2e12226859446ad55067e19f08fc6b450f459c9b/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md"
+          }
+        ],
+        "labels": [
+          "DESIGN_GAP",
+          "EXTERNAL_FACT",
+          "OTHER"
+        ]
+      },
+      "mechanism": {
+        "asteria": {
+          "conclusion": "能要求每个机制写验证对象，但不能替代实际结果",
+          "evidence_status": "INFERRED",
+          "basis": "有probe占位不等于通过",
+          "limit": "不声称结构检查排除复杂Git风险",
+          "detection_probability": "UNKNOWN"
+        },
+        "work_blindspot": {
+          "conclusion": "也可能提出dirty+partial clone场景",
+          "evidence_status": "INFERRED",
+          "basis": "场景是原始问题的一部分",
+          "limit": "未进行对照",
+          "detection_probability": "UNKNOWN"
+        },
+        "second_pro": {
+          "conclusion": "可能提供替代路线，但此处具体probe更快消除技术未知",
+          "evidence_status": "INFERRED",
+          "basis": "现有路线可局部试验",
+          "limit": "时间收益没有实测",
+          "detection_probability": "UNKNOWN"
+        },
+        "codex_probe": {
+          "conclusion": "已有历史正例，显示真实技术验证有信息增量",
+          "evidence_status": "INFERRED",
+          "basis": "v0.2明确记录实验环境、输入与结果",
+          "limit": "不能把两种局部成功外推成整个architecture-ready",
+          "detection_probability": "UNKNOWN"
+        },
+        "critic": {
+          "conclusion": "真实价值成立：定位不可执行边界并推动实验",
+          "evidence_status": "INFERRED",
+          "basis": "具名finding及后续probe直接相连",
+          "limit": "不支持固定无限重复审查",
+          "detection_probability": "UNKNOWN"
+        }
+      },
+      "expected_next_action": "CODEX_MINIMAL_PROBE on specific mechanism; preserve successful evidence",
+      "benchmark_rules": {
+        "must_find": [
+          "Critic有真实贡献",
+          "probe适用范围有限"
+        ],
+        "false_positive": [
+          "因反对固定Planner–Critic否认所有审查价值",
+          "disposable成功证明production quiescence"
+        ],
+        "outcome_hidden_until_prediction": true
+      },
+      "limitations": [
+        "无严格同成本替代流程结果",
+        "chat Critic原文未全部版本化，仅后续proposal记录"
+      ],
+      "cutoff_input_allowlist": [
+        {
+          "source_id": "B01",
+          "ref": "27132a4da7a274371c53b61abaef20e0f26b22b1",
+          "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+          "url": "https://github.com/YuukiAS/GPT_Codex_AI_Bridge_Kit/blob/27132a4da7a274371c53b61abaef20e0f26b22b1/docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md"
+        }
+      ]
+    }
+  ]
+}
