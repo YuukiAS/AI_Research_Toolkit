@@ -1,0 +1,272 @@
+[
+  {
+    "id": "request-codex",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "原始请求"
+    },
+    "xy": {
+      "x": 243.98984374999998,
+      "y": 495.36249999999995
+    }
+  },
+  {
+    "id": "codex-workflow",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "目标与环境"
+    },
+    "xy": {
+      "x": 408.6511877775192,
+      "y": 396.8559256672859
+    }
+  },
+  {
+    "id": "workflow-codex",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "能力与顺序"
+    },
+    "xy": {
+      "x": 428.1469815969467,
+      "y": 498.2122508883476
+    }
+  },
+  {
+    "id": "codex-bridge",
+    "labelPointer": {
+      "type": "连接",
+      "title": "自然表达"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "自然表达"
+    },
+    "xy": {
+      "x": 451.34999999999997,
+      "y": 555.4125286340714
+    }
+  },
+  {
+    "id": "codex-da",
+    "labelPointer": {
+      "type": "连接",
+      "title": "要求与候选"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "要求与候选"
+    },
+    "xy": {
+      "x": 555.49921875,
+      "y": 573.3625
+    }
+  },
+  {
+    "id": "bridge-da",
+    "labelPointer": {
+      "type": "连接",
+      "title": "失败反馈"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "失败反馈"
+    },
+    "xy": {
+      "x": 666.1193940162658,
+      "y": 649.2422450304032
+    }
+  },
+  {
+    "id": "baseline-da",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "必须保持的功能"
+    },
+    "xy": {
+      "x": 775.0570312499999,
+      "y": 608.89453125
+    }
+  },
+  {
+    "id": "codex-validators",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "当前候选与检查范围"
+    },
+    "xy": {
+      "x": 663.8318753242493,
+      "y": 493.94060580730434
+    }
+  },
+  {
+    "id": "validators-da",
+    "labelPointer": {
+      "type": "连接",
+      "title": "专业结果"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "专业结果"
+    },
+    "xy": {
+      "x": 890.5860026359558,
+      "y": 536.7723373889924
+    }
+  },
+  {
+    "id": "validators-review",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "按需送审"
+    },
+    "xy": {
+      "x": 995.5531249999999,
+      "y": 593.06640625
+    }
+  },
+  {
+    "id": "review-da",
+    "labelPointer": {
+      "type": "连接",
+      "title": "独立意见"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "独立意见"
+    },
+    "xy": {
+      "x": 888.8445356845855,
+      "y": 647.1476340770721
+    }
+  },
+  {
+    "id": "da-consumer",
+    "labelPointer": {
+      "type": "连接",
+      "title": "交付结论"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "交付结论"
+    },
+    "xy": {
+      "x": 992.73828125,
+      "y": 573.3625
+    }
+  },
+  {
+    "id": "da-bridge-failure",
+    "labelPointer": {
+      "type": "连接",
+      "title": "失败反馈"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "失败反馈"
+    },
+    "xy": {
+      "x": 663.8729365825653,
+      "y": 640.8244866371155
+    }
+  },
+  {
+    "id": "bridge-codex-failure",
+    "labelPointer": {
+      "type": "连接",
+      "title": "回到原任务"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "回到原任务"
+    },
+    "xy": {
+      "x": 420.1325627326965,
+      "y": 682.2682961463928
+    }
+  },
+  {
+    "id": "reasoned-codex",
+    "labelPointer": {
+      "type": "连接",
+      "title": "方案与判断"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "方案与判断"
+    },
+    "xy": {
+      "x": 290.82310090065,
+      "y": 736.2003977298737
+    }
+  },
+  {
+    "id": "domain-codex",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "专业能力"
+    },
+    "xy": {
+      "x": 415.97523918151853,
+      "y": 735.0642836809159
+    }
+  },
+  {
+    "id": "curation-codex",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "组件",
+      "title": "Bridge Kit"
+    },
+    "xy": {
+      "x": 535.6883928775787,
+      "y": 723.1851242065429
+    }
+  },
+  {
+    "id": "writing-codex",
+    "labelPointer": {
+      "type": "组件",
+      "title": "Delivery Assurance"
+    },
+    "lineMidpointPointer": {
+      "type": "连接",
+      "title": "自然表达"
+    },
+    "xy": {
+      "x": 605.943862247467,
+      "y": 772.5121798992157
+    }
+  }
+]

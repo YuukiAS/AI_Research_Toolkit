@@ -1,0 +1,217 @@
+{
+  "candidateSha256": "6d2ddbff4fb56d5288614345067a7e379a3bbde2c99552e24cf9f3eba739147b",
+  "baselineFullQaSha256": "ccb1e32ca8faff2c15278e7ffd40efaf6e4558cd1eeba650b3410a69bfd48602",
+  "factualDeltaSha256": "9ebad1e29df3d0818f3415e1027c6f97317792d21364ed7cdc451faf4a7039df",
+  "scope": "Only modified relation rendering; all full baseline and factual delta records retain their original candidate identity.",
+  "states": [
+    {
+      "name": "light-desktop-overview",
+      "screenshot": "qa/screenshots/audit-final-diff-visual-light-desktop-overview.png",
+      "text": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作 · 修改\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "width": 1440,
+      "documentWidth": 1440,
+      "theme": "light"
+    },
+    {
+      "name": "light-desktop-selected",
+      "screenshot": "qa/screenshots/audit-final-diff-visual-light-desktop-selected.png",
+      "text": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作 · 修改\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "width": 1440,
+      "documentWidth": 1440,
+      "theme": "light"
+    },
+    {
+      "name": "light-mobile-overview",
+      "screenshot": "qa/screenshots/audit-final-diff-visual-light-mobile-overview.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n收起关系图\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作 · 修改\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "width": 390,
+      "documentWidth": 390,
+      "theme": "light"
+    },
+    {
+      "name": "dark-desktop-overview",
+      "screenshot": "qa/screenshots/audit-final-diff-visual-dark-desktop-overview.png",
+      "text": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作 · 修改\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "width": 1440,
+      "documentWidth": 1440,
+      "theme": "dark"
+    },
+    {
+      "name": "dark-desktop-selected",
+      "screenshot": "qa/screenshots/audit-final-diff-visual-dark-desktop-selected.png",
+      "text": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作 · 修改\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "width": 1440,
+      "documentWidth": 1440,
+      "theme": "dark"
+    },
+    {
+      "name": "dark-mobile-overview",
+      "screenshot": "qa/screenshots/audit-final-diff-visual-dark-mobile-overview.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n收起关系图\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作 · 修改\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "width": 390,
+      "documentWidth": 390,
+      "theme": "dark"
+    }
+  ],
+  "checks": [
+    {
+      "name": "light-desktop unselected semantic marker and layout",
+      "ok": true,
+      "marker": {
+        "label": "选择动作 · 修改",
+        "labelClass": "edge-label nodrag nopan   is-modified",
+        "stroke": "rgb(76, 80, 172)",
+        "strokeWidth": "1.8px",
+        "ordinaryStroke": "rgb(126, 140, 163)"
+      },
+      "geometry": {
+        "labelOverlaps": [],
+        "crossings": [],
+        "labels": [
+          "安全消息轮次",
+          "共享连接器事件",
+          "恢复互斥",
+          "已挂载结构",
+          "清空与重挂载",
+          "局部渲染约束",
+          "短期只读外观",
+          "选择动作 · 修改",
+          "普通输入触发快照"
+        ],
+        "nodes": [
+          "mica.dom",
+          "mica.scan",
+          "mica.signal",
+          "mica.continuity",
+          "mica.stale",
+          "mica.native",
+          "mica.adapter"
+        ]
+      }
+    },
+    {
+      "name": "light-desktop selected relation still readable",
+      "ok": true,
+      "text": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "light-mobile unselected semantic marker and layout",
+      "ok": true,
+      "marker": {
+        "label": "选择动作 · 修改",
+        "labelClass": "edge-label nodrag nopan   is-modified",
+        "stroke": "rgb(76, 80, 172)",
+        "strokeWidth": "1.8px",
+        "ordinaryStroke": "rgb(126, 140, 163)"
+      },
+      "geometry": {
+        "labelOverlaps": [],
+        "crossings": [],
+        "labels": [
+          "安全消息轮次",
+          "共享连接器事件",
+          "恢复互斥",
+          "已挂载结构",
+          "清空与重挂载",
+          "局部渲染约束",
+          "短期只读外观",
+          "选择动作 · 修改",
+          "普通输入触发快照"
+        ],
+        "nodes": [
+          "mica.dom",
+          "mica.scan",
+          "mica.signal",
+          "mica.continuity",
+          "mica.stale",
+          "mica.native",
+          "mica.adapter"
+        ]
+      }
+    },
+    {
+      "name": "dark-desktop unselected semantic marker and layout",
+      "ok": true,
+      "marker": {
+        "label": "选择动作 · 修改",
+        "labelClass": "edge-label nodrag nopan   is-modified",
+        "stroke": "rgb(181, 182, 255)",
+        "strokeWidth": "1.8px",
+        "ordinaryStroke": "rgb(103, 122, 148)"
+      },
+      "geometry": {
+        "labelOverlaps": [],
+        "crossings": [],
+        "labels": [
+          "安全消息轮次",
+          "共享连接器事件",
+          "恢复互斥",
+          "已挂载结构",
+          "清空与重挂载",
+          "局部渲染约束",
+          "短期只读外观",
+          "选择动作 · 修改",
+          "普通输入触发快照"
+        ],
+        "nodes": [
+          "mica.dom",
+          "mica.scan",
+          "mica.signal",
+          "mica.continuity",
+          "mica.stale",
+          "mica.native",
+          "mica.adapter"
+        ]
+      }
+    },
+    {
+      "name": "dark-desktop selected relation still readable",
+      "ok": true,
+      "text": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "dark-mobile unselected semantic marker and layout",
+      "ok": true,
+      "marker": {
+        "label": "选择动作 · 修改",
+        "labelClass": "edge-label nodrag nopan   is-modified",
+        "stroke": "rgb(181, 182, 255)",
+        "strokeWidth": "1.8px",
+        "ordinaryStroke": "rgb(103, 122, 148)"
+      },
+      "geometry": {
+        "labelOverlaps": [],
+        "crossings": [],
+        "labels": [
+          "安全消息轮次",
+          "共享连接器事件",
+          "恢复互斥",
+          "已挂载结构",
+          "清空与重挂载",
+          "局部渲染约束",
+          "短期只读外观",
+          "选择动作 · 修改",
+          "普通输入触发快照"
+        ],
+        "nodes": [
+          "mica.dom",
+          "mica.scan",
+          "mica.signal",
+          "mica.continuity",
+          "mica.stale",
+          "mica.native",
+          "mica.adapter"
+        ]
+      }
+    },
+    {
+      "name": "Factual model unchanged since 28-state delta",
+      "ok": true,
+      "currentSha256": "f66baa37b2efa30c8c6f3f0ae517afaa7c768d384fe97500324ce5b8b7d56dfd",
+      "priorSha256": "f66baa37b2efa30c8c6f3f0ae517afaa7c768d384fe97500324ce5b8b7d56dfd"
+    }
+  ],
+  "errors": [],
+  "console": [],
+  "ok": true
+}

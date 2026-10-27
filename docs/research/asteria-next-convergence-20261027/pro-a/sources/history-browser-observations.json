@@ -1,0 +1,1048 @@
+{
+  "date": "2026-10-27T13:33:30.836Z",
+  "scope": "Historical candidate observation; source projects unchanged; no production flows executed; links not followed.",
+  "actions": [
+    {
+      "name": "R2-6 node user",
+      "result": "用户"
+    },
+    {
+      "name": "R2-6 node codex",
+      "result": "当前 Codex"
+    },
+    {
+      "name": "R2-6 node artifact",
+      "result": "当前成品"
+    },
+    {
+      "name": "R2-6 node validator",
+      "result": "项目专业验收"
+    },
+    {
+      "name": "R2-6 node baseline",
+      "result": "批准的要求"
+    },
+    {
+      "name": "R2-6 node workflow",
+      "result": "workflow-core"
+    },
+    {
+      "name": "R2-6 node da",
+      "result": "Delivery Assurance"
+    },
+    {
+      "name": "R2-6 node review",
+      "result": "独立审查"
+    },
+    {
+      "name": "R2-6 node bridge",
+      "result": "Bridge Kit"
+    },
+    {
+      "name": "R2-6 node delivery",
+      "result": "受管交付入口"
+    },
+    {
+      "name": "R2-6 node reasoned",
+      "result": "Reasoned Design"
+    },
+    {
+      "name": "R2-6 node curation",
+      "result": "Artifact Curation"
+    },
+    {
+      "name": "R2-6 node writing",
+      "result": "Clear Writing"
+    },
+    {
+      "name": "R2-6 node domain",
+      "result": "领域技能"
+    },
+    {
+      "name": "R2-6 edge label request",
+      "result": "请求"
+    },
+    {
+      "name": "R2-6 edge label authority",
+      "result": "确认范围"
+    },
+    {
+      "name": "R2-6 edge label route",
+      "result": "能力与安排"
+    },
+    {
+      "name": "R2-6 edge label build",
+      "result": "构建"
+    },
+    {
+      "name": "R2-6 edge label subject",
+      "result": "本次版本"
+    },
+    {
+      "name": "R2-6 edge label run",
+      "result": "运行检查"
+    },
+    {
+      "name": "R2-6 edge label evidence",
+      "result": "观察与结果"
+    },
+    {
+      "name": "R2-6 edge label scope",
+      "result": "要求与旧行为"
+    },
+    {
+      "name": "R2-6 edge label check",
+      "result": "检查与结论"
+    },
+    {
+      "name": "R2-6 edge label commission",
+      "result": "按需委托"
+    },
+    {
+      "name": "R2-6 edge label reviewResult",
+      "result": "独立结果"
+    },
+    {
+      "name": "R2-6 edge label transport",
+      "result": "身份与反馈"
+    },
+    {
+      "name": "R2-6 edge label repair",
+      "result": "续修"
+    },
+    {
+      "name": "R2-6 edge label allow",
+      "result": "交付结论"
+    },
+    {
+      "name": "R2-6 edge label return",
+      "result": "结果与成品"
+    },
+    {
+      "name": "R2-6 edge label skills",
+      "result": "按需选用"
+    },
+    {
+      "name": "R2-6 edge label request",
+      "result": "请求"
+    },
+    {
+      "name": "R2-6 edge label authority",
+      "result": "确认范围"
+    },
+    {
+      "name": "R2-6 edge label route",
+      "result": "能力与安排"
+    },
+    {
+      "name": "R2-6 edge label build",
+      "result": "构建"
+    },
+    {
+      "name": "R2-6 edge label subject",
+      "result": "本次版本"
+    },
+    {
+      "name": "R2-6 edge label run",
+      "result": "运行检查"
+    },
+    {
+      "name": "R2-6 edge label evidence",
+      "result": "观察与结果"
+    },
+    {
+      "name": "R2-6 edge label scope",
+      "result": "要求与旧行为"
+    },
+    {
+      "name": "R2-6 edge label check",
+      "result": "检查与结论"
+    },
+    {
+      "name": "R2-6 edge label commission",
+      "result": "按需委托"
+    },
+    {
+      "name": "R2-6 edge label reviewResult",
+      "result": "独立结果"
+    },
+    {
+      "name": "R2-6 edge label transport",
+      "result": "身份与反馈"
+    },
+    {
+      "name": "R2-6 edge label repair",
+      "result": "续修"
+    },
+    {
+      "name": "R2-6 edge label allow",
+      "result": "交付结论"
+    },
+    {
+      "name": "R2-6 edge label return",
+      "result": "结果与成品"
+    },
+    {
+      "name": "R2-6 edge label skills",
+      "result": "按需选用"
+    },
+    {
+      "name": "R2-6 normal step 1",
+      "result": {
+        "counter": "第 1 / 5 步",
+        "text": "原 Codex 收到“检查中不误报，确认故障仍提醒”的要求。workflow-core 选择本次需要的项目能力和 DA 检查。"
+      }
+    },
+    {
+      "name": "R2-6 normal step 2",
+      "result": {
+        "counter": "第 2 / 5 步",
+        "text": "DA 加入已接受的可用入口和状态一致性要求，再把检查安排交给 workflow-core。缺少相关测试时，由原 Codex 补足。"
+      }
+    },
+    {
+      "name": "R2-6 normal step 3",
+      "result": {
+        "counter": "第 3 / 5 步",
+        "text": "原 Codex 修改状态判断并构建。项目检查绑定本次版本，旧截图不会自动成为新版本的证据。"
+      }
+    },
+    {
+      "name": "R2-6 normal step 4",
+      "result": {
+        "counter": "第 4 / 5 步",
+        "text": "状态对照覆盖检查中、未观测和确认故障，旧入口也实际可用。本例按正式成品的要求取得独立观察，DA 随后核对结果。"
+      }
+    },
+    {
+      "name": "R2-6 normal step 5",
+      "result": {
+        "counter": "第 5 / 5 步",
+        "text": "DA 确认本次必需结果齐全且版本相符，受管交付入口接受相应范围的成品，再把结果交给用户。"
+      }
+    },
+    {
+      "name": "R2-6 failure step 1",
+      "result": {
+        "counter": "第 1 / 7 步",
+        "text": "原 Codex 收到“检查中不误报，确认故障仍提醒”的要求。workflow-core 选择本次需要的项目能力和 DA 检查。"
+      }
+    },
+    {
+      "name": "R2-6 failure step 2",
+      "result": {
+        "counter": "第 2 / 7 步",
+        "text": "DA 加入已接受的可用入口和状态一致性要求，再把检查安排交给 workflow-core。缺少相关测试时，由原 Codex 补足。"
+      }
+    },
+    {
+      "name": "R2-6 failure step 3",
+      "result": {
+        "counter": "第 3 / 7 步",
+        "text": "原 Codex 修改状态判断并构建。项目检查绑定本次版本，旧截图不会自动成为新版本的证据。"
+      }
+    },
+    {
+      "name": "R2-6 failure step 4",
+      "result": {
+        "counter": "第 4 / 7 步",
+        "text": "这是故意构造的错误版本。已有状态回归应发现确认故障被隐藏；实际窗口还须由项目验收观察。DA 接收失败，交付入口保持未通过。"
+      }
+    },
+    {
+      "name": "R2-6 failure step 5",
+      "result": {
+        "counter": "第 5 / 7 步",
+        "text": "DA 返回违反的要求、实际与预期结果及本次版本。workflow-core 指定原任务，Bridge 将反馈送回原 Codex；是否收到必须实际确认。"
+      }
+    },
+    {
+      "name": "R2-6 failure step 6",
+      "result": {
+        "counter": "第 6 / 7 步",
+        "text": "原 Codex 修正判断并生成新版本，重跑受影响的项目检查和必要复核。旧版本的通过结论失效，新证据齐全后才回到交付检查。"
+      }
+    },
+    {
+      "name": "R2-6 failure step 7",
+      "result": {
+        "counter": "第 7 / 7 步",
+        "text": "DA 确认本次必需结果齐全且版本相符，受管交付入口接受相应范围的成品，再把结果交给用户。"
+      }
+    },
+    {
+      "name": "R2-6 regression step 1",
+      "result": {
+        "counter": "第 1 / 7 步",
+        "text": "原 Codex 收到“检查中不误报，确认故障仍提醒”的要求。workflow-core 选择本次需要的项目能力和 DA 检查。"
+      }
+    },
+    {
+      "name": "R2-6 regression step 2",
+      "result": {
+        "counter": "第 2 / 7 步",
+        "text": "DA 加入已接受的可用入口和状态一致性要求，再把检查安排交给 workflow-core。缺少相关测试时，由原 Codex 补足。"
+      }
+    },
+    {
+      "name": "R2-6 regression step 3",
+      "result": {
+        "counter": "第 3 / 7 步",
+        "text": "原 Codex 修改状态判断并构建。项目检查绑定本次版本，旧截图不会自动成为新版本的证据。"
+      }
+    },
+    {
+      "name": "R2-6 regression step 4",
+      "result": {
+        "counter": "第 4 / 7 步",
+        "text": "这是构造的回归情境。状态测试可以通过，但按已接受基线检查旧入口时仍会失败；项目验收把这项结果交给 DA。"
+      }
+    },
+    {
+      "name": "R2-6 regression step 5",
+      "result": {
+        "counter": "第 5 / 7 步",
+        "text": "DA 不能因新状态测试通过而忽略旧入口。失败沿 workflow-core 和 Bridge 返回原 Codex，检查范围仍包含这个旧入口。"
+      }
+    },
+    {
+      "name": "R2-6 regression step 6",
+      "result": {
+        "counter": "第 6 / 7 步",
+        "text": "原 Codex 修复共享改动，项目重新操作旧入口并检查状态。仍有无法确认的依赖或缺失观察时，DA 不能确认可以交付。"
+      }
+    },
+    {
+      "name": "R2-6 regression step 7",
+      "result": {
+        "counter": "第 7 / 7 步",
+        "text": "DA 确认本次必需结果齐全且版本相符，受管交付入口接受相应范围的成品，再把结果交给用户。"
+      }
+    },
+    {
+      "name": "R2-6 mobile sheet actual node click and Escape",
+      "result": {
+        "open": "dialog",
+        "focus": "da"
+      }
+    },
+    {
+      "name": "R2-56 node request",
+      "result": "原始要求"
+    },
+    {
+      "name": "R2-56 node codex",
+      "result": "当前 Codex"
+    },
+    {
+      "name": "R2-56 node workflow",
+      "result": "workflow-core"
+    },
+    {
+      "name": "R2-56 node bridge",
+      "result": "Bridge Kit"
+    },
+    {
+      "name": "R2-56 node baseline",
+      "result": "原有可用功能"
+    },
+    {
+      "name": "R2-56 node da",
+      "result": "Delivery Assurance"
+    },
+    {
+      "name": "R2-56 node validators",
+      "result": "项目验收程序"
+    },
+    {
+      "name": "R2-56 node review",
+      "result": "独立复核"
+    },
+    {
+      "name": "R2-56 node consumer",
+      "result": "用户或下游流程"
+    },
+    {
+      "name": "R2-56 node reasoned",
+      "result": "Reasoned Design"
+    },
+    {
+      "name": "R2-56 node domain",
+      "result": "领域插件"
+    },
+    {
+      "name": "R2-56 node curation",
+      "result": "Artifact Curation"
+    },
+    {
+      "name": "R2-56 node writing",
+      "result": "Clear Writing"
+    },
+    {
+      "name": "R2-56 edge actual pointer request-codex",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"request-codex\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M208 244 L246 244\" aria-label=\"原始请求：原始要求 到 当前 Codex\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - w"
+    },
+    {
+      "name": "R2-56 edge actual pointer codex-workflow",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"codex-workflow\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M358 198 C382 146 420 116 472 116\" aria-label=\"目标与环境：当前 Codex 到 workflow-core\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <svg id=\"edge-layer\" viewBox=\"0 0 1280 640\" aria-label=\"组件之间的调用和数据传递\" preserveAspectRatio=\"n"
+    },
+    {
+      "name": "R2-56 edge actual pointer workflow-codex",
+      "result": "能力与顺序"
+    },
+    {
+      "name": "R2-56 edge actual pointer codex-bridge",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"codex-bridge\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M424 244 C448 244 448 372 472 372\" aria-label=\"任务与候选身份：当前 Codex 到 Bridge Kit\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click act"
+    },
+    {
+      "name": "R2-56 edge actual pointer codex-da",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"codex-da\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M424 244 L694 244\" aria-label=\"要求与候选：当前 Codex 到 Delivery Assurance\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m "
+    },
+    {
+      "name": "R2-56 edge actual pointer bridge-da",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"bridge-da\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M656 372 C682 372 672 286 694 274\" aria-label=\"身份与回执：Bridge Kit 到 Delivery Assurance\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M694 272 C666 292 682 344 656 360\" ar"
+    },
+    {
+      "name": "R2-56 edge actual pointer baseline-da",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"baseline-da\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M793 430 L793 300\" aria-label=\"必须保持的功能：原有可用功能 到 Delivery Assurance\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b"
+    },
+    {
+      "name": "R2-56 edge actual pointer codex-validators",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"codex-validators\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M424 224 C590 150 752 148 934 158\" aria-label=\"当前候选与检查范围：当前 Codex 到 项目验收程序\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <svg id=\"edge-layer\" viewBox=\"0 0 1280 640\" aria-label=\"组件之间的调用和数据传递\" preserveAspectRatio=\"no"
+    },
+    {
+      "name": "R2-56 edge actual pointer validators-da",
+      "result": "专业结果"
+    },
+    {
+      "name": "R2-56 edge actual pointer validators-review",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"validators-review\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M1028 204 L1028 326\" aria-label=\"按需送审：项目验收程序 到 独立复核\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      -"
+    },
+    {
+      "name": "R2-56 edge actual pointer review-da",
+      "result": "独立意见"
+    },
+    {
+      "name": "R2-56 edge actual pointer da-consumer",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"da-consumer\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M902 244 L1148 244\" aria-label=\"交付结论：Delivery Assurance 到 用户或下游流程\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b"
+    },
+    {
+      "name": "R2-56 edge actual pointer da-bridge-failure",
+      "result": "失败反馈"
+    },
+    {
+      "name": "R2-56 edge actual pointer bridge-codex-failure",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"bridge-codex-failure\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M472 392 C438 418 402 348 388 290\" aria-label=\"回到原任务：Bridge Kit 到 当前 Codex\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <svg id=\"edge-layer\" viewBox=\"0 0 1280 640\" aria-label=\"组件之间的调用和数据传递\" preserveAspectRatio"
+    },
+    {
+      "name": "R2-56 edge actual pointer reasoned-codex",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"reasoned-codex\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M272 548 C268 478 278 360 304 290\" aria-label=\"方案与判断：Reasoned Design 到 当前 Codex\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <svg id=\"edge-layer\" viewBox=\"0 0 1280 640\" aria-label=\"组件之间的调用和数据传递\" preserveAspectRatio="
+    },
+    {
+      "name": "R2-56 edge actual pointer domain-codex",
+      "result": "专业能力"
+    },
+    {
+      "name": "R2-56 edge actual pointer curation-codex",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"curation-codex\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" d=\"M648 548 C620 500 520 360 400 286\" aria-label=\"内容取舍：Artifact Curation 到 当前 Codex\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying cli"
+    },
+    {
+      "name": "R2-56 edge actual pointer writing-codex",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-edge-id=\"writing-codex\"] .edge-hit')\u001b[22m\n\u001b[2m    - locator resolved to <path tabindex=\"0\" role=\"button\" class=\"edge-hit\" aria-label=\"自然表达：Clear Writing 到 当前 Codex\" d=\"M850 548 C850 530 686 532 660 506 C594 438 510 340 416 278\"></path>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b["
+    },
+    {
+      "name": "R2-56 first edge keyboard",
+      "result": "原始请求"
+    },
+    {
+      "name": "P-6 mica node mica.offscreen-rendering",
+      "result": "离屏历史渲染"
+    },
+    {
+      "name": "P-6 mica node mica.connector-continuity",
+      "result": "连接器输入框连续显示"
+    },
+    {
+      "name": "P-6 mica node mica.stale-clear",
+      "result": "旧草稿清除恢复"
+    },
+    {
+      "name": "P-6 mica node mica.dom",
+      "result": "ChatGPT 原生页面"
+    },
+    {
+      "name": "P-6 mica node mica.lifecycle",
+      "result": "连接器生命周期"
+    },
+    {
+      "name": "P-6 mica node mica.surface",
+      "result": "用户可见界面"
+    },
+    {
+      "name": "P-6 mica node mica.future-adapter",
+      "result": "统一站点适配层"
+    },
+    {
+      "name": "P-6 mica node mica.future-answer",
+      "result": "共享回答模型"
+    },
+    {
+      "name": "P-6 da node da.requirements",
+      "result": "目标与已接受能力"
+    },
+    {
+      "name": "P-6 da node da.workflow",
+      "result": "能力与任务编排"
+    },
+    {
+      "name": "P-6 da node da.assurance",
+      "result": "Delivery Assurance"
+    },
+    {
+      "name": "P-6 da node da.bridge",
+      "result": "任务身份与回传"
+    },
+    {
+      "name": "P-6 da node da.executor",
+      "result": "项目实现"
+    },
+    {
+      "name": "P-6 da node da.checks",
+      "result": "项目专业验收"
+    },
+    {
+      "name": "P-6 da node da.review",
+      "result": "必要的独立判断"
+    },
+    {
+      "name": "P-6 da node da.delivery",
+      "result": "可解释的交付结论"
+    },
+    {
+      "name": "P-6 cat node c02",
+      "result": "数据与身份"
+    },
+    {
+      "name": "P-6 cat node c01",
+      "result": "稳定数值原语"
+    },
+    {
+      "name": "P-6 cat node c04",
+      "result": "独立参考引擎"
+    },
+    {
+      "name": "P-6 cat node zero",
+      "result": "匿名零槽位积分"
+    },
+    {
+      "name": "P-6 cat node c03",
+      "result": "共享参数生产推断"
+    },
+    {
+      "name": "P-6 cat node discovery",
+      "result": "发现预测与校准"
+    },
+    {
+      "name": "P-56 project mica",
+      "result": "Mica"
+    },
+    {
+      "name": "P-56 directory node mica-dom",
+      "result": "ChatGPT DOM"
+    },
+    {
+      "name": "P-56 directory node mica-scan",
+      "result": "长线程扫描"
+    },
+    {
+      "name": "P-56 directory node mica-stale",
+      "result": "Stale composer 恢复"
+    },
+    {
+      "name": "P-56 directory node mica-connector",
+      "result": "连接器连续性"
+    },
+    {
+      "name": "P-56 edge actual pointer mica-rel-dom-scan",
+      "result": "DOM 变化"
+    },
+    {
+      "name": "P-56 edge actual pointer mica-rel-dom-stale",
+      "result": "composer 生命周期"
+    },
+    {
+      "name": "P-56 edge actual pointer mica-rel-dom-conn",
+      "result": "surface 变化"
+    },
+    {
+      "name": "P-56 edge actual pointer mica-rel-stale-conn",
+      "result": "恢复互斥"
+    },
+    {
+      "name": "P-56 project cat-trace",
+      "result": "CAT-TRACE"
+    },
+    {
+      "name": "P-56 directory node cat-c01",
+      "result": "C01 数值原语"
+    },
+    {
+      "name": "P-56 directory node cat-c03",
+      "result": "C03 生产共享参数引擎"
+    },
+    {
+      "name": "P-56 directory node cat-zero",
+      "result": "匿名零槽位"
+    },
+    {
+      "name": "P-56 directory node cat-c04",
+      "result": "C04 参考引擎"
+    },
+    {
+      "name": "P-56 directory node cat-downstream",
+      "result": "C05/C06/C10 下游"
+    },
+    {
+      "name": "P-56 edge actual pointer cat-r2-a",
+      "result": "数值原语"
+    },
+    {
+      "name": "P-56 edge actual pointer cat-r2-b",
+      "error": "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#edgeLayer [data-relation=\"cat-r2-b\"] .edge-label')\u001b[22m\n\u001b[2m    - locator resolved to <text x=\"413\" y=\"182\" class=\"edge-label\">开放积分合同</text>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <text x=\"413\" y=\"182\" class=\"edge-label\">阻断传播</text> from <g class=\"edge-wrap \" data-relation=\"cat-r2-c\">…</g> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying "
+    },
+    {
+      "name": "P-56 edge actual pointer cat-r2-c",
+      "result": "阻断传播"
+    },
+    {
+      "name": "P-56 edge actual pointer cat-r2-d",
+      "result": "独立参考"
+    },
+    {
+      "name": "P-56 project delivery-assurance",
+      "result": "Delivery Assurance"
+    },
+    {
+      "name": "P-56 directory node da-requirements",
+      "result": "能力与边界合同"
+    },
+    {
+      "name": "P-56 directory node da-slice",
+      "result": "交付切片"
+    },
+    {
+      "name": "P-56 directory node da-package",
+      "result": "冻结实现包"
+    },
+    {
+      "name": "P-56 directory node da-entry",
+      "result": "正常入口验证"
+    },
+    {
+      "name": "P-56 directory node da-evidence",
+      "result": "证据与独立审查"
+    },
+    {
+      "name": "P-56 directory node da-recovery",
+      "result": "返修与恢复闭环"
+    },
+    {
+      "name": "P-56 edge actual pointer da-r2-a",
+      "result": "冻结能力"
+    },
+    {
+      "name": "P-56 edge actual pointer da-r2-b",
+      "result": "实施合同"
+    },
+    {
+      "name": "P-56 edge actual pointer da-r2-c",
+      "result": "正式候选"
+    },
+    {
+      "name": "P-56 edge actual pointer da-r2-d",
+      "result": "真实运行证据"
+    },
+    {
+      "name": "P-56 edge actual pointer da-r2-e",
+      "result": "finding"
+    },
+    {
+      "name": "P-56 edge actual pointer da-r2-f",
+      "result": "返修决定"
+    }
+  ],
+  "errors": [],
+  "states": [
+    {
+      "name": "r2a-default",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2a-normal",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2a-failure",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2a-regression",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2a-mobile",
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390
+      }
+    },
+    {
+      "name": "r2b-default",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2b-success",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2b-failure",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2b-regression",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "r2b-mobile",
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390
+      }
+    },
+    {
+      "name": "pa-default",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-mica-mechanism",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-mica-implementation",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-mica-history",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-mica-diff",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-da-mechanism",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-da-implementation",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-da-history",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-da-diff",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-cat-mechanism",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-cat-implementation",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-cat-history",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-cat-diff",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pa-mobile",
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390
+      }
+    },
+    {
+      "name": "pb-default",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-mica-mechanism",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-mica-implementation",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-mica-evolution",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-mica-checks",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-cat-trace-mechanism",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-cat-trace-implementation",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-cat-trace-evolution",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-cat-trace-diff",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-cat-trace-checks",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-delivery-assurance-mechanism",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-delivery-assurance-implementation",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-delivery-assurance-evolution",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-delivery-assurance-diff",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-delivery-assurance-checks",
+      "geometry": {
+        "width": 1600,
+        "height": 1000,
+        "documentWidth": 1600
+      }
+    },
+    {
+      "name": "pb-mobile",
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390
+      }
+    }
+  ],
+  "browser": "131.0.6778.204",
+  "pbGraphKeyboard": [
+    {
+      "type": "edge",
+      "id": "mica-rel-dom-scan",
+      "role": null,
+      "tabindex": null
+    },
+    {
+      "type": "edge",
+      "id": "mica-rel-dom-stale",
+      "role": null,
+      "tabindex": null
+    },
+    {
+      "type": "edge",
+      "id": "mica-rel-dom-conn",
+      "role": null,
+      "tabindex": null
+    },
+    {
+      "type": "edge",
+      "id": "mica-rel-stale-conn",
+      "role": null,
+      "tabindex": null
+    },
+    {
+      "type": "node",
+      "id": "mica-dom",
+      "role": null,
+      "tabindex": null
+    },
+    {
+      "type": "node",
+      "id": "mica-scan",
+      "role": null,
+      "tabindex": null
+    },
+    {
+      "type": "node",
+      "id": "mica-stale",
+      "role": null,
+      "tabindex": null
+    },
+    {
+      "type": "node",
+      "id": "mica-connector",
+      "role": null,
+      "tabindex": null
+    }
+  ]
+}

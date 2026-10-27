@@ -1,0 +1,570 @@
+{
+  "round": "r6",
+  "candidateSha256": "ccb1e32ca8faff2c15278e7ffd40efaf6e4558cd1eeba650b3410a69bfd48602",
+  "themes": [
+    {
+      "theme": "light",
+      "tokens": [
+        {
+          "text": "  function",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " handleKeyDown",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "event",
+          "color": "rgb(227, 98, 9)"
+        },
+        {
+          "text": ") {",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "!",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": "shouldObserveEvent",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(event)) ",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "return",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": ";",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "    const",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " editable",
+          "color": "rgb(0, 92, 197)"
+        },
+        {
+          "text": " =",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " findComposerEditableFromTarget",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(event.target);",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "!",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": "editable) ",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "return",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": ";",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "isSelectAllShortcut",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(event)) {",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "      fullSelectionIntent ",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "=",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " {",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "        startedAt: Date.",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "now",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(),",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "        editableId: ",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "elementId",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(editable),",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "        rootId: ",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "elementId",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "findComposerRoot",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(editable))",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "      };",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "      return",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": ";",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "    }",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "isDeleteKey",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(event)) {",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "      beginPendingFullClear",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(event, ",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "keyToInputType",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(event), ",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "keyToIntentType",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(event));",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "    }",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "  }",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "  function",
+          "color": "rgb(215, 58, 73)"
+        },
+        {
+          "text": " handleBeforeInput",
+          "color": "rgb(111, 66, 193)"
+        },
+        {
+          "text": "(",
+          "color": "rgb(36, 41, 46)"
+        },
+        {
+          "text": "event",
+          "color": "rgb(227, 98, 9)"
+        },
+        {
+          "text": ") {",
+          "color": "rgb(36, 41, 46)"
+        }
+      ],
+      "colors": [
+        "rgb(215, 58, 73)",
+        "rgb(111, 66, 193)",
+        "rgb(36, 41, 46)",
+        "rgb(227, 98, 9)",
+        "rgb(0, 92, 197)"
+      ],
+      "edge": "#7e8ca3",
+      "canvas": "#f7f8fa",
+      "codeBackground": "rgb(246, 248, 250)"
+    },
+    {
+      "theme": "dark",
+      "tokens": [
+        {
+          "text": "  function",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " handleKeyDown",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "event",
+          "color": "rgb(255, 171, 112)"
+        },
+        {
+          "text": ") {",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "!",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": "shouldObserveEvent",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(event)) ",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "return",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": ";",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "    const",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " editable",
+          "color": "rgb(121, 184, 255)"
+        },
+        {
+          "text": " =",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " findComposerEditableFromTarget",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(event.target);",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "!",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": "editable) ",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "return",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": ";",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "isSelectAllShortcut",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(event)) {",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "      fullSelectionIntent ",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "=",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " {",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "        startedAt: Date.",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "now",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(),",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "        editableId: ",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "elementId",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(editable),",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "        rootId: ",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "elementId",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "findComposerRoot",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(editable))",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "      };",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "      return",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": ";",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "    }",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "    if",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " (",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "isDeleteKey",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(event)) {",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "      beginPendingFullClear",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(event, ",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "keyToInputType",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(event), ",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "keyToIntentType",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(event));",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "    }",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "  }",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "  function",
+          "color": "rgb(249, 117, 131)"
+        },
+        {
+          "text": " handleBeforeInput",
+          "color": "rgb(179, 146, 240)"
+        },
+        {
+          "text": "(",
+          "color": "rgb(225, 228, 232)"
+        },
+        {
+          "text": "event",
+          "color": "rgb(255, 171, 112)"
+        },
+        {
+          "text": ") {",
+          "color": "rgb(225, 228, 232)"
+        }
+      ],
+      "colors": [
+        "rgb(249, 117, 131)",
+        "rgb(179, 146, 240)",
+        "rgb(225, 228, 232)",
+        "rgb(255, 171, 112)",
+        "rgb(121, 184, 255)"
+      ],
+      "edge": "#677a94",
+      "canvas": "#161b25",
+      "codeBackground": "rgb(15, 22, 33)"
+    }
+  ],
+  "mobileControls": [
+    {
+      "label": "来源与版本",
+      "width": 44,
+      "height": 44
+    },
+    {
+      "label": "切换深色主题",
+      "width": 44,
+      "height": 44
+    },
+    {
+      "label": "架构",
+      "width": 37,
+      "height": 44
+    },
+    {
+      "label": "修订",
+      "width": 37,
+      "height": 44
+    },
+    {
+      "label": "检查",
+      "width": 37,
+      "height": 44
+    },
+    {
+      "label": "手机阅读路径",
+      "width": 220,
+      "height": 44
+    },
+    {
+      "label": "关系图",
+      "width": 56,
+      "height": 44
+    }
+  ],
+  "ok": true
+}

@@ -1,0 +1,23 @@
+{
+  "candidateSha256": "6d2ddbff4fb56d5288614345067a7e379a3bbde2c99552e24cf9f3eba739147b",
+  "method": "All current UTF-8 source data and JSX plus r6 rendered text form a superset of required Chinese characters; compare to distributed font cmap after final factual correction.",
+  "fonts": [
+    {
+      "font": "asteria-sans.woff2",
+      "requiredChineseCharacters": 689,
+      "missing": 0,
+      "missingCharacters": "",
+      "glyphs": 6870,
+      "sha256": "243ac6e0ed48af8aab294beac9a565435f10580e8c5b5d538cea5647f44330fc"
+    },
+    {
+      "font": "asteria-medium.woff2",
+      "requiredChineseCharacters": 689,
+      "missing": 0,
+      "missingCharacters": "",
+      "glyphs": 6870,
+      "sha256": "7ef2c877ebe3b8ee6a4da3a12d3426cddea0d222f870ab143d89a1bb8cebe25e"
+    }
+  ],
+  "finalVisualChange": "Final edge-diff styling adds only the existing characters 修改; distributed fonts and required character set are unchanged."
+}

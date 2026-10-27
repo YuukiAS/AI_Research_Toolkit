@@ -1,0 +1,26 @@
+{
+  "candidateSha256": "ccb1e32ca8faff2c15278e7ffd40efaf6e4558cd1eeba650b3410a69bfd48602",
+  "browser": "131.0.6778.204",
+  "offlineHttpRequests": [],
+  "pageErrors": [],
+  "lightCodeColors": [
+    "rgb(215, 58, 73)",
+    "rgb(111, 66, 193)",
+    "rgb(36, 41, 46)",
+    "rgb(227, 98, 9)",
+    "rgb(0, 92, 197)"
+  ],
+  "darkCodeColors": [
+    "rgb(249, 117, 131)",
+    "rgb(179, 146, 240)",
+    "rgb(225, 228, 232)",
+    "rgb(255, 171, 112)",
+    "rgb(121, 184, 255)"
+  ],
+  "narrow": {
+    "viewport": 320,
+    "documentWidth": 320,
+    "bodyWidth": 320
+  },
+  "title": "Asteria · Mica"
+}

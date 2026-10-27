@@ -1,0 +1,436 @@
+TAP version 13
+# Subtest: da: curated references, findings and historic snapshots remain resolvable
+ok 1 - da: curated references, findings and historic snapshots remain resolvable
+  ---
+  duration_ms: 3.364215
+  type: 'test'
+  ...
+# Subtest: mica: curated references, findings and historic snapshots remain resolvable
+ok 2 - mica: curated references, findings and historic snapshots remain resolvable
+  ---
+  duration_ms: 2.12768
+  type: 'test'
+  ...
+# Subtest: cat: curated references, findings and historic snapshots remain resolvable
+ok 3 - cat: curated references, findings and historic snapshots remain resolvable
+  ---
+  duration_ms: 0.892126
+  type: 'test'
+  ...
+# Subtest: tutorial: curated references, findings and historic snapshots remain resolvable
+ok 4 - tutorial: curated references, findings and historic snapshots remain resolvable
+  ---
+  duration_ms: 1.782098
+  type: 'test'
+  ...
+# Subtest: design-only and unresolved algorithms do not need invented implementation bindings
+ok 5 - design-only and unresolved algorithms do not need invented implementation bindings
+  ---
+  duration_ms: 1.125568
+  type: 'test'
+  ...
+# Subtest: missing implementation and mechanism contracts produce focused findings
+    # Subtest: mechanism
+    ok 1 - mechanism
+      ---
+      duration_ms: 0.395787
+      type: 'test'
+      ...
+    # Subtest: payload
+    ok 2 - payload
+      ---
+      duration_ms: 0.19881
+      type: 'test'
+      ...
+    # Subtest: consumer
+    ok 3 - consumer
+      ---
+      duration_ms: 0.243517
+      type: 'test'
+      ...
+    # Subtest: nonexistent structured consumer
+    ok 4 - nonexistent structured consumer
+      ---
+      duration_ms: 0.219591
+      type: 'test'
+      ...
+    # Subtest: linked without binding
+    ok 5 - linked without binding
+      ---
+      duration_ms: 0.247604
+      type: 'test'
+      ...
+    # Subtest: binding without source
+    ok 6 - binding without source
+      ---
+      duration_ms: 0.180152
+      type: 'test'
+      ...
+    # Subtest: binding without entity
+    ok 7 - binding without entity
+      ---
+      duration_ms: 0.366833
+      type: 'test'
+      ...
+    # Subtest: validated without a result
+    ok 8 - validated without a result
+      ---
+      duration_ms: 0.226853
+      type: 'test'
+      ...
+    1..8
+ok 6 - missing implementation and mechanism contracts produce focused findings
+  ---
+  duration_ms: 3.37421
+  type: 'test'
+  ...
+# Subtest: non-transfer scientific and containment relations do not invent message payloads
+ok 7 - non-transfer scientific and containment relations do not invent message payloads
+  ---
+  duration_ms: 0.175745
+  type: 'test'
+  ...
+# Subtest: unbound Git sources and all visible source/evidence references are checked
+    # Subtest: unbound abbreviated commit
+    ok 1 - unbound abbreviated commit
+      ---
+      duration_ms: 0.263678
+      type: 'test'
+      ...
+    # Subtest: Git URL without declared commit
+    ok 2 - Git URL without declared commit
+      ---
+      duration_ms: 0.529478
+      type: 'test'
+      ...
+    # Subtest: raw Git URL without declared commit
+    ok 3 - raw Git URL without declared commit
+      ---
+      duration_ms: 0.233332
+      type: 'test'
+      ...
+    # Subtest: code source without commit
+    ok 4 - code source without commit
+      ---
+      duration_ms: 0.103316
+      type: 'test'
+      ...
+    # Subtest: relation source
+    ok 5 - relation source
+      ---
+      duration_ms: 0.097598
+      type: 'test'
+      ...
+    # Subtest: nested mechanism source
+    ok 6 - nested mechanism source
+      ---
+      duration_ms: 0.087642
+      type: 'test'
+      ...
+    # Subtest: evidence source
+    ok 7 - evidence source
+      ---
+      duration_ms: 0.449408
+      type: 'test'
+      ...
+    # Subtest: evidence subject
+    ok 8 - evidence subject
+      ---
+      duration_ms: 0.135655
+      type: 'test'
+      ...
+    # Subtest: missing evidence object
+    ok 9 - missing evidence object
+      ---
+      duration_ms: 0.110537
+      type: 'test'
+      ...
+    # Subtest: component presented as evidence
+    ok 10 - component presented as evidence
+      ---
+      duration_ms: 0.182045
+      type: 'test'
+      ...
+    # Subtest: entity name does not resolve source name
+    ok 11 - entity name does not resolve source name
+      ---
+      duration_ms: 0.105489
+      type: 'test'
+      ...
+    # Subtest: artifact source
+    ok 12 - artifact source
+      ---
+      duration_ms: 0.148154
+      type: 'test'
+      ...
+    # Subtest: finding object
+    ok 13 - finding object
+      ---
+      duration_ms: 0.108093
+      type: 'test'
+      ...
+    1..13
+ok 8 - unbound Git sources and all visible source/evidence references are checked
+  ---
+  duration_ms: 3.630287
+  type: 'test'
+  ...
+# Subtest: source checks, test definitions and unknown review labels cannot establish validated
+    # Subtest: source_check
+    ok 1 - source_check
+      ---
+      duration_ms: 0.157998
+      type: 'test'
+      ...
+    # Subtest: test_definition
+    ok 2 - test_definition
+      ---
+      duration_ms: 0.129376
+      type: 'test'
+      ...
+    # Subtest: definition
+    ok 3 - definition
+      ---
+      duration_ms: 0.082324
+      type: 'test'
+      ...
+    # Subtest: recorded_result
+    ok 4 - recorded_result
+      ---
+      duration_ms: 0.115314
+      type: 'test'
+      ...
+    # Subtest: unknown_review
+    ok 5 - unknown_review
+      ---
+      duration_ms: 0.077958
+      type: 'test'
+      ...
+    1..5
+ok 9 - source checks, test definitions and unknown review labels cannot establish validated
+  ---
+  duration_ms: 1.004355
+  type: 'test'
+  ...
+# Subtest: a current result needs an explicit outcome, method, producer and result artifact
+    # Subtest: another revision
+    ok 1 - another revision
+      ---
+      duration_ms: 0.734788
+      type: 'test'
+      ...
+    # Subtest: contradictory subject revision
+    ok 2 - contradictory subject revision
+      ---
+      duration_ms: 0.151409
+      type: 'test'
+      ...
+    # Subtest: unknown review outcome
+    ok 3 - unknown review outcome
+      ---
+      duration_ms: 0.153752
+      type: 'test'
+      ...
+    # Subtest: contradictory outcome
+    ok 4 - contradictory outcome
+      ---
+      duration_ms: 0.233813
+      type: 'test'
+      ...
+    # Subtest: no method
+    ok 5 - no method
+      ---
+      duration_ms: 0.131729
+      type: 'test'
+      ...
+    # Subtest: no producer
+    ok 6 - no producer
+      ---
+      duration_ms: 0.110757
+      type: 'test'
+      ...
+    # Subtest: only a test definition
+    ok 7 - only a test definition
+      ---
+      duration_ms: 0.110036
+      type: 'test'
+      ...
+    # Subtest: no result artifact
+    ok 8 - no result artifact
+      ---
+      duration_ms: 0.110366
+      type: 'test'
+      ...
+    # Subtest: a different subject
+    ok 9 - a different subject
+      ---
+      duration_ms: 0.124027
+      type: 'test'
+      ...
+    1..9
+ok 10 - a current result needs an explicit outcome, method, producer and result artifact
+  ---
+  duration_ms: 2.779003
+  type: 'test'
+  ...
+# Subtest: major revisions require real reason, trigger, impact and preserved boundaries
+    # Subtest: reason
+    ok 1 - reason
+      ---
+      duration_ms: 0.200372
+      type: 'test'
+      ...
+    # Subtest: trigger
+    ok 2 - trigger
+      ---
+      duration_ms: 0.198019
+      type: 'test'
+      ...
+    # Subtest: impact
+    ok 3 - impact
+      ---
+      duration_ms: 0.191419
+      type: 'test'
+      ...
+    # Subtest: unchanged
+    ok 4 - unchanged
+      ---
+      duration_ms: 0.177308
+      type: 'test'
+      ...
+    # Subtest: unchanged
+    ok 5 - unchanged
+      ---
+      duration_ms: 0.250808
+      type: 'test'
+      ...
+    # Subtest: parentId
+    ok 6 - parentId
+      ---
+      duration_ms: 0.263157
+      type: 'test'
+      ...
+    1..6
+ok 11 - major revisions require real reason, trigger, impact and preserved boundaries
+  ---
+  duration_ms: 2.095041
+  type: 'test'
+  ...
+# Subtest: historical sources are validated within their own immutable snapshot
+ok 12 - historical sources are validated within their own immutable snapshot
+  ---
+  duration_ms: 0.260543
+  type: 'test'
+  ...
+# Subtest: layout, theme and generated rendering noise do not become semantic changes
+ok 13 - layout, theme and generated rendering noise do not become semantic changes
+  ---
+  duration_ms: 0.367765
+  type: 'test'
+  ...
+# Subtest: stable identity survives renamed text while mechanism and payload changes are visible
+ok 14 - stable identity survives renamed text while mechanism and payload changes are visible
+  ---
+  duration_ms: 0.458351
+  type: 'test'
+  ...
+# Subtest: retargeting a stable relation preserves old and new consumers as two display edges
+ok 15 - retargeting a stable relation preserves old and new consumers as two display edges
+  ---
+  duration_ms: 0.471221
+  type: 'test'
+  ...
+# Subtest: deleting a scoped node retains its old endpoint and incoming relation
+ok 16 - deleting a scoped node retains its old endpoint and incoming relation
+  ---
+  duration_ms: 0.21827
+  type: 'test'
+  ...
+# Subtest: an extra scoped node uses the after state when it still exists
+ok 17 - an extra scoped node uses the after state when it still exists
+  ---
+  duration_ms: 0.175375
+  type: 'test'
+  ...
+# Subtest: outside-scope nodes and relations keep current context without an unchanged claim
+ok 18 - outside-scope nodes and relations keep current context without an unchanged claim
+  ---
+  duration_ms: 0.758434
+  type: 'test'
+  ...
+# Subtest: a changed relation with an unresolved endpoint reports the gap without inventing a node
+ok 19 - a changed relation with an unresolved endpoint reports the gap without inventing a node
+  ---
+  duration_ms: 0.306463
+  type: 'test'
+  ...
+# Subtest: impact keeps deleted consumers and terminates on a new cyclic route
+ok 20 - impact keeps deleted consumers and terminates on a new cyclic route
+  ---
+  duration_ms: 0.282426
+  type: 'test'
+  ...
+# Subtest: artifact changes invalidate the relevant evidence without erasing independent calculations
+    # Subtest: page-content
+    ok 1 - page-content
+      ---
+      duration_ms: 0.22572
+      type: 'test'
+      ...
+    # Subtest: shared-style
+    ok 2 - shared-style
+      ---
+      duration_ms: 0.109645
+      type: 'test'
+      ...
+    # Subtest: order
+    ok 3 - order
+      ---
+      duration_ms: 0.096426
+      type: 'test'
+      ...
+    # Subtest: statistical-input
+    ok 4 - statistical-input
+      ---
+      duration_ms: 0.050116
+      type: 'test'
+      ...
+    # Subtest: algorithm
+    ok 5 - algorithm
+      ---
+      duration_ms: 0.054532
+      type: 'test'
+      ...
+    # Subtest: authority
+    ok 6 - authority
+      ---
+      duration_ms: 0.090346
+      type: 'test'
+      ...
+    1..6
+ok 21 - artifact changes invalidate the relevant evidence without erasing independent calculations
+  ---
+  duration_ms: 1.290998
+  type: 'test'
+  ...
+# Subtest: unknown or incomplete evidence dependencies never silently become retain
+ok 22 - unknown or incomplete evidence dependencies never silently become retain
+  ---
+  duration_ms: 0.18574
+  type: 'test'
+  ...
+# Subtest: artifact parts and findings stay in the shared model without being forced into the system projection
+ok 23 - artifact parts and findings stay in the shared model without being forced into the system projection
+  ---
+  duration_ms: 0.13238
+  type: 'test'
+  ...
+1..23
+# tests 70
+# suites 0
+# pass 70
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 63.874613

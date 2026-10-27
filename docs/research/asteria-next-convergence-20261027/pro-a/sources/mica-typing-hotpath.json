@@ -1,0 +1,156 @@
+{
+  "passed": true,
+  "stress": false,
+  "case": "typing-hotpath",
+  "result": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "20 chars no clone",
+        "passed": true
+      },
+      {
+        "name": "200 chars no clone",
+        "passed": true
+      },
+      {
+        "name": "composition no clone",
+        "passed": true
+      },
+      {
+        "name": "20 chars no computed style",
+        "passed": true
+      },
+      {
+        "name": "200 chars no computed style",
+        "passed": true
+      },
+      {
+        "name": "composition no computed style",
+        "passed": true
+      },
+      {
+        "name": "document query all not linear",
+        "passed": true
+      },
+      {
+        "name": "document query selector not linear",
+        "passed": true
+      },
+      {
+        "name": "continuity polling inactive",
+        "passed": true
+      },
+      {
+        "name": "send recovery polling inactive",
+        "passed": true
+      },
+      {
+        "name": "turn scan not linear",
+        "passed": true
+      },
+      {
+        "name": "typing p95 smoke",
+        "passed": true
+      },
+      {
+        "name": "typing total smoke",
+        "passed": true
+      }
+    ],
+    "twenty": {
+      "delta": {
+        "cloneNode": 0,
+        "getComputedStyle": 0,
+        "documentQuerySelectorAll": 0,
+        "documentQuerySelector": 0,
+        "elementQuerySelectorAll": 0,
+        "intervalBelow100Created": 0,
+        "intervalBelow100Active": 0
+      },
+      "totalMs": 2.3,
+      "p95Ms": 0.2,
+      "maxMs": 1.1
+    },
+    "twoHundred": {
+      "delta": {
+        "cloneNode": 0,
+        "getComputedStyle": 0,
+        "documentQuerySelectorAll": 0,
+        "documentQuerySelector": 0,
+        "elementQuerySelectorAll": 0,
+        "intervalBelow100Created": 0,
+        "intervalBelow100Active": 0
+      },
+      "totalMs": 6.3,
+      "p95Ms": 0.1,
+      "maxMs": 0.4
+    },
+    "composition": {
+      "delta": {
+        "cloneNode": 0,
+        "getComputedStyle": 0,
+        "documentQuerySelectorAll": 0,
+        "documentQuerySelector": 0,
+        "elementQuerySelectorAll": 0,
+        "intervalBelow100Created": 0,
+        "intervalBelow100Active": 0
+      },
+      "totalMs": 0.8,
+      "p95Ms": 0.2,
+      "maxMs": 0.2
+    },
+    "continuity": {
+      "activated": false,
+      "source": "resolved-connector-pill",
+      "active": true,
+      "shellPresent": false,
+      "shellDurationMs": 0,
+      "composerRootId": 1,
+      "editableId": 2,
+      "connectorLifecycleLatched": true,
+      "selectionWindowOnly": false,
+      "connectorContextGeneration": 1,
+      "cachedSnapshotAvailable": true,
+      "cachedSnapshotFresh": true,
+      "cacheAgeMs": 2,
+      "snapshotFreshnessMs": 2500,
+      "cssVariableCount": 0,
+      "sanitizedCloneAvailable": true,
+      "cleanupReason": null,
+      "skippedReason": null,
+      "pollingActive": false,
+      "enabled": true,
+      "listenersAttached": true,
+      "perf": {
+        "cloneCount": 2,
+        "computedStyleCopyCount": 17,
+        "documentDiscoveryCount": 4,
+        "geometryReadCount": 4,
+        "activePollingTimer": false
+      }
+    },
+    "recovery": {
+      "guardActive": false,
+      "sendCandidateActive": false,
+      "generationId": 0,
+      "phase": "IDLE"
+    },
+    "statusRuntime": {
+      "nativeSafeMode": false,
+      "nativeSafeReason": null,
+      "documentMutationObserverActive": false,
+      "composerLifecycleListenersAttached": true,
+      "micaEnabled": true,
+      "longThreadOptimizationEnabled": true,
+      "connectorContinuityEnabled": true,
+      "sendResidualRecoveryEnabled": true,
+      "nativeSafeModeEntries": 1,
+      "nativeSafeMountedStatusProbes": 0,
+      "nativeSafeMountedStatusUpdates": 0
+    },
+    "width": 900,
+    "mode": "typing-hotpath",
+    "errors": []
+  }
+}

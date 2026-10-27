@@ -1,0 +1,416 @@
+{
+  "round": "r6",
+  "candidateSha256": "ccb1e32ca8faff2c15278e7ffd40efaf6e4558cd1eeba650b3410a69bfd48602",
+  "checks": [
+    {
+      "name": "DA same topology 正常交付",
+      "ok": true,
+      "nodeIds": [
+        "accepted",
+        "assurance",
+        "bridge",
+        "candidate",
+        "maker",
+        "request",
+        "review",
+        "workflow"
+      ],
+      "steps": [
+        "1 / 5\n保留要求\n\n新能力和旧能力保护一起进入本次检查范围。",
+        "2 / 5\n制作候选\n\n原任务产出可以实际打开或运行的候选。",
+        "3 / 5\n直接审阅成品\n\n审阅对象固定到这一个候选版本。",
+        "4 / 5\n汇总有效证据\n\n结论必须能回到具体要求、对象和证据。",
+        "5 / 5\n形成交付范围\n\n用户看到的是已有依据支持的能力与剩余问题。"
+      ]
+    },
+    {
+      "name": "DA same topology 返修",
+      "ok": true,
+      "nodeIds": [
+        "accepted",
+        "assurance",
+        "bridge",
+        "candidate",
+        "maker",
+        "request",
+        "review",
+        "workflow"
+      ],
+      "steps": [
+        "1 / 5\n发现问题\n\n专业审阅记录具体位置、实际与预期。",
+        "2 / 5\n确认受影响范围\n\n检查 finding 是否属于当前候选。",
+        "3 / 5\n确定原任务\n\n工作流决定接收者，保留问题上下文。",
+        "4 / 5\n送达反馈\n\nBridge Kit 使用既有合法通道递送。",
+        "5 / 5\n返回原制作任务\n\n修改后生成新候选，受影响证据需要复验。"
+      ]
+    },
+    {
+      "name": "DA same topology 恢复",
+      "ok": true,
+      "nodeIds": [
+        "accepted",
+        "assurance",
+        "bridge",
+        "candidate",
+        "maker",
+        "request",
+        "review",
+        "workflow"
+      ],
+      "steps": [
+        "1 / 4\n确认中断位置\n\n先确认任务身份与上次已接收的反馈。",
+        "2 / 4\n恢复未完成工作\n\n从原任务恢复点继续，保留旧候选用于对照。",
+        "3 / 4\n绑定新候选\n\n新文件与旧报告不能混为同一版本。",
+        "4 / 4\n重新检查影响范围\n\n复用仍适用的证据，补做本次失效的判断。"
+      ]
+    },
+    {
+      "name": "DA same topology 保护已有能力",
+      "ok": true,
+      "nodeIds": [
+        "accepted",
+        "assurance",
+        "bridge",
+        "candidate",
+        "maker",
+        "request",
+        "review",
+        "workflow"
+      ],
+      "steps": [
+        "1 / 4\n纳入已接受基线\n\n本次成功必须同时保留相关旧正确行为。",
+        "2 / 4\n检查新旧路径\n\n新用例通过后，继续检查受影响的旧入口。",
+        "3 / 4\n发现回归就停止交付\n\n新功能通过不能抵消已有能力失效。",
+        "4 / 4\n带着保护条件返修\n\n修复范围与不能破坏的内容一起回到原任务。"
+      ]
+    },
+    {
+      "name": "DA design-only empty implementation",
+      "ok": true,
+      "text": "组件\nDelivery Assurance\n\n汇总当前候选的交付义务、有效证据与未解决问题。\n\n机制\n实现\n证据\n演进\n实现尚未接入\n\n现有对象没有对应的执行实现。机制与设计依据仍可单独查看。\n\n相邻关系\n结论与问题\n检查范围\n可交付范围\n失败与缺证"
+    },
+    {
+      "name": "DA historical provenance",
+      "ok": true,
+      "text": "修订\n前后对照\n图中变化\n交付判断独立成职责\n共享判定库设计\n独立职责候选\n交付判断独立成职责\n\n依据两份设计材料重建职责对照；两版都包含工作流和原任务权威，没有代码迁移或运行接线证明。\n\n为什么改\n\n新设计提出独立的 Delivery Assurance 插件，并重新划定 workflow-core 与 Bridge Kit 的职责。\n\n让交付判定、能力编排与底层运行各有明确责任；旧任务权威和专业判断继续保留。\n\nworkflow-core\n修改\n之前\nworkflow-core\n包含共享交付判定函数与能力选择逻辑\n原任务负责人决定运行模式与续修\nBridge 消费已选模式，不启动第二个任务负责人\n之后\nworkflow-core\n接收当前任务、候选身份与检查范围\n调用所需领域能力并指定结果接收者\n收到失败后确定原任务，再交给 Bridge Kit 递送\n确认接收与恢复点，保留未完成的检查\nDelivery Assurance\n修改\n之前\n交付判定职责\n在 workflow-core 的共享纯判定库中整理义务与证据\n判定函数将结果返回 Bridge 的既有执行接点\n专业结果仍由项目 runner 和原领域权威提供\n之后\nDelivery Assurance\n将原始要求与已有能力映射到检查范围\n核对证据所指的候选、对象和条件\n有失败或关键缺证时给出具体问题及返回位置\n只对已有有效证据覆盖的范围形成交付判断\nBridge Kit\n修改\n之前\nBridge Kit\n在已有入口执行准入、完成、检查与报告接点\n调用共享判定库并接收结果\n沿原任务、原父进程或既有控制器返回问题\n之后\nBridge Kit\n接收工作流已确定的任务身份与接收者\n按已有授权和恢复通道递送反馈\n回传是否真正收到及可继续的恢复点\n保持的内容\n项目保留专业判断\n原任务负责人及合法恢复通道\n候选身份继续绑定证据\n下游检查范围\n旧共享判定库设计\n旧原任务返回合同\n当前职责设计\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。",
+      "links": [
+        {
+          "text": "旧共享判定库设计",
+          "href": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/02_ARCHITECTURE_AND_COMPONENTS.md#L45-L49"
+        },
+        {
+          "text": "旧原任务返回合同",
+          "href": "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/03_END_TO_END_EXECUTION_AND_VALIDATORS.md#L209-L214"
+        },
+        {
+          "text": "当前职责设计",
+          "href": "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md"
+        }
+      ]
+    },
+    {
+      "name": "DA fixed design source commit",
+      "ok": true,
+      "links": [
+        "https://github.com/YuukiAS/Asteria/tree/60ba27a38324980beea78d4c07b7b28abda522cf",
+        "https://github.com/YuukiAS/AI_Skills_Collection/blob/fd6916ad5fdd5fb905544b6a127f9b0d31a737e1/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+        "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/02_ARCHITECTURE_AND_COMPONENTS.md#L45-L49",
+        "https://github.com/YuukiAS/AI_Research_Toolkit/blob/ae2766a62b1546048ec6122e01ee95f1904fb73c/docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/03_END_TO_END_EXECUTION_AND_VALIDATORS.md#L209-L214"
+      ]
+    },
+    {
+      "name": "mica source drill mica.stale",
+      "ok": true,
+      "text": "组件\n清空后旧草稿恢复\n\n用户明确清空后，若同一旧内容被原生重挂载恢复，则在短窗口内再次清空。\n\n机制\n实现\n证据\n演进\n来源位置\nhandleKeyDown / handleBeforeInput / handleNewUserInput\nconfirmPendingClear\ntickGuard\nnativeDeleteComposerContents / matchesOldPayload\nWhat was confirmed / Fix\nextension/src/reliability/stale-composer-recovery.ts\n打开\nhandleKeyDown / handleBeforeInput / handleNewUserInput\n7059c0dc24\n源码节选\n  function handleKeyDown(event) {\n    if (!shouldObserveEvent(event)) return;\n    const editable = findComposerEditableFromTarget(event.target);\n    if (!editable) return;\n    if (isSelectAllShortcut(event)) {\n      fullSelectionIntent = {\n        startedAt: Date.now(),\n        editableId: elementId(editable),\n        rootId: elementId(findComposerRoot(editable))\n      };\n      return;\n    }\n    if (isDeleteKey(event)) {\n      beginPendingFullClear(event, keyToInputType(event), keyToIntentType(event));\n    }\n  }\n\n  function handleBeforeInput(event) {\n对应关系\n\n绑定到「清空后旧草稿恢复」的内部处理。\n\n相邻关系\n恢复互斥\n清空与重挂载",
+      "links": [
+        {
+          "text": "打开",
+          "href": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L109-L165"
+        }
+      ]
+    },
+    {
+      "name": "mica evidence mica.stale",
+      "ok": true,
+      "text": "组件\n清空后旧草稿恢复\n\n用户明确清空后，若同一旧内容被原生重挂载恢复，则在短窗口内再次清空。\n\n机制\n实现\n证据\n演进\n来源核对\n源码与入口核对\n\n已定位声明、消费点、选择器和既有测试。\n\n源码检查能确认机制写在何处；尚未在当前在线 ChatGPT 对所有功能重新验收。\n\ncollectConversationTurns\nscanAndApply\nconfirmPendingClear\nnativeDeleteComposerContents / matchesOldPayload\n相邻关系\n恢复互斥\n清空与重挂载"
+    },
+    {
+      "name": "cat source drill cat-tail",
+      "ok": true,
+      "text": "算法\n尾部数值内核\n\n在极端正态尾部稳定计算概率及曲率。\n\n机制\n实现\n证据\n演进\n来源位置\nct_tail_terms_scalar\nct_probit_tail_terms matches frozen high precision oracle\nct_probit_laplace\npackage/TRACE/src/ct_math.cpp\n打开\nct_tail_terms_scalar\n0d829fb17c\n按原仓库权限访问\n\n打开原仓库可查看完整定义、检查与结果。当前页面保留对象定位。\n\n对应关系\n\n绑定到「尾部数值内核」的定义。\n\n相邻关系\n提供\n返回",
+      "links": [
+        {
+          "text": "打开",
+          "href": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/src/ct_math.cpp#L21-L91"
+        }
+      ]
+    },
+    {
+      "name": "cat evidence cat-tail",
+      "ok": true,
+      "text": "算法\n尾部数值内核\n\n在极端正态尾部稳定计算概率及曲率。\n\n机制\n实现\n证据\n演进\n来源核对\n数值内核的检查范围\n\n仓库已有尾部稳定性与导数检查。\n\n本轮读取了例程和对应测试，没有重新执行科研计算；数值内核的检查不批准匿名零槽位路线。\n\nct_tail_terms_scalar\nct_probit_tail_terms matches frozen high precision oracle\nct_probit_laplace\n相邻关系\n提供\n返回"
+    },
+    {
+      "name": "cat source drill cat-reference",
+      "ok": true,
+      "text": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n来源位置\nref_ct_observed_probit_log_likelihood\nref_ct_eta_collapsed_contrast_log_density\nref_ct_interweave_eta_collapsed_contrast\nref_ct_one_sweep\npackage/TRACE/R/cat-trace-reference.R\n打开\nref_ct_observed_probit_log_likelihood\n0d829fb17c\n按原仓库权限访问\n\n打开原仓库可查看完整定义、检查与结果。当前页面保留对象定位。\n\n对应关系\n\n绑定到「参考采样器」的定义。\n\n相邻关系\n提供\n固定目标",
+      "links": [
+        {
+          "text": "打开",
+          "href": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/package/TRACE/R/cat-trace-reference.R#L857-L868"
+        }
+      ]
+    },
+    {
+      "name": "cat evidence cat-reference",
+      "ok": true,
+      "text": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有运行记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标"
+    },
+    {
+      "name": "cat source drill cat-zero",
+      "ok": true,
+      "text": "算法\n匿名零槽位积分\n\n计算未发现槽位对科学模型的贡献，并保留聚合等价关系。\n\n机制\n实现\n证据\n演进\n生产算法尚未冻结\n\n已有数学目标与候选路线；误差、导数和成本验证完成后，再确定生产例程。\n\n设计与研究来源\nCAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md\n07_DECISION_AND_GAP_LEDGER.md\n相邻关系\n贡献\n约束",
+      "links": [
+        {
+          "text": "CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md",
+          "href": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/architecture/CAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md#L271-L279"
+        },
+        {
+          "text": "07_DECISION_AND_GAP_LEDGER.md",
+          "href": "https://github.com/YuukiAS/CAT-TRACE/blob/0d829fb17c458a076a15ec51893e917960107c21/docs/implementation/07_DECISION_AND_GAP_LEDGER.md#L9-L37"
+        }
+      ]
+    },
+    {
+      "name": "cat evidence cat-zero",
+      "ok": true,
+      "text": "算法\n匿名零槽位积分\n\n计算未发现槽位对科学模型的贡献，并保留聚合等价关系。\n\n机制\n实现\n证据\n演进\n反例\n旧近似被反例否定\n\n普通单列局部近似不能直接用于匿名全零列。\n\n尾部误差可能随槽位重数放大；保留原模型目标，重新设计积分算法。\n\nZERO_SLOT_LAPLACE_FINDING.md\nCAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md\n相邻关系\n贡献\n约束"
+    },
+    {
+      "name": "tutorial source drill tutorial-candidate",
+      "ok": true,
+      "text": "产物\n候选课件\n\n以文件身份与有序页面绑定同一份待验产品。\n\n机制\n文件\n证据\n演进\n来源位置\npage-10.png\npage-35.png\npage-37.png\nresults/tutorial-01-v14/pages/page-10.png\n打开\n88d1214ea3\n按原仓库权限访问\n\n打开原仓库可查看完整定义、检查与结果。当前页面保留对象定位。\n\n对应关系\n\n这是对应版本的原始页面，保留文件位置和候选身份。\n\n相邻关系\n候选身份\n页图与对象\n完整页序\n新候选",
+      "links": [
+        {
+          "text": "打开",
+          "href": "https://github.com/YuukiAS/STAT5060-TA/blob/88d1214ea329f1e538301107c10bd8fd4fd8c341/results/tutorial-01-v14/pages/page-10.png"
+        }
+      ]
+    },
+    {
+      "name": "tutorial evidence tutorial-candidate",
+      "ok": true,
+      "text": "产物\n候选课件\n\n以文件身份与有序页面绑定同一份待验产品。\n\n机制\n文件\n证据\n演进\n专业判断\n课件与当前课程决定对照\n\nV14 的第 35、37 页仍包含已被当前要求替换的安排。\n\n已有研究记录了差异；本轮再次打开真实页图与当前课程决定核对。修复尚未完成。\n\npage-35.png\npage-37.png\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\n03_THREE_FAMILY_EXECUTION.md\n相邻关系\n候选身份\n页图与对象\n完整页序\n新候选"
+    },
+    {
+      "name": "CAT withdrawn route remains reachable",
+      "ok": true,
+      "text": "修订\n前后对照\n图中变化\n组成更新改用观测似然\n撤销匿名零槽位的普通局部近似\n尝试中的旧路线\n撤销后重新设计\n撤销匿名零槽位的普通局部近似\n\n保留模型目标；替代算法仍在研究。\n\n根据固定来源重建所选对象的局部对照；没有把当前绑定当作历史实现快照。\n\n为什么改\n\n独立解析与高精度数值反例。\n\n局部尾部误差会随重复槽位贡献放大。\n\n旧零列近似\n修改\n之前\n旧零列近似\n用独立参照核对数值目标\n区分实现正确性与链的可靠性\n保留反例和未满足的要求\n之后\n旧零列近似\n用独立参照核对数值目标\n区分实现正确性与链的可靠性\n保留反例和未满足的要求\n保持的内容\n未发现槽位仍进入模型\n聚合等价关系\n显式列数值内核\n下游检查范围\n\n尚无获准的生产替代实现。\n\nZERO_SLOT_LAPLACE_FINDING.md\nCAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "Tutorial positive page10 is fixed artifact",
+      "ok": true,
+      "href": "https://github.com/YuukiAS/STAT5060-TA/blob/88d1214ea329f1e538301107c10bd8fd4fd8c341/results/tutorial-01-v14/pages/page-10.png"
+    },
+    {
+      "name": "Tutorial page35 maps finding identity",
+      "ok": true,
+      "selected": "tutorial-v14-obsolete-assessment",
+      "text": "问题\n课件还在使用旧考核安排\n问题\n定位\n证据\n演进\n问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\nV14 第35页考核表、第37页项目安排\n\n当前课程决定已替换旧安排，已有课件仍保留被撤销的项目。\n\n发现依据\n既有架构研究；本轮再次核对原页与当前课程决定\n当前情况\n课件仍待更新，修复尚未完成。\nV14 · 第 35 页\nV14 · 第 37 页\n03_THREE_FAMILY_EXECUTION.md\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\npage-35.png\npage-37.png\n修复范围\n\n按当前课程决定更新相关表格和说明，保留已接受的教学内容及模板。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+    },
+    {
+      "name": "Tutorial order change impact",
+      "ok": true,
+      "text": "变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n可保留¹\n受影响页面的渲染与视觉\n可保留¹\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+    },
+    {
+      "name": "Keyboard search preserves focus intent",
+      "ok": true,
+      "active": "查找组件或函数",
+      "labels": [
+        "清空后旧草稿恢复"
+      ]
+    },
+    {
+      "name": "Keyboard Space selects component",
+      "ok": true,
+      "title": "识别对话与输入框"
+    },
+    {
+      "name": "da diff node opens comparison",
+      "ok": true,
+      "text": "用户要求\n\n当前上下文；这次修订没有对它作历史比较。\n\n确定这次交付要满足什么，以及哪些已有能力必须保留。\n\n查看当前对象"
+    },
+    {
+      "name": "mica diff node opens comparison",
+      "ok": true,
+      "text": "识别对话与输入框\n\n当前上下文；这次修订没有对它作历史比较。\n\n从已挂载页面识别消息轮次，并排除输入框及扩展自身节点。\n\n查看当前对象"
+    },
+    {
+      "name": "cat diff node opens comparison",
+      "ok": true,
+      "text": "科学模型\n\n当前上下文；这次修订没有对它作历史比较。\n\n目录中的已知对象与尚未发现的对象有不同身份；共享参数连接它们。\n\n查看当前对象"
+    },
+    {
+      "name": "tutorial diff node opens comparison",
+      "ok": true,
+      "text": "当前要求\n\n当前上下文；这次修订没有对它作历史比较。\n\n课程事实、教学目标和已接受模板共同约束这次课件。\n\n查看当前对象"
+    },
+    {
+      "name": "da mobile change list",
+      "ok": true,
+      "text": "修订\n前后对照\n变化对象\n交付判断独立成职责\n新增\n撤销\n修改\nworkflow-core\n修改\nDelivery Assurance\n修改\nBridge Kit\n修改\n查看关系图\nworkflow-core\n\n只比较本次修订范围。\n\n之前\nworkflow-core\n包含共享交付判定函数与能力选择逻辑\n原任务负责人决定运行模式与续修\nBridge 消费已选模式，不启动第二个任务负责人\n之后\nworkflow-core\n接收当前任务、候选身份与检查范围\n调用所需领域能力并指定结果接收者\n收到失败后确定原任务，再交给 Bridge Kit 递送\n确认接收与恢复点，保留未完成的检查\n\n让交付判定、能力编排与底层运行各有明确责任；旧任务权威和专业判断继续保留。\n\nDelivery Assurance\nworkflow-core\nBridge Kit",
+      "count": 4,
+      "graphVisible": false
+    },
+    {
+      "name": "mica mobile change list",
+      "ok": true,
+      "text": "修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n连接器事件识别\n\n只比较本次修订范围。\n\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "count": 7,
+      "graphVisible": false
+    },
+    {
+      "name": "cat mobile change list",
+      "ok": true,
+      "text": "修订\n前后对照\n变化对象\n组成更新改用观测似然\n撤销匿名零槽位的普通局部近似\n新增\n撤销\n修改\n参考采样器\n修改\n查看关系图\n参考采样器\n\n只比较本次修订范围。\n\n之前\n参考采样器\n更新潜变量和参数块\n在当前潜变量条件下更新组成对比\n继续当前迭代\n之后\n参考采样器\n更新潜变量和参数块\n用观测似然更新组间组成\n回写相关参数\n下一轮重新抽取潜变量\n\n把潜变量积分掉，使用观测似然更新组成对比。\n\n参考采样器",
+      "count": 2,
+      "graphVisible": false
+    },
+    {
+      "name": "tutorial mobile change list",
+      "ok": true,
+      "text": "修订\n前后对照\n变化对象\n项目说明的局部返修\n新增\n撤销\n修改\n课程页暴露内部制作状态\n修改\n查看关系图\n课程页暴露内部制作状态\n\n只比较本次修订范围。\n\n之前\n课程页暴露内部制作状态\n\nV04 第 26 页使用内部制作状态组织课程说明。\n\n之后\n课程页暴露内部制作状态\n\nV05 第 26 页已移除内部制作状态；视觉与解释仍需改进。\n\n移除内部制作状态，保留学生需知内容。\n\n课程页暴露内部制作状态",
+      "count": 2,
+      "graphVisible": false
+    },
+    {
+      "name": "Mobile detail back restores position",
+      "ok": true,
+      "backY": 0,
+      "scrollAfter": 246
+    },
+    {
+      "name": "Mobile source dialog usable",
+      "ok": true,
+      "text": "来源与版本\n\n当前阅读的是 2026-10-27 核对的研究候选。所有来源固定到提交；打开链接仍遵循原仓库权限。\n\nAsteria 宿主\n2.0.0-rc.19 · 60ba27a383\n当前项目\nDelivery Assurance\n当前职责设计\n旧共享判定库设计\n旧原任务返回合同\n\n图、机制、比较与检查共享同一语义模型。原型只读，不修改来源或代替正式验收。"
+    },
+    {
+      "name": "Mica verified consumer 已挂载结构",
+      "ok": true,
+      "text": "关系\n已挂载结构\nChatGPT 原生页面\n识别对话与输入框\n传递\n\n候选消息、角色、输入与交互区域\n\n接收与用途\n\ncollectConversationTurns\n\ncollectConversationTurns\nTURN_SELECTOR / COMPOSER_SELECTOR",
+      "links": [
+        "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L844-L872",
+        "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L25-L39"
+      ]
+    },
+    {
+      "name": "Mica verified consumer 清空与重挂载",
+      "ok": true,
+      "text": "关系\n清空与重挂载\nChatGPT 原生页面\n清空后旧草稿恢复\n传递\n\n明确清空意图、空值确认、后续原生挂载\n\n接收与用途\n\nconfirmPendingClear\n\nhandleKeyDown / handleBeforeInput / handleNewUserInput\nconfirmPendingClear",
+      "links": [
+        "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L109-L165",
+        "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L224-L252"
+      ]
+    },
+    {
+      "name": "Mica verified consumer 短期只读外观",
+      "ok": true,
+      "text": "关系\n短期只读外观\n连接器切换连续显示\nChatGPT 原生页面\n传递\n\n新鲜且不可交互的消毒快照\n\n接收与用途\n\nshowShell 创建的只读外观层\n\nshowShell\ncontinuitySkipReason",
+      "links": [
+        "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L249-L285",
+        "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L336-L357"
+      ]
+    },
+    {
+      "name": "No empty adjacent relations block",
+      "ok": true,
+      "text": "组件\n统一平台适配层\n\n新规格希望把 DOM 识别收拢到统一适配层；当前仍未迁移。\n\n机制\n实现\n证据\n演进\n1\n\n统一识别轮次、输入框与宿主状态\n\n2\n\n只由适配层生成共享回答文档\n\n3\n\n向上层能力提供稳定对象\n\n这是后续已描述的设计，当前运行代码仍使用分散选择器。\n\n平台适配设计领先代码\n\n新规格中的统一适配层尚未出现于当前实现。旧运行代码仍然可独立查看。"
+    },
+    {
+      "name": "Recheck computes current structure",
+      "ok": true,
+      "text": "结构检查\n\n当前模型的引用和修订必填项未发现结构缺口。\n\n已重新检查当前模型。来源可用性和专业结论仍需按实际范围核对。"
+    },
+    {
+      "name": "Tutorial finding object and requirement location",
+      "ok": true,
+      "text": "问题\n课件还在使用旧考核安排\n问题\n定位\n证据\n演进\n相关对象\nV14 · 第 35 页\nV14 · 第 37 页\n对应要求\n当前要求\n03_THREE_FAMILY_EXECUTION.md\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\npage-35.png\npage-37.png"
+    }
+  ],
+  "textOnly": [
+    {
+      "name": "DA implementation",
+      "text": "组件\nDelivery Assurance\n\n汇总当前候选的交付义务、有效证据与未解决问题。\n\n机制\n实现\n证据\n演进\n实现尚未接入\n\n现有对象没有对应的执行实现。机制与设计依据仍可单独查看。\n\n相邻关系\n结论与问题\n检查范围\n可交付范围\n失败与缺证"
+    },
+    {
+      "name": "DA revision",
+      "text": "修订\n前后对照\n图中变化\n交付判断独立成职责\n共享判定库设计\n独立职责候选\n交付判断独立成职责\n\n依据两份设计材料重建职责对照；两版都包含工作流和原任务权威，没有代码迁移或运行接线证明。\n\n为什么改\n\n新设计提出独立的 Delivery Assurance 插件，并重新划定 workflow-core 与 Bridge Kit 的职责。\n\n让交付判定、能力编排与底层运行各有明确责任；旧任务权威和专业判断继续保留。\n\nworkflow-core\n修改\n之前\nworkflow-core\n包含共享交付判定函数与能力选择逻辑\n原任务负责人决定运行模式与续修\nBridge 消费已选模式，不启动第二个任务负责人\n之后\nworkflow-core\n接收当前任务、候选身份与检查范围\n调用所需领域能力并指定结果接收者\n收到失败后确定原任务，再交给 Bridge Kit 递送\n确认接收与恢复点，保留未完成的检查\nDelivery Assurance\n修改\n之前\n交付判定职责\n在 workflow-core 的共享纯判定库中整理义务与证据\n判定函数将结果返回 Bridge 的既有执行接点\n专业结果仍由项目 runner 和原领域权威提供\n之后\nDelivery Assurance\n将原始要求与已有能力映射到检查范围\n核对证据所指的候选、对象和条件\n有失败或关键缺证时给出具体问题及返回位置\n只对已有有效证据覆盖的范围形成交付判断\nBridge Kit\n修改\n之前\nBridge Kit\n在已有入口执行准入、完成、检查与报告接点\n调用共享判定库并接收结果\n沿原任务、原父进程或既有控制器返回问题\n之后\nBridge Kit\n接收工作流已确定的任务身份与接收者\n按已有授权和恢复通道递送反馈\n回传是否真正收到及可继续的恢复点\n保持的内容\n项目保留专业判断\n原任务负责人及合法恢复通道\n候选身份继续绑定证据\n下游检查范围\n旧共享判定库设计\n旧原任务返回合同\n当前职责设计\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "mica mica.stale implementation",
+      "text": "组件\n清空后旧草稿恢复\n\n用户明确清空后，若同一旧内容被原生重挂载恢复，则在短窗口内再次清空。\n\n机制\n实现\n证据\n演进\n来源位置\nhandleKeyDown / handleBeforeInput / handleNewUserInput\nconfirmPendingClear\ntickGuard\nnativeDeleteComposerContents / matchesOldPayload\nWhat was confirmed / Fix\nextension/src/reliability/stale-composer-recovery.ts\n打开\nhandleKeyDown / handleBeforeInput / handleNewUserInput\n7059c0dc24\n源码节选\n  function handleKeyDown(event) {\n    if (!shouldObserveEvent(event)) return;\n    const editable = findComposerEditableFromTarget(event.target);\n    if (!editable) return;\n    if (isSelectAllShortcut(event)) {\n      fullSelectionIntent = {\n        startedAt: Date.now(),\n        editableId: elementId(editable),\n        rootId: elementId(findComposerRoot(editable))\n      };\n      return;\n    }\n    if (isDeleteKey(event)) {\n      beginPendingFullClear(event, keyToInputType(event), keyToIntentType(event));\n    }\n  }\n\n  function handleBeforeInput(event) {\n对应关系\n\n绑定到「清空后旧草稿恢复」的内部处理。\n\n相邻关系\n恢复互斥\n清空与重挂载"
+    },
+    {
+      "name": "mica mica.stale evidence",
+      "text": "组件\n清空后旧草稿恢复\n\n用户明确清空后，若同一旧内容被原生重挂载恢复，则在短窗口内再次清空。\n\n机制\n实现\n证据\n演进\n来源核对\n源码与入口核对\n\n已定位声明、消费点、选择器和既有测试。\n\n源码检查能确认机制写在何处；尚未在当前在线 ChatGPT 对所有功能重新验收。\n\ncollectConversationTurns\nscanAndApply\nconfirmPendingClear\nnativeDeleteComposerContents / matchesOldPayload\n相邻关系\n恢复互斥\n清空与重挂载"
+    },
+    {
+      "name": "cat cat-tail implementation",
+      "text": "算法\n尾部数值内核\n\n在极端正态尾部稳定计算概率及曲率。\n\n机制\n实现\n证据\n演进\n来源位置\nct_tail_terms_scalar\nct_probit_tail_terms matches frozen high precision oracle\nct_probit_laplace\npackage/TRACE/src/ct_math.cpp\n打开\nct_tail_terms_scalar\n0d829fb17c\n按原仓库权限访问\n\n打开原仓库可查看完整定义、检查与结果。当前页面保留对象定位。\n\n对应关系\n\n绑定到「尾部数值内核」的定义。\n\n相邻关系\n提供\n返回"
+    },
+    {
+      "name": "cat cat-tail evidence",
+      "text": "算法\n尾部数值内核\n\n在极端正态尾部稳定计算概率及曲率。\n\n机制\n实现\n证据\n演进\n来源核对\n数值内核的检查范围\n\n仓库已有尾部稳定性与导数检查。\n\n本轮读取了例程和对应测试，没有重新执行科研计算；数值内核的检查不批准匿名零槽位路线。\n\nct_tail_terms_scalar\nct_probit_tail_terms matches frozen high precision oracle\nct_probit_laplace\n相邻关系\n提供\n返回"
+    },
+    {
+      "name": "cat cat-reference implementation",
+      "text": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n来源位置\nref_ct_observed_probit_log_likelihood\nref_ct_eta_collapsed_contrast_log_density\nref_ct_interweave_eta_collapsed_contrast\nref_ct_one_sweep\npackage/TRACE/R/cat-trace-reference.R\n打开\nref_ct_observed_probit_log_likelihood\n0d829fb17c\n按原仓库权限访问\n\n打开原仓库可查看完整定义、检查与结果。当前页面保留对象定位。\n\n对应关系\n\n绑定到「参考采样器」的定义。\n\n相邻关系\n提供\n固定目标"
+    },
+    {
+      "name": "cat cat-reference evidence",
+      "text": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有运行记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标"
+    },
+    {
+      "name": "cat cat-zero implementation",
+      "text": "算法\n匿名零槽位积分\n\n计算未发现槽位对科学模型的贡献，并保留聚合等价关系。\n\n机制\n实现\n证据\n演进\n生产算法尚未冻结\n\n已有数学目标与候选路线；误差、导数和成本验证完成后，再确定生产例程。\n\n设计与研究来源\nCAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md\n07_DECISION_AND_GAP_LEDGER.md\n相邻关系\n贡献\n约束"
+    },
+    {
+      "name": "cat cat-zero evidence",
+      "text": "算法\n匿名零槽位积分\n\n计算未发现槽位对科学模型的贡献，并保留聚合等价关系。\n\n机制\n实现\n证据\n演进\n反例\n旧近似被反例否定\n\n普通单列局部近似不能直接用于匿名全零列。\n\n尾部误差可能随槽位重数放大；保留原模型目标，重新设计积分算法。\n\nZERO_SLOT_LAPLACE_FINDING.md\nCAT_TRACE_ZERO_SLOT_ARCHITECTURE_GUIDE_20261014.md\n相邻关系\n贡献\n约束"
+    },
+    {
+      "name": "tutorial tutorial-candidate implementation",
+      "text": "产物\n候选课件\n\n以文件身份与有序页面绑定同一份待验产品。\n\n机制\n文件\n证据\n演进\n来源位置\npage-10.png\npage-35.png\npage-37.png\nresults/tutorial-01-v14/pages/page-10.png\n打开\n88d1214ea3\n按原仓库权限访问\n\n打开原仓库可查看完整定义、检查与结果。当前页面保留对象定位。\n\n对应关系\n\n这是对应版本的原始页面，保留文件位置和候选身份。\n\n相邻关系\n候选身份\n页图与对象\n完整页序\n新候选"
+    },
+    {
+      "name": "tutorial tutorial-candidate evidence",
+      "text": "产物\n候选课件\n\n以文件身份与有序页面绑定同一份待验产品。\n\n机制\n文件\n证据\n演进\n专业判断\n课件与当前课程决定对照\n\nV14 的第 35、37 页仍包含已被当前要求替换的安排。\n\n已有研究记录了差异；本轮再次打开真实页图与当前课程决定核对。修复尚未完成。\n\npage-35.png\npage-37.png\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\n03_THREE_FAMILY_EXECUTION.md\n相邻关系\n候选身份\n页图与对象\n完整页序\n新候选"
+    },
+    {
+      "name": "Tutorial page35 finding",
+      "text": "问题\n课件还在使用旧考核安排\n问题\n定位\n证据\n演进\n问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\nV14 第35页考核表、第37页项目安排\n\n当前课程决定已替换旧安排，已有课件仍保留被撤销的项目。\n\n发现依据\n既有架构研究；本轮再次核对原页与当前课程决定\n当前情况\n课件仍待更新，修复尚未完成。\nV14 · 第 35 页\nV14 · 第 37 页\n03_THREE_FAMILY_EXECUTION.md\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\npage-35.png\npage-37.png\n修复范围\n\n按当前课程决定更新相关表格和说明，保留已接受的教学内容及模板。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+    },
+    {
+      "name": "da full page CSS removed",
+      "visibleTextBefore": "跳到内容\nAsteria\n项目\nDelivery Assurance\n当前架构\n修订\n检查\n组件\n/\n用户要求\nworkflow-core\n当前制作任务\n当前候选\nDelivery Assurance\n专业审阅\nBridge Kit\n可交付范围\n来源与版本\nDelivery Assurance\n\n交付、验收与返修\n\n设计方案\n正常交付\n返修\n恢复\n保护已有能力\n要求与范围\n制作安排\n候选版本\n实际成品\n结论与问题\n检查范围\n可交付范围\n失败与缺证\n原任务与反馈\n续修\n用户要求\nworkflow-core\n当前制作任务\n当前候选\nDelivery Assurance\n专业审阅\nBridge Kit\n可交付范围\nReact Flow\n1 / 5\n保留要求\n\n新能力和旧能力保护一起进入本次检查范围。\n\n组件\nDelivery Assurance\n\n汇总当前候选的交付义务、有效证据与未解决问题。\n\n机制\n实现\n证据\n演进\n1\n\n将原始要求与已有能力映射到检查范围\n\n2\n\n核对证据所指的候选、对象和条件\n\n3\n\n有失败或关键缺证时给出具体问题及返回位置\n\n4\n\n只对已有有效证据覆盖的范围形成交付判断\n\n不接管项目的专业判断，也不自行选择下一执行者。\n\n相邻关系\n结论与问题\n检查范围\n可交付范围\n失败与缺证",
+      "unstyledText": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构修订检查\n组件\n/\n用户要求workflow-core当前制作任务当前候选Delivery Assurance专业审阅Bridge Kit可交付范围\n来源与版本\nAsteria\nDelivery Assurance\n\n交付、验收与返修\n\n设计方案\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n架构修订检查\n正常交付返修恢复保护已有能力\n要求与范围制作安排候选版本实际成品结论与问题检查范围可交付范围失败与缺证原任务与反馈续修\n用户要求\nworkflow-core\n当前制作任务\n当前候选\nDelivery Assurance\n专业审阅\nBridge Kit\n可交付范围\nReact Flow\nPress enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.\n按回车选择关系。\n正常交付\n返修\n恢复\n保护已有能力\n关系图\n1\n保留要求用户要求\n\n新能力和旧能力保护一起进入本次检查范围。\n\n2\n制作候选当前制作任务\n\n原任务产出可以实际打开或运行的候选。\n\n3\n直接审阅成品当前候选\n\n审阅对象固定到这一个候选版本。\n\n4\n汇总有效证据Delivery Assurance\n\n结论必须能回到具体要求、对象和证据。\n\n5\n形成交付范围可交付范围\n\n用户看到的是已有依据支持的能力与剩余问题。\n\n所有组件\n1 / 5\n保留要求\n\n新能力和旧能力保护一起进入本次检查范围。\n\n返回路径\n组件\nDelivery Assurance\n\n汇总当前候选的交付义务、有效证据与未解决问题。\n\n机制实现证据演进\n1\n\n将原始要求与已有能力映射到检查范围\n\n2\n\n核对证据所指的候选、对象和条件\n\n3\n\n有失败或关键缺证时给出具体问题及返回位置\n\n4\n\n只对已有有效证据覆盖的范围形成交付判断\n\n不接管项目的专业判断，也不自行选择下一执行者。\n\n相邻关系结论与问题检查范围可交付范围失败与缺证"
+    },
+    {
+      "name": "mica full page CSS removed",
+      "visibleTextBefore": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n长对话\n连接器切换\n清空恢复\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n选择动作\n清空与重挂载\n局部渲染约束\n短期只读外观\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n1 / 4\n读取原生页面\n\n先识别已挂载消息及输入保护区。\n\n组件\n清空后旧草稿恢复\n\n用户明确清空后，若同一旧内容被原生重挂载恢复，则在短窗口内再次清空。\n\n机制\n实现\n证据\n演进\n1\n\n确认全选删除或剪切意图并保存本地旧内容指纹\n\n2\n\n从同一输入对象确认内容长度为零后才启动守护\n\n3\n\n等待原生卸载/重挂载，匹配同一旧内容并等待短暂稳定\n\n4\n\n用浏览器原生删除命令清空，复核并观察安静窗口\n\n5\n\n任何新的输入、粘贴或输入法动作立即取消\n\n最多 3 次恢复\n硬期限 12000 ms\n安静窗口 1400 ms\n\n指纹不匹配、没有可靠清空确认或用户继续输入时停止；不自动发送。\n\n相邻关系\n恢复互斥\n清空与重挂载",
+      "unstyledText": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构修订检查\n组件\n/\n识别对话与输入框长对话扫描连接器事件识别连接器切换连续显示清空后旧草稿恢复ChatGPT 原生页面统一平台适配层\n来源与版本\nAsteria\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n架构修订检查\n长对话连接器切换清空恢复\n安全消息轮次共享连接器事件恢复互斥已挂载结构选择动作清空与重挂载局部渲染约束短期只读外观\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\nPress enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.\n按回车选择关系。\n长对话\n连接器切换\n清空恢复\n关系图\n1\n读取原生页面ChatGPT 原生页面\n\n先识别已挂载消息及输入保护区。\n\n2\n筛选安全轮次识别对话与输入框\n\n去重、排序，排除不可靠结构。\n\n3\n合并扫描长对话扫描\n\n保持最近轮次、视口附近和特殊交互区域。\n\n4\n保留原生行为ChatGPT 原生页面\n\n只改变安全区域的渲染约束，不删除消息。\n\n所有组件\n1 / 4\n读取原生页面\n\n先识别已挂载消息及输入保护区。\n\n返回路径\n组件\n清空后旧草稿恢复\n\n用户明确清空后，若同一旧内容被原生重挂载恢复，则在短窗口内再次清空。\n\n机制实现证据演进\n1\n\n确认全选删除或剪切意图并保存本地旧内容指纹\n\n2\n\n从同一输入对象确认内容长度为零后才启动守护\n\n3\n\n等待原生卸载/重挂载，匹配同一旧内容并等待短暂稳定\n\n4\n\n用浏览器原生删除命令清空，复核并观察安静窗口\n\n5\n\n任何新的输入、粘贴或输入法动作立即取消\n\n最多 3 次恢复硬期限 12000 ms安静窗口 1400 ms\n\n指纹不匹配、没有可靠清空确认或用户继续输入时停止；不自动发送。\n\n相邻关系恢复互斥清空与重挂载"
+    },
+    {
+      "name": "cat full page CSS removed",
+      "visibleTextBefore": "跳到内容\nAsteria\n项目\nCAT-TRACE\n当前架构\n修订\n检查\n组件\n/\n科学模型\n输入与身份\n尾部数值内核\n参考采样器\n匿名零槽位积分\n独立数值参照\n来源与版本\nCAT-TRACE\n\n科学模型、数值算法与证据\n\n研究中的模型\n数值内核\n参考推断\n尚待确定\n提供\n返回\n贡献\n提供\n约束\n固定目标\n科学模型\n输入与身份\n尾部数值内核\n参考采样器\n匿名零槽位积分\n独立数值参照\nReact Flow\n1 / 3\n固定输入身份\n\n同一响应、设计和先验进入单列计算。\n\n算法\n匿名零槽位积分\n\n计算未发现槽位对科学模型的贡献，并保留聚合等价关系。\n\n机制\n实现\n证据\n演进\n1\n\n保留未观测槽位对模型的贡献\n\n2\n\n对每组计算全零事件概率\n\n3\n\n按重数合并到共享目标\n\n4\n\n用独立方法核对积分与导数\n\n积分误差、导数与成本尚未闭合\n\n已有截距消元与分位数求积候选，但生产算法还缺统一误差控制、适用范围和独立证据。\n\n相邻关系\n贡献\n约束",
+      "unstyledText": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构修订检查\n组件\n/\n科学模型输入与身份尾部数值内核参考采样器匿名零槽位积分独立数值参照\n来源与版本\nAsteria\nCAT-TRACE\n\n科学模型、数值算法与证据\n\n研究中的模型\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n架构修订检查\n数值内核参考推断尚待确定\n提供返回贡献提供约束固定目标\n科学模型\n输入与身份\n尾部数值内核\n参考采样器\n匿名零槽位积分\n独立数值参照\nReact Flow\nPress enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.\n按回车选择关系。\n数值内核\n参考推断\n尚待确定\n关系图\n1\n固定输入身份输入与身份\n\n同一响应、设计和先验进入单列计算。\n\n2\n稳定计算尾部尾部数值内核\n\n按数值区间选择稳定表达，再核对导数。\n\n3\n返回模型需要的量科学模型\n\n概率、众数与曲率回到显式列计算。\n\n所有组件\n1 / 3\n固定输入身份\n\n同一响应、设计和先验进入单列计算。\n\n返回路径\n算法\n匿名零槽位积分\n\n计算未发现槽位对科学模型的贡献，并保留聚合等价关系。\n\n机制实现证据演进\n1\n\n保留未观测槽位对模型的贡献\n\n2\n\n对每组计算全零事件概率\n\n3\n\n按重数合并到共享目标\n\n4\n\n用独立方法核对积分与导数\n\n积分误差、导数与成本尚未闭合\n\n已有截距消元与分位数求积候选，但生产算法还缺统一误差控制、适用范围和独立证据。\n\n相邻关系贡献约束"
+    },
+    {
+      "name": "tutorial full page CSS removed",
+      "visibleTextBefore": "跳到内容\nAsteria\n项目\nSTAT5060 Tutorial\n当前架构\n修订\n检查\n对象\n/\n当前要求\n候选课件\n机械核对\n页面与对象审阅\n整套叙事审阅\n具体问题\n修复与重渲染\n来源与版本\nSTAT5060 Tutorial\n\n从整套课件追到页面与要求\n\n教学材料 · V14\n验收\n返修\n保护正确内容\n当前要求\n权威事实\n候选身份\n页图与对象\n完整页序\n机械事实\n页面问题\n整体问题\n限定修复\n新候选\n当前要求\n候选课件\n机械核对\n页面与对象审阅\n整套叙事审阅\n具体问题\n修复与重渲染\nReact Flow\n1 / 4\n确认当前要求\n\n先分清当前课程事实、教学要求与模板。\n\n组件\n具体问题\n\n将失败绑定到候选、要求、页面或对象，交回原制作任务。\n\n机制\n实现\n证据\n演进\n问题\n课件还在使用旧考核安排\nV14 第35页考核表、第37页项目安排\n\n当前课程决定已替换旧安排，已有课件仍保留被撤销的项目。\n\n发现依据\n既有架构研究；本轮再次核对原页与当前课程决定\n当前情况\n课件仍待更新，修复尚未完成。\nV14 · 第 35 页\nV14 · 第 37 页\n03_THREE_FAMILY_EXECUTION.md\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\npage-35.png\npage-37.png\n修复范围\n\n按当前课程决定更新相关表格和说明，保留已接受的教学内容及模板。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。\n\n相邻关系\n机械事实\n页面问题\n整体问题\n限定修复",
+      "unstyledText": "跳到内容\nAsteria\n项目\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n当前架构修订检查\n对象\n/\n当前要求候选课件机械核对页面与对象审阅整套叙事审阅具体问题修复与重渲染\n来源与版本\nAsteria\nSTAT5060 Tutorial\n\n从整套课件追到页面与要求\n\n教学材料 · V14\nDelivery Assurance\nMica\nCAT-TRACE\nSTAT5060 Tutorial\n架构修订检查\n验收返修保护正确内容\n当前要求权威事实候选身份页图与对象完整页序机械事实页面问题整体问题限定修复新候选\n当前要求\n候选课件\n机械核对\n页面与对象审阅\n整套叙事审阅\n具体问题\n修复与重渲染\nReact Flow\nPress enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.\n按回车选择关系。\n验收\n返修\n保护正确内容\n关系图\n1\n确认当前要求当前要求\n\n先分清当前课程事实、教学要求与模板。\n\n2\n绑定候选身份候选课件\n\n同一文件、页序与统计对象进入检查。\n\n3\n检查实际页面页面与对象审阅\n\n机械核对和专业判断分别保存证据。\n\n4\n读取完整叙事整套叙事审阅\n\n单页正确仍需符合整套教学顺序。\n\n所有对象\n1 / 4\n确认当前要求\n\n先分清当前课程事实、教学要求与模板。\n\n返回路径\n组件\n具体问题\n\n将失败绑定到候选、要求、页面或对象，交回原制作任务。\n\n机制实现证据演进\n问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\nV14 第35页考核表、第37页项目安排\n\n当前课程决定已替换旧安排，已有课件仍保留被撤销的项目。\n\n发现依据\n既有架构研究；本轮再次核对原页与当前课程决定\n当前情况\n课件仍待更新，修复尚未完成。\nV14 · 第 35 页V14 · 第 37 页\n03_THREE_FAMILY_EXECUTION.mdSTAT5060_ASSESSMENT_TIMETABLE_V1.mdpage-35.pngpage-37.png\n修复范围\n\n按当前课程决定更新相关表格和说明，保留已接受的教学内容及模板。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算可保留¹\n页面内容与事实需复验\n受影响页面的渲染与视觉需复验\n整套叙事与先修关系需复验\n未修改的源资产可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。\n\n相邻关系机械事实页面问题整体问题限定修复"
+    }
+  ],
+  "errors": []
+}

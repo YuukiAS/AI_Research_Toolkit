@@ -1,0 +1,54 @@
+{
+  "candidateSha256": "6d2ddbff4fb56d5288614345067a7e379a3bbde2c99552e24cf9f3eba739147b",
+  "verificationMode": "完整 r6 基线 + 事实纠正定向复验 + 修改关系视觉定向复验；三个文件身份分别保留",
+  "fullQaBaseline": {
+    "candidateSha256": "ccb1e32ca8faff2c15278e7ffd40efaf6e4558cd1eeba650b3410a69bfd48602",
+    "record": "producer-r6-full-verification.json",
+    "renderedStates": 92,
+    "interactions": 76,
+    "targetedChecks": 47,
+    "extendedChecks": 39,
+    "themeRecord": "audit-r6-theme.json",
+    "pageErrors": [],
+    "consoleErrors": [],
+    "interactionFailures": 0
+  },
+  "factualDelta": {
+    "candidateSha256": "9ebad1e29df3d0818f3415e1027c6f97317792d21364ed7cdc451faf4a7039df",
+    "record": "audit-final-delta.json",
+    "renderedStates": 28,
+    "checks": 27,
+    "ok": true,
+    "pageErrors": [],
+    "consoleErrors": [],
+    "scope": [
+      "recorded_result结果类型在8个实际证据态",
+      "Mica当前机制4态",
+      "Mica历史diff/关系选择/前后对照16态",
+      "Mica3200/4200、AND/OR、消费者、guard、历史binding的语义值"
+    ]
+  },
+  "finalVisualDelta": {
+    "candidateSha256": "6d2ddbff4fb56d5288614345067a7e379a3bbde2c99552e24cf9f3eba739147b",
+    "record": "audit-final-diff-visual.json",
+    "renderedStates": 6,
+    "checks": 7,
+    "ok": true,
+    "pageErrors": [],
+    "consoleErrors": [],
+    "scope": [
+      "Mica修改关系双主题桌面未选中和选中",
+      "手机主动展开关系图",
+      "修改色/1.8px/可见文字、标签碰撞、非端点穿线、横向溢出",
+      "reference-data.js与事实delta相同"
+    ]
+  },
+  "resolvedIssues": 24,
+  "resolvedP1": 5,
+  "resolvedP2": 19,
+  "remainingRecordedP1": 0,
+  "remainingRecordedObviousP2": 0,
+  "contentDispositionRows": 68,
+  "scope": "制作团队内部、四reference、Chromium131、1440×1000与390×844的已执行范围；不是独立Work最终裁决。92态完整运行只属于r6 hash，后两次只验证列明变更。",
+  "screenshotCuration": "screenshot-curation.json；保留r6/事实delta/最终视觉delta全套，旧轮仅保留明确引用的缺陷示例。"
+}

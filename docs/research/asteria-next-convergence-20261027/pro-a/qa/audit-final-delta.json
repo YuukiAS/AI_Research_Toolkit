@@ -1,0 +1,720 @@
+{
+  "candidateSha256": "9ebad1e29df3d0818f3415e1027c6f97317792d21364ed7cdc451faf4a7039df",
+  "baselineFullQaSha256": "ccb1e32ca8faff2c15278e7ffd40efaf6e4558cd1eeba650b3410a69bfd48602",
+  "scope": "Targeted evidence-kind and Mica historical/current semantic corrections; baseline r6 remains the full 92-state run.",
+  "states": [
+    {
+      "name": "tutorial-light-desktop-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-tutorial-light-desktop-recorded-result.png",
+      "text": "跳到内容\nAsteria\n项目\nSTAT5060 Tutorial\n当前架构\n修订\n检查\n对象\n/\n当前要求\n候选课件\n机械核对\n页面与对象审阅\n整套叙事审阅\n具体问题\n修复与重渲染\n来源与版本\nSTAT5060 Tutorial\n\n从整套课件追到页面与要求\n\n教学材料 · V14\n验收\n返修\n保护正确内容\n当前要求\n权威事实\n候选身份\n页图与对象\n完整页序\n机械事实\n页面问题\n整体问题\n限定修复\n新候选\n当前要求\n候选课件\n机械核对\n页面与对象审阅\n整套叙事审阅\n具体问题\n修复与重渲染\nReact Flow\n1 / 4\n确认当前要求\n\n先分清当前课程事实、教学要求与模板。\n\n问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "light",
+      "selectedText": "问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "tutorial-light-mobile-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-tutorial-light-mobile-recorded-result.png",
+      "text": "跳到内容\nAsteria\nSTAT5060 Tutorial\n\n从整套课件追到页面与要求\n\nSTAT5060 Tutorial\n架构\n修订\n检查\n返回路径\n问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "light",
+      "selectedText": "问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "tutorial-dark-desktop-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-tutorial-dark-desktop-recorded-result.png",
+      "text": "跳到内容\nAsteria\n项目\nSTAT5060 Tutorial\n当前架构\n修订\n检查\n对象\n/\n当前要求\n候选课件\n机械核对\n页面与对象审阅\n整套叙事审阅\n具体问题\n修复与重渲染\n来源与版本\nSTAT5060 Tutorial\n\n从整套课件追到页面与要求\n\n教学材料 · V14\n验收\n返修\n保护正确内容\n当前要求\n权威事实\n候选身份\n页图与对象\n完整页序\n机械事实\n页面问题\n整体问题\n限定修复\n新候选\n当前要求\n候选课件\n机械核对\n页面与对象审阅\n整套叙事审阅\n具体问题\n修复与重渲染\nReact Flow\n1 / 4\n确认当前要求\n\n先分清当前课程事实、教学要求与模板。\n\n问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "dark",
+      "selectedText": "问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "tutorial-dark-mobile-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-tutorial-dark-mobile-recorded-result.png",
+      "text": "跳到内容\nAsteria\nSTAT5060 Tutorial\n\n从整套课件追到页面与要求\n\nSTAT5060 Tutorial\n架构\n修订\n检查\n返回路径\n问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "dark",
+      "selectedText": "问题\n课程页暴露内部制作状态\n问题\n定位\n证据\n演进\n已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "cat-light-desktop-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-cat-light-desktop-recorded-result.png",
+      "text": "跳到内容\nAsteria\n项目\nCAT-TRACE\n当前架构\n修订\n检查\n组件\n/\n科学模型\n输入与身份\n尾部数值内核\n参考采样器\n匿名零槽位积分\n独立数值参照\n来源与版本\nCAT-TRACE\n\n科学模型、数值算法与证据\n\n研究中的模型\n数值内核\n参考推断\n尚待确定\n提供\n返回\n贡献\n提供\n约束\n固定目标\n科学模型\n输入与身份\n尾部数值内核\n参考采样器\n匿名零槽位积分\n独立数值参照\nReact Flow\n1 / 3\n固定输入身份\n\n同一响应、设计和先验进入单列计算。\n\n算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "light",
+      "selectedText": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标"
+    },
+    {
+      "name": "cat-light-mobile-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-cat-light-mobile-recorded-result.png",
+      "text": "跳到内容\nAsteria\nCAT-TRACE\n\n科学模型、数值算法与证据\n\nCAT-TRACE\n架构\n修订\n检查\n返回路径\n算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "light",
+      "selectedText": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标"
+    },
+    {
+      "name": "cat-dark-desktop-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-cat-dark-desktop-recorded-result.png",
+      "text": "跳到内容\nAsteria\n项目\nCAT-TRACE\n当前架构\n修订\n检查\n组件\n/\n科学模型\n输入与身份\n尾部数值内核\n参考采样器\n匿名零槽位积分\n独立数值参照\n来源与版本\nCAT-TRACE\n\n科学模型、数值算法与证据\n\n研究中的模型\n数值内核\n参考推断\n尚待确定\n提供\n返回\n贡献\n提供\n约束\n固定目标\n科学模型\n输入与身份\n尾部数值内核\n参考采样器\n匿名零槽位积分\n独立数值参照\nReact Flow\n1 / 3\n固定输入身份\n\n同一响应、设计和先验进入单列计算。\n\n算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "dark",
+      "selectedText": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标"
+    },
+    {
+      "name": "cat-dark-mobile-recorded-result",
+      "screenshot": "qa/screenshots/audit-final-delta-cat-dark-mobile-recorded-result.png",
+      "text": "跳到内容\nAsteria\nCAT-TRACE\n\n科学模型、数值算法与证据\n\nCAT-TRACE\n架构\n修订\n检查\n返回路径\n算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "dark",
+      "selectedText": "算法\n参考采样器\n\n独立参考算法已有实现，正式可靠性要求仍未满足。\n\n机制\n实现\n证据\n演进\n已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback\n相邻关系\n提供\n固定目标"
+    },
+    {
+      "name": "mica-light-desktop-current-mechanism",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-desktop-current-mechanism.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n长对话\n连接器切换\n清空恢复\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n选择动作\n清空与重挂载\n局部渲染约束\n短期只读外观\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n1 / 4\n读取原生页面\n\n先识别已挂载消息及输入保护区。\n\n组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "light",
+      "selectedText": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-light-mobile-current-mechanism",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-mobile-current-mechanism.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n返回路径\n组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "light",
+      "selectedText": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-dark-desktop-current-mechanism",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-desktop-current-mechanism.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n长对话\n连接器切换\n清空恢复\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n选择动作\n清空与重挂载\n局部渲染约束\n短期只读外观\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n1 / 4\n读取原生页面\n\n先识别已挂载消息及输入保护区。\n\n组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "dark",
+      "selectedText": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-dark-mobile-current-mechanism",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-mobile-current-mechanism.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n返回路径\n组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "dark",
+      "selectedText": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-light-desktop-diff-overview",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-desktop-diff-overview.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "light",
+      "selectedText": "修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示"
+    },
+    {
+      "name": "mica-light-desktop-relation-signal",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-desktop-relation-signal.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "light",
+      "selectedText": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-light-desktop-relation-heavy",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-desktop-relation-heavy.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "light",
+      "selectedText": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-light-desktop-before-after",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-desktop-before-after.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "light",
+      "selectedText": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "mica-light-mobile-diff-overview",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-mobile-diff-overview.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "light",
+      "selectedText": "修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示"
+    },
+    {
+      "name": "mica-light-mobile-relation-signal",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-mobile-relation-signal.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "light",
+      "selectedText": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-light-mobile-relation-heavy",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-mobile-relation-heavy.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "light",
+      "selectedText": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-light-mobile-before-after",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-light-mobile-before-after.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "light",
+      "selectedText": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "mica-dark-desktop-diff-overview",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-desktop-diff-overview.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "dark",
+      "selectedText": "修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示"
+    },
+    {
+      "name": "mica-dark-desktop-relation-signal",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-desktop-relation-signal.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "dark",
+      "selectedText": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-dark-desktop-relation-heavy",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-desktop-relation-heavy.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n其余为当前上下文\n安全消息轮次\n共享连接器事件\n恢复互斥\n已挂载结构\n清空与重挂载\n局部渲染约束\n短期只读外观\n选择动作\n普通输入触发快照\n识别对话与输入框\n长对话扫描\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\nReact Flow\n普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "dark",
+      "selectedText": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-dark-desktop-before-after",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-desktop-before-after.png",
+      "text": "跳到内容\nAsteria\n项目\nMica\n当前架构\n修订\n检查\n组件\n/\n识别对话与输入框\n长对话扫描\n连接器事件识别\n连接器切换连续显示\n清空后旧草稿恢复\nChatGPT 原生页面\n统一平台适配层\n来源与版本\nMica\n\n对话页面与输入体验\n\n运行版本 0.1.7\n修订\n前后对照\n图中变化\n让普通输入离开重型快照路径\n0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "theme": "dark",
+      "selectedText": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "mica-dark-mobile-diff-overview",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-mobile-diff-overview.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "dark",
+      "selectedText": "修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示"
+    },
+    {
+      "name": "mica-dark-mobile-relation-signal",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-mobile-relation-signal.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "dark",
+      "selectedText": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-dark-mobile-relation-heavy",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-mobile-relation-heavy.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n新增\n撤销\n修改\n连接器事件识别\n修改\n连接器切换连续显示\n修改\n选择动作\n修改\n普通输入触发快照\n撤销\npublicLatch\n修改\nattachListeners\n修改\nbeginLifecycle\n修改\n查看关系图\n普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n连接器事件识别\n连接器切换连续显示",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "dark",
+      "selectedText": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-dark-mobile-before-after",
+      "screenshot": "qa/screenshots/audit-final-delta-mica-dark-mobile-before-after.png",
+      "text": "跳到内容\nAsteria\nMica\n\n对话页面与输入体验\n\nMica\n架构\n修订\n检查\n修订\n前后对照\n变化对象\n让普通输入离开重型快照路径\n0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "theme": "dark",
+      "selectedText": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    }
+  ],
+  "checks": [
+    {
+      "name": "tutorial-light-desktop-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "tutorial-light-mobile-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "tutorial-dark-desktop-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "tutorial-dark-mobile-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\nV04 → V05 的逐页审阅\n\nV05 的审阅确认已移除内部制作状态，但视觉与解释仍需改进。\n\n本轮读取固定的历史审阅；没有重新渲染 V04/V05，也没有把局部内容修正升级成整套通过。\n\nT-V4.md\nT-V5.md"
+    },
+    {
+      "name": "cat-light-desktop-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback"
+    },
+    {
+      "name": "cat-light-mobile-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback"
+    },
+    {
+      "name": "cat-dark-desktop-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback"
+    },
+    {
+      "name": "cat-dark-mobile-recorded-result",
+      "ok": true,
+      "labels": [
+        "已有结果记录"
+      ],
+      "text": "已有结果记录\n参考算法：正确性与可靠性分开\n\n修订后的正确性有记录，正式混合可靠性要求仍未满足。\n\n参考实现不能因此升为全部推断模块的金标准。证据保留原目标、版本与检查条件。\n\nresult.md\nC2 collapsed contrast delta density matches independent full transformed oracle\nC5 two-sweep production replay redraws Z after first collapsed writeback"
+    },
+    {
+      "name": "mica-light-desktop-current-mechanism",
+      "ok": true,
+      "text": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-light-mobile-current-mechanism",
+      "ok": true,
+      "text": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-dark-desktop-current-mechanism",
+      "ok": true,
+      "text": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-dark-mobile-current-mechanism",
+      "ok": true,
+      "text": "组件\n连接器切换连续显示\n\n原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。\n\n机制\n实现\n证据\n演进\n1\n\n消费共享连接器事件，在短期生命周期内观察结构变化\n\n2\n\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n\n3\n\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n\n4\n\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n\n观察窗口 4200 ms\n快照新鲜度 2500 ms\n外观层硬上限 2000 ms\n\n没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。\n\n保持的行为\n相邻关系\n共享连接器事件\n恢复互斥\n短期只读外观"
+    },
+    {
+      "name": "mica-light-desktop diff geometry",
+      "ok": true,
+      "labelOverlaps": [],
+      "crossings": [],
+      "labels": [
+        "安全消息轮次",
+        "共享连接器事件",
+        "恢复互斥",
+        "已挂载结构",
+        "清空与重挂载",
+        "局部渲染约束",
+        "短期只读外观",
+        "选择动作",
+        "普通输入触发快照"
+      ],
+      "nodes": [
+        "mica.dom",
+        "mica.scan",
+        "mica.signal",
+        "mica.continuity",
+        "mica.stale",
+        "mica.native",
+        "mica.adapter"
+      ]
+    },
+    {
+      "name": "mica-light-desktop relation 选择动作",
+      "ok": true,
+      "text": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-light-desktop relation 普通输入触发快照",
+      "ok": true,
+      "text": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-light-desktop before/after factual scope",
+      "ok": true,
+      "text": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "mica-light-mobile relation 选择动作",
+      "ok": true,
+      "text": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-light-mobile relation 普通输入触发快照",
+      "ok": true,
+      "text": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-light-mobile before/after factual scope",
+      "ok": true,
+      "text": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "mica-dark-desktop diff geometry",
+      "ok": true,
+      "labelOverlaps": [],
+      "crossings": [],
+      "labels": [
+        "安全消息轮次",
+        "共享连接器事件",
+        "恢复互斥",
+        "已挂载结构",
+        "清空与重挂载",
+        "局部渲染约束",
+        "短期只读外观",
+        "选择动作",
+        "普通输入触发快照"
+      ],
+      "nodes": [
+        "mica.dom",
+        "mica.scan",
+        "mica.signal",
+        "mica.continuity",
+        "mica.stale",
+        "mica.native",
+        "mica.adapter"
+      ]
+    },
+    {
+      "name": "mica-dark-desktop relation 选择动作",
+      "ok": true,
+      "text": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-dark-desktop relation 普通输入触发快照",
+      "ok": true,
+      "text": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-dark-desktop before/after factual scope",
+      "ok": true,
+      "text": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "mica-dark-mobile relation 选择动作",
+      "ok": true,
+      "text": "选择动作\n\n只比较本次修订范围。\n\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent"
+    },
+    {
+      "name": "mica-dark-mobile relation 普通输入触发快照",
+      "ok": true,
+      "text": "普通输入触发快照\n\n只比较本次修订范围。\n\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象"
+    },
+    {
+      "name": "mica-dark-mobile before/after factual scope",
+      "ok": true,
+      "text": "0.1.6\n0.1.7\n让普通输入离开重型快照路径\n\n移除普通输入的重复快照与固定轮询，保留共享生命周期信号。\n\n机制与关系契约依据两次固定提交重建；实现对照只含已核对的 3 对函数。关系源码锚点未完整重建，不参与前后比较。\n\n为什么改\n\n连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。\n\n把重型 DOM 工作从按键同步路径移走。\n\n连接器事件识别\n修改\n之前\n连接器事件识别\n普通输入调用 detectSignal\npublicLatch 再次查询候选列表\n之后\n连接器事件识别\n普通按键和一般输入在 isPotentialConnectorEvent 返回\n只在 @、Enter、focus/click/pointerdown 等候选事件识别结构\n建立含 latchId、来源、期限、输入框身份和矩形的状态\ndispatchLatchEvent 广播给连续显示和发送残留恢复模块\n连接器切换连续显示\n修改\n之前\n连接器切换连续显示\n监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照\n用 60 ms 轮询检查输入框\n共享生命周期信号仍然存在\n发送互斥要求同时处于活动状态且已提交用户轮次\n之后\n连接器切换连续显示\n消费共享连接器事件，在短期生命周期内观察结构变化\n下一帧合并刷新，输入框与连接器标记未变化则复用快照\n原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层\n输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理\n选择动作\n修改\n之前\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：handlePotentialConnectorSignal → detectSignal\n\n之后\n选择动作\n\n连接器相关按键与 DOM 标记\n消费：isPotentialConnectorEvent\n\n普通输入触发快照\n撤销\n之前\n普通输入触发快照\n\n普通输入事件；检测到连接器上下文后触发\n消费：handlePotentialMentionEvent → beginLifecycle\n\n之后\n此版本没有该对象\n实现变化\npublicLatch\n0.1.6 · publicLatch\n0.1.7 · publicLatch\nattachListeners\n0.1.6 · attachListeners\n0.1.7 · attachListeners\nbeginLifecycle\n0.1.6 · beginLifecycle\n0.1.7 · beginLifecycle\n保持的内容\n下游检查范围\n\n当前源码包含这项修复；本轮证据限于既有合成输入用例。\n\nrunTypingHotpathCase\n源码前后对照\n\n历史范围仅含所选机制；图中其他组件提供当前上下文。"
+    },
+    {
+      "name": "Mica historical and current semantic values",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "console": [],
+  "semantic": {
+    "before": {
+      "kind": "sequence",
+      "steps": [
+        "监听 6 类输入与交互事件；检测到连接器上下文后同步重建快照",
+        "用 60 ms 轮询检查输入框",
+        "共享生命周期信号仍然存在",
+        "发送互斥要求同时处于活动状态且已提交用户轮次"
+      ],
+      "boundary": "没有新鲜快照或矩形时不新建外观层；发送互斥需同时满足 active 与 userTurnCommittedLatched，清空恢复活动也会阻止新建。已有外观层不因此立即移除。",
+      "invariants": [
+        "外观层不可编辑",
+        "外观层不拦截点击",
+        "原生输入框所有交互由 ChatGPT 保留"
+      ],
+      "bounds": [
+        "观察窗口 3200 ms",
+        "快照新鲜度 2500 ms",
+        "外观层硬上限 2000 ms"
+      ]
+    },
+    "after": {
+      "kind": "sequence",
+      "steps": [
+        "消费共享连接器事件，在短期生命周期内观察结构变化",
+        "下一帧合并刷新，输入框与连接器标记未变化则复用快照",
+        "原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层",
+        "输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理"
+      ],
+      "boundary": "没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。",
+      "invariants": [
+        "外观层不可编辑",
+        "外观层不拦截点击",
+        "原生输入框所有交互由 ChatGPT 保留"
+      ],
+      "bounds": [
+        "观察窗口 4200 ms",
+        "快照新鲜度 2500 ms",
+        "外观层硬上限 2000 ms"
+      ]
+    },
+    "current": {
+      "kind": "sequence",
+      "steps": [
+        "消费共享连接器事件，在短期生命周期内观察结构变化",
+        "下一帧合并刷新，输入框与连接器标记未变化则复用快照",
+        "原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层",
+        "输入框返回时移除外观层；发送或清空恢复活动时不再新建；导航或超时清理"
+      ],
+      "boundary": "没有新鲜快照或矩形时不新建外观层；发送模块处于活动、候选发送或已提交任一状态，以及清空恢复活动时也不新建。已有外观层不因此立即移除。",
+      "invariants": [
+        "外观层不可编辑",
+        "外观层不拦截点击",
+        "原生输入框所有交互由 ChatGPT 保留"
+      ],
+      "bounds": [
+        "观察窗口 4200 ms",
+        "快照新鲜度 2500 ms",
+        "外观层硬上限 2000 ms"
+      ]
+    },
+    "scopedRelations": {
+      "before": [
+        {
+          "id": "mica.signal-continuity",
+          "anchorIds": null,
+          "consumer": "handleSharedConnectorLifecycle",
+          "payload": "mica-connector-lifecycle-latched 的 publicLatch() 状态"
+        },
+        {
+          "id": "mica.stale-continuity",
+          "anchorIds": null,
+          "consumer": "continuitySkipReason → isStaleClearRecoveryActive",
+          "payload": "getState() 的 armed / guardActive / tombstoneActive / phase"
+        },
+        {
+          "id": "mica.native-signal",
+          "anchorIds": null,
+          "consumer": "handlePotentialConnectorSignal → detectSignal",
+          "payload": "连接器相关按键与 DOM 标记"
+        },
+        {
+          "id": "mica.continuity-native",
+          "anchorIds": null,
+          "consumer": "showShell 创建的只读外观层",
+          "payload": "新鲜且不可交互的消毒快照"
+        },
+        {
+          "id": "mica.input-heavy",
+          "anchorIds": null,
+          "consumer": "handlePotentialMentionEvent → beginLifecycle",
+          "payload": "普通输入事件；检测到连接器上下文后触发"
+        }
+      ],
+      "after": [
+        {
+          "id": "mica.signal-continuity",
+          "anchorIds": null,
+          "consumer": "handleSharedConnectorLifecycle",
+          "payload": "mica-connector-lifecycle-latched 的 publicLatch() 状态"
+        },
+        {
+          "id": "mica.stale-continuity",
+          "anchorIds": null,
+          "consumer": "continuitySkipReason → isStaleClearRecoveryActive",
+          "payload": "getState() 的 armed / guardActive / tombstoneActive / phase"
+        },
+        {
+          "id": "mica.native-signal",
+          "anchorIds": null,
+          "consumer": "isPotentialConnectorEvent",
+          "payload": "连接器相关按键与 DOM 标记"
+        },
+        {
+          "id": "mica.continuity-native",
+          "anchorIds": null,
+          "consumer": "showShell 创建的只读外观层",
+          "payload": "新鲜且不可交互的消毒快照"
+        }
+      ]
+    },
+    "pairedBindings": {
+      "before": [
+        {
+          "id": "history-binding:signal-public-latch",
+          "anchorId": "signal-public-latch-016",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "symbol": "publicLatch"
+        },
+        {
+          "id": "history-binding:continuity-listeners",
+          "anchorId": "continuity-listeners-016",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "symbol": "attachListeners"
+        },
+        {
+          "id": "history-binding:continuity-begin",
+          "anchorId": "continuity-begin-016",
+          "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+          "symbol": "beginLifecycle"
+        }
+      ],
+      "after": [
+        {
+          "id": "history-binding:signal-public-latch",
+          "anchorId": "signal-public-latch-017",
+          "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+          "symbol": "publicLatch"
+        },
+        {
+          "id": "history-binding:continuity-listeners",
+          "anchorId": "continuity-listeners-017",
+          "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+          "symbol": "attachListeners"
+        },
+        {
+          "id": "history-binding:continuity-begin",
+          "anchorId": "continuity-begin-017",
+          "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+          "symbol": "beginLifecycle"
+        }
+      ]
+    },
+    "unchanged": [
+      "外观层保持 inert、aria-hidden 与 pointer-events:none，原生输入框承担交互",
+      "新建外观层前必须有矩形和快照，快照年龄不超过 2500 ms",
+      "关闭功能会撤销监听，清理既有外观层及相应调度"
+    ],
+    "beforeCommit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+    "afterCommit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+    "sourceFileSha256": "f66baa37b2efa30c8c6f3f0ae517afaa7c768d384fe97500324ce5b8b7d56dfd"
+  },
+  "ok": true
+}

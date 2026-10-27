@@ -1,0 +1,468 @@
+{
+  "round": "r3",
+  "checks": [
+    {
+      "name": "da pointer relationship 要求与范围",
+      "detail": {
+        "title": "要求与范围",
+        "expected": "要求与范围",
+        "body": "传递\n\n原始请求、接受标准、需保护的能力\n\n接收与用途\n\nworkflow-core 的工作安排"
+      }
+    },
+    {
+      "name": "da pointer relationship 制作安排",
+      "detail": {
+        "title": "制作安排",
+        "expected": "制作安排",
+        "body": "传递\n\n任务、范围、专业能力及检查接收者\n\n接收与用途\n\n原制作任务"
+      }
+    },
+    {
+      "name": "da pointer relationship 候选版本",
+      "detail": {
+        "title": "候选版本",
+        "expected": "候选版本",
+        "body": "传递\n\n实际成品、源码/构建身份、变更范围\n\n接收与用途\n\n候选身份核对"
+      }
+    },
+    {
+      "name": "da pointer relationship 实际成品",
+      "detail": {
+        "title": "实际成品",
+        "expected": "实际成品",
+        "body": "传递\n\n完整成品、当前版本、必要运行入口\n\n接收与用途\n\n项目专业审阅"
+      }
+    },
+    {
+      "name": "da pointer relationship 结论与问题",
+      "detail": {
+        "title": "结论与问题",
+        "expected": "结论与问题",
+        "body": "传递\n\n对象级发现、预期/实际、所据证据\n\n接收与用途\n\nDA 的证据资格与交付判断"
+      }
+    },
+    {
+      "name": "da pointer relationship 检查范围",
+      "detail": {
+        "title": "检查范围",
+        "expected": "检查范围",
+        "body": "传递\n\n本次用户能力、候选及所需验证\n\n接收与用途\n\nDA 的义务范围整理"
+      }
+    },
+    {
+      "name": "da pointer relationship 可交付范围",
+      "detail": {
+        "title": "可交付范围",
+        "expected": "可交付范围",
+        "body": "传递\n\n当前有效证据支持的能力和保留问题\n\n接收与用途\n\n交付入口"
+      }
+    },
+    {
+      "name": "da pointer relationship 失败与缺证",
+      "detail": {
+        "title": "失败与缺证",
+        "expected": "失败与缺证",
+        "body": "传递\n\n候选、受影响要求、实际/预期、证据位置\n\n接收与用途\n\nworkflow-core 的原任务返回决策"
+      }
+    },
+    {
+      "name": "da pointer relationship 原任务与反馈",
+      "detail": {
+        "title": "原任务与反馈",
+        "expected": "原任务与反馈",
+        "body": "传递\n\n接收者、合法任务身份、finding 与恢复点\n\n接收与用途\n\nBridge Kit 的既有递送通道"
+      }
+    },
+    {
+      "name": "da pointer relationship 续修",
+      "detail": {
+        "title": "续修",
+        "expected": "续修",
+        "body": "传递\n\n原任务反馈与确认回执\n\n接收与用途\n\n原制作任务的恢复入口"
+      }
+    },
+    {
+      "name": "da keyboard node Enter opens inspector",
+      "detail": {
+        "before": 0,
+        "after": 1,
+        "node": "用户要求",
+        "focused": "architecture-node is-selected    is-proposed"
+      }
+    },
+    {
+      "name": "mica pointer relationship 安全消息轮次",
+      "detail": {
+        "title": "安全消息轮次",
+        "expected": "安全消息轮次",
+        "body": "传递\n\n已挂载、安全识别、去重排序的 HTMLElement[]\n\n接收与用途\n\nscanAndApply"
+      }
+    },
+    {
+      "name": "mica pointer relationship 共享连接器事件",
+      "detail": {
+        "title": "共享连接器事件",
+        "expected": "共享连接器事件",
+        "body": "传递\n\nmica-connector-lifecycle-latched 的 publicLatch() 状态\n\n接收与用途\n\nhandleSharedConnectorLifecycle"
+      }
+    },
+    {
+      "name": "mica pointer relationship 恢复互斥",
+      "detail": {
+        "title": "恢复互斥",
+        "expected": "恢复互斥",
+        "body": "传递\n\ngetState() 的 armed / guardActive / tombstoneActive / phase\n\n接收与用途\n\ncontinuitySkipReason → isStaleClearRecoveryActive"
+      }
+    },
+    {
+      "name": "mica pointer relationship 已挂载结构",
+      "detail": {
+        "title": "已挂载结构",
+        "expected": "已挂载结构",
+        "body": "传递\n\n候选消息、角色、输入与交互区域\n\n接收与用途\n\ngetMessageTurnElements"
+      }
+    },
+    {
+      "name": "mica pointer relationship 选择动作",
+      "detail": {
+        "title": "选择动作",
+        "expected": "选择动作",
+        "body": "传递\n\n连接器相关按键与 DOM 标记\n\n接收与用途\n\nisPotentialConnectorEvent"
+      }
+    },
+    {
+      "name": "mica pointer relationship 清空与重挂载",
+      "detail": {
+        "title": "清空与重挂载",
+        "expected": "清空与重挂载",
+        "body": "传递\n\n明确清空意图、空值确认、后续原生挂载\n\n接收与用途\n\nconfirmEmptyAfterIntent"
+      }
+    },
+    {
+      "name": "mica pointer relationship 局部渲染约束",
+      "detail": {
+        "title": "局部渲染约束",
+        "expected": "局部渲染约束",
+        "body": "传递\n\n安全历史轮次的 content-visibility 调整\n\n接收与用途\n\n浏览器渲染层"
+      }
+    },
+    {
+      "name": "mica pointer relationship 短期只读外观",
+      "detail": {
+        "title": "短期只读外观",
+        "expected": "短期只读外观",
+        "body": "传递\n\n新鲜且不可交互的消毒快照\n\n接收与用途\n\ncontinuity shell"
+      }
+    },
+    {
+      "name": "mica keyboard node Enter opens inspector",
+      "detail": {
+        "before": 0,
+        "after": 1,
+        "node": "识别对话与输入框",
+        "focused": "architecture-node is-selected    "
+      }
+    },
+    {
+      "name": "cat pointer relationship 提供",
+      "detail": {
+        "title": "提供",
+        "expected": "提供",
+        "body": "传递\n\n二元响应、设计矩阵、单列先验\n\n接收与用途\n\nct_probit_laplace"
+      }
+    },
+    {
+      "name": "cat pointer relationship 返回",
+      "detail": {
+        "title": "返回",
+        "expected": "返回",
+        "body": "传递\n\n单列概率、众数和曲率\n\n接收与用途\n\n显式列拟合"
+      }
+    },
+    {
+      "name": "cat pointer relationship 贡献",
+      "detail": {
+        "title": "贡献",
+        "expected": "贡献",
+        "body": "传递\n\n按重数加权的全零事件项\n\n接收与用途\n\n共享参数目标"
+      }
+    },
+    {
+      "name": "cat pointer relationship 提供",
+      "detail": {
+        "title": "提供",
+        "expected": "提供",
+        "body": "传递\n\n参考抽样与诊断\n\n接收与用途\n\n独立验证"
+      }
+    },
+    {
+      "name": "cat pointer relationship 约束",
+      "detail": {
+        "title": "约束",
+        "expected": "约束",
+        "body": "传递\n\n准确性、误差与成本要求\n\n接收与用途\n\n算法设计"
+      }
+    },
+    {
+      "name": "cat pointer relationship 固定目标",
+      "detail": {
+        "title": "固定目标",
+        "expected": "固定目标",
+        "body": "传递\n\n当前模型、先验和观测输入\n\n接收与用途\n\n参考后验算法"
+      }
+    },
+    {
+      "name": "cat keyboard node Enter opens inspector",
+      "detail": {
+        "before": 0,
+        "after": 1,
+        "node": "科学模型",
+        "focused": "architecture-node is-selected    "
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 当前要求",
+      "detail": {
+        "title": "当前要求",
+        "expected": "当前要求",
+        "body": "传递\n\n规则、统计声明与对象范围\n\n接收与用途\n\n机械验证入口"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 权威事实",
+      "detail": {
+        "title": "权威事实",
+        "expected": "权威事实",
+        "body": "传递\n\n当前课程决定、教学目标与模板\n\n接收与用途\n\n页面专业判断"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 候选身份",
+      "detail": {
+        "title": "候选身份",
+        "expected": "候选身份",
+        "body": "传递\n\n文件摘要、页序、统计对象及输入\n\n接收与用途\n\n身份核对与计算"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 页图与对象",
+      "detail": {
+        "title": "页图与对象",
+        "expected": "页图与对象",
+        "body": "传递\n\n同一候选的页面、对象定位与必要邻页\n\n接收与用途\n\n页级审阅"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 完整页序",
+      "detail": {
+        "title": "完整页序",
+        "expected": "完整页序",
+        "body": "传递\n\n有序页面、概念依赖与全部正文\n\n接收与用途\n\n整套叙事审阅"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 机械事实",
+      "detail": {
+        "title": "机械事实",
+        "expected": "机械事实",
+        "body": "传递\n\n实际结果、预期、对象和规则\n\n接收与用途\n\n问题归因"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 页面问题",
+      "detail": {
+        "title": "页面问题",
+        "expected": "页面问题",
+        "body": "传递\n\n页码、对象、要求和阅读或事实缺口\n\n接收与用途\n\n原制作任务"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 整体问题",
+      "detail": {
+        "title": "整体问题",
+        "expected": "整体问题",
+        "body": "传递\n\n缺失先修、重复、转场或完整性问题\n\n接收与用途\n\n原制作任务"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 限定修复",
+      "detail": {
+        "title": "限定修复",
+        "expected": "限定修复",
+        "body": "传递\n\n受影响对象、受保护内容与待复验证据\n\n接收与用途\n\n原制作任务的修复范围"
+      }
+    },
+    {
+      "name": "tutorial pointer relationship 新候选",
+      "detail": {
+        "title": "新候选",
+        "expected": "新候选",
+        "body": "传递\n\n新文件身份、页序与修改对应\n\n接收与用途\n\n同一验收入口"
+      }
+    },
+    {
+      "name": "tutorial keyboard node Enter opens inspector",
+      "detail": {
+        "before": 0,
+        "after": 1,
+        "node": "当前要求",
+        "focused": "architecture-node is-selected    "
+      }
+    },
+    {
+      "name": "CAT formula light",
+      "detail": {
+        "math": "𝜆\n(\n𝑡\n)\n=\n𝜙\n(\n𝑡\n)\n/\nΦ\n(\n𝑡\n)\nλ(t)=ϕ(t)/Φ(t)",
+        "katex": 1,
+        "overflow": {
+          "client": 314,
+          "scroll": 314
+        }
+      }
+    },
+    {
+      "name": "Tutorial finding 0 light",
+      "detail": {
+        "identity": "tutorial-v14-obsolete-assessment",
+        "text": "问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\nV14 第35页考核表、第37页项目安排\n\n当前课程决定已替换旧安排，已有课件仍保留被撤销的项目。\n\n发现依据\n既有架构研究；本轮再次核对原页与当前课程决定\n当前情况\n课件仍待更新，修复尚未完成。\nV14 · 第 35 页\nV14 · 第 37 页\n03_THREE_FAMILY_EXECUTION.md\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\npage-35.png\npage-37.png\n修复范围\n\n按当前课程决定更新相关表格和说明，保留已接受的教学内容及模板。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+      }
+    },
+    {
+      "name": "Tutorial finding 1 light",
+      "detail": {
+        "identity": "IVA-T-001",
+        "text": "问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\noffset 统计对象\n\n验证器先计算所有比值，再检查本次声明；首项为零会使合法的逐项率核对中断。\n\n发现依据\n独立验收审查\n当前情况\n验收程序需修复；不能据此判课件错误。\n机械核对\nREPAIR_TUTORIAL_SHARED_V1.md\nscientific_observations\n修复范围\n\n按实际声明决定是否计算比值，并处理分母为零的未定义情形。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+      }
+    },
+    {
+      "name": "Tutorial finding 2 light",
+      "detail": {
+        "identity": "tutorial-v04-p26",
+        "text": "问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\nV04 第26页的项目说明\n\n旧页使用制作状态组织课程说明；后版审阅记录该问题已移除。\n\n发现依据\n历史逐页审阅\n当前情况\n历史记录确认局部内容已修；整页仍需改进。\nV04 · 第 26 页\nT-V4.md\nT-V5.md\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+      }
+    },
+    {
+      "name": "CAT formula dark",
+      "detail": {
+        "math": "𝜆\n(\n𝑡\n)\n=\n𝜙\n(\n𝑡\n)\n/\nΦ\n(\n𝑡\n)\nλ(t)=ϕ(t)/Φ(t)",
+        "katex": 1,
+        "overflow": {
+          "client": 314,
+          "scroll": 314
+        }
+      }
+    },
+    {
+      "name": "Tutorial finding 0 dark",
+      "detail": {
+        "identity": "tutorial-v14-obsolete-assessment",
+        "text": "问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\nV14 第35页考核表、第37页项目安排\n\n当前课程决定已替换旧安排，已有课件仍保留被撤销的项目。\n\n发现依据\n既有架构研究；本轮再次核对原页与当前课程决定\n当前情况\n课件仍待更新，修复尚未完成。\nV14 · 第 35 页\nV14 · 第 37 页\n03_THREE_FAMILY_EXECUTION.md\nSTAT5060_ASSESSMENT_TIMETABLE_V1.md\npage-35.png\npage-37.png\n修复范围\n\n按当前课程决定更新相关表格和说明，保留已接受的教学内容及模板。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+      }
+    },
+    {
+      "name": "Tutorial finding 1 dark",
+      "detail": {
+        "identity": "IVA-T-001",
+        "text": "问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\noffset 统计对象\n\n验证器先计算所有比值，再检查本次声明；首项为零会使合法的逐项率核对中断。\n\n发现依据\n独立验收审查\n当前情况\n验收程序需修复；不能据此判课件错误。\n机械核对\nREPAIR_TUTORIAL_SHARED_V1.md\nscientific_observations\n修复范围\n\n按实际声明决定是否计算比值，并处理分母为零的未定义情形。\n\n原制作任务\n生成新候选\n重渲染与复验\n需要保留\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+      }
+    },
+    {
+      "name": "Tutorial finding 2 dark",
+      "detail": {
+        "identity": "tutorial-v04-p26",
+        "text": "问题\n课件还在使用旧考核安排\n合法零计数使验证器退出\n课程页暴露内部制作状态\nV04 第26页的项目说明\n\n旧页使用制作状态组织课程说明；后版审阅记录该问题已移除。\n\n发现依据\n历史逐页审阅\n当前情况\n历史记录确认局部内容已修；整页仍需改进。\nV04 · 第 26 页\nT-V4.md\nT-V5.md\n变更影响预览\n更新页面与课程要求\n修改共享问答样式\n仅交换页面顺序\n修改统计模型或数据\n独立数值计算\n可保留¹\n页面内容与事实\n需复验\n受影响页面的渲染与视觉\n需复验\n整套叙事与先修关系\n需复验\n未修改的源资产\n可保留¹\n\n¹ 对应输入、内容与依赖均未变化时。此处只预览影响，不执行修复。"
+      }
+    },
+    {
+      "name": "source modal Tab stays inside",
+      "detail": {
+        "trail": [
+          {
+            "text": "2.0.0-rc.19 · 60ba27a383",
+            "inside": true
+          },
+          {
+            "text": "当前职责设计",
+            "inside": true
+          },
+          {
+            "text": "旧共享判定库设计",
+            "inside": true
+          },
+          {
+            "text": "旧原任务返回合同",
+            "inside": true
+          },
+          {
+            "text": "",
+            "inside": true
+          },
+          {
+            "text": "2.0.0-rc.19 · 60ba27a383",
+            "inside": true
+          },
+          {
+            "text": "当前职责设计",
+            "inside": true
+          },
+          {
+            "text": "旧共享判定库设计",
+            "inside": true
+          },
+          {
+            "text": "旧原任务返回合同",
+            "inside": true
+          },
+          {
+            "text": "",
+            "inside": true
+          },
+          {
+            "text": "2.0.0-rc.19 · 60ba27a383",
+            "inside": true
+          },
+          {
+            "text": "当前职责设计",
+            "inside": true
+          },
+          {
+            "text": "旧共享判定库设计",
+            "inside": true
+          },
+          {
+            "text": "旧原任务返回合同",
+            "inside": true
+          },
+          {
+            "text": "",
+            "inside": true
+          },
+          {
+            "text": "2.0.0-rc.19 · 60ba27a383",
+            "inside": true
+          }
+        ],
+        "afterEscape": "来源与版本"
+      }
+    }
+  ],
+  "collisions": [
+    {
+      "project": "da",
+      "collisions": []
+    },
+    {
+      "project": "mica",
+      "collisions": []
+    },
+    {
+      "project": "cat",
+      "collisions": []
+    },
+    {
+      "project": "tutorial",
+      "collisions": []
+    }
+  ],
+  "errors": []
+}

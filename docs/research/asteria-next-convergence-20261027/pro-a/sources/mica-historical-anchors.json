@@ -1,0 +1,249 @@
+{
+  "kind": "historical-source-research",
+  "repository": "YuukiAS/Mica-for-ChatGPT",
+  "checkedAt": "2026-10-27T14:06:50.960958+00:00",
+  "method": "Read-only git show of both exact commits; line ranges taken from those contents. Function declaration must match uniquely; range ends at the matching top-level function close in this source style.",
+  "historyState": "source_reconstruction",
+  "beforeCommit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+  "beforeProductVersion": "0.1.6",
+  "afterCommit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+  "afterProductVersion": "0.1.7",
+  "afterDirectParent": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+  "directParentVerified": true,
+  "coverage": {
+    "pairedFunctions": 3,
+    "scope": [
+      "mica.signal",
+      "mica.continuity"
+    ],
+    "completeHistoricalBindingInventory": false,
+    "runtimeExecutedForHistoricalCommits": false,
+    "currentMainCommitMustNotStandInForHistoricalCommit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "pairs": [
+    {
+      "id": "signal-public-latch",
+      "entityId": "mica.signal",
+      "recommendedStableBindingId": "history-binding:signal-public-latch",
+      "role": "transformation",
+      "change": "modified",
+      "before": {
+        "id": "signal-public-latch-016",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+        "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+        "symbol": "publicLatch",
+        "qualifiedName": "publicLatch",
+        "lines": [
+          287,
+          314
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-lifecycle-signal.ts#L287-L314",
+        "gitBlob": "00295cbd0295c1943b9e9b42cf9e7fb30fc9b28a",
+        "fileSha256": "c39b81f1c676de02faaf0487cc5ef95029fc3b95d998d32bd3ff22fa3182c706",
+        "excerptSha256": "656983d65c7103edc7815b12e332bfdc838e37a10388eec680359306daf85c83",
+        "excerpt": "  function publicLatch() {\n    expireIfNeeded();\n    const chooserOpen = !!findActiveMentionChooser();\n    if (chooserOpen) markChooserActive(\"chooser\");\n    const now = Date.now();\n    const chooserActiveNow = enabled && (chooserOpen || now <= (latch.chooserActiveUntil || 0));\n    const selectionWindowActive = enabled && now <= (latch.selectionWindowUntil || 0);\n    return {\n      detected: !!latch.detected,\n      latched: !!latch.latched,\n      connectorLifecycleLatched: !!latch.latched,\n      connectorContextLatched: !!latch.latched,\n      chooserActiveNow,\n      chooserSource: latch.chooserSource || null,\n      selectionWindowActive,\n      selectionSource: latch.selectionSource || null,\n      selectionId: latch.selectionId || 0,\n      mentionQueryActive: enabled && now <= (latch.mentionQueryUntil || 0),\n      source: latch.source || null,\n      latchId: latch.latchId || 0,\n      ageMs: latch.latchedAt ? Math.max(0, Date.now() - latch.latchedAt) : 0,\n      ttlMs: LATCH_TTL_MS,\n      composerRootId: latch.composerRootId || null,\n      editableId: latch.editableId || null,\n      lastComposerRect: latch.lastComposerRect || null,\n      skippedReason: latch.skippedReason || (enabled ? null : \"disabled\")\n    };\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "after": {
+        "id": "signal-public-latch-017",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+        "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+        "symbol": "publicLatch",
+        "qualifiedName": "publicLatch",
+        "lines": [
+          286,
+          311
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/aa4ce52581fff2e207d1f93600becbb3018b0efc/extension/src/reliability/connector-lifecycle-signal.ts#L286-L311",
+        "gitBlob": "8353eb4d180219f48c883f282a945c423dc260ca",
+        "fileSha256": "ff6c70e364bd8b3cae95f3b4f1d9bbd9f15e9ff19ea9be706372263166059655",
+        "excerptSha256": "b1c454407a8505d82a071eb4506efe5c1540acb664f9bc254826b9ddb9e1f559",
+        "excerpt": "  function publicLatch() {\n    expireIfNeeded();\n    const now = Date.now();\n    const chooserActiveNow = enabled && now <= (latch.chooserActiveUntil || 0);\n    const selectionWindowActive = enabled && now <= (latch.selectionWindowUntil || 0);\n    return {\n      detected: !!latch.detected,\n      latched: !!latch.latched,\n      connectorLifecycleLatched: !!latch.latched,\n      connectorContextLatched: !!latch.latched,\n      chooserActiveNow,\n      chooserSource: latch.chooserSource || null,\n      selectionWindowActive,\n      selectionSource: latch.selectionSource || null,\n      selectionId: latch.selectionId || 0,\n      mentionQueryActive: enabled && now <= (latch.mentionQueryUntil || 0),\n      source: latch.source || null,\n      latchId: latch.latchId || 0,\n      ageMs: latch.latchedAt ? Math.max(0, Date.now() - latch.latchedAt) : 0,\n      ttlMs: LATCH_TTL_MS,\n      composerRootId: latch.composerRootId || null,\n      editableId: latch.editableId || null,\n      lastComposerRect: latch.lastComposerRect || null,\n      skippedReason: latch.skippedReason || (enabled ? null : \"disabled\")\n    };\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "finding": "0.1.6 publicLatch 会调用 findActiveMentionChooser 并更新 chooser 状态；0.1.7 读取已缓存的有效期，移除读取状态时的 chooser DOM 搜索。"
+    },
+    {
+      "id": "continuity-listeners",
+      "entityId": "mica.continuity",
+      "recommendedStableBindingId": "history-binding:continuity-listeners",
+      "role": "initialization",
+      "change": "modified",
+      "before": {
+        "id": "continuity-listeners-016",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+        "path": "extension/src/reliability/connector-continuity.ts",
+        "symbol": "attachListeners",
+        "qualifiedName": "attachListeners",
+        "lines": [
+          56,
+          67
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L56-L67",
+        "gitBlob": "b5a91f3a80d3469ee89c22f7874870eabe4da4a0",
+        "fileSha256": "c65bdfd7278ce2675e7a15fb64149ad2e55adbc1a7e53fb7cae15a86b8221e6b",
+        "excerptSha256": "4281d3b497764fc2b3c642f5d5150c3befc5ececf07bf323b27e1978e3683cdd",
+        "excerpt": "  function attachListeners() {\n    if (listenersAttached) return;\n    document.addEventListener(\"focusin\", handlePotentialMentionEvent, true);\n    document.addEventListener(\"beforeinput\", handlePotentialMentionEvent, true);\n    document.addEventListener(\"input\", handlePotentialMentionEvent, true);\n    document.addEventListener(\"click\", handlePotentialMentionEvent, true);\n    document.addEventListener(\"pointerdown\", handlePotentialMentionEvent, true);\n    document.addEventListener(\"keydown\", handlePotentialMentionEvent, true);\n    addEventListener(CONNECTOR_LIFECYCLE_EVENT, handleSharedConnectorLifecycle, { capture: true });\n    addEventListener(\"pagehide\", handleNavigationCleanup, { capture: true });\n    listenersAttached = true;\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "after": {
+        "id": "continuity-listeners-017",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+        "path": "extension/src/reliability/connector-continuity.ts",
+        "symbol": "attachListeners",
+        "qualifiedName": "attachListeners",
+        "lines": [
+          69,
+          74
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/aa4ce52581fff2e207d1f93600becbb3018b0efc/extension/src/reliability/connector-continuity.ts#L69-L74",
+        "gitBlob": "0dcf3b03637286d4fc099b833d665febd7cfe500",
+        "fileSha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8",
+        "excerptSha256": "7bd76310b3eae0a5fde8ebd744f8dc8c60f450ea86400558a121602a698d3880",
+        "excerpt": "  function attachListeners() {\n    if (listenersAttached) return;\n    addEventListener(CONNECTOR_LIFECYCLE_EVENT, handleSharedConnectorLifecycle, { capture: true });\n    addEventListener(\"pagehide\", handleNavigationCleanup, { capture: true });\n    listenersAttached = true;\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "finding": "0.1.6 同时注册六类普通交互和共享连接器事件；0.1.7 去掉普通交互入口，只保留共享连接器事件与 pagehide。共享事件在旧版已经存在，不能误标为新版新增。"
+    },
+    {
+      "id": "continuity-begin",
+      "entityId": "mica.continuity",
+      "recommendedStableBindingId": "history-binding:continuity-begin",
+      "role": "update",
+      "change": "modified",
+      "before": {
+        "id": "continuity-begin-016",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+        "path": "extension/src/reliability/connector-continuity.ts",
+        "symbol": "beginLifecycle",
+        "qualifiedName": "beginLifecycle",
+        "lines": [
+          105,
+          165
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L105-L165",
+        "gitBlob": "b5a91f3a80d3469ee89c22f7874870eabe4da4a0",
+        "fileSha256": "c65bdfd7278ce2675e7a15fb64149ad2e55adbc1a7e53fb7cae15a86b8221e6b",
+        "excerptSha256": "98bbb8392d717db31563cb34bfa7506e87bd24ee46374e38f1aafdc235d406d8",
+        "excerpt": "  function beginLifecycle(root, editable, source, fallbackRect = null) {\n    const visualRoot = findComposerVisualRoot(editable) || findComposerVisualRoot(root);\n    const rect = measureComposerRect(visualRoot) || normalizeRect(fallbackRect);\n    const visualClone = createSanitizedComposerClone(visualRoot);\n    const now = Date.now();\n    if (!lifecycle) {\n      lifecycle = {\n        startedAt: now,\n        expiresAt: now + WATCH_WINDOW_MS,\n        shellExpiresAt: 0,\n        missingStartedAt: 0,\n        activationCandidateRecorded: false,\n        source,\n        composerRootId: elementId(visualRoot || root),\n        editableId: elementId(editable),\n        lastRect: rect,\n        visualClone,\n        capturedAt: visualClone && rect ? now : 0,\n        connectorContextGeneration: getSharedConnectorLifecycleState()?.latchId || 0,\n        pillSignature: connectorPillSignature(visualRoot),\n        cssVariableCount: countCssVariables(visualRoot),\n        shellActivated: false,\n        shellActivatedAt: 0,\n        shellRemovedAt: 0,\n        shellDurationMs: 0,\n        connectorLifecycleLatched: !!getSharedConnectorLifecycleState()?.connectorContextLatched,\n        selectionWindowOnly: false,\n        sanitizedCloneAvailable: !!visualClone,\n        cleanupReason: null,\n        skippedReason: rect ? (visualClone ? null : \"no_visual_clone\") : \"no_last_rect\"\n      };\n    } else {\n      lifecycle.expiresAt = Math.max(lifecycle.expiresAt, now + WATCH_WINDOW_MS);\n      lifecycle.source ||= source;\n      lifecycle.lastRect = rect || lifecycle.lastRect;\n      if (visualClone && rect) {\n        lifecycle.visualClone = visualClone;\n        lifecycle.capturedAt = now;\n        lifecycle.pillSignature = connectorPillSignature(visualRoot);\n        lifecycle.cssVariableCount = countCssVariables(visualRoot);\n      }\n      lifecycle.composerRootId ||= elementId(visualRoot || root);\n      lifecycle.editableId ||= elementId(editable);\n      lifecycle.connectorLifecycleLatched = lifecycle.connectorLifecycleLatched || !!getSharedConnectorLifecycleState()?.connectorContextLatched;\n      lifecycle.connectorContextGeneration ||= getSharedConnectorLifecycleState()?.latchId || 0;\n      lifecycle.sanitizedCloneAvailable = lifecycle.sanitizedCloneAvailable || !!visualClone;\n      if (rect && lifecycle.visualClone) lifecycle.skippedReason = null;\n    }\n    lastReport = reportFromLifecycle(lifecycle);\n    if (visualClone && rect) {\n      record(\"connector_continuity_shadow_cached\", {\n        source: lifecycle.source,\n        connectorContextGeneration: lifecycle.connectorContextGeneration || 0,\n        hasLastRect: true,\n        sanitizedCloneAvailable: true,\n        cacheAgeMs: 0,\n        cssVariableCount: lifecycle.cssVariableCount || 0\n      });\n    }\n    ensureTimer();\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "after": {
+        "id": "continuity-begin-017",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+        "path": "extension/src/reliability/connector-continuity.ts",
+        "symbol": "beginLifecycle",
+        "qualifiedName": "beginLifecycle",
+        "lines": [
+          94,
+          133
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/aa4ce52581fff2e207d1f93600becbb3018b0efc/extension/src/reliability/connector-continuity.ts#L94-L133",
+        "gitBlob": "0dcf3b03637286d4fc099b833d665febd7cfe500",
+        "fileSha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8",
+        "excerptSha256": "c29b770e62fee993cfabb62665ac39f012b3566e4ef156d7599752677740000b",
+        "excerpt": "  function beginLifecycle(shared) {\n    const now = Date.now();\n    const generation = shared?.latchId || 0;\n    if (!lifecycle || lifecycle.connectorContextGeneration !== generation) {\n      lifecycle = {\n        startedAt: now,\n        expiresAt: now + WATCH_WINDOW_MS,\n        activationCandidateRecorded: false,\n        source: sanitizeSource(shared?.source || shared?.selectionSource || \"connector-context\"),\n        currentSurface: null,\n        composerRootId: null,\n        editableId: null,\n        lastRect: normalizeRect(shared?.lastComposerRect),\n        visualClone: null,\n        capturedAt: 0,\n        connectorContextGeneration: generation,\n        pillSignature: \"\",\n        cssVariableCount: 0,\n        shellActivated: false,\n        shellActivatedAt: 0,\n        shellRemovedAt: 0,\n        shellDurationMs: 0,\n        connectorLifecycleLatched: true,\n        selectionWindowOnly: false,\n        sanitizedCloneAvailable: false,\n        cleanupReason: null,\n        skippedReason: null\n      };\n    } else {\n      lifecycle.expiresAt = Math.max(lifecycle.expiresAt, now + WATCH_WINDOW_MS);\n      lifecycle.source ||= sanitizeSource(shared?.source || shared?.selectionSource || \"connector-context\");\n      lifecycle.lastRect = normalizeRect(shared?.lastComposerRect) || lifecycle.lastRect;\n      lifecycle.connectorLifecycleLatched = true;\n    }\n    startObserver();\n    scheduleSnapshotRefresh(\"connector_latch\");\n    scheduleComposerCheck();\n    scheduleExpiry();\n    lastReport = reportFromLifecycle(lifecycle);\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "finding": "0.1.6 接收 root/editable/source 并立即测量、克隆，结尾启动轮询；0.1.7 接收 shared 状态，按代次维护生命周期，再安排结构观察、快照刷新和检查。"
+    }
+  ],
+  "newSymbols": [
+    {
+      "symbol": "refreshSnapshot",
+      "entityId": "mica.continuity",
+      "before": null,
+      "beforeStatus": "absent_at_fixed_before_commit_in_this_file",
+      "after": {
+        "id": "continuity-refresh-snapshot-017",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+        "path": "extension/src/reliability/connector-continuity.ts",
+        "symbol": "refreshSnapshot",
+        "qualifiedName": "refreshSnapshot",
+        "lines": [
+          203,
+          247
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/aa4ce52581fff2e207d1f93600becbb3018b0efc/extension/src/reliability/connector-continuity.ts#L203-L247",
+        "gitBlob": "0dcf3b03637286d4fc099b833d665febd7cfe500",
+        "fileSha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8",
+        "excerptSha256": "5d762ded041dbf7e9711f100f7f424695c5d4631f0902195de7f2d5dab0a3953",
+        "excerpt": "  function refreshSnapshot(source) {\n    if (!lifecycle || !enabled) return;\n    const now = Date.now();\n    if (now > lifecycle.expiresAt) {\n      cleanup(\"expired\");\n      return;\n    }\n    const surface = findNativeComposerSurface();\n    if (!surface) {\n      checkComposerPresence();\n      return;\n    }\n    const signature = connectorPillSignature(surface);\n    if (lifecycle.visualClone && lifecycle.currentSurface === surface && lifecycle.pillSignature === signature) {\n      lastReport = reportFromLifecycle(lifecycle);\n      return;\n    }\n    const rect = measureComposerRect(surface) || lifecycle.lastRect;\n    const visualClone = createSanitizedComposerClone(surface);\n    lifecycle.currentSurface = surface;\n    lifecycle.composerRootId = elementId(surface);\n    lifecycle.editableId = elementId(findEditableWithin(surface));\n    lifecycle.lastRect = rect || lifecycle.lastRect;\n    if (visualClone && rect) {\n      lifecycle.visualClone = visualClone;\n      lifecycle.capturedAt = now;\n      lifecycle.pillSignature = signature;\n      lifecycle.cssVariableCount = countCssVariables(surface);\n      lifecycle.sanitizedCloneAvailable = true;\n      lifecycle.skippedReason = null;\n      record(\"connector_continuity_shadow_cached\", {\n        source: sanitizeSource(source || lifecycle.source),\n        connectorContextGeneration: lifecycle.connectorContextGeneration || 0,\n        hasLastRect: true,\n        sanitizedCloneAvailable: true,\n        cacheAgeMs: 0,\n        cssVariableCount: lifecycle.cssVariableCount || 0\n      });\n    } else if (!rect) {\n      lifecycle.skippedReason = \"no_last_rect\";\n    } else if (!visualClone) {\n      lifecycle.skippedReason = \"no_visual_clone\";\n    }\n    lastReport = reportFromLifecycle(lifecycle);\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "interpretation": "这个具名函数在 0.1.7 文件中新增；旧版快照行为原先位于 beginLifecycle/tick，不能把整个快照能力说成首次新增。"
+    }
+  ],
+  "removedSymbols": [
+    {
+      "symbol": "handlePotentialMentionEvent",
+      "entityId": "mica.continuity",
+      "before": {
+        "id": "continuity-mention-event-016",
+        "kind": "code",
+        "repository": "YuukiAS/Mica-for-ChatGPT",
+        "commit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+        "path": "extension/src/reliability/connector-continuity.ts",
+        "symbol": "handlePotentialMentionEvent",
+        "qualifiedName": "handlePotentialMentionEvent",
+        "lines": [
+          86,
+          94
+        ],
+        "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L86-L94",
+        "gitBlob": "b5a91f3a80d3469ee89c22f7874870eabe4da4a0",
+        "fileSha256": "c65bdfd7278ce2675e7a15fb64149ad2e55adbc1a7e53fb7cae15a86b8221e6b",
+        "excerptSha256": "52cddd90e7ac4059e5c8f367678ebef2bf11529fb9e1f20130a3dede89a6a5ef",
+        "excerpt": "  function handlePotentialMentionEvent(event) {\n    if (!enabled || !configured || !isTrustedEvent(event)) return;\n    const shared = getSharedConnectorLifecycleState();\n    const editable = findComposerEditableFromTarget(event.target) || findComposerEditable();\n    const root = findComposerVisualRoot(editable) || findComposerRoot(editable);\n    const mentionSignal = detectMentionSignal(root, editable);\n    if (!shared?.connectorContextLatched && !shared?.latched && !shared?.detected && !mentionSignal.seen && !isChooserSelectionGesture(event)) return;\n    beginLifecycle(root, editable, mentionSignal.source || shared?.source || shared?.selectionSource || event.type || \"connector-context\", shared?.lastComposerRect || null);\n  }\n",
+        "resolution": "located",
+        "matchingDeclarations": 1
+      },
+      "after": null,
+      "afterStatus": "absent_at_fixed_after_commit_in_this_file",
+      "interpretation": "普通交互入口删除；它不是仍存在但换了行号的同一个函数。"
+    }
+  ],
+  "fileChecks": [
+    {
+      "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+      "beforeGitBlob": "00295cbd0295c1943b9e9b42cf9e7fb30fc9b28a",
+      "afterGitBlob": "8353eb4d180219f48c883f282a945c423dc260ca",
+      "afterContentEqualsCurrentMain": true
+    },
+    {
+      "path": "extension/src/reliability/connector-continuity.ts",
+      "beforeGitBlob": "b5a91f3a80d3469ee89c22f7874870eabe4da4a0",
+      "afterGitBlob": "0dcf3b03637286d4fc099b833d665febd7cfe500",
+      "afterContentEqualsCurrentMain": true
+    }
+  ],
+  "integrationGuidance": [
+    "历史绑定必须指向各自提交的 anchor，不能复制当前 7059c0d 的 URL 后仅改机制说明。",
+    "本次只重建三对已核实绑定；两边用相同的 stable binding ID 指向不同的 before/after anchor。",
+    "未核实的当前绑定不进入这次历史实现比较；将其覆盖状态标为 unknown/context，不因 before 未收集而显示为 added。",
+    "refreshSnapshot 的新增与 handlePotentialMentionEvent 的删除仅对上述固定文件和两个提交成立。",
+    "本次仅核对源码，不声称执行了 0.1.6/0.1.7 历史运行回归。"
+  ],
+  "sourceWorkingTreeClean": true
+}

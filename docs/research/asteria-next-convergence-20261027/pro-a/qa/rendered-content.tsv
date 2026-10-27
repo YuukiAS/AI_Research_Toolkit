@@ -1,0 +1,69 @@
+id	scope	visible_content	disposition	reason	result	evidence
+C01	四项目默认页	项目名称与一句范围说明	KEEP	让读者先辨认对象和工作范围；没有重述整张图	保留短标题与副标题	audit-r6-rendered.json default
+C02	四项目默认页	版本或设计身份	KEEP	区分设计方案、运行版本、科研模型与课件版本	只在页头给主要身份，不扩成状态卡	audit-r6-rendered.json default
+C03	默认导航	当前架构、修订、检查	KEEP	是三个不同任务入口	保留三项，不在首页同时展开历史和检查结果	audit-r6-rendered.json default
+C04	桌面默认图	节点名称与语义图标	KEEP	名称定位对象，图标区分对象类型	图节点不填职责段落或字段摘要	audit-r6-rendered.json default
+C05	桌面默认图	关系标签	KEEP	帮助选择连接；真正载荷需要点击后阅读	图上保留短标签，payload与消费者进入详情	audit-r6-targeted.json pointer relationship
+C06	路径切换	正常、返修、恢复、保护已有能力	KEEP	四条路径回答不同工作问题	同一拓扑切换路径；没有复制四套图	audit-r6-extended.json DA same topology
+C07	路径正文	当前一步的动作与解释	KEEP	补充图中未呈现的条件或责任	只展示当前一步，完整路径在手机顺序阅读	audit-r6-rendered.json default
+C08	节点详情	对象名称和职责	KEEP	选中对象后需要局部责任说明	职责不再承担整页状态汇总	audit-r6-rendered.json component
+C09	DA机制边界	不接管专业判断，也不自行选择下一执行者	KEEP	这两项是实际职责界限，不是泛泛否定或状态口号	在相关机制就近说明，不移到首页宣言	audit-r6-rendered.json da component
+C10	关系详情	传递；接收与用途	KEEP	是关系语义的核心信息，不能由箭头代替	直接说明实际载荷和真实消费者	audit-r6-targeted.json pointer relationship
+C11	无关系对象	空的相邻关系标题	DELETE	没有入口时标题不提供信息	只有关系存在时显示整个区域	producer-issue-log.tsv QA-07
+C12	所有项目来源	研究提交、原文档与实现位置	RELOCATE	默认系统页不需要研究过程清单	来源放在详情或来源与版本弹窗	audit-r6-targeted.json source modal
+C13	DA机制	义务、候选、证据与返回位置	KEEP	描述判断怎样形成及边界，不能只保留组件名	保留四步机制及责任边界	audit-r6-rendered.json da component
+C14	DA实现	实现尚未接入	KEEP	纯设计系统允许合法空实现，不能填假函数或测试	保留空状态，不用文档链接冒充实现	audit-r6-extended.json DA design-only
+C15	DA修订	旧方案未指定消费者或错误直连Bridge的叙述	REWRITE	原材料已有workflow与原任务权威；这种历史判断没有证据	重写为共享纯判断库到独立职责候选的设计对照	sources/da-design-history.md；audit-r6-extended.json DA historical provenance
+C16	DA修订	对照由两份设计材料重建的范围说明	KEEP	防止把手工重建的设计比较误当运行历史	明确没有代码迁移或运行接线证明	audit-r6-rendered.json da revision
+C17	DA修订	标题下摘要与为什么改重复同一句	MERGE	理由重复没有新增信息	相同摘要只保留一处，触发与原因各自承担内容	producer-issue-log.tsv QA-15
+C18	DA检查	恢复入口需要实测	KEEP	这是冻结前的真实阻碍，读者需要知道缺什么	保留具体恢复接收和继续处理要求	audit-r6-rendered.json da checks
+C19	Mica机制	清空意图、确认、重挂载、守护退出	KEEP	这是决定安全行为的顺序和条件	保留明确动作与取消条件	audit-r6-rendered.json mica component
+C20	Mica机制	最多3次、硬期限、安静窗口	KEEP	数值决定机制边界，不能为了简洁删掉	仅在相关机制显示，不作为全局状态徽章	audit-r6-rendered.json mica component
+C21	Mica源码	真实file、function、selector与固定commit	KEEP	从机制下钻必须能定位具体实现	可选择相关锚点并打开原仓库固定版本	audit-r6-extended.json mica source drill
+C22	Mica源码	长文件路径与打开入口	KEEP	路径必须保留，但不能挤坏可操作入口	路径可换行，打开链接单行不收缩	producer-issue-log.tsv QA-10
+C23	Mica证据	测试定义与本地执行范围	KEEP	存在测试不能自动等于已验证；运行证据有环境边界	保留测试和执行结果的区别	audit-r6-extended.json mica evidence
+C24	Mica修订	0.1.6到0.1.7的局部机制变化	KEEP	这是真实有意义修订，不是文件树变化	按变化对象呈现前后机制与保持内容	audit-r6-rendered.json mica revision
+C25	Mica修订	被撤销的普通输入触发快照关系	KEEP	移除关系是机制变化，不能只给当前节点染色	比较图保留被移除的关系及原消费者	audit-r6-rendered.json mica diff
+C26	Mica检查	平台适配设计领先代码	KEEP	是设计与实现不一致的真实实例	保留具体设计来源与当前实现的边界	audit-r6-rendered.json mica checks
+C27	Mica检查	当前登录态宿主DOM尚未验证	KEEP	本地测试不能证明当前线上兼容性	一次说明证据边界，不在图上重复警示	audit-r6-rendered.json mica checks
+C28	CAT机制	逆Mills比率公式及用途	KEEP	数学对象有解释作用；公式不能换成装饰图	KaTeX两主题可读，正文说明参与哪项计算	audit-r6-targeted.json CAT formula
+C29	CAT源码	数值例程与对应测试	KEEP	稳定模块需要真实routine与验证位置	保留固定提交和实际源码片段	audit-r6-extended.json cat-tail source drill
+C30	CAT未定模块	职责、描述与警示重复误差导数成本未闭合	MERGE	同一状态三次出现削弱信息层级	职责写计算任务；开放条件集中在问题区	producer-issue-log.tsv QA-14
+C31	CAT未定模块实现	设计文档被称为执行实现	REWRITE	文件存在不代表算法实现成立	明确生产算法尚未冻结；文档归为设计与研究来源	producer-issue-log.tsv QA-12
+C32	CAT撤销路线	旧路线的反例与撤销原因	KEEP	保留已否定路线有助于防止重复选择	当前路径有撤销依据入口，历史保留原目标和反例	audit-r6-extended.json CAT withdrawn route
+C33	CAT参考算法	正确性与统计可靠性分开	KEEP	这是科研证据的必要判断边界	真实结果可以混合，不压成通过或未通过总分	audit-r6-extended.json cat-reference evidence
+C34	CAT冻结范围	数值内核可局部整理实现合同	KEEP	成熟局部不应被开放算法拖成全无，也不能批准整个系统	冻结按范围，不用项目级绿色状态	audit-r6-rendered.json cat checks
+C35	Tutorial候选	以文件身份和有序页面定义待验产品	KEEP	说明artifact身份，不复述每个问题	候选职责保持一句	audit-r6-rendered.json tutorial component
+C36	Tutorial候选	35与37页旧课程事实在摘要和警示重复	MERGE	页面已经标出受影响位置，正文无需再次完整重复	候选摘要只定义身份；问题区说明待更新事实	producer-issue-log.tsv QA-14
+C37	Tutorial页10	计数与发生率正例	KEEP	提供真实正确内容参照并保护旧成果	直接打开固定页图，不导航到无关finding	audit-r6-extended.json Tutorial positive page10
+C38	Tutorial页35与37	考核表与项目安排对象	KEEP	问题要绑定具体页面和对象	页对象选择真实finding身份	audit-r6-extended.json Tutorial page35
+C39	Tutorial问题	发现依据、当前情况与对象位置	KEEP	帮助回答为什么没过、谁发现、在哪里	保留来源归属与局部状态，不编造人名或执行结果	audit-r6-targeted.json Tutorial finding
+C40	Tutorial验证器问题	合法零计数导致验证器退出	KEEP	检查器自身失败不能直接判课件错误	明确修复验收程序的定义域	audit-r6-targeted.json Tutorial finding 1
+C41	Tutorial历史问题	V04第26页到V05局部修复	KEEP	真实返修能验证finding→修复→复验表达	不因局部修复宣称整套课程通过	audit-r6-targeted.json Tutorial finding 2
+C42	Tutorial修复	修复范围与需要保留的内容	KEEP	限定返修并保护已有正确内容	保持内容按需展开，首页不展示长清单	audit-r6-targeted.json Tutorial finding
+C43	Tutorial证据影响	页面顺序、课程要求、样式、统计数据四种影响	KEEP	变化类型决定哪些证据失效	可交互预览，明确没有实际执行修复	audit-r6-extended.json Tutorial order change impact
+C44	Tutorial证据影响	对应输入、内容和依赖未变化的保留条件	KEEP	条件限制证据复用，属于必要语义	作为一条就近注释，不扩成全页reassurance	audit-r6-targeted.json impact
+C45	所有修订	有意义的修订及产品自我定义解释	DELETE	用户已进入修订任务，无需定义产品能力	标题简化为修订	audit-r6-rendered.json revision
+C46	修订正文	触发、原因、前后、保持内容、下游范围	KEEP	每项回答不同历史问题	默认当前对象，历史按需展开	audit-r6-rendered.json revision/evolution
+C47	无局部历史对象	已有源码但未整理历史的通用说明	REWRITE	artifact或设计对象不一定有源码	改为当前对象尚无相关修订记录	producer-issue-log.tsv QA-15
+C48	修订来源	长研究文件名与测试名	RELOCATE	历史证据有必要，但默认图不需要它们	在修订与证据位置按需出现	audit-r6-rendered.json revision
+C49	图中变化	新增、撤销、修改与当前上下文图例	KEEP	不能只靠颜色传达变化	保留文字图例与节点变化词	audit-r6-rendered.json diff
+C50	图中变化	选中对象后的前后详情	KEEP	图上的高亮必须可以解释具体变化	点击进入局部比较	audit-r6-extended.json diff node
+C51	手机变化	默认缩小完整桌面图	RELOCATE	小字图不适合首要阅读顺序	先列变化对象，关系图需要主动展开	producer-issue-log.tsv QA-18
+C52	手机默认页	顺序路径、对象、关系图入口	KEEP	重新安排阅读，不强迫在小画布上漫游	路径先行；对象和完整图按需打开	audit-r6-rendered.json mobile default
+C53	手机详情	返回路径与对象标题	KEEP	对象下钻后需要可见的返回和定位	打开详情滚到返回入口，返回恢复原位置	audit-r6-extended.json Mobile detail back
+C54	检查结果	所有引用与固定提交无矛盾的过宽结论	REWRITE	原型只检查已实现的结构规则，不能暗示远端可用或语义正确	改为当前模型引用与修订必填项的结构结论	audit-r6-rendered.json checks
+C55	检查结果	来源可用性与专业结论仍需核对	KEEP	说明机械检查的真实边界	紧邻结构结果，只出现一次	audit-r6-rendered.json checks
+C56	冻结区	三条范围审阅问题	KEEP	场景完整、机制合理和证据充分需要专业判断	保留有判断对象的问题，不给总分或自动批准	audit-r6-rendered.json checks
+C57	主题	light与dark层级、状态、代码与公式	KEEP	主题有实际阅读语义	各层表面和语法色独立调整，状态含文字	audit-r6-rendered.json；audit-r6-targeted.json
+C58	焦点与选中	键盘焦点、节点选中和路径强调	KEEP	不同状态有不同交互含义	原生按钮Enter与Space选择；焦点轮廓可见	audit-r6-extended.json Keyboard
+C59	来源弹窗	固定来源与版本清单	KEEP	可审查性需要真实来源，首页不需要全量清单	弹窗限制Tab焦点并在关闭后回到入口	audit-r6-targeted.json source modal
+C60	去CSS连续阅读	正文中的职责、条件、理由与证据限定	KEEP	检验是否依赖视觉分隔掩盖重复或报告口吻	按真实状态抽出正文连续读；重复修订理由已合并	audit-r6-extended.json textOnly
+C61	Mica关系消费者	confirmEmptyAfterIntent与getMessageTurnElements	REWRITE	两个函数名在固定源码中不存在，非空consumer文字不能替代实际源码证据	改为confirmPendingClear与collectConversationTurns并提供真实锚点	sources/mica-relation-consumer-audit.md；producer-issue-log.tsv QA-20
+C62	双主题源码	浅色源码的语法颜色	REWRITE	实际单色不符合已采用Shiki双主题的表现合同	正确绑定light token，源码标为节选；两主题各5种computed颜色	audit-r6-theme.json；producer-issue-log.tsv QA-21
+C63	Tutorial冻结范围	产品未修问题是否阻止验收回路设计冻结	REWRITE	产品验收与架构设计冻结是不同判断，不能混为同一个状态	明确验收回路设计可单独整理，课件和验证器缺陷仍阻止产品验收	audit-r6-rendered.json tutorial checks
+C64	Tutorial历史与CAT证据	已有运行记录	REWRITE	结果记录可能来自审阅，不应凭类型名推断执行	统一显示已有结果记录；具体范围保留在相应证据正文	audit-final-delta.json 8个recorded-result状态；QA-22
+C65	Mica历史关系与机制	旧版consumer、连接器上下文与观察窗口	REWRITE	历史不能继承当前函数或时限，普通输入的触发仍有上下文条件	旧consumer恢复真实函数链与guard；旧3200ms在语义值核对，未声称Synopsis显示该值	audit-final-delta.json semantic、relation与before-after；QA-23
+C66	Mica当前机制边界	发送互斥与已有外观层清理	REWRITE	阻止新建不能表述成已有外观层立即消失，旧AND不能写成新OR	当前说明任一发送状态阻止新建；已有外观层不因此立即移除；历史保留同时条件	audit-final-delta.json current-mechanism和before-after；QA-23
+C67	Mica历史来源范围	关系锚点与三对实现函数	REWRITE	未重建的历史绑定不得借用当前锚点或制造新增实现	明确关系源码锚点未完整重建、不参与比较；实现只展示已核读3对函数	audit-final-delta.json semantic.pairedBindings与正文；QA-23
+C68	Mica图中变化	修改关系的未选中表达	REWRITE	consumer变化属于semantic diff，普通灰线会把它隐藏为当前上下文	修改色和可见修改文字共同表达；详情仍保留真实前后消费者	audit-final-diff-visual.json；QA-24

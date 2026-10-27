@@ -1,0 +1,8 @@
+{
+  "name": "Keyboard search preserves focus intent",
+  "ok": false,
+  "active": "查找组件或函数",
+  "labels": [],
+  "query": "confirmEmptyAfterIntent",
+  "disposition": "直接复核固定Mica源码后确认confirmEmptyAfterIntent并不存在；这是真实来源事实问题，随后扩核8条关系又发现getMessageTurnElements不存在。见sources/mica-relation-consumer-audit.md与QA-20。"
+}

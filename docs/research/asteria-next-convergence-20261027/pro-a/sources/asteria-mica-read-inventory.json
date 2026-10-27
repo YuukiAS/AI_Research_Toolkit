@@ -1,0 +1,146 @@
+{
+  "Asteria/src/architecture/types.ts": {
+    "sha256": "614e151d119cfa7795afdb02a668c0c794c1549b964c73bf157cfd2e0c46ec98",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/repositoryBridge.ts": {
+    "sha256": "027fcd1750ab2d04c05adbae5074cf5d552f43870a525b8c8fa770da9b1330c6",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/semanticDiff.ts": {
+    "sha256": "841a5d111a4b0fdbdacb3e81773fb0c824b090e3acee6016951cc8517f6447d1",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/trace.ts": {
+    "sha256": "4ec66e55b8a301d86d1b362b7966c3f5715399442330fa21471122aa823db8c3",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/schema.ts": {
+    "sha256": "e10bf0cd363afe741a72445e7d13071f01aff594e4b1476ef782c4677819189e",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/fixtures/multiViewTraceProject.ts": {
+    "sha256": "10495889e0944efd0eb677d687e56247c52357b47555f9005069891730e5f81f",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/session.tsx": {
+    "sha256": "36ed094f77d99ab473dd89ca19f1e0dabbc2ab5e791b0fa1500b6abb3ccd8036",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Mica/extension/src/content.ts": {
+    "sha256": "b37db5c725e31853aa3a349e65c565174e536072ba23f35453954ab36ee2c82e",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/extension/src/reliability/connector-lifecycle-signal.ts": {
+    "sha256": "ff6c70e364bd8b3cae95f3b4f1d9bbd9f15e9ff19ea9be706372263166059655",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/extension/src/reliability/connector-continuity.ts": {
+    "sha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/extension/src/reliability/stale-composer-recovery.ts": {
+    "sha256": "2cbe6c339a4d96077d7c75a27722ee9b23ce333aecc586daa672598efef250c9",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/scripts/run-e2e.mjs": {
+    "sha256": "8953dbd406d35c7239d87e85463cf0d93d993d0221d709cfd765cb36eccc9ee2",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/tests/fixtures/composer-typing-hotpath.html": {
+    "sha256": "478a95db11890efea9e740dfa8c5398c86c373e2effb1cbf7a3af39f593efb8a",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/docs/investigations/2026-09-07-stale-composer-clear-recovery.md": {
+    "sha256": "cfee553eac37215e30e6eab374932c4b20c2d99e7729509330da2d0f6f48d323",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Asteria/README.md": {
+    "sha256": "4a8426b427ae6b946ca490a79d938c846e1c5b7d283aaff126a023903b15eea2",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/ROADMAP.md": {
+    "sha256": "307192bb281e44da13579df73fb1a67c28161bf6ef98d8aeaf030a4f15607c2f",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/TODO.md": {
+    "sha256": "857aee702b2809339788f1156ae326e004a1e1bcb63a89320e41d066f7ec8cbd",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/VERSIONING.md": {
+    "sha256": "0651236fd28e2436f7c36891f88384597f2e76344e5fc7bc8ad21795d16edefb",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/AGENTS.md": {
+    "sha256": "56adb5090ac90dea4245c90fcf280431e8592ff51ef511fe1cf226b423a6cf0f",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/prompts/CHATGPT_RULES.md": {
+    "sha256": "9678d7b45d39979b122ed94b0d1bc2dc77351da75a50715050735462f6aee71c",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/docs/notes/2026-09-15_asteria_github_code_trace_todo.md": {
+    "sha256": "7cb6a0d81297f9b1fa9277a90b539914876b32ac68a41f66bc9b729baa5cded3",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/docs/notes/2026-10-04_asteria_current_state_and_cat_trace_bridge_plan.md": {
+    "sha256": "71471b343a30addb2dfb8e8ba46ffc0b10982f216621f87af4cf372076ea7dc5",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/scripts/validate-cat-trace-bridge.mjs": {
+    "sha256": "6de730f59b7b6204073314bb81324f3c120f318974fa03837110c1f969bde1b5",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/scripts/validate-architecture-g05.mjs": {
+    "sha256": "a8df83db7aba0f1f0d61ef3480d3b3b0b32a9281773062154b96c6dcdd6439e5",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/validation.ts": {
+    "sha256": "b246c89a2fb399ddcbc4cdfe4b7b135a9973f80ffaf4f785f5e203ce2029083a",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/export.ts": {
+    "sha256": "fa6e74e75d6e887cd9d857bf9aa3f3ed48949b01393ba62e2a0da5cb6efc5513",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/src/architecture/relationTypes.ts": {
+    "sha256": "299224704a2b7f983ce4c72ad60f2c46e0e1b6625340adb080887d7404ff46b8",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Asteria/package.json": {
+    "sha256": "f864e7c2ef93a5166c131e183c49f16a7c74d38d16b5fb3b5789f0d13a646d8d",
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf"
+  },
+  "Mica/README.md": {
+    "sha256": "97cbbf063b87c9cf1a5ea4f8f740f1cf95e211b5dc0ab29142adb036f4240e59",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/AGENTS.md": {
+    "sha256": "6b17fa34081cf6f30e18f314b0fb435825e0669cda086bedb9b3a4f3bb01fd20",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/docs/PHASE_1_LONG_THREAD_RECOVERY.md": {
+    "sha256": "dbbc99edc7be8742988c50640880b56a334ed2b7c57b35a42762a293a81489d8",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/docs/ROADMAP.md": {
+    "sha256": "549e69196e02942adeb9a58aa009ff12b1728c9422cb537b7fc11ad4579b9f21",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/docs/VERSIONING.md": {
+    "sha256": "6da670fded4867447ce5d4ee7b8c209d0b0b9bcc9d7a044183b6d4c62cdb5f17",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/scripts/release-config.mjs": {
+    "sha256": "ce651e529a82a02f5d76b800edcc0a61e2e0d450d47b609c22da3a619e2568d0",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/scripts/build.mjs": {
+    "sha256": "262399036015152444c7413fed0fb6d3a293b39a6d8a8c05d0d5c47ab7663b1c",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  },
+  "Mica/package.json": {
+    "sha256": "52c29348dfdd437a22271cfa5aeee40012cebffac9c0c51820aea35ad7452bb3",
+    "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621"
+  }
+}

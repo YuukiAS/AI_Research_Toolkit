@@ -1,0 +1,36 @@
+{
+  "candidateSha256": "ccb1e32ca8faff2c15278e7ffd40efaf6e4558cd1eeba650b3410a69bfd48602",
+  "renderedStates": 92,
+  "interactions": 76,
+  "interactionFailures": 0,
+  "pageErrors": [],
+  "console": [],
+  "horizontalOverflow": [],
+  "edgeLabelOverlaps": [],
+  "targetedChecks": 47,
+  "targetedErrors": [],
+  "nonEndpointCrossings": [
+    {
+      "project": "da",
+      "collisions": []
+    },
+    {
+      "project": "mica",
+      "collisions": []
+    },
+    {
+      "project": "cat",
+      "collisions": []
+    },
+    {
+      "project": "tutorial",
+      "collisions": []
+    }
+  ],
+  "extendedChecks": 39,
+  "extendedFailures": [],
+  "resolvedIssues": 21,
+  "remainingRecordedP1": 0,
+  "remainingRecordedObviousP2": 0,
+  "scope": "制作团队内部、限定浏览器与reference的QA；不是独立Work最终裁决"
+}

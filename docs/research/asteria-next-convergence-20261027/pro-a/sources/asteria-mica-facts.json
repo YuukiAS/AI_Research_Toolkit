@@ -1,0 +1,942 @@
+{
+  "schema": "asteria-next-source-facts-v1",
+  "sources": {
+    "asteria": {
+      "repository": "YuukiAS/Asteria",
+      "ref": "main",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "runtimeVersion": "2.0.0-rc.19",
+      "roadmapVersion": "2.0.0-rc.17",
+      "notes": "TODO 主体仍为 2026-09-15 的长期方案，不能作为功能已实现清单。"
+    },
+    "mica": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "ref": "main",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "runtimeVersion": "0.1.7",
+      "runtimeChangeCommit": "aa4ce52581fff2e207d1f93600becbb3018b0efc"
+    }
+  },
+  "modelMapping": [
+    {
+      "existing": "ArchitectureProjectV2.project",
+      "decision": "沿用并扩展",
+      "target": "Project",
+      "reason": "增加领域与当前修订指针，保留项目身份；不按 DA/Mica/CAT/Tutorial 分成不同模型。"
+    },
+    {
+      "existing": "StatisticalEntity",
+      "decision": "沿用核心身份并泛化名称",
+      "target": "Entity",
+      "reason": "组件、机制、要求、决策、问题、产物对象作为实体种类/能力面；科学维度、索引、定义保持可选。"
+    },
+    {
+      "existing": "StatisticalSymbol / FormulaBinding",
+      "decision": "原样沿用并扩展来源引用",
+      "target": "Symbol",
+      "reason": "数学符号不能降级为节点标签；公式 token 保持显式绑定。"
+    },
+    {
+      "existing": "TypedRelation",
+      "decision": "扩展",
+      "target": "Relation",
+      "reason": "增载荷、消费者/端口、触发与失败语义引用；保留数学关系，不能强迫 contains/supports 都填写消息载荷。"
+    },
+    {
+      "existing": "SemanticVariant",
+      "decision": "保留，明确与历史分离",
+      "target": "Variant",
+      "reason": "Original TRACE 与 CAT-TRACE 是并存模型，不等于同一组件前后版本。"
+    },
+    {
+      "existing": "ArchitectureView / ViewProjectionNode",
+      "decision": "沿用投影",
+      "target": "View",
+      "reason": "布局、坐标、折叠、当前选择只属展示；机制渲染、局部历史、差异视图都不能复制实体真值。"
+    },
+    {
+      "existing": "proof/result/implementation/dataset + typed support relations",
+      "decision": "扩展为有依据范围的实体能力面",
+      "target": "Evidence facet",
+      "reason": "证据包含对象版本、方法、结果、评审者、执行环境和有效性依赖；不用第二份 Evidence 数据库。"
+    },
+    {
+      "existing": "RepositoryBridgeBinding",
+      "decision": "泛化并规范化",
+      "target": "ImplementationBinding",
+      "reason": "保留 entityId/role/commit/qualifiedName/fingerprint，拆出可复用 source anchor；PLANNED/BLOCKED 不强造代码。"
+    },
+    {
+      "existing": "ProvenanceRecord / definitionRef / whereDefined",
+      "decision": "新增共享来源身份并迁移引用",
+      "target": "SourceAnchor",
+      "reason": "一个固定提交文件/公式/页面/对象可供多个实体和证据引用；身份、定位与内容指纹独立，禁止把 URL 同时作为证据结论。"
+    },
+    {
+      "existing": "无历史修订对象",
+      "decision": "新增",
+      "target": "Revision",
+      "reason": "记录父修订、触发、理由、受影响对象、证据、撤销与保留条件；Git 提交只是来源快照。"
+    },
+    {
+      "existing": "无 Change 对象",
+      "decision": "计算投影加必要作者注解",
+      "target": "Change",
+      "reason": "增删改由两份修订和稳定 ID 计算；为什么改、影响范围由作者写入修订，不另存一份重复实体。"
+    },
+    {
+      "existing": "limitation/open_question/warning/todo",
+      "decision": "整理为实体种类与状态",
+      "target": "Issue / Finding",
+      "reason": "问题可绑定要求、产物页面/对象、来源、修复修订；结构警告属于派生校验结果，专业 finding 属可保存判断。"
+    },
+    {
+      "existing": "method/algorithm/definition",
+      "decision": "扩展能力面",
+      "target": "Mechanism",
+      "reason": "程序、状态、数值算法、公式分派各自 renderer；没有唯一算法合法，明确待决及阻塞范围。"
+    },
+    {
+      "existing": "无 Decision",
+      "decision": "新增实体种类",
+      "target": "Decision",
+      "reason": "带备选、采用理由、来源和 replacedBy；不需要独立根表。"
+    },
+    {
+      "existing": "validateArchitectureProject",
+      "decision": "保留领域规则并扩展",
+      "target": "Validation projection",
+      "reason": "现有规则检查缺引用/符号冲突/因果识别等；新增契约完整性，不把规则计数当科学正确率。"
+    },
+    {
+      "existing": "repositoryBridge manifest",
+      "decision": "保留为输入协议，非第二真值",
+      "target": "Import adapter",
+      "reason": "导入后进入共同 anchor/binding；固定提交更新只能生成差异/待核对建议，不改设计语义。"
+    }
+  ],
+  "anchors": {
+    "a-model": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/types.ts",
+      "qualifiedName": "ArchitectureProjectV2",
+      "role": "definition",
+      "span": {
+        "startLine": 218,
+        "endLine": 234
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/types.ts#L218-L234",
+      "snippet": "export type ArchitectureProjectV2 = {\n  schemaVersion: typeof architectureSchemaVersion\n  project: ProjectMetadata\n  entities: Record<string, StatisticalEntity>\n  symbols: Record<string, StatisticalSymbol>\n  relations: Record<string, TypedRelation>\n  variants: Record<string, SemanticVariant>\n  views: Record<string, ArchitectureView>\n  legacy?: {\n    exportedMapVersion?: number\n    payload: unknown\n    storyOutline?: StoryOutlineItem[]\n    storyDeckSettings?: StoryDeckSettings\n    activeVersionId?: string\n  }\n  updatedAt: string\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "614e151d119cfa7795afdb02a668c0c794c1549b964c73bf157cfd2e0c46ec98"
+    },
+    "a-entity": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/types.ts",
+      "qualifiedName": "StatisticalEntity",
+      "role": "definition",
+      "span": {
+        "startLine": 46,
+        "endLine": 77
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/types.ts#L46-L77",
+      "snippet": "export type StatisticalEntity = {\n  id: string\n  kind: StatisticalEntityKind\n  label: string\n  layer: SemanticLayer\n  description?: string\n  role?: string\n  observedStatus?: \"observed\" | \"latent\" | \"fixed\" | \"estimated\" | \"derived\" | \"not_applicable\"\n  definitionMode?: \"stochastic\" | \"deterministic\" | \"formula\" | \"optimization\" | \"estimating_equation\" | \"causal\" | \"algorithmic\" | \"legacy\"\n  indices?: string[]\n  dimension?: string\n  domain?: string\n  definition?: string\n  definitionRef?: string\n  whereDefined?: string[]\n  whereUsed?: string[]\n  constraints?: string[]\n  variantNote?: string\n  formulaBindings?: FormulaBinding[]\n  legacy?: {\n    nodeId: string\n    nodeType: BlockNodeType | \"group\"\n    title: string\n    contentJson?: JSONContent\n    contentHtml?: string\n    variants?: unknown\n    style?: unknown\n    parentId?: string\n  }\n  symbolIds?: string[]\n  provenance: ProvenanceRecord[]\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "614e151d119cfa7795afdb02a668c0c794c1549b964c73bf157cfd2e0c46ec98"
+    },
+    "a-symbol": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/types.ts",
+      "qualifiedName": "StatisticalSymbol / FormulaBinding",
+      "role": "definition",
+      "span": {
+        "startLine": 81,
+        "endLine": 108
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/types.ts#L81-L108",
+      "snippet": "export type StatisticalSymbol = {\n  id: string\n  latex: string\n  canonicalName?: string\n  meaning: string\n  objectKind: SymbolObjectKind\n  modelScopeId?: string\n  variantScopeId?: string\n  layer?: SemanticLayer\n  role?: string\n  observedStatus?: StatisticalEntity[\"observedStatus\"]\n  definitionMode?: StatisticalEntity[\"definitionMode\"]\n  indices?: string[]\n  dimension?: string\n  domain?: string\n  definitionRef?: string\n  entityId?: string\n  scopeEntityId?: string\n  provenance: ProvenanceRecord[]\n}\n\nexport type FormulaBinding = {\n  id: string\n  formulaId: string\n  fragment: string\n  symbolId: string\n  unresolved?: boolean\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "614e151d119cfa7795afdb02a668c0c794c1549b964c73bf157cfd2e0c46ec98"
+    },
+    "a-relation": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/types.ts",
+      "qualifiedName": "TypedRelation / SemanticVariant",
+      "role": "definition",
+      "span": {
+        "startLine": 156,
+        "endLine": 175
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/types.ts#L156-L175",
+      "snippet": "export type TypedRelation = {\n  id: string\n  type: RelationType\n  sourceId: string\n  targetId: string\n  directed: boolean\n  label?: string\n  unresolved?: boolean\n  presentation?: Partial<MapEdgeData>\n  provenance: ProvenanceRecord[]\n}\n\nexport type SemanticVariant = {\n  id: string\n  label: string\n  shortLabel?: string\n  legacyVersionId?: string\n  description?: string\n  provenance: ProvenanceRecord[]\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "614e151d119cfa7795afdb02a668c0c794c1549b964c73bf157cfd2e0c46ec98"
+    },
+    "a-view": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/types.ts",
+      "qualifiedName": "ArchitectureView",
+      "role": "definition",
+      "span": {
+        "startLine": 177,
+        "endLine": 201
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/types.ts#L177-L201",
+      "snippet": "export type ArchitectureViewKind = \"legacy_canvas\" | \"architecture\" | \"lineage\" | \"evidence\"\n\nexport type ViewProjectionNode = {\n  id: string\n  entityId: string\n  symbolIds?: string[]\n  position: { x: number; y: number }\n  size?: { width: number; height: number }\n  collapsed?: boolean\n  hidden?: boolean\n  presentation?: unknown\n}\n\nexport type ArchitectureView = {\n  id: string\n  kind: ArchitectureViewKind\n  label: string\n  projectedEntityIds: string[]\n  projections: Record<string, ViewProjectionNode>\n  viewport?: MapViewport\n  filters?: {\n    layers?: SemanticLayer[]\n    variantId?: string\n  }\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "614e151d119cfa7795afdb02a668c0c794c1549b964c73bf157cfd2e0c46ec98"
+    },
+    "a-bridge": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/repositoryBridge.ts",
+      "qualifiedName": "RepositoryBridgeBinding / RepositoryBridgeManifest",
+      "role": "definition",
+      "span": {
+        "startLine": 4,
+        "endLine": 62
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/repositoryBridge.ts#L4-L62",
+      "snippet": "export type BridgeImplementationState = \"PLANNED\" | \"IMPLEMENTED\" | \"TESTED\" | \"AUDITED\" | \"BLOCKED\"\nexport type BridgeBindingSource = \"manual\" | \"manifest\" | \"static_analysis\" | \"agent_inferred\" | \"human_confirmed\"\nexport type BridgeCodeKind = \"file\" | \"function\" | \"method\" | \"class\" | \"variable\" | \"field\" | \"config\" | \"test\"\nexport type BridgeBindingRole = \"definition\" | \"storage\" | \"initialization\" | \"update\" | \"sampling\" | \"transformation\" | \"consumption\" | \"diagnostic\" | \"test\"\nexport type BridgeStalenessStatus = \"CURRENT\" | \"STALE\" | \"BROKEN\" | \"UNKNOWN\"\n\nexport type RepositoryBridgeBinding = {\n  id: string\n  entityId: string\n  role: BridgeBindingRole\n  path: string\n  codeKind: BridgeCodeKind\n  qualifiedName?: string\n  testRefs?: string[]\n  source: BridgeBindingSource\n  confidence?: number\n  implementationState: BridgeImplementationState\n  commit: string\n  ref?: string\n  structuralAnchor?: string\n  codeFingerprint?: string\n  bindingStatus: BridgeStalenessStatus\n  notes?: string[]\n}\n\nexport type RepositoryBridgeStatusObject = {\n  id: string\n  label: string\n  implementationState: BridgeImplementationState\n  reason: string\n  evidenceRefs?: string[]\n}\n\nexport type RepositoryBridgeManifest = {\n  schemaId: typeof bridgeSchemaId\n  schemaVersion: typeof bridgeSchemaVersion\n  sourceRepository: {\n    owner: string\n    name: string\n    url: string\n    defaultBranch: string\n    commit: string\n  }\n  scientificProjectId: string\n  modelVariantId: string\n  generatedAt?: string\n  evidenceBoundary: {\n    implementationBindingIsScientificProof: false\n    codeDoesNotUpdateScientificTruth: true\n    reliabilityLimitations: string[]\n  }\n  bindings: RepositoryBridgeBinding[]\n  statusObjects: RepositoryBridgeStatusObject[]\n}\n\nexport type RepositoryBridgeValidationIssue = {\n  path: string\n  message: string\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "027fcd1750ab2d04c05adbae5074cf5d552f43870a525b8c8fa770da9b1330c6"
+    },
+    "a-diff": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/semanticDiff.ts",
+      "qualifiedName": "diffOriginalTraceToCatTrace",
+      "role": "definition",
+      "span": {
+        "startLine": 31,
+        "endLine": 39
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/semanticDiff.ts#L31-L39",
+      "snippet": "  return {\n    baseVariantId: \"original-trace\",\n    targetVariantId: \"cat-trace-frozen-v2\",\n    forbiddenFalseDiffs: [\"original TRACE uses nu_g group-specific mean\", \"gamma_0 is a global intercept\", \"pi_g is a group effect\", \"p_g is unknown species count\"],\n    items: [\n      { id: \"diff:finite-catalogue\", status: \"added\", label: \"Finite catalogue identities\", labelParts: [{ text: \"Finite catalogue \" }, { latex: \"\\\\mathcal K\" }, { text: \", \" }, { latex: \"K\" }, { text: \", and \" }, { latex: \"\\\\mathcal K_n\" }], after: \"CAT-TRACE separates finite catalogue identities from catalogue-external open tail.\", why: \"This separates known identities from open-tail discovery before any new-species claim is read.\" },\n      { id: \"diff:matching\", status: \"added\", label: \"Deterministic catalogue matching\", labelParts: [{ text: \"Deterministic \" }, { latex: \"c(f)\" }, { text: \" matching\" }], after: \"Raw features are matched to catalogue identities or open tail.\", why: \"Deterministic identity routing controls whether a raw feature enters the catalogue branch or the open-tail branch.\" },\n      { id: \"diff:grouping\", status: \"added\", label: \"Biological group deviation\", labelParts: [{ text: \"Biological grouping with \" }, { latex: \"a_g\" }], after: \"Open tail and catalogue responses share biological group structure with sum-to-zero group deviation.\", afterParts: [{ text: \"Open tail and catalogue responses share biological group structure with sum-to-zero \" }, { latex: \"a_g\" }, { text: \".\" }], why: \"The shared response plus group deviation makes grouped borrowing visible while preserving the marginal-response interpretation.\" },\n      { id: \"diff:open-tail-slots\", status: \"added\", label: \"Grouped truncation and zero slots\", labelParts: [{ text: \"Grouped \" }, { latex: \"p_g\" }, { text: \", \" }, { latex: \"p_g^*\" }, { text: \", and zero slots\" }], after: \"p_g is fixed truncation; zero slots remain likelihood information.\", afterParts: [{ latex: \"p_g\" }, { text: \" is fixed truncation; zero slots remain likelihood information.\" }], why: \"The grouped truncation keeps anonymous zero slots as likelihood information instead of treating them as empty rows.\" },",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "841a5d111a4b0fdbdacb3e81773fb0c824b090e3acee6016951cc8517f6447d1"
+    },
+    "a-trace": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/trace.ts",
+      "qualifiedName": "traceForEntity",
+      "role": "definition",
+      "span": {
+        "startLine": 37,
+        "endLine": 81
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/trace.ts#L37-L81",
+      "snippet": "\nexport function traceForEntity(project: ArchitectureProjectV2, entityId: string, options: { mode?: TraceMode; direction?: TraceDirection; maxDepth?: number } = {}): ArchitectureTraceResult {\n  const index = createArchitectureGraphIndex(project)\n  const mode = options.mode || \"direct\"\n  const direction = options.direction || \"both\"\n  const maxDepth = Math.max(1, Math.min(12, Math.floor(options.maxDepth ?? 1)))\n  const entityIds = new Set<string>([entityId])\n  const upstreamEntityIds = new Set<string>()\n  const downstreamEntityIds = new Set<string>()\n  const relationIds = new Set<string>()\n  const upstreamRelationIds = new Set<string>()\n  const downstreamRelationIds = new Set<string>()\n  const breadcrumbs: ArchitectureTraceResult[\"breadcrumbs\"] = [{ entityId, depth: 0 }]\n\n  const traverse = (side: \"upstream\" | \"downstream\") => {\n    const queue = [{ entityId, depth: 0 }]\n    const visited = new Set<string>([entityId])\n    const sideEntityIds = side === \"upstream\" ? upstreamEntityIds : downstreamEntityIds\n    const sideRelationIds = side === \"upstream\" ? upstreamRelationIds : downstreamRelationIds\n\n    while (queue.length) {\n      const current = queue.shift()\n      if (!current || current.depth >= maxDepth) continue\n      for (const item of directionalRelations(index, current.entityId, side)) {\n        const relation: TypedRelation = item.relation\n        relationIds.add(relation.id)\n        sideRelationIds.add(relation.id)\n        entityIds.add(item.nextId)\n        if (item.nextId !== entityId) sideEntityIds.add(item.nextId)\n        const depth = current.depth + 1\n        breadcrumbs.push({ entityId: item.nextId, depth, viaRelationId: relation.id })\n        if (mode === \"recursive\" && !visited.has(item.nextId)) {\n          visited.add(item.nextId)\n          queue.push({ entityId: item.nextId, depth })\n        }\n      }\n    }\n  }\n\n  if (direction === \"upstream\" || direction === \"both\") traverse(\"upstream\")\n  if (direction === \"downstream\" || direction === \"both\") traverse(\"downstream\")\n\n  return { entityId, entityIds, upstreamEntityIds, downstreamEntityIds, relationIds, upstreamRelationIds, downstreamRelationIds, breadcrumbs }\n}\n",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "4ec66e55b8a301d86d1b362b7966c3f5715399442330fa21471122aa823db8c3"
+    },
+    "a-schema": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/schema.ts",
+      "qualifiedName": "parseArchitectureProjectV2",
+      "role": "definition",
+      "span": {
+        "startLine": 15,
+        "endLine": 34
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/schema.ts#L15-L34",
+      "snippet": "\nexport function parseArchitectureProjectV2(input: unknown): ArchitectureProjectV2 {\n  assertRecord(input, \"Architecture project\")\n  if (input.schemaVersion !== architectureSchemaVersion) {\n    throw new Error(`Unsupported architecture schemaVersion \"${String(input.schemaVersion)}\".`)\n  }\n  assertRecord(input.project, \"project\")\n  const project = input.project as ArchitectureProjectV2[\"project\"]\n  return {\n    schemaVersion: architectureSchemaVersion,\n    project,\n    entities: normalizeRecord(input.entities, \"entities\"),\n    symbols: normalizeRecord(input.symbols, \"symbols\"),\n    relations: normalizeRecord(input.relations, \"relations\"),\n    variants: normalizeRecord(input.variants, \"variants\"),\n    views: normalizeRecord(input.views, \"views\"),\n    legacy: isRecord(input.legacy) ? (input.legacy as ArchitectureProjectV2[\"legacy\"]) : undefined,\n    updatedAt: typeof input.updatedAt === \"string\" ? input.updatedAt : project.updatedAt,\n  }\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "e10bf0cd363afe741a72445e7d13071f01aff594e4b1476ef782c4677819189e"
+    },
+    "a-evidence": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/fixtures/multiViewTraceProject.ts",
+      "qualifiedName": "evidenceClosureWarnings",
+      "role": "definition",
+      "span": {
+        "startLine": 214,
+        "endLine": 225
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/fixtures/multiViewTraceProject.ts#L214-L225",
+      "snippet": "export function evidenceClosureWarnings(project: ArchitectureProjectV2) {\n  const supportTypes = new Set<RelationType>([\"theoretically_supports\", \"empirically_tests\", \"validated_on\", \"validates_implementation\", \"stress_tests\", \"supports\", \"tests\"])\n  const pendingTypes = new Set<RelationType>([\"pending\", \"limited_by\", \"contradicts_or_challenges\", \"contradicts\"])\n  return Object.values(project.entities)\n    .filter((entity) => entity.kind === \"claim\" || entity.role?.includes(\"claim\"))\n    .map((claim) => {\n      const incoming = Object.values(project.relations).filter((relation) => relation.targetId === claim.id)\n      const supportCount = incoming.filter((relation) => supportTypes.has(relation.type)).length\n      const gapCount = incoming.filter((relation) => pendingTypes.has(relation.type)).length + (claim.constraints?.some((item) => item.includes(\"pending\")) ? 1 : 0)\n      return { claimId: claim.id, label: claim.label, supportCount, gapCount, status: supportCount > 0 && gapCount === 0 ? \"supported\" : supportCount > 0 ? \"supported_with_limits\" : \"pending\" }\n    })\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "10495889e0944efd0eb677d687e56247c52357b47555f9005069891730e5f81f"
+    },
+    "a-session": {
+      "repository": "YuukiAS/Asteria",
+      "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+      "path": "src/architecture/session.tsx",
+      "qualifiedName": "projectForView",
+      "role": "definition",
+      "span": {
+        "startLine": 25,
+        "endLine": 45
+      },
+      "url": "https://github.com/YuukiAS/Asteria/blob/60ba27a38324980beea78d4c07b7b28abda522cf/src/architecture/session.tsx#L25-L45",
+      "snippet": "function defaultSymbolId(modelId: CanonicalTraceProjectId) {\n  if (modelId === \"cat-trace-frozen-v2\") return \"symbol:cat-trace-frozen-v2:betaU_gh\"\n  return \"symbol:original-trace:y_ij\"\n}\n\nfunction defaultEntityId(viewId: MultiViewId, modelId: CanonicalTraceProjectId) {\n  if (viewId === multiViewIds.architecture) return canonicalTraceProjects[modelId].symbols[defaultSymbolId(modelId)]?.entityId || \"\"\n  if (viewId === multiViewIds.lineage) return \"entity:lineage:cat-trace\"\n  return \"entity:evidence:claim:open-tail-response\"\n}\n\nfunction projectForView(viewId: MultiViewId, modelId: CanonicalTraceProjectId): ArchitectureProjectV2 {\n  return viewId === multiViewIds.architecture ? canonicalTraceProjects[modelId] : catTraceMultiViewProject\n}\n\nfunction isCanonicalModelId(value: unknown): value is CanonicalTraceProjectId {\n  return value === \"original-trace\" || value === \"cat-trace-frozen-v2\"\n}\n\nfunction isMultiViewId(value: unknown): value is MultiViewId {\n  return value === multiViewIds.architecture || value === multiViewIds.lineage || value === multiViewIds.evidence",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "36ed094f77d99ab473dd89ca19f1e0dabbc2ab5e791b0fa1500b6abb3ccd8036"
+    },
+    "m-selectors": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/content.ts",
+      "qualifiedName": "TURN_SELECTOR / COMPOSER_SELECTOR",
+      "role": "definition",
+      "span": {
+        "startLine": 25,
+        "endLine": 39
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L25-L39",
+      "snippet": "  const TURN_SELECTOR = [\n    \"[data-message-author-role]\",\n    \"[data-testid^='conversation-turn-']\",\n    \"[data-testid*='conversation-turn']\"\n  ].join(\",\");\n  const ROLE_SELECTOR = \"[data-message-author-role='user'], [data-message-author-role='assistant'], [data-message-author-role='tool']\";\n  const COMPOSER_SELECTOR = [\n    \"[data-testid*='composer']\",\n    \"textarea\",\n    \"[contenteditable]\",\n    \"[role='textbox']\",\n    \"form\"\n  ].join(\",\");\n  const SPECIAL_SELECTOR = [\n    \"textarea\",",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "b37db5c725e31853aa3a349e65c565174e536072ba23f35453954ab36ee2c82e"
+    },
+    "m-turns": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/content.ts",
+      "qualifiedName": "collectConversationTurns",
+      "role": "definition",
+      "span": {
+        "startLine": 844,
+        "endLine": 872
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L844-L872",
+      "snippet": "  function collectConversationTurns() {\n    const main = document.querySelector(\"main\") || document.body;\n    const raw = Array.from(main.querySelectorAll(TURN_SELECTOR)).filter((node) => node instanceof HTMLElement);\n    const unique = new Set();\n\n    for (const node of raw) {\n      if (!(node instanceof HTMLElement) || node.closest(\"[data-mica-root='true']\")) continue;\n      let turn = null;\n      const roleNode = node.matches(\"[data-message-author-role]\") ? node : node.querySelector(\"[data-message-author-role]\");\n      if (roleNode instanceof HTMLElement) {\n        turn =\n          roleNode.closest(\"[data-testid^='conversation-turn-']\") ||\n          roleNode.closest(\"[data-testid*='conversation-turn']\") ||\n          roleNode.closest(\"article\") ||\n          roleNode;\n      }\n\n      if (!(turn instanceof HTMLElement)) continue;\n      if (!main.contains(turn)) continue;\n      if (turn.offsetParent === null && turn.getClientRects().length === 0) continue;\n      if (isComposerProtectedElement(turn)) continue;\n      unique.add(turn);\n    }\n\n    return Array.from(unique).sort((a, b) => {\n      if (a === b) return 0;\n      return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;\n    });\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "b37db5c725e31853aa3a349e65c565174e536072ba23f35453954ab36ee2c82e"
+    },
+    "m-schedule": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/content.ts",
+      "qualifiedName": "scheduleScan",
+      "role": "calls",
+      "span": {
+        "startLine": 722,
+        "endLine": 738
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L722-L738",
+      "snippet": "\n  function scheduleScan(reason = \"auto\") {\n    if (!settings.enabled || !settings.longThreadOptimization) return;\n    if (runtimeState.nativeSafeMode && reason !== \"settings\" && reason !== \"url\" && reason !== \"manual\") return;\n    if (scheduled) return;\n    scheduled = true;\n    nextFrame(() => {\n      scheduled = false;\n      try {\n        scanAndApply();\n      } catch (error) {\n        clearOptimization();\n        setStatus(STATUS.DEGRADED, `Scan failed: ${error?.message || String(error)}`, []);\n      }\n    });\n  }\n",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "b37db5c725e31853aa3a349e65c565174e536072ba23f35453954ab36ee2c82e"
+    },
+    "m-scan": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/content.ts",
+      "qualifiedName": "scanAndApply",
+      "role": "transformation",
+      "span": {
+        "startLine": 739,
+        "endLine": 842
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L739-L842",
+      "snippet": "  function scanAndApply() {\n    if (!settings.enabled) {\n      clearOptimization();\n      enterNativeSafeMode(\"disabled\");\n      setStatus(STATUS.DISABLED, \"Disabled by user\", []);\n      return;\n    }\n    if (!settings.longThreadOptimization) {\n      clearOptimization();\n      enterNativeSafeMode(\"long-thread optimization disabled\");\n      refreshLongThreadDisabledStatus(\"scan\");\n      return;\n    }\n    recordComposerDiagnosticRuntimeCallback(\"scan\");\n    if (isComposerEditWindowActive()) {\n      globalCounters.composerEditScansSkipped += 1;\n      updateComposerTextLengthOnly();\n      return;\n    }\n    processKnownInterruptions();\n    if (!SUPPORTS_CONTENT_VISIBILITY) {\n      clearOptimization();\n      enterNativeSafeMode(\"content-visibility unsupported\");\n      setStatus(STATUS.DEGRADED, \"Browser lacks content-visibility support\", []);\n      return;\n    }\n\n    const turns = collectConversationTurns();\n    updateTurnWindowStats(turns);\n    if (turns.length === 0) {\n      clearOptimization();\n      enterNativeSafeMode(\"no mounted turns\");\n      const conversationPath = isConversationPath();\n      const hasTimedOut = Date.now() - bootTime > 5000;\n      const name = conversationPath && hasTimedOut ? STATUS.DEGRADED : STATUS.NATIVE_ONLY;\n      const reason = conversationPath && hasTimedOut ? \"No safe conversation turn container found\" : \"No mounted conversation turns\";\n      setStatus(name, reason, turns);\n      return;\n    }\n\n    if (!isSafeTurnSet(turns)) {\n      clearOptimization();\n      enterNativeSafeMode(\"ambiguous turn structure\");\n      setStatus(STATUS.DEGRADED, \"Mounted turn structure is ambiguous\", turns);\n      return;\n    }\n\n    if (turns.length <= settings.nativeOnlyTurnThreshold) {\n      clearOptimization();\n      enterNativeSafeMode(\"small mounted turn window\");\n      const nativeName = isNativeVirtualizationLikely(turns) ? STATUS.NATIVE_VIRTUALIZATION : STATUS.NATIVE_ONLY;\n      const reason = nativeName === STATUS.NATIVE_VIRTUALIZATION\n        ? \"ChatGPT appears to keep only a small mounted conversation window\"\n        : \"Mounted turn count is small enough for native rendering\";\n      setStatus(nativeName, reason, turns);\n      return;\n    }\n\n    exitNativeSafeMode();\n    attachComposerLifecycleListeners();\n    observeDocumentMutations();\n    updateComposerState();\n    if (isComposerLifecycleUnstable()) {\n      removeUnsafeComposerOptimizations();\n      const optimizedCount = countCurrentOptimizedTurns(turns);\n      const nativeName = optimizedCount > 0 ? STATUS.ACTIVE : STATUS.NATIVE_ONLY;\n      const reason = optimizedCount > 0\n        ? \"Composer lifecycle is active; existing render containment preserved\"\n        : \"Composer lifecycle is active; render containment changes paused\";\n      setStatus(nativeName, reason, turns, optimizedCount, 0);\n      return;\n    }\n\n    for (const turn of turns) {\n      observeTurn(turn);\n    }\n\n    const protectedIndexes = getProtectedIndexes(turns);\n    let optimizedCount = 0;\n    let protectedCount = 0;\n    for (let index = 0; index < turns.length; index += 1) {\n      const turn = turns[index];\n      const shouldProtect = protectedIndexes.has(index);\n      const shouldOptimize = !shouldProtect && isFarFromViewport(turn);\n      if (shouldOptimize) {\n        if (applyOptimization(turn)) {\n          optimizedCount += 1;\n        } else {\n          protectedCount += 1;\n        }\n      } else {\n        removeOptimization(turn);\n        if (shouldProtect) protectedCount += 1;\n      }\n    }\n    removeUnsafeComposerOptimizations();\n\n    if (optimizedCount > 0) {\n      setStatus(STATUS.ACTIVE, \"Mica render containment applied to offscreen mounted turns\", turns, optimizedCount, protectedCount);\n      return;\n    }\n\n    setStatus(STATUS.NATIVE_ONLY, \"All mounted turns are protected or near the viewport\", turns, optimizedCount, protectedCount);\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "b37db5c725e31853aa3a349e65c565174e536072ba23f35453954ab36ee2c82e"
+    },
+    "m-protect": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/content.ts",
+      "qualifiedName": "getProtectedIndexes",
+      "role": "constraint",
+      "span": {
+        "startLine": 984,
+        "endLine": 1000
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/content.ts#L984-L1000",
+      "snippet": "  function getProtectedIndexes(turns) {\n    const protectedIndexes = new Set();\n    const recentStart = Math.max(0, turns.length - settings.recentTurnKeepCount);\n    const streaming = hasStreamingControl();\n\n    for (let index = 0; index < turns.length; index += 1) {\n      const turn = turns[index];\n      if (index >= recentStart) protectedIndexes.add(index);\n      if (isNearViewport(turn)) protectedIndexes.add(index);\n      if (turn.contains(document.activeElement)) protectedIndexes.add(index);\n      if (isSpecialTurn(turn)) protectedIndexes.add(index);\n      if (isComposerProtectedElement(turn)) protectedIndexes.add(index);\n      if (streaming && index >= turns.length - Math.max(4, settings.recentTurnKeepCount)) protectedIndexes.add(index);\n    }\n    return protectedIndexes;\n  }\n",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "b37db5c725e31853aa3a349e65c565174e536072ba23f35453954ab36ee2c82e"
+    },
+    "m-signal": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+      "qualifiedName": "handlePotentialConnectorSignal / latchConnectorLifecycle",
+      "role": "transformation",
+      "span": {
+        "startLine": 75,
+        "endLine": 110
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-lifecycle-signal.ts#L75-L110",
+      "snippet": "  function handlePotentialConnectorSignal(event) {\n    if (!enabled || !configured || !isTrustedEvent(event)) return;\n    if (!isPotentialConnectorEvent(event)) return;\n    const signal = detectSignal(event);\n    if (!signal.detected) return;\n    latchConnectorLifecycle(signal.source, signal.root, signal.editable);\n  }\n\n  function latchConnectorLifecycle(source = \"unknown\", root = null, editable = null) {\n    if (!enabled || !configured) return publicLatch();\n    const now = Date.now();\n    const activeRoot = root instanceof HTMLElement ? root : findComposerRoot(findComposerEditable());\n    const activeEditable = editable instanceof HTMLElement ? editable : findComposerEditable();\n    const rect = measureComposerRect(activeRoot || activeEditable) || latch.lastComposerRect;\n    latchId += latch.latched ? 0 : 1;\n    latch = {\n      detected: true,\n      latched: true,\n      source: sanitizeSource(source),\n      latchId,\n      latchedAt: now,\n      expiresAt: now + LATCH_TTL_MS,\n      composerRootId: elementId(activeRoot),\n      editableId: elementId(activeEditable),\n      lastComposerRect: rect,\n      chooserActiveUntil: latch.chooserActiveUntil || 0,\n      chooserSource: latch.chooserSource || null,\n      selectionWindowUntil: latch.selectionWindowUntil || 0,\n      selectionSource: latch.selectionSource || null,\n      selectionId: latch.selectionId || 0,\n      mentionQueryUntil: latch.mentionQueryUntil || 0,\n      skippedReason: null\n    };\n    dispatchLatchEvent();\n    return publicLatch();\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "ff6c70e364bd8b3cae95f3b4f1d9bbd9f15e9ff19ea9be706372263166059655"
+    },
+    "m-event": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+      "qualifiedName": "publicLatch / dispatchLatchEvent",
+      "role": "produces",
+      "span": {
+        "startLine": 286,
+        "endLine": 340
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-lifecycle-signal.ts#L286-L340",
+      "snippet": "  function publicLatch() {\n    expireIfNeeded();\n    const now = Date.now();\n    const chooserActiveNow = enabled && now <= (latch.chooserActiveUntil || 0);\n    const selectionWindowActive = enabled && now <= (latch.selectionWindowUntil || 0);\n    return {\n      detected: !!latch.detected,\n      latched: !!latch.latched,\n      connectorLifecycleLatched: !!latch.latched,\n      connectorContextLatched: !!latch.latched,\n      chooserActiveNow,\n      chooserSource: latch.chooserSource || null,\n      selectionWindowActive,\n      selectionSource: latch.selectionSource || null,\n      selectionId: latch.selectionId || 0,\n      mentionQueryActive: enabled && now <= (latch.mentionQueryUntil || 0),\n      source: latch.source || null,\n      latchId: latch.latchId || 0,\n      ageMs: latch.latchedAt ? Math.max(0, Date.now() - latch.latchedAt) : 0,\n      ttlMs: LATCH_TTL_MS,\n      composerRootId: latch.composerRootId || null,\n      editableId: latch.editableId || null,\n      lastComposerRect: latch.lastComposerRect || null,\n      skippedReason: latch.skippedReason || (enabled ? null : \"disabled\")\n    };\n  }\n\n  function createEmptyLatch() {\n    return {\n      detected: false,\n      latched: false,\n      source: null,\n      latchId,\n      latchedAt: 0,\n      expiresAt: 0,\n      composerRootId: null,\n      editableId: null,\n      lastComposerRect: null,\n      chooserActiveUntil: 0,\n      chooserSource: null,\n      selectionWindowUntil: 0,\n      selectionSource: null,\n      selectionId: 0,\n      mentionQueryUntil: 0,\n      skippedReason: null\n    };\n  }\n\n  function dispatchLatchEvent() {\n    try {\n      dispatchEvent(new CustomEvent(EVENT_NAME, { detail: publicLatch() }));\n    } catch (_error) {\n      // Connector signal must never affect native connector behavior.\n    }\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "ff6c70e364bd8b3cae95f3b4f1d9bbd9f15e9ff19ea9be706372263166059655"
+    },
+    "m-fast": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/connector-lifecycle-signal.ts",
+      "qualifiedName": "isPotentialConnectorEvent / shouldInspectChooserForEvent",
+      "role": "constraint",
+      "span": {
+        "startLine": 380,
+        "endLine": 397
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-lifecycle-signal.ts#L380-L397",
+      "snippet": "  function isPotentialConnectorEvent(event) {\n    if (!event) return false;\n    if (event.type === \"beforeinput\" || event.type === \"input\") {\n      const data = typeof event.data === \"string\" ? event.data : \"\";\n      return data === \"@\";\n    }\n    if (event.type === \"keydown\") {\n      return event.key === \"Enter\" || event.key === \"@\" || (event.key === \"2\" && event.shiftKey);\n    }\n    return event.type === \"focusin\" || event.type === \"click\" || event.type === \"pointerdown\";\n  }\n\n  function shouldInspectChooserForEvent(event) {\n    if (!event) return false;\n    if (event.type === \"keydown\") return event.key === \"Enter\";\n    return event.type === \"click\" || event.type === \"pointerdown\" || event.type === \"focusin\";\n  }\n",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "ff6c70e364bd8b3cae95f3b4f1d9bbd9f15e9ff19ea9be706372263166059655"
+    },
+    "m-continuity": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/connector-continuity.ts",
+      "qualifiedName": "handleSharedConnectorLifecycle / beginLifecycle / handleMutations",
+      "role": "consumption",
+      "span": {
+        "startLine": 87,
+        "endLine": 174
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L87-L174",
+      "snippet": "  function handleSharedConnectorLifecycle(event) {\n    if (!enabled || !configured) return;\n    const shared = event?.detail || getSharedConnectorLifecycleState();\n    if (!shared?.connectorContextLatched && !shared?.latched && !shared?.detected) return;\n    beginLifecycle(shared);\n  }\n\n  function beginLifecycle(shared) {\n    const now = Date.now();\n    const generation = shared?.latchId || 0;\n    if (!lifecycle || lifecycle.connectorContextGeneration !== generation) {\n      lifecycle = {\n        startedAt: now,\n        expiresAt: now + WATCH_WINDOW_MS,\n        activationCandidateRecorded: false,\n        source: sanitizeSource(shared?.source || shared?.selectionSource || \"connector-context\"),\n        currentSurface: null,\n        composerRootId: null,\n        editableId: null,\n        lastRect: normalizeRect(shared?.lastComposerRect),\n        visualClone: null,\n        capturedAt: 0,\n        connectorContextGeneration: generation,\n        pillSignature: \"\",\n        cssVariableCount: 0,\n        shellActivated: false,\n        shellActivatedAt: 0,\n        shellRemovedAt: 0,\n        shellDurationMs: 0,\n        connectorLifecycleLatched: true,\n        selectionWindowOnly: false,\n        sanitizedCloneAvailable: false,\n        cleanupReason: null,\n        skippedReason: null\n      };\n    } else {\n      lifecycle.expiresAt = Math.max(lifecycle.expiresAt, now + WATCH_WINDOW_MS);\n      lifecycle.source ||= sanitizeSource(shared?.source || shared?.selectionSource || \"connector-context\");\n      lifecycle.lastRect = normalizeRect(shared?.lastComposerRect) || lifecycle.lastRect;\n      lifecycle.connectorLifecycleLatched = true;\n    }\n    startObserver();\n    scheduleSnapshotRefresh(\"connector_latch\");\n    scheduleComposerCheck();\n    scheduleExpiry();\n    lastReport = reportFromLifecycle(lifecycle);\n  }\n\n  function startObserver() {\n    if (observer || typeof MutationObserver === \"undefined\") return;\n    observer = new MutationObserver(handleMutations);\n    observer.observe(document.documentElement, { childList: true, subtree: true });\n  }\n\n  function stopObserver() {\n    observer?.disconnect();\n    observer = null;\n  }\n\n  function handleMutations(mutations) {\n    if (!lifecycle || !enabled) return;\n    let composerStructureChanged = false;\n    let connectorStructureChanged = false;\n    for (const mutation of mutations) {\n      if (mutation.type !== \"childList\" || mutationTouchesMica(mutation)) continue;\n      if (mutationTouchesComposerStructure(mutation)) composerStructureChanged = true;\n      if (mutationTouchesConnectorStructure(mutation)) connectorStructureChanged = true;\n      if (composerStructureChanged && connectorStructureChanged) break;\n    }\n    if (connectorStructureChanged) scheduleSnapshotRefresh(\"connector_structure\");\n    if (composerStructureChanged || connectorStructureChanged) scheduleComposerCheck();\n  }\n\n  function scheduleComposerCheck() {\n    if (scheduledCheck) return;\n    scheduledCheck = requestFrame(() => {\n      scheduledCheck = 0;\n      checkComposerPresence();\n    });\n  }\n\n  function scheduleSnapshotRefresh(source) {\n    if (scheduledSnapshot) return;\n    scheduledSnapshot = requestFrame(() => {\n      scheduledSnapshot = 0;\n      refreshSnapshot(source);\n    });\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8"
+    },
+    "m-cache": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/connector-continuity.ts",
+      "qualifiedName": "refreshSnapshot",
+      "role": "transformation",
+      "span": {
+        "startLine": 203,
+        "endLine": 247
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L203-L247",
+      "snippet": "  function refreshSnapshot(source) {\n    if (!lifecycle || !enabled) return;\n    const now = Date.now();\n    if (now > lifecycle.expiresAt) {\n      cleanup(\"expired\");\n      return;\n    }\n    const surface = findNativeComposerSurface();\n    if (!surface) {\n      checkComposerPresence();\n      return;\n    }\n    const signature = connectorPillSignature(surface);\n    if (lifecycle.visualClone && lifecycle.currentSurface === surface && lifecycle.pillSignature === signature) {\n      lastReport = reportFromLifecycle(lifecycle);\n      return;\n    }\n    const rect = measureComposerRect(surface) || lifecycle.lastRect;\n    const visualClone = createSanitizedComposerClone(surface);\n    lifecycle.currentSurface = surface;\n    lifecycle.composerRootId = elementId(surface);\n    lifecycle.editableId = elementId(findEditableWithin(surface));\n    lifecycle.lastRect = rect || lifecycle.lastRect;\n    if (visualClone && rect) {\n      lifecycle.visualClone = visualClone;\n      lifecycle.capturedAt = now;\n      lifecycle.pillSignature = signature;\n      lifecycle.cssVariableCount = countCssVariables(surface);\n      lifecycle.sanitizedCloneAvailable = true;\n      lifecycle.skippedReason = null;\n      record(\"connector_continuity_shadow_cached\", {\n        source: sanitizeSource(source || lifecycle.source),\n        connectorContextGeneration: lifecycle.connectorContextGeneration || 0,\n        hasLastRect: true,\n        sanitizedCloneAvailable: true,\n        cacheAgeMs: 0,\n        cssVariableCount: lifecycle.cssVariableCount || 0\n      });\n    } else if (!rect) {\n      lifecycle.skippedReason = \"no_last_rect\";\n    } else if (!visualClone) {\n      lifecycle.skippedReason = \"no_visual_clone\";\n    }\n    lastReport = reportFromLifecycle(lifecycle);\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8"
+    },
+    "m-shell": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/connector-continuity.ts",
+      "qualifiedName": "showShell",
+      "role": "rendering",
+      "span": {
+        "startLine": 249,
+        "endLine": 285
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L249-L285",
+      "snippet": "  function showShell(rect) {\n    if (!lifecycle || shellHost || !rect) return;\n    const skipReason = continuitySkipReason();\n    if (skipReason) {\n      lifecycle.skippedReason = skipReason;\n      lastReport = reportFromLifecycle(lifecycle);\n      return;\n    }\n    shellHost = document.createElement(\"div\");\n    shellHost.dataset.micaConnectorContinuityShell = \"true\";\n    shellHost.setAttribute(\"aria-hidden\", \"true\");\n    shellHost.setAttribute(\"inert\", \"\");\n    Object.assign(shellHost.style, {\n      position: \"fixed\",\n      left: `${Math.round(rect.left)}px`,\n      top: `${Math.round(rect.top)}px`,\n      width: `${Math.max(1, Math.round(rect.width))}px`,\n      height: `${Math.max(1, Math.round(rect.height))}px`,\n      overflow: \"hidden\",\n      pointerEvents: \"none\",\n      zIndex: \"2147483644\"\n    });\n    shellHost.appendChild(lifecycle.visualClone.cloneNode(true));\n    document.documentElement.appendChild(shellHost);\n    lifecycle.shellActivated = true;\n    lifecycle.shellActivatedAt = Date.now();\n    lastReport = reportFromLifecycle(lifecycle);\n    record(\"connector_continuity_shell_shown\", {\n      source: lifecycle.source,\n      composerRootId: lifecycle.composerRootId,\n      editableId: lifecycle.editableId,\n      connectorContextGeneration: lifecycle.connectorContextGeneration || 0,\n      cacheAgeMs: cacheAgeMs(lifecycle)\n    });\n    clearTimeout(shellTimer);\n    shellTimer = setTimeout(() => cleanup(\"shell_hard_cap\"), SHELL_HARD_CAP_MS);\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8"
+    },
+    "m-skip": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/connector-continuity.ts",
+      "qualifiedName": "continuitySkipReason",
+      "role": "constraint",
+      "span": {
+        "startLine": 336,
+        "endLine": 357
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/connector-continuity.ts#L336-L357",
+      "snippet": "  function continuitySkipReason() {\n    if (!enabled) return \"feature_disabled\";\n    if (!lifecycle?.connectorLifecycleLatched && !getSharedConnectorLifecycleState()?.connectorContextLatched) return \"not_connector_latched\";\n    if (!lifecycle?.lastRect) return \"no_last_rect\";\n    if (!lifecycle?.visualClone) return \"no_visual_clone\";\n    if (!lifecycle?.capturedAt || cacheAgeMs(lifecycle) > SNAPSHOT_FRESHNESS_MS) return \"stale_snapshot\";\n    if (isRealSendGenerationActive()) return \"real_send_active\";\n    if (isStaleClearRecoveryActive()) return \"stale_clear_active\";\n    return null;\n  }\n\n  function isRealSendGenerationActive() {\n    const state = globalThis.MicaSendResidualRecovery?.getState?.();\n    return !!state?.active || !!state?.sendCandidateActive || !!state?.userTurnCommittedLatched;\n  }\n\n  function isStaleClearRecoveryActive() {\n    const state = globalThis.MicaStaleComposerRecovery?.getState?.();\n    if (!state?.enabled) return false;\n    if (state.armed || state.guardActive || state.tombstoneActive) return true;\n    return !!state.phase && state.phase !== \"IDLE\" && state.clearConfirmed === true && state.finalClearStable !== true;\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "0b4f28516bb81e400f2dbf619702ce09e519b5cd7ebc4709d05edf46fb5f7ec8"
+    },
+    "m-stale-intent": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/stale-composer-recovery.ts",
+      "qualifiedName": "handleKeyDown / handleBeforeInput / handleNewUserInput",
+      "role": "trigger",
+      "span": {
+        "startLine": 109,
+        "endLine": 165
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L109-L165",
+      "snippet": "  function handleKeyDown(event) {\n    if (!shouldObserveEvent(event)) return;\n    const editable = findComposerEditableFromTarget(event.target);\n    if (!editable) return;\n    if (isSelectAllShortcut(event)) {\n      fullSelectionIntent = {\n        startedAt: Date.now(),\n        editableId: elementId(editable),\n        rootId: elementId(findComposerRoot(editable))\n      };\n      return;\n    }\n    if (isDeleteKey(event)) {\n      beginPendingFullClear(event, keyToInputType(event), keyToIntentType(event));\n    }\n  }\n\n  function handleBeforeInput(event) {\n    if (!shouldObserveEvent(event)) return;\n    const inputType = getInputType(event);\n    if (!isDeleteLikeInputType(inputType)) {\n      handleNewUserInput(event);\n      return;\n    }\n    beginPendingFullClear(event, inputType, \"selection_delete\");\n  }\n\n  function handleCut(event) {\n    if (!shouldObserveEvent(event)) return;\n    if (beginPendingFullClear(event, \"cut\", \"selection_cut\")) return;\n    if (guard && !recoveryApplying) cancelGuard(\"new_user_input\");\n  }\n\n  function handleInput(event) {\n    if (!shouldObserveEvent(event)) return;\n    const inputType = getInputType(event);\n    if (pendingClear) {\n      if (isInsertLikeInputType(inputType)) {\n        cancelPendingClear(\"new_user_input\");\n        return;\n      }\n      confirmPendingClear(event, \"input\", inputType || \"input\");\n      return;\n    }\n    if (guard && !recoveryApplying) cancelGuard(\"new_user_input\");\n  }\n\n  function handleClearConfirmationEvent(event) {\n    if (!shouldObserveEvent(event) || !pendingClear) return;\n    confirmPendingClear(event, event.type, event.type);\n  }\n\n  function handleNewUserInput(event) {\n    if (!shouldObserveEvent(event)) return;\n    if (pendingClear && !recoveryApplying) cancelPendingClear(\"new_user_input\");\n    if (guard && !recoveryApplying) cancelGuard(\"new_user_input\");\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "2cbe6c339a4d96077d7c75a27722ee9b23ce333aecc586daa672598efef250c9"
+    },
+    "m-stale-confirm": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/stale-composer-recovery.ts",
+      "qualifiedName": "confirmPendingClear",
+      "role": "constraint",
+      "span": {
+        "startLine": 224,
+        "endLine": 252
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L224-L252",
+      "snippet": "  function confirmPendingClear(event, source, inputType) {\n    if (!pendingClear) return false;\n    if (Date.now() > pendingClear.expiresAt) {\n      cancelPendingClear(\"expired\");\n      return false;\n    }\n    const snapshot = readPendingClearSnapshot(pendingClear, event);\n    pendingClear.clearConfirmationChecks += 1;\n    record(\"stale_recovery_clear_confirmation_check\", {\n      generationId: pendingClear.generationId,\n      checkCount: pendingClear.clearConfirmationChecks,\n      source,\n      composerPresent: snapshot.exists,\n      textLength: snapshot.textLength,\n      targetMatched: snapshot.targetMatched,\n      editableId: snapshot.editableId,\n      rootId: snapshot.rootId\n    });\n    lastReport = reportFromPending(pendingClear, snapshot);\n    if (!snapshot.targetMatched || !snapshot.exists || snapshot.textLength !== 0) return false;\n    const clearState = pendingClear;\n    stopClearConfirmationMonitor(clearState);\n    clearState.clearConfirmedAt = Date.now();\n    clearState.clearConfirmationSource = source;\n    clearState.clearConfirmedTargetMatched = snapshot.targetMatched;\n    pendingClear = null;\n    armGuard(snapshot.editable, clearState, source, inputType);\n    return true;\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "2cbe6c339a4d96077d7c75a27722ee9b23ce333aecc586daa672598efef250c9"
+    },
+    "m-stale-tick": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/stale-composer-recovery.ts",
+      "qualifiedName": "tickGuard",
+      "role": "transformation",
+      "span": {
+        "startLine": 384,
+        "endLine": 427
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L384-L427",
+      "snippet": "  function tickGuard() {\n    if (!guard) return;\n    const snapshot = readComposerSnapshot();\n    const previous = guard.previousSnapshot;\n    if (previous?.exists && !snapshot.exists) {\n      guard.remountObserved = true;\n    }\n    if (!previous?.exists && snapshot.exists) {\n      guard.remountObserved = true;\n      resetQuietWindow(\"remount\", snapshot);\n    }\n    guard.previousSnapshot = snapshot;\n\n    if (!snapshot.exists || snapshot.textLength === 0) {\n      if (guard.phase === \"VERIFYING\" && snapshot.exists && snapshot.textLength === 0) {\n        markLocalClearObserved(snapshot);\n      }\n      if (guard.phase !== \"SETTLING\") guard.firstNonZeroAt = 0;\n      maybeCompleteQuietStable(snapshot);\n      lastReport = reportFromGuard(guard, snapshot);\n      return;\n    }\n\n    const wasMatched = guard.lastFingerprintMatched;\n    const matched = matchesOldPayload(snapshot.text, guard);\n    guard.lastCandidateLength = snapshot.textLength;\n    guard.lastFingerprintMatched = matched;\n    if (matched) guard.fingerprintMatchedEver = true;\n    lastReport = reportFromGuard(guard, snapshot);\n\n    if (!matched) return;\n    if (guard.localClearObserved && !wasMatched) {\n      markSamePayloadReappeared(snapshot);\n    }\n    if (guard.localClearObserved && guard.attemptCount >= MAX_ATTEMPTS) {\n      markAttemptsExhausted(snapshot);\n      return;\n    }\n    if (guard.phase === \"WAITING_FOR_REMOUNT\") enterSettling(snapshot);\n  }\n\n  function enterSettling(snapshot) {\n    if (!guard || guard.phase !== \"WAITING_FOR_REMOUNT\") return;\n    guard.phase = \"SETTLING\";",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "2cbe6c339a4d96077d7c75a27722ee9b23ce333aecc586daa672598efef250c9"
+    },
+    "m-stale-delete": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "extension/src/reliability/stale-composer-recovery.ts",
+      "qualifiedName": "nativeDeleteComposerContents / matchesOldPayload",
+      "role": "transformation",
+      "span": {
+        "startLine": 804,
+        "endLine": 833
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/extension/src/reliability/stale-composer-recovery.ts#L804-L833",
+      "snippet": "  function nativeDeleteComposerContents(editable) {\n    if (!(editable instanceof HTMLElement)) return false;\n    try {\n      editable.focus({ preventScroll: true });\n    } catch (_error) {\n      editable.focus();\n    }\n    try {\n      if (editable instanceof HTMLTextAreaElement || editable instanceof HTMLInputElement) {\n        editable.setSelectionRange(0, editable.value.length);\n      } else {\n        const selection = getSelection();\n        const range = document.createRange();\n        range.selectNodeContents(editable);\n        selection.removeAllRanges();\n        selection.addRange(range);\n      }\n      return document.execCommand?.(\"delete\") === true || readComposerText(editable).length === 0;\n    } catch (_error) {\n      return false;\n    }\n  }\n\n  function matchesOldPayload(text, activeGuard) {\n    if (!activeGuard) return false;\n    const canonical = canonicalize(text);\n    return canonical.length === activeGuard.oldCanonical.length\n      && fingerprintCanonical(canonical) === activeGuard.oldHash\n      && canonical === activeGuard.oldCanonical;\n  }",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "2cbe6c339a4d96077d7c75a27722ee9b23ce333aecc586daa672598efef250c9"
+    },
+    "m-hotpath-test": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "scripts/run-e2e.mjs",
+      "qualifiedName": "runTypingHotpathCase",
+      "role": "test",
+      "span": {
+        "startLine": 183,
+        "endLine": 222
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/scripts/run-e2e.mjs#L183-L222",
+      "snippet": "async function runTypingHotpathCase() {\n  console.error(\"Running E2E case typing-hotpath@900px\");\n  const page = await browser.newPage({ viewport: { width: 900, height: 820 } });\n  const errors = [];\n  page.on(\"pageerror\", (error) => errors.push(String(error?.stack || error)));\n  page.on(\"console\", (message) => {\n    if (message.type() === \"error\") errors.push(message.text());\n  });\n  const url = `${baseUrl}/tests/fixtures/composer-typing-hotpath.html?t=${Date.now()}`;\n  let payload;\n  try {\n    await page.goto(url, { waitUntil: \"load\" });\n    await page.waitForFunction(() => {\n      const text = document.getElementById(\"typing-result\")?.textContent || \"\";\n      return text.trim().startsWith(\"{\");\n    }, null, { timeout: 15000 });\n    payload = JSON.parse(await page.locator(\"#typing-result\").textContent());\n  } catch (error) {\n    const resultText = await page.locator(\"#typing-result\").textContent().catch(() => \"\");\n    await page.close();\n    throw Object.assign(new Error(`Typing hotpath fixture failed before producing a result: ${error?.message || error}`), {\n      details: { resultText, errors }\n    });\n  }\n  await page.close();\n\n  payload.width = 900;\n  payload.mode = \"typing-hotpath\";\n  payload.errors = errors;\n  if (errors.length > 0) payload.passed = false;\n  assert(payload.passed, \"Typing hotpath fixture failed\", payload);\n  assert(payload.twenty?.delta?.cloneNode === 0, \"20-char typing cloned DOM\", payload);\n  assert(payload.twoHundred?.delta?.cloneNode === 0, \"200-char typing cloned DOM\", payload);\n  assert(payload.composition?.delta?.cloneNode === 0, \"Composition typing cloned DOM\", payload);\n  assert(payload.twoHundred?.delta?.getComputedStyle === 0, \"200-char typing read computed styles\", payload);\n  assert(payload.twoHundred?.delta?.documentQuerySelectorAll <= payload.twenty?.delta?.documentQuerySelectorAll + 2, \"Document-wide querySelectorAll scaled with typed characters\", payload);\n  assert(payload.continuity?.pollingActive === false, \"Connector continuity polling is active during ordinary typing\", payload);\n  assert(payload.recovery?.guardActive === false && payload.recovery?.sendCandidateActive === false, \"Send residual recovery timer is active during ordinary typing\", payload);\n  return payload;\n}",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "8953dbd406d35c7239d87e85463cf0d93d993d0221d709cfd765cb36eccc9ee2"
+    },
+    "m-hotpath-fixture": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "tests/fixtures/composer-typing-hotpath.html",
+      "qualifiedName": "run / checks",
+      "role": "test",
+      "span": {
+        "startLine": 191,
+        "endLine": 218
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/tests/fixtures/composer-typing-hotpath.html#L191-L218",
+      "snippet": "        await waitFor(() => window.__MICA_TEST_CONTROLS__.getConnectorContinuityState()?.cachedSnapshotAvailable === true, 1500, stateText);\n        await delay(80);\n\n        const twenty = await measureTyping(\"abcdefghijklmnopqrst\");\n        const twoHundred = await measureTyping(\"x\".repeat(200));\n        const composition = await measureComposition(\"composition\");\n        const continuity = window.__MICA_TEST_CONTROLS__.getConnectorContinuityState();\n        const recovery = window.__MICA_TEST_CONTROLS__.getSendResidualRecoveryState();\n        const status = window.__MICA_TEST_CONTROLS__.getDiagnosticsReport();\n        const checks = [\n          [\"20 chars no clone\", twenty.delta.cloneNode === 0],\n          [\"200 chars no clone\", twoHundred.delta.cloneNode === 0],\n          [\"composition no clone\", composition.delta.cloneNode === 0],\n          [\"20 chars no computed style\", twenty.delta.getComputedStyle === 0],\n          [\"200 chars no computed style\", twoHundred.delta.getComputedStyle === 0],\n          [\"composition no computed style\", composition.delta.getComputedStyle === 0],\n          [\"document query all not linear\", twoHundred.delta.documentQuerySelectorAll <= twenty.delta.documentQuerySelectorAll + 2],\n          [\"document query selector not linear\", twoHundred.delta.documentQuerySelector <= twenty.delta.documentQuerySelector + 2],\n          [\"continuity polling inactive\", continuity?.pollingActive === false && continuity?.perf?.activePollingTimer === false],\n          [\"send recovery polling inactive\", recovery?.guardActive === false && recovery?.sendCandidateActive === false],\n          [\"turn scan not linear\", (status?.runtime?.nativeSafeMountedStatusProbes || 0) <= 2],\n          [\"typing p95 smoke\", twoHundred.p95Ms < 12],\n          [\"typing total smoke\", twoHundred.totalMs < 700]\n        ].map(([name, passed]) => ({ name, passed: !!passed }));\n\n        resultNode.textContent = JSON.stringify({\n          passed: checks.every((check) => check.passed),\n          checks,",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "478a95db11890efea9e740dfa8c5398c86c373e2effb1cbf7a3af39f593efb8a"
+    },
+    "m-stale-evidence": {
+      "repository": "YuukiAS/Mica-for-ChatGPT",
+      "commit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+      "path": "docs/investigations/2026-09-07-stale-composer-clear-recovery.md",
+      "qualifiedName": "What was confirmed / Fix",
+      "role": "evidence",
+      "span": {
+        "startLine": 9,
+        "endLine": 41
+      },
+      "url": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/7059c0dc24b908b57bd0e1f475142ba4f4520621/docs/investigations/2026-09-07-stale-composer-clear-recovery.md#L9-L41",
+      "snippet": "\nThe original `@GitHub` connector selection path can cause ChatGPT's own composer to briefly unmount/remount even when Mica runtime is disabled. That visual/native remount is not itself a Mica bug.\n\nThe real bug was stale draft restoration after the user explicitly cleared the composer:\n\n- a reliable clear anchor occurred while the composer was still present with `textLength = 0`;\n- ChatGPT then unmounted the composer;\n- a new composer root could remount with the previous non-zero payload restored;\n- Mica runtime OFF reports showed the same class of stale restoration, so the primary root cause is ChatGPT native connector composer lifecycle rather than Mica optimization.\n\nIntermediate 0.1.5 candidates narrowed the implementation bugs:\n\n- `.1` diagnostics proved reliable `present zero -> unmount -> remount nonzero` stale restoration.\n- `.2` fixed full-clear arming so `Ctrl+A -> Delete/Backspace` snapshots the complete pre-clear payload instead of an unrelated single-character delete.\n- `.3` added intent-scoped clear confirmation checks.\n- `.4` confirmed clear synchronously from the same editable's `blur`/`focusout`/`input` events.\n- `.5` fixed phase-aware timer handling so settling could finish after a late fingerprint match.\n- `.6` added a bounded tombstone so the same stale fingerprint can be cleared again across multiple subsequent native remounts.\n\nThe final delete-path real acceptance for `.6` passed:\n\n- `7197ms`: clear confirmed;\n- `7298ms`: composer unmounted;\n- `8520ms`: composer remounted with `textLength = 0`;\n- session stopped with `finalTextLength = 0`;\n- `staleTextRestoredAfterClear = false`.\n\n`attemptCount = 0` in that final report is expected because ChatGPT stayed empty and no stale payload reappeared during the bounded observation window.\n\n## Fix\n\nMica now includes `extension/src/reliability/stale-composer-recovery.ts`, an isolated, fail-open workaround for the delete path.\n",
+      "sourceStatus": "read_at_pinned_commit",
+      "contentSha256": "cfee553eac37215e30e6eab374932c4b20c2d99e7729509330da2d0f6f48d323"
+    }
+  },
+  "mica": {
+    "mechanisms": [
+      {
+        "id": "mica.dom",
+        "label": "识别对话与输入框",
+        "summary": "从已挂载页面识别消息轮次，并排除输入框及扩展自身节点。",
+        "design": "accepted",
+        "implementation": "linked",
+        "evidence": "source_checked",
+        "anchors": [
+          "m-selectors",
+          "m-turns"
+        ],
+        "steps": [
+          "用 TURN_SELECTOR 发现候选消息节点",
+          "按角色节点向上寻找 conversation-turn 或 article 容器",
+          "排除不可见、输入框保护区与 Mica 自身节点",
+          "去重并按页面顺序返回"
+        ],
+        "selector": "[data-message-author-role], [data-testid^='conversation-turn-'], [data-testid*='conversation-turn']",
+        "failure": "结构不可靠时保持原生页面，由扫描器进入降级状态。"
+      },
+      {
+        "id": "mica.scan",
+        "label": "长对话扫描",
+        "summary": "只为安全识别且远离视口的历史轮次减轻渲染，输入、工具和授权区域保持原生行为。",
+        "design": "accepted",
+        "implementation": "linked",
+        "evidence": "source_and_test_defined",
+        "anchors": [
+          "m-schedule",
+          "m-scan",
+          "m-protect"
+        ],
+        "steps": [
+          "scheduleScan 合并请求到下一帧",
+          "输入编辑窗口内跳过扫描；不支持 content-visibility 时退出",
+          "识别失败、结构不明或轮次少于阈值时进入原生安全模式",
+          "保护最近 8 轮、视口附近、流式及特殊交互内容",
+          "仅对远离视口且未受保护轮次使用 containment"
+        ],
+        "bounds": [
+          "默认小窗口阈值 14",
+          "默认保留最近 8 轮",
+          "默认视口缓冲倍数 1.75"
+        ],
+        "failure": "clearOptimization 后进入 Degraded/Native only；不删除 React 消息节点。",
+        "unchanged": [
+          "输入区域不参与优化",
+          "工具与授权界面保留",
+          "关闭后恢复原生行为"
+        ],
+        "tests": [
+          "tests/fixtures/long-thread.html",
+          "tests/fixtures/composer-lifecycle.html"
+        ]
+      },
+      {
+        "id": "mica.signal",
+        "label": "连接器事件识别",
+        "summary": "将 @ 输入、选择动作和连接器标记转成短期共享状态。",
+        "design": "accepted",
+        "implementation": "linked",
+        "evidence": "focused_synthetic_regression_passed",
+        "anchors": [
+          "m-signal",
+          "m-event",
+          "m-fast"
+        ],
+        "steps": [
+          "普通按键和一般输入在 isPotentialConnectorEvent 返回",
+          "只在 @、Enter、focus/click/pointerdown 等候选事件识别结构",
+          "建立含 latchId、来源、期限、输入框身份和矩形的状态",
+          "dispatchLatchEvent 广播给连续显示和发送残留恢复模块"
+        ],
+        "event": "mica-connector-lifecycle-latched",
+        "payload": [
+          "latchId",
+          "source",
+          "connectorContextLatched",
+          "chooserActiveNow",
+          "selectionWindowActive",
+          "composerRootId",
+          "editableId",
+          "lastComposerRect",
+          "ttlMs"
+        ],
+        "failure": "识别不足不启动连接器恢复，不干预原生连接器选择。"
+      },
+      {
+        "id": "mica.continuity",
+        "label": "连接器切换连续显示",
+        "summary": "原生输入框短暂卸载时，使用已消毒的只读快照维持视觉连续。",
+        "design": "accepted",
+        "implementation": "linked",
+        "evidence": "focused_synthetic_regression_passed",
+        "anchors": [
+          "m-continuity",
+          "m-cache",
+          "m-shell",
+          "m-skip"
+        ],
+        "steps": [
+          "消费共享连接器事件，在短期生命周期内观察结构变化",
+          "下一帧合并刷新，输入框与连接器标记未变化则复用快照",
+          "原生输入框消失且快照仍新鲜时显示 inert、aria-hidden、pointer-events:none 的外观层",
+          "原生输入框返回时移除外观层；发送或清空恢复活动时不再新建；关闭、导航或超时清理"
+        ],
+        "bounds": [
+          "观察窗口 4200 ms",
+          "快照新鲜度 2500 ms",
+          "外观层硬上限 2000 ms"
+        ],
+        "failure": "无新鲜快照、没有矩形或克隆，或发送/清空恢复状态满足互斥条件时，跳过新建外观层；该分支不保证已显示的外观层立即消失。",
+        "unchanged": [
+          "外观层不可编辑",
+          "外观层不拦截点击",
+          "原生输入框所有交互由 ChatGPT 保留"
+        ],
+        "tests": [
+          "scripts/run-e2e.mjs::runTypingHotpathCase",
+          "tests/fixtures/connector-mention-lifecycle.html"
+        ]
+      },
+      {
+        "id": "mica.stale",
+        "label": "清空后旧草稿恢复",
+        "summary": "用户明确清空后，若同一旧内容被原生重挂载恢复，则在短窗口内再次清空。",
+        "design": "accepted",
+        "implementation": "linked",
+        "evidence": "historical_manual_report_with_limits",
+        "anchors": [
+          "m-stale-intent",
+          "m-stale-confirm",
+          "m-stale-tick",
+          "m-stale-delete",
+          "m-stale-evidence"
+        ],
+        "steps": [
+          "确认全选删除或剪切意图并保存本地旧内容指纹",
+          "从同一输入对象确认内容长度为零后才启动守护",
+          "等待原生卸载/重挂载，匹配同一旧内容并等待短暂稳定",
+          "用浏览器原生删除命令清空，复核并观察安静窗口",
+          "任何新的输入、粘贴或输入法动作立即取消"
+        ],
+        "states": [
+          "WAITING_FOR_REMOUNT",
+          "SETTLING",
+          "RECOVERING",
+          "VERIFYING"
+        ],
+        "bounds": [
+          "最多 3 次恢复",
+          "硬期限 12000 ms",
+          "安静窗口 1400 ms"
+        ],
+        "failure": "指纹不匹配、没有可靠清空确认或用户继续输入时停止；不自动发送。",
+        "tests": [
+          "tests/fixtures/composer-guided-diagnostics.html",
+          "tests/fixtures/connector-mention-lifecycle.html"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "id": "mica.dom-scan",
+        "source": "mica.dom",
+        "target": "mica.scan",
+        "type": "passes_to",
+        "payload": "已挂载、安全识别、去重排序的 HTMLElement[]",
+        "consumer": "scanAndApply",
+        "anchors": [
+          "m-turns",
+          "m-scan"
+        ]
+      },
+      {
+        "id": "mica.signal-continuity",
+        "source": "mica.signal",
+        "target": "mica.continuity",
+        "type": "emits",
+        "payload": "mica-connector-lifecycle-latched 的 publicLatch() 状态",
+        "consumer": "handleSharedConnectorLifecycle",
+        "anchors": [
+          "m-event",
+          "m-continuity"
+        ]
+      },
+      {
+        "id": "mica.stale-continuity",
+        "source": "mica.stale",
+        "target": "mica.continuity",
+        "type": "constrains",
+        "payload": "getState() 的 armed / guardActive / tombstoneActive / phase",
+        "consumer": "continuitySkipReason → isStaleClearRecoveryActive",
+        "anchors": [
+          "m-skip"
+        ]
+      }
+    ],
+    "revision": {
+      "id": "mica-0.1.6-to-0.1.7",
+      "beforeVersion": "0.1.6",
+      "beforeCommit": "9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0",
+      "afterVersion": "0.1.7",
+      "afterCommit": "aa4ce52581fff2e207d1f93600becbb3018b0efc",
+      "title": "把重型快照移出普通输入路径",
+      "trigger": "连接器状态锁定后，每次普通输入都可能重复发现输入框、复制 DOM 和计算样式，拖慢输入。",
+      "triggerEvidence": "README.md:85 的修复说明与 aa4ce52 代码差异相互吻合；不假定具体用户延迟测量值。",
+      "compareUrl": "https://github.com/YuukiAS/Mica-for-ChatGPT/compare/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0...aa4ce52581fff2e207d1f93600becbb3018b0efc",
+      "changes": [
+        {
+          "target": "mica.continuity",
+          "before": "监听 6 类输入/交互事件；handlePotentialMentionEvent 确认连接器上下文或选择动作后，才调用 beginLifecycle 同步重建快照，另有 60 ms 轮询。",
+          "after": "消费已有共享连接器事件与短期结构变化，下一帧合并刷新；相同 surface 和 pill signature 复用快照。",
+          "reason": "把重型 DOM 工作从按键同步路径移走。",
+          "impact": [
+            "连续显示调度",
+            "诊断性能计数",
+            "连接器生命周期 fixture"
+          ]
+        },
+        {
+          "target": "mica.signal",
+          "before": "handlePotentialConnectorSignal 对可信事件直接调用 detectSignal；publicLatch 查询候选列表；尚无 isPotentialConnectorEvent。",
+          "after": "普通输入先过滤，publicLatch 读取已有短期状态。",
+          "reason": "读取连接器状态应具有固定低成本。",
+          "impact": [
+            "连接器识别",
+            "发送残留恢复调用方"
+          ]
+        },
+        {
+          "target": "mica.continuity",
+          "before": "已有外观层行为缺少普通输入性能专门回归。",
+          "after": "增加 20/200 字和 IME 合成用例，断言不 clone、不读 computed style、无轮询。",
+          "reason": "功能正确不足以保护打字体验。",
+          "impact": [
+            "tests/fixtures/composer-typing-hotpath.html",
+            "scripts/run-e2e.mjs"
+          ]
+        },
+        {
+          "target": "mica.continuity",
+          "before": "WATCH_WINDOW_MS = 3200",
+          "after": "WATCH_WINDOW_MS = 4200",
+          "reason": "同次源码修订延长短期观察窗口；独立动机未在已核材料中说明。",
+          "impact": [
+            "连续显示观察期限"
+          ],
+          "sourceBefore": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L1-L7",
+          "sourceAfter": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/aa4ce52581fff2e207d1f93600becbb3018b0efc/extension/src/reliability/connector-continuity.ts#L1-L6"
+        },
+        {
+          "target": "mica.continuity",
+          "before": "发送互斥：active && userTurnCommittedLatched",
+          "after": "发送互斥：active || sendCandidateActive || userTurnCommittedLatched",
+          "reason": "实际源码扩大了跳过外观层创建的条件；不据此推断已有外观层会立即消失。",
+          "impact": [
+            "连续显示创建资格"
+          ],
+          "sourceBefore": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L313-L333",
+          "sourceAfter": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/aa4ce52581fff2e207d1f93600becbb3018b0efc/extension/src/reliability/connector-continuity.ts#L336-L356"
+        }
+      ],
+      "unchangedGuarantees": [
+        "外观层保持 inert、aria-hidden、pointer-events:none，由原生输入框承担交互",
+        "关闭功能时清理外观层、移除监听并停止相应调度",
+        "创建外观层前检查有效矩形、克隆以及不超过 2500 ms 的快照新鲜度"
+      ],
+      "evidenceAnchors": [
+        "m-hotpath-test",
+        "m-hotpath-fixture"
+      ],
+      "evidenceBoundary": "已核对固定提交代码差异，且在当前 main 对应 dist 实际运行既有本地 typing-hotpath 合成用例，13 项通过。真实 ChatGPT/目标设备验收另计。",
+      "historicalAudit": {
+        "state": "source_reconstruction",
+        "scope": [
+          "mica.signal",
+          "mica.continuity"
+        ],
+        "verifiedPairedFunctions": [
+          "publicLatch",
+          "attachListeners",
+          "beginLifecycle"
+        ],
+        "pairedAnchorsFile": "mica-historical-anchors.json",
+        "remainingHistoricalBindings": "not_reconstructed",
+        "relationSourcePolicy": "未重建的历史关系源码锚点不以当前 main 的锚点代替；当前八条关系的核对范围另计。",
+        "eventGuard": {
+          "consumer": "handlePotentialMentionEvent → beginLifecycle",
+          "beforeUrl": "https://github.com/YuukiAS/Mica-for-ChatGPT/blob/9f56ea8d23a0895ddbb3f1e95ee207bd049b62c0/extension/src/reliability/connector-continuity.ts#L86-L94",
+          "condition": "模块启用且事件可信；共享连接器状态、mention 标记或选择动作至少其一成立，才进入 beginLifecycle。"
+        },
+        "retainedFacts": [
+          "mica-connector-lifecycle-latched 在两版都存在",
+          "isStaleClearRecoveryActive 谓词保持不变",
+          "SNAPSHOT_FRESHNESS_MS = 2500 与 SHELL_HARD_CAP_MS = 2000 两版相同"
+        ],
+        "nonGuarantee": "发送或清空恢复的 skip 分支只阻止后续创建外观层，不保证已显示的外观层立即消失。"
+      }
+    },
+    "openIssues": [
+      {
+        "label": "真实设备性能收益尚需当前证据",
+        "reason": "既有 README 明确 local fixture 不能证明当前真实 ChatGPT 长对话性能；本轮未访问登录态。"
+      },
+      {
+        "label": "ChatGPT DOM 变化仍会使结构锚点失效",
+        "reason": "selector 是固定版本源码中的定位规则，并非服务端稳定 API。"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "mica-hotpath-20261027",
+        "kind": "mechanical",
+        "label": "连接器锁定后的普通输入回归",
+        "subjectCommit": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+        "method": "既有 runTypingHotpathCase，本地合成页面，900×820，Chrome for Testing 131.0.6778.204",
+        "result": "13 项通过；20/200 字与 IME 的 cloneNode、computed style、全页查询增量均为 0；无页面错误。",
+        "supports": [
+          "mica.signal",
+          "mica.continuity"
+        ],
+        "doesNotEstablish": "当前真实 ChatGPT DOM 兼容性、MacBook Neo 性能收益、全部 Mica 功能。",
+        "artifact": "typing_hotpath.json",
+        "reviewer": "本轮 pro-a 制作者事实检查"
+      }
+    ]
+  },
+  "verification": {
+    "sourceReads": "completed",
+    "gitRevisionComparison": "completed",
+    "archivedAsteriaScreenshotsInspected": [
+      "architecture-cat-overview-1366-light-trace-off.png",
+      "evidence-1536-dark.png"
+    ],
+    "micaFocusedTestAttempt": "passed_after_environment_binary_selection",
+    "sourceReposModified": false,
+    "micaFocusedTest": {
+      "command": "NODE_PATH=\"$CODEX_PRIMARY_RUNTIME_NODE_MODULES\" node --require ../playwright-config.cjs scripts/run-e2e.mjs --case=typing-hotpath",
+      "browser": "Google Chrome for Testing 131.0.6778.204",
+      "viewport": [
+        900,
+        820
+      ],
+      "resultFile": "mica-typing-hotpath.json",
+      "checksPassed": 13,
+      "sourceAndDistParity": [
+        "connector-continuity",
+        "connector-lifecycle-signal"
+      ],
+      "sourceWorktreeClean": true,
+      "boundary": "现有本地合成用例；不证明真实 ChatGPT 或目标低性能设备收益。",
+      "earlierAttempts": [
+        {
+          "reason": "sandbox listen EPERM",
+          "resolution": "authorized escalation for local test server"
+        },
+        {
+          "reason": "default Chromium executable absent",
+          "resolution": "use existing /tmp/architecture-browser/chrome-linux64/chrome, no download and no test changes"
+        }
+      ],
+      "environment": {
+        "os": "Linux 6.18.55 x86_64 GNU/Linux",
+        "node": "v24.22.1",
+        "playwright": "1.62.1",
+        "browser": "Google Chrome for Testing 131.0.6778.204"
+      }
+    }
+  }
+}

@@ -1,0 +1,3242 @@
+{
+  "reason": "Keep complete r6 coverage, complete final-delta verification, and explicitly cited defect evidence. Earlier reports remain as raw historical observations; removed screenshot paths are archival indices, not delivered evidence links.",
+  "retainedOldScreenshots": [
+    "qa/screenshots/audit-r1-cat-light-desktop-implementation.png",
+    "qa/screenshots/audit-r1-mica-dark-desktop-implementation.png",
+    "qa/screenshots/audit-r1-tutorial-dark-mobile-component.png",
+    "qa/screenshots/audit-r2-cat-dark-mobile-diff.png",
+    "qa/screenshots/audit-r2-da-light-desktop-default.png",
+    "qa/screenshots/audit-r2-da-light-desktop-revision.png",
+    "qa/screenshots/audit-r2-tutorial-light-desktop-checks.png"
+  ],
+  "excluded": [
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-checks.png",
+      "sha256": "5ecdfd400c9a96d4c650cc7b9897a0ccdaa560a76d979d8f1aa4bbb0b34e4133",
+      "bytes": 126592,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-component.png",
+      "sha256": "d4ce5535ebf008ebc6cb2e4c2cc802355a8311cd48f4477ca04ffc3ab3f21123",
+      "bytes": 132967,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-default.png",
+      "sha256": "89ae85390d3bc47771f555954994aea43b532c8669c5f7b214df20b8d543c9ea",
+      "bytes": 83512,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-diff.png",
+      "sha256": "4f3a5cd2bec7107ac7a003ddc4f34039a19e45fe2a15ad1c111486320433753e",
+      "bytes": 91726,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-evidence.png",
+      "sha256": "506dd914949375f73e7e018764903d75580280dd8e13c8b54ae18b0d08ee96c1",
+      "bytes": 120356,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-evolution.png",
+      "sha256": "8c877b9b5fbf480dc097de4d1b1f0e8c139e9d47d0c91a4ea4663a0f50a72e93",
+      "bytes": 140825,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-implementation.png",
+      "sha256": "02cd99324d24d67de33b6b5fed03552420e4009fb5dae7219711d8834e868d3e",
+      "bytes": 125046,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-desktop-revision.png",
+      "sha256": "33dcff42b663db40b2ab770cf6c83e68c724ad7229e96756475613652fbf64a6",
+      "bytes": 113870,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-formula.png",
+      "sha256": "53079787a2d18d5cb9ab9f296eadde34dd2c6f2b8a2eac96754aba8ec4604fc7",
+      "bytes": 118872,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-mobile-checks.png",
+      "sha256": "18c7e11f39901dc529b211a4a9f5c96f2cce3dc0575620b6c23c479b67a79a62",
+      "bytes": 69907,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-mobile-component.png",
+      "sha256": "0dce3a9c727a2126cfb60bda24790226cc4a6b7790d321e76d7a88f20c938984",
+      "bytes": 58978,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-mobile-default.png",
+      "sha256": "42fbf4f7d3b3f51c8b89d7cc815dfe5c10a05427ba27b91b6bd5553386a3ded9",
+      "bytes": 43126,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-mobile-diff.png",
+      "sha256": "ad4785a902e44bedd8296cb19448ab87400fcc5d3d095dfb669f5a2d6559883b",
+      "bytes": 34243,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-dark-mobile-revision.png",
+      "sha256": "197e3c918d030d10a9d03f176fd6939b1d4df73f159cff4b747587a8075744ed",
+      "bytes": 55937,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-desktop-checks.png",
+      "sha256": "a799bfcac5ac9344a41c9091c3fd191828209c8549599d145c9ab4b8a67059b4",
+      "bytes": 126786,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-desktop-component.png",
+      "sha256": "71d38c6fabdb25d951cc470f5c44fe9d37656631041b25cef1df63931d6d5c5b",
+      "bytes": 132399,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-desktop-default.png",
+      "sha256": "c4556ecd1117621e14ff91753b12261dd13701c644a73c6c5cd2df0cb7add6ed",
+      "bytes": 83140,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-desktop-diff.png",
+      "sha256": "337beea3e77fe5b8f07a196c12587147be3b6896c001454925d693d1fc3237bc",
+      "bytes": 91825,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-desktop-evidence.png",
+      "sha256": "5e96a8963587df825bfacf29cd24157c5cee01871053c452082039cec2d377d8",
+      "bytes": 119740,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-desktop-evolution.png",
+      "sha256": "33418ce5c4f364fd49545674cd6e00f060edfaa8e77afc3f5d8684ae5979cc20",
+      "bytes": 140183,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-desktop-revision.png",
+      "sha256": "02a9d6fe913a5d4b0813f4cf3ef802fa6727ba002f824a6cac76c9e236baa152",
+      "bytes": 114023,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-formula.png",
+      "sha256": "28d60ff980a82933dfb4609a96604148c59a3fb6ab868095c244e0547fb81b4f",
+      "bytes": 118055,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-mobile-component.png",
+      "sha256": "1adba9400102bb9a4dbf4265a29b5fbe5cdb5344885a408c6c1865635ffe8b28",
+      "bytes": 58802,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-cat-light-mobile-default.png",
+      "sha256": "4d90e57a962c0942700610c2456d5e209667534ef3d1d1fa7d6696d6113d58e0",
+      "bytes": 42875,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-checks.png",
+      "sha256": "c15bad8607212689a74f00004f22d28ae5de5148a0abfac8ace5fc1ce1e62d9d",
+      "bytes": 105404,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-component.png",
+      "sha256": "f94be4a4a9a1496278ef96714441ee6805ff49c021465084843b586fc6b8a25a",
+      "bytes": 147764,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-default.png",
+      "sha256": "4cb9e5e1f85409b0677367600b8d20e3a4e67db0905cd671e4e06c7d174a21f6",
+      "bytes": 101962,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-diff.png",
+      "sha256": "43834d6e712f2740afba5351ea32fd2b7208b20dafafd89285ddb3713cf6bb44",
+      "bytes": 106861,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-evidence.png",
+      "sha256": "6f246f4cfadde59ba61da16f5ccfc340d060becc5df559ea304bdef1a10f016f",
+      "bytes": 136441,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-evolution.png",
+      "sha256": "4c13e13f77184430024b111493b0cabecf4b6216e2287092610c8bc4b6918ffd",
+      "bytes": 159857,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-implementation.png",
+      "sha256": "9abd73cdcbccc6667ca4a9d22e42de5fb4090e99790bea33e5983bdd5b925317",
+      "bytes": 131424,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-desktop-revision.png",
+      "sha256": "d9254a67410fbbe479b21c931a07e9e44f15a220712753063da81fbd132822cb",
+      "bytes": 123935,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-mobile-checks.png",
+      "sha256": "993ce1d1cffb528bac2347bd7bf680c626e202b7c9cc9de5ff013dc512665e82",
+      "bytes": 69238,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-mobile-component.png",
+      "sha256": "b4c2f923ed0dcc0135a9fa89180daa41bde75760208d66b78c917c6702310b65",
+      "bytes": 54060,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-mobile-default.png",
+      "sha256": "2919935e10d939a87c2957773466e193d92c9bba15186255c6834f5aa7bebed1",
+      "bytes": 60335,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-mobile-diff.png",
+      "sha256": "e251116b5d7de5597102708d43b3670fac3d97d18eded98695d1eb259a17a808",
+      "bytes": 44930,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-dark-mobile-revision.png",
+      "sha256": "f1448d4f26d499b58f5a981837764b179f9f8b026997a692b423c3d387e85561",
+      "bytes": 65976,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-checks.png",
+      "sha256": "d55747d1cdd98ed432df7814fdcc9ed268bc2e9f92dfc0998ad01bd3e18afc3a",
+      "bytes": 105603,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-component.png",
+      "sha256": "bee73040e5a558bb8e014af2e007cca6d6268024c5fe87f72033e59bc8042f88",
+      "bytes": 146226,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-default.png",
+      "sha256": "f76abf2c8a0e53eea8e83ef750e87474dd901bd9dd1c593087c7beace9cb9e95",
+      "bytes": 99933,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-diff.png",
+      "sha256": "0cb4eafffc7cbb053aa5e140b9aef38bf9cd87886e8aa16bc079f1343e1890b1",
+      "bytes": 104987,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-evidence.png",
+      "sha256": "7afd870d02e7d46ddc49676c839ee17dcdb93b4752119e39743ad589b26c2bcc",
+      "bytes": 134865,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-evolution.png",
+      "sha256": "2b5e1673bc3ad2893e7c2c2ebd653c5d1cec603b532d467553c08a85846521d4",
+      "bytes": 158204,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-implementation.png",
+      "sha256": "ebd6ff39276402e96898e2c4ed15d0ba618e8c4aadb0b0cfd2ae2e93111a0617",
+      "bytes": 129693,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-desktop-revision.png",
+      "sha256": "d7a86181bc4b0334a1a7c09fd695304901ae73c0ac055264605b9e3a6d430d1b",
+      "bytes": 124257,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-mobile-component.png",
+      "sha256": "841df896c10961338d8c0d33e2dc2388526b564e7055ce2cf4b14cdc4d1535bf",
+      "bytes": 54131,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-da-light-mobile-default.png",
+      "sha256": "563806134d88891d24de7679599cba7c49eb0fa6b3eefee241eb1ae908021e26",
+      "bytes": 59304,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-desktop-checks.png",
+      "sha256": "3cc251cc0f76f2c291ba7acf348bb62d4e6c73676ad42eeb4504e83dfc499d70",
+      "bytes": 120202,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-desktop-component.png",
+      "sha256": "c06247591a94a2344471877aea63817e6f1f8d720e2abed8fb67c5aef21661f0",
+      "bytes": 154654,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-desktop-default.png",
+      "sha256": "e781bae3dc110b079268c5fda770f13e183e23bc42429bb7279cd44609f31411",
+      "bytes": 105279,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-desktop-diff.png",
+      "sha256": "9a9201d5402001869a23c18ddfacc290f0df8176117ecd1bc375ceb24cb0ee54",
+      "bytes": 118190,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-desktop-evidence.png",
+      "sha256": "98003c558b51c8d7e24841982a09217f8e14887f92ce703de7ac22c246cdeb12",
+      "bytes": 135543,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-desktop-evolution.png",
+      "sha256": "51d7e60159f89210d403c5b16897cd9fcd8cdb9364308b09a68e0e7c0cc91d7f",
+      "bytes": 121914,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-desktop-revision.png",
+      "sha256": "d6339c6d48b56ae16dce13ee6cfb67066350d2cc84240777945f2b518bd48a00",
+      "bytes": 154567,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-mobile-checks.png",
+      "sha256": "29f03e6aa0db152ae252372b4130fb274e9da253117e10ae0c3494013e42fc5d",
+      "bytes": 64470,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-mobile-component.png",
+      "sha256": "6461ab5d30111a5a154ebe57a083cafb495546e2ce162262375e72fd7cb22e85",
+      "bytes": 39514,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-mobile-default.png",
+      "sha256": "74c5d5dc4e56775fa74cb03d5369fc0b80706b6803ee1944467a8c4cca1f4a56",
+      "bytes": 49161,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-mobile-diff.png",
+      "sha256": "e15b7fe0842e7ea06adad93a499c0931d7d316d71ea623c2f79ba1df91ccb732",
+      "bytes": 41582,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-dark-mobile-revision.png",
+      "sha256": "596f96aec63ef1de47d5d8c30210105b3c66c9709aff5650f32da4cddddd64f3",
+      "bytes": 60382,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-checks.png",
+      "sha256": "19cd6413d4a596b35ea46c7e0ab0a9cd1a9214f626749d1332c5aa45ad6393dc",
+      "bytes": 120437,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-component.png",
+      "sha256": "597f74baa7b9cef04cc10ffdef38a49c7eaa924b549155681f2f12476932e897",
+      "bytes": 154005,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-default.png",
+      "sha256": "c9b58cd8c5bf838c9cde3cc3028170a85bb6868c17a74dd7cc85eaac47b4b7ea",
+      "bytes": 104650,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-diff.png",
+      "sha256": "4ce672ba0e011b4c9d5af2495ca8e95a321be6953646783868f3d2afccfe9cab",
+      "bytes": 118022,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-evidence.png",
+      "sha256": "b19245671701f5e6085b0d7d6817bf1537fc4fe63ebdfb6faaa61ef0b8ab4d09",
+      "bytes": 134765,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-evolution.png",
+      "sha256": "cfc1622206980aeda34ade1800c5e5f40ee17912c836a01961995574fe1d1e31",
+      "bytes": 121035,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-implementation.png",
+      "sha256": "3c06b5c44035d3f8a2112bcfb1a714945aebbc0bb99719220f4f871e255bc670",
+      "bytes": 158594,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-desktop-revision.png",
+      "sha256": "db24eb296c9c1562f2e097e86e3cd754660718ccad4bdbc9919983982fc1b902",
+      "bytes": 155163,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-mobile-component.png",
+      "sha256": "6daf240ddc01d09701068b0c5137b835d03faec7f5b44bd7ef2504c839ca21db",
+      "bytes": 39651,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-mica-light-mobile-default.png",
+      "sha256": "bb1fa246d933016e9b9bd3f57a0302a6250ae6b14da275d1c3533ff4178400d9",
+      "bytes": 49061,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-checks.png",
+      "sha256": "6466cbe25cc41c395d0c672405d6be0e5544dec6fda26859af0a0c7a4efbefe6",
+      "bytes": 123803,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-component.png",
+      "sha256": "c2139808ba0e2ba902499dde57e9811b8cb7074688fb8c706c576eab2d235036",
+      "bytes": 135766,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-default.png",
+      "sha256": "6b409e8d6ade72f5c6c1082387030fd3fe5f79fcedfc04e1e9d0409f74a1e12e",
+      "bytes": 97521,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-diff.png",
+      "sha256": "db4af52ae2108d03aa5cc463a387403d23b5a3f2181fcbe336a748a6e46087d5",
+      "bytes": 102688,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-evidence.png",
+      "sha256": "d3aef1ee9e5890e4385ec14ffee4e5d8f48bd71d16889f6b43457483a9ef5383",
+      "bytes": 130661,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-evolution.png",
+      "sha256": "48c973a4a4fcf09cf5aad3fdcaeb7626456b834d0df3b16eb314da81d7ed437d",
+      "bytes": 115996,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-implementation.png",
+      "sha256": "f10a61f488fa27f588ba14bd4372f0b2d0c08ded2ae338f9b10289a34ea5bf5a",
+      "bytes": 127077,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-desktop-revision.png",
+      "sha256": "b5b8d85a5fc216c01df34d893402ce7559f62e1cd05c18628cfb0485bd956087",
+      "bytes": 123362,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-finding-0.png",
+      "sha256": "a75d421f8ec4d129982727bd69b20ae4be878ccd8e0805966e1c765cf888fb14",
+      "bytes": 154886,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-finding-1.png",
+      "sha256": "42fcea8a5ba7c4d20c62ad8c69b6b93c77c06246612248a3fb5b3381d3d25d6b",
+      "bytes": 150365,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-finding-2.png",
+      "sha256": "1769ef3e7656b97dbb5850f1dc852f198a91d1b772da894b1671e331bfa21c3d",
+      "bytes": 150020,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-impact-order.png",
+      "sha256": "ddaffba962b69eccfcf35b882121ee8c0582715c3253c2efb47c3324672a62c4",
+      "bytes": 154385,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-mobile-checks.png",
+      "sha256": "1eeb01e5b58f17d5a256b30598473f863e21f0bdba2910543c032aeb5e331ced",
+      "bytes": 59764,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-mobile-default.png",
+      "sha256": "4f2296818a60be19ac85c94e761c59f761033bc7c208b67404dc490f223350b6",
+      "bytes": 54446,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-mobile-diff.png",
+      "sha256": "e86c34f09e5cec15afa72bc4375c60ee04f40c52d497d0ccef9aa0e03c5c35a5",
+      "bytes": 42442,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-dark-mobile-revision.png",
+      "sha256": "6aea6f0f269ce2d1d3c826ea9267d5faaae331fe9f33d403a54466445c6d3565",
+      "bytes": 58125,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-checks.png",
+      "sha256": "c59e02a47f08508d2cb5b60cb26509dc2bf1a0b4c2d2e9c88c186e9a4fd5e68f",
+      "bytes": 124062,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-component.png",
+      "sha256": "0b29ce13016539ca12362214d69214e167f03decc4fb0f11a68a11d15b76a07c",
+      "bytes": 134945,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-default.png",
+      "sha256": "8dec019b0c15204046a6d6aee52e1020ffb47d27b1ae2d0ec8cb0f51af3b5cac",
+      "bytes": 96743,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-diff.png",
+      "sha256": "cf51e210b2e430c0498d39053389726b8bb88c6eec9d12c4ca31d04209899391",
+      "bytes": 102099,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-evidence.png",
+      "sha256": "b304f3c75d33c905157b7c66e0d2c4cfc39148409d23d4ed462512405e18d8d9",
+      "bytes": 129924,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-evolution.png",
+      "sha256": "9ea070cae8ed115f57680bfde43afd7c961c6362dc9fe13df9365303f20e2a27",
+      "bytes": 115320,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-implementation.png",
+      "sha256": "c43bef6f3e0ec90d312087974e41bb24c2565a54979289ebb972ff932ba398b9",
+      "bytes": 126374,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-desktop-revision.png",
+      "sha256": "09cd9e59b8e4fe1b055bdeb43ed43be3225c50788cc8a2ff5c02f2f19a2ee917",
+      "bytes": 123692,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-finding-0.png",
+      "sha256": "2e699bbb491beaae5151b47886ad59299a2bacd389e8c8cd6a9aec5cdb9d1ad0",
+      "bytes": 154213,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-finding-1.png",
+      "sha256": "62299cf8df0fadc8600baa80a7525f8ec83cad31cb03db0114c81d6be8e0524f",
+      "bytes": 149440,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-finding-2.png",
+      "sha256": "eb96bc08ab1ab91cc88870237529ca7d31508fef362e6f4bd2991b387cf8c719",
+      "bytes": 149468,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-impact-order.png",
+      "sha256": "794f8de195fe759d1d0a3b5210a5609fc3469a5a2b671a84a30108db7cd8aa27",
+      "bytes": 153677,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-mobile-component.png",
+      "sha256": "76dc71baab3c653cc9c36ee188840153160cdfec05a38f3dfa4152eca493b22f",
+      "bytes": 47721,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r1-tutorial-light-mobile-default.png",
+      "sha256": "215c184e261920d089d6c14d5aa64ccf114606e72c70da14a5d55a0ec3fe7900",
+      "bytes": 54219,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-checks.png",
+      "sha256": "1efcfba13c0d4c5ceb4a4baf2ef1fced112d6d889f45f78b23972ea5ee9dfd1c",
+      "bytes": 122629,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-component.png",
+      "sha256": "ef3fc45cde81a1fe685302b2292520c5a7bc224017d0a625443fbfba14196f85",
+      "bytes": 121070,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-default.png",
+      "sha256": "e953335a80a4b1a916e376a1f2db1192b80f8c0d7b5f0e735c3aa948af121d07",
+      "bytes": 76414,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-diff.png",
+      "sha256": "5924ce1e2aae234f1680484b746fe3610afd03970f936588bfedd3b3dc4a22d0",
+      "bytes": 80632,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-evidence.png",
+      "sha256": "df7c7672daf035d86135b000a5a493c4028b0d61157f0c84a5a8a137a0651c8f",
+      "bytes": 114033,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-evolution.png",
+      "sha256": "e88a3d2d1d2befa00f7b69223c1c808a53754b7676cd363abac439bc793129a8",
+      "bytes": 134435,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-implementation.png",
+      "sha256": "da5d48bcd705687b5f949ddf8c5db3e2b50796e4507c1ed92efdcb12e9f014ec",
+      "bytes": 112463,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-desktop-revision.png",
+      "sha256": "50704d78636ee499f475dd748d93cec55136308155f281768c8f10e20f706a08",
+      "bytes": 110234,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-formula.png",
+      "sha256": "1b364e06067b83c18bbe631da81d1f0b88a7d31e7951e90ff3a9b72f5814d026",
+      "bytes": 111652,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-mobile-checks.png",
+      "sha256": "33d88b214998afca5d948da2dece744df531b873e9b45745c4793a4dd3223cdb",
+      "bytes": 68900,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-mobile-component.png",
+      "sha256": "d5cc7dd009ee73e569e56b4ca5dc11febd27b3ebd702c67ba8ed6645bfca0f18",
+      "bytes": 53562,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-mobile-default.png",
+      "sha256": "6c4ed8c052ea1f0775c5d882d41a4a2251a570e0b6530ef736d4c8b63ac167e3",
+      "bytes": 43550,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-dark-mobile-revision.png",
+      "sha256": "3f5cf98c6a8011247974aa6a8afc45ec6879dcbfdedaea33879e60d4c8e8f9c7",
+      "bytes": 56251,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-checks.png",
+      "sha256": "77cf802fcfbb1cc879e292fdf57fed18daa2d2d25c3abec8e47bfc39435fab7a",
+      "bytes": 122838,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-component.png",
+      "sha256": "2db51354803e1c9e38574116405bdfc8498bc487df03874b3ee078ea7549eb61",
+      "bytes": 120612,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-default.png",
+      "sha256": "d5d174b31d1300bb7a604293d6aaf517578ba5a2d1cf6e8df0ba12f51c97ff04",
+      "bytes": 75962,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-diff.png",
+      "sha256": "a8c8b220ababd9b8b20e4c292fa2ca88192ce86cd66a4a0f4f53ddc26e780fff",
+      "bytes": 80398,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-evidence.png",
+      "sha256": "86224f5bae8fb28a97ffa325f0f8452bd8d846e52ff400d64899334b48c29296",
+      "bytes": 113701,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-evolution.png",
+      "sha256": "f14dd01cf88bd60ebfd27f638e12c251b82cb8435102ba496fa0f0cd8da32b49",
+      "bytes": 133931,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-implementation.png",
+      "sha256": "bb867819c278ece6797533c4161d7d808e05449f3259962a7542ee875176869c",
+      "bytes": 111759,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-desktop-revision.png",
+      "sha256": "acb46d4c24a22e9297d4a8285c730721cf13710e180a1061a129a73389d00c88",
+      "bytes": 110245,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-formula.png",
+      "sha256": "43b2d08a17bb7fe384bbb0f6a82f69df8ddfa2cbab628489525f5a77e0922537",
+      "bytes": 110953,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-mobile-component.png",
+      "sha256": "670bd1f2615c9b38a2d37ed196c43c6bca0d849fa89be376efa9765ee14f867d",
+      "bytes": 53490,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-cat-light-mobile-default.png",
+      "sha256": "9da39f880c7027422ce1cf563d2115459085ad821afc01d8157dfbcca35bfc91",
+      "bytes": 43308,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-checks.png",
+      "sha256": "3692405dc0b5508c011c2137d7950e6018174f398b66f3bc6c0aedfa0da2554f",
+      "bytes": 100350,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-component.png",
+      "sha256": "2e0994f9e1a221dbaac43937e0fd62312251c28de6588dca616d4fe812547117",
+      "bytes": 149181,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-default.png",
+      "sha256": "df3863fe54f759672e5c088529c90480a987984d2b579e0a6cee145c781173ad",
+      "bytes": 103106,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-diff.png",
+      "sha256": "f3edea5610cfe76b756020146d79e667effd7978752f3936afc0ee5a839444e1",
+      "bytes": 106366,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-evidence.png",
+      "sha256": "44fcb29ab3ff4287d6c0f7c9d95648aff76440d86a15b6933106035f4e541180",
+      "bytes": 137096,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-evolution.png",
+      "sha256": "f668cdf1a78b799307646e983efe77ae32e0d1730c4f9ad26f35b14c63ecdea4",
+      "bytes": 178868,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-implementation.png",
+      "sha256": "0709bcb98a3a57a92c8a11c9a597d794e80bccb7445ede321fefe729704e03c2",
+      "bytes": 132087,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-desktop-revision.png",
+      "sha256": "65c988dc2873ad5b829f55636172fb4e0b01dfdf2f95b1861c9bd35591c4e43b",
+      "bytes": 158988,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-mobile-checks.png",
+      "sha256": "0a66bb200e411c7eb59910b5133b8cba3ff29e34e5dc83eae2110c0d64b215c3",
+      "bytes": 64467,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-mobile-component.png",
+      "sha256": "5e5ffd320bde4d76a12da475e91c0d32dea8d6e00f7fc084db70b22a1e5dadf6",
+      "bytes": 53976,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-mobile-default.png",
+      "sha256": "85652009af5761ccaeac0beb76dc9c0b33e83901241c0a89d21adc8c4dd4f22c",
+      "bytes": 60358,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-mobile-diff.png",
+      "sha256": "ba926f5e770cab7d6f357ceba1d28e1cbf543bf42a7466d537b37bc0a47cd6ee",
+      "bytes": 45739,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-dark-mobile-revision.png",
+      "sha256": "df2930a02e785c0c7f0fc91372a39d2c06d27cc496adfa77f422e5d449002b49",
+      "bytes": 73230,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-desktop-checks.png",
+      "sha256": "3e9eb30e4a33f4a63b82f79fb2056712b3e8dfd34691f6c08830a1bd0de887f3",
+      "bytes": 100755,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-desktop-component.png",
+      "sha256": "3fd14fedf36c6410217873c7ab0455ed2a57f0e7e1763010f6539e6da4c2851a",
+      "bytes": 147495,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-desktop-diff.png",
+      "sha256": "42d41a4bec01115795e6cb9dfcfc9e777c2990500ba25fe92713e16fa687c91e",
+      "bytes": 105016,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-desktop-evidence.png",
+      "sha256": "9dca61f8450b4208fb692017af27845ea99700564993431d4203062574b54214",
+      "bytes": 135590,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-desktop-evolution.png",
+      "sha256": "b3b1d2f43dd4fb4d3a55f5afa8912a33f71ffe2b6664f9ab7b7d2bea4ee9c986",
+      "bytes": 177136,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-desktop-implementation.png",
+      "sha256": "5859a31b12b70c883e811f1d1f1f13d577d4fab51d7b060b97eece3d001049d2",
+      "bytes": 130222,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-mobile-component.png",
+      "sha256": "5de972860f458f93257524c70eb23839f622d549adcf417ff043608597f454b0",
+      "bytes": 54033,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-da-light-mobile-default.png",
+      "sha256": "10fea2e2ff03a5b11e481e12522ad5d6d66269af96b76fa55bdec1f1e88d5c7e",
+      "bytes": 59741,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-checks.png",
+      "sha256": "6e10aa8946f6e0a1ba1aff27531ee55c256f2ef4391d3b8d978bc040824114d0",
+      "bytes": 115454,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-component.png",
+      "sha256": "04561204996cf6c942db6c9a87d92205af9f117d14b3cb2753225341efad925e",
+      "bytes": 154419,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-default.png",
+      "sha256": "b7f4d7faefae2eb4566ccbbeb2d15de849fa959b3300fada8d8cce55383e6fff",
+      "bytes": 109671,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-diff.png",
+      "sha256": "83cf83cd7b5566295b9b2704efe710b006eeb159f3e145424d920309a7b81110",
+      "bytes": 119815,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-evidence.png",
+      "sha256": "3d58dea1614f90b8e649dcc45dcceccd0e8ff1b30115b4e904ff51fb7485575a",
+      "bytes": 135389,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-evolution.png",
+      "sha256": "2d23b76eba4ff8aeb8e2cca6fea8218335e83100699050a4333ec04e24e927e1",
+      "bytes": 115909,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-implementation.png",
+      "sha256": "4ddffd859e555310a7c246ab85a37f9c3dd27368b2b8a1e949a0a62aaa840f25",
+      "bytes": 160372,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-desktop-revision.png",
+      "sha256": "4e2e76beedd3c2c9a64c77763a8df76567bef4bcb3bac1133f0105fbbae2bd85",
+      "bytes": 158228,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-mobile-checks.png",
+      "sha256": "278bf822ecc4ef640b1d5955903c617f0dcc459e8fd3d9a9e162ae08ff6a7a12",
+      "bytes": 62223,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-mobile-component.png",
+      "sha256": "21818ba3bb76ccb6614fa4d65fd1b90734a41591483cef6216e40569095a5b86",
+      "bytes": 66602,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-mobile-default.png",
+      "sha256": "ce54ad4622e8d02169edd19e826c97468229d3984d4dc903b899d7d24fde446b",
+      "bytes": 49558,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-mobile-diff.png",
+      "sha256": "996a5d7ad5c12a1d7236d4aefbdeaf84f3c5041dc425d320cc7d5fafcfbf8618",
+      "bytes": 40756,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-dark-mobile-revision.png",
+      "sha256": "9cdffa00c57b9526eaba008ebd35cc2f4f2800c6734814ee31309dbe3d35f537",
+      "bytes": 53386,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-checks.png",
+      "sha256": "9caafd07a757db1c4649542ce93b771dbe357c44d0d9771a06ca8473e5b7a360",
+      "bytes": 115344,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-component.png",
+      "sha256": "005681fe8b2cf412acd3645fc34ee5b200a5668fe07a0b7ebeb382d5312adc42",
+      "bytes": 153604,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-default.png",
+      "sha256": "2c88522b6db668116263ac9ba81fdb0562c95057c9ceae197180452ac6da696c",
+      "bytes": 109335,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-diff.png",
+      "sha256": "835622d8fe240215bab14595a3d90ecb70bbcce4ffe60571fa569947fc27705f",
+      "bytes": 119126,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-evidence.png",
+      "sha256": "9ad2d8cb10a03e6d54bbc36ff3d9daf7b4464ff9c96348e1d887bcf3680b5ba7",
+      "bytes": 134621,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-evolution.png",
+      "sha256": "642ff90ff743a5def6462d14e4a2d6b5c93a9419a1133839aae8679c16c69a9d",
+      "bytes": 115162,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-implementation.png",
+      "sha256": "8887c75be3a2f250ee5210d03075cbc361b37153628c28e82b001c1218df2b55",
+      "bytes": 158055,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-desktop-revision.png",
+      "sha256": "42d4fac46f1d17e0e441864860fe3c5d3c46bb0a3bc73810e521cdd0cc2335e2",
+      "bytes": 158177,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-mobile-component.png",
+      "sha256": "ed7789ff8075916a72b140cdf78c299fe7f05e78f3ceb15601d41a6b0a698f2b",
+      "bytes": 66868,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-mica-light-mobile-default.png",
+      "sha256": "dbf44e1c3c440d49e9a743779bcbf5913954aa9d70e8a28be9793c905aaa593f",
+      "bytes": 49263,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-checks.png",
+      "sha256": "f63a9fcfa6bad157126d54395cfffd3b752e932722bcab97eaeb6a787f3a219c",
+      "bytes": 119649,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-component.png",
+      "sha256": "6c16da0586f7498efb58b85d7f6329a16a1820936bacb0b5d12e968ffad3629c",
+      "bytes": 129034,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-default.png",
+      "sha256": "1eae33edfe0de40d15892c8484fb63059e1d1ee9aa430f4d54b3890a738272bc",
+      "bytes": 97553,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-diff.png",
+      "sha256": "ae26e57f5f7da78c462e55f0000ec88c918c8318fc183f0d89a9e33595558533",
+      "bytes": 92563,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-evidence.png",
+      "sha256": "5a6bc14a6ccefcf0c9505645e96a444a2d83bf187b918f8651a0a3917c71180e",
+      "bytes": 130942,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-evolution.png",
+      "sha256": "cf1795ea4acbc2e11adff012211168fff21b408e3a38cba1963cabd13311fc31",
+      "bytes": 109897,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-implementation.png",
+      "sha256": "6c16da0586f7498efb58b85d7f6329a16a1820936bacb0b5d12e968ffad3629c",
+      "bytes": 129034,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-desktop-revision.png",
+      "sha256": "e9cbc95909d821b407f9bd8616c9b5316d1e8e68525621f3219b7c5de58ef2ea",
+      "bytes": 132634,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-finding-0.png",
+      "sha256": "7e4342a91d2cf9514c585443f322207fb03d349ceef22fdef4a24a733d4be628",
+      "bytes": 152968,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-finding-1.png",
+      "sha256": "4f54c73581107df345a74a3a1b38f1329bd6864e60a62ed024d0b19ada5adb81",
+      "bytes": 147930,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-finding-2.png",
+      "sha256": "846f3ea0ae36579747d1875ac2d9b2d09462a7b323db718ec4b4d69d14a5d039",
+      "bytes": 146846,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-impact-order.png",
+      "sha256": "c7dfb59f972a16fbece8b982750a0ba3d6803c29b8d81ae2fc2832ad8a32edf6",
+      "bytes": 152513,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-mobile-checks.png",
+      "sha256": "7889d2f2d8d3f8258f99f3230b779225a1ea5eea3fa7bbbfec647ea7c1553ff5",
+      "bytes": 59824,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-mobile-component.png",
+      "sha256": "7f90e5b1fb18d596225dfdd144ca6b7ec2926b259576049e8defb3f0f65199fe",
+      "bytes": 42739,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-mobile-default.png",
+      "sha256": "3af95ede437371c8ed1f247446267a062c89b2a86294ef4feb74d68feae18b52",
+      "bytes": 54834,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-mobile-diff.png",
+      "sha256": "40ce5602b055c4ffa7c81878eaf885515c0c0606642628e2b47a15f9adc44eb5",
+      "bytes": 38674,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-dark-mobile-revision.png",
+      "sha256": "37b9131b7136a1369e438935b6a765f50d59319ccabb01a40a60cf9fb9540e47",
+      "bytes": 63426,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-desktop-component.png",
+      "sha256": "e52f60b4a7cf15ca02114eee34c747bfd4e5203d2fdf48ab9bc246761a88eca5",
+      "bytes": 128027,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-desktop-default.png",
+      "sha256": "37a6332abd21828dc97ae94d384335134a69a807f41a0ccfde0aa780799cd94d",
+      "bytes": 96781,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-desktop-diff.png",
+      "sha256": "ce2a6e1741f663f1a7c2eaf29f08001338cc1730773c336f0123030a2bce0561",
+      "bytes": 91996,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-desktop-evidence.png",
+      "sha256": "2c72e2fb708cbd72bcfe5269e4da5d129f88338347939e97c957f6bf87e95c42",
+      "bytes": 130067,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-desktop-evolution.png",
+      "sha256": "4f4abd99a06f0e2b590d20688b62bafd4a191fb21739a49b1c83e6d198f1d74a",
+      "bytes": 109120,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-desktop-implementation.png",
+      "sha256": "e52f60b4a7cf15ca02114eee34c747bfd4e5203d2fdf48ab9bc246761a88eca5",
+      "bytes": 128027,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-desktop-revision.png",
+      "sha256": "baf3a9d47adbc8025ddf132154336830b74c13c7f6b1bf6036aaa9b70fca1be0",
+      "bytes": 132399,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-finding-0.png",
+      "sha256": "9f3da0037ab7b3c5621b963d6c5153344038684676db854a102c7db9ad89081c",
+      "bytes": 152350,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-finding-1.png",
+      "sha256": "e228f2fc14b3b6691d3395133337b7cfbd3bee92150ceaed4f96b742c55c9562",
+      "bytes": 147519,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-finding-2.png",
+      "sha256": "a48f6e9fc5d9d0d5fb3975b0c24a8b65309bd5b0e6ca5d49dece8d210ae0d64a",
+      "bytes": 146234,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-impact-order.png",
+      "sha256": "575aeeef5e183553ee0ab42e3b6b7de553dcc9e79fa67546b559bf8870657496",
+      "bytes": 151864,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-mobile-component.png",
+      "sha256": "430375f1c2d14e9e1ba3f54031afb4407724783a94cab2cc67f41db2823c1eca",
+      "bytes": 42497,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r2-tutorial-light-mobile-default.png",
+      "sha256": "f7334d87d9bf15e009e5c413ae5f36fd82d6ce4dcc11892d7d2d39756b973f00",
+      "bytes": 54451,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-checks.png",
+      "sha256": "7b07e8855b8a57b57b109545ae3c9fd317cebd460954fc091bb29de6270bd528",
+      "bytes": 122855,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-component.png",
+      "sha256": "a68a89b5cb719f29d50794f3c4c5679392cd0f1aecac5e787aaf4d853b9452a3",
+      "bytes": 127778,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-default.png",
+      "sha256": "ff292b11a49c4c67e5ed14bc39ac22a8c4853c352fa4ae7acad7c188c33e03bb",
+      "bytes": 83235,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-diff.png",
+      "sha256": "b06775120f7e0614c343661367b618486868fdc62e96e55c94beb8779072a553",
+      "bytes": 86653,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-evidence.png",
+      "sha256": "1c5dbff7b3135a93406bd926e6dcf16461f58dad08728e3aa8c296589bb2fcc3",
+      "bytes": 121176,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-evolution.png",
+      "sha256": "b7b4eae28d1b4a8e3d7cfda280e1c913459bcc0aec00add394bb8849af489c5b",
+      "bytes": 148937,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-implementation.png",
+      "sha256": "bdd2721b8b1ceb8d183da9b0670891445c64719bad5110b53f600644f15d043b",
+      "bytes": 119464,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-desktop-revision.png",
+      "sha256": "0e856925720f0840d86b6000c0602647db1ceebf98d2b6d03bc1eaf0a531f04a",
+      "bytes": 116255,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-formula.png",
+      "sha256": "66459182c6d04517ddfe832210407f82b51e1992b6f3a91ac50e85963a65b1da",
+      "bytes": 118749,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-mobile-checks.png",
+      "sha256": "5d5648adcec397a36e54c668e4a70e9df72b07641114bdb32553e129dea8b4b6",
+      "bytes": 63003,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-mobile-component.png",
+      "sha256": "6ae0d6e7890245f6df391d84dc532909806d881a0c50444b96ab1ec2cb4afeaa",
+      "bytes": 55151,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-mobile-default.png",
+      "sha256": "6c4ed8c052ea1f0775c5d882d41a4a2251a570e0b6530ef736d4c8b63ac167e3",
+      "bytes": 43550,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-mobile-diff.png",
+      "sha256": "c184748a03bbb89e01de22380086795aee847cb03f10c4bc3c1eff53a7a40096",
+      "bytes": 35406,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-dark-mobile-revision.png",
+      "sha256": "8356c8d4db49a62acfbc526ba13554d76d6a7d14fc20dbbeef951fcb2cedc3dc",
+      "bytes": 59494,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-checks.png",
+      "sha256": "ab0857dcbf471d52b36969ad3e37c1fb16e99aff7ac2fd3fcf8ee8113db80cc2",
+      "bytes": 123084,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-component.png",
+      "sha256": "39a4c0e0334c58594757521199d570515ff9a6700673d90631b7cee57131c4bc",
+      "bytes": 127426,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-default.png",
+      "sha256": "977a6c40eb7482ae4e2665d40e55014e13df50bd86a29cdf5532fce77265afeb",
+      "bytes": 82909,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-diff.png",
+      "sha256": "e1b084d5846ef7a72944726189fd3047e645f4c66a1e0c9c455c3af01390cb19",
+      "bytes": 86419,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-evidence.png",
+      "sha256": "60c22e593b52c96786a913dde1c143cdbce5e7108dbbecf19534a6f690f961ee",
+      "bytes": 120809,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-evolution.png",
+      "sha256": "0c73acf44c4661102b78436b60075dc54aa0e18881ec332bcfe6a58de4d5d05a",
+      "bytes": 148338,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-implementation.png",
+      "sha256": "ba4ad703ee41917c193d6200ba0869f883c52fda898d0e89b8e39f9680b50947",
+      "bytes": 118905,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-desktop-revision.png",
+      "sha256": "b711f28f60754099e3ef03e1071d2574a98dc82972f75ac7760647a0d8b4c598",
+      "bytes": 115883,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-formula.png",
+      "sha256": "97778cd21f121e2a8bf74a30f71557316a51113fa6a8a3c347cddf85119ead13",
+      "bytes": 117989,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-mobile-change-detail.png",
+      "sha256": "997cfdb0c8cf229445f442ba2e266ae5546bc1c0b73d79c73bf53c6a295415c5",
+      "bytes": 45392,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-mobile-component.png",
+      "sha256": "e272c716a94c55e25f848fdd98f6b1622db5d94ffc68488457f838fc3b8950f0",
+      "bytes": 55030,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-mobile-default.png",
+      "sha256": "9da39f880c7027422ce1cf563d2115459085ad821afc01d8157dfbcca35bfc91",
+      "bytes": 43308,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-numerical-source.png",
+      "sha256": "cc623b89cdcfaf6b4dcca3b42f6fa54c1eb55e06cb83f1fd9bc42557505d5804",
+      "bytes": 120605,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-cat-light-withdrawn-history.png",
+      "sha256": "8e9b5409dd64e21d9cca0b43dee69f4d3390df5e2d44e45e0f2fa648bac6f015",
+      "bytes": 121749,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-checks.png",
+      "sha256": "317df84bc9b72bf9cc8b9b0357f6226eb1803c214ba320915c24662b8b8cdfa0",
+      "bytes": 100642,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-component.png",
+      "sha256": "2e0994f9e1a221dbaac43937e0fd62312251c28de6588dca616d4fe812547117",
+      "bytes": 149181,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-default.png",
+      "sha256": "df3863fe54f759672e5c088529c90480a987984d2b579e0a6cee145c781173ad",
+      "bytes": 103106,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-diff.png",
+      "sha256": "cb2528d03989de4fe869e3faf44ab20aafe94efbdf3032649bc20095ec767801",
+      "bytes": 106662,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-evidence.png",
+      "sha256": "44fcb29ab3ff4287d6c0f7c9d95648aff76440d86a15b6933106035f4e541180",
+      "bytes": 137096,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-evolution.png",
+      "sha256": "57f61736ced61ae103d8797eda5decce818a243219d621f2a87a50ae478d819b",
+      "bytes": 173646,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-implementation.png",
+      "sha256": "0709bcb98a3a57a92c8a11c9a597d794e80bccb7445ede321fefe729704e03c2",
+      "bytes": 132087,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-desktop-revision.png",
+      "sha256": "77d32b9e18207410a78986013470bd4c3a4b944e01c0966005cf6b3491248331",
+      "bytes": 161913,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-mobile-checks.png",
+      "sha256": "47fc423bc35a16a21e68e443516465408626f18ff0f4acf5ba3850dd95a8c675",
+      "bytes": 60880,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-mobile-component.png",
+      "sha256": "5e5ffd320bde4d76a12da475e91c0d32dea8d6e00f7fc084db70b22a1e5dadf6",
+      "bytes": 53976,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-mobile-default.png",
+      "sha256": "85652009af5761ccaeac0beb76dc9c0b33e83901241c0a89d21adc8c4dd4f22c",
+      "bytes": 60358,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-mobile-diff.png",
+      "sha256": "cff8ac3946309609ddb122c3398fe0dfb1dd66d60dd2360a6794262e5a050109",
+      "bytes": 44966,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-dark-mobile-revision.png",
+      "sha256": "e5c9930c22c03c44b4f327e4e119e4b287c3d1ed3c339ef55f92c704449043ca",
+      "bytes": 68224,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-checks.png",
+      "sha256": "c4e25c79d39eb30b04de33d60c036bfad4ce5e612a63105abcd884e050e54bc0",
+      "bytes": 101039,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-component.png",
+      "sha256": "d9ff08851108fe001aa54a0ceceb63bfeab57462b67a5d86304315193b1d820c",
+      "bytes": 147835,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-default.png",
+      "sha256": "37fedfc9ff5d90b03b27a7c09e7b87e2fcaf1350d814fc056b58fe061d7a7310",
+      "bytes": 101728,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-diff.png",
+      "sha256": "a273416f231a893d7eb222048710b8dc6a602c94e027e45195b7be2966d93b86",
+      "bytes": 105575,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-evidence.png",
+      "sha256": "44f72f7319f1dd5a4e1cdec0a181b1afb5ec225b71b7d860aecb216a4bbdbbe0",
+      "bytes": 135857,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-evolution.png",
+      "sha256": "c915c4f227fde203522ba16e396ef9d66fb14049a3bcc37406868d49544b0634",
+      "bytes": 172146,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-implementation.png",
+      "sha256": "b7a8d5923b3958e589342f4bde2fd238997137e3807262a64a9dec1b5c5a4243",
+      "bytes": 130515,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-desktop-revision.png",
+      "sha256": "80bdf77691d1c941971b406ea49a71c2c051c90900492914d57fd32fc96449e7",
+      "bytes": 161258,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-mobile-change-detail.png",
+      "sha256": "c60f3e000633d4e9880c27aae58ff95000d40a36058f6b4bd268c357694d6d3c",
+      "bytes": 56460,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-mobile-component.png",
+      "sha256": "5de972860f458f93257524c70eb23839f622d549adcf417ff043608597f454b0",
+      "bytes": 54033,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-da-light-mobile-default.png",
+      "sha256": "10fea2e2ff03a5b11e481e12522ad5d6d66269af96b76fa55bdec1f1e88d5c7e",
+      "bytes": 59741,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-checks.png",
+      "sha256": "9c12986073470bb6491e56f9fc817e4003dbd008d5dbc184ada8fcb41a79e295",
+      "bytes": 115740,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-component.png",
+      "sha256": "04561204996cf6c942db6c9a87d92205af9f117d14b3cb2753225341efad925e",
+      "bytes": 154419,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-default.png",
+      "sha256": "b7f4d7faefae2eb4566ccbbeb2d15de849fa959b3300fada8d8cce55383e6fff",
+      "bytes": 109671,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-diff.png",
+      "sha256": "83cf83cd7b5566295b9b2704efe710b006eeb159f3e145424d920309a7b81110",
+      "bytes": 119815,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-evidence.png",
+      "sha256": "3d58dea1614f90b8e649dcc45dcceccd0e8ff1b30115b4e904ff51fb7485575a",
+      "bytes": 135389,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-evolution.png",
+      "sha256": "2d23b76eba4ff8aeb8e2cca6fea8218335e83100699050a4333ec04e24e927e1",
+      "bytes": 115909,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-implementation.png",
+      "sha256": "4ddffd859e555310a7c246ab85a37f9c3dd27368b2b8a1e949a0a62aaa840f25",
+      "bytes": 160372,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-desktop-revision.png",
+      "sha256": "f71aee2b14ecb6c194544da2fec260a9e252b40b8886ee607f472d547a312bb9",
+      "bytes": 159148,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-mobile-checks.png",
+      "sha256": "6f8f1b91aeca8a1eff072af098a97f68f5698594a48f310a3678a7f58ab6e4eb",
+      "bytes": 62478,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-mobile-component.png",
+      "sha256": "21818ba3bb76ccb6614fa4d65fd1b90734a41591483cef6216e40569095a5b86",
+      "bytes": 66602,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-mobile-default.png",
+      "sha256": "ce54ad4622e8d02169edd19e826c97468229d3984d4dc903b899d7d24fde446b",
+      "bytes": 49558,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-mobile-diff.png",
+      "sha256": "9665f39d81ca7d7e129ee93850ff5d278921c9dbd3b175b7de0d8ac2ada8d207",
+      "bytes": 36864,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-dark-mobile-revision.png",
+      "sha256": "df56490cba228f6530ef1be9b2f5ece9cc2f74b34218d71b32fa896b164b62f9",
+      "bytes": 61337,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-checks.png",
+      "sha256": "0fc08fb07fee31eb909df09142056aa6a02a1f609772e2a61fdd73db28b2a5e4",
+      "bytes": 115661,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-component.png",
+      "sha256": "f6e15859176f9bc5b4a07a5111e8847bbaf9c5454da2a22398eff7a1f079a19f",
+      "bytes": 153764,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-default.png",
+      "sha256": "cc0af240a8ad3e074ae34a0d9eddf1b7c6d49152cebdb25aad13c2be73ed5d30",
+      "bytes": 109418,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-diff.png",
+      "sha256": "84492a7625fe443e64382700d5898a3589f868da6ebf424a073f2e612b2f16ea",
+      "bytes": 119221,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-evidence.png",
+      "sha256": "f09542d0f430a97e2628aef9e5cd73d29713f2e0714ffa5352f1977c1faaaf5b",
+      "bytes": 134724,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-evolution.png",
+      "sha256": "8ffd211bdd0f1b38f679cb4c467fe536651107c4a6ffbd29c26041bb88d4345e",
+      "bytes": 115249,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-implementation.png",
+      "sha256": "ccb3ba8725aa92afd49175957497994af0af75cf7cbf5fb19754a2619a272c43",
+      "bytes": 158138,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-desktop-revision.png",
+      "sha256": "623415da3d6e3467ad126a717e43778d964fbc6c1e44bbfaab518174b918e0e4",
+      "bytes": 159323,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-focus.png",
+      "sha256": "116c35e322d5edd237b9723d514669587ed1c9089870295a98ea9c2ec79e6739",
+      "bytes": 110536,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-hover.png",
+      "sha256": "db210ad67e968dd78d4f19487f71aff7f10d456df10f26c716a2ccb01d644e30",
+      "bytes": 110769,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-mobile-change-detail.png",
+      "sha256": "a6c407ef90fdaa9b64dd921f8c428e99907d8478617e5adb0519163b4b16f0d9",
+      "bytes": 54846,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-mobile-component.png",
+      "sha256": "ed7789ff8075916a72b140cdf78c299fe7f05e78f3ceb15601d41a6b0a698f2b",
+      "bytes": 66868,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-mica-light-mobile-default.png",
+      "sha256": "dbf44e1c3c440d49e9a743779bcbf5913954aa9d70e8a28be9793c905aaa593f",
+      "bytes": 49263,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-checks.png",
+      "sha256": "8c3e59ce688e5e35cb80b9e2bf0c9ee2285d40d55cccd6b80f9e214ef2fbf66d",
+      "bytes": 119873,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-component.png",
+      "sha256": "6c16da0586f7498efb58b85d7f6329a16a1820936bacb0b5d12e968ffad3629c",
+      "bytes": 129034,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-default.png",
+      "sha256": "1eae33edfe0de40d15892c8484fb63059e1d1ee9aa430f4d54b3890a738272bc",
+      "bytes": 97553,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-diff.png",
+      "sha256": "acde3dc034bc253265bb2d29c3de171678495b5c55ca2c646014db09ec36ba82",
+      "bytes": 91437,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-evidence.png",
+      "sha256": "f7ab27196144b31da617a465b0b596011dd7326c94a397f8dab132bcfb44ff65",
+      "bytes": 130940,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-evolution.png",
+      "sha256": "5b14de7f656c388024074cc67b8938365875e525fe8151064e7314c97e003bf3",
+      "bytes": 109896,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-implementation.png",
+      "sha256": "0002380daedf0b6aabc96b677cacb2b321b07eb5e0d2b1ac82f142d03b782844",
+      "bytes": 129377,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-desktop-revision.png",
+      "sha256": "50afd060abe3da2a997e9c289e1fe29892beea2337cffe33e9b01da0ca49ace2",
+      "bytes": 132755,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-finding-0.png",
+      "sha256": "49c768d527a0a983a1d55c35f37a5449b0f933300b9605c1cb6a663c98de2204",
+      "bytes": 153246,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-finding-1.png",
+      "sha256": "d11ad09d6fc43260faf1ab750a599ca0695f4046d6a89541343f496821e6df56",
+      "bytes": 148300,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-finding-2.png",
+      "sha256": "ccf8929d9e6f25cca875357a3ea6f8afab390d7714754dc24564c0f9871b1f96",
+      "bytes": 148669,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-impact-order.png",
+      "sha256": "c86cf4b5472b1c6261f483f881b0d4ed6d43778023f5d069048cb9caf13716af",
+      "bytes": 152815,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-mobile-checks.png",
+      "sha256": "5f3e01303192f1748cb6f390edc203377a4702de3b87c4e87dcfb23bc9675a1f",
+      "bytes": 60037,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-mobile-component.png",
+      "sha256": "d4923733b8d654d84a82c74c2dfbb5ab006ef314d6100d013771adde9673a17c",
+      "bytes": 42735,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-mobile-default.png",
+      "sha256": "3af95ede437371c8ed1f247446267a062c89b2a86294ef4feb74d68feae18b52",
+      "bytes": 54834,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-mobile-diff.png",
+      "sha256": "8b72fb0d3409d7471a8c41438331408cb78d290b6330abe337c1645b65ca79d2",
+      "bytes": 38904,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-dark-mobile-revision.png",
+      "sha256": "008b7537f435f50aa236e9f30b9d7b43c5382b9c5895c108b225625999dba77f",
+      "bytes": 63843,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-artifact-file.png",
+      "sha256": "144b351afc72be5b43d5301c86fabf37607fcc2ad079c0b65f285a674afa6b12",
+      "bytes": 128694,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-checks.png",
+      "sha256": "c5bae90a86b14b9d6c67f43e35f1914cc0ba440cd2b6465aa7e77bedf4487cd2",
+      "bytes": 120172,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-component.png",
+      "sha256": "5454ec654124e594680b7bd82609334756a4fc5ad24273cb4cf538f43ed4119a",
+      "bytes": 128254,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-default.png",
+      "sha256": "56532acf0691fe166cf9431fee6919e293e54f4ddfdd1a0d71095f9c0c5724e6",
+      "bytes": 96908,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-diff.png",
+      "sha256": "113cce0cefcdf4598b55c08a22e536b59361184d8f4a016b8ad83aceccefef0d",
+      "bytes": 91134,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-evidence.png",
+      "sha256": "9bb018c21d22743d91b8e8414c0174c84cc0ee439fe68a267961fa2e620d8332",
+      "bytes": 130254,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-evolution.png",
+      "sha256": "4de99554cb85bbc60a43ea6d63f6b7e3ebf320bc2e8e54ef5a9257080f8b8957",
+      "bytes": 109289,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-implementation.png",
+      "sha256": "c78ff8d1d566a13e094f94d9b30205a87e492ce33e6fead8780edabef28cf469",
+      "bytes": 128659,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-desktop-revision.png",
+      "sha256": "e3b0d6a9cdf661724f26ccd8bbbc6c379b22f493c8fbdf05e51ece0430983826",
+      "bytes": 132531,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-finding-0.png",
+      "sha256": "0627053f310008ecaeadf6464dbaa6957cfff3977053c5f70656c3b96ebbe8f9",
+      "bytes": 152754,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-finding-1.png",
+      "sha256": "01cef5272f14179939c20ef3ddf28f15340278d37ef56119f15f5ff057b513a2",
+      "bytes": 148045,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-finding-2.png",
+      "sha256": "fbf8da0e215a92b70f7e6e83ad325c0c8c879ed90464c648543342bf8acf120f",
+      "bytes": 148201,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-impact-order.png",
+      "sha256": "3242c1baf76afa4b7cdbc7df024f0697b3604b3ceea639dad1b7068a77ecb227",
+      "bytes": 152284,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-mobile-change-detail.png",
+      "sha256": "30ad8597e5bfe3aea41a06668eaade85a95181189c3b24c10589628c50e3e84b",
+      "bytes": 49152,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-mobile-component.png",
+      "sha256": "430375f1c2d14e9e1ba3f54031afb4407724783a94cab2cc67f41db2823c1eca",
+      "bytes": 42497,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r3-tutorial-light-mobile-default.png",
+      "sha256": "f7334d87d9bf15e009e5c413ae5f36fd82d6ce4dcc11892d7d2d39756b973f00",
+      "bytes": 54451,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-checks.png",
+      "sha256": "7b07e8855b8a57b57b109545ae3c9fd317cebd460954fc091bb29de6270bd528",
+      "bytes": 122855,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-component.png",
+      "sha256": "a68a89b5cb719f29d50794f3c4c5679392cd0f1aecac5e787aaf4d853b9452a3",
+      "bytes": 127778,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-default.png",
+      "sha256": "ff292b11a49c4c67e5ed14bc39ac22a8c4853c352fa4ae7acad7c188c33e03bb",
+      "bytes": 83235,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-diff.png",
+      "sha256": "b06775120f7e0614c343661367b618486868fdc62e96e55c94beb8779072a553",
+      "bytes": 86653,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-evidence.png",
+      "sha256": "1c5dbff7b3135a93406bd926e6dcf16461f58dad08728e3aa8c296589bb2fcc3",
+      "bytes": 121176,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-evolution.png",
+      "sha256": "b7b4eae28d1b4a8e3d7cfda280e1c913459bcc0aec00add394bb8849af489c5b",
+      "bytes": 148937,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-implementation.png",
+      "sha256": "bdd2721b8b1ceb8d183da9b0670891445c64719bad5110b53f600644f15d043b",
+      "bytes": 119464,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-desktop-revision.png",
+      "sha256": "0e856925720f0840d86b6000c0602647db1ceebf98d2b6d03bc1eaf0a531f04a",
+      "bytes": 116255,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-formula.png",
+      "sha256": "66459182c6d04517ddfe832210407f82b51e1992b6f3a91ac50e85963a65b1da",
+      "bytes": 118749,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-mobile-checks.png",
+      "sha256": "2472bb2b8735c997fd11161f0201d2a062b6ddef14e48f2caea60851fbd2e8dd",
+      "bytes": 63000,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-mobile-component.png",
+      "sha256": "9e2145c848d6dd3b3aaac504cc27b326cf422dabd83b3c5ebdd7148ea6249d8e",
+      "bytes": 55151,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-mobile-default.png",
+      "sha256": "4950aa554b01a35c9316e8c966d0918924f9c0a1527d355e3cf781d98f648c8c",
+      "bytes": 43547,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-mobile-diff.png",
+      "sha256": "4dcbe3304a48fda4ab3fd6ba933ba2affcc71bbd4a9cbfd036ce47a5eb6e73fd",
+      "bytes": 35460,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-dark-mobile-revision.png",
+      "sha256": "0eb36f5edbba3c6de61766ac799ac426431d069fc65c487d148a56efcd2177be",
+      "bytes": 59457,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-checks.png",
+      "sha256": "ab0857dcbf471d52b36969ad3e37c1fb16e99aff7ac2fd3fcf8ee8113db80cc2",
+      "bytes": 123084,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-component.png",
+      "sha256": "39a4c0e0334c58594757521199d570515ff9a6700673d90631b7cee57131c4bc",
+      "bytes": 127426,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-default.png",
+      "sha256": "977a6c40eb7482ae4e2665d40e55014e13df50bd86a29cdf5532fce77265afeb",
+      "bytes": 82909,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-diff.png",
+      "sha256": "e1b084d5846ef7a72944726189fd3047e645f4c66a1e0c9c455c3af01390cb19",
+      "bytes": 86419,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-evidence.png",
+      "sha256": "60c22e593b52c96786a913dde1c143cdbce5e7108dbbecf19534a6f690f961ee",
+      "bytes": 120809,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-evolution.png",
+      "sha256": "0c73acf44c4661102b78436b60075dc54aa0e18881ec332bcfe6a58de4d5d05a",
+      "bytes": 148338,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-implementation.png",
+      "sha256": "ba4ad703ee41917c193d6200ba0869f883c52fda898d0e89b8e39f9680b50947",
+      "bytes": 118905,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-desktop-revision.png",
+      "sha256": "b711f28f60754099e3ef03e1071d2574a98dc82972f75ac7760647a0d8b4c598",
+      "bytes": 115883,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-formula.png",
+      "sha256": "c1559e495864c763aece137b24bfb625a8e95a36c423ea03ebbdb16ea265cfd9",
+      "bytes": 117987,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-mobile-change-detail.png",
+      "sha256": "076b3281aabd27f6cdf3a653f213e0cd2da83787d47ffb14617f284d5d5c3db8",
+      "bytes": 28873,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-mobile-component.png",
+      "sha256": "e78867bdd2ab0e4556ad5c807a2ed0ad0496a406c08d25f93244ac5f2fc13397",
+      "bytes": 55030,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-mobile-default.png",
+      "sha256": "157528f612e66252f15e9bd5341b3503ca41c86ab79f7d3834375b40275208c5",
+      "bytes": 43306,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-numerical-source.png",
+      "sha256": "cc623b89cdcfaf6b4dcca3b42f6fa54c1eb55e06cb83f1fd9bc42557505d5804",
+      "bytes": 120605,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-cat-light-withdrawn-history.png",
+      "sha256": "8e9b5409dd64e21d9cca0b43dee69f4d3390df5e2d44e45e0f2fa648bac6f015",
+      "bytes": 121749,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-checks.png",
+      "sha256": "317df84bc9b72bf9cc8b9b0357f6226eb1803c214ba320915c24662b8b8cdfa0",
+      "bytes": 100642,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-component.png",
+      "sha256": "2e0994f9e1a221dbaac43937e0fd62312251c28de6588dca616d4fe812547117",
+      "bytes": 149181,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-default.png",
+      "sha256": "df3863fe54f759672e5c088529c90480a987984d2b579e0a6cee145c781173ad",
+      "bytes": 103106,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-diff.png",
+      "sha256": "cb2528d03989de4fe869e3faf44ab20aafe94efbdf3032649bc20095ec767801",
+      "bytes": 106662,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-evidence.png",
+      "sha256": "44fcb29ab3ff4287d6c0f7c9d95648aff76440d86a15b6933106035f4e541180",
+      "bytes": 137096,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-evolution.png",
+      "sha256": "57f61736ced61ae103d8797eda5decce818a243219d621f2a87a50ae478d819b",
+      "bytes": 173646,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-implementation.png",
+      "sha256": "0709bcb98a3a57a92c8a11c9a597d794e80bccb7445ede321fefe729704e03c2",
+      "bytes": 132087,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-desktop-revision.png",
+      "sha256": "77d32b9e18207410a78986013470bd4c3a4b944e01c0966005cf6b3491248331",
+      "bytes": 161913,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-mobile-checks.png",
+      "sha256": "a756f7cecb869e2edd93c92ae57a671d9e6e6719a8a2dd9e6c0256d78218f759",
+      "bytes": 60223,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-mobile-component.png",
+      "sha256": "2de025c614f545c7b2821cd4098cbd02667f6778daa1ceec1dce34ef9a50a608",
+      "bytes": 53974,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-mobile-default.png",
+      "sha256": "4a0c597bb6cad56afe3ffbef701d5ac6f45cce9e0050bb970609a3b1ed0830d9",
+      "bytes": 60315,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-mobile-diff.png",
+      "sha256": "7eb948d7e4432dec99ed045f88b6472d6343a243f5d9440a129f4de8472dd1a3",
+      "bytes": 44278,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-dark-mobile-revision.png",
+      "sha256": "e202424851dedec339b5d3539103c93093f4c81c3cbbc451a970e46dc161bb3b",
+      "bytes": 68024,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-checks.png",
+      "sha256": "c4e25c79d39eb30b04de33d60c036bfad4ce5e612a63105abcd884e050e54bc0",
+      "bytes": 101039,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-component.png",
+      "sha256": "d9ff08851108fe001aa54a0ceceb63bfeab57462b67a5d86304315193b1d820c",
+      "bytes": 147835,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-default.png",
+      "sha256": "37fedfc9ff5d90b03b27a7c09e7b87e2fcaf1350d814fc056b58fe061d7a7310",
+      "bytes": 101728,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-diff.png",
+      "sha256": "a273416f231a893d7eb222048710b8dc6a602c94e027e45195b7be2966d93b86",
+      "bytes": 105575,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-evidence.png",
+      "sha256": "44f72f7319f1dd5a4e1cdec0a181b1afb5ec225b71b7d860aecb216a4bbdbbe0",
+      "bytes": 135857,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-evolution.png",
+      "sha256": "c915c4f227fde203522ba16e396ef9d66fb14049a3bcc37406868d49544b0634",
+      "bytes": 172146,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-implementation.png",
+      "sha256": "b7a8d5923b3958e589342f4bde2fd238997137e3807262a64a9dec1b5c5a4243",
+      "bytes": 130515,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-desktop-revision.png",
+      "sha256": "80bdf77691d1c941971b406ea49a71c2c051c90900492914d57fd32fc96449e7",
+      "bytes": 161258,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-mobile-change-detail.png",
+      "sha256": "fcd41ef241c966eb0223d0f2f55da6fca6d85044da6fb00299b6541838fc608e",
+      "bytes": 21264,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-mobile-component.png",
+      "sha256": "bf84ddba0ad7a07ecf713ba4a1a2ebc57a60613427ebd53d6e678f15094c1f72",
+      "bytes": 54029,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-da-light-mobile-default.png",
+      "sha256": "81695cb155fd7a126ce8b84aca12e1f70c941c6d81803c23fca6c4e99fc8aaa4",
+      "bytes": 59692,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-checks.png",
+      "sha256": "9c12986073470bb6491e56f9fc817e4003dbd008d5dbc184ada8fcb41a79e295",
+      "bytes": 115740,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-component.png",
+      "sha256": "04561204996cf6c942db6c9a87d92205af9f117d14b3cb2753225341efad925e",
+      "bytes": 154419,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-default.png",
+      "sha256": "b7f4d7faefae2eb4566ccbbeb2d15de849fa959b3300fada8d8cce55383e6fff",
+      "bytes": 109671,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-diff.png",
+      "sha256": "83cf83cd7b5566295b9b2704efe710b006eeb159f3e145424d920309a7b81110",
+      "bytes": 119815,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-evidence.png",
+      "sha256": "3d58dea1614f90b8e649dcc45dcceccd0e8ff1b30115b4e904ff51fb7485575a",
+      "bytes": 135389,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-evolution.png",
+      "sha256": "2d23b76eba4ff8aeb8e2cca6fea8218335e83100699050a4333ec04e24e927e1",
+      "bytes": 115909,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-implementation.png",
+      "sha256": "4ddffd859e555310a7c246ab85a37f9c3dd27368b2b8a1e949a0a62aaa840f25",
+      "bytes": 160372,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-desktop-revision.png",
+      "sha256": "f71aee2b14ecb6c194544da2fec260a9e252b40b8886ee607f472d547a312bb9",
+      "bytes": 159148,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-mobile-checks.png",
+      "sha256": "a18a000cbd854abf8e67eb814fbe1945c9cf2fcc61a567e8239afa5f30560b5f",
+      "bytes": 62449,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-mobile-component.png",
+      "sha256": "c4aa92207daf5ce52e7516f45667c584b0ccda314e22eb1c19604f4662396e45",
+      "bytes": 66584,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-mobile-default.png",
+      "sha256": "b9427205e1c35909915272e803b5db2df2076d0d9bb58925a0af1f921d0ce23d",
+      "bytes": 49568,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-mobile-diff.png",
+      "sha256": "9c08a252f1e2489b80385dce738656f4495bb65a204f4e24e31bf6c92aeb24b4",
+      "bytes": 36706,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-dark-mobile-revision.png",
+      "sha256": "00dadcc83a9193eceb242bacd0a81db87443ea9d67a98de29823c2eb93e5818e",
+      "bytes": 61222,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-checks.png",
+      "sha256": "0fc08fb07fee31eb909df09142056aa6a02a1f609772e2a61fdd73db28b2a5e4",
+      "bytes": 115661,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-component.png",
+      "sha256": "f6e15859176f9bc5b4a07a5111e8847bbaf9c5454da2a22398eff7a1f079a19f",
+      "bytes": 153764,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-default.png",
+      "sha256": "cc0af240a8ad3e074ae34a0d9eddf1b7c6d49152cebdb25aad13c2be73ed5d30",
+      "bytes": 109418,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-diff.png",
+      "sha256": "84492a7625fe443e64382700d5898a3589f868da6ebf424a073f2e612b2f16ea",
+      "bytes": 119221,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-evidence.png",
+      "sha256": "f09542d0f430a97e2628aef9e5cd73d29713f2e0714ffa5352f1977c1faaaf5b",
+      "bytes": 134724,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-evolution.png",
+      "sha256": "8ffd211bdd0f1b38f679cb4c467fe536651107c4a6ffbd29c26041bb88d4345e",
+      "bytes": 115249,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-implementation.png",
+      "sha256": "ccb3ba8725aa92afd49175957497994af0af75cf7cbf5fb19754a2619a272c43",
+      "bytes": 158138,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-desktop-revision.png",
+      "sha256": "623415da3d6e3467ad126a717e43778d964fbc6c1e44bbfaab518174b918e0e4",
+      "bytes": 159323,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-focus.png",
+      "sha256": "116c35e322d5edd237b9723d514669587ed1c9089870295a98ea9c2ec79e6739",
+      "bytes": 110536,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-hover.png",
+      "sha256": "292f7182ea1b910cd91b3ea5942c8e1d9dedbec6d5253173761f97db2cab2742",
+      "bytes": 110763,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-mobile-change-detail.png",
+      "sha256": "d1bcb0d1f2e73d0c8aa66073efadfd4a2d3397da356f6a531e2615bc48b4066a",
+      "bytes": 54857,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-mobile-component.png",
+      "sha256": "c52238aa729c5c4da20322cb5bb439eeb8c4cb1659b5d35fb59d5f07970a6f42",
+      "bytes": 66861,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-mobile-default.png",
+      "sha256": "013932023dcace028813f7ac9a93ee343f01134fb7ec75cb197d22accad30d8c",
+      "bytes": 49276,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-relation-collectConversationTurns.png",
+      "sha256": "903cc8f329cc9fcb73c3cf8050b3f011061a25f4690ba3127e92e23515ef560f",
+      "bytes": 112519,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-relation-confirmPendingClear.png",
+      "sha256": "4864077dd3821e77996f044d1d0676c46039f3c40939bb3d28a2138c3516cfbe",
+      "bytes": 115219,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-mica-light-relation-showShell.png",
+      "sha256": "f9231fecef3f4b5e1c667dda2648a4d36cabc908d759d171b041aa6fcb6acd09",
+      "bytes": 113488,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-checks.png",
+      "sha256": "8c3e59ce688e5e35cb80b9e2bf0c9ee2285d40d55cccd6b80f9e214ef2fbf66d",
+      "bytes": 119873,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-component.png",
+      "sha256": "6c16da0586f7498efb58b85d7f6329a16a1820936bacb0b5d12e968ffad3629c",
+      "bytes": 129034,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-default.png",
+      "sha256": "1eae33edfe0de40d15892c8484fb63059e1d1ee9aa430f4d54b3890a738272bc",
+      "bytes": 97553,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-diff.png",
+      "sha256": "acde3dc034bc253265bb2d29c3de171678495b5c55ca2c646014db09ec36ba82",
+      "bytes": 91437,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-evidence.png",
+      "sha256": "f7ab27196144b31da617a465b0b596011dd7326c94a397f8dab132bcfb44ff65",
+      "bytes": 130940,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-evolution.png",
+      "sha256": "5b14de7f656c388024074cc67b8938365875e525fe8151064e7314c97e003bf3",
+      "bytes": 109896,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-implementation.png",
+      "sha256": "0002380daedf0b6aabc96b677cacb2b321b07eb5e0d2b1ac82f142d03b782844",
+      "bytes": 129377,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-desktop-revision.png",
+      "sha256": "50afd060abe3da2a997e9c289e1fe29892beea2337cffe33e9b01da0ca49ace2",
+      "bytes": 132755,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-finding-0.png",
+      "sha256": "49c768d527a0a983a1d55c35f37a5449b0f933300b9605c1cb6a663c98de2204",
+      "bytes": 153246,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-finding-1.png",
+      "sha256": "afcc7fde1956c881b3ad122cb47adea471fcf6c2828275dc5b4af9951a0d0e72",
+      "bytes": 148316,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-finding-2.png",
+      "sha256": "ccf8929d9e6f25cca875357a3ea6f8afab390d7714754dc24564c0f9871b1f96",
+      "bytes": 148669,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-impact-order.png",
+      "sha256": "c86cf4b5472b1c6261f483f881b0d4ed6d43778023f5d069048cb9caf13716af",
+      "bytes": 152815,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-mobile-checks.png",
+      "sha256": "2cdcd0a88fc888dba38286426ead376d2436bbbc0da15e51171332e8ab34fce7",
+      "bytes": 60035,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-mobile-component.png",
+      "sha256": "21c81e87b80014429b9d6c56c030d741626c2915b58700dd0c5828d053f286e7",
+      "bytes": 42732,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-mobile-default.png",
+      "sha256": "ecc3f66c4d9abc09a8d43bd84b5cdf76126453c8eb782ff30a5e8e342c7fbe63",
+      "bytes": 54822,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-mobile-diff.png",
+      "sha256": "63a7221a58d191afbd29671cd36757b2815dcddf90aa3fce87689c5a228f8aa0",
+      "bytes": 38931,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-dark-mobile-revision.png",
+      "sha256": "c821f785e835b7249c1df43a131e6bf1dd2feba5c17dbfa8bbf8ac7b4725dbfc",
+      "bytes": 61531,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-artifact-file.png",
+      "sha256": "807abdbe1f0f40edf5fbc82b8cfc37c8e560b222447a26b14d4f1feecc8f03d1",
+      "bytes": 128693,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-checks.png",
+      "sha256": "c5bae90a86b14b9d6c67f43e35f1914cc0ba440cd2b6465aa7e77bedf4487cd2",
+      "bytes": 120172,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-component.png",
+      "sha256": "5454ec654124e594680b7bd82609334756a4fc5ad24273cb4cf538f43ed4119a",
+      "bytes": 128254,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-default.png",
+      "sha256": "56532acf0691fe166cf9431fee6919e293e54f4ddfdd1a0d71095f9c0c5724e6",
+      "bytes": 96908,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-diff.png",
+      "sha256": "113cce0cefcdf4598b55c08a22e536b59361184d8f4a016b8ad83aceccefef0d",
+      "bytes": 91134,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-evidence.png",
+      "sha256": "9bb018c21d22743d91b8e8414c0174c84cc0ee439fe68a267961fa2e620d8332",
+      "bytes": 130254,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-evolution.png",
+      "sha256": "4de99554cb85bbc60a43ea6d63f6b7e3ebf320bc2e8e54ef5a9257080f8b8957",
+      "bytes": 109289,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-implementation.png",
+      "sha256": "c78ff8d1d566a13e094f94d9b30205a87e492ce33e6fead8780edabef28cf469",
+      "bytes": 128659,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-desktop-revision.png",
+      "sha256": "e3b0d6a9cdf661724f26ccd8bbbc6c379b22f493c8fbdf05e51ece0430983826",
+      "bytes": 132531,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-finding-0.png",
+      "sha256": "eed110dc60ed3a8d30d23c1e1166798d894239c3b0a6edab6a99d3dcadf378c7",
+      "bytes": 152760,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-finding-1.png",
+      "sha256": "01cef5272f14179939c20ef3ddf28f15340278d37ef56119f15f5ff057b513a2",
+      "bytes": 148045,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-finding-2.png",
+      "sha256": "fbf8da0e215a92b70f7e6e83ad325c0c8c879ed90464c648543342bf8acf120f",
+      "bytes": 148201,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-finding-location.png",
+      "sha256": "dbf6475ed77a611af9c4d424089e317bbc22bb2c7dc5e469891980522fe026a0",
+      "bytes": 111812,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-impact-order.png",
+      "sha256": "3242c1baf76afa4b7cdbc7df024f0697b3604b3ceea639dad1b7068a77ecb227",
+      "bytes": 152284,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-mobile-change-detail.png",
+      "sha256": "b42012c27f521496ed826b087315af2d16f8006f6c0f8bd98eb0c376eff127c2",
+      "bytes": 49130,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-mobile-component.png",
+      "sha256": "0002da154eec5c6483b4eeb85a9b257d67ad1d1c42abbdb7da657093dd3f7951",
+      "bytes": 42492,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r4-tutorial-light-mobile-default.png",
+      "sha256": "e88c9501dae9cc3d6c8fb7a5e06b1ba6e9dc9d1db327e30857c7d8b7911db8f0",
+      "bytes": 54444,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-checks.png",
+      "sha256": "7b07e8855b8a57b57b109545ae3c9fd317cebd460954fc091bb29de6270bd528",
+      "bytes": 122855,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-component.png",
+      "sha256": "a68a89b5cb719f29d50794f3c4c5679392cd0f1aecac5e787aaf4d853b9452a3",
+      "bytes": 127778,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-default.png",
+      "sha256": "ff292b11a49c4c67e5ed14bc39ac22a8c4853c352fa4ae7acad7c188c33e03bb",
+      "bytes": 83235,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-diff.png",
+      "sha256": "b06775120f7e0614c343661367b618486868fdc62e96e55c94beb8779072a553",
+      "bytes": 86653,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-evidence.png",
+      "sha256": "1c5dbff7b3135a93406bd926e6dcf16461f58dad08728e3aa8c296589bb2fcc3",
+      "bytes": 121176,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-evolution.png",
+      "sha256": "b7b4eae28d1b4a8e3d7cfda280e1c913459bcc0aec00add394bb8849af489c5b",
+      "bytes": 148937,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-implementation.png",
+      "sha256": "bdd2721b8b1ceb8d183da9b0670891445c64719bad5110b53f600644f15d043b",
+      "bytes": 119464,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-desktop-revision.png",
+      "sha256": "0e856925720f0840d86b6000c0602647db1ceebf98d2b6d03bc1eaf0a531f04a",
+      "bytes": 116255,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-formula.png",
+      "sha256": "149225158f01bb54afaabfe0b155cd0669edee94f058bd03357553dcc6c30d2a",
+      "bytes": 118730,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-mobile-checks.png",
+      "sha256": "2472bb2b8735c997fd11161f0201d2a062b6ddef14e48f2caea60851fbd2e8dd",
+      "bytes": 63000,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-mobile-component.png",
+      "sha256": "9e2145c848d6dd3b3aaac504cc27b326cf422dabd83b3c5ebdd7148ea6249d8e",
+      "bytes": 55151,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-mobile-default.png",
+      "sha256": "4950aa554b01a35c9316e8c966d0918924f9c0a1527d355e3cf781d98f648c8c",
+      "bytes": 43547,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-mobile-diff.png",
+      "sha256": "4dcbe3304a48fda4ab3fd6ba933ba2affcc71bbd4a9cbfd036ce47a5eb6e73fd",
+      "bytes": 35460,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-dark-mobile-revision.png",
+      "sha256": "0eb36f5edbba3c6de61766ac799ac426431d069fc65c487d148a56efcd2177be",
+      "bytes": 59457,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-checks.png",
+      "sha256": "ab0857dcbf471d52b36969ad3e37c1fb16e99aff7ac2fd3fcf8ee8113db80cc2",
+      "bytes": 123084,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-component.png",
+      "sha256": "0c3eb5e77999c1e4c6f2bbbc30e861deecf014786f408dbcaed7a652d59f3ddd",
+      "bytes": 127440,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-default.png",
+      "sha256": "977a6c40eb7482ae4e2665d40e55014e13df50bd86a29cdf5532fce77265afeb",
+      "bytes": 82909,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-diff.png",
+      "sha256": "e1b084d5846ef7a72944726189fd3047e645f4c66a1e0c9c455c3af01390cb19",
+      "bytes": 86419,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-evidence.png",
+      "sha256": "60c22e593b52c96786a913dde1c143cdbce5e7108dbbecf19534a6f690f961ee",
+      "bytes": 120809,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-evolution.png",
+      "sha256": "0c73acf44c4661102b78436b60075dc54aa0e18881ec332bcfe6a58de4d5d05a",
+      "bytes": 148338,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-implementation.png",
+      "sha256": "ba4ad703ee41917c193d6200ba0869f883c52fda898d0e89b8e39f9680b50947",
+      "bytes": 118905,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-desktop-revision.png",
+      "sha256": "b711f28f60754099e3ef03e1071d2574a98dc82972f75ac7760647a0d8b4c598",
+      "bytes": 115883,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-formula.png",
+      "sha256": "276ae5513c30e706fc0dd0ecd49d7ddf8b4bba8276e48bd85b11c8f69d094e79",
+      "bytes": 117995,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-mobile-change-detail.png",
+      "sha256": "644d24ca1355d2539ab50a95da6a29827d835188731703da14560d15da5182a7",
+      "bytes": 45171,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-mobile-component.png",
+      "sha256": "e78867bdd2ab0e4556ad5c807a2ed0ad0496a406c08d25f93244ac5f2fc13397",
+      "bytes": 55030,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-mobile-default.png",
+      "sha256": "157528f612e66252f15e9bd5341b3503ca41c86ab79f7d3834375b40275208c5",
+      "bytes": 43306,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-numerical-source.png",
+      "sha256": "cc623b89cdcfaf6b4dcca3b42f6fa54c1eb55e06cb83f1fd9bc42557505d5804",
+      "bytes": 120605,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-cat-light-withdrawn-history.png",
+      "sha256": "8e9b5409dd64e21d9cca0b43dee69f4d3390df5e2d44e45e0f2fa648bac6f015",
+      "bytes": 121749,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-checks.png",
+      "sha256": "317df84bc9b72bf9cc8b9b0357f6226eb1803c214ba320915c24662b8b8cdfa0",
+      "bytes": 100642,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-component.png",
+      "sha256": "2e0994f9e1a221dbaac43937e0fd62312251c28de6588dca616d4fe812547117",
+      "bytes": 149181,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-default.png",
+      "sha256": "df3863fe54f759672e5c088529c90480a987984d2b579e0a6cee145c781173ad",
+      "bytes": 103106,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-diff.png",
+      "sha256": "cb2528d03989de4fe869e3faf44ab20aafe94efbdf3032649bc20095ec767801",
+      "bytes": 106662,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-evidence.png",
+      "sha256": "44fcb29ab3ff4287d6c0f7c9d95648aff76440d86a15b6933106035f4e541180",
+      "bytes": 137096,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-evolution.png",
+      "sha256": "57f61736ced61ae103d8797eda5decce818a243219d621f2a87a50ae478d819b",
+      "bytes": 173646,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-implementation.png",
+      "sha256": "0709bcb98a3a57a92c8a11c9a597d794e80bccb7445ede321fefe729704e03c2",
+      "bytes": 132087,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-desktop-revision.png",
+      "sha256": "77d32b9e18207410a78986013470bd4c3a4b944e01c0966005cf6b3491248331",
+      "bytes": 161913,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-mobile-checks.png",
+      "sha256": "a756f7cecb869e2edd93c92ae57a671d9e6e6719a8a2dd9e6c0256d78218f759",
+      "bytes": 60223,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-mobile-component.png",
+      "sha256": "2de025c614f545c7b2821cd4098cbd02667f6778daa1ceec1dce34ef9a50a608",
+      "bytes": 53974,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-mobile-default.png",
+      "sha256": "4a0c597bb6cad56afe3ffbef701d5ac6f45cce9e0050bb970609a3b1ed0830d9",
+      "bytes": 60315,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-mobile-diff.png",
+      "sha256": "7eb948d7e4432dec99ed045f88b6472d6343a243f5d9440a129f4de8472dd1a3",
+      "bytes": 44278,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-dark-mobile-revision.png",
+      "sha256": "e202424851dedec339b5d3539103c93093f4c81c3cbbc451a970e46dc161bb3b",
+      "bytes": 68024,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-checks.png",
+      "sha256": "c4e25c79d39eb30b04de33d60c036bfad4ce5e612a63105abcd884e050e54bc0",
+      "bytes": 101039,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-component.png",
+      "sha256": "d9ff08851108fe001aa54a0ceceb63bfeab57462b67a5d86304315193b1d820c",
+      "bytes": 147835,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-default.png",
+      "sha256": "37fedfc9ff5d90b03b27a7c09e7b87e2fcaf1350d814fc056b58fe061d7a7310",
+      "bytes": 101728,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-diff.png",
+      "sha256": "a273416f231a893d7eb222048710b8dc6a602c94e027e45195b7be2966d93b86",
+      "bytes": 105575,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-evidence.png",
+      "sha256": "44f72f7319f1dd5a4e1cdec0a181b1afb5ec225b71b7d860aecb216a4bbdbbe0",
+      "bytes": 135857,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-evolution.png",
+      "sha256": "c915c4f227fde203522ba16e396ef9d66fb14049a3bcc37406868d49544b0634",
+      "bytes": 172146,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-implementation.png",
+      "sha256": "b7a8d5923b3958e589342f4bde2fd238997137e3807262a64a9dec1b5c5a4243",
+      "bytes": 130515,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-desktop-revision.png",
+      "sha256": "80bdf77691d1c941971b406ea49a71c2c051c90900492914d57fd32fc96449e7",
+      "bytes": 161258,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-mobile-change-detail.png",
+      "sha256": "2db35baf93c33063ca57a43fcdbc6c9dfddb219a3a810f5e652b0b39b71b3c45",
+      "bytes": 56433,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-mobile-component.png",
+      "sha256": "bf84ddba0ad7a07ecf713ba4a1a2ebc57a60613427ebd53d6e678f15094c1f72",
+      "bytes": 54029,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-da-light-mobile-default.png",
+      "sha256": "81695cb155fd7a126ce8b84aca12e1f70c941c6d81803c23fca6c4e99fc8aaa4",
+      "bytes": 59692,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-checks.png",
+      "sha256": "9c12986073470bb6491e56f9fc817e4003dbd008d5dbc184ada8fcb41a79e295",
+      "bytes": 115740,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-component.png",
+      "sha256": "04561204996cf6c942db6c9a87d92205af9f117d14b3cb2753225341efad925e",
+      "bytes": 154419,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-default.png",
+      "sha256": "b7f4d7faefae2eb4566ccbbeb2d15de849fa959b3300fada8d8cce55383e6fff",
+      "bytes": 109671,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-diff.png",
+      "sha256": "83cf83cd7b5566295b9b2704efe710b006eeb159f3e145424d920309a7b81110",
+      "bytes": 119815,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-evidence.png",
+      "sha256": "3d58dea1614f90b8e649dcc45dcceccd0e8ff1b30115b4e904ff51fb7485575a",
+      "bytes": 135389,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-evolution.png",
+      "sha256": "2d23b76eba4ff8aeb8e2cca6fea8218335e83100699050a4333ec04e24e927e1",
+      "bytes": 115909,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-implementation.png",
+      "sha256": "4ddffd859e555310a7c246ab85a37f9c3dd27368b2b8a1e949a0a62aaa840f25",
+      "bytes": 160372,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-desktop-revision.png",
+      "sha256": "f71aee2b14ecb6c194544da2fec260a9e252b40b8886ee607f472d547a312bb9",
+      "bytes": 159148,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-mobile-checks.png",
+      "sha256": "a18a000cbd854abf8e67eb814fbe1945c9cf2fcc61a567e8239afa5f30560b5f",
+      "bytes": 62449,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-mobile-component.png",
+      "sha256": "c4aa92207daf5ce52e7516f45667c584b0ccda314e22eb1c19604f4662396e45",
+      "bytes": 66584,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-mobile-default.png",
+      "sha256": "b9427205e1c35909915272e803b5db2df2076d0d9bb58925a0af1f921d0ce23d",
+      "bytes": 49568,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-mobile-diff.png",
+      "sha256": "9c08a252f1e2489b80385dce738656f4495bb65a204f4e24e31bf6c92aeb24b4",
+      "bytes": 36706,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-dark-mobile-revision.png",
+      "sha256": "00dadcc83a9193eceb242bacd0a81db87443ea9d67a98de29823c2eb93e5818e",
+      "bytes": 61222,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-checks.png",
+      "sha256": "0fc08fb07fee31eb909df09142056aa6a02a1f609772e2a61fdd73db28b2a5e4",
+      "bytes": 115661,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-component.png",
+      "sha256": "f6e15859176f9bc5b4a07a5111e8847bbaf9c5454da2a22398eff7a1f079a19f",
+      "bytes": 153764,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-default.png",
+      "sha256": "cc0af240a8ad3e074ae34a0d9eddf1b7c6d49152cebdb25aad13c2be73ed5d30",
+      "bytes": 109418,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-diff.png",
+      "sha256": "84492a7625fe443e64382700d5898a3589f868da6ebf424a073f2e612b2f16ea",
+      "bytes": 119221,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-evidence.png",
+      "sha256": "f09542d0f430a97e2628aef9e5cd73d29713f2e0714ffa5352f1977c1faaaf5b",
+      "bytes": 134724,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-evolution.png",
+      "sha256": "8ffd211bdd0f1b38f679cb4c467fe536651107c4a6ffbd29c26041bb88d4345e",
+      "bytes": 115249,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-implementation.png",
+      "sha256": "ccb3ba8725aa92afd49175957497994af0af75cf7cbf5fb19754a2619a272c43",
+      "bytes": 158138,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-desktop-revision.png",
+      "sha256": "623415da3d6e3467ad126a717e43778d964fbc6c1e44bbfaab518174b918e0e4",
+      "bytes": 159323,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-focus.png",
+      "sha256": "116c35e322d5edd237b9723d514669587ed1c9089870295a98ea9c2ec79e6739",
+      "bytes": 110536,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-hover.png",
+      "sha256": "292f7182ea1b910cd91b3ea5942c8e1d9dedbec6d5253173761f97db2cab2742",
+      "bytes": 110763,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-mobile-change-detail.png",
+      "sha256": "d1bcb0d1f2e73d0c8aa66073efadfd4a2d3397da356f6a531e2615bc48b4066a",
+      "bytes": 54857,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-mobile-component.png",
+      "sha256": "c52238aa729c5c4da20322cb5bb439eeb8c4cb1659b5d35fb59d5f07970a6f42",
+      "bytes": 66861,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-mobile-default.png",
+      "sha256": "013932023dcace028813f7ac9a93ee343f01134fb7ec75cb197d22accad30d8c",
+      "bytes": 49276,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-relation-collectConversationTurns.png",
+      "sha256": "0eb96d274630dc79810b93b78fdd7d848850d6f3bb86ab94eb652df10c8e811e",
+      "bytes": 112518,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-relation-confirmPendingClear.png",
+      "sha256": "66c4eea9718bc9cc494797c38f9d1f68fcaf2f88a6d495b73bfb5412e762c4cb",
+      "bytes": 115214,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-mica-light-relation-showShell.png",
+      "sha256": "d8843829c7d22a264ace3403250cd40e1398c45fce6258d27ed12e734bc57abb",
+      "bytes": 113475,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-checks.png",
+      "sha256": "a5429c0aab026b5754ba212422c29a9e38d4e8510770b3546a4c135113053315",
+      "bytes": 121088,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-component.png",
+      "sha256": "6c16da0586f7498efb58b85d7f6329a16a1820936bacb0b5d12e968ffad3629c",
+      "bytes": 129034,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-default.png",
+      "sha256": "1eae33edfe0de40d15892c8484fb63059e1d1ee9aa430f4d54b3890a738272bc",
+      "bytes": 97553,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-diff.png",
+      "sha256": "acde3dc034bc253265bb2d29c3de171678495b5c55ca2c646014db09ec36ba82",
+      "bytes": 91437,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-evidence.png",
+      "sha256": "f7ab27196144b31da617a465b0b596011dd7326c94a397f8dab132bcfb44ff65",
+      "bytes": 130940,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-evolution.png",
+      "sha256": "5b14de7f656c388024074cc67b8938365875e525fe8151064e7314c97e003bf3",
+      "bytes": 109896,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-implementation.png",
+      "sha256": "0002380daedf0b6aabc96b677cacb2b321b07eb5e0d2b1ac82f142d03b782844",
+      "bytes": 129377,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-desktop-revision.png",
+      "sha256": "50afd060abe3da2a997e9c289e1fe29892beea2337cffe33e9b01da0ca49ace2",
+      "bytes": 132755,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-finding-0.png",
+      "sha256": "49c768d527a0a983a1d55c35f37a5449b0f933300b9605c1cb6a663c98de2204",
+      "bytes": 153246,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-finding-1.png",
+      "sha256": "afcc7fde1956c881b3ad122cb47adea471fcf6c2828275dc5b4af9951a0d0e72",
+      "bytes": 148316,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-finding-2.png",
+      "sha256": "ccf8929d9e6f25cca875357a3ea6f8afab390d7714754dc24564c0f9871b1f96",
+      "bytes": 148669,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-impact-order.png",
+      "sha256": "c86cf4b5472b1c6261f483f881b0d4ed6d43778023f5d069048cb9caf13716af",
+      "bytes": 152815,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-mobile-checks.png",
+      "sha256": "2cdcd0a88fc888dba38286426ead376d2436bbbc0da15e51171332e8ab34fce7",
+      "bytes": 60035,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-mobile-component.png",
+      "sha256": "21c81e87b80014429b9d6c56c030d741626c2915b58700dd0c5828d053f286e7",
+      "bytes": 42732,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-mobile-default.png",
+      "sha256": "ecc3f66c4d9abc09a8d43bd84b5cdf76126453c8eb782ff30a5e8e342c7fbe63",
+      "bytes": 54822,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-mobile-diff.png",
+      "sha256": "63a7221a58d191afbd29671cd36757b2815dcddf90aa3fce87689c5a228f8aa0",
+      "bytes": 38931,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-dark-mobile-revision.png",
+      "sha256": "c821f785e835b7249c1df43a131e6bf1dd2feba5c17dbfa8bbf8ac7b4725dbfc",
+      "bytes": 61531,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-artifact-file.png",
+      "sha256": "144b351afc72be5b43d5301c86fabf37607fcc2ad079c0b65f285a674afa6b12",
+      "bytes": 128694,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-checks.png",
+      "sha256": "7bf650d8d84b3e95bad5b7ba8daad29eb9c4b1aa9ee20ed2f7ce23f99c7dff5e",
+      "bytes": 121436,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-component.png",
+      "sha256": "5454ec654124e594680b7bd82609334756a4fc5ad24273cb4cf538f43ed4119a",
+      "bytes": 128254,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-default.png",
+      "sha256": "56532acf0691fe166cf9431fee6919e293e54f4ddfdd1a0d71095f9c0c5724e6",
+      "bytes": 96908,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-diff.png",
+      "sha256": "113cce0cefcdf4598b55c08a22e536b59361184d8f4a016b8ad83aceccefef0d",
+      "bytes": 91134,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-evidence.png",
+      "sha256": "9bb018c21d22743d91b8e8414c0174c84cc0ee439fe68a267961fa2e620d8332",
+      "bytes": 130254,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-evolution.png",
+      "sha256": "4de99554cb85bbc60a43ea6d63f6b7e3ebf320bc2e8e54ef5a9257080f8b8957",
+      "bytes": 109289,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-implementation.png",
+      "sha256": "c78ff8d1d566a13e094f94d9b30205a87e492ce33e6fead8780edabef28cf469",
+      "bytes": 128659,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-desktop-revision.png",
+      "sha256": "e3b0d6a9cdf661724f26ccd8bbbc6c379b22f493c8fbdf05e51ece0430983826",
+      "bytes": 132531,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-finding-0.png",
+      "sha256": "eed110dc60ed3a8d30d23c1e1166798d894239c3b0a6edab6a99d3dcadf378c7",
+      "bytes": 152760,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-finding-1.png",
+      "sha256": "fbc349c19ccb27d3d2717835ee0cd3df123b907bc1592bb1e08e08b40fb19ac2",
+      "bytes": 148052,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-finding-2.png",
+      "sha256": "fbf8da0e215a92b70f7e6e83ad325c0c8c879ed90464c648543342bf8acf120f",
+      "bytes": 148201,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-finding-location.png",
+      "sha256": "dbf6475ed77a611af9c4d424089e317bbc22bb2c7dc5e469891980522fe026a0",
+      "bytes": 111812,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-impact-order.png",
+      "sha256": "3242c1baf76afa4b7cdbc7df024f0697b3604b3ceea639dad1b7068a77ecb227",
+      "bytes": 152284,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-mobile-change-detail.png",
+      "sha256": "b42012c27f521496ed826b087315af2d16f8006f6c0f8bd98eb0c376eff127c2",
+      "bytes": 49130,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-mobile-component.png",
+      "sha256": "0002da154eec5c6483b4eeb85a9b257d67ad1d1c42abbdb7da657093dd3f7951",
+      "bytes": 42492,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    },
+    {
+      "path": "qa/screenshots/audit-r5-tutorial-light-mobile-default.png",
+      "sha256": "e88c9501dae9cc3d6c8fb7a5e06b1ba6e9dc9d1db327e30857c7d8b7911db8f0",
+      "bytes": 54444,
+      "disposition": "old intermediate screenshot; excluded from final candidate"
+    }
+  ]
+}

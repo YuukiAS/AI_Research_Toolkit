@@ -1,0 +1,457 @@
+{
+  "checked_on": "2026-10-27",
+  "scope": "Official repository retrievals, prototype lockfile, fixed Asteria baseline, and supplementary official web checks. Missing retrievals remain explicit.",
+  "repositories": [
+    {
+      "repository": "GumTreeDiff/gumtree",
+      "observed_commit": "6e9a863940d6805aa9455b97f404b43390e8079e",
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/GumTreeDiff/gumtree/blob/main/README.md",
+          "blob_sha": "cb15d26e0baef43412d05b4df0b62e1789307fa3",
+          "content_sha256": "2c39a310d71df99b5067f03bbf5d36cc2399ce5d589f1fc87396ac3422eb97b1"
+        },
+        "license": {
+          "error": "HTTP Error 403: Forbidden"
+        }
+      }
+    },
+    {
+      "repository": "KaTeX/KaTeX",
+      "observed_commit": null,
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "Wilfred/difftastic",
+      "observed_commit": "0b92338c6042152b1fc91c30ed01cf0449070844",
+      "declared_license_metadata": "MIT",
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/Wilfred/difftastic/blob/master/README.md",
+          "blob_sha": "86385eaa73cd7068689572bcae9e63e36895fa6a",
+          "content_sha256": "395325cdaeef69a79d2d39befd278cf24a062f1e4a91848482dcb9613bf20c8f"
+        },
+        "license": {
+          "error": "HTTP Error 403: Forbidden"
+        }
+      }
+    },
+    {
+      "repository": "adr/madr",
+      "observed_commit": "ba75bb1b20d42af5746b246ad348c202419ae681",
+      "declared_license_metadata": "NOASSERTION",
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "url": "https://github.com/adr/madr/blob/develop/LICENSE",
+          "blob_sha": "038b9e8d963514881cb8ae10646b7d02257aa64b",
+          "content_sha256": "cb9c3a276eb7991be197e401ae38d035f0f0efae425c21f499393f51c9b29ffd"
+        }
+      }
+    },
+    {
+      "repository": "cytoscape/cytoscape.js",
+      "observed_commit": "9aab1b4489645c15e82fce71fdce738f58d8165d",
+      "declared_license_metadata": "MIT",
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "url": "https://github.com/cytoscape/cytoscape.js/blob/unstable/LICENSE",
+          "blob_sha": "22fcccd7b6699b0d202f678cd6d846b0edd5ca8a",
+          "content_sha256": "a29c0d78a54de204b78357976c3d272a573b8592d0478b9db07af3f1da31a65a"
+        }
+      }
+    },
+    {
+      "repository": "kieler/elkjs",
+      "observed_commit": "95f18bf65e59b6a8973aece313ddfb04ca9a1bb1",
+      "declared_license_metadata": "NOASSERTION",
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/kieler/elkjs/blob/master/README.md",
+          "blob_sha": "c862107025195fdf083c118b08f72548d561f020",
+          "content_sha256": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c"
+        },
+        "license": {
+          "url": "https://github.com/kieler/elkjs/blob/master/LICENSE.md",
+          "blob_sha": "91dd37eefbe62d3d9fb7a1e7e2c7a9a1e2cdcbcc",
+          "content_sha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9"
+        }
+      }
+    },
+    {
+      "repository": "likec4/likec4",
+      "observed_commit": "f01e7c800654e1e1aeab247e304fb5a6c5d9a4dd",
+      "declared_license_metadata": "MIT",
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/likec4/likec4/blob/main/README.md",
+          "blob_sha": "7fe6360de152edec69580f7141005d8e6366ddd2",
+          "content_sha256": "df7a1ff8f2c034e429e412449039a716383a5aae0c538bc49c59b1ab4f840c89"
+        },
+        "license": {
+          "url": "https://github.com/likec4/likec4/blob/main/LICENSE",
+          "blob_sha": "f23c8479ed9886e5362780c359ec135eab8ec165",
+          "content_sha256": "536b1e1c961552038f0bda5c755fff467883f914c21535c5d20a7f08c2a5ead2"
+        }
+      }
+    },
+    {
+      "repository": "mermaid-js/mermaid",
+      "observed_commit": null,
+      "declared_license_metadata": "MIT",
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "url": "https://github.com/mermaid-js/mermaid/blob/develop/LICENSE",
+          "blob_sha": "2e5daebd2ad0fb200080a27d98aec5f04902acdd",
+          "content_sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "remarkjs/react-markdown",
+      "observed_commit": null,
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/remarkjs/react-markdown/blob/main/readme.md",
+          "blob_sha": "949b18011236771444b355ec4d81d90acdaa3915",
+          "content_sha256": "e2f4fcd57c9ac4cd26d1a0706ae98cf8233b7e323ddc79bce662ff4d3b7e1d9c"
+        },
+        "license": {
+          "url": "https://github.com/remarkjs/react-markdown/blob/main/license",
+          "blob_sha": "f552fc95706b283bba87db2d89ef8d42996ed36f",
+          "content_sha256": "f6196c64e144f9a6fa9154c3a80bc8b89615a9567934b83a8951879f06ba2aef"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "scip-code/scip",
+      "observed_commit": null,
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "url": "https://github.com/scip-code/scip/blob/main/LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "content_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "shikijs/shiki",
+      "observed_commit": null,
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/shikijs/shiki/blob/main/README.md",
+          "blob_sha": "2710859d131dc196695df1b3d40c95ace72c82b3",
+          "content_sha256": "d96464cf1519a1df208f8650b6af07c0850583d673478cec84927291591493a4"
+        },
+        "license": {
+          "url": "https://github.com/shikijs/shiki/blob/main/LICENSE",
+          "blob_sha": "6a627184d44ec1995fc649fc5ca7d79ce2612e5a",
+          "content_sha256": "7a9d8d01038aeacf9e5bcdabbddf2a7815200dce9fc1118468cc553e00ae3eee"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "structurizr/dsl",
+      "observed_commit": null,
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 404: Not Found"
+        },
+        "license": {
+          "error": "HTTP Error 404: Not Found"
+        },
+        "commit_error": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "repository": "sverweij/dependency-cruiser",
+      "observed_commit": null,
+      "declared_license_metadata": "MIT",
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "url": "https://github.com/sverweij/dependency-cruiser/blob/main/LICENSE",
+          "blob_sha": "a8fdae8a7f0f519a5db79e19c7739b315d83ac6e",
+          "content_sha256": "046799de79c54f5366624ef97e3d5518afbefcd784a23aa74ef58d8f8bfcb2be"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "thomvaill/log4brains",
+      "observed_commit": null,
+      "declared_license_metadata": "Apache-2.0",
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "url": "https://github.com/thomvaill/log4brains/blob/develop/LICENSE",
+          "blob_sha": "ea34bfdcb4a0a39e55de3e29f8c709e8f0a0e885",
+          "content_sha256": "ec20e731c4247bffd261dd14b27563a63ad4cd931790cc46ea215d0dcf378a93"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "tree-sitter/tree-sitter",
+      "observed_commit": null,
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/master/README.md",
+          "blob_sha": "b347c880c2aa27f05a205994b159ac31512ee68b",
+          "content_sha256": "7984c7c2f775cd08f470431af058b5523886888daa8ef6443c0dbd8c2afe3bcc"
+        },
+        "license": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "commit_error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "repository": "vuejs/vitepress",
+      "observed_commit": "415a6a39507af37e282c02eb57ca50594f1bc237",
+      "declared_license_metadata": null,
+      "retrieval": {
+        "readme": {
+          "error": "HTTP Error 403: Forbidden"
+        },
+        "license": {
+          "url": "https://github.com/vuejs/vitepress/blob/main/LICENSE",
+          "blob_sha": "93a897153237ffe428d1b9ad5660a22e9e0b9ca9",
+          "content_sha256": "6db2f08c2112251083b26df3117dde40c5589d337195953531e7e677d1a600e5"
+        }
+      }
+    },
+    {
+      "repository": "xyflow/xyflow",
+      "observed_commit": "bb63f4cc345acf4e6c73e0371be3ea3ca01b2a18",
+      "declared_license_metadata": "MIT",
+      "retrieval": {
+        "readme": {
+          "url": "https://github.com/xyflow/xyflow/blob/main/README.md",
+          "blob_sha": "116e99c700ee30bbd29f1631c5b84c897d3631ac",
+          "content_sha256": "be7df4c1810d7c7d0e44e26d08404a97fa9ab62d3fdf3e5fd4c31f3070472d63"
+        },
+        "license": {
+          "url": "https://github.com/xyflow/xyflow/blob/main/LICENSE",
+          "blob_sha": "072ff46d7c23dd8e18ccba11aa6563f14e524312",
+          "content_sha256": "023119ac20fb1c8c9930abe0bcd196989a1960388529a96fc43cebf96f07c9ff"
+        }
+      }
+    }
+  ],
+  "prototype_packages": [
+    {
+      "name": "react",
+      "version": "18.3.1",
+      "license": "MIT",
+      "integrity": "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ=="
+    },
+    {
+      "name": "react-dom",
+      "version": "18.3.1",
+      "license": "MIT",
+      "integrity": "sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw=="
+    },
+    {
+      "name": "@xyflow/react",
+      "version": "12.8.4",
+      "license": "MIT",
+      "integrity": "sha512-bqUu4T5QSHiCFPkoH+b+LROKwQJdLvcjhGbNW9c1dLafCBRjmH1IYz0zPE+lRDXCtQ9kRyFxz3tG19+8VORJ1w=="
+    },
+    {
+      "name": "elkjs",
+      "version": "0.12.0",
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "integrity": "sha512-YZcKynxVxYoKIOEpywEPwCFdg+BTbxQRNf3pbwdDCvc8O3kQD8bmIwSxKU1eOTVc4Xo+VG9Te+575mlfvOrhEQ=="
+    },
+    {
+      "name": "shiki",
+      "version": "4.5.0",
+      "license": "MIT",
+      "integrity": "sha512-OcRW72ngQvc+MSVWBRIovC/BTW589iUE/Vxav7VeM4RcY9MUjqB+IR6ILG1k9nuW6LiG/nct9uma4/MBtnZbmQ=="
+    },
+    {
+      "name": "katex",
+      "version": "0.16.22",
+      "license": "MIT",
+      "integrity": "sha512-XCHRdUw4lf3SKBaJe4EvgqIuWwkPSo9XoeO8GjQW94Bp7TWv9hNhzZjZ+OH9yf1UmLygb7DIT5GSFQiyt16zYg=="
+    },
+    {
+      "name": "lucide-react",
+      "version": "0.468.0",
+      "license": "ISC",
+      "integrity": "sha512-6koYRhnM2N0GGZIdXzSeiNwguv1gt/FAjZOiPl76roBi3xKEXa4WmfpxgQwTTL4KipXjefrnf3oV4IsYhi4JFA=="
+    },
+    {
+      "name": "vite",
+      "version": "6.4.1",
+      "license": "MIT",
+      "integrity": "sha512-+Oxm7q9hDoLMyJOYfUYBuHQo+dkAloi33apOPP56pzj+vsdJDzr+j1NISE5pyaAuKL4A3UD34qd0lx5+kfKp2g=="
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "version": "4.3.4",
+      "license": "MIT",
+      "integrity": "sha512-SCCPBJtYLdE8PX/7ZQAs1QAZ8Jqwih+0VBLum1EGqmCCQal+MIUqLCzj3ZUy8ufbC0cAM4LRlSTm7IQJwWT4ug=="
+    },
+    {
+      "name": "vite-plugin-singlefile",
+      "version": "2.3.4",
+      "license": "MIT",
+      "integrity": "sha512-1FAhlTCL6KJDpSUudrVU+gspapvS+tmKCg70vwNaAU6tyXn3E/C6+NnwQIze06byhBRv7VggZ78K0h+J/Rsdrg=="
+    }
+  ],
+  "asteria_baseline": {
+    "commit": "60ba27a38324980beea78d4c07b7b28abda522cf",
+    "packages": [
+      {
+        "name": "@tiptap/core",
+        "version": "2.27.2",
+        "license": "MIT"
+      },
+      {
+        "name": "@tiptap/react",
+        "version": "2.27.2",
+        "license": "MIT"
+      },
+      {
+        "name": "dexie",
+        "version": "4.4.4",
+        "license": "Apache-2.0"
+      },
+      {
+        "name": "zustand",
+        "version": "4.5.7",
+        "license": "MIT"
+      }
+    ]
+  },
+  "supplementary_official_checks": [
+    {
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/master/LICENSE",
+      "observation": "MIT license text retrieved"
+    },
+    {
+      "url": "https://github.com/GumTreeDiff/gumtree/blob/main/LICENSE",
+      "observation": "GNU Lesser General Public License, Version 3 text retrieved; no package version selected"
+    },
+    {
+      "url": "https://github.com/structurizr/java",
+      "observation": "README states code has moved to https://github.com/structurizr/structurizr"
+    },
+    {
+      "url": "https://github.com/structurizr/structurizr/blob/main/LICENSE",
+      "observation": "Apache License Version 2.0 text retrieved"
+    },
+    {
+      "url": "https://docs.structurizr.com/dsl",
+      "observation": "Current official DSL documentation available"
+    },
+    {
+      "url": "https://graphviz.org/license/",
+      "observation": "Current license page specifies Eclipse Public License v2.0"
+    },
+    {
+      "url": "https://reactflow.dev/learn/advanced-use/accessibility",
+      "observation": "Keyboard, focus, ARIA labels, screen reader support documented; application integration still requires validation"
+    },
+    {
+      "url": "https://shiki.style/guide/dual-themes",
+      "observation": "Dual themes via token CSS variables documented; docs show v4.5.0"
+    },
+    {
+      "url": "https://katex.org/docs/options",
+      "observation": "trust false and htmlAndMathml documented; prototype pins 0.16.22 rather than claiming latest"
+    }
+  ],
+  "font": {
+    "family": "Noto Sans CJK SC",
+    "version": "2.004",
+    "styles": [
+      "Regular",
+      "Medium"
+    ],
+    "license": "OFL-1.1",
+    "license_file": "prototype/src/assets/NOTO-LICENSE.txt",
+    "files": [
+      {
+        "file": "asteria-medium.woff",
+        "sha256": "8de2cf3c2d3782edccef71489f2f1f0e735b934adb4daa577abc46eb809b9cdd"
+      },
+      {
+        "file": "asteria-sans.woff",
+        "sha256": "b95ce5f13795f2a3c8f9f331a6929e8ff0478ac918a7249ab3de90db4cf5b12a"
+      }
+    ],
+    "distributed_subsets": [
+      {
+        "path": "prototype/src/assets/asteria-sans.woff2",
+        "bytes": 2373284,
+        "sha256": "243ac6e0ed48af8aab294beac9a565435f10580e8c5b5d538cea5647f44330fc",
+        "glyphs": 6870,
+        "coverage": "GB2312 common Han plus initial source text; final rendered coverage separately verified",
+        "format": "WOFF2",
+        "copyright": "© 2014-2021 Adobe (http://www.adobe.com/)."
+      },
+      {
+        "path": "prototype/src/assets/asteria-medium.woff2",
+        "bytes": 2413624,
+        "sha256": "7ef2c877ebe3b8ee6a4da3a12d3426cddea0d222f870ab143d89a1bb8cebe25e",
+        "glyphs": 6870,
+        "coverage": "GB2312 common Han plus initial source text; final rendered coverage separately verified",
+        "format": "WOFF2",
+        "copyright": "© 2014-2021 Adobe (http://www.adobe.com/)."
+      }
+    ]
+  },
+  "formal_phase_selected_packages": [
+    {
+      "name": "react-markdown",
+      "version_observed_on_npm": "10.1.0",
+      "license": "MIT",
+      "prototype_installed": false,
+      "query": "npm view react-markdown version license --json"
+    },
+    {
+      "name": "unified",
+      "version_observed_on_npm": "11.0.5",
+      "license": "MIT",
+      "prototype_installed": false,
+      "query": "npm view unified version license --json"
+    }
+  ]
+}

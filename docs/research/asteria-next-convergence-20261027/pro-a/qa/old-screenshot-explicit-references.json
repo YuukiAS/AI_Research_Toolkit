@@ -1,0 +1,44 @@
+[
+  {
+    "file": "qa/screenshots/audit-r1-tutorial-dark-mobile-component.png",
+    "referencedBy": [
+      "qa/producer-issue-log.tsv"
+    ]
+  },
+  {
+    "file": "qa/screenshots/audit-r2-tutorial-light-desktop-checks.png",
+    "referencedBy": [
+      "qa/producer-issue-log.tsv"
+    ]
+  },
+  {
+    "file": "qa/screenshots/audit-r2-da-light-desktop-revision.png",
+    "referencedBy": [
+      "qa/producer-issue-log.tsv"
+    ]
+  },
+  {
+    "file": "qa/screenshots/audit-r1-mica-dark-desktop-implementation.png",
+    "referencedBy": [
+      "qa/producer-issue-log.tsv"
+    ]
+  },
+  {
+    "file": "qa/screenshots/audit-r2-cat-dark-mobile-diff.png",
+    "referencedBy": [
+      "qa/producer-issue-log.tsv"
+    ]
+  },
+  {
+    "file": "qa/screenshots/audit-r2-da-light-desktop-default.png",
+    "referencedBy": [
+      "qa/producer-issue-log.tsv"
+    ]
+  },
+  {
+    "file": "qa/screenshots/audit-r1-cat-light-desktop-implementation.png",
+    "referencedBy": [
+      "qa/producer-issue-log.tsv"
+    ]
+  }
+]

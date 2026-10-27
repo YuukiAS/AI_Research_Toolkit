@@ -1,0 +1,25 @@
+id	phase	severity	surface	finding	evidence	status	resolution
+QA-01	source_review	P1	DA 来源	设计文档错误固定到不含该文件的main提交	本轮clone main路径不存在；直接读取fd6916固定源	resolved_r6	r6来源弹窗与DA来源核对保留真实fd6916设计提交；固定源已直接回读，见sources/da-design-history.md
+QA-02	source_review	P1	DA 修订	手工改单条target的对照被呈现为历史接线修复，且把旧owner写成未明确	旧02 L47-49、旧03 L212/424与新稿L106	resolved_r6	r6 DA修订明确两份设计重建职责对照，保留旧原任务权威，不声称运行接线修复
+QA-03	source_review	P2	Tutorial 页对象	第10页正例与35/37页按钮都导航同一finding	Details.jsx artifact renderer统一onSelect	resolved_r6	r6 extended：页10打开固定页图，页35/37进入真实finding；定位tab列对象和要求
+QA-04	source_review	P2	CAT 开放路线	路径最后一步指向已从当前图移除的撤销路线，桌面无可见焦点	reference-data.js cat.paths与projectedEntityIds	resolved_r6	r6 extended：CAT未定路径最后一步可以进入撤销依据，历史对象可达
+QA-05	source_review	P2	图中变化	选中图节点后更新selected但当前修订视图不显示Inspector	main.jsx revisions分支与onSelect	resolved_r6	r6 extended：四项目diff节点点击均出现diff-selection前后内容
+QA-06	source_review	P2	结构检查	仅验证bindings固定提交，却宣称所有当前引用和固定提交均无矛盾	model-core.js validateProject与main.jsx structure-result	resolved_r6	r6 checks限制为模型引用和修订必填项；来源/专业边界明确，重新检查按钮实际重新计算
+QA-07	source_review	P2	空邻接详情	无关系对象仍输出相邻关系标题	Details.jsx local-links无数量判断	resolved_r6	r6 extended：未连接适配层详情的local-links数量为0，没有空标题
+QA-08	source_review	P2	来源弹窗	role=dialog与autoFocus存在，但源码尚无Tab焦点限制和关闭后回返	main.jsx source-modal及Escape处理	resolved_r6	r6 targeted：连续16次Tab均留在来源弹窗，Escape恢复来源入口
+QA-09	render_r1	P2	图中回路	DA返回线穿过用户要求节点；Mica两条回线穿过未连接的候选适配层，产生错误连接暗示	audit-r1-targeted.json collisions	resolved_r6	r6 targeted：四项目当前图非端点节点穿线0；r6 rendered关系标签相互重叠0
+QA-10	render_r1	P2	实现来源	Mica长文件路径挤压“打开”使其竖排成两行	screenshots/audit-r1-mica-dark-desktop-implementation.png	resolved_r6	r6 Mica双主题源码截图：打开入口不收缩，路径可独立换行
+QA-11	render_r1	P2	手机对象选择	展开对象列表后选择详情保留旧滚动位置，标题和返回入口滚出首屏	screenshots/audit-r1-tutorial-dark-mobile-component.png	resolved_r6	r6 extended：手机详情返回入口在首屏，返回恢复原位置；四项目手机实际渲染复验
+QA-12	render_r1	P1	CAT未定算法实现	匿名零槽积分的设计文档被同源码一起放在实现列表，并没有呈现尚无冻结生产算法	screenshots/audit-r1-cat-light-desktop-implementation.png	resolved_r6	r6 CATzero实现明确生产算法尚未冻结；设计文档单独归为设计与研究来源
+QA-13	render_r1	P2	键盘图导航	四项目图节点获得焦点后按Enter未打开详情，但可访问名称明确承诺此操作	audit-r1-targeted.json keyboard node activation	resolved_r6	r6 targeted四项目Enter打开详情；extended Space可选；node-focus-followup待布局稳定后节点焦点保留且Tab继续
+QA-14	render_r1	P2	重复状态文案	Tutorial候选说明与警示重复35/37页状态；CAT未定算法正文、机制边界和警示重复阻断状态	audit-r1-rendered.json component states	resolved_r6	r6正文：Tutorial候选仅定义文件身份；CATzero职责只写数学贡献，开放条件在问题区说明
+QA-15	render_r1	P2	修订标题与空内容	有意义的修订及解释重复产品自我定义；无历史的产物套用已有源码说明	audit-r1-rendered.json revision/evolution states	resolved_r6	r6修订标题缩短且DA摘要/理由不重复；无历史统一说明当前对象尚无相关修订记录
+QA-16	model_review	P2	Tutorial finding身份	三个真实问题藏在artifactFindings数组，图上只有泛化问题实体，页级选择与单一核心模型的对应不够明确	reference-data.js artifactFindings与entities；Details.jsx finding选择	resolved_r6	r6模型和交互：三条finding及其页面/要求有独立canonical身份，图用聚合对象展示；定位tab实际可用
+QA-17	render_r2	P2	新增中文字体	修订和检查新增汉字在嵌入字体中缺失，实际显示成空白	screenshots/audit-r2-da-light-desktop-revision.png；audit-r2-tutorial-light-desktop-checks.png	resolved_r6	r6所有最终截图及源码文字：常用中文与全文字符已嵌入字体，新增底/插/必等缺字已恢复
+QA-18	render_r2	P2	手机diff	图中变化把整幅图缩到390px，节点和边约5–8px不可读	screenshots/audit-r2-cat-dark-mobile-diff.png	resolved_r6	r6 extended：四项目手机先显示变化对象列表，完整图默认隐藏，可主动展开
+QA-19	render_r2	P2	light关系线	普通连接承担语义但对比仅2.46:1（#93a1b7 / #f7f8fa）	style.css实际token计算；audit-r2-da-light-desktop-default.png	resolved_r6	r6主题实测edge=#7e8ca3，canvas=#f7f8fa，对比超过3:1；dark单独核对
+QA-20	render_r3_source_followup	P1	Mica关系消费者	两个手工填入的consumer函数在固定源码中不存在：confirmEmptyAfterIntent与getMessageTurnElements	audit-r3-search-scope-note.json；sources/mica-relation-consumer-audit.md	resolved_r6	r6 extended真实关系点击显示collectConversationTurns与confirmPendingClear，并含7059c固定锚点；八条消费者直接源码核读完成
+QA-21	render_r5	P2	light源码高亮	Shiki已输出light色token但CSS没有绑定，浅色代码实际单色，与双主题高亮设计不符	根制作者读图复核；qa/audit-r6-theme.json	resolved_r6	r6 theme实测light/dark各5种token颜色且两组不同；代码meta写为源码节选
+QA-22	final_fact_review	P2	证据种类	recorded_result统一显示已有运行记录，把Tutorial历史审阅误称运行结果	r6 Tutorial历史证据；Details.jsx evidence-kind映射	resolved_final_delta	9ebad事实delta：Tutorial历史与CAT参考算法在light/dark×桌面/手机8态均显示已有结果记录；仍保留各自记录范围，不声称本轮重跑
+QA-23	final_fact_review	P1	Mica历史与当前机制	旧版误继承4200ms；旧consumer使用新版函数名；旧发送AND与新OR、阻止新建与移除已有外观层混淆，关系历史锚点未完整重建	固定0.1.6/0.1.7源码；qa/audit-final-delta.json semantic	resolved_final_delta	9ebad事实delta：旧3200/新4200；旧handlePotentialConnectorSignal→detectSignal与受连接器上下文guard的handlePotentialMentionEvent→beginLifecycle；旧AND/新OR；已有外观层不因skip立即移除；两侧未重建关系anchors不参与比较；保留3对真实函数binding。28态/27检查及语义值核对，最终6d2数据hash相同
+QA-24	final_delta_render	P2	修改关系的图中表达	Mica选择动作的consumer已改变，未选中时关系仍普通灰色，被图例解释为当前上下文	screenshots/audit-final-delta-mica-light-desktop-diff-overview.png；Graph.jsx只处理added/removed	resolved_final_visual_delta	6d2ddb最终视觉复验：修改边显示修改色、1.8px及可见修改文字；双主题桌面总览/选择和手机主动展开图共6态/7检查，无标签碰撞、非端点穿线或横向溢出

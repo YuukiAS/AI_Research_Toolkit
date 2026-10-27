@@ -1,0 +1,62 @@
+[
+  {
+    "project": "da",
+    "index": 0,
+    "selected": "用户要求",
+    "after": {
+      "tag": "BUTTON",
+      "label": "用户要求",
+      "text": "用户要求"
+    },
+    "next": {
+      "tag": "BUTTON",
+      "label": "workflow-core",
+      "text": "workflow-core"
+    }
+  },
+  {
+    "project": "da",
+    "index": -1,
+    "selected": "可交付范围",
+    "after": {
+      "tag": "BUTTON",
+      "label": "可交付范围",
+      "text": "可交付范围"
+    },
+    "next": {
+      "tag": "BUTTON",
+      "label": "放大",
+      "text": ""
+    }
+  },
+  {
+    "project": "tutorial",
+    "index": 0,
+    "selected": "当前要求",
+    "after": {
+      "tag": "BUTTON",
+      "label": "当前要求",
+      "text": "当前要求"
+    },
+    "next": {
+      "tag": "BUTTON",
+      "label": "候选课件",
+      "text": "候选课件"
+    }
+  },
+  {
+    "project": "tutorial",
+    "index": -1,
+    "selected": "修复与重渲染",
+    "after": {
+      "tag": "BUTTON",
+      "label": "修复与重渲染",
+      "text": "修复与重渲染"
+    },
+    "next": {
+      "tag": "BUTTON",
+      "label": "放大",
+      "text": ""
+    }
+  }
+]
