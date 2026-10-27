@@ -1,0 +1,1568 @@
+{
+ "schema_version": "architecture-history-benchmark.v2",
+ "run_id": "work",
+ "as_of": "2026-10-27",
+ "research_mode": "RETROSPECTIVE_ANALYSIS_NOT_BLIND_NOT_A_B_TEST",
+ "pro_runs_read": false,
+ "baseline_commit": "23a1c4840f665e66f7af95ffadaadd96dc999e7f",
+ "write_branch": "research/architecture-production-protocol-20261027-work",
+ "event_count": 53,
+ "source_count": 105,
+ "events": [
+  {
+   "id": "BK01",
+   "project": "Bridge",
+   "stage": "proposal_v0.1_to_v0.2",
+   "observation": "初始连续性设计经用户转交 Critic，限定 worktree exchange、强制启动 preflight、隔离 Git blob 读取。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "B03",
+    "B04"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "REVIEW_RELAY_REPORTED",
+   "implementation_impact": "PRE_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "PARTIAL_MECHANISM_AND_ENTRY",
+    "early_probe": "GIT_PROBE_WAS_PERFORMED_SCOPE_LIMITED",
+    "independent_review": "VALUABLE_NOT_PROVEN_UNIQUE"
+   }
+  },
+  {
+   "id": "BK02",
+   "project": "Bridge",
+   "stage": "execution_v0.1_to_v0.2",
+   "observation": "execution package 修 exact handoff identity 与同候选发布顺序；设计 PASS 与执行包 PASS 是不同事实。",
+   "classification": [
+    "DESIGN_GAP",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "B01",
+    "B02",
+    "BH1"
+   ],
+   "depends_on": [
+    "BK01"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "REVIEW_RELAY_REPORTED",
+   "implementation_impact": "PRE_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "LIKELY_IDENTITY_AND_EVIDENCE",
+    "early_probe": "FACT_CHECK_SUFFICIENT",
+    "independent_review": "VALUABLE_CONSISTENCY"
+   }
+  },
+  {
+   "id": "BK03",
+   "project": "Bridge",
+   "stage": "implementation_and_readiness_fix",
+   "observation": "26c57fa 开始实现，646dfa0 修 replace refs 与 CODEX_HOME 等实现问题。",
+   "classification": [
+    "IMPLEMENTATION_BUG"
+   ],
+   "evidence": [
+    "commit:26c57fa",
+    "commit:646dfa0"
+   ],
+   "depends_on": [
+    "BK02"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "LOCAL_REPAIR",
+   "retrospective": {
+    "asteria": "NOT_CODE_CORRECTNESS_PROOF",
+    "early_probe": "TARGETED_TESTS",
+    "independent_review": "IMPLEMENTATION_REVIEW"
+   }
+  },
+  {
+   "id": "BK04",
+   "project": "Bridge",
+   "stage": "safety_repair",
+   "observation": "8ff3bba 修 evidence 自授权通知、worktree approval 与恢复边界。",
+   "classification": [
+    "IMPLEMENTATION_BUG",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "commit:8ff3bba"
+   ],
+   "depends_on": [
+    "BK03"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": "MIXED",
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "LOCAL_AND_CROSS_COMPONENT_REPAIR",
+   "retrospective": {
+    "asteria": "PARTIAL_AUTHORITY_OWNER",
+    "early_probe": "NEGATIVE_AUTH_TEST",
+    "independent_review": "VALUABLE_SECURITY_REVIEW"
+   }
+  },
+  {
+   "id": "BK05",
+   "project": "Bridge",
+   "stage": "recovery_repair",
+   "observation": "b9956c9 增强 journal、配置源信任与 spawn 前复核；不能仅据补丁把全部缺陷归咎架构。",
+   "classification": [
+    "IMPLEMENTATION_BUG",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "commit:b9956c9"
+   ],
+   "depends_on": [
+    "BK04"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": "NOT_ESTABLISHED",
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "REPAIR_NOT_PROVEN_DISCARDED_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "PARTIAL_FAILURE_RECOVERY",
+    "early_probe": "CRASH_AND_DRIFT_PROBE",
+    "independent_review": "IMPLEMENTATION_REVIEW"
+   }
+  },
+  {
+   "id": "BK06",
+   "project": "Bridge",
+   "stage": "scope_recovery",
+   "observation": "原 TODO 中进度 owner、原线程投递、限流/去抖、machine/project intent 没有完整交付；提案明确是恢复原范围。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "B15",
+    "B05"
+   ],
+   "depends_on": [
+    "BK05"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "USER_CORRECTION_REPORTED",
+   "implementation_impact": "RETURN_IMPLEMENTATION_TO_DESIGN",
+   "retrospective": {
+    "asteria": "LIKELY_CAPABILITY_TO_OWNER",
+    "early_probe": "ENTRY_AND_TIMER_PROBE",
+    "independent_review": "BLIND_ORIGINAL_SCOPE_AUDIT"
+   }
+  },
+  {
+   "id": "BK07",
+   "project": "Bridge",
+   "stage": "progress_v0.2_v0.3",
+   "observation": "原线程注入的 idle/no-tool 原子边界未获证明，改独立 Progress thread。",
+   "classification": [
+    "DESIGN_GAP",
+    "EXTERNAL_FACT",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "B06",
+    "B07"
+   ],
+   "depends_on": [
+    "BK06"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "DESIGN_REVISION_REUSE_UNKNOWN",
+   "retrospective": {
+    "asteria": "PARTIAL_TRUST_AND_CONSUMER",
+    "early_probe": "REAL_THREAD_INTERFACE_PROBE",
+    "independent_review": "INDEPENDENT_ALTERNATIVE_PLAUSIBLE"
+   }
+  },
+  {
+   "id": "BK08",
+   "project": "Bridge",
+   "stage": "normal_entry_v0.4",
+   "observation": "已有 install/validate/prompt/report helper，但没有 start/resume/status 和 report 调度 owner、Gmail 正常配置入口。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "B08"
+   ],
+   "depends_on": [
+    "BK07"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "REVIEW_RELAY_REPORTED",
+   "implementation_impact": "DESIGN_REVISION",
+   "retrospective": {
+    "asteria": "LIKELY_END_TO_END_CAPABILITY",
+    "early_probe": "HANDOFF_DRY_RUN_FACT_CHECK",
+    "independent_review": "BLIND_USER_JOURNEY"
+   }
+  },
+  {
+   "id": "BK09",
+   "project": "Bridge",
+   "stage": "shared_server_v0.5",
+   "observation": "shared app-server active-writer 边界与跨工作流通知归属要求重新约束机制。",
+   "classification": [
+    "EXTERNAL_FACT",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "B09"
+   ],
+   "depends_on": [
+    "BK08"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "REVIEW_RELAY_REPORTED",
+   "implementation_impact": "DESIGN_REVISION",
+   "retrospective": {
+    "asteria": "PARTIAL_OWNERSHIP",
+    "early_probe": "SOURCE_AND_REAL_CONCURRENT_CLIENT_PROBE",
+    "independent_review": "ALTERNATIVE_PLAUSIBLE_NOT_MEASURED"
+   }
+  },
+  {
+   "id": "BK10",
+   "project": "Bridge",
+   "stage": "full_functional_v0.6",
+   "observation": "full-functional audit 补 instruction writer、quiescence、host/native、auth、通知与 reader 六类闭合。",
+   "classification": [
+    "DESIGN_GAP",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "B10",
+    "commit:16ae5fef"
+   ],
+   "depends_on": [
+    "BK09"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "DESIGN_REVISION",
+   "retrospective": {
+    "asteria": "LIKELY_KNOWN_COMPONENT_MECHANISM",
+    "early_probe": "QUIESCENCE_AND_READER_PROBE",
+    "independent_review": "VALUABLE_BROAD_AUDIT"
+   }
+  },
+  {
+   "id": "BK11",
+   "project": "Bridge",
+   "stage": "v0.7_v0.8",
+   "observation": "v0.7 正文已全平台 fail closed，摘要仍写 Linux/procfs 可交换；Critic 窄修后 v0.8 PASS。",
+   "classification": [
+    "OTHER"
+   ],
+   "evidence": [
+    "B11",
+    "B13",
+    "B12",
+    "B14"
+   ],
+   "depends_on": [
+    "BK10"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "DOCUMENT_CONSISTENCY_ONLY",
+   "retrospective": {
+    "asteria": "LIKELY_REVISION_CONSISTENCY",
+    "early_probe": "NOT_NEEDED",
+    "independent_review": "VALUABLE_NARROW_REVIEW"
+   }
+  },
+  {
+   "id": "BK12",
+   "project": "Bridge",
+   "stage": "second_implementation",
+   "observation": "v0.8 execution PASS 后 e0f7a328 扩展实现；后续 canary 仍是正式 final gates 前置。",
+   "classification": [
+    "OTHER"
+   ],
+   "evidence": [
+    "B14",
+    "BH2",
+    "commit:e0f7a328"
+   ],
+   "depends_on": [
+    "BK11"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "SECOND_IMPLEMENTATION_ADMISSION",
+   "retrospective": {
+    "asteria": "CANNOT_PROVE_RUNTIME",
+    "early_probe": "PROBE_PLANNED_BUT_AFTER_IMPLEMENTATION",
+    "independent_review": "PASS_IS_IMPLEMENTATION_ADMISSION"
+   }
+  },
+  {
+   "id": "BK13",
+   "project": "Bridge",
+   "stage": "runtime_canary",
+   "observation": "0.160.1 零模型轮 reader 无法排除 global AGENTS；multiAgentMode 请求字段被忽略，候选 FAIL_CLOSED。",
+   "classification": [
+    "EXTERNAL_FACT",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "BC"
+   ],
+   "depends_on": [
+    "BK12"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "INVALIDATED_REQUIRED_RUNTIME_PREMISE",
+   "retrospective": {
+    "asteria": "ONLY_IF_EVIDENCE_GATE_NOT_FIELD_PRESENCE",
+    "early_probe": "HIGH_SPECIFIC_EARLY_ZERO_TURN_PROBE",
+    "independent_review": "THIRD_DESIGNER_NOT_A_RUNTIME_TEST"
+   }
+  },
+  {
+   "id": "BK14",
+   "project": "Bridge",
+   "stage": "product_scope_reset",
+   "observation": "撤旧任务 authority，拆除 app-server reader/display、自动交换与通知扩张；以核心产品重新切分。",
+   "classification": [
+    "SCOPE_RESET",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "B21",
+    "B17"
+   ],
+   "depends_on": [
+    "BK13"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "EXPLICIT_PRODUCT_RESET",
+   "implementation_impact": "RETURN_IMPLEMENTATION_TO_DESIGN_GLOBAL_SCOPE",
+   "retrospective": {
+    "asteria": "PARTIAL_BLAST_RADIUS",
+    "early_probe": "COULD_HAVE_REJECTED_OLD_PREMISE_EARLIER",
+    "independent_review": "ALTERNATIVE_ROUTE_PLAUSIBLE"
+   }
+  },
+  {
+   "id": "BK15",
+   "project": "Bridge",
+   "stage": "reset_critic_and_package",
+   "observation": "Critic 阻止静默延期已承诺 Clear Writing，补精确源码、stale/partial-start 与迁移边界；v0.2/执行包 PASS。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "B17",
+    "B18",
+    "B22",
+    "B19",
+    "B20"
+   ],
+   "depends_on": [
+    "BK14"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PRE_RESET_IMPLEMENTATION_REPAIR",
+   "retrospective": {
+    "asteria": "LIKELY_REQUIREMENT_AND_RECOVERY",
+    "early_probe": "SOURCE_AND_FAILURE_PROBE",
+    "independent_review": "VALUABLE_REQUIREMENT_PRESERVATION"
+   }
+  },
+  {
+   "id": "BK16",
+   "project": "Bridge",
+   "stage": "reset_complexity_review",
+   "observation": "复杂度审查允许有依据的增量；managed marker 外空白属于局部实现修复，不重启架构。",
+   "classification": [
+    "IMPLEMENTATION_BUG",
+    "OTHER"
+   ],
+   "evidence": [
+    "B16"
+   ],
+   "depends_on": [
+    "BK15"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "LOCAL_CODE_FIX",
+   "retrospective": {
+    "asteria": "NOT_LINE_COUNT_DECISION",
+    "early_probe": "REGRESSION_DIFF_CHECK",
+    "independent_review": "VALUABLE_STOP_CONTROL"
+   }
+  },
+  {
+   "id": "SR01",
+   "project": "SlurmRouting",
+   "stage": "v0.1_to_v0.2",
+   "observation": "Critic 找到 cancel/resubmit JobId/依赖/RUNNING 竞态和未禁止不等于站点授权。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "S25",
+    "S26",
+    "S37",
+    "S38"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PRE_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "PARTIAL_STATE_AUTHORITY",
+    "early_probe": "STATE_RACE_PROBE",
+    "independent_review": "VALUABLE_DECISION_CHANGE"
+   }
+  },
+  {
+   "id": "SR02",
+   "project": "SlurmRouting",
+   "stage": "v0.2_execution_review",
+   "observation": "此前包忠实于已批准范围；新用户资源建议、周期容量与 persistent/interactive 需求使其需改。",
+   "classification": [
+    "NEW_REQUIREMENT",
+    "EXTERNAL_FACT"
+   ],
+   "evidence": [
+    "S33"
+   ],
+   "depends_on": [
+    "SR01"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "EXPLICIT_NEW_PRODUCT_REQUIREMENTS",
+   "implementation_impact": "NO_OLD_IMPLEMENTATION_WASTE_ESTABLISHED",
+   "retrospective": {
+    "asteria": "CANNOT_PREDICT_UNSTATED_REQUIREMENT",
+    "early_probe": "QUEUE_FACT_CHECK",
+    "independent_review": "VALUABLE_SCOPE_BOUNDARY"
+   }
+  },
+  {
+   "id": "SR03",
+   "project": "SlurmRouting",
+   "stage": "v0.3_review",
+   "observation": "新的 capacity successor 责任/授权尚未闭合。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "S27",
+    "S39"
+   ],
+   "depends_on": [
+    "SR02"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PRE_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "LIKELY_OWNER_AND_AUTHORITY",
+    "early_probe": "SOURCE_FACTS_SUPPORT",
+    "independent_review": "VALUABLE"
+   }
+  },
+  {
+   "id": "SR04",
+   "project": "SlurmRouting",
+   "stage": "v0.4_review",
+   "observation": "通用站点接入需要 live discovery；静态 registry 不能成为支持列表。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "S28",
+    "S40"
+   ],
+   "depends_on": [
+    "SR03"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PRE_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "PARTIAL_UNLISTED_SITE_SCENARIO",
+    "early_probe": "UNKNOWN_SITE_DRY_RUN",
+    "independent_review": "VALUABLE"
+   }
+  },
+  {
+   "id": "SR05",
+   "project": "SlurmRouting",
+   "stage": "v0.5_to_v0.6",
+   "observation": "主要剩余问题为版本/发布分类绑定；v0.6 设计和 execution PASS。",
+   "classification": [
+    "OTHER"
+   ],
+   "evidence": [
+    "S29",
+    "S30",
+    "S34",
+    "S41",
+    "S42",
+    "SG",
+    "SK",
+    "SE"
+   ],
+   "depends_on": [
+    "SR04"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PRE_IMPLEMENTATION_GOVERNANCE",
+   "retrospective": {
+    "asteria": "LIKELY_PACKAGE_CONSISTENCY",
+    "early_probe": "NOT_CORE_RUNTIME_PROBE",
+    "independent_review": "LOW_SEMANTIC_INCREMENT_NOT_USELESS"
+   }
+  },
+  {
+   "id": "SR06",
+   "project": "SlurmRouting",
+   "stage": "prefinal_round_1",
+   "observation": "实现审查发现 enrollment identity、earliest uncovered occurrence、installed G6 与站点标识问题。",
+   "classification": [
+    "IMPLEMENTATION_BUG",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "S75"
+   ],
+   "depends_on": [
+    "SR05"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "IMPLEMENTATION_REPAIR",
+   "retrospective": {
+    "asteria": "PARTIAL_FROZEN_INVARIANTS",
+    "early_probe": "STATE_SEQUENCE_AND_INSTALL_TEST",
+    "independent_review": "VALUABLE_IMPLEMENTATION_REVIEW"
+   }
+  },
+  {
+   "id": "SR07",
+   "project": "SlurmRouting",
+   "stage": "prefinal_round_2",
+   "observation": "首轮 scope/occurrence 修补仍不完整；需要再次实现修复。",
+   "classification": [
+    "IMPLEMENTATION_BUG"
+   ],
+   "evidence": [
+    "S76"
+   ],
+   "depends_on": [
+    "SR06"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "REPAIR_NOT_ARCHITECTURE_RESET",
+   "retrospective": {
+    "asteria": "CANNOT_PROVE_CODE",
+    "early_probe": "REGRESSION_TEST",
+    "independent_review": "VALUABLE_RECHECK"
+   }
+  },
+  {
+   "id": "SR08",
+   "project": "SlurmRouting",
+   "stage": "prefinal_round_3",
+   "observation": "PF1–4 关闭后发现 timezone 元数据未参与计算。",
+   "classification": [
+    "IMPLEMENTATION_BUG"
+   ],
+   "evidence": [
+    "S77",
+    "SH2"
+   ],
+   "depends_on": [
+    "SR07"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "LOCAL_REPAIR",
+   "retrospective": {
+    "asteria": "PARTIAL_TIME_SEMANTICS",
+    "early_probe": "TIMEZONE_PROBE",
+    "independent_review": "VALUABLE_NEW_FINDING"
+   }
+  },
+  {
+   "id": "SR09",
+   "project": "SlurmRouting",
+   "stage": "prefinal_round_4",
+   "observation": "DST fold/gap 未 fail closed，继续修复。",
+   "classification": [
+    "IMPLEMENTATION_BUG",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "S78",
+    "SH2"
+   ],
+   "depends_on": [
+    "SR08"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": "NOT_ESTABLISHED",
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "LOCAL_TIME_BOUNDARY_REPAIR",
+   "retrospective": {
+    "asteria": "PARTIAL_FAILURE_CASE_SPECIFICITY",
+    "early_probe": "DST_TABLE_TEST",
+    "independent_review": "VALUABLE_EDGE_CASE"
+   }
+  },
+  {
+   "id": "SR10",
+   "project": "SlurmRouting",
+   "stage": "integration_and_release",
+   "observation": "两次集成审查处理版本漂移和 CI，最终 skill0.3/repo5.4.2；没有真实 Slurm mutation。",
+   "classification": [
+    "OTHER",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "S66",
+    "S67",
+    "S64",
+    "S65",
+    "S79"
+   ],
+   "depends_on": [
+    "SR09"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "RELEASE_CLOSURE",
+   "retrospective": {
+    "asteria": "SOURCE_IDENTITY_ONLY",
+    "early_probe": "INSTALL_CI",
+    "independent_review": "VALUABLE_LIMITED_SCOPE"
+   }
+  },
+  {
+   "id": "SC01",
+   "project": "SlurmCancel",
+   "stage": "cancel_protection_0.3",
+   "observation": "早期已知道 Hook process failure 可能放行，区分辅助 Hook 与真正执行边界。",
+   "classification": [
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "S19"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "INITIAL_PRODUCT_REQUEST_REPORTED",
+   "implementation_impact": "PRIOR_DESIGN",
+   "retrospective": {
+    "asteria": "RISK_PRESENT_EVIDENCE_NOT_PROVEN",
+    "early_probe": "FAILURE_PATH_PROBE_NEEDED",
+    "independent_review": "RISK_ALREADY_KNOWN"
+   }
+  },
+  {
+   "id": "SC02",
+   "project": "SlurmCancel",
+   "stage": "fresh_confirmation_v1",
+   "observation": "后续用户将需求收窄为 protected partition fresh confirmation，拒绝旧候选扩张；终端 adapter/PATH guard 被提出。",
+   "classification": [
+    "NEW_REQUIREMENT",
+    "SCOPE_RESET",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "S16"
+   ],
+   "depends_on": [
+    "SC01"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "EXPLICIT_SCOPE_CORRECTION",
+   "implementation_impact": "OLDER_PHASE3_CANDIDATES_REJECTED",
+   "retrospective": {
+    "asteria": "PARTIAL_PRODUCT_BOUNDARY",
+    "early_probe": "NORMAL_ENTRY_CONFIRMATION_PROBE",
+    "independent_review": "PREFERENCE_CANNOT_BE_INFERRED_CERTAINLY"
+   }
+  },
+  {
+   "id": "SC03",
+   "project": "SlurmCancel",
+   "stage": "chat_confirmation_v2",
+   "observation": "改同根 chat native confirmation；明确 headless/Default empty response 限制并要求 Phase0 probe。",
+   "classification": [
+    "NEW_REQUIREMENT",
+    "EXTERNAL_FACT"
+   ],
+   "evidence": [
+    "S13"
+   ],
+   "depends_on": [
+    "SC02"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "CHAT_UX_REQUIREMENT_REPORTED",
+   "implementation_impact": "DESIGN_ROUTE_CHANGE",
+   "retrospective": {
+    "asteria": "PARTIAL_UI_TRUST_BOUNDARY",
+    "early_probe": "EXPLICIT_EARLY_PROBE_REQUIRED",
+    "independent_review": "VALUABLE_ROUTE_CORRECTION"
+   }
+  },
+  {
+   "id": "SC04",
+   "project": "SlurmCancel",
+   "stage": "v2.1_trust",
+   "observation": "同 UID 可伪造 persisted confirmed state，取消 next-shell token；host PostToolUse 直接拥有授权后执行。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "S12"
+   ],
+   "depends_on": [
+    "SC03"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "CORE_AUTHORITY_CHANGE",
+   "retrospective": {
+    "asteria": "PARTIAL_TRUST_GRAPH",
+    "early_probe": "FORGED_TOKEN_TEST",
+    "independent_review": "VALUABLE_ADVERSARIAL_FINDING"
+   }
+  },
+  {
+   "id": "SC05",
+   "project": "SlurmCancel",
+   "stage": "phase0_fail_and_recovery",
+   "observation": "execution PASS 后 Phase0 发现 linked worktree Hook discovery 指向 canonical；PRODUCT_IMPLEMENTATION_NOT_STARTED，改 standalone clone 执行入口。",
+   "classification": [
+    "EXTERNAL_FACT",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "S08",
+    "SH1"
+   ],
+   "depends_on": [
+    "SC04"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": "EXECUTION_ENTRY_ONLY",
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "EARLY_STOP_BEFORE_PRODUCT_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "ONLY_WITH_ACTUAL_ENTRY_EVIDENCE",
+    "early_probe": "EARLY_PROBE_WORKED",
+    "independent_review": "POSITIVE_PROBE_CONTROL"
+   }
+  },
+  {
+   "id": "SC06",
+   "project": "SlurmCancel",
+   "stage": "trusted_global_hook_candidate",
+   "observation": "实现从 shim 迁到 trusted Host Hook，再统一为 user/global Hook；catalog/hash/大量测试和 fake取消记录 PASS。",
+   "classification": [
+    "DESIGN_GAP",
+    "EXTERNAL_FACT",
+    "OTHER"
+   ],
+   "evidence": [
+    "SF",
+    "SCODE"
+   ],
+   "depends_on": [
+    "SC05"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "IMPLEMENTED_CANDIDATE_REPLACED_OR_REPAIRED",
+   "retrospective": {
+    "asteria": "PARTIAL_AUTHORITY_SCOPE",
+    "early_probe": "CATALOG_NOT_SUFFICIENT",
+    "independent_review": "NO_UNIQUE_CRITIC_EFFECT_ESTABLISHED"
+   }
+  },
+  {
+   "id": "SC07",
+   "project": "SlurmCancel",
+   "stage": "portable_runtime_v3",
+   "observation": "真实 Hook 启动 Python 缺 libpython3.12.so.1.0 exit127；普通 process failure 未阻断原 Bash。",
+   "classification": [
+    "EXTERNAL_FACT",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "S07",
+    "SCODE",
+    "S43"
+   ],
+   "depends_on": [
+    "SC06"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "USER_RUNTIME_FAILURE_REPORTED",
+   "implementation_impact": "IMPLEMENTATION_TO_ARCHITECTURE",
+   "retrospective": {
+    "asteria": "EVIDENCE_OBLIGATION_ONLY",
+    "early_probe": "HIGH_REAL_LOADER_FAILURE_PROBE",
+    "independent_review": "ANOTHER_TEXT_REVIEW_INSUFFICIENT"
+   }
+  },
+  {
+   "id": "SC08",
+   "project": "SlurmCancel",
+   "stage": "v3_runtime_and_session",
+   "observation": "v3 固定 global supervisor/runtime；旧 session 不刷新 Hook，fresh session harmless probe 才证明阻断。",
+   "classification": [
+    "EXTERNAL_FACT",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "S05",
+    "S45",
+    "S62"
+   ],
+   "depends_on": [
+    "SC07"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "NATIVE_TRUST_OR_SESSION_ACTION_REQUIRED",
+   "implementation_impact": "LOCAL_ENTRY_QUALIFICATION",
+   "retrospective": {
+    "asteria": "PARTIAL_INSTALLED_INSTANCE_IDENTITY",
+    "early_probe": "REAL_SESSION_AB_WORKED",
+    "independent_review": "FACT_CHECK"
+   }
+  },
+  {
+   "id": "SC09",
+   "project": "SlurmCancel",
+   "stage": "live_fixture_resource",
+   "observation": "CPU-only/no-GPU fixture 被 QOSMinGRES 拒绝；MinTRES GPU1，需用户改资源合同，不是 Hook 架构失效。",
+   "classification": [
+    "EXTERNAL_FACT"
+   ],
+   "evidence": [
+    "S62",
+    "S59"
+   ],
+   "depends_on": [
+    "SC08"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "EXPLICIT_RESOURCE_AMENDMENT",
+   "implementation_impact": "TEST_CONTRACT_REVISION",
+   "retrospective": {
+    "asteria": "RESOURCE_ASSUMPTION_FIELD_ONLY",
+    "early_probe": "READ_ONLY_QOS_AND_TEST_ONLY",
+    "independent_review": "NO_NEW_CORE_DESIGN"
+   }
+  },
+  {
+   "id": "SC10",
+   "project": "SlurmCancel",
+   "stage": "native_question_schema",
+   "observation": "四键暴露 schema 与六键 normalized payload 不同；Planner 判实现 bug，保持 Plan revision1。",
+   "classification": [
+    "IMPLEMENTATION_BUG"
+   ],
+   "evidence": [
+    "S52",
+    "S59"
+   ],
+   "depends_on": [
+    "SC09"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "TRUST_AND_FRESH_SESSION_REQUIRED",
+   "implementation_impact": "LOCAL_CODE_FIX",
+   "retrospective": {
+    "asteria": "PARTIAL_INTERFACE_SHAPE",
+    "early_probe": "EXACT_NATIVE_SCHEMA_PROBE",
+    "independent_review": "CORRECT_LOCAL_ROUTE"
+   }
+  },
+  {
+   "id": "SC11",
+   "project": "SlurmCancel",
+   "stage": "mcp_transport",
+   "observation": "用户明确改 trusted PreToolUse MCP+stdio；SDK fake smoke 与 connected catalog 未证明 Desktop card，vertical probe 首次失败。",
+   "classification": [
+    "NEW_REQUIREMENT",
+    "EXTERNAL_FACT",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "S51",
+    "S59"
+   ],
+   "depends_on": [
+    "SC10"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "EXPLICIT_TRANSPORT_REPLACEMENT",
+   "implementation_impact": "PARTIAL_COMPONENT_REPLACEMENT",
+   "retrospective": {
+    "asteria": "PARTIAL_TRANSPORT_BOUNDARY",
+    "early_probe": "REAL_CURRENT_CHAT_VERTICAL_PROBE",
+    "independent_review": "INDEPENDENT_FACT_CHECK"
+   }
+  },
+  {
+   "id": "SC12",
+   "project": "SlurmCancel",
+   "stage": "failure_isolation",
+   "observation": "runtime/trust 故障导致无关 Bash 被阻断，修 scope classification 与 fail-closed supervisor；不确定 protected 路径继续拒绝。",
+   "classification": [
+    "DESIGN_GAP",
+    "IMPLEMENTATION_BUG"
+   ],
+   "evidence": [
+    "S53",
+    "S54"
+   ],
+   "depends_on": [
+    "SC11"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": "LOCAL_BOUNDARY_REFINEMENT",
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "LOCAL_REPAIR",
+   "retrospective": {
+    "asteria": "LIKELY_FAILURE_CONTAINMENT",
+    "early_probe": "UNRELATED_COMMAND_POSITIVE_CONTROL",
+    "independent_review": "VALUABLE_CAPABILITY_PROTECTION"
+   }
+  },
+  {
+   "id": "SC13",
+   "project": "SlurmCancel",
+   "stage": "live_and_release",
+   "observation": "真实 confirm 取消路径有证据；两次表单都返回 confirm，live retain 未执行，用户随后明确豁免并保留 UI/deterministic retain 证据。",
+   "classification": [
+    "OTHER"
+   ],
+   "evidence": [
+    "S49",
+    "S61",
+    "S59",
+    "S47",
+    "S48"
+   ],
+   "depends_on": [
+    "SC12"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "EXPLICIT_ACCEPTANCE_WAIVER_AND_LIVE_ACTIONS",
+   "implementation_impact": "RELEASE_CLOSURE_WITH_DISCLOSED_LIMIT",
+   "retrospective": {
+    "asteria": "CANNOT_TRANSFORM_WAIVER_TO_PASS",
+    "early_probe": "LIVE_BRANCHES_DIFFER",
+    "independent_review": "HONEST_ACCEPTANCE_BOUNDARY"
+   }
+  },
+  {
+   "id": "M01",
+   "project": "Mica",
+   "stage": "roadmap_reality_gap",
+   "observation": "34/34 功能与两轮审查的用户记录后，追问暴露 ChatGPT 动态 UI 来源/login/capture/replay 未定。",
+   "classification": [
+    "DESIGN_GAP",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "M1",
+    "MR",
+    "MG"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "USER_QUESTION_EXPOSED_GAP",
+   "implementation_impact": "ROADMAP_ONLY_DIFF_NO_NEW_IMPLEMENTATION_PROVEN",
+   "retrospective": {
+    "asteria": "LIKELY_INPUT_SOURCE_AND_SCENARIO",
+    "early_probe": "REAL_UI_READ_ONLY_CAPTURE_PROBE",
+    "independent_review": "BLIND_USER_SCENARIO"
+   }
+  },
+  {
+   "id": "M02",
+   "project": "Mica",
+   "stage": "scoped_pass_control",
+   "observation": "R2 PASS 有明确 Planner admission 边界；用户优先级修订不必触发第三次 Critic。",
+   "classification": [
+    "NEW_REQUIREMENT",
+    "OTHER"
+   ],
+   "evidence": [
+    "M2"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": false,
+   "user_intervention": "EXPLICIT_PRIORITY_CHANGE",
+   "implementation_impact": "NO_RESET_PROVEN",
+   "retrospective": {
+    "asteria": "SCOPE_VERSIONING",
+    "early_probe": "NOT_NEEDED_FOR_PRIORITY_ONLY",
+    "independent_review": "STOP_CONTROL"
+   }
+  },
+  {
+   "id": "C01",
+   "project": "CATTRACE",
+   "stage": "analytic_probe",
+   "observation": "q0/n1 解析 integral 与 Laplace 近似不符；n100 加权误差明显，共用同一近似的代码对拍不能证明科学正确。",
+   "classification": [
+    "EXTERNAL_FACT",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "C1",
+    "C2"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PLANNING_PROBE_LIMITED_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "CANNOT_PROVE_MATH",
+    "early_probe": "ANALYTIC_AND_QUADRATURE_PROBE_WORKED",
+    "independent_review": "INDEPENDENT_SCIENTIFIC_REASONING"
+   }
+  },
+  {
+   "id": "C02",
+   "project": "CATTRACE",
+   "stage": "readiness_and_scoped_freeze",
+   "observation": "R1 指出外层 profile 等仍要执行者决定；R6 只冻结 Alpha 子集，保留 zero-slot blocker 并停止 R7。",
+   "classification": [
+    "DESIGN_GAP",
+    "OTHER"
+   ],
+   "evidence": [
+    "C2",
+    "C3"
+   ],
+   "depends_on": [
+    "C01"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "BOUNDED_ALPHA_AUTHORIZATION_REPORTED",
+   "implementation_impact": "SCOPED_FREEZE_WITH_DISCLOSED_BLOCKER",
+   "retrospective": {
+    "asteria": "LIKELY_IMPLEMENTER_DECISIONS",
+    "early_probe": "E0_PROBE_SUPPORT",
+    "independent_review": "VALUABLE_STOP_CONTROL"
+   }
+  },
+  {
+   "id": "C03",
+   "project": "CATTRACE",
+   "stage": "numerical_reliability",
+   "observation": "correctness PASS 不等于大规模可靠性；fixed GH oracle 失败而 adaptive reference 稳定，需区分 oracle 与实现。",
+   "classification": [
+    "EXTERNAL_FACT",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "C4"
+   ],
+   "depends_on": [
+    "C02"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": "SCIENTIFIC_AND_NUMERICAL_SCOPE_DEPENDENT",
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "LATER_NUMERICAL_WORK",
+   "retrospective": {
+    "asteria": "CANNOT_PROVE_RELIABILITY",
+    "early_probe": "REPRESENTATIVE_SCALE_AND_REFERENCE",
+    "independent_review": "SCIENTIFIC_REVIEW"
+   }
+  },
+  {
+   "id": "V01",
+   "project": "STAT5060",
+   "stage": "withdrawn_ready",
+   "observation": "原 FinalReadinessAudit PASS 后撤销；缺 literal enforcement edges、可执行 handoff/source/control identity。",
+   "classification": [
+    "DESIGN_GAP",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "VH",
+    "V1",
+    "V2"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "SCOPE_CORRECTIONS_RECORDED",
+   "implementation_impact": "PRE_IMPLEMENTATION_WITHDRAWAL",
+   "retrospective": {
+    "asteria": "LIKELY_EDGE_CONSUMER_ANCHOR",
+    "early_probe": "READ_ONLY_MATERIALIZATION_DRY_RUN",
+    "independent_review": "VALUABLE_COMPLETENESS"
+   }
+  },
+  {
+   "id": "V02",
+   "project": "STAT5060",
+   "stage": "critic_v3",
+   "observation": "七项 disposition 保留独立语义 evidence、防 self-certification、canonical digest/状态分离，修不存在模块；拒绝手工再造400+行表。",
+   "classification": [
+    "DESIGN_GAP",
+    "REVIEW_DRIFT"
+   ],
+   "evidence": [
+    "V3",
+    "V4"
+   ],
+   "depends_on": [
+    "V01"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PRE_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "LIKELY_STRUCTURAL_PLUS_ORACLE_AUTHORITY",
+    "early_probe": "MODULE_FACT_CHECK",
+    "independent_review": "VALUABLE_WITH_REASONED_REBUTTAL"
+   }
+  },
+  {
+   "id": "A01",
+   "project": "Asteria",
+   "stage": "rc8_blackbox_then_human_fail",
+   "observation": "Work target gate PASS 含旧版本 carry-forward，用户发现遮挡、运动、raw math、AI文案、边标签等六类问题。",
+   "classification": [
+    "EVIDENCE_GAP",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "A2",
+    "A1"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "HUMAN_ACCEPTANCE_FOUND_FAILURES",
+   "implementation_impact": "RENDERED_PRODUCT_REPAIR",
+   "retrospective": {
+    "asteria": "STRUCTURE_CANNOT_JUDGE_GESTALT",
+    "early_probe": "ACTUAL_RENDER_INTERACTION",
+    "independent_review": "BLACKBOX_PROMPT_SCOPE_LIMIT"
+   }
+  },
+  {
+   "id": "A02",
+   "project": "Asteria",
+   "stage": "rc14",
+   "observation": "后续截图仍难读，转向统一视觉系统，多个局部修补不等于全局阅读质量。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "A3"
+   ],
+   "depends_on": [
+    "A01"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": true,
+   "user_intervention": "HUMAN_SCREENSHOT_FEEDBACK",
+   "implementation_impact": "VISUAL_ARCHITECTURE_REPAIR",
+   "retrospective": {
+    "asteria": "CANNOT_GUARANTEE_VISUAL_QUALITY",
+    "early_probe": "REPRESENTATIVE_RENDER",
+    "independent_review": "INDEPENDENT_PRODUCT_JUDGMENT"
+   }
+  },
+  {
+   "id": "D01",
+   "project": "DeliveryAssurance",
+   "stage": "design_only_control",
+   "observation": "R3 PROCEED 同时 READY_FOR_CODEX=NO、PRODUCTION_IMPLEMENTED=NO，概念设计成熟不伪装产品实现。",
+   "classification": [
+    "OTHER"
+   ],
+   "evidence": [
+    "DAOLD",
+    "D1",
+    "E1",
+    "E2",
+    "E3"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "NO_PRODUCT_IMPLEMENTATION_CLAIM",
+   "retrospective": {
+    "asteria": "STRUCTURE_USEFUL_NOT_VALIDATION",
+    "early_probe": "ENTRY_PROBE_STILL_NEEDED",
+    "independent_review": "TRUTHFUL_STATUS_CONTROL"
+   }
+  },
+  {
+   "id": "D02",
+   "project": "Showcase",
+   "stage": "parallel_common_blindspot",
+   "observation": "历史两位模型主页都缺系统总架构图，独立模型数量不自动消除共同遗漏。",
+   "classification": [
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "D2",
+    "SHOW",
+    "STD"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "USER_QUALITY_CORRECTION",
+   "implementation_impact": "PROTOTYPE_REDESIGN",
+   "retrospective": {
+    "asteria": "KNOWN_CAPABILITY_CHECK_PLAUSIBLE",
+    "early_probe": "RENDERED_ACCEPTANCE",
+    "independent_review": "CORRELATED_BLINDSPOT_EVIDENCE"
+   }
+  },
+  {
+   "id": "P01",
+   "project": "ResearchAuthoring",
+   "stage": "v0.1_review",
+   "observation": "共享入口、增量保真、可执行 Gate 与 tracking owner 尚未闭合。",
+   "classification": [
+    "DESIGN_GAP",
+    "OTHER"
+   ],
+   "evidence": [
+    "P1"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": true,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "PRE_IMPLEMENTATION",
+   "retrospective": {
+    "asteria": "LIKELY_ENTRY_OWNER_VALIDATION",
+    "early_probe": "MINIMAL_GREENFIELD_DELTA_TRIAL",
+    "independent_review": "VALUABLE_DOMAIN_REVIEW"
+   }
+  },
+  {
+   "id": "P02",
+   "project": "ResearchAuthoring",
+   "stage": "v0.3_narrow_pass",
+   "observation": "窄审只关闭 RA3，设计冻结 raw-evidence greenfield+未知 delta 与独立 rubric 顺序；不是实际产物实验PASS。",
+   "classification": [
+    "OTHER",
+    "EVIDENCE_GAP"
+   ],
+   "evidence": [
+    "P2"
+   ],
+   "depends_on": [
+    "P01"
+   ],
+   "serial_dependency": "DOCUMENTED_DEPENDENCY_NOT_MEASURED_MODEL_WAIT",
+   "core_mechanism_change": false,
+   "user_intervention": "UNKNOWN",
+   "implementation_impact": "GATE_DESIGN_NOT_EXECUTED_BENCHMARK",
+   "retrospective": {
+    "asteria": "LIKELY_EVIDENCE_STATUS",
+    "early_probe": "PROPOSED_NOT_RUN_IN_THIS_RESEARCH",
+    "independent_review": "VALUABLE_NARROW_STOP"
+   }
+  },
+  {
+   "id": "P03",
+   "project": "Artifact",
+   "stage": "quality_and_self_certification",
+   "observation": "Research Authoring TODO 记录用户仍当首次版式QA；Presentation 黑箱设计指出同执行者控制测试/oracle 的自证风险。",
+   "classification": [
+    "EVIDENCE_GAP",
+    "DESIGN_GAP"
+   ],
+   "evidence": [
+    "P3",
+    "P4"
+   ],
+   "depends_on": [],
+   "serial_dependency": "NOT_ESTABLISHED",
+   "core_mechanism_change": false,
+   "user_intervention": "USER_QA_FEEDBACK_RECORDED",
+   "implementation_impact": "ARTIFACT_REWORK_UNQUANTIFIED",
+   "retrospective": {
+    "asteria": "STRUCTURE_INSUFFICIENT",
+    "early_probe": "FROZEN_HOLDOUT_AND_REAL_RENDER",
+    "independent_review": "BLIND_ACCEPTANCE_PLAUSIBLE"
+   }
+  }
+ ],
+ "snapshots": [
+  {
+   "id": "T01",
+   "name": "Bridge initial execution v0.2",
+   "input_mode": "EXACT_GIT_INPUT",
+   "input_allowlist": [
+    {
+     "source_id": "BH1"
+    }
+   ],
+   "hidden_outcome_events": [
+    "BK06",
+    "BK08"
+   ],
+   "challenge": "从当时原范围追正常入口与 owner，不自行补机制。",
+   "limitations": "单文件包不是完整当时输入；原 proposal/TODO 同 ref扩展后才能做完整盲测；初次执行包PASS独立记录缺失。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T02",
+   "name": "Bridge v0.8 before canary",
+   "input_mode": "EXACT_GIT_INPUT",
+   "input_allowlist": [
+    {
+     "source_id": "BH2"
+    }
+   ],
+   "hidden_outcome_events": [
+    "BK13",
+    "BK14"
+   ],
+   "challenge": "列出可推翻reader架构的外部前提与最小probe，拒绝无依据 runtime validated。",
+   "limitations": "后来PASS在35a976e；本研究已知结果，未调用旧runtime。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T03",
+   "name": "Slurm v2.1 before phase0",
+   "input_mode": "EXACT_GIT_INPUT",
+   "input_allowlist": [
+    {
+     "source_id": "SH1"
+    }
+   ],
+   "hidden_outcome_events": [
+    "SC05"
+   ],
+   "challenge": "判断Hook在真实入口是否消费正确config，需要何种只读/无mutation测试。",
+   "limitations": "历史Phase0确实提前阻断产品实施；不是本轮新实验。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T04",
+   "name": "Slurm routing v0.6",
+   "input_mode": "EXACT_GIT_INPUT",
+   "input_allowlist": [
+    {
+     "source_id": "SH2"
+    }
+   ],
+   "hidden_outcome_events": [
+    "SR06",
+    "SR08",
+    "SR09"
+   ],
+   "challenge": "区分已有time字段与异常状态/时区可执行语义，避免预测任意实现bug。",
+   "limitations": "正式Goal/执行包需同ref补齐；后续实现错误不能全归原设计。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T05",
+   "name": "STAT original ready audit",
+   "input_mode": "EXACT_GIT_INPUT",
+   "input_allowlist": [
+    {
+     "source_id": "VH"
+    }
+   ],
+   "hidden_outcome_events": [
+    "V01",
+    "V02"
+   ],
+   "challenge": "核验literal edges、source identity、真实模块与独立oracle。",
+   "limitations": "需补充同ref完整架构文件；原审计只声称一致性/未实现。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T06",
+   "name": "Mica roadmap and contract",
+   "input_mode": "EXACT_GIT_INPUT",
+   "input_allowlist": [
+    {
+     "source_id": "MR"
+    },
+    {
+     "source_id": "MG"
+    }
+   ],
+   "hidden_outcome_events": [
+    "M01"
+   ],
+   "challenge": "要求完整动态UI输入/login/capture/replay证据路径。",
+   "limitations": "用户总结聊天无法全部恢复；不可把两轮审查映射到任意同名review。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T07",
+   "name": "Slurm trusted/global failed candidate",
+   "input_mode": "EXACT_GIT_INPUT",
+   "input_allowlist": [
+    {
+     "source_id": "SCODE"
+    },
+    {
+     "source_id": "SF"
+    }
+   ],
+   "hidden_outcome_events": [
+    "SC07"
+   ],
+   "challenge": "检查Python可执行与真实loader可用的差别，测试Hook processfailure是否deny原命令。",
+   "limitations": "候选已有compatiblePython修补；不能故意隐去它；原runtime与私有日志未重建。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T08",
+   "name": "Asteria RC8 gate",
+   "input_mode": "ARCHIVED_DOCUMENT_NOT_TIME_ISOLATED_PACKAGE",
+   "input_allowlist": [
+    {
+     "source_id": "A2"
+    }
+   ],
+   "hidden_outcome_events": [
+    "A01"
+   ],
+   "challenge": "判断carry-forward覆盖、真实动态交互与整屏阅读是否充分。",
+   "limitations": "当前固定ref中的历史文档；未恢复RC8应用与运行环境。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  },
+  {
+   "id": "T09",
+   "name": "CAT diagnostic and bounded freeze",
+   "input_mode": "OUTCOME_AWARE_DIAGNOSTIC_FIXTURE",
+   "input_allowlist": [
+    {
+     "source_id": "C1"
+    },
+    {
+     "source_id": "C2"
+    },
+    {
+     "source_id": "C3"
+    }
+   ],
+   "hidden_outcome_events": [
+    "C01",
+    "C02",
+    "C03"
+   ],
+   "challenge": "区分数学正确性、实现自洽、合法子范围冻结与未来blocker。",
+   "limitations": "包含结果，不能用于声称盲测检出；用于校准判断与停止。",
+   "execution_status": "READ_AND_ANALYZED_RETROSPECTIVELY_NOT_BLIND",
+   "runtime_reexecuted": false,
+   "source_identity_resolution": "SOURCES.json"
+  }
+ ],
+ "probabilities": {
+  "major_gap_rate": null,
+  "detection_rate": null,
+  "second_designer_gain": null,
+  "third_designer_gain": null,
+  "reason": "UNKNOWN: no controlled or blinded trials performed"
+ },
+ "measured_user_minutes": null,
+ "measured_wait_minutes": null,
+ "measured_wasted_code_ratio": null,
+ "positive_controls": [
+  "SR02",
+  "BK16",
+  "C02",
+  "M02",
+  "D01",
+  "SC12",
+  "SC13"
+ ],
+ "common_event_fields": {
+  "evidence_status": "OBSERVED_IN_REPOSITORY",
+  "classification_status": "INFERRED_FROM_CITED_EVIDENCE",
+  "strict_blind_test": false
+ }
+}

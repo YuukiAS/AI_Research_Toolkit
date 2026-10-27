@@ -1,0 +1,983 @@
+{
+ "schema_version": 2,
+ "as_of": "2026-10-27",
+ "repositories": {
+  "r0": "YuukiAS/AI_Research_Toolkit",
+  "r1": "YuukiAS/GPT_Codex_AI_Bridge_Kit",
+  "r2": "YuukiAS/AI_Skills_Collection",
+  "r3": "YuukiAS/Asteria",
+  "r4": "YuukiAS/CAT-TRACE",
+  "r5": "YuukiAS/STAT5060-TA",
+  "r6": "YuukiAS/Mica-for-ChatGPT"
+ },
+ "refs": {
+  "c0": "23a1c4840f665e66f7af95ffadaadd96dc999e7f",
+  "c1": "bc94e41f44bd5b534d8ab8caa304114b8bf90685",
+  "c2": "5d4b1432f96742646e00ad279a054359b1aec1da",
+  "c3": "60ba27a38324980beea78d4c07b7b28abda522cf",
+  "c4": "0d829fb17c458a076a15ec51893e917960107c21",
+  "c5": "76dc93ce7aaf2b91b60fd4003daa8be75ff54588",
+  "c6": "7059c0dc24b908b57bd0e1f475142ba4f4520621",
+  "c7": "c733aa065d9ad102a64bb5f5f55453cd31a7e7bc",
+  "c8": "da9f6d2b34c00e87e00622b9234bbada786c1760",
+  "c9": "1b8df2c1f2b93de1605d571f5125cd4aaa99fd20",
+  "c10": "af3cdc9399eef90a44a6286f02faa5a9a47305af",
+  "c11": "fd6916ad5fdd5fb905544b6a127f9b0d31a737e1",
+  "c12": "c3879065c782f1b0a03107a927bb3176a8788d02",
+  "c13": "bbd14ce66b462ba2dbcecc6ad06d851598a3aacc",
+  "c14": "3e0370c7b1993ba2f6cba600aaed6a741892cb16",
+  "c15": "ad3e60988f5581dd0d0c194e13907baaa446c413",
+  "c16": "ae2766a62b1546048ec6122e01ee95f1904fb73c",
+  "c17": "c4885af5108316e90d40852502c432745eb84893",
+  "c18": "ed7643fc185ce8dcf222785e05ace652e92bac7e"
+ },
+ "sources": [
+  {
+   "id": "REQ",
+   "repository_id": "r0",
+   "ref_id": "c0",
+   "path": "docs/research/architecture-workflow-20261026/01_USER_REQUIREMENTS_ZH.md",
+   "blob_sha": "18f0678e0723e939a07a6d921cf1ddf14f5c4e0a",
+   "line_count": 41,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "OLD",
+   "repository_id": "r0",
+   "ref_id": "c0",
+   "path": "docs/research/architecture-workflow-20261026/02_OPTIONS_AND_RECOMMENDED_MECHANISM_ZH.md",
+   "blob_sha": "f5ca871c09d9f5f6d90616b6281e77ebe3590b5f",
+   "line_count": 141,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SHOW",
+   "repository_id": "r0",
+   "ref_id": "c0",
+   "path": "docs/research/complex-system-showcase-20261026/02_INDEPENDENT_REDESIGN_R2_ZH.md",
+   "blob_sha": "325048db67ba64f6ca6d69130f730d2e4aa74e2f",
+   "line_count": 138,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "STD",
+   "repository_id": "r0",
+   "ref_id": "c0",
+   "path": "COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md",
+   "blob_sha": "4eabd5dd38d0bc8da3b928c302d690bae37a3b48",
+   "line_count": 208,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B01",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.1_2026-10-12.md",
+   "blob_sha": "1e07aad14679032303d1c3cf4dad5aea3d4911e6",
+   "line_count": 156,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B09",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.5_2026-10-17.md",
+   "blob_sha": "2e319be50fd3a96d4f8fcdd4935c4ff2bb6f216d",
+   "line_count": 1445,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B03",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.1_2026-10-12.md",
+   "blob_sha": "3a4343cbad84b8b3bfb64aefdd7f5b32143e96f2",
+   "line_count": 264,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B06",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.2_2026-10-16.md",
+   "blob_sha": "74590c5d260b1faa105861d62d82d60a9a2a31e0",
+   "line_count": 586,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B02",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md",
+   "blob_sha": "f386e1f98d0d4d4f1ada737df4d6bc6eb35a1310",
+   "line_count": 172,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B04",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_proposal_v0.2_2026-10-12.md",
+   "blob_sha": "3f7fbdbc5173976b04ea4bd44cc7cfa35a9f51d5",
+   "line_count": 340,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B11",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.7_2026-10-18.md",
+   "blob_sha": "e5d6d6f8e5706135e494004544c2264084d1d95e",
+   "line_count": 1953,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B12",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+   "blob_sha": "401162b7d341e5d75f82b0c1d608161054a8a3bb",
+   "line_count": 1938,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B05",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.1_2026-10-16.md",
+   "blob_sha": "aab55c11f50cf3744fdf33fbd4c3adc90eccf457",
+   "line_count": 467,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B08",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.4_2026-10-17.md",
+   "blob_sha": "a7559e6071cf388668d4f55115eedf102341711c",
+   "line_count": 1281,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B10",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.6_2026-10-18.md",
+   "blob_sha": "05e13c3e18944c91cd21560672251966ce21e58c",
+   "line_count": 1919,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B07",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.3_2026-10-16.md",
+   "blob_sha": "c3d9fbdb502b643f67a8a032ac87890067946420",
+   "line_count": 596,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B17",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_product_scope_reset_critic_review_v0.1_2026-10-19.md",
+   "blob_sha": "c9f84179e07133925bd62f28d3168c84475de8ab",
+   "line_count": 516,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B16",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_product_scope_reset_complexity_critic_review_v0.1_2026-10-19.md",
+   "blob_sha": "cd97a13adcf3cf0cbffc44dd6e2fbb9a58fbeb92",
+   "line_count": 122,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B13",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.7_2026-10-18.md",
+   "blob_sha": "d035b3b6cdad549b9164ace183d3c4ff03a09cba",
+   "line_count": 30,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B22",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_product_scope_reset_proposal_v0.2_2026-10-19.md",
+   "blob_sha": "f9edd328829e8b68f53aaa6520d1bea9cf0395cf",
+   "line_count": 722,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B18",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_product_scope_reset_critic_review_v0.2_2026-10-19.md",
+   "blob_sha": "aa45de049e13f329aecbf9b8c10dfded035f8b3b",
+   "line_count": 272,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B20",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_product_scope_reset_execution_ready_critic_review_v0.1_2026-10-19.md",
+   "blob_sha": "fe81c8ff6918a3929b22a6259be307073eff4ddd",
+   "line_count": 277,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B21",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_product_scope_reset_proposal_v0.1_2026-10-19.md",
+   "blob_sha": "36599480e61c0bb652c62c1131db14ed46b01aba",
+   "line_count": 461,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B19",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_product_scope_reset_execution_plan_v0.1_2026-10-19.md",
+   "blob_sha": "9e5915222beb1c929537804fa64fe221f75afc1f",
+   "line_count": 668,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B15",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_proposal_v0.1_2026-10-16.md",
+   "blob_sha": "79a11d8b73dd79e879d9852e0bc3ffd851aca12b",
+   "line_count": 643,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "B14",
+   "repository_id": "r1",
+   "ref_id": "c1",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_ready_critic_review_v0.8_2026-10-18.md",
+   "blob_sha": "698b06ed82ae1ef8907f3857f1a081ebf8b8e03c",
+   "line_count": 74,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S34",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_6_2026-09-24.md",
+   "blob_sha": "2f9418ab5d8d0d0a9e1c91d5c6b6bc1acf87b36b",
+   "line_count": 330,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S28",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_4_2026-09-24.md",
+   "blob_sha": "77c3f2481377603b05f3c388e15fe4019f88c248",
+   "line_count": 409,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S27",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_3_2026-09-24.md",
+   "blob_sha": "596ae1defbf9b092309a18c068ef3668a1e93da0",
+   "line_count": 395,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S30",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_6_2026-09-24.md",
+   "blob_sha": "004d2abb1bc05fc36364aa7351e4c7fa2719b035",
+   "line_count": 223,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S25",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_1_2026-09-24.md",
+   "blob_sha": "a297616cc508a1b2e3c470e773c96faad01e08bd",
+   "line_count": 345,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S29",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_5_2026-09-24.md",
+   "blob_sha": "bcab6f1a7d59d6feaa765a42e61572fdb7d53c71",
+   "line_count": 421,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S33",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_CRITIC_REVIEW_V0_2_2026-09-24.md",
+   "blob_sha": "3c311c569b4e6b719181a95a6ac0abb23c7bcda8",
+   "line_count": 412,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S26",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_CRITIC_REVIEW_V0_2_2026-09-24.md",
+   "blob_sha": "db1fe378973be59dda93b0e2d7e6673cea13912c",
+   "line_count": 231,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S43",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/skill-todos/slurm-workflows.md",
+   "blob_sha": "e8394da6190723e65b2be3615238375d94fec16f",
+   "line_count": 52,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S13",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_2026-10-18.md",
+   "blob_sha": "bc62264c6010b3e5371885899138f72c03095250",
+   "line_count": 593,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S05",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_EXECUTION_PLAN_V3_2026-10-19.md",
+   "blob_sha": "7849b62c543a3c3e51295e9957f1660371e3407b",
+   "line_count": 434,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S16",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_FRESH_CONFIRMATION_PROPOSAL_V1_2026-10-17.md",
+   "blob_sha": "eddcf4881020518841730e77e8db85b591513a79",
+   "line_count": 490,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S07",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_PROTECTED_CANCEL_PORTABLE_RUNTIME_PROPOSAL_V3_2026-10-19.md",
+   "blob_sha": "cde329bd930e36ac1efe0ae068ff05c5482a72fc",
+   "line_count": 228,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S38",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_2_2026-09-24.md",
+   "blob_sha": "ee67e0bed62ab5295f2a2c63d17246d8e6d24a6d",
+   "line_count": 616,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S39",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_3_2026-09-24.md",
+   "blob_sha": "b2532cbb2a87b41ee283b4fe8cf311fd0c9e6de4",
+   "line_count": 924,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S59",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+   "blob_sha": "e73733cdd008d35a9a431161a1f98e6e28e39733",
+   "line_count": 145,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S52",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/NATIVE_SCHEMA_REPAIR_EVIDENCE.md",
+   "blob_sha": "bee646dae0a2845a8180c50bdcf1c5d64cfcc4d0",
+   "line_count": 61,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S08",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+   "blob_sha": "7f0df6953ba7dfaeb705ab56f6fcd649fb84c7bf",
+   "line_count": 1131,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S42",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_6_2026-09-24.md",
+   "blob_sha": "495ed0d1a9ff107c58249efb07b3df42b098cde3",
+   "line_count": 885,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S41",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_5_2026-09-24.md",
+   "blob_sha": "62c9dbf772ab7c3703ff12bb1afb0923feef7a0b",
+   "line_count": 1135,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S12",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_PROPOSAL_V2_1_2026-10-18.md",
+   "blob_sha": "26760ae8bb0a19809f1048436fa14aba0bb4e49a",
+   "line_count": 553,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S40",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_4_2026-09-24.md",
+   "blob_sha": "4217b036e7e4d549280a6d137e2fc0db572e38e4",
+   "line_count": 802,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S53",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/P0_FAILURE_ISOLATION_EVIDENCE.md",
+   "blob_sha": "aa4a62960dc12d0fc31b0804b3413c9acefda61c",
+   "line_count": 24,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S37",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_1_2026-09-24.md",
+   "blob_sha": "f66ead54ed7c6a2eebd9b68f64aaad4d00d2fd9a",
+   "line_count": 615,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S19",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_CANCEL_PROTECTION_PROPOSAL_V0_3_2026-10-13.md",
+   "blob_sha": "ca5a1d57e586f001210e437b76f1bca75d465db4",
+   "line_count": 165,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S62",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/SESSION_AB_EVIDENCE.md",
+   "blob_sha": "7b7cbae1a9ad0a69298dc8e97ef3e7417d7a6392",
+   "line_count": 111,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S66",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_CRITIC_REVIEW_2026-10-02.md",
+   "blob_sha": "214a9693ee62f71d44b96e828b9f700b5f99f9ea",
+   "line_count": 205,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S49",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/LIVE_CONFIRMATION_EVIDENCE.md",
+   "blob_sha": "d2d6a4ea57c2ff0459215df7a58dfc56b569d8f3",
+   "line_count": 74,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S45",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/EXECUTION_EVIDENCE.md",
+   "blob_sha": "d4c10fc11fa71919dfebe830be1114d14282cf45",
+   "line_count": 63,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S61",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/REVISED_G4_ACCEPTANCE.md",
+   "blob_sha": "e1095fd158053fcde783859f550feeb4ad0dd6cf",
+   "line_count": 46,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S47",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/FINAL_REPORT.md",
+   "blob_sha": "ae5d1f1501d37816aefd12346bcdc03eb42f8a43",
+   "line_count": 34,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S54",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/PENDING_BINDING_REPAIR_EVIDENCE.md",
+   "blob_sha": "1a58340716bc9e23b88af34cf6fb8784d4837415",
+   "line_count": 31,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S51",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/MCP_VERTICAL_EVIDENCE.md",
+   "blob_sha": "7df0846f28fe0498df75bc011a8d2375276ac271",
+   "line_count": 52,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S64",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/FINAL_CRITIC_REVIEW_2026-10-03.md",
+   "blob_sha": "95c2ab7cbd069d47b8aa6d465b1ba02297fd97e8",
+   "line_count": 270,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S48",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-cancel-production-closure/INDEPENDENT_FINAL_REVIEW.md",
+   "blob_sha": "3f4248ae6bc785857e5b1b7d90a16413577b7462",
+   "line_count": 224,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S65",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/INTEGRATION_RELEASE_CLOSURE_2026-10-03.md",
+   "blob_sha": "a8604c5cbf8a1b943228d47b741708299082a1bf",
+   "line_count": 74,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S76",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R2_2026-10-02.md",
+   "blob_sha": "3aea65a83bb377485f6874f0fc90766388e431a0",
+   "line_count": 282,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S67",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/PARALLEL_RELEASE_INTEGRATION_RECOVERY_CRITIC_REVIEW_R2_2026-10-03.md",
+   "blob_sha": "e081522b7a818c827953f71e9baeb98ab7376c31",
+   "line_count": 171,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S79",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/RESULT.md",
+   "blob_sha": "cee4265b5abca0273afb9aac945daaedc3cab38f",
+   "line_count": 218,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S75",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R1_2026-10-02.md",
+   "blob_sha": "401ede646b0d7cbb9871958fcf7f8f35e48740d8",
+   "line_count": 268,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S78",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R4_2026-10-02.md",
+   "blob_sha": "1a28b02bd188186c0ab6aa3370c52a7b8d7a0c68",
+   "line_count": 205,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "S77",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "results/hpc--slurm-workflows-routing-refactor/PREFINAL_CRITIC_REVIEW_R3_2026-10-02.md",
+   "blob_sha": "6902b33d9c2c2640a2648e968fbd50941778eb14",
+   "line_count": 204,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "A1",
+   "repository_id": "r3",
+   "ref_id": "c3",
+   "path": "docs/operations/acceptance/RC8_HUMAN_ACCEPTANCE_FAILURE_2026-09-13.md",
+   "blob_sha": "f6e1e5df7e406412e9859e5298963a0f55d5f197",
+   "line_count": 106,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "C1",
+   "repository_id": "r4",
+   "ref_id": "c4",
+   "path": "docs/implementation/probes/ZERO_SLOT_LAPLACE_FINDING.md",
+   "blob_sha": "ab9db7278eb054bc8a99ea289bd45bb48541bfec",
+   "line_count": 59,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "C2",
+   "repository_id": "r4",
+   "ref_id": "c4",
+   "path": "docs/implementation/reviews/CRITIC_REVIEW_R1_RESOLUTION.md",
+   "blob_sha": "28bc6f21b46520ad2de9aff66abe64b69f90a026",
+   "line_count": 267,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "V3",
+   "repository_id": "r5",
+   "ref_id": "c5",
+   "path": "results/validator-architecture-v3/CRITIC_FINDING_DISPOSITION_V1.md",
+   "blob_sha": "b63d15bb8476e224c994dc659831d9ff7335de49",
+   "line_count": 214,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "V4",
+   "repository_id": "r5",
+   "ref_id": "c5",
+   "path": "results/validator-architecture-v3/ARCHITECTURE_CLOSURE_V3.md",
+   "blob_sha": "2ed553cfce4306c7c62d7cfe569506e44ff78285",
+   "line_count": 229,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "V2",
+   "repository_id": "r5",
+   "ref_id": "c5",
+   "path": "results/validator-architecture-v2/CRITIC_BLOCKER_CLOSURE_V1.md",
+   "blob_sha": "51f48874e6c61d1e7b8f5fd052e7c7d7a232e9ec",
+   "line_count": 148,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "M1",
+   "repository_id": "r0",
+   "ref_id": "c0",
+   "path": "docs/examples/MICA_REAL_UI_EVIDENCE_GATE_FAILURE_2026-10-26_ZH.md",
+   "blob_sha": "435e2aafd0241f4cba6fc04bfba1381bc0105d35",
+   "line_count": 60,
+   "evidence_kind": "RETROSPECTIVE_CASE_RECORD"
+  },
+  {
+   "id": "C4",
+   "repository_id": "r4",
+   "ref_id": "c4",
+   "path": "docs/implementation/C04_REF_RELIABILITY_INVESTIGATION_CHRONICLE_20260923.md",
+   "blob_sha": "621fbdd30e2e3efb1bc077bdb593ebaec5f86da4",
+   "line_count": 1390,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "M2",
+   "repository_id": "r6",
+   "ref_id": "c6",
+   "path": "docs/reviews/2026-10-12-mica-product-system-critic-r2-verdict.md",
+   "blob_sha": "201dcb4d60f837ecbe1223849eff56814c746bd5",
+   "line_count": 40,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "C3",
+   "repository_id": "r4",
+   "ref_id": "c4",
+   "path": "docs/implementation/reviews/CRITIC_REVIEW_R6_RESOLUTION.md",
+   "blob_sha": "11acf240f57aab2c120522196c573039834b19d3",
+   "line_count": 59,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "E1",
+   "repository_id": "r0",
+   "ref_id": "c7",
+   "path": "docs/research/architecture-evolution-system-20261027/pro-a/RESULT.md",
+   "blob_sha": "4200fd6c96fee98abc0d77ac818f145ec0940aeb",
+   "line_count": 71,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "BC",
+   "repository_id": "r1",
+   "ref_id": "c8",
+   "path": "results/bridge-core--execution-context-readiness-convergence/DEVELOPMENT_PROGRESS_CANARY.json",
+   "blob_sha": "1fe0072e64e23142169a02ef3ef975d1a761d8ed",
+   "line_count": 54,
+   "evidence_kind": "ARCHIVED_RUNTIME_JSON"
+  },
+  {
+   "id": "E2",
+   "repository_id": "r0",
+   "ref_id": "c7",
+   "path": "docs/research/architecture-evolution-system-20261027/pro-a/ARCHITECTURE_DESIGN_METHOD.md",
+   "blob_sha": "6ddc0a1fecfeff23b9eef2ae6f86d123e0f71330",
+   "line_count": 145,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "E3",
+   "repository_id": "r0",
+   "ref_id": "c7",
+   "path": "docs/research/architecture-evolution-system-20261027/pro-a/THREE_PROJECT_STRESS_TEST.md",
+   "blob_sha": "88b8e4ba675204917027684fc7c01537e1deb76a",
+   "line_count": 304,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "V1",
+   "repository_id": "r5",
+   "ref_id": "c5",
+   "path": "results/validator-architecture-v1/FINAL_READINESS_AUDIT_V1.md",
+   "blob_sha": "560654443b28219af2b771b5e70a088db49f956f",
+   "line_count": 30,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "A3",
+   "repository_id": "r3",
+   "ref_id": "c3",
+   "path": "docs/operations/acceptance/RC14_HUMAN_VISUAL_REVIEW_FAILURE_2026-09-14.md",
+   "blob_sha": "3d0d3551cbe75391ba2fccf3dd8ffed9f506ad03",
+   "line_count": 77,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "A2",
+   "repository_id": "r3",
+   "ref_id": "c3",
+   "path": "docs/operations/blackbox-audit/reports/RC8_FINAL_BLACKBOX_GATE_2026-09-13.md",
+   "blob_sha": "b651dfa0e4be7f50fd50b8fd7c8e0699a87a4023",
+   "line_count": 84,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SF",
+   "repository_id": "r2",
+   "ref_id": "c9",
+   "path": "results/hpc--slurm-cancel-production-closure/RESULT.md",
+   "blob_sha": "f9f89146e4aabf2d50271729d00fd59ecefff0a4",
+   "line_count": 92,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "P2",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/059_RESEARCH_AUTHORING_FORMAL_PRODUCTION_ARCHITECTURE_V0_3_CRITIC_REVIEW_2026-10-04.md",
+   "blob_sha": "a51e483e3644971f9cb152dd2f8f1a4f69a147cd",
+   "line_count": 158,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "P1",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/059_RESEARCH_AUTHORING_FORMAL_PRODUCTION_ARCHITECTURE_V0_1_CRITIC_REVIEW_2026-10-04.md",
+   "blob_sha": "8381eb1e801c12ff18bde5bfffdaca79ccb5557d",
+   "line_count": 115,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "MG",
+   "repository_id": "r6",
+   "ref_id": "c10",
+   "path": "contracts/chatgpt/current.json",
+   "blob_sha": "0c35d27988871d7c3e10c4a2c8c02cf9db7935fe",
+   "line_count": 111,
+   "evidence_kind": "REPOSITORY_CONTRACT"
+  },
+  {
+   "id": "P3",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/plugin-todos/research-authoring-layout-convergence-and-human-review-budget.md",
+   "blob_sha": "4d65dc08de7b09d842a81b30d0c440d4206d917e",
+   "line_count": 150,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "MR",
+   "repository_id": "r6",
+   "ref_id": "c10",
+   "path": "docs/ROADMAP.md",
+   "blob_sha": "6e6975895414bc5fb64ea76149183b9f4b587438",
+   "line_count": 348,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "P4",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/PRESENTATIONS_HISTORICAL_BLACKBOX_VALIDATION_ARCHITECTURE_2026-10-07.md",
+   "blob_sha": "83de161527074286a014b788bffcd6edb318ba46",
+   "line_count": 115,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SCODE",
+   "repository_id": "r2",
+   "ref_id": "c9",
+   "path": "skills/tools/hpc/slurm-workflows/scripts/setup_protected_cancel.py",
+   "blob_sha": "962388fc6d9f92cf878efb35f9721eaf51c25262",
+   "line_count": 399,
+   "evidence_kind": "SOURCE_CODE"
+  },
+  {
+   "id": "D2",
+   "repository_id": "r0",
+   "ref_id": "c0",
+   "path": "docs/research/complex-system-showcase-20261026/01_SECOND_ROUND_QUALITY_EVIDENCE_ZH.md",
+   "blob_sha": "6c32df433b47dd8396094d4a556408a9cb890be2",
+   "line_count": 87,
+   "evidence_kind": "RETROSPECTIVE_CASE_RECORD"
+  },
+  {
+   "id": "D1",
+   "repository_id": "r2",
+   "ref_id": "c11",
+   "path": "docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md",
+   "blob_sha": "914b46054107986bbe0994ade5fbaba898489c5b",
+   "line_count": 195,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SH1",
+   "repository_id": "r2",
+   "ref_id": "c12",
+   "path": "docs/design/slurm-workflows/SLURM_PROTECTED_PARTITION_CHAT_CONFIRMATION_EXECUTION_PLAN_V2_1_2026-10-18.md",
+   "blob_sha": "c4c699f84c12bae47a73e97c2100df523aa73660",
+   "line_count": 1006,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "BH2",
+   "repository_id": "r1",
+   "ref_id": "c13",
+   "path": "docs/design/0.11.0_final_scope_recovery_execution_plan_v0.8_2026-10-18.md",
+   "blob_sha": "401162b7d341e5d75f82b0c1d608161054a8a3bb",
+   "line_count": 1938,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "BH1",
+   "repository_id": "r1",
+   "ref_id": "c14",
+   "path": "docs/design/0.11.0_execution_context_and_readiness_convergence_execution_plan_v0.2_2026-10-12.md",
+   "blob_sha": "f386e1f98d0d4d4f1ada737df4d6bc6eb35a1310",
+   "line_count": 172,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SH2",
+   "repository_id": "r2",
+   "ref_id": "c15",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_PROPOSAL_V0_6_2026-09-24.md",
+   "blob_sha": "495ed0d1a9ff107c58249efb07b3df42b098cde3",
+   "line_count": 885,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SK",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/operations/prompts/SLURM_WORKFLOWS_ROUTING_REFACTOR_KICKOFF_V0_6.md",
+   "blob_sha": "3ce427ed94e15668050769e74c5907aaff8d8e4f",
+   "line_count": 296,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "DAOLD",
+   "repository_id": "r0",
+   "ref_id": "c16",
+   "path": "docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/CURRENT.md",
+   "blob_sha": "36ee75c7e3dfceca5dfab3dbf9adce5d7c9b7520",
+   "line_count": 42,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "VH",
+   "repository_id": "r5",
+   "ref_id": "c17",
+   "path": "results/validator-architecture-v1/FINAL_READINESS_AUDIT_V1.md",
+   "blob_sha": "6ae51a257e764f10f60d9593f049835744b22e7f",
+   "line_count": 189,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SG",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/goals/SLURM_WORKFLOWS_ROUTING_REFACTOR_GOAL_V0_6.md",
+   "blob_sha": "17bb0e533351faa38b522e4e94e7120755ac706f",
+   "line_count": 122,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "SE",
+   "repository_id": "r2",
+   "ref_id": "c2",
+   "path": "docs/design/slurm-workflows/SLURM_WORKFLOWS_ROUTING_REFACTOR_EXECUTION_PLAN_V0_6_2026-09-24.md",
+   "blob_sha": "63f6174e321a731ee503b66d301b14c5aca05214",
+   "line_count": 804,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  },
+  {
+   "id": "MANDATORY",
+   "repository_id": "r0",
+   "ref_id": "c18",
+   "path": "docs/research/architecture-production-protocol-20261027/00_MANDATORY_NEGATIVE_CASES.md",
+   "blob_sha": "bfd419c3150b4dd5d9982f961d8a42e8f523068f",
+   "line_count": 90,
+   "evidence_kind": "REPOSITORY_DOCUMENT"
+  }
+ ],
+ "url_template": "https://github.com/{repositories[repository_id]}/blob/{refs[ref_id]}/{path}",
+ "note": "IDs resolve to exact immutable Git references, not current branches."
+}
