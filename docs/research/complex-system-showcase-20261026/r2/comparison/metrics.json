@@ -1,0 +1,160 @@
+{
+  "comparison": {
+    "generated_at": "2026-10-27",
+    "method": "本地静态服务器 + Microsoft Edge + Playwright；先盲测真实页面，再核对设计与证据文档",
+    "viewports": {
+      "desktop": { "width": 1600, "height": 1000 },
+      "mobile": { "width": 390, "height": 844 }
+    },
+    "scores": {
+      "gpt6": 86,
+      "gpt56": 82
+    },
+    "winner": "gpt6",
+    "final_git_status": {
+      "isolated_base_clone": "clean",
+      "gpt6_worktree": "clean",
+      "gpt56_worktree": "clean",
+      "candidate_source_modified": false
+    }
+  },
+  "candidates": {
+    "gpt6": {
+      "label": "A · GPT-6",
+      "branch": "research/complex-system-showcase-20261026-r2-gpt6",
+      "commit": "1508994fd3b4e478d5a39c569d42cb87460de77e",
+      "url": "http://127.0.0.1:8761/",
+      "run_success": true,
+      "desktop_default": {
+        "visible_text_chars": 1709,
+        "first_viewport_visible_text_chars": 812,
+        "page_height_px": 2578,
+        "document_horizontal_overflow_px": 0,
+        "visible_nodes": 14,
+        "canonical_connections": 16,
+        "interactive_elements": 60
+      },
+      "mobile_default": {
+        "visible_text_chars": 1384,
+        "first_viewport_visible_text_chars": 214,
+        "page_height_px": 4143,
+        "document_horizontal_overflow_px": 0,
+        "internal_horizontal_scroll_containers": 0,
+        "interactive_elements": 57
+      },
+      "mobile_failure": {
+        "visible_text_chars": 1473,
+        "first_viewport_visible_text_chars": 261,
+        "page_height_px": 4342,
+        "document_horizontal_overflow_px": 0,
+        "interactive_elements": 59
+      },
+      "keyboard": {
+        "core_node_reachable": true,
+        "delivery_assurance_tabs_from_start": 28
+      },
+      "key_connection": {
+        "pointer_activatable": true,
+        "keyboard_activatable": true
+      },
+      "console": {
+        "application_errors": 0,
+        "warnings": 0,
+        "incidental_errors": 1,
+        "incidental_error_note": "缺少 favicon，浏览器请求返回 404"
+      },
+      "resources": {
+        "main_page_transfer_bytes": 100221,
+        "prototype_directory_files": 8,
+        "prototype_directory_bytes": 222428,
+        "prototype_text_lines": 1785
+      },
+      "self_check": {
+        "attempted": true,
+        "exit_code": 0,
+        "summary": "14 nodes, 16 edges, 19 scenario steps; 10 checks; no errors",
+        "score_effect": "none"
+      },
+      "screenshots": {
+        "desktop": { "width": 1600, "height": 1000, "count": 6 },
+        "mobile_viewport": { "width": 390, "height": 844, "count": 2 },
+        "mobile_full_page_heights": [4143, 4342]
+      }
+    },
+    "gpt56": {
+      "label": "B · GPT-5.6",
+      "branch": "research/complex-system-showcase-20261026-r2-gpt56",
+      "commit": "a76aafa6d48eb9b947d5683cae35aa3e41141c96",
+      "url": "http://127.0.0.1:8762/",
+      "run_success": true,
+      "desktop_default": {
+        "visible_text_chars": 2403,
+        "first_viewport_visible_text_chars": 1112,
+        "page_height_px": 2607,
+        "document_horizontal_overflow_px": 0,
+        "visible_nodes": 13,
+        "canonical_connections": 18,
+        "interactive_elements": 37
+      },
+      "mobile_default": {
+        "visible_text_chars": 1972,
+        "first_viewport_visible_text_chars": 286,
+        "page_height_px": 4481,
+        "document_horizontal_overflow_px": 0,
+        "internal_horizontal_scroll_containers": 1,
+        "internal_scroll_detail": {
+          "selector": ".comparison-table",
+          "client_width_px": 362,
+          "scroll_width_px": 820,
+          "hidden_horizontal_range_px": 458
+        },
+        "interactive_elements": 20
+      },
+      "mobile_failure": {
+        "visible_text_chars": 2055,
+        "first_viewport_visible_text_chars": 299,
+        "page_height_px": 4418,
+        "document_horizontal_overflow_px": 0,
+        "interactive_elements": 20
+      },
+      "keyboard": {
+        "core_node_reachable": true,
+        "delivery_assurance_tabs_from_start": 33
+      },
+      "key_connection": {
+        "pointer_activatable": false,
+        "keyboard_activatable": true,
+        "pointer_failure": "可见边线命中区域被上层标签或元素截获，Playwright 的真实指针点击超时"
+      },
+      "console": {
+        "application_errors": 0,
+        "warnings": 0,
+        "incidental_errors": 1,
+        "incidental_error_note": "缺少 favicon，浏览器请求返回 404"
+      },
+      "resources": {
+        "main_page_transfer_bytes": 71461,
+        "prototype_directory_files": 11,
+        "prototype_directory_bytes": 111060,
+        "prototype_text_lines": 1772
+      },
+      "self_check": {
+        "attempted": true,
+        "exit_code": 1,
+        "summary": "本机 Python 环境未安装 playwright，脚本未能启动；独立 Node Playwright 测试已覆盖全部八个状态",
+        "score_effect": "none"
+      },
+      "screenshots": {
+        "desktop": { "width": 1600, "height": 1000, "count": 6 },
+        "mobile_viewport": { "width": 390, "height": 844, "count": 2 },
+        "mobile_full_page_heights": [4481, 4418]
+      }
+    }
+  },
+  "notes": [
+    "DOM 文字量与首屏文字量按可见文本字符数统计，只用于解释阅读负担，不直接计分。",
+    "连接数采用候选架构模型中的逻辑连接总数，不采用当前情境下临时可见边线数。",
+    "Console 的唯一错误是两边相同的 favicon 404，不属于应用逻辑错误。",
+    "候选自带 PASS 或自评分不计入分数。"
+  ]
+}

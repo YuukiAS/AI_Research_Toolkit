@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>AI Research Toolkit · R2 候选 A/B 比较</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17211d;
+      --muted: #5c6862;
+      --line: #d8dfdb;
+      --soft: #f4f7f5;
+      --accent: #285f4e;
+      --accent-soft: #e6f0ec;
+      --warn: #8a4b21;
+      --page: #fbfcfb;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--page); color: var(--ink); font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+    body { margin: 0; }
+    main { width: min(1480px, calc(100% - 40px)); margin: 0 auto; padding: 40px 0 64px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 980px; margin-bottom: 12px; font-size: clamp(28px, 4vw, 48px); line-height: 1.12; letter-spacing: -0.035em; }
+    h2 { margin-bottom: 18px; font-size: 24px; letter-spacing: -0.02em; }
+    h3 { margin-bottom: 8px; font-size: 17px; }
+    p, li, td, th { line-height: 1.65; }
+    .eyebrow { margin-bottom: 10px; color: var(--accent); font-size: 13px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    .lede { max-width: 980px; margin-bottom: 24px; color: var(--muted); font-size: 17px; }
+    .verdict { display: flex; gap: 22px; align-items: baseline; flex-wrap: wrap; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .winner { font-size: 22px; font-weight: 780; }
+    .scores { display: flex; gap: 18px; color: var(--muted); }
+    .scores strong { color: var(--ink); font-size: 20px; }
+    section { margin-top: 44px; }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .tabs button { min-height: 42px; padding: 9px 14px; border: 1px solid var(--line); border-radius: 7px; background: #fff; color: var(--ink); font: inherit; cursor: pointer; }
+    .tabs button:hover { border-color: #9fb0a8; }
+    .tabs button:focus-visible { outline: 3px solid #9bc5b6; outline-offset: 2px; }
+    .tabs button[aria-selected="true"] { border-color: var(--accent); background: var(--accent-soft); color: #174638; font-weight: 720; }
+    .state-summary { max-width: 1120px; min-height: 58px; margin-bottom: 16px; color: var(--muted); }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .candidate { min-width: 0; }
+    .candidate-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .candidate-head h3 { margin: 0; }
+    .candidate-head span { color: var(--muted); font-size: 14px; }
+    .shot-frame { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #eef2ef; }
+    .shot-frame img { display: block; width: 100%; height: auto; }
+    .shot-frame.mobile { height: 690px; overflow-y: auto; text-align: center; }
+    .shot-frame.mobile img { width: min(390px, 100%); margin: 0 auto; }
+    .difference { margin: 11px 2px 0; color: var(--muted); font-size: 14px; }
+    .difference strong { color: var(--ink); }
+    .score-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    table { width: 100%; border-collapse: collapse; min-width: 700px; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--soft); font-size: 13px; color: var(--muted); }
+    tr:last-child td { border-bottom: 0; }
+    td.score { width: 110px; font-variant-numeric: tabular-nums; font-weight: 760; }
+    .total td { background: var(--accent-soft); font-size: 17px; font-weight: 780; }
+    .conclusions { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; }
+    .plain-block { padding-top: 16px; border-top: 2px solid var(--ink); }
+    .plain-block ul { margin: 0; padding-left: 20px; }
+    .evidence { margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .evidence a { color: var(--accent); }
+    .note { color: var(--warn); }
+    @media (max-width: 820px) {
+      main { width: min(100% - 24px, 680px); padding-top: 26px; }
+      .pair, .conclusions { grid-template-columns: 1fr; }
+      .shot-frame.mobile { height: 620px; }
+      .scores { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">本地真实运行 · 只读比较</p>
+      <h1>R2 复杂系统展示候选 A/B 比较</h1>
+      <p class="lede">两份候选均成功运行，也都通过“首页完整架构”和“成熟中文表达”两项门槛。A 的优势是整体更易读、交互更可靠；B 的优势是状态与职责边界表达更强。</p>
+      <div class="verdict">
+        <div class="winner">推荐基线：A · GPT-6</div>
+        <div class="scores"><span>A <strong>86</strong> / 100</span><span>B <strong>82</strong> / 100</span></div>
+      </div>
+    </header>
+
+    <section aria-labelledby="screens-title">
+      <h2 id="screens-title">对应状态实拍</h2>
+      <div class="tabs" role="tablist" aria-label="选择比较状态">
+        <button type="button" role="tab" aria-selected="true" data-state="default">默认架构</button>
+        <button type="button" role="tab" aria-selected="false" data-state="delivery">Delivery Assurance</button>
+        <button type="button" role="tab" aria-selected="false" data-state="bridge">Bridge Kit</button>
+        <button type="button" role="tab" aria-selected="false" data-state="failure">失败返修</button>
+        <button type="button" role="tab" aria-selected="false" data-state="regression">旧功能保护</button>
+        <button type="button" role="tab" aria-selected="false" data-state="edge">关键连接</button>
+        <button type="button" role="tab" aria-selected="false" data-state="mobile">手机默认</button>
+        <button type="button" role="tab" aria-selected="false" data-state="mobileFailure">手机失败路径</button>
+      </div>
+      <p class="state-summary" id="state-summary">A 的完整架构更容易在第一眼建立系统地图；B 的状态信息更丰富，但中心连线和小标签明显更密。</p>
+      <div class="pair">
+        <article class="candidate">
+          <div class="candidate-head"><h3>A · GPT-6</h3><span>86 / 100</span></div>
+          <div class="shot-frame" id="frame-a"><img id="image-a" src="gpt6/desktop-default.png" alt="A 候选默认架构截图"></div>
+          <p class="difference" id="difference-a"><strong>实际表现：</strong>14 个节点和 16 条逻辑连接完整出现，主次关系清楚，首屏阅读压力较低。</p>
+        </article>
+        <article class="candidate">
+          <div class="candidate-head"><h3>B · GPT-5.6</h3><span>82 / 100</span></div>
+          <div class="shot-frame" id="frame-b"><img id="image-b" src="gpt56/desktop-default.png" alt="B 候选默认架构截图"></div>
+          <p class="difference" id="difference-b"><strong>实际表现：</strong>13 个节点和 18 条逻辑关系完整建模，状态边界更醒目，但中心区更难扫读。</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="score-title">
+      <h2 id="score-title">最终评分</h2>
+      <div class="score-wrap">
+        <table>
+          <thead><tr><th>评价项</th><th>权重</th><th>A · GPT-6</th><th>B · GPT-5.6</th><th>判断依据</th></tr></thead>
+          <tbody>
+            <tr><td>架构准确性与整体可理解性</td><td>25</td><td class="score">22.5</td><td class="score">22.5</td><td>两边都忠实覆盖核心职责与关系；A 更易读，B 的边界刻画更细。</td></tr>
+            <tr><td>中文、内容取舍与读者负担</td><td>20</td><td class="score">17</td><td class="score">16</td><td>A 的首屏可见文字约少 27%，内部工程语言也更少。</td></tr>
+            <tr><td>交互是否真正帮助理解</td><td>15</td><td class="score">14</td><td class="score">11.5</td><td>A 有可推进的 19 步情境；B 的关键边线存在指针命中问题。</td></tr>
+            <tr><td>视觉层级、密度与留白</td><td>15</td><td class="score">13</td><td class="score">12</td><td>A 更安静；B 的中心图和首屏说明更拥挤。</td></tr>
+            <tr><td>证据、状态与可信边界</td><td>10</td><td class="score">8</td><td class="score">9</td><td>B 的可见状态编码更强；A 的文档证据追溯更完整。</td></tr>
+            <tr><td>手机体验</td><td>10</td><td class="score">7.5</td><td class="score">6.5</td><td>A 很长但保留拓扑；B 重排简洁，却弱化关系并留下内部横向滚动。</td></tr>
+            <tr><td>后续实现与模板复用成本</td><td>5</td><td class="score">4</td><td class="score">4.5</td><td>A 的模板合同更完整；B 的分离式静态结构更轻。</td></tr>
+            <tr class="total"><td>总分</td><td>100</td><td class="score">86</td><td class="score">82</td><td>差距来自实际可读性和交互可靠性，不来自候选自评。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="conclusions" aria-label="最终选择与可吸收优点">
+      <div class="plain-block">
+        <h2>为什么选 A 作为正式实现基线</h2>
+        <p>A 更稳定地保持了“先看懂完整系统，再沿组件、连接和失败路径深入”的设计意图。它的图在桌面端更容易扫读，情境能逐步推进，关键连接也同时支持鼠标和键盘。正式实现时，它较不容易退化成文字卡片或局部流程的集合。</p>
+        <p class="note">这不表示原型已经证明生产接线成立。正式全量落地前，仍要用一个真实仓库验证候选身份、失败回传和末端消费。</p>
+      </div>
+      <div class="plain-block">
+        <h2>值得从 B 吸收</h2>
+        <ul>
+          <li>节点详情中的“负责 / 不负责 / 当前缺口”三段式说明。</li>
+          <li>已有、拟议、待验证和按需关系的多重状态编码。</li>
+          <li>数据、交互与样式分离的轻量静态结构。</li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="evidence">检测数据见 <a href="metrics.json">metrics.json</a>，短结论见 <a href="COMPARISON.md">COMPARISON.md</a>。两边唯一的 Console 错误都是缺少 favicon 的 404，没有应用逻辑错误或警告。</p>
+  </main>
+
+  <script>
+    const states = {
+      default: {
+        summary: "A 的完整架构更容易在第一眼建立系统地图；B 的状态信息更丰富，但中心连线和小标签明显更密。",
+        a: ["gpt6/desktop-default.png", "A 候选默认架构截图", "14 个节点和 16 条逻辑连接完整出现，主次关系清楚，首屏阅读压力较低。"],
+        b: ["gpt56/desktop-default.png", "B 候选默认架构截图", "13 个节点和 18 条逻辑关系完整建模，状态边界更醒目，但中心区更难扫读。"]
+      },
+      delivery: {
+        summary: "两边都能把 Delivery Assurance 的直接上下游从全图中提出来；B 的职责字段更细，A 的视线聚焦更自然。",
+        a: ["gpt6/desktop-delivery.png", "A 候选选中 Delivery Assurance", "相关节点和连接高亮，其他内容有节制地降噪；右侧说明短而够用。"],
+        b: ["gpt56/desktop-delivery.png", "B 候选选中 Delivery Assurance", "详情明确区分职责、不负责事项与当前缺口，但图中央仍保留较多竞争信息。"]
+      },
+      bridge: {
+        summary: "Bridge Kit 选择状态都能解释基础设施角色；A 更强调它与任务、工作流和验收的直接关系，B 更强调职责边界。",
+        a: ["gpt6/desktop-bridge.png", "A 候选选中 Bridge Kit", "上游 Codex、workflow-core 与 Delivery Assurance 的关系被清楚保留。"],
+        b: ["gpt56/desktop-bridge.png", "B 候选选中 Bridge Kit", "边界说明更完整，但读者要在更多字段与连线之间来回核对。"]
+      },
+      failure: {
+        summary: "两边都不只是换颜色。A 提供 7 步可推进的返修链；B 立即展示失败路径和下一接收者，但没有同等深度的逐步叙事。",
+        a: ["gpt6/desktop-failure.png", "A 候选失败返回原任务情境", "可以逐步走完失败证据、原任务接收、修复、重跑与复验。"],
+        b: ["gpt56/desktop-failure.png", "B 候选失败返回原任务情境", "路径摘要变化明确，当前接收者也可见；探索深度较浅。"]
+      },
+      regression: {
+        summary: "旧功能保护情境都给出独立信息。A 后续步骤与普通失败分流更完整；B 的回归语义醒目，但仍是一层摘要。",
+        a: ["gpt6/desktop-regression.png", "A 候选旧功能被改坏情境", "7 步链条明确连接基线、项目验证、返修和重新验收。"],
+        b: ["gpt56/desktop-regression.png", "B 候选旧功能被改坏情境", "新旧功能冲突被直接指出，适合快速说明，但不适合逐步追踪。"]
+      },
+      edge: {
+        summary: "这是两边差距最大的交互点：A 的边线可直接点击；B 的边线可键盘激活，但真实指针点击被上层元素截获。",
+        a: ["gpt6/desktop-edge.png", "A 候选关键连接详情", "明确回答传什么、给谁、由谁继续处理，并能用鼠标或键盘打开。"],
+        b: ["gpt56/desktop-edge.png", "B 候选关键连接详情", "详情字段更细，但指针命中不可靠；页面承诺的“点击连线”没有稳定兑现。"]
+      },
+      mobile: {
+        summary: "两边都做了真正重排。A 保留完整拓扑但页面很长；B 改成垂直路径和组件索引，更紧凑，却牺牲了关系全貌。",
+        mobile: true,
+        a: ["gpt6/mobile-default-full.png", "A 候选手机默认完整页面", "没有横向滚动，全部节点与关系继续可见；代价是约 4143 px 的纵向长度。"],
+        b: ["gpt56/mobile-default-full.png", "B 候选手机默认完整页面", "垂直列表易读，但完整连线语义被压缩；比较表还需横向拖动 458 px。"]
+      },
+      mobileFailure: {
+        summary: "手机失败路径同样体现取舍：A 保留可推进的完整链条，B 的摘要更短，但无法在同一视图里恢复完整拓扑。",
+        mobile: true,
+        a: ["gpt6/mobile-failure-full.png", "A 候选手机失败路径完整页面", "失败路径仍可按步骤推进，结构完整，无内部横向滚动。"],
+        b: ["gpt56/mobile-failure-full.png", "B 候选手机失败路径完整页面", "当前路径清楚，但关系上下文较少，底部比较表仍需横向拖动。"]
+      }
+    };
+
+    const buttons = [...document.querySelectorAll("[data-state]")];
+    const imageA = document.getElementById("image-a");
+    const imageB = document.getElementById("image-b");
+    const frameA = document.getElementById("frame-a");
+    const frameB = document.getElementById("frame-b");
+    const summary = document.getElementById("state-summary");
+    const differenceA = document.getElementById("difference-a");
+    const differenceB = document.getElementById("difference-b");
+
+    function selectState(key) {
+      const state = states[key];
+      buttons.forEach(button => button.setAttribute("aria-selected", String(button.dataset.state === key)));
+      summary.textContent = state.summary;
+      imageA.src = state.a[0]; imageA.alt = state.a[1];
+      imageB.src = state.b[0]; imageB.alt = state.b[1];
+      differenceA.innerHTML = "<strong>实际表现：</strong>" + state.a[2];
+      differenceB.innerHTML = "<strong>实际表现：</strong>" + state.b[2];
+      frameA.classList.toggle("mobile", Boolean(state.mobile));
+      frameB.classList.toggle("mobile", Boolean(state.mobile));
+      frameA.scrollTop = 0; frameB.scrollTop = 0;
+    }
+
+    buttons.forEach(button => button.addEventListener("click", () => selectState(button.dataset.state)));
+  </script>
+</body>
+</html>
