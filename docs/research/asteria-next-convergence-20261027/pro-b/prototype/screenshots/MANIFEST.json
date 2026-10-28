@@ -1,0 +1,34 @@
+{
+  "retainedRepresentativeScreenshots": [
+    {
+      "file": "01-delivery-light-system.webp",
+      "width": 560,
+      "height": 373,
+      "bytes": 5548,
+      "sha256": "3cbfd3779cad194e424c78b5aebcf97a46ef77c2d96e73c0ae4d99d0fca97460"
+    },
+    {
+      "file": "02-mica-dark-recovery.webp",
+      "width": 560,
+      "height": 373,
+      "bytes": 6656,
+      "sha256": "2da7878283578926b906650494c168fc84596acdbb8a14618cedc4c52c9c0e1e"
+    },
+    {
+      "file": "04-cat-light-evolution.webp",
+      "width": 560,
+      "height": 381,
+      "bytes": 6600,
+      "sha256": "abce7cf0988580f0d5a52398ec23665f8dcef6573bc6a58db7a54ee421bcf33e"
+    },
+    {
+      "file": "09-tutorial-mobile-dark.webp",
+      "width": 230,
+      "height": 498,
+      "bytes": 7832,
+      "sha256": "13713256b63bc8a4aa47c91fd76f33b43b8d86ec525fee23231beabaf1487ae6"
+    }
+  ],
+  "fullBrowserCases": 10,
+  "note": "Four compact representative screenshots retained, covering all four projects, light/dark, desktop/mobile; browser-qa.json records all ten full-resolution rendered cases."
+}

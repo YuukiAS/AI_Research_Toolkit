@@ -1,0 +1,184 @@
+{
+  "version": "asteria-next-pro-b-reference-1",
+  "method": "对真实渲染的默认、组件、关系、机制、实现、演进、检查、四项目、明暗主题和手机状态执行内容存在性裁决。",
+  "decisions": [
+    {
+      "scope": "global",
+      "element": "项目摘要",
+      "decision": "KEEP_REWRITE",
+      "reason": "首页只保留一段；手机限制可见行数，不在图旁重复。"
+    },
+    {
+      "scope": "global",
+      "element": "当前修订",
+      "decision": "KEEP",
+      "reason": "只在标题区主要位置显示一次，详细原因进入演进页。"
+    },
+    {
+      "scope": "global",
+      "element": "schema 全字段",
+      "decision": "DELETE",
+      "reason": "字段存在不等于用户需要看到；按当前任务和选择对象呈现。"
+    },
+    {
+      "scope": "system",
+      "element": "路径说明",
+      "decision": "RELOCATE",
+      "reason": "桌面放路径栏，手机放顺序阅读标题下。"
+    },
+    {
+      "scope": "system",
+      "element": "状态 badge",
+      "decision": "MERGE",
+      "reason": "用边线、线型和一行 meta 表达，不在全页重复。"
+    },
+    {
+      "scope": "system",
+      "element": "图与正文重复",
+      "decision": "DELETE",
+      "reason": "拓扑由图表达，正文只补责任、机制和边界。"
+    },
+    {
+      "scope": "implementation",
+      "element": "路径与 commit",
+      "decision": "RELOCATE",
+      "reason": "只在实现页签显示，不污染系统图。"
+    },
+    {
+      "scope": "evidence",
+      "element": "证据计划",
+      "decision": "REWRITE",
+      "reason": "明确为 pending，不使用已验证措辞。"
+    },
+    {
+      "scope": "evolution",
+      "element": "全局时间线",
+      "decision": "DELETE",
+      "reason": "当前优先；只保留局部历史与 meaningful revision。"
+    },
+    {
+      "scope": "global",
+      "element": "内部编号",
+      "decision": "RELOCATE",
+      "reason": "仅保留在 source、revision 和机器记录。"
+    },
+    {
+      "scope": "checks",
+      "element": "总分与百分比",
+      "decision": "DELETE",
+      "reason": "防止字段数量冒充架构质量。"
+    },
+    {
+      "scope": "mobile",
+      "element": "桌面拓扑",
+      "decision": "DELETE_REDESIGN",
+      "reason": "改为路径顺序、关系载荷和底部详情。"
+    },
+    {
+      "scope": "mobile",
+      "element": "图层控制和复制视图",
+      "decision": "DELETE",
+      "reason": "移动首屏入口需克制。"
+    },
+    {
+      "scope": "mechanism",
+      "element": "统一卡片模板",
+      "decision": "DELETE",
+      "reason": "序列、算法、公式和成品循环使用不同 renderer。"
+    },
+    {
+      "scope": "global",
+      "element": "空卡片与占位标题",
+      "decision": "DELETE",
+      "reason": "无实现或证据时用一句事实说明。"
+    },
+    {
+      "scope": "global",
+      "element": "研究过程与角色故事",
+      "decision": "DELETE",
+      "reason": "只保留承担者、证据生产者等必要事实。"
+    },
+    {
+      "scope": "global",
+      "element": "reassurance 口号",
+      "decision": "DELETE",
+      "reason": "状态只由可定位事实和证据支持。"
+    },
+    {
+      "scope": "search",
+      "element": "节点／关系／机制／源码／修订搜索",
+      "decision": "KEEP",
+      "reason": "提供跨层快速进入能力。"
+    },
+    {
+      "scope": "themes",
+      "element": "明暗主题",
+      "decision": "KEEP",
+      "reason": "分别校准表面、网格、状态、代码、公式和差异。"
+    },
+    {
+      "scope": "accessibility",
+      "element": "键盘、焦点、减少动画、强制色",
+      "decision": "KEEP",
+      "reason": "属于正式产品能力，不是附加 polish。"
+    }
+  ],
+  "screens": [
+    {
+      "name": "01-delivery-light-system",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "02-mica-dark-recovery",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "03-mica-dark-implementation",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "04-cat-light-evolution",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "05-tutorial-dark-finding",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "06-delivery-light-checks",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "07-cat-dark-mechanism",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "08-mica-mobile-light",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "09-tutorial-mobile-dark",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "10-cat-mobile-evolution",
+      "status": "pass",
+      "findings": []
+    }
+  ],
+  "producerConclusion": {
+    "p1": 0,
+    "visibleP2": 0,
+    "independentFinalPass": false,
+    "note": "本结论仅为 producer 第一轮 QA，不替代 GPT Work 黑箱比较或最终裁决。"
+  }
+}

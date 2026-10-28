@@ -1,0 +1,1 @@
+(async()=>{try{const b=window.__ASTERIA_PACKED||'';const u=Uint8Array.from(atob(b),c=>c.charCodeAt(0));const s=new DecompressionStream('gzip');const t=await new Response(new Blob([u]).stream().pipeThrough(s)).text();document.open();document.write(t);document.close()}catch(e){document.body.innerHTML='<main><p>无法载入原型：'+String(e)+'</p></main>';console.error(e)}})();

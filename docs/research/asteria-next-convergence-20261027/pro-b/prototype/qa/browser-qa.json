@@ -1,0 +1,605 @@
+{
+  "runner": {
+    "chromium": "/usr/bin/chromium",
+    "cases": 10
+  },
+  "cases": [
+    {
+      "case": {
+        "name": "01-delivery-light-system",
+        "query": "?project=delivery&view=system&path=normal&theme=light",
+        "width": 1440,
+        "height": 960,
+        "expected_title": "从架构合同到返修闭环",
+        "expected_view_selector": ".architecture-graph"
+      },
+      "status": "pass",
+      "title": "从架构合同到返修闭环",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 960,
+          "clientHeight": 960
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "01-delivery-light-system.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 46468,
+        "sha256": "61002a82be8e67e5f60bac6d8e5b4c465acc53eba6e5f9a10c178039a7555e6b"
+      }
+    },
+    {
+      "case": {
+        "name": "02-mica-dark-recovery",
+        "query": "?project=mica&view=system&path=recovery&focus=node:recovery&tab=current&theme=dark",
+        "width": 1440,
+        "height": 960,
+        "expected_title": "浏览器事件如何落到恢复机制与源码",
+        "expected_view_selector": ".inspector.is-open"
+      },
+      "status": "pass",
+      "title": "浏览器事件如何落到恢复机制与源码",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 960,
+          "clientHeight": 960
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "02-mica-dark-recovery.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 54136,
+        "sha256": "2a4acef12bbfd275eec943de2ad7869cdc7434b22917b8cc71f7972c109b8bc8"
+      }
+    },
+    {
+      "case": {
+        "name": "03-mica-dark-implementation",
+        "query": "?project=mica&view=system&path=recovery&focus=node:composer&tab=implementation&theme=dark",
+        "width": 1440,
+        "height": 960,
+        "expected_title": "浏览器事件如何落到恢复机制与源码",
+        "expected_view_selector": ".anchor-card"
+      },
+      "status": "pass",
+      "title": "浏览器事件如何落到恢复机制与源码",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 960,
+          "clientHeight": 960
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "03-mica-dark-implementation.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 53142,
+        "sha256": "9f9e4e7ee30b53b1c022171e89258b9b97b14a5148405183be8748062e3c679e"
+      }
+    },
+    {
+      "case": {
+        "name": "04-cat-light-evolution",
+        "query": "?project=cat&view=evolution&revision=CAT-C03-CORRECTION&theme=light",
+        "width": 1440,
+        "height": 960,
+        "expected_title": "从科学模型到数值实现、反例与阻塞项",
+        "expected_view_selector": ".diff-grid"
+      },
+      "status": "pass",
+      "title": "从科学模型到数值实现、反例与阻塞项",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 980,
+          "clientHeight": 980
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "04-cat-light-evolution.webp",
+        "width": 1440,
+        "height": 980,
+        "bytes": 52340,
+        "sha256": "9517d72074bf7b8e9bdc9632d668684d463a0a651a80c616d1367239adaaffde"
+      }
+    },
+    {
+      "case": {
+        "name": "05-tutorial-dark-finding",
+        "query": "?project=tutorial&view=system&path=failure&focus=node:finding&tab=current&theme=dark",
+        "width": 1440,
+        "height": 960,
+        "expected_title": "从页面对象与要求进入问题定位、返修和复验",
+        "expected_view_selector": ".blocker-card"
+      },
+      "status": "pass",
+      "title": "从页面对象与要求进入问题定位、返修和复验",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 960,
+          "clientHeight": 960
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "05-tutorial-dark-finding.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 57246,
+        "sha256": "2dc2f429da263b34bed6ae70a4cd6b4867e04c1a23924c26dea248e6be55e708"
+      }
+    },
+    {
+      "case": {
+        "name": "06-delivery-light-checks",
+        "query": "?project=delivery&view=checks&theme=light",
+        "width": 1440,
+        "height": 960,
+        "expected_title": "从架构合同到返修闭环",
+        "expected_view_selector": ".check-table"
+      },
+      "status": "pass",
+      "title": "从架构合同到返修闭环",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 960,
+          "clientHeight": 960
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "06-delivery-light-checks.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 53180,
+        "sha256": "e1ede827ba946e6ebb1402e534c2ecfe8b5b4f5b568a22ff529cba8782d44ed5"
+      }
+    },
+    {
+      "case": {
+        "name": "07-cat-dark-mechanism",
+        "query": "?project=cat&view=mechanism&mechanism=m-cat-zero&theme=dark",
+        "width": 1440,
+        "height": 960,
+        "expected_title": "从科学模型到数值实现、反例与阻塞项",
+        "expected_view_selector": ".mechanism-diagram"
+      },
+      "status": "pass",
+      "title": "从科学模型到数值实现、反例与阻塞项",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 960,
+          "clientHeight": 960
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "07-cat-dark-mechanism.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 47592,
+        "sha256": "1c1451a767abd63793a299db77fcd51e82b9484d05ae663e43fc73806ccd3e9d"
+      }
+    },
+    {
+      "case": {
+        "name": "08-mica-mobile-light",
+        "query": "?project=mica&view=system&path=recovery&theme=light",
+        "width": 390,
+        "height": 844,
+        "expected_title": "浏览器事件如何落到恢复机制与源码",
+        "expected_view_selector": ".mobile-path-reader"
+      },
+      "status": "pass",
+      "title": "浏览器事件如何落到恢复机制与源码",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 1156,
+          "clientHeight": 1156
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "primary-nav",
+            "hidden": false
+          },
+          {
+            "cls": "inspector ",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "08-mica-mobile-light.webp",
+        "width": 390,
+        "height": 844,
+        "bytes": 35358,
+        "sha256": "354f9111c1bc79a1e23b9278e93fc8a81174eea13be1552a065016bdc76763b9"
+      }
+    },
+    {
+      "case": {
+        "name": "09-tutorial-mobile-dark",
+        "query": "?project=tutorial&view=system&path=failure&focus=node:finding&tab=current&theme=dark",
+        "width": 390,
+        "height": 844,
+        "expected_title": "从页面对象与要求进入问题定位、返修和复验",
+        "expected_view_selector": ".inspector.is-open"
+      },
+      "status": "pass",
+      "title": "从页面对象与要求进入问题定位、返修和复验",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 865,
+          "clientHeight": 865
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "primary-nav",
+            "hidden": false
+          },
+          {
+            "cls": "inspector is-open",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "09-tutorial-mobile-dark.webp",
+        "width": 390,
+        "height": 844,
+        "bytes": 28196,
+        "sha256": "576dd7e3880ae359f1174965c5234a6c8e3494af3a278ecd8eb913c2a3d5bfe9"
+      }
+    },
+    {
+      "case": {
+        "name": "10-cat-mobile-evolution",
+        "query": "?project=cat&view=evolution&revision=CAT-C03-CORRECTION&theme=dark",
+        "width": 390,
+        "height": 844,
+        "expected_title": "从科学模型到数值实现、反例与阻塞项",
+        "expected_view_selector": ".diff-grid"
+      },
+      "status": "pass",
+      "title": "从科学模型到数值实现、反例与阻塞项",
+      "selectorCount": 1,
+      "layout": {
+        "body": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 1486,
+          "clientHeight": 1486
+        },
+        "horizontalOverflow": 0,
+        "suspiciousOverflow": [],
+        "unlabeledButtons": 0,
+        "fixed": [
+          {
+            "cls": "skip-link",
+            "hidden": false
+          },
+          {
+            "cls": "primary-nav",
+            "hidden": false
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "dialog-backdrop",
+            "hidden": true
+          },
+          {
+            "cls": "toast",
+            "hidden": false
+          }
+        ]
+      },
+      "graphCollisions": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "findings": [],
+      "screenshot": {
+        "file": "10-cat-mobile-evolution.webp",
+        "width": 390,
+        "height": 844,
+        "bytes": 30020,
+        "sha256": "7fe679322f45c4b4fb107fbd5223b4a2409964d69ab61a6cd67dc8bc55ad6eb2"
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "name": "project switch",
+      "status": "pass"
+    },
+    {
+      "name": "view switch",
+      "status": "pass"
+    },
+    {
+      "name": "path switch",
+      "status": "pass"
+    },
+    {
+      "name": "node inspector",
+      "status": "pass"
+    },
+    {
+      "name": "implementation tab",
+      "status": "pass"
+    },
+    {
+      "name": "edge contract",
+      "status": "pass"
+    },
+    {
+      "name": "search",
+      "status": "pass"
+    },
+    {
+      "name": "theme",
+      "status": "pass"
+    },
+    {
+      "name": "checks",
+      "status": "pass"
+    }
+  ],
+  "summary": {
+    "casePass": 10,
+    "caseWarn": 0,
+    "caseFail": 0,
+    "interactionPass": 9,
+    "interactionFail": 0,
+    "p1": 0,
+    "visibleP2": 0
+  }
+}
