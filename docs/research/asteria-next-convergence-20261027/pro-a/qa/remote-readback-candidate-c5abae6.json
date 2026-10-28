@@ -1,0 +1,24 @@
+{
+  "verifiedAtUtc": "2026-10-28T08:04:50.406802+00:00",
+  "runId": "pro-a",
+  "repository": "YuukiAS/AI_Research_Toolkit",
+  "branch": "research/asteria-next-convergence-20261027-pro-a",
+  "verifiedContentCommit": "c5abae6983c292825b233270de7c8ea53034e548",
+  "verifiedContentTree": "43b74cf82804784961c825eb28811c79dffb781a",
+  "commonBase": "23a1c4840f665e66f7af95ffadaadd96dc999e7f",
+  "baseIsAncestor": true,
+  "changedFilesSinceBase": 389,
+  "outsideAuthorizedDirectory": 0,
+  "manifestMembersVerified": 388,
+  "manifestItselfMatched": true,
+  "prototypeSha256": "6d2ddbff4fb56d5288614345067a7e379a3bbde2c99552e24cf9f3eba739147b",
+  "allLocalBytesMatchedFetchedGitObjects": true,
+  "worktreeWasCleanBeforeReceipt": true,
+  "method": [
+    "Read the exact authorized branch through GitHub connector.",
+    "Fetch that branch only, with no tags.",
+    "Verify remote head, content tree, ancestry and changed-path scope.",
+    "Read every manifest member from fetched Git objects; check byte length and SHA-256; compare local bytes."
+  ],
+  "scope": "Receipt for the content commit above. The containing delivery commit adds this record and its index; it does not re-run or extend product, scientific or independent acceptance."
+}

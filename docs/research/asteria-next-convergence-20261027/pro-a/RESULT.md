@@ -10,6 +10,7 @@
 - **[唯一产品规格](ASTERIA_NEXT_CANONICAL_SPEC.md)**：产品边界、信息架构、核心语义、设计方法、版本与实施顺序。
 - **[四版逐项裁决](CONVERGENCE_DECISION_MATRIX.md)**：28 项能力分别说明四个输入保留什么、最终采用什么以及为何舍弃其余做法。
 - **[制作者内容与视觉审查](CONTENT_AND_TASTE_AUDIT.md)**：真实页面的取舍、修正、截图与剩余边界。
+- **[GitHub 交付回读](DELIVERY_READBACK.md)**：固定内容提交、逐文件摘要、原型身份与写入范围的实际核对。
 
 原型入口 SHA-256：`6d2ddbff4fb56d5288614345067a7e379a3bbde2c99552e24cf9f3eba739147b`。浏览器证据由 r6 完整覆盖、事实修正复验和最后的关系差异显示复验组成，各自保留被测文件身份；详见 [producer-final-verification.json](qa/producer-final-verification.json)。
 
@@ -117,4 +118,4 @@ r6 图保留完整覆盖时的实际状态；未受最后修正影响的画面�
 | [CONTENT_AND_TASTE_AUDIT.md](CONTENT_AND_TASTE_AUDIT.md) | 可见内容、连续阅读、视觉 QA 与实际修正 |
 | [INPUTS_AND_BOUNDARIES.md](INPUTS_AND_BOUNDARIES.md) | 固定输入、读取与写入范围、私有材料边界 |
 
-写入仓库：`YuukiAS/AI_Research_Toolkit`。唯一写入分支：`research/asteria-next-convergence-20261027-pro-a`。共同基线：`23a1c4840f665e66f7af95ffadaadd96dc999e7f`。开工时的实际 GitHub 写入和回读见 [WRITE_ACCESS_CHECK.md](WRITE_ACCESS_CHECK.md)；本候选提交后再次核对远端分支与交付文件。
+写入仓库：`YuukiAS/AI_Research_Toolkit`。唯一写入分支：`research/asteria-next-convergence-20261027-pro-a`。共同基线：`23a1c4840f665e66f7af95ffadaadd96dc999e7f`。开工时的实际 GitHub 写入和回读见 [WRITE_ACCESS_CHECK.md](WRITE_ACCESS_CHECK.md)；研究内容提交的远端逐文件核对已完成，见 [DELIVERY_READBACK.md](DELIVERY_READBACK.md)。

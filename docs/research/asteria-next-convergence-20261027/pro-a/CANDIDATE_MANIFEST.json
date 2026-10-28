@@ -9,7 +9,7 @@
   "status": "Independent convergence candidate; producer QA completed within recorded scope; awaiting GPT Work and Chat adjudication.",
   "qaSummary": "qa/producer-final-verification.json",
   "sourceManifest": "INPUTS_AND_BOUNDARIES.md",
-  "localMarkdownLinksChecked": 288,
+  "localMarkdownLinksChecked": 295,
   "localMarkdownLinksMissing": 0,
   "manifestSelfExcluded": true,
   "files": [
@@ -39,6 +39,11 @@
       "sha256": "e7811421041ccb228920767bf1b768f3e24b6efab154c760c57f85e22efd171c"
     },
     {
+      "path": "DELIVERY_READBACK.md",
+      "bytes": 2447,
+      "sha256": "0f514a198c9eacbafd6149e4e289cd4c178902b409eee1503dcd040c2aa4f249"
+    },
+    {
       "path": "FOUR_REFERENCE_PROJECTS.md",
       "bytes": 41091,
       "sha256": "a6cd3e4e8d8e418e59dc99cf65faa9053c176af27a917117606303134a268da2"
@@ -55,8 +60,8 @@
     },
     {
       "path": "RESULT.md",
-      "bytes": 15789,
-      "sha256": "d2457407cd8a4a579868618d76c0e04171c77b343d0eeae38c2665dbe20e105f"
+      "bytes": 15971,
+      "sha256": "48a4ff6fc26ba1f6acdeda939927cedbaa4ac1a8d7dfbba829a0b9c0e798bf58"
     },
     {
       "path": "SEMANTIC_MODEL.md",
@@ -1074,6 +1079,11 @@
       "sha256": "26abb4f6d1be6b7f674242344e904dc5cc09422d59c2e0bf33fbcddb6f78625a"
     },
     {
+      "path": "qa/remote-readback-candidate-c5abae6.json",
+      "bytes": 1234,
+      "sha256": "97295697a1d853a53af25520586baadedf5e1215bc6173bf753f794cd5efdabc"
+    },
+    {
       "path": "qa/rendered-content.tsv",
       "bytes": 14145,
       "sha256": "d3fb1432495e3208634ff49c50ebe068c1291842217588ab232fb3262371acf8"
@@ -1953,5 +1963,6 @@
       "bytes": 16149,
       "sha256": "265d854995bd4606f12008fe32c22bfc7666ebd866a877bc30e51375df5e0b72"
     }
-  ]
+  ],
+  "deliveryReadback": "DELIVERY_READBACK.md"
 }
