@@ -1,11 +1,968 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Asteria Next · Reference Prototype</title><style>html,body{margin:0;min-height:100%;background:#f5f7fa;color:#243044;font:15px system-ui,sans-serif}main{display:grid;place-items:center;min-height:100vh}p{max-width:36rem;padding:2rem}</style></head><body><main><p>正在载入 Asteria Next 参考原型…</p></main>
-  <script src="assets/payload-01.js"></script>
-  <script src="assets/payload-02.js"></script>
-  <script src="assets/payload-03.js"></script>
-  <script src="assets/payload-04.js"></script>
-  <script src="assets/payload-05.js"></script>
-  <script src="assets/payload-06.js"></script>
-  <script src="assets/payload-07.js"></script>
-  <script src="assets/loader.js"></script>
-</body></html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Asteria Next reference prototype — architecture, implementation, evidence and evolution in one semantic graph." />
+  <title>Asteria Next · Reference Prototype</title>
+  <style>:root {
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-muted: #f8f9fb;
+  --surface-inset: #eef1f4;
+  --ink: #171a1f;
+  --ink-2: #4d5663;
+  --ink-3: #77818e;
+  --line: #dfe3e8;
+  --line-strong: #cbd1d8;
+  --accent: #3f586a;
+  --accent-strong: #243f52;
+  --accent-soft: #e8eff3;
+  --teal: #276b65;
+  --teal-soft: #e5f2ef;
+  --amber: #8a6018;
+  --amber-soft: #f8efd9;
+  --red: #9c3d3d;
+  --red-soft: #f9e8e7;
+  --blue: #35618b;
+  --blue-soft: #e7eef6;
+  --purple: #65528b;
+  --purple-soft: #eeeaf6;
+  --shadow-sm: 0 1px 2px rgba(18, 25, 33, .05), 0 4px 12px rgba(18, 25, 33, .035);
+  --shadow-md: 0 14px 38px rgba(18, 25, 33, .12), 0 3px 10px rgba(18, 25, 33, .06);
+  --focus: #2b6d99;
+  --topbar-h: 58px;
+  --nav-w: 74px;
+  --radius-sm: 7px;
+  --radius-md: 11px;
+  --radius-lg: 15px;
+  --graph-grid: rgba(35, 48, 60, .055);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --bg: #11161b;
+  --surface: #171d23;
+  --surface-raised: #1b2229;
+  --surface-muted: #141a20;
+  --surface-inset: #10151a;
+  --ink: #edf1f3;
+  --ink-2: #b3bdc6;
+  --ink-3: #7f8c98;
+  --line: #2a333c;
+  --line-strong: #394550;
+  --accent: #9cb5c5;
+  --accent-strong: #d5e0e6;
+  --accent-soft: #24333d;
+  --teal: #79b7ae;
+  --teal-soft: #1c3532;
+  --amber: #d9b76e;
+  --amber-soft: #3a301d;
+  --red: #e19a96;
+  --red-soft: #402525;
+  --blue: #8ab0d4;
+  --blue-soft: #213243;
+  --purple: #b8a6dc;
+  --purple-soft: #302a40;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.22), 0 8px 20px rgba(0,0,0,.12);
+  --shadow-md: 0 18px 48px rgba(0,0,0,.38), 0 3px 12px rgba(0,0,0,.26);
+  --focus: #78b5da;
+  --graph-grid: rgba(220, 231, 238, .045);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--bg); }
+body { margin: 0; min-height: 100vh; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+button, input, select { font: inherit; }
+button, select { color: inherit; }
+button { cursor: pointer; }
+svg { display: block; }
+[hidden] { display: none !important; }
+::selection { background: var(--accent-soft); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; z-index: 1000; left: 12px; top: -50px; padding: 9px 12px; background: var(--ink); color: var(--surface); border-radius: 6px; text-decoration: none; }
+.skip-link:focus { top: 10px; }
+
+.app-shell { min-height: 100vh; display: grid; grid-template-columns: var(--nav-w) minmax(0, 1fr); grid-template-rows: var(--topbar-h) minmax(0, 1fr); }
+.topbar { grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: var(--nav-w) minmax(210px, 330px) 1fr auto; align-items: center; height: var(--topbar-h); padding: 0 18px 0 0; background: color-mix(in srgb, var(--surface) 94%, transparent); border-bottom: 1px solid var(--line); position: relative; z-index: 30; }
+.brand { align-self: stretch; display: flex; align-items: center; gap: 8px; padding-left: 17px; white-space: nowrap; }
+.brand-mark { position: relative; width: 27px; height: 27px; display: inline-grid; place-items: center; }
+.brand-mark i { position: absolute; width: 7px; height: 7px; border: 1.5px solid var(--accent); border-radius: 2px; transform: rotate(45deg); }
+.brand-mark i:nth-child(1) { left: 2px; top: 10px; }
+.brand-mark i:nth-child(2) { left: 10px; top: 2px; }
+.brand-mark i:nth-child(3) { left: 17px; top: 11px; }
+.brand-name { font-weight: 690; letter-spacing: -.025em; font-size: 16px; }
+.brand-version { font-size: 10px; line-height: 1; padding: 4px 5px 3px; border: 1px solid var(--line-strong); border-radius: 4px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; }
+.project-switcher-wrap { grid-column: 2; padding-left: 14px; }
+.project-switcher { width: 100%; height: 34px; appearance: none; border: 1px solid transparent; background: var(--surface-muted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m6 8 4 4 4-4' fill='none' stroke='%23747d87' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 9px center / 18px; padding: 0 34px 0 11px; border-radius: 7px; font-size: 13px; font-weight: 620; }
+.project-switcher:hover { border-color: var(--line); background-color: var(--surface); }
+.topbar-actions { grid-column: 4; display: flex; align-items: center; gap: 3px; }
+.icon-button { height: 34px; min-width: 34px; border: 0; border-radius: 7px; background: transparent; color: var(--ink-2); display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 9px; }
+.icon-button:hover { background: var(--surface-inset); color: var(--ink); }
+.icon-button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.icon-button .moon-icon { display: none; }
+html[data-theme="dark"] .icon-button .sun-icon { display: none; }
+html[data-theme="dark"] .icon-button .moon-icon { display: block; }
+.search-button { min-width: 176px; justify-content: flex-start; border: 1px solid var(--line); background: var(--surface-muted); color: var(--ink-3); }
+.search-button span { margin-right: auto; font-size: 12px; }
+kbd { font-family: var(--font-sans); font-size: 10px; line-height: 1; color: var(--ink-3); background: var(--surface); border: 1px solid var(--line); border-bottom-color: var(--line-strong); padding: 3px 5px; border-radius: 4px; }
+
+.primary-nav { grid-column: 1; grid-row: 2; min-height: 0; display: flex; flex-direction: column; align-items: stretch; gap: 3px; padding: 15px 8px 11px; background: var(--surface-muted); border-right: 1px solid var(--line); z-index: 20; }
+.nav-item { min-height: 54px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-3); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font-size: 10px; letter-spacing: .02em; }
+.nav-item svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.nav-item:hover { color: var(--ink); background: var(--surface-inset); }
+.nav-item.is-active { color: var(--accent-strong); background: var(--accent-soft); font-weight: 650; }
+.nav-spacer { flex: 1; }
+.nav-project { display: none; }
+
+.main-content { grid-column: 2; grid-row: 2; min-width: 0; min-height: 0; overflow: auto; display: flex; flex-direction: column; }
+.project-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding: 24px 30px 20px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.project-heading-copy { max-width: 920px; }
+.eyebrow { margin: 0 0 7px; font-size: 10.5px; line-height: 1.2; color: var(--ink-3); font-weight: 720; letter-spacing: .105em; text-transform: uppercase; }
+.project-heading h1 { margin: 0; font-size: clamp(22px, 2.2vw, 32px); line-height: 1.12; letter-spacing: -.035em; font-weight: 680; }
+.project-summary { margin: 10px 0 0; max-width: 910px; color: var(--ink-2); font-size: 13px; line-height: 1.62; }
+.heading-meta { flex: 0 0 auto; min-width: 190px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.revision-summary { color: var(--ink-3); font-size: 11px; text-align: right; max-width: 290px; line-height: 1.45; }
+.quiet-button { height: 31px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; padding: 0 9px; font-size: 11px; }
+.quiet-button:hover { border-color: var(--line-strong); color: var(--ink); background: var(--surface-muted); }
+.quiet-button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.view-root { flex: 1; min-height: 590px; position: relative; }
+
+/* system view */
+.system-view { height: 100%; min-height: 590px; display: grid; grid-template-columns: 222px minmax(480px, 1fr) 344px; background: var(--bg); }
+.path-panel { min-width: 0; padding: 20px 14px 24px 20px; border-right: 1px solid var(--line); background: var(--surface-muted); }
+.panel-label { margin: 0 0 10px; color: var(--ink-3); font-size: 10px; font-weight: 720; letter-spacing: .1em; text-transform: uppercase; }
+.path-list { display: flex; flex-direction: column; gap: 4px; }
+.path-button { width: 100%; border: 0; border-radius: 7px; background: transparent; color: var(--ink-2); padding: 9px 10px; text-align: left; display: flex; align-items: center; gap: 9px; font-size: 12px; line-height: 1.3; }
+.path-button::before { content: ""; width: 7px; height: 7px; border: 1.5px solid var(--line-strong); border-radius: 50%; flex: 0 0 auto; }
+.path-button:hover { background: var(--surface-inset); color: var(--ink); }
+.path-button.is-active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); font-weight: 650; }
+.path-button.is-active::before { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.path-note { margin: 15px 5px 0; color: var(--ink-3); font-size: 11px; line-height: 1.55; }
+.layer-block { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); }
+.layer-toggle { width: 100%; border: 0; background: transparent; color: var(--ink-2); display: flex; align-items: center; gap: 9px; padding: 7px 5px; font-size: 11px; text-align: left; }
+.layer-toggle input { accent-color: var(--accent); }
+.legend { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+.legend-row { display: flex; align-items: center; gap: 8px; color: var(--ink-3); font-size: 10.5px; padding: 4px 5px; }
+.legend-mark { width: 8px; height: 8px; border-radius: 2px; background: var(--teal); }
+.legend-mark.design-only { background: transparent; border: 1.5px dashed var(--blue); }
+.legend-mark.open { background: var(--amber); border-radius: 50%; }
+.legend-mark.blocked { background: var(--red); transform: rotate(45deg); border-radius: 1px; }
+.graph-panel { min-width: 0; min-height: 0; display: flex; flex-direction: column; background: var(--surface); }
+.graph-toolbar { height: 46px; flex: 0 0 46px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.graph-toolbar-copy { min-width: 0; }
+.graph-toolbar-title { font-size: 11px; font-weight: 670; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.graph-toolbar-hint { margin-left: 8px; color: var(--ink-3); font-size: 10px; font-weight: 450; }
+.graph-controls { display: flex; gap: 2px; }
+.graph-control { width: 28px; height: 28px; border: 0; border-radius: 6px; background: transparent; color: var(--ink-3); display: grid; place-items: center; font-size: 14px; }
+.graph-control:hover { background: var(--surface-inset); color: var(--ink); }
+.graph-stage-wrap { flex: 1; min-height: 480px; overflow: hidden; position: relative; background-color: var(--surface); background-image: linear-gradient(var(--graph-grid) 1px, transparent 1px), linear-gradient(90deg, var(--graph-grid) 1px, transparent 1px); background-size: 28px 28px; }
+.architecture-graph { width: 100%; height: 100%; min-height: 515px; user-select: none; }
+.graph-edge-hit { fill: none; stroke: transparent; stroke-width: 16; cursor: pointer; }
+.graph-edge-line { fill: none; stroke: var(--line-strong); stroke-width: 1.25; vector-effect: non-scaling-stroke; pointer-events: none; }
+.graph-edge-line.is-path { stroke: var(--accent); stroke-width: 1.8; }
+.graph-edge-line.is-selected { stroke: var(--accent-strong); stroke-width: 2.5; }
+.graph-edge-line.is-design-only { stroke-dasharray: 6 5; }
+.graph-edge-line.is-open { stroke: var(--amber); stroke-dasharray: 3 4; }
+.graph-edge-line.is-blocked { stroke: var(--red); }
+.graph-edge-label-bg { fill: var(--surface); stroke: var(--line); stroke-width: .7; }
+.graph-edge-label { fill: var(--ink-3); font-family: var(--font-sans); font-size: 9.5px; pointer-events: none; }
+.graph-edge-label.is-path { fill: var(--accent-strong); font-weight: 620; }
+.graph-node { cursor: pointer; outline: none; }
+.graph-node .node-shape { fill: var(--surface-raised); stroke: var(--line-strong); stroke-width: 1; vector-effect: non-scaling-stroke; filter: drop-shadow(0 2px 3px rgba(16,23,30,.035)); }
+html[data-theme="dark"] .graph-node .node-shape { filter: drop-shadow(0 4px 6px rgba(0,0,0,.12)); }
+.graph-node:hover .node-shape { stroke: var(--accent); }
+.graph-node.is-path .node-shape { stroke: color-mix(in srgb, var(--accent) 70%, var(--line)); }
+.graph-node.is-selected .node-shape { stroke: var(--accent-strong); stroke-width: 2; }
+.graph-node.is-dimmed { opacity: .36; }
+.graph-node.is-design-only .node-shape { stroke: var(--blue); stroke-dasharray: 5 4; fill: color-mix(in srgb, var(--blue-soft) 50%, var(--surface)); }
+.graph-node.is-open .node-shape { stroke: var(--amber); fill: color-mix(in srgb, var(--amber-soft) 42%, var(--surface)); }
+.graph-node.is-blocked .node-shape { stroke: var(--red); fill: color-mix(in srgb, var(--red-soft) 46%, var(--surface)); }
+.graph-node.is-tested .node-shape { stroke: var(--teal); }
+.node-accent { fill: var(--accent); }
+.graph-node.is-design-only .node-accent { fill: var(--blue); }
+.graph-node.is-open .node-accent { fill: var(--amber); }
+.graph-node.is-blocked .node-accent { fill: var(--red); }
+.graph-node.is-tested .node-accent { fill: var(--teal); }
+.node-title { fill: var(--ink); font-family: var(--font-sans); font-size: 12px; font-weight: 670; pointer-events: none; }
+.node-kind { fill: var(--ink-3); font-family: var(--font-sans); font-size: 9px; pointer-events: none; }
+.node-meta { fill: var(--ink-2); font-family: var(--font-sans); font-size: 9.5px; pointer-events: none; }
+.mobile-path-reader { display: none; }
+
+.inspector { min-width: 0; border-left: 1px solid var(--line); background: var(--surface-raised); display: flex; flex-direction: column; }
+.inspector-empty { height: 100%; min-height: 420px; display: grid; place-items: center; padding: 32px; text-align: center; color: var(--ink-3); }
+.inspector-empty svg { width: 34px; height: 34px; margin: 0 auto 13px; fill: none; stroke: var(--line-strong); stroke-width: 1.3; }
+.inspector-empty p { max-width: 220px; margin: 0; font-size: 11px; line-height: 1.6; }
+.inspector-header { padding: 19px 20px 15px; border-bottom: 1px solid var(--line); }
+.inspector-kicker { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; color: var(--ink-3); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.status-dot.design-only { background: var(--blue); }
+.status-dot.open { background: var(--amber); }
+.status-dot.blocked { background: var(--red); border-radius: 2px; transform: rotate(45deg); }
+.status-dot.tested { background: var(--teal); }
+.inspector-header h2 { margin: 0; font-size: 18px; line-height: 1.23; letter-spacing: -.02em; }
+.inspector-subline { margin: 7px 0 0; color: var(--ink-3); font-size: 10.5px; }
+.inspector-summary { margin: 12px 0 0; color: var(--ink-2); font-size: 11.5px; line-height: 1.58; }
+.inspector-tabs { display: flex; padding: 0 13px; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+.inspector-tabs::-webkit-scrollbar { display: none; }
+.inspector-tab { border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--ink-3); padding: 11px 8px 9px; font-size: 10.5px; white-space: nowrap; }
+.inspector-tab:hover { color: var(--ink); }
+.inspector-tab.is-active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 650; }
+.inspector-body { flex: 1; min-height: 0; overflow: auto; padding: 17px 20px 26px; }
+.detail-list { margin: 0; }
+.detail-list > div { padding: 0 0 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line); }
+.detail-list > div:last-child { border-bottom: 0; }
+.detail-list dt { margin: 0 0 4px; color: var(--ink-3); font-size: 9.5px; font-weight: 670; letter-spacing: .04em; }
+.detail-list dd { margin: 0; color: var(--ink); font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.detail-section { margin-top: 20px; }
+.detail-section:first-child { margin-top: 0; }
+.detail-section h3 { margin: 0 0 9px; font-size: 10px; font-weight: 740; letter-spacing: .08em; color: var(--ink-3); text-transform: uppercase; }
+.mechanism-link, .anchor-card, .evidence-card, .history-card, .blocker-card { width: 100%; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-muted); padding: 10px 11px; text-align: left; margin-bottom: 7px; }
+.mechanism-link { color: var(--ink); display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: 11px; font-weight: 620; }
+.mechanism-link::after { content: "→"; color: var(--ink-3); }
+.mechanism-link:hover { border-color: var(--accent); background: var(--accent-soft); }
+.anchor-path { display: block; font-family: var(--font-mono); font-size: 9.5px; color: var(--blue); overflow-wrap: anywhere; line-height: 1.45; }
+.anchor-symbol { display: block; margin-top: 5px; font-size: 10.5px; font-weight: 620; }
+.anchor-commit { display: block; margin-top: 5px; color: var(--ink-3); font-family: var(--font-mono); font-size: 8.5px; }
+.card-title { display: block; font-size: 10.5px; font-weight: 650; color: var(--ink); }
+.card-detail { display: block; margin-top: 4px; color: var(--ink-2); font-size: 10px; line-height: 1.5; }
+.blocker-card { background: var(--red-soft); border-color: color-mix(in srgb, var(--red) 35%, var(--line)); }
+.empty-detail { color: var(--ink-3); font-size: 10.5px; line-height: 1.55; }
+.edge-contract { display: grid; gap: 9px; }
+.edge-contract-row { position: relative; padding-left: 17px; }
+.edge-contract-row::before { content: ""; position: absolute; left: 2px; top: 5px; width: 6px; height: 6px; border: 1.5px solid var(--accent); border-radius: 50%; }
+.edge-contract-row:not(:last-child)::after { content: ""; position: absolute; left: 5px; top: 14px; bottom: -10px; border-left: 1px solid var(--line-strong); }
+.edge-contract-row strong { display: block; font-size: 9.5px; color: var(--ink-3); font-weight: 620; }
+.edge-contract-row span { display: block; margin-top: 2px; font-size: 11px; line-height: 1.5; }
+
+/* mechanism view */
+.mechanism-view, .evolution-view, .checks-view { min-height: 590px; background: var(--bg); }
+.split-view { min-height: 590px; display: grid; grid-template-columns: 272px minmax(0, 1fr); }
+.section-index { border-right: 1px solid var(--line); padding: 22px 14px 30px 20px; background: var(--surface-muted); }
+.section-index h2 { margin: 0 8px 12px; font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .09em; }
+.index-button { width: 100%; border: 0; border-radius: 8px; background: transparent; text-align: left; padding: 10px 11px; margin-bottom: 4px; color: var(--ink-2); }
+.index-button:hover { background: var(--surface-inset); color: var(--ink); }
+.index-button.is-active { background: var(--surface); box-shadow: var(--shadow-sm); color: var(--ink); }
+.index-button strong { display: block; font-size: 11.5px; line-height: 1.35; }
+.index-button span { display: block; margin-top: 4px; font-size: 9.5px; color: var(--ink-3); }
+.section-content { min-width: 0; padding: 30px clamp(24px, 4vw, 56px) 60px; background: var(--surface); }
+.content-kicker { color: var(--ink-3); font-size: 10px; text-transform: uppercase; letter-spacing: .09em; font-weight: 720; }
+.section-content h2 { max-width: 850px; margin: 8px 0 10px; font-size: clamp(23px, 2.5vw, 34px); line-height: 1.15; letter-spacing: -.035em; }
+.content-lead { max-width: 870px; margin: 0; color: var(--ink-2); font-size: 13px; line-height: 1.68; }
+.mechanism-contract { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1px; margin-top: 25px; background: var(--line); border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.mechanism-contract > div { background: var(--surface-muted); padding: 13px 15px; }
+.mechanism-contract dt { color: var(--ink-3); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+.mechanism-contract dd { margin: 5px 0 0; font-size: 11px; line-height: 1.5; }
+.mechanism-diagram { max-width: 980px; margin-top: 30px; }
+.step-list { display: grid; gap: 0; }
+.step-row { position: relative; display: grid; grid-template-columns: 48px minmax(140px, 220px) minmax(0,1fr); gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+.step-row:last-child { border-bottom: 1px solid var(--line); }
+.step-no { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--accent); font-family: var(--font-mono); font-size: 9.5px; }
+.step-title { padding-top: 6px; font-size: 12px; font-weight: 670; }
+.step-detail { padding-top: 5px; color: var(--ink-2); font-size: 11.5px; line-height: 1.55; }
+.sequence-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 20px; align-items: stretch; }
+.sequence-step { position: relative; min-height: 142px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-muted); padding: 16px; }
+.sequence-step:not(:last-child)::after { content: "→"; position: absolute; right: -17px; top: 50%; transform: translateY(-50%); color: var(--ink-3); z-index: 2; }
+.sequence-step .step-no { width: 25px; height: 25px; }
+.sequence-step h3 { margin: 17px 0 7px; font-size: 11.5px; }
+.sequence-step p { margin: 0; color: var(--ink-2); font-size: 10.5px; line-height: 1.5; }
+.mechanism-context { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 34px; max-width: 980px; }
+.context-block { border-top: 2px solid var(--line-strong); padding-top: 13px; }
+.context-block h3 { margin: 0 0 8px; font-size: 11px; }
+.context-block ul { margin: 0; padding-left: 17px; color: var(--ink-2); font-size: 10.5px; line-height: 1.65; }
+
+/* evolution */
+.revision-date { font-family: var(--font-mono); }
+.diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; margin-top: 27px; max-width: 1030px; }
+.diff-panel { min-width: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface-muted); }
+.diff-panel header { padding: 9px 13px; border-bottom: 1px solid var(--line); color: var(--ink-3); font-size: 9.5px; font-weight: 720; letter-spacing: .08em; text-transform: uppercase; }
+.diff-panel.before header { color: var(--red); background: color-mix(in srgb, var(--red-soft) 55%, var(--surface)); }
+.diff-panel.after header { color: var(--teal); background: color-mix(in srgb, var(--teal-soft) 55%, var(--surface)); }
+.diff-panel p { margin: 0; padding: 16px 17px 19px; color: var(--ink-2); font-size: 11.5px; line-height: 1.65; }
+.revision-story { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px 30px; margin-top: 30px; max-width: 1030px; }
+.story-block { border-top: 1px solid var(--line); padding-top: 13px; }
+.story-block.wide { grid-column: 1 / -1; }
+.story-block h3 { margin: 0 0 7px; color: var(--ink-3); font-size: 9.5px; text-transform: uppercase; letter-spacing: .08em; }
+.story-block p, .story-block li { color: var(--ink-2); font-size: 11px; line-height: 1.6; }
+.story-block p { margin: 0; }
+.story-block ul { margin: 0; padding-left: 17px; }
+.alignment-bar { margin-top: 27px; max-width: 1030px; display: flex; gap: 12px; align-items: flex-start; padding: 13px 15px; background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
+.alignment-bar svg { width: 18px; height: 18px; flex: 0 0 auto; fill: none; stroke: var(--accent); stroke-width: 1.6; }
+.alignment-bar p { margin: 0; color: var(--ink-2); font-size: 11px; line-height: 1.55; }
+.change-map { margin-top: 30px; max-width: 1030px; padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-muted); }
+.change-map h3 { margin: 0 0 13px; font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; }
+.change-list { display: flex; flex-wrap: wrap; gap: 7px; }
+.change-token { padding: 6px 8px; border-radius: 5px; background: var(--surface); border: 1px solid var(--line); font-family: var(--font-mono); font-size: 9px; }
+.change-token.edge { color: var(--purple); }
+
+/* checks */
+.checks-view { padding: 30px clamp(24px, 4vw, 56px) 60px; background: var(--surface); }
+.checks-heading { max-width: 900px; }
+.checks-heading h2 { margin: 7px 0 9px; font-size: clamp(23px, 2.5vw, 34px); letter-spacing: -.035em; }
+.checks-heading p { margin: 0; color: var(--ink-2); font-size: 12.5px; line-height: 1.65; }
+.check-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 970px; margin-top: 28px; }
+.summary-stat { border-top: 2px solid var(--line-strong); padding: 13px 2px 0; }
+.summary-stat strong { display: block; font-size: 23px; letter-spacing: -.03em; }
+.summary-stat span { display: block; margin-top: 4px; color: var(--ink-3); font-size: 10px; }
+.check-table { max-width: 1080px; margin-top: 28px; border-top: 1px solid var(--line-strong); }
+.check-row { display: grid; grid-template-columns: 24px minmax(180px, .8fr) minmax(250px, 1.55fr) minmax(90px, .35fr); gap: 15px; align-items: start; padding: 15px 3px; border-bottom: 1px solid var(--line); }
+.check-icon { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px; color: var(--teal); border: 1px solid color-mix(in srgb, var(--teal) 55%, var(--line)); font-size: 10px; }
+.check-icon.warn { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 55%, var(--line)); }
+.check-icon.fail { color: var(--red); border-color: color-mix(in srgb, var(--red) 55%, var(--line)); border-radius: 4px; }
+.check-name { font-size: 11.5px; font-weight: 650; line-height: 1.45; }
+.check-detail { color: var(--ink-2); font-size: 10.5px; line-height: 1.55; }
+.check-scope { color: var(--ink-3); font-family: var(--font-mono); font-size: 9px; line-height: 1.45; }
+.judgment-boundary { max-width: 1080px; margin-top: 36px; padding: 22px 24px; background: var(--surface-muted); border: 1px solid var(--line); border-radius: 10px; }
+.judgment-boundary h3 { margin: 0 0 7px; font-size: 13px; }
+.judgment-boundary > p { margin: 0; color: var(--ink-2); font-size: 11px; line-height: 1.6; }
+.judgment-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px 28px; margin-top: 17px; }
+.judgment-item { position: relative; padding-left: 16px; color: var(--ink-2); font-size: 10.5px; line-height: 1.5; }
+.judgment-item::before { content: ""; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--ink-3); }
+
+/* dialogs */
+.dialog-backdrop { position: fixed; z-index: 100; inset: 0; display: grid; place-items: start center; padding: 10vh 20px 20px; background: rgba(10, 15, 20, .42); backdrop-filter: blur(3px); }
+.command-dialog { width: min(650px, calc(100vw - 32px)); max-height: min(650px, 78vh); overflow: hidden; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--surface-raised); box-shadow: var(--shadow-md); }
+.command-input-wrap { height: 56px; display: flex; align-items: center; gap: 10px; padding: 0 15px; border-bottom: 1px solid var(--line); }
+.command-input-wrap svg { width: 20px; height: 20px; fill: none; stroke: var(--ink-3); stroke-width: 1.6; }
+.command-input-wrap input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 14px; }
+.command-input-wrap input::placeholder { color: var(--ink-3); }
+.search-results { max-height: calc(78vh - 56px); overflow: auto; padding: 8px; }
+.search-result { width: 100%; display: grid; grid-template-columns: 74px 1fr auto; gap: 10px; align-items: center; border: 0; border-radius: 7px; background: transparent; text-align: left; padding: 10px; color: var(--ink); }
+.search-result:hover, .search-result.is-active { background: var(--surface-inset); }
+.result-type { color: var(--ink-3); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+.result-copy strong { display: block; font-size: 11.5px; }
+.result-copy span { display: block; margin-top: 3px; color: var(--ink-3); font-size: 9.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.result-action { color: var(--ink-3); font-size: 10px; }
+.no-results { padding: 30px; color: var(--ink-3); text-align: center; font-size: 11px; }
+.help-dialog { position: relative; width: min(530px, calc(100vw - 32px)); border: 1px solid var(--line-strong); border-radius: 12px; background: var(--surface-raised); box-shadow: var(--shadow-md); padding: 29px 32px 30px; }
+.help-dialog h2 { margin: 6px 0 12px; font-size: 23px; letter-spacing: -.03em; }
+.help-dialog > p:not(.eyebrow) { margin: 0; color: var(--ink-2); font-size: 12px; line-height: 1.7; }
+.dialog-close { position: absolute; top: 10px; right: 11px; width: 30px; height: 30px; border: 0; border-radius: 6px; background: transparent; color: var(--ink-3); font-size: 20px; }
+.dialog-close:hover { background: var(--surface-inset); color: var(--ink); }
+.shortcut-list { margin: 22px 0 0; border-top: 1px solid var(--line); }
+.shortcut-list div { display: grid; grid-template-columns: 48px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.shortcut-list dt { font-family: var(--font-mono); font-size: 10px; }
+.shortcut-list dd { margin: 0; color: var(--ink-2); font-size: 10.5px; }
+.toast { position: fixed; z-index: 120; left: 50%; bottom: 24px; transform: translate(-50%, 18px); opacity: 0; pointer-events: none; padding: 9px 13px; background: var(--ink); color: var(--surface); border-radius: 7px; box-shadow: var(--shadow-md); font-size: 10.5px; transition: .18s ease; }
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 1240px) {
+  .system-view { grid-template-columns: 190px minmax(420px, 1fr) 310px; }
+  .project-heading { padding-inline: 24px; }
+}
+
+@media (max-width: 1040px) {
+  :root { --nav-w: 66px; }
+  .system-view { grid-template-columns: 170px minmax(390px, 1fr) 285px; }
+  .path-panel { padding-left: 13px; }
+  .inspector-header, .inspector-body { padding-left: 16px; padding-right: 16px; }
+  .project-heading { align-items: flex-start; }
+  .project-summary { max-width: 700px; }
+  .heading-meta { min-width: 130px; }
+  .graph-toolbar-hint { display: none; }
+}
+
+@media (max-width: 820px) {
+  :root { --topbar-h: 54px; }
+  body { overflow: auto; }
+  .app-shell { grid-template-columns: 1fr; grid-template-rows: var(--topbar-h) minmax(0,1fr) 60px; min-height: 100dvh; }
+  .topbar { grid-column: 1; grid-row: 1; grid-template-columns: 1fr auto; padding: 0 10px 0 12px; position: sticky; top: 0; }
+  .brand { padding: 0; }
+  .brand-name { font-size: 15px; }
+  .project-switcher-wrap, .search-button, #help-button { display: none; }
+  .topbar-actions { grid-column: 2; }
+  .primary-nav { position: fixed; z-index: 50; left: 0; right: 0; bottom: 0; height: 60px; padding: 5px max(8px, env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left)); display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; border-right: 0; border-top: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 96%, transparent); }
+  .nav-item { min-height: 48px; font-size: 9px; gap: 3px; }
+  .nav-item svg { width: 19px; height: 19px; }
+  .nav-spacer { display: none; }
+  .nav-project { display: flex; }
+  .main-content { grid-column: 1; grid-row: 2; overflow: visible; min-height: calc(100dvh - 114px); }
+  .project-heading { display: block; padding: 19px 18px 17px; }
+  .project-heading h1 { font-size: 24px; }
+  .project-summary { margin-top: 8px; font-size: 12px; line-height: 1.58; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .heading-meta { display: block; margin-top: 11px; min-width: 0; }
+  .revision-summary { display: block; text-align: left; max-width: none; font-size: 10px; }
+  .quiet-button { display: none; }
+  .view-root, .mechanism-view, .evolution-view, .checks-view { min-height: 540px; }
+  .system-view { display: block; min-height: 0; }
+  .path-panel { position: sticky; top: var(--topbar-h); z-index: 15; padding: 10px 12px; border-right: 0; border-bottom: 1px solid var(--line); overflow-x: auto; background: color-mix(in srgb, var(--surface-muted) 96%, transparent); }
+  .path-panel .panel-label, .path-note, .layer-block, .legend { display: none; }
+  .path-list { display: flex; flex-direction: row; gap: 5px; width: max-content; }
+  .path-button { width: auto; padding: 8px 10px; border: 1px solid var(--line); background: var(--surface); white-space: nowrap; }
+  .path-button::before { display: none; }
+  .path-button.is-active { border-color: var(--accent); background: var(--accent-soft); box-shadow: none; }
+  .graph-panel { display: none; }
+  .mobile-path-reader { display: block; padding: 18px 16px 28px; background: var(--surface); }
+  .mobile-path-intro { margin-bottom: 14px; }
+  .mobile-path-intro h2 { margin: 0; font-size: 15px; }
+  .mobile-path-intro p { margin: 6px 0 0; color: var(--ink-3); font-size: 10.5px; line-height: 1.55; }
+  .mobile-step { width: 100%; position: relative; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-raised); padding: 13px 14px; text-align: left; color: var(--ink); }
+  .mobile-step.is-design-only { border-style: dashed; border-color: var(--blue); }
+  .mobile-step.is-open { border-color: var(--amber); }
+  .mobile-step.is-blocked { border-color: var(--red); }
+  .mobile-step-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .mobile-step strong { font-size: 12px; }
+  .mobile-step em { color: var(--ink-3); font-size: 9px; font-style: normal; }
+  .mobile-step p { margin: 7px 0 0; color: var(--ink-2); font-size: 10.5px; line-height: 1.52; }
+  .mobile-payload { position: relative; margin: 0 0; padding: 23px 13px 20px 31px; color: var(--ink-3); font-size: 9.5px; line-height: 1.45; }
+  .mobile-payload::before { content: ""; position: absolute; left: 17px; top: 0; bottom: 0; border-left: 1px solid var(--accent); }
+  .mobile-payload::after { content: "↓"; position: absolute; left: 12px; bottom: 1px; color: var(--accent); background: var(--surface); }
+  .mobile-payload b { color: var(--ink-2); font-weight: 650; }
+  .inspector { position: fixed; z-index: 70; left: 0; right: 0; bottom: 0; max-height: 76dvh; border-left: 0; border-top: 1px solid var(--line-strong); border-radius: 15px 15px 0 0; box-shadow: 0 -16px 42px rgba(10,16,22,.18); transform: translateY(105%); transition: transform .22s ease; overflow: hidden; }
+  .inspector.is-open { transform: translateY(0); }
+  .inspector::before { content: ""; width: 38px; height: 4px; border-radius: 2px; background: var(--line-strong); margin: 7px auto 0; }
+  .inspector-empty { display: none; }
+  .inspector-header { padding-top: 11px; }
+  .inspector-body { max-height: 46dvh; }
+  .split-view { display: block; min-height: 0; }
+  .section-index { position: sticky; top: var(--topbar-h); z-index: 14; display: flex; overflow-x: auto; gap: 5px; padding: 9px 11px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .section-index h2 { display: none; }
+  .index-button { flex: 0 0 auto; width: auto; margin: 0; padding: 8px 10px; border: 1px solid var(--line); background: var(--surface); }
+  .index-button strong { font-size: 10px; white-space: nowrap; }
+  .index-button span { display: none; }
+  .index-button.is-active { border-color: var(--accent); background: var(--accent-soft); box-shadow: none; }
+  .section-content { padding: 24px 17px 42px; }
+  .section-content h2 { font-size: 24px; }
+  .content-lead { font-size: 12px; }
+  .mechanism-contract { grid-template-columns: 1fr; }
+  .step-row { grid-template-columns: 40px 1fr; gap: 10px; }
+  .step-row .step-detail { grid-column: 2; padding-top: 0; }
+  .sequence-list { grid-template-columns: 1fr; gap: 9px; }
+  .sequence-step { min-height: 0; }
+  .sequence-step:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -15px; transform: translateX(-50%); background: var(--surface); padding: 0 4px; }
+  .mechanism-context, .diff-grid, .revision-story, .judgment-list { grid-template-columns: 1fr; }
+  .story-block.wide { grid-column: auto; }
+  .checks-view { padding: 24px 17px 46px; }
+  .checks-heading h2 { font-size: 24px; }
+  .check-summary { gap: 8px; }
+  .summary-stat strong { font-size: 20px; }
+  .check-row { grid-template-columns: 22px 1fr; gap: 8px 11px; }
+  .check-detail, .check-scope { grid-column: 2; }
+  .judgment-boundary { padding: 18px; }
+  .dialog-backdrop { padding-top: 7vh; }
+  .command-dialog { max-height: 72vh; }
+  .help-dialog { padding: 25px 22px; }
+  .toast { bottom: 74px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media (forced-colors: active) {
+  .graph-node .node-shape, .diff-panel, .mechanism-link, .anchor-card, .evidence-card { forced-color-adjust: none; }
+}
+
+@media (max-width: 820px) {
+  .mobile-payload { width: 100%; border: 0; background: transparent; text-align: left; font-family: var(--font-sans); }
+  .mobile-payload:focus-visible { border-radius: 6px; }
+}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <div id="app" class="app-shell">
+    <header class="topbar" aria-label="全局导航">
+      <div class="brand" aria-label="Asteria Next">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-name">Asteria</span>
+        <span class="brand-version">Next</span>
+      </div>
+      <div class="project-switcher-wrap">
+        <label class="sr-only" for="project-switcher">参考项目</label>
+        <select id="project-switcher" class="project-switcher" aria-label="切换参考项目"></select>
+      </div>
+      <div class="topbar-actions">
+        <button id="search-button" class="icon-button search-button" type="button" aria-label="搜索当前架构" title="搜索当前架构">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+          <span>搜索</span><kbd>/</kbd>
+        </button>
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="切换明暗主题" title="切换明暗主题">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 15.4A8.4 8.4 0 0 1 8.6 3.7a8.5 8.5 0 1 0 11.7 11.7Z"></path></svg>
+        </button>
+        <button id="help-button" class="icon-button" type="button" aria-label="阅读说明" title="阅读说明">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.7 9.2a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.9 1.3-1.9 2.8M12 17.5h.01"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <aside class="primary-nav" aria-label="主要视图">
+      <button class="nav-item is-active" data-view="system" type="button" aria-label="系统视图">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="6" rx="1"></rect><rect x="14" y="4" width="7" height="6" rx="1"></rect><rect x="8.5" y="15" width="7" height="5" rx="1"></rect><path d="M6.5 10v2.5h11V10M12 12.5V15"></path></svg>
+        <span>系统</span>
+      </button>
+      <button class="nav-item" data-view="mechanism" type="button" aria-label="机制视图">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"></path></svg>
+        <span>机制</span>
+      </button>
+      <button class="nav-item" data-view="evolution" type="button" aria-label="演进视图">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6M4 18h16"></path><path d="m7 15 4-4 3 2 5-6"></path><circle cx="7" cy="15" r="1"></circle><circle cx="11" cy="11" r="1"></circle><circle cx="14" cy="13" r="1"></circle><circle cx="19" cy="7" r="1"></circle></svg>
+        <span>演进</span>
+      </button>
+      <button class="nav-item" data-view="checks" type="button" aria-label="完整性检查">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"></path><path d="m8 9 2 2 4-4M8 15h8"></path></svg>
+        <span>检查</span>
+      </button>
+      <div class="nav-spacer"></div>
+      <button id="mobile-project-button" class="nav-item nav-project" type="button" aria-label="切换项目">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 5V3h8v2"></path><path d="M8 10h8M8 14h5"></path></svg>
+        <span>项目</span>
+      </button>
+    </aside>
+
+    <main id="main-content" class="main-content" tabindex="-1">
+      <section class="project-heading" aria-labelledby="project-title">
+        <div class="project-heading-copy">
+          <p id="project-kicker" class="eyebrow"></p>
+          <h1 id="project-title"></h1>
+          <p id="project-summary" class="project-summary"></p>
+        </div>
+        <div class="heading-meta">
+          <span id="revision-summary" class="revision-summary"></span>
+          <button id="share-state" class="quiet-button" type="button" title="复制当前视图链接">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M13 7l5 5-5 5"></path><path d="M11 5H5v14h6"></path></svg>
+            <span>复制视图</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="view-root" class="view-root" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <div id="search-dialog" class="dialog-backdrop" hidden>
+    <section class="command-dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <div class="command-input-wrap">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+        <label id="search-title" class="sr-only" for="search-input">搜索当前架构</label>
+        <input id="search-input" type="search" autocomplete="off" placeholder="搜索组件、关系、机制、源码或修订" />
+        <kbd>Esc</kbd>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </section>
+  </div>
+
+  <div id="help-dialog" class="dialog-backdrop" hidden>
+    <section class="help-dialog" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <button class="dialog-close" data-close-dialog type="button" aria-label="关闭">×</button>
+      <p class="eyebrow">阅读方式</p>
+      <h2 id="help-title">从整体进入真实机制</h2>
+      <p>先选择一条用户路径，再点组件或关系。机制页解释状态、算法与失败模式；演进页保存改变原因、触发证据、影响和不变保证；检查页只报告结构完整性，不替代产品、科学或视觉判断。</p>
+      <dl class="shortcut-list">
+        <div><dt>/</dt><dd>搜索当前项目</dd></div>
+        <div><dt>Esc</dt><dd>关闭对话框或详情</dd></div>
+        <div><dt>Tab</dt><dd>依次浏览可交互对象</dd></div>
+      </dl>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>window.ASTERIA_QS=location.search||'?project=delivery&view=system&path=normal&theme=light';</script>
+  <script>window.ASTERIA_DATA = {"projects":{"delivery":{"name":"Delivery Assurance","kicker":"纯设计系统 · 参考项目 A","title":"从架构合同到返修闭环","summary":"这套参考项目刻意保留尚未实现的组件。设计责任、关系载荷、失败与恢复路径可以完整；源码和测试为空时，Asteria 明确显示“仅设计”，不补造函数或包名。","revisionSummary":"当前：Architecture Freeze R3 · 实现尚未开始","defaultPath":"normal","paths":[{"id":"normal","label":"正常交付","nodes":["brief","contract","freeze","implementation","evidence","evaluation"],"edges":["e1","e2","e3","e4","e5"],"note":"从用户能力边界进入冻结架构，再把真实产物和证据交给评价。"},{"id":"failure","label":"失败返修","nodes":["implementation","evidence","evaluation","repair"],"edges":["e4","e5","e6"],"note":"问题记录返回原制作任务，验收侧不直接修改产品。"},{"id":"recovery","label":"恢复","nodes":["repair","implementation","evidence","evaluation"],"edges":["e7","e4","e5"],"note":"只重跑受影响证据，同时保留未改变能力的保证。"},{"id":"protection","label":"旧能力保护","nodes":["baseline","freeze","implementation","evidence"],"edges":["e8","e9","e4"],"note":"冻结时先记录不应改变的能力，实施和复验均以此作为回归边界。"}],"nodes":[{"id":"brief","label":"用户能力与边界","kind":"能力合同","x":55,"y":225,"w":165,"h":78,"status":"accepted","meta":"责任与限制已明确","summary":"记录用户真正需要获得的能力、明确排除项、资源与权限边界。","current":{"责任":"把产品目标压缩为可验证能力","输入":"用户要求、真实项目证据","输出":"能力清单、边界、开放假设"},"mechanisms":["m-da-contract"],"implementation":[],"evidence":[{"title":"需求来源已绑定","detail":"用户要求与真实返修证据；本参考项目不声称已经实现。"}],"history":[{"title":"R2 → R3","detail":"删除流程角色说明，把能力与边界放到唯一主要位置。"}]},{"id":"contract","label":"架构合同","kind":"组件","x":265,"y":105,"w":170,"h":82,"status":"accepted","meta":"关系与机制已闭合","summary":"把核心对象、责任、关系载荷、关键机制以及正常、失败、恢复路径连成可执行设计。","current":{"责任":"冻结实施者不得临时发明的行为","机制":"组件责任 + 关系合同 + 路径","消费者":"Architecture Freeze"},"mechanisms":["m-da-contract"],"implementation":[],"evidence":[{"title":"机械完整性检查","detail":"接受的组件均有责任；关键关系均有载荷和消费者。"}],"history":[{"title":"R3 当前","detail":"从页面清单改为语义图与路径合同。"}]},{"id":"freeze","label":"Architecture Freeze","kind":"冻结点","x":475,"y":105,"w":165,"h":82,"status":"accepted","meta":"有条件冻结","summary":"冻结一个有意义的架构修订。开放问题可以保留，但必须有影响范围、退出条件和明确承担者。","current":{"冻结对象":"修订 DA-R3","允许开放":"非关键评价来源选择","禁止开放":"核心关系、返修所有权"},"mechanisms":["m-da-freeze"],"implementation":[],"evidence":[{"title":"冻结检查","detail":"结构检查通过；产品取舍仍需 ChatGPT、GPT Work 或领域审查判断。"}],"history":[{"title":"DA-R2 → DA-R3","detail":"新增不变保证与返修消费者。"}]},{"id":"implementation","label":"正式实现","kind":"执行责任","x":690,"y":105,"w":165,"h":82,"status":"design-only","meta":"仅设计 · 无源码","summary":"实现者只消费冻结合同；当前参考项目没有正式代码，因此实现绑定合法为空。","current":{"责任":"按冻结合同实现","状态":"未开始","不得推断":"包、函数、测试路径"},"mechanisms":[],"implementation":[],"evidence":[],"history":[{"title":"当前","detail":"设计领先于代码；这是明确阶段状态，不自动判为漂移。"}]},{"id":"evidence","label":"验证证据","kind":"证据集合","x":690,"y":345,"w":165,"h":82,"status":"design-only","meta":"证据计划已定义","summary":"收集真实产物、正常入口结果、测试和专业判断。没有运行结果时，不显示为已验证。","current":{"责任":"绑定候选身份与观察","状态":"计划中","失效规则":"产物或相关实现改变后重跑"},"mechanisms":["m-da-evidence"],"implementation":[],"evidence":[],"history":[{"title":"当前","detail":"只存在验证方法，没有虚构通过结论。"}]},{"id":"evaluation","label":"独立评价","kind":"判断边界","x":475,"y":345,"w":165,"h":82,"status":"open","meta":"评价来源尚未冻结","summary":"机械检查在 Asteria 内运行；产品、科学与视觉判断由合资格审查完成。","current":{"责任":"形成可定位的问题记录","开放问题":"最终评价器与材料合同","退出条件":"来源、预算、失败路径获批"},"mechanisms":["m-da-evidence"],"implementation":[],"evidence":[],"history":[{"title":"DA-R3","detail":"结构完整度不再自动等于产品正确。"}],"blocker":"评价来源仍未冻结，因此只能条件冻结，不能进入付费或不可逆执行。"},{"id":"repair","label":"原任务返修","kind":"返修边界","x":265,"y":345,"w":170,"h":82,"status":"accepted","meta":"返回原制作任务","summary":"问题记录回到拥有产品语义与权限的原任务；只修允许范围，重渲染并复验受影响证据。","current":{"责任":"消费问题记录并修复","不得做":"验收器越权改产品","输出":"新候选与变更说明"},"mechanisms":["m-da-repair"],"implementation":[],"evidence":[{"title":"所有权合同","detail":"评价器只报告，原任务负责修复。"}],"history":[{"title":"DA-R2 → DA-R3","detail":"明确消费者，删除“自动修好”含糊表述。"}]},{"id":"baseline","label":"已有能力基线","kind":"保护对象","x":55,"y":465,"w":165,"h":78,"status":"accepted","meta":"不应改变的场景","summary":"记录本次改动之外仍必须成立的能力和代表性正常路径。","current":{"责任":"定义不变保证","示例":"旧正常交付、既有安全边界","验证":"回归证据"},"mechanisms":[],"implementation":[],"evidence":[{"title":"保护范围","detail":"旧正确内容必须有代表性复验，不靠一句“未受影响”。"}],"history":[]}],"edges":[{"id":"e1","source":"brief","target":"contract","label":"能力、约束、假设","payload":"能力、边界与假设","consumer":"架构合同","status":"accepted","summary":"能力边界先于组件拆分。"},{"id":"e2","source":"contract","target":"freeze","label":"组件、关系、机制","payload":"架构语义包","consumer":"Architecture Freeze","status":"accepted","summary":"冻结的是语义修订，不是截图。"},{"id":"e3","source":"freeze","target":"implementation","label":"冻结合同","payload":"责任、机制、路径与门槛","consumer":"正式实现者","status":"design-only","summary":"实现责任已定义，但当前没有源码锚点。"},{"id":"e4","source":"implementation","target":"evidence","label":"候选与运行结果","payload":"产物、源码、测试与运行证据","consumer":"验证证据集合","status":"design-only","summary":"候选身份先固定，再接受证据。"},{"id":"e5","source":"evidence","target":"evaluation","label":"证据包","payload":"限定范围的观察与候选身份","consumer":"独立评价","status":"open","summary":"证据不能替代专业判断。"},{"id":"e6","source":"evaluation","target":"repair","label":"可定位问题记录","payload":"要求、对象、观察与严重度","consumer":"原制作任务","status":"accepted","summary":"问题记录说明实际、预期、位置和证据。"},{"id":"e7","source":"repair","target":"implementation","label":"受限修复","payload":"受限变更与重渲染请求","consumer":"正式实现者","status":"accepted","summary":"修复范围受冻结合同约束。"},{"id":"e8","source":"baseline","target":"freeze","label":"不变保证","payload":"不变保证","consumer":"Architecture Freeze","status":"accepted","summary":"冻结改动边界。"},{"id":"e9","source":"baseline","target":"implementation","label":"回归边界","payload":"受保护场景","consumer":"正式实现者","status":"accepted","summary":"实施和复验共享保护范围。"}],"mechanisms":[{"id":"m-da-contract","title":"架构设计合同","type":"algorithm","summary":"从用户能力逐层形成可冻结架构。","steps":[["01","能力与边界","先说明用户获得什么以及不做什么"],["02","对象与责任","建立稳定对象并冻结责任边界"],["03","关系合同","载荷、消费者、失败与恢复含义"],["04","关键机制","状态、算法、不变量与失败模式"],["05","路径与验证","正常、失败、恢复、保护与证据"],["06","修订与冻结","记录原因、影响和不变保证"]],"owner":"规划者 / ChatGPT","input":"用户要求与真实证据","output":"可实施架构合同"},{"id":"m-da-freeze","title":"Architecture Freeze","type":"sequence","summary":"机械完整性通过后，再记录必须由专业判断裁定的事项。冻结不等于一切完成。","steps":[["1","运行结构检查","缺责任、缺载荷、缺消费者、缺锚点、缺证据直接暴露"],["2","审查判断边界","场景是否遗漏、产品取舍和黑箱是否合理"],["3","记录开放项","影响范围、退出条件、承担者与是否阻塞"],["4","生成有意义修订","绑定原因、触发证据、下游影响和不变保证"]],"owner":"Asteria + 合资格审查","input":"架构语义包","output":"冻结修订或明确要求修改"},{"id":"m-da-evidence","title":"证据分层","type":"sequence","summary":"候选身份、机械结果、专业判断和最终裁决分别保存，任何一层都不能冒充下一层。","steps":[["1","固定候选身份","仓库、提交、产物和渲染"],["2","运行机械检查","结构、测试、文件和可复现性"],["3","执行专业判断","产品、科学、统计、视觉或教学语义"],["4","形成问题记录","绑定要求、对象、观察和证据"],["5","消费与复验","原任务修复，受影响证据失效后重跑"]],"owner":"验证系统","input":"候选与验证合同","output":"可定位证据链"},{"id":"m-da-repair","title":"返修与复验","type":"algorithm","summary":"返修由原产品任务完成，Asteria 只保存变化、影响和证据有效性。","steps":[["01","定位","问题记录 → 要求 → 对象"],["02","修复","原任务在授权范围内修改"],["03","重渲染","生成新候选身份"],["04","失效","只使受影响证据过期"],["05","复验","重跑局部检查与代表性全局保护"]],"owner":"原制作任务","input":"问题记录","output":"新候选与更新证据"}],"revisions":[{"id":"DA-R3","label":"Architecture Freeze R3","date":"2026-10-27","summary":"把返修所有权、关系消费者和旧能力保护纳入冻结合同。","before":"组件名称与路径大致存在，但评价结果由谁消费、旧能力如何保护仍靠执行者理解。","after":"每条关键关系有载荷与消费者；问题记录返回原任务；冻结修订保存不变保证。","reason":"前几轮实施在真正执行时仍需要 Codex 临时决定返修边界。","trigger":"Mica、STAT5060 与 Delivery Assurance 的真实返修链暴露所有权空白。","evidence":["四版历史候选比较","STAT5060 验收闭环材料"],"impact":["冻结合同","实现交接","复验证据"],"unchanged":["Asteria 不代替产品或科学判断","纯设计系统允许实现为空"],"alignment":"设计领先于实现；状态已明确，无伪造绑定。","changedNodes":["freeze","repair","baseline"],"changedEdges":["e6","e8","e9"]},{"id":"DA-R2","label":"关系合同 R2","date":"2026-10-26","summary":"首次把关系载荷与消费者作为可检查内容。","before":"关系只说明连接。","after":"关系同时说明载荷、真实消费者和失败含义。","reason":"实现阶段暴露装饰线无法支撑责任判断。","trigger":"R2 两版原型的连接详情比较。","evidence":["R2 GPT-6 连接详情","R2 GPT-5.6 状态表达"],"impact":["关系校验"],"unchanged":["核心组件身份"],"alignment":"设计修订；尚无正式实现。","changedNodes":["contract"],"changedEdges":["e1","e2"]}],"checks":[["pass","已接受组件具有责任与边界","所有已接受组件说明责任、输入或输出。","8 对象"],["pass","关键关系具有载荷和消费者","9 条关系可定位生产者、消费者与载荷。","9 关系"],["pass","仅设计状态未伪造实现","正式实现与验证证据合法为空，并明确标为仅设计。","2 对象"],["warn","评价来源尚未冻结","产品、科学与视觉评价来源需要另行确定。","1 项阻塞"],["pass","修订原因与保护边界完整","DA-R3 保存触发原因、下游影响与不变保证。","2 个修订"]],"judgments":["是否遗漏整个用户场景","产品取舍是否正确","评价器与材料合同是否足够","开放项是否允许进入本次冻结"]},"mica":{"name":"Mica","kicker":"真实软件 · 参考项目 B","title":"浏览器事件如何落到恢复机制与源码","summary":"Asteria 从用户可见能力进入事件与状态机制，再追到固定提交中的函数、选择器和测试。文件树只是锚点；真正的架构是 ChatGPT DOM、恢复状态机和连接器连续性怎样协作。","revisionSummary":"当前：0.1.7 · 固定提交 aa4ce525 · 输入热路径修复","defaultPath":"recovery","paths":[{"id":"normal","label":"正常输入","nodes":["dom","observer","diagnostics","status"],"edges":["m1","m2","m8"],"note":"普通输入保持轻量，不触发连接器的重型快照。"},{"id":"recovery","label":"旧内容恢复","nodes":["dom","composer","recovery","status","tests"],"edges":["m3","m4","m5","m9"],"note":"清空意图确认后才进入守卫；用户新输入会立即取消恢复。"},{"id":"connector","label":"连接器连续性","nodes":["dom","connector","composer","status","tests"],"edges":["m6","m7","m10"],"note":"连接器锁存的生命周期信号只在必要路径触发检查。"},{"id":"failure","label":"识别失败","nodes":["dom","observer","status"],"edges":["m1","m11"],"note":"无法安全识别时保持原生行为，并向用户显示降级原因。"}],"nodes":[{"id":"dom","label":"ChatGPT DOM","kind":"外部系统","x":55,"y":240,"w":160,"h":80,"status":"accepted","meta":"动态、不可控","summary":"消息、输入框、连接器与原生窗口化都来自持续变化的页面环境。","current":{"输入":"mounted turns / composer / mention","边界":"不拥有页面生命周期","失败策略":"保持原生行为"},"mechanisms":["m-mica-dom"],"implementation":[],"evidence":[{"title":"真实网页边界","detail":"仓库中的 fixture 与浏览器检查；选择器仍需持续维护。"}],"history":[]},{"id":"observer","label":"长线程观察","kind":"运行机制","x":260,"y":105,"w":165,"h":82,"status":"tested","meta":"native-safe","summary":"读取已挂载消息、复杂度和原生窗口化状态，仅在安全条件下提供诊断。","current":{"输入":"mounted DOM turns","输出":"Active / Native only / Degraded","保证":"不删除 React 管理的消息节点"},"mechanisms":["m-mica-dom"],"implementation":[{"path":"extension/src/content.ts","symbol":"conversation observer","commit":"7059c0dc24b908b57bd0e1f475142ba4f4520621"}],"evidence":[{"title":"fixture 与端到端检查","detail":"tests/fixtures/long-thread.html；真实性能仍需目标设备。"}],"history":[{"title":"0.1.4 → 0.1.7","detail":"从简单 containment 转为运行诊断与原生安全状态。"}]},{"id":"diagnostics","label":"输入框诊断","kind":"诊断机制","x":470,"y":105,"w":175,"h":82,"status":"tested","meta":"有界、隐私安全","summary":"用户主动开启短时检查，记录输入框身份、焦点、提及信号和有界生命周期事件，不复制正文。","current":{"触发":"Run composer check","记录":"identity / focus / bounded events","不记录":"prompt、answer、token、请求体"},"mechanisms":["m-mica-diagnostics"],"implementation":[{"path":"extension/src/reliability/composer-diagnostics.ts","symbol":"MicaComposerDiagnostics","commit":"7059c0dc24b908b57bd0e1f475142ba4f4520621"}],"evidence":[{"title":"合成生命周期夹具","detail":"tests/fixtures/composer-guided-diagnostics.html"}],"history":[{"title":"0.1.6","detail":"把手工 Console probe 收敛为有界检查会话。"}]},{"id":"composer","label":"输入框生命周期","kind":"状态来源","x":260,"y":315,"w":165,"h":82,"status":"tested","meta":"identity + remount","summary":"识别 editable/root、全选清空意图、DOM 重挂载和后续输入，为恢复机制提供可验证事件。","current":{"事件":"keydown / beforeinput / input / blur","稳定身份":"WeakMap element id","取消条件":"新用户输入"},"mechanisms":["m-mica-recovery"],"implementation":[{"path":"extension/src/reliability/stale-composer-recovery.ts","symbol":"handleKeyDown / handleBeforeInput / handleInput","commit":"aa4ce52581fff2e207d1f93600becbb3018b0efc"}],"evidence":[{"title":"生命周期夹具","detail":"tests/fixtures/composer-lifecycle.html"}],"history":[{"title":"0.1.6 → 0.1.7","detail":"普通输入热路径不再触发连接器重型 DOM 快照。"}]},{"id":"recovery","label":"旧内容恢复","kind":"恢复状态机","x":470,"y":315,"w":175,"h":82,"status":"tested","meta":"最多 3 次尝试","summary":"确认真正全清空后，观察旧内容是否重挂载；只对匹配指纹执行原生删除，并在静默窗口内验证最终稳定。","current":{"阶段":"WAITING → SETTLING → RECOVERING → VERIFYING","上限":"最多 3 次 / 12 秒硬上限","终止":"新输入、稳定为空、尝试耗尽"},"mechanisms":["m-mica-recovery"],"implementation":[{"path":"extension/src/reliability/stale-composer-recovery.ts","symbol":"armGuard / tickGuard / attemptRecovery / verifyRecovery","commit":"aa4ce52581fff2e207d1f93600becbb3018b0efc"}],"evidence":[{"title":"恢复回归","detail":"composer lifecycle fixture 与 E2E race checks。"}],"history":[{"title":"e92b7ff → aa4ce525","detail":"先修旧内容恢复，再修连接器输入热路径。"}]},{"id":"connector","label":"连接器连续性","kind":"可靠性机制","x":680,"y":315,"w":170,"h":82,"status":"tested","meta":"latch 生命周期","summary":"跟踪连接器提及、选择和发送意图的连续性，避免陈旧影子缓存或普通输入触发不必要工作。","current":{"输入":"mention lifecycle signal","输出":"continuity state","边界":"不点击连接器、不自动发送"},"mechanisms":["m-mica-connector"],"implementation":[{"path":"extension/src/reliability/connector-continuity.ts","symbol":"connector continuity runtime","commit":"aa4ce52581fff2e207d1f93600becbb3018b0efc"},{"path":"extension/src/reliability/connector-lifecycle-signal.ts","symbol":"lifecycle signal","commit":"aa4ce52581fff2e207d1f93600becbb3018b0efc"}],"evidence":[{"title":"connector fixture","detail":"tests/fixtures/connector-mention-lifecycle.html"}],"history":[{"title":"0.1.6 → 0.1.7","detail":"修复锁存后普通输入仍触发重型快照。"}]},{"id":"status","label":"状态与降级反馈","kind":"用户界面","x":680,"y":105,"w":170,"h":82,"status":"implemented","meta":"单一主要位置","summary":"把 Active、Native only、Degraded 与恢复结果映射到用户能理解的状态，不重复显示内部字段。","current":{"用户看到":"当前能力与降级原因","不显示":"内部事件洪流","恢复结果":"成功 / 取消 / 超时"},"mechanisms":[],"implementation":[{"path":"extension/src/ui/status.ts","symbol":"status renderer","commit":"7059c0dc24b908b57bd0e1f475142ba4f4520621"}],"evidence":[{"title":"状态渲染","detail":"界面与诊断夹具。"}],"history":[]},{"id":"tests","label":"分层测试与真机门","kind":"证据边界","x":470,"y":500,"w":175,"h":82,"status":"tested","meta":"合成通过 ≠ 真机完成","summary":"单元、fixture、Playwright 和真实 ChatGPT 页面承担不同层次证据；最终发布需要同一候选通过正常入口。","current":{"机械层":"unit / fixture","浏览器层":"Playwright","发布层":"真实页面与目标设备"},"mechanisms":[],"implementation":[{"path":"tests/","symbol":"reliability fixtures and E2E","commit":"7059c0dc24b908b57bd0e1f475142ba4f4520621"}],"evidence":[{"title":"分层证据","detail":"测试通过只支持对应边界，不替代真实页面结果。"}],"history":[]}],"edges":[{"id":"m1","source":"dom","target":"observer","label":"mounted turns","payload":"已挂载消息与原生窗口化状态","consumer":"长线程观察","status":"accepted","summary":"观察当前页面，不假设完整历史始终在 DOM。"},{"id":"m2","source":"observer","target":"diagnostics","label":"运行样本","payload":"复杂度与状态样本","consumer":"输入框诊断","status":"accepted","summary":"只在用户主动检查时提供有界上下文。"},{"id":"m3","source":"dom","target":"composer","label":"输入与 remount 事件","payload":"DOM target / inputType / identity","consumer":"输入框生命周期","status":"accepted","summary":"捕获阶段监听原生事件。"},{"id":"m4","source":"composer","target":"recovery","label":"已确认全清空","payload":"clear intent + previous payload fingerprint","consumer":"旧内容恢复","status":"accepted","summary":"未确认清空时不进入恢复。"},{"id":"m5","source":"recovery","target":"status","label":"恢复结果","payload":"success / cancel / timeout","consumer":"状态与降级反馈","status":"accepted","summary":"用户看到可解释结果。"},{"id":"m6","source":"dom","target":"connector","label":"提及 / 选择信号","payload":"bounded connector lifecycle event","consumer":"连接器连续性","status":"accepted","summary":"不读取正文与请求体。"},{"id":"m7","source":"connector","target":"composer","label":"continuity state","payload":"latched selection and send intent","consumer":"输入框生命周期","status":"accepted","summary":"仅必要事件进入生命周期检查。"},{"id":"m8","source":"diagnostics","target":"status","label":"隐私安全报告","payload":"bounded diagnostic report","consumer":"状态与降级反馈","status":"accepted","summary":"不保存提示词正文。"},{"id":"m9","source":"recovery","target":"tests","label":"状态转移证据","payload":"transition log + final DOM","consumer":"分层测试与真机门","status":"accepted","summary":"覆盖竞态和终止条件。"},{"id":"m10","source":"connector","target":"tests","label":"连续性回归","payload":"selection / remount / send sequence","consumer":"分层测试与真机门","status":"accepted","summary":"验证锁存状态不污染普通输入。"},{"id":"m11","source":"observer","target":"status","label":"Degraded","payload":"recognition failure reason","consumer":"用户状态入口","status":"blocked","summary":"保持原生行为，不破坏页面。"}],"mechanisms":[{"id":"m-mica-dom","title":"原生窗口化协作","type":"sequence","summary":"Mica 只观察当前挂载窗口和页面状态，不通过删除原生消息节点制造性能。","steps":[["1","识别页面区域","识别消息、输入框、控制区与原生窗口化"],["2","计算有界状态","只处理当前挂载对象和必要摘要"],["3","选择运行模式","Active / Native only / Degraded"],["4","保持原生语义","识别失败时不改变页面行为"]],"owner":"长线程观察","input":"动态 ChatGPT DOM","output":"可解释的运行状态"},{"id":"m-mica-recovery","title":"旧内容恢复状态机","type":"sequence","summary":"恢复针对“清空后旧内容被重挂载”这一具体失败。任何新输入都会取消守卫，避免覆盖真实编辑。","steps":[["1","捕获清空意图","记录输入框身份与旧文本指纹"],["2","确认真正为空","input、blur、RAF 与短超时共同确认"],["3","观察重挂载","只匹配旧指纹，不匹配相似新输入"],["4","执行原生删除","最多三次，十二秒硬上限"],["5","验证稳定","静默窗口内确认保持为空"]],"owner":"旧内容恢复","input":"清空意图 + 输入框生命周期","output":"恢复成功、取消或超时"},{"id":"m-mica-connector","title":"连接器连续性","type":"algorithm","summary":"连接器状态只通过有界生命周期信号进入恢复与状态层，普通输入保持轻量。","steps":[["01","提及信号","识别 connector mention 生命周期"],["02","选择锁存","确认真实选择，不从 DOM 相似性猜测"],["03","发送意图","在发送边界固定连续性状态"],["04","重挂载处理","更新影子缓存并取消陈旧引用"],["05","普通输入","不执行重型 DOM snapshot"]],"owner":"连接器连续性","input":"提及、选择、发送与 remount 事件","output":"连续性状态"},{"id":"m-mica-diagnostics","title":"有界诊断会话","type":"sequence","summary":"诊断由用户主动启动，在固定窗口内采集身份与生命周期事件。","steps":[["1","启动会话","生成会话 ID 与到期时间"],["2","采集事件","focus、identity、mention signal、remount"],["3","截断与脱敏","限制事件数，不记录正文"],["4","生成报告","提供可重现步骤与状态边界"]],"owner":"输入框诊断","input":"用户主动检查","output":"隐私安全诊断报告"}],"revisions":[{"id":"MICA-0.1.7","label":"0.1.6 → 0.1.7 输入热路径","date":"2026-10-27","summary":"连接器锁存后的普通输入不再进入重型 DOM snapshot。","before":"0.1.6 在连接器锁存后，普通 input 仍可能触发重型快照。","after":"新增有界生命周期信号并修复影子缓存；普通输入路径保持轻量。","reason":"输入延迟和无关页面扫描违反正常路径边界。","trigger":"真实输入路径回归与连接器生命周期夹具。","evidence":["commit 9f56ea8d","commit aa4ce525","connector fixture"],"impact":["输入框生命周期","连接器连续性","性能证据"],"unchanged":["旧内容恢复的取消边界","不自动点击或发送","隐私保证"],"alignment":"代码与设计已对齐；仍需真实 ChatGPT 页面发布门。","changedNodes":["composer","connector","tests"],"changedEdges":["m7","m10"]},{"id":"MICA-0.1.6","label":"Stale clear recovery","date":"2026-10-24","summary":"为清空后旧内容重挂载建立有界恢复状态机。","before":"清空后若页面 remount，旧内容可能重新出现。","after":"记录旧指纹、观察重挂载、限次删除并验证稳定。","reason":"用户正常操作被页面竞态破坏。","trigger":"issue reproduction + lifecycle fixture。","evidence":["commit e92b7ff","composer-lifecycle fixture"],"impact":["恢复机制","状态反馈"],"unchanged":["新输入永远优先","不读取提示词正文"],"alignment":"已实现并测试；真实页面仍是发布证据。","changedNodes":["recovery","composer"],"changedEdges":["m4","m5","m9"]}],"checks":[["pass","恢复机制绑定到固定源码","函数、路径和完整提交可回读。","3 锚点"],["pass","状态机具有上限和取消条件","最多三次、十二秒，新输入立即取消。","已闭合"],["pass","连接器与普通输入边界明确","普通输入不触发重型快照。","0.1.7"],["warn","真实网页仍是发布门","fixture 和 E2E 不替代目标页面与设备。","待发布证据"],["pass","降级保持原生行为","识别失败不破坏 ChatGPT 操作。","fail-open"]],"judgments":["DOM 识别策略是否覆盖真实变化","恢复是否可能误删新内容","真机性能是否满足目标设备","连接器行为是否与产品语义一致"]},"cat":{"name":"CAT-TRACE","kicker":"科研算法 · 参考项目 C","title":"从科学模型到数值实现、反例与阻塞项","summary":"同一张语义图同时容纳已测试的数值原语、独立参考算法、被反例撤销的路线和仍未冻结唯一算法的生产模块。Asteria 保留科学语义与代码证据之间的边界。","revisionSummary":"当前：Frozen V2 · C01/C04 已测试 · C03 阻塞","defaultPath":"numerical","paths":[{"id":"model","label":"科学模型","nodes":["model","catalogue","c03","prediction"],"edges":["c1","c2","c8","c9"],"note":"模型语义、目录内发现与开放尾部贡献保持分离。"},{"id":"numerical","label":"数值实现","nodes":["model","probit","laplace","reference","evidence"],"edges":["c1","c3","c4","c5"],"note":"生产近似与独立参考算法分别绑定源码和证据。"},{"id":"withdrawn","label":"撤销路线","nodes":["zero-old","counterexample","c03"],"edges":["c6","c7"],"note":"反例否定旧路线，但不自动选择新生产算法。"},{"id":"blocked","label":"开放阻塞","nodes":["counterexample","c03","prediction"],"edges":["c7","c9"],"note":"尚无唯一算法是合法状态，实施者不得临时决定科学核心。"}],"nodes":[{"id":"model","label":"CAT-TRACE Frozen V2","kind":"科学模型","x":55,"y":210,"w":180,"h":84,"status":"accepted","meta":"边际语义已冻结","summary":"二元出现模型、目录内发现与开放尾部共享一个可解释的科学语义。","current":{"边际":"probit occurrence","目录":"identity-known species","开放尾部":"grouped unknown species"},"mechanisms":["m-cat-model"],"implementation":[],"evidence":[{"title":"Frozen V2 specification","detail":"科学语义由正式文档冻结，代码不能反写模型。"}],"history":[]},{"id":"probit","label":"稳定 probit 原语","kind":"数值模块","x":275,"y":85,"w":180,"h":82,"status":"tested","meta":"梯度与尾部已测","summary":"稳定计算 probit 尾部、导数和 Laplace 内核所需量。","current":{"输入":"线性预测子","输出":"log-tail / ratio / derivatives","边界":"数值稳定性，不证明模型正确"},"mechanisms":["m-cat-probit"],"implementation":[{"path":"package/TRACE/src/ct_math.cpp","symbol":"ct_probit_tail_terms","commit":"628ed400670140c8557234e5c49bf3526d241214"},{"path":"package/TRACE/src/ct_probit.cpp","symbol":"ct_probit_laplace","commit":"628ed400670140c8557234e5c49bf3526d241214"}],"evidence":[{"title":"数值稳定测试","detail":"test-math-stability.R、test-probit-gradient.R"}],"history":[]},{"id":"catalogue","label":"Catalogue discoveries","kind":"科学分量","x":275,"y":330,"w":180,"h":82,"status":"accepted","meta":"身份已知","summary":"已知物种目录中的发现贡献与未知开放尾部分开表达。","current":{"输入":"observed catalogue","输出":"identity-known discovery component","不包含":"unknown open-tail"},"mechanisms":["m-cat-model"],"implementation":[],"evidence":[],"history":[]},{"id":"laplace","label":"生产 Laplace 近似","kind":"数值算法","x":500,"y":85,"w":180,"h":82,"status":"tested","meta":"C01 生产路径","summary":"为已冻结的常规 probit 模块提供高效近似，并保留精度与诊断边界。","current":{"输入":"稳定 probit 项","输出":"mode / Hessian / approximation","证据":"gradient + stability tests"},"mechanisms":["m-cat-probit"],"implementation":[{"path":"package/TRACE/src/ct_probit.cpp","symbol":"ct_probit_laplace","commit":"628ed400670140c8557234e5c49bf3526d241214"}],"evidence":[{"title":"生产数值回归","detail":"数值测试支持实现稳定性，不扩张到 C03。"}],"history":[]},{"id":"reference","label":"C04 独立参考引擎","kind":"参考算法","x":725,"y":85,"w":185,"h":82,"status":"tested","meta":"已测试，门未闭合","summary":"独立 Albert–Chib 参考算法用于核对生产近似；两个 bulk-ESS 坐标仍未闭合。","current":{"例程":"ref_ct_fit / interweaving","状态":"已测试","未升级":"科学审计通过"},"mechanisms":["m-cat-reference"],"implementation":[{"path":"package/TRACE/R/cat-trace-reference.R","symbol":"ref_ct_fit / ref_ct_interweave_eta_collapsed_contrast","commit":"628ed400670140c8557234e5c49bf3526d241214"}],"evidence":[{"title":"参考引擎测试","detail":"test-reference-engine.R、test-reference-c04-ref-v0-1-2.R"}],"history":[{"title":"C04-REF v0.1.2","detail":"实现与测试完成，联合可靠性门仍未闭合。"}]},{"id":"zero-old","label":"普通全零列 Laplace","kind":"已撤销路线","x":275,"y":520,"w":180,"h":82,"status":"blocked","meta":"已撤销","summary":"原路线对普通全零列直接使用 Laplace，反例显示可能漏掉开放尾部重要质量。","current":{"历史状态":"superseded","原因":"反例与独立求积不一致","当前用途":"失败对照"},"mechanisms":["m-cat-zero"],"implementation":[],"evidence":[{"title":"ZERO_SLOT_LAPLACE_FINDING","detail":"反例和独立求积否定旧近似。"}],"history":[{"title":"C03 correction","detail":"路线被纠正并从当前路径移除。"}],"blocker":"旧路线不得进入生产实现。"},{"id":"counterexample","label":"零槽位反例与求积","kind":"反例证据","x":500,"y":520,"w":180,"h":82,"status":"tested","meta":"独立求积确认","summary":"构造旧近似漏质量的情形，并用独立求积确认差异不是同源实现误差。","current":{"证据类型":"counterexample","独立性":"quadrature oracle","结论":"否定旧路线，不选择新路线"},"mechanisms":["m-cat-zero"],"implementation":[],"evidence":[{"title":"反例文件","detail":"docs/implementation/probes/ZERO_SLOT_LAPLACE_FINDING.md"}],"history":[]},{"id":"c03","label":"C03 分组开放尾部","kind":"开放模块","x":500,"y":330,"w":180,"h":82,"status":"blocked","meta":"阻塞","summary":"生产分组开放尾部拟合仍缺唯一零积分路线、外层算法成本与正式实验登记。","current":{"状态":"阻塞","原因":"GAP-01 + GAP-04","执行边界":"Codex 不得临时选算法"},"mechanisms":["m-cat-zero"],"implementation":[],"evidence":[{"title":"Decision & Gap Ledger","detail":"07_DECISION_AND_GAP_LEDGER.md"}],"history":[{"title":"原 C03 任务撤回","detail":"先补算法与接口规格，再签发窄任务。"}],"blocker":"没有唯一获批算法、成本合同和实验登记，不能进入生产实现。"},{"id":"prediction","label":"发现预测与校准","kind":"下游能力","x":725,"y":330,"w":185,"h":82,"status":"design-only","meta":"依赖 C03/C05/C06","summary":"输出目录发现、开放尾部与联合累计曲线，并分别处理截断误差、拟合不确定性和预测区间。","current":{"输入":"目录模型 + open-tail fit","输出":"discovery curves / intervals","状态":"设计存在，生产实现未闭合"},"mechanisms":["m-cat-model"],"implementation":[],"evidence":[],"history":[]},{"id":"evidence","label":"数值与统计证据","kind":"证据边界","x":725,"y":520,"w":185,"h":82,"status":"open","meta":"三层证据","summary":"区分数值稳定、参考算法一致性与科学可靠性；测试通过不会自动提升科学状态。","current":{"数值":"稳定性 / gradient","算法":"reference oracle","科学":"reliability gate"},"mechanisms":[],"implementation":[],"evidence":[{"title":"证据边界","detail":"C04 已测试但未审计；C03 仍阻塞。"}],"history":[]}],"edges":[{"id":"c1","source":"model","target":"probit","label":"边际 probit 语义","payload":"marginal occurrence semantics","consumer":"稳定 probit 原语","status":"accepted","summary":"数值实现必须保持冻结语义。"},{"id":"c2","source":"model","target":"catalogue","label":"已知身份集合","payload":"identity-known catalogue","consumer":"Catalogue discoveries","status":"accepted","summary":"目录内发现与开放尾部分离。"},{"id":"c3","source":"probit","target":"laplace","label":"稳定尾部与导数","payload":"stable tail terms + derivatives","consumer":"生产 Laplace 近似","status":"accepted","summary":"稳定原语支持常规生产路径。"},{"id":"c4","source":"model","target":"reference","label":"对照目标","payload":"frozen joint target","consumer":"C04 参考引擎","status":"accepted","summary":"参考算法独立于生产近似。"},{"id":"c5","source":"reference","target":"evidence","label":"MCMC 诊断与 oracle","payload":"chains / ESS / oracle comparison","consumer":"数值与统计证据","status":"open","summary":"两个 bulk-ESS 坐标仍未闭合。"},{"id":"c6","source":"zero-old","target":"counterexample","label":"被反例否定","payload":"old approximation + missed mass","consumer":"零槽位反例与求积","status":"blocked","summary":"旧路线被纠正。"},{"id":"c7","source":"counterexample","target":"c03","label":"重新设计要求","payload":"zero-slot integrator constraints","consumer":"C03 设计","status":"blocked","summary":"反例只否定旧路，不自动选择新算法。"},{"id":"c8","source":"catalogue","target":"prediction","label":"目录发现贡献","payload":"identity-known discovery component","consumer":"prediction","status":"design-only","summary":"与开放尾部贡献分开。"},{"id":"c9","source":"c03","target":"prediction","label":"开放尾部贡献","payload":"grouped open-tail fit","consumer":"prediction","status":"blocked","summary":"下游被明确阻塞。"}],"mechanisms":[{"id":"m-cat-model","title":"Catalogue-and-Tail 分解","type":"formula","summary":"目录内已知物种和开放尾部保持可解释分解。","steps":[],"owner":"科学模型","input":"观测与潜在物种过程","output":"发现曲线与不确定性","formula":"E[K_new] = E[K_catalogue] + E[K_open-tail]"},{"id":"m-cat-probit","title":"稳定 probit–Laplace 内核","type":"algorithm","summary":"通过稳定尾部表达、导数和曲率计算支撑常规数值近似。","steps":[["01","稳定尾部","避免直接计算极小 Φ 值"],["02","梯度与 Hessian","与有限差分和解析边界核对"],["03","mode search","控制收敛与异常曲率"],["04","Laplace 结果","输出近似与诊断"]],"owner":"C01 数值模块","input":"线性预测子与模型参数","output":"稳定近似及诊断"},{"id":"m-cat-reference","title":"独立 Albert–Chib 参考算法","type":"sequence","summary":"参考算法通过不同的潜变量采样路线核对生产近似。","steps":[["1","潜变量更新","Albert–Chib truncated normal"],["2","参数更新","条件高斯与层级步骤"],["3","interweaving","collapsed contrast 与 η 交织"],["4","诊断","ESS、链间一致性和 oracle comparison"]],"owner":"C04 参考引擎","input":"冻结联合目标","output":"独立链与可靠性诊断"},{"id":"m-cat-zero","title":"零槽位算法修订","type":"algorithm","summary":"当前唯一冻结结论是旧普通全零列 Laplace 不可继续；新生产算法仍需独立研究与成本合同。","steps":[["01","构造反例","展示原近似漏掉的重要质量"],["02","独立求积","确认差异不是同源实现误差"],["03","撤销旧路线","把旧对象标为 superseded"],["04","冻结要求","固定精度、成本和外层算法约束"],["05","选择唯一算法","待正式科学决策后实现"]],"owner":"C03 设计","input":"零槽位目标积分","output":"当前阻塞"}],"revisions":[{"id":"CAT-C03-CORRECTION","label":"C03 零槽位修订","date":"2026-09-15","summary":"普通全零列 Laplace 路线被独立求积反例撤销，C03 回到算法设计。","before":"普通全零列 Laplace 被假定足够稳健，并据此形成生产实现方向。","after":"旧路线标为 superseded；要求新的零槽位积分器、误差目标、成本合同与独立 oracle。","reason":"原近似可能漏掉对开放尾部强度重要的积分质量。","trigger":"ZERO_SLOT_LAPLACE_FINDING 反例与独立求积。","evidence":["ZERO_SLOT_LAPLACE_FINDING","ROADMAP 两个待闭问题"],"impact":["C03 production","C05 prediction","C06 calibration"],"unchanged":["CAT/open-tail 科学分解","C01 稳定 probit 内核","C04 参考算法的独立角色"],"alignment":"设计修订领先于代码；C03 无实现是正确状态。","changedNodes":["zero-old","counterexample","c03"],"changedEdges":["c6","c7","c9"]},{"id":"CAT-C04-REF-012","label":"C04-REF v0.1.2","date":"2026-10-04","summary":"参考引擎已实现并测试，但联合可靠性门仍因两个 bulk-ESS 坐标未闭合。","before":"参考算法只有计划与初版测试。","after":"ref_ct_fit 与 interweaving routine 有固定源码和测试；状态保持已测试。","reason":"需要独立算法核对生产近似。","trigger":"C04 实施与 reliability audit。","evidence":["test-reference-c04-ref-v0-1-2.R","repository bridge B0 fixture"],"impact":["reference oracle","evidence boundary"],"unchanged":["测试通过不等于科学正确","C03 仍阻塞"],"alignment":"代码存在，审计状态未升级。","changedNodes":["reference","evidence"],"changedEdges":["c5"]}],"checks":[["pass","稳定数值模块具有真实锚点","C++ routine 与对应测试固定到提交。","C01"],["pass","参考算法与生产近似独立","不同数值路线可作为 oracle。","C04"],["pass","撤销路线仍保留因果与证据","旧对象存在，但当前路径不再引用。","C03 correction"],["warn","C03 尚无唯一生产算法","精度、成本与外层合同仍未冻结。","阻塞"],["warn","C04 可靠性门未完全闭合","两个 bulk-ESS 坐标未满足联合门。","待科学判断"]],"judgments":["零槽位替代算法是否科学成立","近似误差与成本合同是否可接受","参考引擎是否足够独立","证据是否支持科学声明而非仅实现声明"]},"tutorial":{"name":"STAT5060 Tutorial","kicker":"产品与产物验收 · 参考项目 D","title":"从页面对象与要求进入问题定位、返修和复验","summary":"Asteria 把候选产品、当前要求、机械证据和专业语义判断分开。问题记录绑定到具体页面或对象，返修回到原制作任务；修改后只让受影响证据过期，同时保护旧正确内容。","revisionSummary":"当前：Tutorial 候选 T-17 · 第 10 页问题未关闭","defaultPath":"review","paths":[{"id":"review","label":"验收","nodes":["candidate","requirements","mechanical","semantic","finding"],"edges":["t1","t2","t3","t4"],"note":"先固定候选身份，再把机械观察和专业判断汇总为可定位的问题记录。"},{"id":"repair","label":"返修","nodes":["finding","task","rerender","candidate"],"edges":["t5","t6","t7"],"note":"问题记录回到原 Tutorial 任务；验收器不直接修改幻灯片。"},{"id":"revalidate","label":"复验","nodes":["rerender","mechanical","semantic","protection"],"edges":["t8","t9","t10"],"note":"受影响证据失效；未改内容保留，但仍执行代表性整体复验。"},{"id":"failure","label":"未通过原因","nodes":["candidate","semantic","finding"],"edges":["t3","t4"],"note":"用户可直接看到哪个页面、对象、要求和证据导致未通过。"}],"nodes":[{"id":"candidate","label":"Tutorial 候选产品","kind":"候选产品","x":55,"y":205,"w":180,"h":86,"status":"accepted","meta":"PPTX + PDF + render","summary":"候选身份包括源文件、PDF、逐页渲染、生成命令和固定提交；文件名 FINAL 不构成身份。","current":{"候选":"T-17","成员":"PPTX / PDF / ordered renders","身份":"manifest + SHA-256 + source commit"},"mechanisms":["m-tutorial-identity"],"implementation":[],"evidence":[{"title":"候选身份清单","detail":"源文件、PDF、页面渲染与命令共同绑定。"}],"history":[{"title":"T-16 → T-17","detail":"第 10 页 exposure 定义与 Q/A 对齐进入修订。"}]},{"id":"requirements","label":"当前要求","kind":"权威要求","x":290,"y":85,"w":165,"h":82,"status":"accepted","meta":"教师决定优先","summary":"当前教师要求、课程权威、已接受局部锁和仍适用历史反馈按明确优先级解析。","current":{"优先级":"当前决定 > frozen authority > accepted locks > history","冲突":"同层冲突必须停下","范围":"局部批准不推导全作品批准"},"mechanisms":["m-tutorial-identity"],"implementation":[],"evidence":[{"title":"Authority manifest","detail":"每个问题记录都绑定 requirement id。"}],"history":[]},{"id":"mechanical","label":"机械检查","kind":"机械证据","x":500,"y":85,"w":165,"h":82,"status":"tested","meta":"身份、对象、数值、版面","summary":"重算 18/6 与 18/9、检查页面对象、文件身份、文本、图、公式和 overflow；只陈述可机械观察的事实。","current":{"示例":"18/6 = 3，18/9 = 2","定位":"Page 10 / exposure definition callout","输出":"deterministic receipt"},"mechanisms":["m-tutorial-validation"],"implementation":[],"evidence":[{"title":"T-V2 / T-V3","detail":"数值和页面对象检查设计。"}],"history":[]},{"id":"semantic","label":"专业语义判断","kind":"专业判断","x":710,"y":85,"w":175,"h":82,"status":"open","meta":"完整页面与叙事","summary":"读取完整页面、相邻页、统计含义、教学顺序和视觉层级；机械结果只作为输入。","current":{"输入":"有序渲染 + 当前要求 + 机械观察","输出":"judgment receipt","边界":"不由单个 lint 规则替代"},"mechanisms":["m-tutorial-validation"],"implementation":[],"evidence":[{"title":"专业 review job","detail":"需要读取完整产品，不只看对象字符串。"}],"history":[]},{"id":"finding","label":"第 10 页问题记录","kind":"问题记录","x":710,"y":305,"w":175,"h":88,"status":"blocked","meta":"开放 · P1","summary":"exposure 定义框把 2/3 的比较写成总次数比，并且 Q/A 分隔线与内容对象错位；定义被移到后页，破坏教学顺序。","current":{"页面":"10","对象":"exposure 定义框 / Q&A 分隔线","要求":"正确区分率与总次数，并在首次使用前定义","严重度":"P1"},"mechanisms":["m-tutorial-validation"],"implementation":[],"evidence":[{"title":"机械证据","detail":"18/6 与 18/9 的结果及对象定位。"},{"title":"语义证据","detail":"完整第 10 页与相邻页阅读。"}],"history":[{"title":"T-17 未关闭","detail":"尚未由原任务消费并重渲染。"}],"blocker":"当前候选未通过；必须由原 Tutorial 任务修复并重新渲染。"},{"id":"task","label":"原 Tutorial 任务","kind":"返修责任方","x":500,"y":305,"w":165,"h":88,"status":"accepted","meta":"拥有制作权限","summary":"读取问题记录，只修改允许的页面或对象；锁定页若需解锁则停下向教师请求，不为过审擅改。","current":{"责任":"消费问题记录并修复","权限":"Page 10 授权范围","输出":"新源文件与变更说明"},"mechanisms":["m-tutorial-repair"],"implementation":[],"evidence":[{"title":"消费记录","detail":"记录问题如何被处理或为何阻塞。"}],"history":[]},{"id":"rerender","label":"重渲染与新身份","kind":"产品修订","x":290,"y":305,"w":165,"h":88,"status":"design-only","meta":"等待返修","summary":"修复后生成新 PPTX、PDF 和有序页面渲染，形成新的候选身份；旧证据不会自动附着到新字节。","current":{"下一候选":"T-18","必须变化":"第 10 页渲染与源文件哈希","保持":"未改页面原哈希"},"mechanisms":["m-tutorial-repair"],"implementation":[],"evidence":[],"history":[]},{"id":"protection","label":"旧正确内容保护","kind":"回归保证","x":55,"y":425,"w":180,"h":86,"status":"accepted","meta":"局部保护 + 整体复验","summary":"未改对象证据可以保留，但相邻页和整套叙事仍需代表性复验。","current":{"局部保护":"未改对象哈希","依赖传播":"页面与叙事依赖","整体门":"full-deck review"},"mechanisms":["m-tutorial-repair"],"implementation":[],"evidence":[],"history":[]}],"edges":[{"id":"t1","source":"candidate","target":"requirements","label":"候选身份与范围","payload":"产品清单与范围","consumer":"权威解析器","status":"accepted","summary":"先确认验的是哪份产品。"},{"id":"t2","source":"requirements","target":"mechanical","label":"可机械要求","payload":"身份、数值、对象与版面规则","consumer":"机械检查","status":"accepted","summary":"规则可定位到要求。"},{"id":"t3","source":"candidate","target":"semantic","label":"完整视觉产品","payload":"有序渲染与源文件上下文","consumer":"专业审阅","status":"open","summary":"专业判断需要完整产品。"},{"id":"t4","source":"semantic","target":"finding","label":"观察与判断","payload":"要求、对象、实际、预期与证据","consumer":"问题记录","status":"blocked","summary":"问题记录可回到具体页面和对象。"},{"id":"t5","source":"finding","target":"task","label":"返修请求","payload":"受限问题记录与允许范围","consumer":"原 Tutorial 任务","status":"accepted","summary":"不由验收器直接改产品。"},{"id":"t6","source":"task","target":"rerender","label":"源文件修复","payload":"变更集与更新后的源文件","consumer":"渲染器","status":"design-only","summary":"修复后必须重新生成真实产品。"},{"id":"t7","source":"rerender","target":"candidate","label":"新候选 T-18","payload":"新产品清单","consumer":"验收入口","status":"design-only","summary":"新字节生成新身份。"},{"id":"t8","source":"rerender","target":"mechanical","label":"受影响对象复验","payload":"第 10 页与依赖集合","consumer":"机械检查","status":"design-only","summary":"局部机械证据失效并重跑。"},{"id":"t9","source":"rerender","target":"semantic","label":"完整顺序复验","payload":"完整有序渲染","consumer":"语义审阅","status":"design-only","summary":"跨页叙事不能只看局部。"},{"id":"t10","source":"rerender","target":"protection","label":"未改保证","payload":"未改对象哈希与回归范围","consumer":"保护检查","status":"design-only","summary":"保留旧正确内容，同时防止依赖回归。"}],"mechanisms":[{"id":"m-tutorial-identity","title":"候选与权威解析","type":"algorithm","summary":"产品身份和当前要求分别固定，避免验错文件、旧标准复活或局部批准被扩大。","steps":[["01","固定候选","绑定源、PDF、渲染、提交和命令"],["02","解析权威","读取当前教师决定与正式来源"],["03","冻结范围","固定允许检查和返修对象"],["04","处理冲突","同层冲突停止，不按文件名或时间猜测"],["05","生成回执","形成可复验的候选与权威清单"]],"owner":"验收正常入口","input":"产品包与当前权威","output":"规范身份与范围"},{"id":"m-tutorial-validation","title":"机械证据与专业判断分层","type":"sequence","summary":"数值、对象和文件检查先运行；专业会话读取完整页面与叙事；两者共同形成问题记录。","steps":[["1","机械观察","重算数字、定位对象、检查版面和文件"],["2","准备专业材料","完整页面、相邻页、要求与机械观察"],["3","专业判断","统计、教学、视觉与叙事"],["4","形成问题记录","绑定页面、对象、要求、实际、预期和证据"],["5","报告边界","自动检查完成不等于最终课程门通过"]],"owner":"验收器与独立审阅","input":"候选与要求","output":"问题记录与回执"},{"id":"m-tutorial-repair","title":"返修、失效与保护","type":"algorithm","summary":"返修产生新候选；受影响证据失效，未改内容保留可复用证据，并用代表性全局复验保护叙事。","steps":[["01","返回原任务","问题记录回到制作任务"],["02","受限修复","只改授权对象"],["03","重渲染","重建 PPTX、PDF 与有序渲染"],["04","失效证据","失效第 10 页与依赖证据"],["05","保留证据","保留未改对象的有效证据"],["06","重新验证","局部检查 + 完整叙事复验"]],"owner":"原 Tutorial 任务","input":"问题记录","output":"新候选与证据集"}],"revisions":[{"id":"TUTORIAL-T18-PLAN","label":"T-17 → T-18 返修计划","date":"2026-10-27","summary":"修正第 10 页 exposure 语义与 Q/A 对齐，并重新运行受影响证据。","before":"2/3 被解释为总次数比；定义在首次使用后；Q/A 分隔线与内容对象错位。","after":"先定义 exposure 率，再解释 18/6 与 18/9；Q/A 对齐到真实对象；相邻页顺序复验。","reason":"当前候选未满足统计语义与教学顺序要求。","trigger":"T-V2 数值观察 + T-V3 页面判断 + T-V4 叙事检查。","evidence":["第 10 页渲染","18/6 与 18/9 独立复算","完整课件审阅"],"impact":["第 10 页源文件与渲染","相邻页叙事证据","全套课件审阅"],"unchanged":["未改图与标题","其他已接受页面内容","候选身份和权限规则"],"alignment":"返修尚未执行；T-18 仍是计划状态。","changedNodes":["finding","task","rerender"],"changedEdges":["t5","t6","t8","t9","t10"]},{"id":"TUTORIAL-T17","label":"T-17 候选","date":"2026-10-22","summary":"候选产品已生成并进入验收器架构研究，但正式实现与校准仍未完成。","before":"验收器仅有分散检查构思。","after":"候选、权威、机械证据、专业判断、问题记录与返修消费链被区分。","reason":"避免测试通过或漂亮渲染冒充课程验收。","trigger":"STAT5060 validator architecture research。","evidence":["02_OVERALL_ARCHITECTURE.md","CURRENT.md"],"impact":["Tutorial validation contract"],"unchanged":["GPT Work 最终美学门仍保留"],"alignment":"设计候选；不声称验收器已正式可用。","changedNodes":["candidate","requirements","mechanical","semantic"],"changedEdges":["t1","t2","t3","t4"]}],"checks":[["pass","候选身份包含真实产品与渲染","源文件、PDF、有序页面和生成来源均在同一身份中。","已闭合"],["pass","问题可定位到页面、对象和要求","第 10 页 exposure 定义框与 Q/A 分隔线均可追踪。","1 项开放问题"],["pass","机械与语义判断分层","数值复算不冒充教学与视觉结论。","已闭合"],["warn","返修尚未消费","T-18 仍为仅设计；当前候选不能标记通过。","1 项阻塞"],["pass","证据失效与旧内容保护已定义","受影响证据重跑，未改内容保留并执行全套回归。","已闭合"]],"judgments":["统计解释是否真正正确且可教","整套叙事是否自然连贯","视觉层级是否成熟","教师是否接受修改后的产品"]}}};
+</script>
+  <script>(() => {
+  'use strict';
+
+  const DATA = window.ASTERIA_DATA?.projects || {};
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const esc = (value = '') => String(value).replace(/[&<>'"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const truncate = (value = '', max = 62) => String(value).length > max ? `${String(value).slice(0, max - 1)}…` : String(value);
+
+  const querySource = window.ASTERIA_QS || location.search;
+  const params = new URLSearchParams(querySource.startsWith('?') ? querySource : `?${querySource}`);
+  const initialProject = DATA[params.get('project')] ? params.get('project') : 'delivery';
+
+  const state = {
+    projectId: initialProject,
+    view: ['system','mechanism','evolution','checks'].includes(params.get('view')) ? params.get('view') : 'system',
+    pathId: params.get('path') || DATA[initialProject]?.defaultPath,
+    selected: parseFocus(params.get('focus')),
+    inspectorTab: ['current','implementation','evidence','history'].includes(params.get('tab')) ? params.get('tab') : 'current',
+    mechanismId: params.get('mechanism') || DATA[initialProject]?.mechanisms?.[0]?.id,
+    revisionId: params.get('revision') || DATA[initialProject]?.revisions?.[0]?.id,
+    theme: params.get('theme') === 'dark' ? 'dark' : (params.get('theme') === 'light' ? 'light' : ((()=>{try{return localStorage.getItem('asteria-theme')}catch{return null}})() || 'light')),
+    layers: { design: true, implementation: true, evidence: true },
+    zoom: 1,
+    searchIndex: 0
+  };
+
+  let toastTimer;
+  let resizeTimer;
+
+  init();
+
+  function init() {
+    document.documentElement.dataset.theme = state.theme;
+    populateProjects();
+    bindGlobalEvents();
+    normalizeState();
+    render();
+  }
+
+  function project() { return DATA[state.projectId]; }
+  function parseFocus(value) {
+    if (!value) return null;
+    const [type, ...parts] = value.split(':');
+    if (!['node','edge'].includes(type) || !parts.length) return null;
+    return { type, id: parts.join(':') };
+  }
+  function normalizeState() {
+    const p = project();
+    if (!p) return;
+    if (!p.paths.some(x => x.id === state.pathId)) state.pathId = p.defaultPath || p.paths[0]?.id;
+    if (!p.mechanisms.some(x => x.id === state.mechanismId)) state.mechanismId = p.mechanisms[0]?.id;
+    if (!p.revisions.some(x => x.id === state.revisionId)) state.revisionId = p.revisions[0]?.id;
+    if (state.selected) {
+      const list = state.selected.type === 'node' ? p.nodes : p.edges;
+      if (!list.some(x => x.id === state.selected.id)) state.selected = null;
+    }
+  }
+
+  function populateProjects() {
+    const select = $('#project-switcher');
+    select.innerHTML = Object.entries(DATA).map(([id, p]) => `<option value="${esc(id)}">${esc(p.name)}</option>`).join('');
+    select.value = state.projectId;
+  }
+
+  function bindGlobalEvents() {
+    $('#project-switcher').addEventListener('change', e => setProject(e.target.value));
+    $('#mobile-project-button').addEventListener('click', () => {
+      const ids = Object.keys(DATA);
+      setProject(ids[(ids.indexOf(state.projectId) + 1) % ids.length]);
+      showToast(`已切换到 ${project().name}`);
+    });
+    $$('.nav-item[data-view]').forEach(btn => btn.addEventListener('click', () => setView(btn.dataset.view)));
+    $('#theme-toggle').addEventListener('click', toggleTheme);
+    $('#search-button').addEventListener('click', openSearch);
+    $('#help-button').addEventListener('click', () => openDialog('help-dialog'));
+    $('#share-state').addEventListener('click', copyStateLink);
+    $$('[data-close-dialog]').forEach(btn => btn.addEventListener('click', closeDialogs));
+    $$('.dialog-backdrop').forEach(backdrop => backdrop.addEventListener('mousedown', e => { if (e.target === backdrop) closeDialogs(); }));
+    $('#search-input').addEventListener('input', renderSearchResults);
+    $('#search-input').addEventListener('keydown', handleSearchKeys);
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && !isTyping(e.target)) { e.preventDefault(); openSearch(); }
+      if (e.key === 'Escape') { closeDialogs(); closeMobileInspector(); }
+    });
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(render, 120); });
+    window.addEventListener('popstate', () => location.reload());
+  }
+
+  function isTyping(el) { return ['INPUT','TEXTAREA','SELECT'].includes(el?.tagName) || el?.isContentEditable; }
+  function setProject(id) {
+    if (!DATA[id]) return;
+    state.projectId = id;
+    const p = DATA[id];
+    state.pathId = p.defaultPath || p.paths[0]?.id;
+    state.selected = null;
+    state.mechanismId = p.mechanisms[0]?.id;
+    state.revisionId = p.revisions[0]?.id;
+    $('#project-switcher').value = id;
+    render();
+    updateUrl();
+  }
+  function setView(view) {
+    state.view = view;
+    state.selected = view === 'system' ? state.selected : null;
+    render();
+    updateUrl();
+  }
+  function toggleTheme() {
+    state.theme = state.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = state.theme;
+    try{localStorage.setItem('asteria-theme', state.theme)}catch{}
+    updateUrl();
+  }
+
+  function render() {
+    normalizeState();
+    const p = project();
+    $('#project-kicker').textContent = p.kicker;
+    $('#project-title').textContent = p.title;
+    $('#project-summary').textContent = p.summary;
+    $('#revision-summary').textContent = p.revisionSummary;
+    document.title = `${p.name} · Asteria Next`;
+    $$('.nav-item[data-view]').forEach(btn => {
+      const active = btn.dataset.view === state.view;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-current', active ? 'page' : 'false');
+    });
+    const root = $('#view-root');
+    if (state.view === 'system') root.innerHTML = renderSystemView(p);
+    if (state.view === 'mechanism') root.innerHTML = renderMechanismView(p);
+    if (state.view === 'evolution') root.innerHTML = renderEvolutionView(p);
+    if (state.view === 'checks') root.innerHTML = renderChecksView(p);
+    bindViewEvents();
+  }
+
+  function renderSystemView(p) {
+    const path = p.paths.find(x => x.id === state.pathId) || p.paths[0];
+    const selected = selectedObject(p);
+    return `
+      <div class="system-view">
+        <aside class="path-panel" aria-label="用户路径与图层">
+          <p class="panel-label">阅读路径</p>
+          <div class="path-list">${p.paths.map(item => `<button class="path-button ${item.id === path.id ? 'is-active' : ''}" data-path="${esc(item.id)}" type="button">${esc(item.label)}</button>`).join('')}</div>
+          <p class="path-note">${esc(path.note)}</p>
+          <div class="layer-block">
+            <p class="panel-label">图层</p>
+            <label class="layer-toggle"><input type="checkbox" data-layer="design" ${state.layers.design ? 'checked' : ''}> 设计语义</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="implementation" ${state.layers.implementation ? 'checked' : ''}> 实现绑定</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="evidence" ${state.layers.evidence ? 'checked' : ''}> 验证证据</label>
+          </div>
+          <div class="legend" aria-label="状态图例">
+            <p class="panel-label">状态</p>
+            <div class="legend-row"><i class="legend-mark"></i> 已接受 / 已测试</div>
+            <div class="legend-row"><i class="legend-mark design-only"></i> 仅设计</div>
+            <div class="legend-row"><i class="legend-mark open"></i> 开放</div>
+            <div class="legend-row"><i class="legend-mark blocked"></i> 阻塞</div>
+          </div>
+        </aside>
+        <section class="graph-panel" aria-label="架构语义图">
+          <div class="graph-toolbar">
+            <div class="graph-toolbar-copy"><span class="graph-toolbar-title">${esc(path.label)}</span><span class="graph-toolbar-hint">点组件或关系查看责任、实现和证据</span></div>
+            <div class="graph-controls" aria-label="图形控制">
+              <button class="graph-control" data-graph-action="zoom-out" type="button" aria-label="缩小">−</button>
+              <button class="graph-control" data-graph-action="reset" type="button" aria-label="适合画布">○</button>
+              <button class="graph-control" data-graph-action="zoom-in" type="button" aria-label="放大">＋</button>
+            </div>
+          </div>
+          <div class="graph-stage-wrap">${renderGraph(p, path)}</div>
+        </section>
+        ${renderMobilePath(p, path)}
+        <aside class="inspector ${selected ? 'is-open' : ''}" aria-label="对象详情">${renderInspector(p, selected)}</aside>
+      </div>`;
+  }
+
+  function renderGraph(p, path) {
+    const width = 930, height = 600;
+    const nodeMap = Object.fromEntries(p.nodes.map(n => [n.id, n]));
+    const pathNodes = new Set(path.nodes);
+    const pathEdges = new Set(path.edges);
+    const defs = `<defs>
+      <marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="var(--line-strong)"></path></marker>
+      <marker id="arrow-active" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="var(--accent)"></path></marker>
+      <marker id="arrow-blocked" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="var(--red)"></path></marker>
+    </defs>`;
+    const edges = p.edges.map(edge => {
+      const a = nodeMap[edge.source], b = nodeMap[edge.target];
+      if (!a || !b) return '';
+      const g = edgeGeometry(a,b);
+      const active = pathEdges.has(edge.id);
+      const selected = state.selected?.type === 'edge' && state.selected.id === edge.id;
+      const dim = !active && pathEdges.size > 0;
+      const marker = edge.status === 'blocked' ? 'arrow-blocked' : (active || selected ? 'arrow-active' : 'arrow-default');
+      const classes = ['graph-edge-line', active && 'is-path', selected && 'is-selected', `is-${edge.status}`].filter(Boolean).join(' ');
+      const label = active || selected ? truncate(edge.label, 26) : '';
+      const labelWidth = Math.max(42, label.length * 8 + 15);
+      return `<g class="graph-edge ${dim ? 'is-dimmed' : ''}" data-edge-id="${esc(edge.id)}" tabindex="0" role="button" aria-label="关系：${esc(edge.label)}">
+        <path class="graph-edge-hit" d="${g.path}"></path>
+        <path class="${classes}" d="${g.path}" marker-end="url(#${marker})"></path>
+        ${label ? `<rect class="graph-edge-label-bg" x="${g.mx - labelWidth/2}" y="${g.my - 10}" width="${labelWidth}" height="19" rx="5"></rect><text class="graph-edge-label ${active ? 'is-path' : ''}" x="${g.mx}" y="${g.my + 3}" text-anchor="middle">${esc(label)}</text>` : ''}
+      </g>`;
+    }).join('');
+    const nodes = p.nodes.map(node => {
+      const active = pathNodes.has(node.id);
+      const selected = state.selected?.type === 'node' && state.selected.id === node.id;
+      const dim = !active && pathNodes.size > 0;
+      const classes = ['graph-node', active && 'is-path', selected && 'is-selected', dim && 'is-dimmed', `is-${node.status}`].filter(Boolean).join(' ');
+      return `<g class="${classes}" data-node-id="${esc(node.id)}" tabindex="0" role="button" aria-label="${esc(node.kind)}：${esc(node.label)}" transform="translate(${node.x} ${node.y})">
+        <rect class="node-shape" width="${node.w}" height="${node.h}" rx="9"></rect>
+        <rect class="node-accent" x="0" y="0" width="4" height="${node.h}" rx="2"></rect>
+        <text class="node-kind" x="15" y="20">${esc(truncate(node.kind, 20))}</text>
+        <text class="node-title" x="15" y="41">${esc(truncate(node.label, 24))}</text>
+        <text class="node-meta" x="15" y="${node.h - 14}">${esc(truncate(node.meta, 28))}</text>
+      </g>`;
+    }).join('');
+    return `<svg class="architecture-graph" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" style="transform:scale(${state.zoom});transform-origin:center" aria-label="${esc(p.name)} 架构图">${defs}${edges}${nodes}</svg>`;
+  }
+
+  function edgeGeometry(a,b) {
+    const ac = {x:a.x+a.w/2, y:a.y+a.h/2}, bc = {x:b.x+b.w/2, y:b.y+b.h/2};
+    const dx = bc.x-ac.x, dy = bc.y-ac.y;
+    let sx = ac.x, sy = ac.y, tx = bc.x, ty = bc.y;
+    if (Math.abs(dx) >= Math.abs(dy)) {
+      sx = dx >= 0 ? a.x+a.w : a.x; sy = ac.y;
+      tx = dx >= 0 ? b.x : b.x+b.w; ty = bc.y;
+    } else {
+      sx = ac.x; sy = dy >= 0 ? a.y+a.h : a.y;
+      tx = bc.x; ty = dy >= 0 ? b.y : b.y+b.h;
+    }
+    const cx1 = sx + (tx-sx)*.42, cy1 = sy + (Math.abs(dx) >= Math.abs(dy) ? 0 : (ty-sy)*.18);
+    const cx2 = tx - (tx-sx)*.42, cy2 = ty - (Math.abs(dx) >= Math.abs(dy) ? 0 : (ty-sy)*.18);
+    return { path:`M ${sx} ${sy} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${tx} ${ty}`, mx:(sx+tx)/2, my:(sy+ty)/2 };
+  }
+
+  function renderMobilePath(p, path) {
+    const nodeMap = Object.fromEntries(p.nodes.map(n => [n.id,n]));
+    const edgeMap = Object.fromEntries(p.edges.map(e => [e.id,e]));
+    const chunks = [];
+    path.nodes.forEach((id,index) => {
+      const n = nodeMap[id]; if (!n) return;
+      chunks.push(`<button class="mobile-step is-${esc(n.status)}" data-node-id="${esc(n.id)}" type="button"><span class="mobile-step-top"><strong>${esc(n.label)}</strong><em>${esc(n.kind)}</em></span><p>${esc(n.summary)}</p></button>`);
+      const nextId = path.nodes[index+1];
+      if (nextId) {
+        const edge = p.edges.find(e => e.source === id && e.target === nextId && path.edges.includes(e.id)) || edgeMap[path.edges[index]];
+        if (edge) chunks.push(`<button class="mobile-payload" data-edge-id="${esc(edge.id)}" type="button"><b>${esc(edge.payload)}</b><br>交给 ${esc(edge.consumer)}</button>`);
+      }
+    });
+    return `<section class="mobile-path-reader" aria-label="手机路径阅读"><div class="mobile-path-intro"><h2>${esc(path.label)}</h2><p>${esc(path.note)}</p></div>${chunks.join('')}</section>`;
+  }
+
+  function selectedObject(p) {
+    if (!state.selected) return null;
+    const list = state.selected.type === 'node' ? p.nodes : p.edges;
+    const value = list.find(x => x.id === state.selected.id);
+    return value ? { type: state.selected.type, value } : null;
+  }
+
+  function renderInspector(p, selected) {
+    if (!selected) return `<div class="inspector-empty"><div><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="12" height="9" rx="2"></rect><rect x="23" y="24" width="12" height="9" rx="2"></rect><path d="M17 11.5h7v17h-1"></path></svg><p>选择组件或关系，查看责任、机制、真实实现、证据和局部历史。</p></div></div>`;
+    if (selected.type === 'edge') return renderEdgeInspector(selected.value);
+    return renderNodeInspector(p, selected.value);
+  }
+
+  function renderNodeInspector(p, node) {
+    const tabs = [
+      ['current','当前'],['implementation','实现'],['evidence','证据'],['history','历史']
+    ];
+    return `<div class="inspector-header">
+      <div class="inspector-kicker"><i class="status-dot ${esc(node.status)}"></i>${esc(node.kind)}</div>
+      <h2>${esc(node.label)}</h2>
+      <p class="inspector-subline">${esc(node.meta)}</p>
+      <p class="inspector-summary">${esc(node.summary)}</p>
+    </div>
+    <div class="inspector-tabs" role="tablist">${tabs.map(([id,label]) => `<button class="inspector-tab ${state.inspectorTab===id?'is-active':''}" data-inspector-tab="${id}" type="button" role="tab" aria-selected="${state.inspectorTab===id}">${label}</button>`).join('')}</div>
+    <div class="inspector-body">${renderNodeTab(p,node)}</div>`;
+  }
+
+  function renderNodeTab(p,node) {
+    if (state.inspectorTab === 'current') {
+      return `${node.blocker ? `<div class="blocker-card"><span class="card-title">当前阻塞</span><span class="card-detail">${esc(node.blocker)}</span></div>` : ''}
+      <dl class="detail-list">${Object.entries(node.current || {}).map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+      ${node.mechanisms?.length ? `<section class="detail-section"><h3>关键机制</h3>${node.mechanisms.map(id => { const m=p.mechanisms.find(x=>x.id===id); return m ? `<button class="mechanism-link" data-open-mechanism="${esc(id)}" type="button">${esc(m.title)}</button>` : ''; }).join('')}</section>` : ''}`;
+    }
+    if (state.inspectorTab === 'implementation') {
+      const items = node.implementation || [];
+      return `<section class="detail-section"><h3>源码与实现锚点</h3>${items.length ? items.map(a => `<div class="anchor-card"><span class="anchor-path">${esc(a.path)}</span><span class="anchor-symbol">${esc(a.symbol || '文件级绑定')}</span><span class="anchor-commit">fixed @ ${esc(a.commit || '未固定')}</span></div>`).join('') : `<p class="empty-detail">${node.status === 'design-only' ? '当前是仅设计对象，源码绑定合法为空。系统不会补造包名、函数或测试。' : '当前对象尚未登记实现锚点；如声称已实现，完整性检查会将其列为漂移。'}</p>`}</section>`;
+    }
+    if (state.inspectorTab === 'evidence') {
+      const items = node.evidence || [];
+      return `<section class="detail-section"><h3>验证证据</h3>${items.length ? items.map(a => `<div class="evidence-card"><span class="card-title">${esc(a.title)}</span><span class="card-detail">${esc(a.detail)}</span></div>`).join('') : `<p class="empty-detail">没有有效证据。设计计划或验证方法不会被显示为已经通过。</p>`}</section>`;
+    }
+    const items = node.history || [];
+    return `<section class="detail-section"><h3>局部历史</h3>${items.length ? items.map(a => `<div class="history-card"><span class="card-title">${esc(a.title)}</span><span class="card-detail">${esc(a.detail)}</span></div>`).join('') : `<p class="empty-detail">当前对象没有单独的有意义修订。Git 提交不会自动变成架构历史。</p>`}</section>`;
+  }
+
+  function renderEdgeInspector(edge) {
+    const tabs = [['current','关系合同'],['history','历史']];
+    const history = edge.history || [];
+    return `<div class="inspector-header">
+      <div class="inspector-kicker"><i class="status-dot ${esc(edge.status)}"></i>类型关系</div>
+      <h2>${esc(edge.label)}</h2>
+      <p class="inspector-subline">${esc(edge.source)} → ${esc(edge.target)}</p>
+      <p class="inspector-summary">${esc(edge.summary)}</p>
+    </div>
+    <div class="inspector-tabs" role="tablist">${tabs.map(([id,label]) => `<button class="inspector-tab ${state.inspectorTab===id?'is-active':''}" data-inspector-tab="${id}" type="button">${label}</button>`).join('')}</div>
+    <div class="inspector-body">${state.inspectorTab === 'history' ? (history.length ? history.map(a=>`<div class="history-card"><span class="card-title">${esc(a.title)}</span><span class="card-detail">${esc(a.detail)}</span></div>`).join('') : '<p class="empty-detail">这条关系没有单独修订；可在演进页查看所属语义变化。</p>') : `<div class="edge-contract"><div class="edge-contract-row"><strong>生产者</strong><span>${esc(edge.source)}</span></div><div class="edge-contract-row"><strong>真实载荷</strong><span>${esc(edge.payload)}</span></div><div class="edge-contract-row"><strong>消费者</strong><span>${esc(edge.consumer)}</span></div></div>`}</div>`;
+  }
+
+  function renderMechanismView(p) {
+    const m = p.mechanisms.find(x => x.id === state.mechanismId) || p.mechanisms[0];
+    const related = p.nodes.filter(n => n.mechanisms?.includes(m.id));
+    const anchors = related.flatMap(n => n.implementation || []);
+    return `<div class="mechanism-view split-view">
+      <aside class="section-index"><h2>机制</h2>${p.mechanisms.map(item => `<button class="index-button ${item.id===m.id?'is-active':''}" data-mechanism="${esc(item.id)}" type="button"><strong>${esc(item.title)}</strong><span>${esc(item.owner)}</span></button>`).join('')}</aside>
+      <article class="section-content">
+        <span class="content-kicker">${m.type === 'sequence' ? '交互序列' : '算法与不变量'}</span>
+        <h2>${esc(m.title)}</h2>
+        <p class="content-lead">${esc(m.summary)}</p>
+        <dl class="mechanism-contract"><div><dt>承担者</dt><dd>${esc(m.owner)}</dd></div><div><dt>输入</dt><dd>${esc(m.input)}</dd></div><div><dt>输出</dt><dd>${esc(m.output)}</dd></div></dl>
+        <div class="mechanism-diagram ${m.type === 'sequence' ? 'sequence-list' : 'step-list'}">${m.steps.map(step => m.type === 'sequence' ? `<div class="sequence-step"><span class="step-no">${esc(step[0])}</span><h3>${esc(step[1])}</h3><p>${esc(step[2])}</p></div>` : `<div class="step-row"><span class="step-no">${esc(step[0])}</span><span class="step-title">${esc(step[1])}</span><span class="step-detail">${esc(step[2])}</span></div>`).join('')}</div>
+        <div class="mechanism-context"><section class="context-block"><h3>参与对象</h3><ul>${related.map(n => `<li>${esc(n.label)} · ${esc(n.kind)}</li>`).join('') || '<li>未绑定对象</li>'}</ul></section><section class="context-block"><h3>实现锚点</h3><ul>${anchors.length ? anchors.slice(0,6).map(a => `<li><code>${esc(a.path)}</code> · ${esc(a.symbol || '文件')}</li>`).join('') : '<li>当前机制处于设计阶段，没有伪造源码锚点。</li>'}</ul></section></div>
+      </article>
+    </div>`;
+  }
+
+
+  function renderEvolutionView(p) {
+    const r = p.revisions.find(function(x){ return x.id === state.revisionId; }) || p.revisions[0];
+    const indexHtml = p.revisions.map(function(item){
+      return '<button class="index-button '+(item.id===r.id?'is-active':'')+'" data-revision="'+esc(item.id)+'" type="button"><strong>'+esc(item.label)+'</strong><span class="revision-date">'+esc(item.date)+'</span></button>';
+    }).join('');
+    const impacts = (r.impact||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
+    const unchanged = (r.unchanged||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
+    const evidence = (r.evidence||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
+    const changes = (r.changedNodes||[]).map(function(x){return '<span class="change-token">'+esc(x)+'</span>';})
+      .concat((r.changedEdges||[]).map(function(x){return '<span class="change-token edge">'+esc(x)+'</span>';})).join('');
+    return '<div class="evolution-view split-view">'
+      +'<aside class="section-index"><h2>有意义修订</h2>'+indexHtml+'</aside>'
+      +'<article class="section-content">'
+      +'<span class="content-kicker">Architecture Revision · '+esc(r.date)+'</span>'
+      +'<h2>'+esc(r.label)+'</h2><p class="content-lead">'+esc(r.summary)+'</p>'
+      +'<div class="diff-grid"><section class="diff-panel before"><header>改变前</header><p>'+esc(r.before)+'</p></section><section class="diff-panel after"><header>当前</header><p>'+esc(r.after)+'</p></section></div>'
+      +'<div class="revision-story">'
+      +'<section class="story-block"><h3>为什么改变</h3><p>'+esc(r.reason)+'</p></section>'
+      +'<section class="story-block"><h3>触发证据</h3><p>'+esc(r.trigger)+'</p></section>'
+      +'<section class="story-block"><h3>下游影响</h3><ul>'+impacts+'</ul></section>'
+      +'<section class="story-block"><h3>不变保证</h3><ul>'+unchanged+'</ul></section>'
+      +'<section class="story-block wide"><h3>证据</h3><ul>'+evidence+'</ul></section>'
+      +'</div>'
+      +'<div class="alignment-bar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h4l2 3 4-7 4 4"></path></svg><p><strong>当前对齐：</strong> '+esc(r.alignment||"未记录")+'</p></div>'
+      +'<div class="change-map"><h3>本次语义变化</h3><div class="change-list">'+(changes||'<span class="change-token">无对象级差异</span>')+'</div></div>'
+      +'</article></div>';
+  }
+  function renderChecksView(p) {
+    const rows = (p.checks||[]).map(function(item){
+      const status=item[0], name=item[1], detail=item[2], scope=item[3];
+      const icon = status === 'pass' ? '✓' : (status === 'warn' ? '!' : '×');
+      return '<div class="check-row"><span class="check-icon '+esc(status)+'">'+icon+'</span><span class="check-name">'+esc(name)+'</span><span class="check-detail">'+esc(detail)+'</span><span class="check-scope">'+esc(scope)+'</span></div>';
+    }).join('');
+    const judgments=(p.judgments||[]).map(function(x){return '<div class="judgment-item">'+esc(x)+'</div>';}).join('');
+    return '<div class="checks-view">'
+      +'<header class="checks-heading"><span class="content-kicker">Architecture Freeze</span><h2>完整性检查</h2><p>这里检查结构合同是否闭合，不给科学正确性、产品取舍或视觉成熟度打总分。</p></header>'
+      +'<div class="checks-table">'+rows+'</div>'
+      +'<section class="judgment-boundary"><h3>仍需专业判断</h3><p>Asteria 可以暴露缺口，但下列问题必须由 Chat、Work 或领域评审基于真实证据判断。</p><div class="judgment-list">'+judgments+'</div></section>'
+      +'</div>';
+  }
+  function bindViewEvents() {
+    $$('[data-path]').forEach(function(btn){ btn.addEventListener('click', function(){ state.pathId=btn.dataset.path; state.selected=null; render(); updateUrl(); }); });
+    $$('[data-layer]').forEach(function(input){ input.addEventListener('change', function(){ state.layers[input.dataset.layer]=input.checked; }); });
+    function selectNode(id){ state.selected={type:'node',id:id}; state.inspectorTab='current'; render(); updateUrl(); }
+    function selectEdge(id){ state.selected={type:'edge',id:id}; state.inspectorTab='current'; render(); updateUrl(); }
+    $$('[data-node-id]').forEach(function(el){el.addEventListener('click',function(){selectNode(el.dataset.nodeId);});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectNode(el.dataset.nodeId);}});});
+    $$('[data-edge-id]').forEach(function(el){el.addEventListener('click',function(){selectEdge(el.dataset.edgeId);});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectEdge(el.dataset.edgeId);}});});
+    $$('[data-inspector-tab]').forEach(function(btn){btn.addEventListener('click',function(){state.inspectorTab=btn.dataset.inspectorTab;render();updateUrl();});});
+    $$('[data-open-mechanism]').forEach(function(btn){btn.addEventListener('click',function(){state.mechanismId=btn.dataset.openMechanism;state.view='mechanism';state.selected=null;render();updateUrl();});});
+    $$('[data-mechanism]').forEach(function(btn){btn.addEventListener('click',function(){state.mechanismId=btn.dataset.mechanism;render();updateUrl();});});
+    $$('[data-revision]').forEach(function(btn){btn.addEventListener('click',function(){state.revisionId=btn.dataset.revision;render();updateUrl();});});
+    $$('[data-graph-action]').forEach(function(btn){btn.addEventListener('click',function(){const action=btn.dataset.graphAction;if(action==='zoom-in')state.zoom=Math.min(1.25,state.zoom+.08);else if(action==='zoom-out')state.zoom=Math.max(.78,state.zoom-.08);else state.zoom=1;render();});});
+  }
+  function currentQuery() {
+    const q = new URLSearchParams();q.set('project',state.projectId);q.set('view',state.view);if(state.pathId)q.set('path',state.pathId);if(state.selected)q.set('focus',state.selected.type+':'+state.selected.id);if(state.inspectorTab!=='current')q.set('tab',state.inspectorTab);if(state.mechanismId)q.set('mechanism',state.mechanismId);if(state.revisionId)q.set('revision',state.revisionId);q.set('theme',state.theme);return q.toString();
+  }
+  function updateUrl(){try{if(location.protocol==='file:')return;history.replaceState(null,'','?'+currentQuery());}catch(_){}}
+  function copyStateLink(){const query='?'+currentQuery();let url=query;try{url=location.protocol==='file:'?location.href.split('?')[0]+query:location.origin+location.pathname+query;}catch(_){}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(function(){showToast('当前视图链接已复制');}).catch(function(){showToast('当前视图已固定在地址栏参数中');});}else showToast('当前视图已固定在地址栏参数中');}
+  function openDialog(id){const el=$('#'+id);if(el)el.hidden=false;}
+  function closeDialogs(){$$('.dialog-backdrop').forEach(function(el){el.hidden=true;});}
+  function openSearch(){openDialog('search-dialog');const input=$('#search-input');if(input){input.value='';renderSearchResults();setTimeout(function(){input.focus();},0);}}
+  function searchItems(){const p=project(),items=[];p.nodes.forEach(function(x){items.push({kind:'组件',label:x.label,detail:x.summary,view:'system',focus:'node:'+x.id});});p.edges.forEach(function(x){items.push({kind:'关系',label:x.label,detail:x.payload+' → '+x.consumer,view:'system',focus:'edge:'+x.id});});p.mechanisms.forEach(function(x){items.push({kind:'机制',label:x.title,detail:x.summary,view:'mechanism',mechanism:x.id});});p.revisions.forEach(function(x){items.push({kind:'修订',label:x.label,detail:x.summary,view:'evolution',revision:x.id});});return items;}
+  function renderSearchResults(){const root=$('#search-results');if(!root)return;const input=$('#search-input'),term=(input&&input.value||'').trim().toLowerCase();const items=searchItems().filter(function(x){return !term||(x.kind+' '+x.label+' '+x.detail).toLowerCase().includes(term);}).slice(0,14);state.searchIndex=Math.max(0,Math.min(state.searchIndex,Math.max(0,items.length-1)));root.innerHTML=items.length?items.map(function(x,i){return '<button class="search-result '+(i===state.searchIndex?'is-active':'')+'" data-search-index="'+i+'" type="button"><span>'+esc(x.kind)+'</span><strong>'+esc(x.label)+'</strong><small>'+esc(truncate(x.detail,46))+'</small></button>';}).join(''):'<p class="empty-detail">没有匹配项。</p>';$$('[data-search-index]',root).forEach(function(btn){btn.addEventListener('click',function(){activateSearchItem(items[Number(btn.dataset.searchIndex)]);});});root.__items=items;}
+  function handleSearchKeys(e){const root=$('#search-results'),items=root&&root.__items||[];if(!items.length)return;if(e.key==='ArrowDown'){e.preventDefault();state.searchIndex=(state.searchIndex+1)%items.length;renderSearchResults();}if(e.key==='ArrowUp'){e.preventDefault();state.searchIndex=(state.searchIndex-1+items.length)%items.length;renderSearchResults();}if(e.key==='Enter'){e.preventDefault();activateSearchItem(items[state.searchIndex]);}}
+  function activateSearchItem(item){if(!item)return;state.view=item.view;state.selected=item.focus?parseFocus(item.focus):null;if(item.mechanism)state.mechanismId=item.mechanism;if(item.revision)state.revisionId=item.revision;closeDialogs();render();updateUrl();}
+  function closeMobileInspector(){if(state.selected){state.selected=null;render();updateUrl();}}
+  function showToast(message){const el=$('#toast');if(!el)return;el.textContent=message;el.classList.add('is-visible');clearTimeout(toastTimer);toastTimer=setTimeout(function(){el.classList.remove('is-visible');},1800);}
+  window.__ASTERIA_TEST__={state:state,renderSystemView:renderSystemView,renderMechanismView:renderMechanismView,renderEvolutionView:renderEvolutionView,renderChecksView:renderChecksView,renderNodeInspector:renderNodeInspector,renderEdgeInspector:renderEdgeInspector,setProject:setProject,setView:setView,toggleTheme:toggleTheme};
+})();
+</script>
+</body>
+</html>

@@ -1,46 +1,150 @@
 {
-  "schema": "asteria-next-research-artifact-manifest-v2",
+  "schema": "asteria-next-research-artifact-manifest-v3",
   "runId": "pro-b",
   "repository": "YuukiAS/AI_Research_Toolkit",
   "branch": "research/asteria-next-convergence-20261027-pro-b",
   "baseline": "23a1c4840f665e66f7af95ffadaadd96dc999e7f",
   "root": "docs/research/asteria-next-convergence-20261027/pro-b",
   "generatedAt": "2026-10-28T00:00:00Z",
-  "fileCount": 34,
+  "fileCount": 26,
   "files": [
-    {"path":"ARCHITECTURE_DESIGN_AND_FREEZE.md","bytes":5405,"sha256":"18708d9254c91e0b583a90cde3b8e94c5a98ac8888c59189489d1c585fa72a46"},
-    {"path":"ASTERIA_NEXT_CANONICAL_SPEC.md","bytes":6499,"sha256":"f23cec491257593c804b09a95bc4268487cf2658230930cb52c3d9d6aecf9a03"},
-    {"path":"CODEX_HANDOFF_CONTRACT.md","bytes":5012,"sha256":"31df0dfaf025f0a24971baf65318c27b441c1a4ffc8e28f132bf13ed81672a99"},
-    {"path":"CONTENT_AND_TASTE_AUDIT.md","bytes":4666,"sha256":"e7345c610b98bee07acf7467f6afc15913d674cc42365e784ad269882fb45459"},
-    {"path":"CONVERGENCE_DECISION_MATRIX.md","bytes":11790,"sha256":"f3825f3df9edb78d9ea2f4c8cf0f2e03668e5a74e20f168d521dd80d9ba334a4"},
-    {"path":"FOUR_REFERENCE_PROJECTS.md","bytes":4858,"sha256":"50016bca34f840db93c0c790fae5239003d07bcabb39d185285ec26dbd92debf"},
-    {"path":"OPEN_SOURCE_ADOPTION.md","bytes":4214,"sha256":"2dee8c7cb5c12308e74421f0cd3e7224e75b2284ea05a3a44379e83c49f123d9"},
-    {"path":"QA_REPORT.md","bytes":4132,"sha256":"cdb412c98ac0f4792d5b4211ed26c4f0d7ced589bf737bf130732740b8ee1fe0"},
-    {"path":"README.md","bytes":1541,"sha256":"64e16583f26dda4dab08d8b52c1669c1f0e6137d392ba638f4e4702dd355c0c1"},
-    {"path":"RESEARCH_PROVENANCE.md","bytes":3007,"sha256":"40a0874259b528cb1a7cd8f1e92cf151b323b1d9aa8285d6be41cf15b4c0c471"},
-    {"path":"RESULT.md","bytes":4427,"sha256":"1b22c20d152da08a2be4617ad8432b9f25e56356e3a662b53a730f48fff927fd"},
-    {"path":"SEMANTIC_MODEL.md","bytes":8299,"sha256":"4e088fc2490c6860817d682cd1a23792332dafca835db1fb197cf5669ff53cac"},
-    {"path":"SOURCE_BINDING_AND_EVIDENCE.md","bytes":4074,"sha256":"74ac33bad9a0fd88c77f33a19e82027fd0ab091ff868cb139977d71bbd2bb888"},
-    {"path":"VERSION_EVOLUTION_AND_DRIFT.md","bytes":4049,"sha256":"4dc170b2ec6a559461edfd4a67d6355c6b4955e14a23e5ad2dcdfbacc1e0a5b5"},
-    {"path":"VISUAL_SYSTEM.md","bytes":4567,"sha256":"e125cc262a05a1c3a2bd72d5b28ce14d3567da98bd373a3c2bc1a0881ea50dcc"},
-    {"path":"prototype/PACKING.json","bytes":192,"sha256":"9e5414e115b58a638c2f0332fd8639f713ec947c983e19256060f34d19266f37"},
-    {"path":"prototype/README.md","bytes":1796,"sha256":"4ff423da17a79144d5da4344004ba3bb8b26db7930df994a42df97f6732952b7"},
-    {"path":"prototype/assets/loader.js","bytes":380,"sha256":"c3a9379f8d41e10a99ff06d8b765b6658ca0ddb0b283e80f9996be979314f361"},
-    {"path":"prototype/assets/payload-01.js","bytes":8058,"sha256":"615fe7f920fe33c5a60b1c39df6550e1a2fcc60d2a0a5a4b20df92f8c9a11cc7"},
-    {"path":"prototype/assets/payload-02.js","bytes":8058,"sha256":"3e7c849c565791f5621940df7c31baa42ff9ff75e4843c5b6103c250d874d6d7"},
-    {"path":"prototype/assets/payload-03.js","bytes":8058,"sha256":"e4e0949414d305ad385b4dfb6ed7a0443b9477bc2967d8af21c92103b2adac0a"},
-    {"path":"prototype/assets/payload-04.js","bytes":8058,"sha256":"d2646426aa8708675b161415d2cfb4f6c4801e623ad635888a35de1c9501eab1"},
-    {"path":"prototype/assets/payload-05.js","bytes":8058,"sha256":"151ef1bebdb167e33728adcd5ec9dbab52b299161d6b38fabd269c06ccba3e9c"},
-    {"path":"prototype/assets/payload-06.js","bytes":8058,"sha256":"7415ac2d0a9e8c63907532f804ad24bb25d344ca4a67e9240a46405791c953c3"},
-    {"path":"prototype/assets/payload-07.js","bytes":782,"sha256":"42089aebc504da9d4b2ea332bcd084009ce27098c007d7e2e1fb58ad0316fce7"},
-    {"path":"prototype/index.html","bytes":888,"sha256":"b777a5eb300b1147b70350f3984c1e5b95d19b3dd3bc9ab94aacebc42b39f0a7"},
-    {"path":"prototype/qa/browser-qa.json","bytes":15771,"sha256":"34966764fc747c14fc943cccfc89bb79f453aec4339590ca6b0d4dd882aa7c4e"},
-    {"path":"prototype/qa/visible-content-audit.json","bytes":5070,"sha256":"6e433cf3903e0252ef3a77ab962f96e77fcaa4d0fcecaa4c265262358392d00b"},
-    {"path":"prototype/screenshots/01-delivery-light-system.webp","bytes":5548,"sha256":"3cbfd3779cad194e424c78b5aebcf97a46ef77c2d96e73c0ae4d99d0fca97460"},
-    {"path":"prototype/screenshots/02-mica-dark-recovery.webp","bytes":6656,"sha256":"2da7878283578926b906650494c168fc84596acdbb8a14618cedc4c52c9c0e1e"},
-    {"path":"prototype/screenshots/04-cat-light-evolution.webp","bytes":6600,"sha256":"abce7cf0988580f0d5a52398ec23665f8dcef6573bc6a58db7a54ee421bcf33e"},
-    {"path":"prototype/screenshots/09-tutorial-mobile-dark.webp","bytes":7832,"sha256":"13713256b63bc8a4aa47c91fd76f33b43b8d86ec525fee23231beabaf1487ae6"},
-    {"path":"prototype/screenshots/MANIFEST.json","bytes":1071,"sha256":"8fbca324a56c83e1feabe6466213abd8cd657c28d3411d9ef46a7a55d1fe6ff0"}
+    {
+      "path": "ARCHITECTURE_DESIGN_AND_FREEZE.md",
+      "bytes": 5405,
+      "sha256": "18708d9254c91e0b583a90cde3b8e94c5a98ac8888c59189489d1c585fa72a46"
+    },
+    {
+      "path": "ASTERIA_NEXT_CANONICAL_SPEC.md",
+      "bytes": 6499,
+      "sha256": "f23cec491257593c804b09a95bc4268487cf2658230930cb52c3d9d6aecf9a03"
+    },
+    {
+      "path": "CODEX_HANDOFF_CONTRACT.md",
+      "bytes": 5012,
+      "sha256": "31df0dfaf025f0a24971baf65318c27b441c1a4ffc8e28f132bf13ed81672a99"
+    },
+    {
+      "path": "CONTENT_AND_TASTE_AUDIT.md",
+      "bytes": 4666,
+      "sha256": "e7345c610b98bee07acf7467f6afc15913d674cc42365e784ad269882fb45459"
+    },
+    {
+      "path": "CONVERGENCE_DECISION_MATRIX.md",
+      "bytes": 11790,
+      "sha256": "f3825f3df9edb78d9ea2f4c8cf0f2e03668e5a74e20f168d521dd80d9ba334a4"
+    },
+    {
+      "path": "FOUR_REFERENCE_PROJECTS.md",
+      "bytes": 4858,
+      "sha256": "50016bca34f840db93c0c790fae5239003d07bcabb39d185285ec26dbd92debf"
+    },
+    {
+      "path": "OPEN_SOURCE_ADOPTION.md",
+      "bytes": 4214,
+      "sha256": "2dee8c7cb5c12308e74421f0cd3e7224e75b2284ea05a3a44379e83c49f123d9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1541,
+      "sha256": "64e16583f26dda4dab08d8b52c1669c1f0e6137d392ba638f4e4702dd355c0c1"
+    },
+    {
+      "path": "RESEARCH_PROVENANCE.md",
+      "bytes": 3007,
+      "sha256": "40a0874259b528cb1a7cd8f1e92cf151b323b1d9aa8285d6be41cf15b4c0c471"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 4427,
+      "sha256": "1b22c20d152da08a2be4617ad8432b9f25e56356e3a662b53a730f48fff927fd"
+    },
+    {
+      "path": "SEMANTIC_MODEL.md",
+      "bytes": 8299,
+      "sha256": "4e088fc2490c6860817d682cd1a23792332dafca835db1fb197cf5669ff53cac"
+    },
+    {
+      "path": "SOURCE_BINDING_AND_EVIDENCE.md",
+      "bytes": 4074,
+      "sha256": "74ac33bad9a0fd88c77f33a19e82027fd0ab091ff868cb139977d71bbd2bb888"
+    },
+    {
+      "path": "VERSION_EVOLUTION_AND_DRIFT.md",
+      "bytes": 4049,
+      "sha256": "4dc170b2ec6a559461edfd4a67d6355c6b4955e14a23e5ad2dcdfbacc1e0a5b5"
+    },
+    {
+      "path": "VISUAL_SYSTEM.md",
+      "bytes": 4567,
+      "sha256": "e125cc262a05a1c3a2bd72d5b28ce14d3567da98bd373a3c2bc1a0881ea50dcc"
+    },
+    {
+      "path": "prototype/qa/browser-qa.json",
+      "bytes": 15771,
+      "sha256": "34966764fc747c14fc943cccfc89bb79f453aec4339590ca6b0d4dd882aa7c4e"
+    },
+    {
+      "path": "prototype/qa/visible-content-audit.json",
+      "bytes": 5070,
+      "sha256": "6e433cf3903e0252ef3a77ab962f96e77fcaa4d0fcecaa4c265262358392d00b"
+    },
+    {
+      "path": "prototype/screenshots/01-delivery-light-system.webp",
+      "bytes": 5548,
+      "sha256": "3cbfd3779cad194e424c78b5aebcf97a46ef77c2d96e73c0ae4d99d0fca97460"
+    },
+    {
+      "path": "prototype/screenshots/02-mica-dark-recovery.webp",
+      "bytes": 6656,
+      "sha256": "2da7878283578926b906650494c168fc84596acdbb8a14618cedc4c52c9c0e1e"
+    },
+    {
+      "path": "prototype/screenshots/04-cat-light-evolution.webp",
+      "bytes": 6600,
+      "sha256": "abce7cf0988580f0d5a52398ec23665f8dcef6573bc6a58db7a54ee421bcf33e"
+    },
+    {
+      "path": "prototype/screenshots/09-tutorial-mobile-dark.webp",
+      "bytes": 7832,
+      "sha256": "13713256b63bc8a4aa47c91fd76f33b43b8d86ec525fee23231beabaf1487ae6"
+    },
+    {
+      "path": "prototype/screenshots/MANIFEST.json",
+      "bytes": 1071,
+      "sha256": "8fbca324a56c83e1feabe6466213abd8cd657c28d3411d9ef46a7a55d1fe6ff0"
+    },
+    {
+      "path": "prototype/index.html",
+      "bytes": 130926,
+      "gitBlobSha": "9504c5f63a85a3565fef905251acf81ace759d44",
+      "integrity": "standalone-entry"
+    },
+    {
+      "path": "prototype/README.md",
+      "bytes": 1175,
+      "gitBlobSha": "b7eedc16a010b72e09de63e8d7846ba097b4cfa9"
+    },
+    {
+      "path": "prototype/INTEGRITY.json",
+      "bytes": 938,
+      "gitBlobSha": "46a9ec2250c69eb6ff16cbf6559387fbdd3401cc",
+      "integrity": "runtime-contract"
+    },
+    {
+      "path": "DELIVERY_REPAIR_20261029.md",
+      "bytes": 2163,
+      "gitBlobSha": "7d3e3b7378af10c4c0021ff373e855431dbb8b5c",
+      "integrity": "root-cause"
+    },
+    {
+      "path": "QA_REPORT.md",
+      "bytes": 4777,
+      "gitBlobSha": "e4d721eea9d615503dbc97320169562f6309d27c",
+      "integrity": "corrected-qa-scope"
+    }
   ],
-  "note": "Manifest lists every final delivery file except itself. Four representative screenshots cover all four projects and both themes across desktop/mobile; browser-qa.json records all ten rendered QA cases."
+  "note": "2026-10-29 removes corrupted gzip/Base64 delivery. prototype/index.html is the sole self-contained runtime entry.",
+  "repairedAt": "2026-10-29T09:43:00Z",
+  "repairedFromCommit": "2c010853b2b6fafefa1edf7d8146caec6a7729e6",
+  "integrityPolicy": "Unchanged files retain recorded SHA-256. Repaired/new files use exact Git blob SHA and UTF-8 byte length; prototype/INTEGRITY.json is the runtime delivery integrity record."
 }

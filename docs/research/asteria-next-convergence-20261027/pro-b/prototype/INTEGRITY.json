@@ -1,0 +1,36 @@
+{
+  "schema": "asteria-next-standalone-integrity-v1",
+  "repairedFromCommit": "2c010853b2b6fafefa1edf7d8146caec6a7729e6",
+  "entry": "index.html",
+  "indexGitBlob": "9504c5f63a85a3565fef905251acf81ace759d44",
+  "indexUtf8Bytes": 130926,
+  "indexChars": 111253,
+  "selfContained": true,
+  "externalScriptRefs": 0,
+  "externalStylesheetRefs": 0,
+  "packedPayloadRefs": 0,
+  "javascriptCompile": "PASS",
+  "projectData": [
+    "delivery",
+    "mica",
+    "cat",
+    "tutorial"
+  ],
+  "runtimeRenderSmoke": {
+    "passed": 16,
+    "total": 16
+  },
+  "themeToggle": "PASS",
+  "directFileOpenContract": "index.html requires no network request or decompression resource",
+  "obsoleteFilesRemoved": [
+    "PACKING.json",
+    "assets/loader.js",
+    "assets/payload-01.js",
+    "assets/payload-02.js",
+    "assets/payload-03.js",
+    "assets/payload-04.js",
+    "assets/payload-05.js",
+    "assets/payload-06.js",
+    "assets/payload-07.js"
+  ]
+}
