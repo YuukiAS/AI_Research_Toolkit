@@ -5,6 +5,7 @@ owner: Reasoned Design
 primary skill: Judgment Integrity  
 secondary skill: Solution Design  
 source evidence: `docs/research/reasoned-design/REAL_USE_EVIDENCE.md`
+accepted reference answer: `docs/research/reasoned-design/regression/RD-REG-001-GOLDEN-ANSWER-ZH.md`
 
 ## 目的
 
@@ -139,7 +140,9 @@ source evidence: `docs/research/reasoned-design/REAL_USE_EVIDENCE.md`
 
 ## 长期要求
 
-本案例是永久回归用例。Reasoned Design 后续实现、重构或调整 Judgment Integrity / Solution Design 时，都应重新运行本案例，防止系统重新退化为：
+本案例是永久回归用例。Reasoned Design 后续实现、重构或调整 Judgment Integrity / Solution Design 时，都应重新运行本案例，并与 `RD-REG-001-GOLDEN-ANSWER-ZH.md` 对照。未来结论可以因软件生态变化而不同，但如果在证据覆盖、功能比较、详略组织、结论层级和可执行性上明显低于该参考答案，则说明 Reasoned Design 仍未达到要求。
+
+防止系统重新退化为：
 
 > 找到一个能做的工具 → 看官网 → 直接推荐 → 被用户质疑后再补搜索。
 
