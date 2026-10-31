@@ -26,8 +26,6 @@ bin/ai-research-toolkit sync --priority core --dry-run
 bin/ai-research-toolkit doctor
 ```
 
-Mac mini 本地 AI 环境另见：[Mac mini 本地 AI 基线](docs/setup/MAC_MINI_LOCAL_AI_BASELINE.md)。该文档只记录机器基础环境，不包含模型权重。
-
 `repo/` 是可选的本地 upstream clone，fresh clone 后可以不存在。需要某个资源时，再用 `sync` 选择性 clone。
 
 ## 常用命令
