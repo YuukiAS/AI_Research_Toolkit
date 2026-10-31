@@ -168,6 +168,7 @@ Solution Design 也有次级责任：第一轮虽然列出了几个候选，却�
 
 **case_id:** `RD-REG-001-MACOS-FINDER-RIGHT-CLICK-SOFTWARE-SELECTION`  
 **status:** ACTIVE REGRESSION CASE  
+**dedicated case:** `docs/research/reasoned-design/regression/RD-REG-001-MACOS-FINDER-RIGHT-CLICK-SOFTWARE-SELECTION.md`  
 **purpose:** 后续 Reasoned Design / Judgment Integrity / Solution Design 实现完成后，必须使用本案例进行端到端回归测试。
 
 #### 固定测试输入
