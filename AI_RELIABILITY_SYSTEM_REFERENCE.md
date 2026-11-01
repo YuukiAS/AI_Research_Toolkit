@@ -19,7 +19,7 @@
 
 | 组成 | 类型／预计宿主 | 负责的能力 | 主要边界 |
 | --- | --- | --- | --- |
-| **Reasoned Design** | 新插件；GPT 主导判断与架构设计，Codex 端复用必要规则及源码核查 | 两个内部 Skill：Judgment Integrity（依据充分、正确纠错、不随用户压力摇摆）；Solution Design（主动发现需求遗漏、比较替代方案、覆盖完整用户流程及风险） | 不拥有专业模型的最终正确性，不负责发布门槛 |
+| **Reasoned Decision** | 新插件；GPT 主导单轮判断、方案比较与取舍，Codex 端按需复用事实核查规则 | 两个内部 Skill：Judgment Integrity（依据充分、正确纠错、不随用户压力摇摆）；Solution Design（主动发现当前问题的遗漏、比较替代方案、形成可执行结论） | 不负责跨多轮复杂项目编排、Architecture Freeze 或终端交付 |\n| **Design Assurance** | 新插件；GPT/Pro 主导复杂构思到实施前冻结，按需编排 Work、第二 Pro、Codex 事实核查/最小探针，并使用 Asteria 记录架构完整性 | 任务分级、并行工作波次、证据路由、独立分支与 prompt 准备、唯一方案收敛、Implementation Readiness、Architecture Freeze 与唯一 NEXT_ACTION | 不替代 Reasoned Decision 的单轮判断；不负责 Freeze 后的 Codex 实施与最终交付保证 |
 | **Artifact Curation** | **新独立共享 Skill；GPT + Codex** | 跨普通答复、正式文稿、图片、网页、PPT、软件 UI 判断每个元素是否有存在的必要：保留、删除、合并、迁移、留白与补必要内容 | 专业事实和实际修改由领域插件负责；不能删掉用户明确承诺的功能 |
 | **Clear Writing** | 现有插件；GPT + Codex，按宿主分工 | 面向读者的内容组织、自然中文、复杂系统可信解释、完整文本保真 | 不替代 Artifact Curation 的跨媒体裁量、不自行更改科研或产品结论 |
 | **Verified Workflow / workflow-core** | 现有插件；Codex 端重点建设，GPT 端轻量路由 | **发现当前真正可用的能力，按任务组合专业插件/Skill，安排调用顺序、执行者和结果消费者，并核实关键能力真实被消费** | 不成为专业审稿人、设计师、产品验收法官或另一个任务调度器 |
@@ -27,9 +27,9 @@
 | **专业领域插件** | 现有插件，如 Frontend Design / Research Authoring / Presentations / Scientific Visualization；双端职责因领域不同 | 定义科学与产品语义、制作作品、对实际成品做专业检验；必要时使用 Artifact Curation 与 Clear Writing | 只对自己领域的事实和作品正确性负责 |
 | **Bridge Kit** | 现有 Codex 执行基础设施 | 任务身份、工作树、已有 Lite/Review/Control、权限、运行与失败/恢复基础设施；Persistent Run 保持其原责任 | 不决定技能组合、不发明验收标准、不负担成品质量裁决，不为此创建新常驻服务 |
 
-**预计新增数量**：两个插件（Reasoned Design、Delivery Assurance）、一个独立共享 Skill（Artifact Curation）。其余尽量复用；目前不计划新 MCP、数据库、AI 客户端或额外常驻 Agent。上述职责是目标架构，**实施前仍允许根据真实调用证据精简或修正组件**。
+**预计新增数量**：三个插件（Reasoned Decision、Design Assurance、Delivery Assurance）、一个独立共享 Skill（Artifact Curation）。其余尽量复用；目前不计划新 MCP、数据库、AI 客户端或额外常驻 Agent。上述职责是目标架构，**实施前仍允许根据真实调用证据精简或修正组件**。
 
-一个复杂 Codex 任务可能组合多个插件，例如：Reasoned Design 确认目标与取舍 → workflow-core 路由专业能力 → 专业插件制作 → Artifact Curation 判定什么值得呈现 → Clear Writing 处理保留文字 → Delivery Assurance 核对正式承诺/旧功能/最终专业证据。**这只是可能路径，不要求每个任务都依次调用全部组件，也不表示这些跨插件自动调用目前已经接通。**
+复杂任务的生命周期应区分阶段：Design Assurance 负责把复杂构思通过并行设计、独立盲区调查、真实取证和实施就绪检查推进到 Architecture Freeze；其中可按需调用 Reasoned Decision 解决单个判断或取舍。Freeze 后由 workflow-core / Codex 执行冻结方案，Delivery Assurance 再核对正式承诺、旧功能保护和最终专业证据。Artifact Curation、Clear Writing 与领域插件按实际任务需要介入，**不要求每个任务依次调用全部组件，也不表示这些跨插件自动调用目前已经接通。**
 
 ## 三、当前 Delivery Assurance 案例的事实与架构演化
 
