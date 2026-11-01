@@ -1,5 +1,7 @@
 # Reasoned Design — Real-Use Evidence
 
+> Active candidate TODO: [TODO.md](TODO.md)
+
 ## 2026-10-30：Mac mini 显示器设置建议在追问中反复漂移
 
 status: NEW  
