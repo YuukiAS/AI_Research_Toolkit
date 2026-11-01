@@ -41,7 +41,7 @@
 
 1. 本仓库根目录 \`AI_RELIABILITY_SYSTEM_REFERENCE.md\`、\`COMPLEX_SYSTEM_DESIGN_GUIDE.md\`、\`COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md\` 及 \`docs/examples/ACCEPTED_COMPLEX_ARCHITECTURE_EXPLANATION_2026-10-22.md\`。
 2. 本仓库分支 \`research/software-production-decision-20261013\` 下的 \`docs/research/software-production/22_DELIVERY_ASSURANCE_GLOBAL_WORK_RESEARCH_20261022/WORK_OUTPUT/\`：\`CURRENT.md\`、\`01_REALITY_AND_ALTERNATIVES.md\`、\`02_ARCHITECTURE_AND_COMPONENTS.md\`、\`03_END_TO_END_EXECUTION_AND_VALIDATORS.md\` 的相关技术章节、\`04_SEVEN_REPOSITORY_ADOPTION.md\` 的 Lucerna 入口、\`06_IMPLEMENTATION_AND_EVALUATION.md\`、\`11_ARCHITECTURE_EXPLAINED.md\` 和两张既有 DA 图。大文件按路径与标题精准抽取相关段落，不能只看摘要或把旧图当新的准确职责关系。
-3. \`YuukiAS/AI_Skills_Collection\` 的 \`design/ai-reliability-architecture-20261026\`：\`docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md\` 与 \`ROADMAP.md\`。**当前目标分工**：独立 DA 负责交付验收义务和判定；workflow-core 负责多技能发现/编排/消费；Bridge Kit 保持运行、权限和恢复基础设施；项目专业程序判断业务正确；必要的独立审查按风险出现。Reasoned Design、Artifact Curation、Clear Writing 和领域技能是更大 AI Skills 体系里的按需专业能力，不能强画成每个 DA 任务都要运行的必经节点。
+3. \`YuukiAS/AI_Skills_Collection\` 的 \`design/ai-reliability-architecture-20261026\`：\`docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md\` 与 \`ROADMAP.md\`。**当前目标分工**：独立 DA 负责交付验收义务和判定；workflow-core 负责多技能发现/编排/消费；Bridge Kit 保持运行、权限和恢复基础设施；项目专业程序判断业务正确；必要的独立审查按风险出现。Reasoned Decision、Artifact Curation、Clear Writing 和领域技能是更大 AI Skills 体系里的按需专业能力，不能强画成每个 DA 任务都要运行的必经节点。
 4. Lucerna 的具体历史故障从 \`11_ARCHITECTURE_EXPLAINED.md\` 给出的固定 SHA 原任务、源码和修复记录核实；严格区分**历史上已发生的故障**与**为了展示 DA 规则而设计的假设错误候选**。
 5. 旧 DA R3 通过的只是设计研究，未证明宿主接线、正常使用入口、自动返修和七仓实际启用；旧研究的 4–8h、40–88h、138–332h 均是当时方案的估算，不得写成真实项目工时或新方案已经确认的预算。
 
@@ -58,7 +58,7 @@
 - Delivery Assurance 如何把已批准的要求/受影响旧功能交给验收并核对交付证据；
 - 项目原有专业验收器及需要时的独立审查，真实结果的下游消费者；
 - 成功交付与失败回原 Codex 的两条不同路径；
-- Reasoned Design、Artifact Curation、Clear Writing 和领域技能在**更大体系中的按需位置**，通过清晰分组/相邻视图说明它们与 DA 的关系，不能为完整而谎画强制调用。
+- Reasoned Decision、Artifact Curation、Clear Writing 和领域技能在**更大体系中的按需位置**，通过清晰分组/相邻视图说明它们与 DA 的关系，不能为完整而谎画强制调用。
 
 每条关键连接必须知道**谁调用、传的是什么、谁接收**；确实不了解、尚未开发的边应标为设计或待证，不许画成今天已工作。图形应按职责分组、层次可读、连线不会乱穿文字。设计可以包含不同层级的视图，但**不能为了看全局先让用户浏览冗长文字或点开其它页面**。
 
