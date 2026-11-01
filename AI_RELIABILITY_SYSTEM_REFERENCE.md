@@ -20,7 +20,7 @@
 | 组成 | 类型／预计宿主 | 负责的能力 | 主要边界 |
 | --- | --- | --- | --- |
 | **Reasoned Decision** | 新插件；GPT 主导单轮判断、方案比较与取舍，Codex 端按需复用事实核查规则 | 两个内部 Skill：Judgment Integrity（依据充分、正确纠错、不随用户压力摇摆）；Solution Design（主动发现当前问题的遗漏、比较替代方案、形成可执行结论） | 不负责跨多轮复杂项目编排、Architecture Freeze 或终端交付 |
-| **Design Assurance** | 新插件；GPT/Pro 主导复杂构思到实施前冻结，按需编排 Work、第二 Pro、Codex 事实核查/最小探针，并使用 Asteria 记录架构完整性 | 任务分级、并行工作波次、证据路由、独立分支与 prompt 准备、唯一方案收敛、Implementation Readiness、Architecture Freeze 与唯一 NEXT_ACTION | 不替代 Reasoned Decision 的单轮判断；不负责 Freeze 后的 Codex 实施与最终交付保证 |
+| **Design Assurance** | 新插件；GPT/Pro 主导复杂构思到实施前冻结，按需编排 Work、第二 Pro、Codex 事实核查/最小探针，并使用 **Asteria Blueprint** 记录架构完整性 | 任务分级、并行工作波次、证据路由、独立分支与 prompt 准备、唯一方案收敛、Implementation Readiness、Architecture Freeze 与唯一 NEXT_ACTION | 不替代 Reasoned Decision 的单轮判断；不负责 Freeze 后的 Codex 实施与最终交付保证 |
 | **Artifact Curation** | **新独立共享 Skill；GPT + Codex** | 跨普通答复、正式文稿、图片、网页、PPT、软件 UI 判断每个元素是否有存在的必要：保留、删除、合并、迁移、留白与补必要内容 | 专业事实和实际修改由领域插件负责；不能删掉用户明确承诺的功能 |
 | **Clear Writing** | 现有插件；GPT + Codex，按宿主分工 | 面向读者的内容组织、自然中文、复杂系统可信解释、完整文本保真 | 不替代 Artifact Curation 的跨媒体裁量、不自行更改科研或产品结论 |
 | **Verified Workflow / workflow-core** | 现有插件；Codex 端重点建设，GPT 端轻量路由 | **发现当前真正可用的能力，按任务组合专业插件/Skill，安排调用顺序、执行者和结果消费者，并核实关键能力真实被消费** | 不成为专业审稿人、设计师、产品验收法官或另一个任务调度器 |
@@ -30,9 +30,35 @@
 
 **预计新增数量**：三个插件（Reasoned Decision、Design Assurance、Delivery Assurance）、一个独立共享 Skill（Artifact Curation）。其余尽量复用；目前不计划新 MCP、数据库、AI 客户端或额外常驻 Agent。上述职责是目标架构，**实施前仍允许根据真实调用证据精简或修正组件**。
 
-复杂任务的生命周期应区分阶段：Design Assurance 负责把复杂构思通过并行设计、独立盲区调查、真实取证和实施就绪检查推进到 Architecture Freeze；其中可按需调用 Reasoned Decision 解决单个判断或取舍。Freeze 后由 workflow-core / Codex 执行冻结方案，Delivery Assurance 再核对正式承诺、旧功能保护和最终专业证据。Artifact Curation、Clear Writing 与领域插件按实际任务需要介入，**不要求每个任务依次调用全部组件，也不表示这些跨插件自动调用目前已经接通。**
+复杂任务的生命周期应区分阶段：Design Assurance 负责把复杂构思通过并行设计、独立盲区调查、真实取证和实施就绪检查推进到 Architecture Freeze；其中可按需调用 Reasoned Decision 解决单个判断或取舍，也可在关键产品/架构决定尚未明确时调用 **Grill Me / Grill with Docs** 一类追问机制，把真正需要用户拍板的决定暴露并收敛。事实性问题优先查仓库与现有证据，不把可自行核实的问题退回用户。Freeze 后由 workflow-core / Codex 执行冻结方案，Delivery Assurance 再核对正式承诺、旧功能保护和最终专业证据。**Asteria Blueprint** 负责保存和展示冻结设计对应的系统结构、机制、实现绑定、证据、修订与设计—实现漂移，并在新的关键空洞或反证出现时为下一轮 Design Assurance 提供输入。Artifact Curation、Clear Writing 与领域插件按实际任务需要介入，**不要求每个任务依次调用全部组件，也不表示这些跨插件自动调用目前已经接通。**
 
-## 三、当前 Delivery Assurance 案例的事实与架构演化
+## 三、Design Assurance 新输入：Grill 与 Asteria Blueprint
+
+当前新增一条需要后续正式架构研究裁决的职责链：
+
+```text
+模糊构思
+-> Grill Me / Grill with Docs
+-> 明确关键决定与理由
+-> Design Assurance 收敛唯一方案并检查实施就绪
+-> Architecture Freeze
+-> Asteria Blueprint 保存系统结构、机制、实现、证据与修订
+-> Codex 实施
+-> Asteria Blueprint 持续检查设计—实现漂移
+```
+
+这里的关键边界是：
+
+- Grill 系列负责**决策形成**，不承担长期系统真相维护；
+- Asteria Blueprint 负责**冻结后系统真相与演进**，不负责主持需求访谈；
+- Design Assurance 决定什么时候需要 Grill、什么时候事实应自行调查、什么时候可以进入 Freeze，以及 Blueprint 暴露的新空洞是否足以开启新的设计修订；
+- Grill 的完整问答不进入 Blueprint；只有有长期意义的决定、理由、约束与修订进入；
+- **Asteria Atlas** 是未来另一条科研相关产品方向，不属于本条 Design Assurance 架构链，本文件不定义它。
+
+详细输入见：
+`docs/research/design-assurance/GRILL_AND_ASTERIA_BLUEPRINT_INPUT_20261102.md`。
+
+## 四、当前 Delivery Assurance 案例的事实与架构演化
 
 用 Delivery Assurance 作为复杂系统讲解网站的首个完整样例。研究源位于本仓库 `research/software-production-decision-20261013` 分支：
 
@@ -47,7 +73,7 @@
 - [AI_Skills_Collection：职责架构](https://github.com/YuukiAS/AI_Skills_Collection/blob/design/ai-reliability-architecture-20261026/docs/design/ai-reliability-architecture/ARCHITECTURE_ZH.md)
 - [AI_Skills_Collection：实施路线图](https://github.com/YuukiAS/AI_Skills_Collection/blob/design/ai-reliability-architecture-20261026/docs/design/ai-reliability-architecture/ROADMAP.md)
 
-## 四、复杂系统讲解的质量目标
+## 五、复杂系统讲解的质量目标
 
 网站必须让没有参与数轮方案讨论的人看懂并能判断：
 
@@ -64,6 +90,6 @@
 - [复杂系统设计与交付](COMPLEX_SYSTEM_DESIGN_GUIDE.md)
 - [复杂架构的可信解释](COMPLEX_ARCHITECTURE_EXPLANATION_STANDARD.md)
 
-## 五、来源和维护边界
+## 六、来源和维护边界
 
 本文件是**设计题目背景和跨仓引用索引**。Toolkit 不变成第二个 Skill Marketplace；未来正式技能代码、测试及生成层都由 AI_Skills_Collection 管理。当前研究中的两个 GPT 只可在各自研究分支交付提案/视觉原型，不得修改此文件、已有 DA 研究、生产项目或正式插件。本文件的陈述须以其引用的有效分支和原始材料为准；发现事实变化时在自己的研究结论中列明，不得静默修改共同输入。
