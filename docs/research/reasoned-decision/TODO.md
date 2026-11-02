@@ -81,3 +81,91 @@ Judgment Integrity 能拦住“证据已经足够却不敢下结论”这一类�
 ### project-specific context
 
 BWG、GFW、DC9、migration、IP replacement 是本案例的具体载体，不应直接变成 Reasoned Decision 的通用规则。通用问题是：**多轮真实任务中如何保持当前目标、约束、完成事实与关闭问题不漂移，并在正确问题上完成证据充分的判断。**
+
+
+## 2026-11-03：Asteria Blueprint 盲审角色判断暴露 Decision Frame Integrity 缺口
+
+status: NEW  
+owner: Reasoned Decision  
+primary area: Decision Frame Integrity（候选内部能力）  
+related area: Task State Integrity / Judgment Integrity / Solution Design  
+source: 2026-11-03 Asteria Blueprint 真实产品决策 thread。  
+evidence: 用户要求判断 CAT-TRACE 时间切片盲审应主要交给 GPT Work 还是 Codex；当前 thread 保留完整上下文。
+
+### problem
+
+本案例中，原问题是：
+
+> 为了验证 Asteria Blueprint 能否帮助上游 GPT 在实施前把设计补充分，CAT-TRACE 时间切片的**主盲审者**应该是谁？
+
+初始判断为 GPT Work。用户随后指出：CAT-TRACE 过去很多缺口是在 Codex 真正实现后才暴露。
+
+这个新事实本来只支持一个新增判断：
+
+> 在上游设计审查之后，需要一个真实执行者消费测试，检验冻结设计是否仍让 Codex 猜关键语义。
+
+但模型没有先核对原目标和成功标准，而是立即把原问题替换成：
+
+> 谁最能暴露实现阶段仍需猜的问题？
+
+于是答案从 GPT Work 改成 Codex。
+
+用户再次质疑后，重新按 Reasoned Decision 拆解，才恢复稳定结论：
+
+- **GPT Work**：主盲审，回答“实施前，一个独立 GPT 能否发现仍未闭合的设计语义”；
+- **Codex**：后置消费压力测试，回答“GPT 已判设计充分后，真实执行者是否仍需要猜”。
+
+也就是说，新证据没有推翻原目标，只是增加了第二层验证。模型却把“应该新增第二道测试”误处理成“应该替换第一道测试”。
+
+### why this matters
+
+这类失败比普通结论摇摆更危险，因为每一轮局部回答都可以看起来很有道理。
+
+如果不先固定：
+
+- 当前要优化的目标；
+- 候选方案；
+- 成功标准；
+- 新证据究竟改变了目标、约束、权重，还是只增加了一个新的检查层；
+
+模型很容易在用户提出一个真实反例后，直接改答另一个相邻问题。
+
+结果会出现：
+
+- 推荐随最后一句话摆动；
+- 多阶段系统被错误压成二选一；
+- 原本应“新增补充机制”的证据，被误判为“替换主方案”的证据；
+- 用户无法判断模型是真有新证据，还是只是换了评价问题。
+
+### minimum decision-frame contract to evaluate
+
+Reasoned Decision 在改变已有推荐前，至少应重新核对：
+
+- **DECISION_QUESTION**：当前到底在决定什么；
+- **SUCCESS_CRITERION**：什么结果才算这项决定正确；
+- **CANDIDATES**：当前真正互斥的方案是什么，哪些其实可以分阶段共存；
+- **NEW_EVIDENCE_EFFECT**：新事实改变的是目标、硬约束、事实判断、方案优劣，还是仅增加一项补充验证；
+- **RECOMMENDATION_DELTA**：如果要改结论，必须说清哪一条原依据被新证据推翻或权重发生实质变化；
+- **NO_SILENT_REFRAME**：不得在不说明的情况下把原问题替换成更容易回答的相邻问题。
+
+这些可以是内部轻量推理检查，不要求新增数据库、长期状态机或用户可见固定字段。
+
+### regression requirements
+
+后续 Reasoned Decision 回放必须覆盖本案例，并至少满足：
+
+1. 用户指出“真实实现才能暴露部分问题”时，不得自动把主盲审者从 GPT Work 改成 Codex。
+2. 必须先判断这个事实是推翻“Work 更适合实施前设计审查”，还是仅证明“Work 后面还需要 Codex 消费测试”。
+3. 如果两个角色解决的是不同阶段问题，应明确拆成顺序关系，而不是强行二选一。
+4. 只有新证据实质改变原成功标准、证明原方案不能满足目标，或使另一候选在同一标准下更优时，才应改变原推荐。
+5. 改变推荐时必须指出：原先哪一条依据失效、哪一条新证据导致变化；不能只给新的合理化解释。
+6. 用户施压、质疑或提出一个真实反例，本身不能成为改口理由。
+7. 最终答复应保持一个稳定的主结论，并把补充测试、第二阶段角色或风险控制放在正确层级。
+
+### project-specific context
+
+GPT Work、Codex、Asteria Blueprint、CAT-TRACE 是本案例的具体载体，不应直接变成 Reasoned Decision 的通用规则。
+
+通用问题是：
+
+> **在收到新的局部证据或反例后，先保持原决策问题与成功标准稳定，判断新证据到底要求“改结论”还是“补一层”，避免通过静默换题制造看似合理的摇摆。**
