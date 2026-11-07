@@ -26,7 +26,9 @@ Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项�
 - 云端 Project instructions 是否实际注入这条本地 Work 线程仍未确认。
 - 主文件夹不是 Git 仓库，因此没有仓库级 `AGENTS.md` 自动进入这条线程。
 
-因此，针对这条 Work 失败，**目前已证实的长期可控入口是所选机器的全局 Codex 指令，也就是该机器的 `~/.codex/AGENTS.md`。截图进一步确认当前实际界面里已经是 2026-11-06 更新后的中文 v0.3；仓库 `codex/global/AGENTS.md` 仍是 2026-11-03 旧英文快照，存在归档漂移。**
+因此，针对这条 Work 失败，**目前唯一已经实证会长期进入该线程的用户规则层，是所选机器的全局 Codex 指令，也就是 `~/.codex/AGENTS.md`。** 当前仍不能确认绑定云端 Project 的 instructions 或网页端全局 Custom Instructions 是否也进入这条本机 Work。后续修复 Work 时，不能把“Project 已绑定”当成“Project instructions 已生效”。
+
+最新 Codex 设置界面进一步确认：当前机器真实的全局 `~/.codex/AGENTS.md` 已经是 2026-11-06 更新后的中文 v0.3；而版本仓库 `AI_Instruction_Configuration/codex/global/AGENTS.md` 仍是 2026-11-03 旧英文快照，新版中文正文却保存在 `chatgpt/global/codex-current-instructions.md`。这是**版本归档漂移**，不是运行时仍在使用旧英文规则。
 
 ### Codex Desktop — PC+Server+VPS / Karabiner
 
@@ -38,11 +40,19 @@ Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项�
 - secondary folder 的 `AGENTS.md` 不会因为“已附加”就自动发现。
 - ChatGPT Web Custom Instructions、同名云端 Project instructions 不适用于这条 Codex 线程。
 
-这产生了一个真实路由缺陷：Karabiner 的 权威归属 是 `Local_Compute_Infrastructure`，但该线程启动时自动吃到的是 Remote Compute 的项目规则。官方项目文档也明确说明：Codex 使用 local project 的 primary folder 作为 Git 和 `AGENTS.md` 自动发现入口。
+补充 Probe 已经排除了一个之前的错误归因：**Karabiner 失败不能归因于“没有读到 Local Compute 的规则”。** 线程启动时确实自动加载了 Remote Compute 的项目规则，但用户原始任务明确要求先读 `Local_Compute_Infrastructure/AGENTS.md`，Codex 也在开始实施前实际读取了该文件和 Karabiner 当前状态。
+
+更关键的是，Karabiner 失败发生时：
+- 中文 v0.3 全局规则已经完整在上下文中；
+- Local Compute 的轻量、现实问题优先等项目规则已经在上下文中；
+- 用户原始目标已经明确写成“UU 远控时复用现有 Windows 键盘语义”，没有要求恢复每个事件的物理来源；
+- 在这些规则都存在的情况下，Codex 仍把 `device_id(0)` 相关限制升级成整个 Goal 阻塞，随后继续走到 Xcode、Apple Development 证书和自编译 Karabiner。
+
+因此，这次 Karabiner 的主问题是**Codex 在已获得正确目标和正确规则后，仍然没有把“不得擅自扩大目标”落实成稳定判断行为**。这属于全局执行判断缺陷，不应再用更多 Local/Remote 仓库规则来补。
 
 ## 3. 通用失败模型
 
-### A. 运行时与权威识别不完整
+### A. 运行时与规则来源识别不完整
 
 在做判断前没有先稳定回答：
 
@@ -93,10 +103,11 @@ Agent 没有先穷尽自身可读状态、自动验证、现有日志、官方�
 
 第一阶段只做高杠杆、可验证的最小改动：
 
-1. 先修**运行时路由**：任务 权威归属 与 Codex primary folder / 自动发现的 repo AGENTS 对齐。
-2. 在实际被 Work 和 Codex 都加载的全局 AGENTS 中增加短小的“任务判断内核”。
-3. 把现有 Codex v0.3 中已经正确的任务忠实、最小必要验证、少打扰用户、自然中文交付保留并收敛，不继续堆大型协议。
-4. 用三组冻结真实回归证明行为改变；失败时再决定是继续调配置还是判模型/产品形态不适合。
+1. 先修**版本来源漂移**：把当前真实中文全局 Codex 指令归档到正确的 `codex/global/AGENTS.md`，避免两份“当前规则”长期并存。
+2. 在 Work 与 Codex 都已实证加载的全局 `AGENTS.md` 中补足“目标保持、动作必要性、局部失败、方案复杂度、用户负担、交付转换”这些真正缺失的判断约束。
+3. 保留现有 v0.3 已经正确的任务忠实、风险匹配、自主执行和中文交付要求，不通过复制更多案例禁令来补洞。
+4. PC+Server+VPS 继续保持一个本地项目；Karabiner 案例不再作为“必须拆项目”或“Remote 规则覆盖 Local”证据。多仓任务只需要在全局层明确：任务属于附加仓库时应主动读取对应项目规则。
+5. 用三组冻结真实回归证明行为是否真的改变；如果正确规则已经加载仍复现同一根因，再判断模型/产品形态是否不适合承担该职责。
 
 ## 6. 官方资料
 
