@@ -119,8 +119,8 @@ Agent 没有先穷尽自身可读状态、自动验证、现有日志、官方�
 
 ## 7. 当前候选
 
-当前冻结候选为 **v0.6**：
+当前冻结候选为 **v0.8**：
 
-`docs/research/gpt-agent-behavior-recovery-20261107/V0_6_RELEASE_CANDIDATE_AND_REGRESSION_PACK.md`
+`docs/research/gpt-agent-behavior-recovery-20261107/V0_8_RELEASE_CANDIDATE_AND_REGRESSION_PACK.md`
 
-v0.6 基于 v0.5 改后回归继续收敛：R1 仍失败，R2 有改善但仍失败，R3 已通过。三个回归 Prompt 保持冻结不变；下一轮只部署 v0.6 后在全新线程原样重跑，不再改题。
+v0.7 与 v0.8 均已归档，三个回归 Prompt 保持冻结不变。当前回归状态：R1 在 v0.7 已通过；R2 在 v0.8 仍失败；R3 暂不需要重复运行，等待 R2 收敛后再做最终确认。
