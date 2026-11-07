@@ -23,10 +23,10 @@ Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项�
 - 线程是本机 ChatGPT Work，不是独立 Codex。
 - 本地项目绑定同名 ChatGPT 云端 Project。
 - 本轮实测自动加载了本机全局 `~/.codex/AGENTS.md`。
-- 云端 Project instructions 是否实际注入这条本地 Work 线程仍未确认。
+- 启动注入记录中没有云端 Project instructions 正文；本轮按**未加载**处理，不把它作为 Work 修复入口。
 - 主文件夹不是 Git 仓库，因此没有仓库级 `AGENTS.md` 自动进入这条线程。
 
-因此，针对这条 Work 失败，**目前唯一已经实证会长期进入该线程的用户规则层，是所选机器的全局 Codex 指令，也就是 `~/.codex/AGENTS.md`。** 当前仍不能确认绑定云端 Project 的 instructions 或网页端全局 Custom Instructions 是否也进入这条本机 Work。后续修复 Work 时，不能把“Project 已绑定”当成“Project instructions 已生效”。
+因此，针对这条 Work 失败，**目前唯一已经实证会长期进入该线程的用户规则层，是所选机器的全局 Codex 指令，也就是 `~/.codex/AGENTS.md`。** 启动注入记录同样没有网页端全局 Custom Instructions 正文；本轮按**未加载**处理。后续修复这两条本机 Work/Codex 事故时，只使用有启动证据的规则层，不再把云端 Project 绑定或网页设置当成潜在修复入口。
 
 最新 Codex 设置界面进一步确认：当前机器真实的全局 `~/.codex/AGENTS.md` 已经是 2026-11-06 更新后的中文 v0.3；而版本仓库 `AI_Instruction_Configuration/codex/global/AGENTS.md` 仍是 2026-11-03 旧英文快照，新版中文正文却保存在 `chatgpt/global/codex-current-instructions.md`。这是**版本归档漂移**，不是运行时仍在使用旧英文规则。
 
