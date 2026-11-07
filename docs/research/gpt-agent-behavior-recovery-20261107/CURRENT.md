@@ -26,7 +26,7 @@ Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项�
 - 云端 Project instructions 是否实际注入这条本地 Work 线程仍未确认。
 - 主文件夹不是 Git 仓库，因此没有仓库级 `AGENTS.md` 自动进入这条线程。
 
-因此，针对这条 Work 失败，**目前已证实的长期可控入口是本机全局 AGENTS，而不是网页 Custom Instructions 或 STAT5060 仓库 AGENTS。**
+因此，针对这条 Work 失败，**目前已证实的长期可控入口是所选机器的全局 Codex 指令，也就是该机器的 `~/.codex/AGENTS.md`。截图进一步确认当前实际界面里已经是 2026-11-06 更新后的中文 v0.3；仓库 `codex/global/AGENTS.md` 仍是 2026-11-03 旧英文快照，存在归档漂移。**
 
 ### Codex Desktop — PC+Server+VPS / Karabiner
 
@@ -38,7 +38,7 @@ Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项�
 - secondary folder 的 `AGENTS.md` 不会因为“已附加”就自动发现。
 - ChatGPT Web Custom Instructions、同名云端 Project instructions 不适用于这条 Codex 线程。
 
-这产生了一个真实路由缺陷：Karabiner 的 canonical owner 是 `Local_Compute_Infrastructure`，但该线程启动时自动吃到的是 Remote Compute 的项目规则。官方项目文档也明确说明：Codex 使用 local project 的 primary folder 作为 Git 和 `AGENTS.md` 自动发现入口。
+这产生了一个真实路由缺陷：Karabiner 的 权威归属 是 `Local_Compute_Infrastructure`，但该线程启动时自动吃到的是 Remote Compute 的项目规则。官方项目文档也明确说明：Codex 使用 local project 的 primary folder 作为 Git 和 `AGENTS.md` 自动发现入口。
 
 ## 3. 通用失败模型
 
@@ -49,7 +49,7 @@ Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项�
 - 当前是 Chat、Work 还是 Codex；
 - 当前是 cloud project、local project 还是二者绑定；
 - 哪些 instruction 实际自动加载；
-- 当前任务的 canonical owner 与 primary folder 是否一致。
+- 当前任务的 权威归属 与 primary folder 是否一致。
 
 结果是后续修改可能落在不会生效的层，或让错误仓库的项目规则主导任务。
 
@@ -93,7 +93,7 @@ Agent 没有先穷尽自身可读状态、自动验证、现有日志、官方�
 
 第一阶段只做高杠杆、可验证的最小改动：
 
-1. 先修**运行时路由**：任务 canonical owner 与 Codex primary folder / 自动发现的 repo AGENTS 对齐。
+1. 先修**运行时路由**：任务 权威归属 与 Codex primary folder / 自动发现的 repo AGENTS 对齐。
 2. 在实际被 Work 和 Codex 都加载的全局 AGENTS 中增加短小的“任务判断内核”。
 3. 把现有 Codex v0.3 中已经正确的任务忠实、最小必要验证、少打扰用户、自然中文交付保留并收敛，不继续堆大型协议。
 4. 用三组冻结真实回归证明行为改变；失败时再决定是继续调配置还是判模型/产品形态不适合。
