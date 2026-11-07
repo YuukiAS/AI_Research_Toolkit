@@ -26,19 +26,15 @@ Date: 2026-11-07
 
 Karabiner 的主修复位置仍然是全局 `AGENTS.md`，因为失败发生时中文 v0.3、用户原始目标和 Local Compute 规则都已经在上下文中。
 
-### 第三优先：ChatGPT 全局与 Project instructions
+### 第三优先：把网页 Chat 与本机 Work / Codex 分开
 
-`chatgpt/global/custom-instructions.md` 当前主要解决读者表达，已经有明显价值，不应把完整工程规则继续塞进去。
+本轮三组冻结回归中，Probe 与 Validator 属于本机 ChatGPT Work，Karabiner 属于本机 Codex。对这三组事故：
 
-后续只考虑加一个极短的行为核心，覆盖普通 Chat：
+- 不修改 `chatgpt/global/custom-instructions.md` 来修 Work/Codex；
+- 不修改 STAT5060 云端 Project setting 来修本机 Work；
+- 不把网页 Chat 的 Project instructions 当成本机 Work/Codex 的兜底层。
 
-- 先确认当前真实问题和成功标准；
-- 新权限/工具/复杂度前先证明必要；
-- 交付前确认没有把理解和判断重新推给用户。
-
-但 ChatGPT Project 内官方规则是 Project instructions 覆盖 global Custom Instructions，因此如果 Web/Cloud Project 也要稳定拥有这三条，必须由 Project Instructions Editor 在维护项目设置时统一注入；不能假定全局 Custom Instructions 会兜底。
-
-本阶段先不批量改所有 Project setting。先用 Work/Codex 三回归验证全局 AGENTS 改动是否有效，再决定是否扩大。
+网页 Chat 另行处理：项目外由全局 Custom Instructions 负责；项目内由对应 Project setting 负责。当前 `custom-instructions.md` 已经有较完整的读者表达规则，因此本轮先 KEEP。若某个 Web Project setting 自身存在强制机器状态块、英文固定字段或其他与当前协作偏好直接冲突的规则，再按 PIE 以该 Project 的真实 live setting 为 baseline 单独修。
 
 ## 2. 全局 AGENTS 需要增加什么
 
@@ -90,7 +86,7 @@ Karabiner 的主修复位置仍然是全局 `AGENTS.md`，因为失败发生时�
 
 ### `chatgpt/global/custom-instructions.md`
 
-**暂不大改。** 当前表达层已经足够强。若三组回归证明普通 Chat 仍缺同样的前置判断，再只加 1 个短段，不把 Reasoned Decision 全文复制进去。
+**KEEP。** 当前三组冻结回归没有证明纯 Web Chat 的全局个性化是 Work/Codex 事故根因。现有正文已经覆盖自然中文、读者视角、少状态字段、交付前检查等要求；本轮不继续堆规则。
 
 ### ChatGPT Project settings
 
@@ -98,7 +94,7 @@ Karabiner 的主修复位置仍然是全局 `AGENTS.md`，因为失败发生时�
 
 ### 各项目仓库 `AGENTS.md`
 
-**不复制通用判断内核。** 项目 AGENTS 只保留项目专属事实、危险边界和工作流。若某项目存在与全局核心直接冲突的规则，再做局部修正。
+**本轮不为三组事故增加通用补丁。** Karabiner 事故发生前，Local Compute 的项目规则已经实际读取，因此不能再靠在 Local/Remote 仓库里追加“不要 Xcode / 不要阻塞”解决。项目 AGENTS 继续只保存项目专属事实、危险边界和工作流。
 
 ## 4. 修改前后预期变化
 
