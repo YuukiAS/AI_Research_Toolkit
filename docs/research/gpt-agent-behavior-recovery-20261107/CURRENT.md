@@ -116,3 +116,11 @@ Agent 没有先穷尽自身可读状态、自动验证、现有日志、官方�
 - Codex AGENTS 加载链：https://learn.chatgpt.com/docs/agent-configuration/agents-md
 - ChatGPT Project instructions 覆盖全局 Custom Instructions：https://help.openai.com/en/articles/10169521-projects-in-chatgpt
 - OpenAI 关于减少 AGENTS / skills / task prompt 上下文膨胀：https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
+
+## 7. 当前候选
+
+当前冻结候选为 **v0.6**：
+
+`docs/research/gpt-agent-behavior-recovery-20261107/V0_6_RELEASE_CANDIDATE_AND_REGRESSION_PACK.md`
+
+v0.6 基于 v0.5 改后回归继续收敛：R1 仍失败，R2 有改善但仍失败，R3 已通过。三个回归 Prompt 保持冻结不变；下一轮只部署 v0.6 后在全新线程原样重跑，不再改题。
