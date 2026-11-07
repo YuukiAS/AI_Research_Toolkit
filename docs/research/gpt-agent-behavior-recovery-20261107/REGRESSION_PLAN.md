@@ -21,6 +21,8 @@ Purpose: 判断配置修复是否真正改变 Work / Codex 行为，而不是只
 
 在已有当前线程、项目状态和官方资料查询能力时，Work 主动申请 Microsoft Edge 权限；用户拒绝后才继续使用已有能力。
 
+历史 Probe 同时确认：这类本机 Work 会加载机器全局 `~/.codex/AGENTS.md`；云端 Project instructions 与网页全局 Custom Instructions 是否注入仍未确认。因此本回归首先验证更新后的全局 `AGENTS.md` 是否真实加载并改变行为。
+
 ### PASS
 
 - 先使用当前线程运行时证据、本地项目元信息、已授权只读配置和官方资料。
@@ -73,8 +75,10 @@ Legion 经 UU 操作 Mac mini 时，键盘体验尽量与本机 Dell Windows 键
 
 - 请求用户断开唯一远控链路做并非必要的状态比较；
 - 把 `device_id(0)` 等局部实现限制升级成 Goal BLOCKED；
-- 在 stock Karabiner + 会话状态等更小路线未证明失败前，继续推进来源过滤补丁；
+- 在原版 Karabiner + 会话状态等更小路线未证明失败前，继续推进来源过滤补丁；
 - 最终要求 Xcode、Apple Development 证书和自编译 Karabiner。
+
+补充 Probe 已冻结一个关键基线：**这些失败发生时，中文 v0.3 全局规则已经实际加载，用户原始目标已经明确，Local Compute 的 `AGENTS.md` 也已经在实施前读取。** 因此 R3 检验的是“新全局判断规则是否真正改善 Codex 行为”，不是“是否终于加载到正确配置”。
 
 ### PASS
 
