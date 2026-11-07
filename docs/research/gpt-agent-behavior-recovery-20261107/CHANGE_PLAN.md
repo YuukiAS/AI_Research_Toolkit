@@ -16,21 +16,20 @@ Date: 2026-11-07
 
 不建议先把 `chatgpt/global/codex-current-instructions.md` 当作修复本身，因为该文件当前明确写着“是否同步到实际 Codex 运行时待确认”。下一版应先把“仓库候选”和“真实运行文件”收敛为一条清楚的来源链。
 
-### 第二优先：本地项目路由
+### 第二优先：多仓本地项目的 canonical-owner 路由
 
-`PC+Server+VPS` 当前把 `Remote_Compute_Infrastructure` 设成 primary，同时附加多个职责不同的仓库。这会让 Codex 无论当前任务属于 Local Compute、Remote Compute 还是 Clash，都先自动发现 Remote Infra 的项目规则。
+`PC+Server+VPS` 保持一个本地项目，继续以 `Remote_Compute_Infrastructure` 作为 primary，同时附加 `Local_Compute_Infrastructure` 与 `Clash_Profile`。不为了指令发现而强迫用户拆成三个项目。
 
-推荐改法：
+需要修的是自动加载语义：
 
-- 保留云端 `PC+Server+VPS` 作为人类层面的总项目；
-- 本地 Codex project 按 canonical owner 拆成至少：
-  - PC+Server+VPS — Local Compute
-  - PC+Server+VPS — Remote Compute
-  - PC+Server+VPS — Clash
-- 每个 local project 的 primary folder 指向自己的 canonical repo。
-- 其他仓库只有确实需要联合读取时再作为 secondary folder；secondary AGENTS 不被误认为自动规则。
+- primary folder 只是默认工作目录和自动发现入口，不等于整个 `PC+Server+VPS` 工作台的 canonical owner；
+- 每个任务开始前先按任务本身判断 canonical owner；
+- owner 就是 primary repo 时，使用已自动加载的 repo `AGENTS.md`；
+- owner 是 secondary repo 时，Codex 必须主动读取该 secondary repo 的适用 `AGENTS.md` 和必要合同，再进行修改或把结果归因给该 repo；
+- primary repo 的专属规则不得因为自动加载而越权覆盖另一个 canonical owner；
+- 跨 repo 任务必须显式区分每个变更的 owner，不能因为三个目录放在同一个 local project 就混写事实。
 
-这不是为了“目录整齐”，而是保证 Codex 自动加载正确的项目规则。
+这样既保留用户想要的单一工作台，也修复“primary 自动发现被误当成任务所有权”的路由错误。
 
 ### 第三优先：ChatGPT 全局与 Project instructions
 
