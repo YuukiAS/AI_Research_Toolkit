@@ -12,21 +12,19 @@ Date: 2026-11-07
 - `~/.codex/AGENTS.md`
 - 版本化来源：`YuukiAS/AI_Instruction_Configuration/codex/global/AGENTS.md`
 
-原因：现场 Probe 已经证明本机 Work 和独立 Codex 都会加载它。这是目前唯一同时覆盖两类失败运行时、且有直接证据的长期入口。
+原因：现场 Probe 已经证明本机 Work 和独立 Codex 都会加载所选机器的全局 `~/.codex/AGENTS.md`。最新 Codex 设置界面又确认，该机器上的实际全局内容已经是 2026-11-06 更新后的中文 v0.3。现在的问题不是“运行时仍是旧英文”，而是版本仓库里的 `codex/global/AGENTS.md` 仍停在 2026-11-03 旧英文快照，而新版中文正文被放在 `chatgpt/global/codex-current-instructions.md`。下一版首先要把版本化位置纠正到 `codex/global/AGENTS.md`，消除双份来源。
 
-不建议先把 `chatgpt/global/codex-current-instructions.md` 当作修复本身，因为该文件当前明确写着“是否同步到实际 Codex 运行时待确认”。下一版应先把“仓库候选”和“真实运行文件”收敛为一条清楚的来源链。
-
-### 第二优先：多仓本地项目的 canonical-owner 路由
+### 第二优先：多仓本地项目的 权威归属 路由
 
 `PC+Server+VPS` 保持一个本地项目，继续以 `Remote_Compute_Infrastructure` 作为 primary，同时附加 `Local_Compute_Infrastructure` 与 `Clash_Profile`。不为了指令发现而强迫用户拆成三个项目。
 
 需要修的是自动加载语义：
 
-- primary folder 只是默认工作目录和自动发现入口，不等于整个 `PC+Server+VPS` 工作台的 canonical owner；
-- 每个任务开始前先按任务本身判断 canonical owner；
+- primary folder 只是默认工作目录和自动发现入口，不等于整个 `PC+Server+VPS` 工作台的 权威归属；
+- 每个任务开始前先按任务本身判断 权威归属；
 - owner 就是 primary repo 时，使用已自动加载的 repo `AGENTS.md`；
 - owner 是 secondary repo 时，Codex 必须主动读取该 secondary repo 的适用 `AGENTS.md` 和必要合同，再进行修改或把结果归因给该 repo；
-- primary repo 的专属规则不得因为自动加载而越权覆盖另一个 canonical owner；
+- primary repo 的专属规则不得因为自动加载而越权覆盖另一个 权威归属；
 - 跨 repo 任务必须显式区分每个变更的 owner，不能因为三个目录放在同一个 local project 就混写事实。
 
 这样既保留用户想要的单一工作台，也修复“primary 自动发现被误当成任务所有权”的路由错误。
