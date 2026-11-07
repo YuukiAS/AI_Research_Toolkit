@@ -94,7 +94,7 @@ Karabiner 的主修复位置仍然是全局 `AGENTS.md`，因为失败发生时�
 
 ### ChatGPT Project settings
 
-**本轮不批量修改。** Work Probe 已确认本地项目与同名云端 Project 有绑定，但仍没有启动注入证据证明云端 Project instructions 或网页全局 Custom Instructions 实际进入这条本机 Work。因此，不能把 STAT5060 Project setting 当成这次 Work 失败的已证实修复入口。只有后续拿到实际注入证据，或项目设置自身存在明确冲突时，才单独修改。
+**本轮不批量修改。** Work Probe 已确认本地项目与同名云端 Project 有绑定，但启动注入记录中没有云端 Project instructions 或网页全局 Custom Instructions 正文。本轮对这条本机 Work 按**未加载**处理。因此，STAT5060 Project setting 和网页全局个性化都不是这次 Work 失败的修复入口；只有以后产品行为改变并取得新的启动注入证据时才重新评估。
 
 ### 各项目仓库 `AGENTS.md`
 
