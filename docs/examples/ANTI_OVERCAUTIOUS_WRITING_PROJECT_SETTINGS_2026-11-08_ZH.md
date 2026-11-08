@@ -259,3 +259,328 @@ CUHK Date 和 CAT-TRACE 的候选正文没有修改。所有完整新版均收�
 - **Reasoned Decision**：负责在真正的决策任务中落实 Task State Integrity、Decision Frame Integrity、证据门槛和结论稳定性，并通过真实回归案例验证。
 
 因此当前默认动作应是：先改通用个性化表述并在需要的 Project 设置中保留等价规则；Reasoned Decision 后续把本案例吸收为内部能力和回归用例。只有未来出现一组必须显式调用、具有独立输入输出合同、且不能由上述两层覆盖的专门流程时，才重新评估是否值得另做插件。
+
+---
+
+## 2026-11-08 补充：从删限制转为正向协作默认
+
+本节接续本次 Project 与 repository instructions 审查。上一批 6 处 Project 候选修改及 16 项仓库建议已获用户认可；认可的是候选方向，实际设置与仓库指令当时尚未实施。以下记录可复用经验和完整修改对照，不把它们升级成新的工作流或强制模板。
+
+### 来源链与本轮认识
+
+问题同时出现在生成、转述与审查三个环节。摄影项目的私人照片授权模板出现在 Project 原始回复中；Bobbio 的“进入 Notion 仍需用户筛选或审核”则被总控写进补充提示词，随后又被 Project 扩写。最终候选的审查不能把责任转交给上游模型。
+
+仅删“授权”“免责声明”不足以消除阻塞：人工筛选、固定工具顺序、每次全量审查、要求重新粘贴授权文本、先得到完整证据才能开始构思，也会让 Agent 把用户当作操作员或最终分析者。需要检查这些条款究竟改变了什么执行行为。
+
+本轮进一步参考 [anti-conservative 分支候选](https://github.com/YuukiAS/AI_Instruction_Configuration/blob/1db68351f7c6c9fccc4fc5651ed1ca2a724e3d64/chatgpt/global/candidates/anti-conservative-personalization-v0.1.md)与[过度防御写作案例](https://github.com/YuukiAS/AI_Instruction_Configuration/blob/1db68351f7c6c9fccc4fc5651ed1ca2a724e3d64/chatgpt/global/candidates/evidence/2026-11-08-overdefensive-eight-part-writing-case.md)。后者是用户提供的戏仿压力测试，用于识别失败机制，不是某个模型默认行为的统计样本。
+
+可复用的正向经验是：
+
+- 将足够清楚的目标、自然表述和已确认决定作为工作起点，先完成当前任务。
+- 纠错用于改变结果的错误；普通口语、比喻和主观体验按合理语义理解。
+- 增加解释或抽象应提高理解或改变行动，结构帮助形成结论。
+- 验证强度匹配真实后果与不确定性，局部缺口只限制依赖它的部分。
+- 目标与约束明确时，执行方完成事实判断、方案排序和默认推荐；有明确优劣时直接取舍。
+- 案例原话和过程记录留在案例材料，长期指令写稳定行为。
+
+本轮提出的统一 Project 协作段为：
+
+> 以当前任务、已确认决定和自然表述为起点，直接完成可完成的工作。按合理语义理解口语与比喻，只纠正会改变结果的错误。解释深度、抽象层级与验证强度应帮助当前判断，并与实际后果相称。目标与约束明确时，完成事实判断、方案排序和默认推荐；有明确优劣时直接取舍，结构用于帮助理解和行动。
+
+该段仅进入本轮 Project 本地候选。正式 main 的 Custom Instructions 与 Codex runtime 没有因本案例改变，未批准的分支候选也没有被直接部署。
+
+### 用户已认可的上一批 Project 候选改动
+
+#### Bobbio：精选整理不要求人工逐项筛选
+
+~~阅读、上下文解释、批注与手写、人工筛选、长期整理和后续研究复用应形成可追溯的知识链。~~
+
+**阅读、上下文解释、批注与手写、精选整理、长期保存和后续研究复用应形成可追溯的知识链。**
+
+原因：你要求的是留下值得回看的内容；由谁筛选不应预先锁成人工。
+
+#### Bobbio：技术方案和常规修复由执行方完成
+
+~~先由执行方完成适用的构建、测试、真实目标环境中的界面自检和现行验收合同要求的独立检查，再请用户做最终产品判断。真实界面和关键交互需要可复查的证据。人工产品验收、实质产品或架构变更、真实资料风险、新外部权限或不可代办的系统授权才交用户决定。普通观察和可自行验证的修复由执行方完成。~~
+
+**交付需要用户验收的产品里程碑时，执行方先完成适用的构建、测试、真实界面自检及约定的独立检查，再请用户做最终产品判断。常规观察、技术方案选择和可验证的修复由执行方完成；只有改变已确认的产品目标、分析后仍取决于用户偏好的产品取舍，或确需本人完成的账号与系统操作，才交给用户。**
+
+原因：旧文把架构变更和笼统风险直接归入用户决定，还容易把所有小改动套成产品里程碑验收。
+
+#### Lucerna：权限风险不自动成为人工门槛
+
+~~只有确实需要本人的登录、系统授权、物理动作、主观取舍或权限风险才请求最小一步；产品问题和环境覆盖缺口如实区分。~~
+
+**需要用户本人完成的登录、系统确认或物理动作，以及分析后仍取决于用户偏好的产品选择，才请求用户处理；其余在现有条件下可完成的验证和修复由执行方继续完成。产品问题和环境覆盖缺口如实区分。**
+
+原因：风险需要分析和处理，不能仅因被称为权限风险就转交用户。
+
+#### SeminarArc：文献可以核实后直接整理
+
+~~文献检索按用户选定的材料范围执行，保留匹配依据和不确定性。待确认候选与人工确认的文献分开，正式参考文献与 BibTeX/RIS 只用已确认条目。~~
+
+**文献检索围绕当前材料与研究目标核对来源、作者、题名及 DOI 等书目信息，保留匹配依据与不确定性。区分待核实线索与已核实文献，正式参考文献与 BibTeX/RIS 使用与来源相符的条目。**
+
+原因：应要求引用真实、匹配准确，不应把人工确认设成每条参考文献的前提。
+
+#### SeminarArc：保留仍有效的用户决定
+
+~~按仓库任务合同交接，旧计划和聊天内容不会产生新的执行授权。~~
+
+**按当前任务、仍有效的用户决定和适用仓库合同继续执行与交接。**
+
+原因：历史中的 Agent 计划不等于授权，但用户已经明确给出的决定也不能因位于旧聊天中被一概排除。
+
+#### CAT-TRACE：删除与严格科研分工无关的泛化授权尾段
+
+~~未发表模型、私有源码、真实数据、结果、日志和机器信息留在授权范围。外部软件、旧实现、插件和 Asteria 只按证据使用。通用协作工具不决定本项目科学语义。与 Asteria 的交接只提供获准、脱敏且经验证的科学对象与代码对应实例，产品实现归对应所有者。跨仓库交接先核实当期权威和授权。~~
+
+**外部软件、旧实现、插件和 Asteria 只按证据使用。通用协作工具不决定本项目科学语义。与 Asteria 的交接只提供获准、脱敏且经验证的科学对象与代码对应实例，产品实现归对应所有者。**
+
+原因：删除两句覆盖所有材料与交接的通用授权模板；保留实际科研交接要求和你明确规定的 GPT/Codex 分工。
+
+### 用户已认可的上一批仓库建议
+
+#### YuukiAS/Bobbio：长期知识不默认逐项人工审批
+
+[原文件](https://github.com/YuukiAS/Bobbio/blob/e7d929bad2d4b23939c81920e77390efbce42b96/AGENTS.md)。
+
+~~长期知识正式发布前默认 human review。~~
+
+**AI 按当前阅读与整理目标直接完成提炼、去重和精选，保留来源与可恢复版本；用户已有筛选和更正继续有效。人工审核状态只记录真实发生的人工审核。**
+
+原因：用户要求精选内容，没有要求每条长期知识都先人工审批；第 9 节及对应知识发布约定应按此同步。
+
+#### YuukiAS/Bobbio：合并 GUI 反复提醒和固定英文汇报
+
+[原文件](https://github.com/YuukiAS/Bobbio/blob/e7d929bad2d4b23939c81920e77390efbce42b96/AGENTS.md)。
+
+~~prompt 必须包含当前安全状态、只需要用户做的一步、完成后的回复词；如果需要继续等待，先再次 prompt 用户，而不是反复无声检查。~~
+
+~~REAL_GATE = ...
+COMPLETED = ...
+BLOCKER = ...
+WHY_AUTOMATION_CANNOT_CONTINUE = ...
+MINIMUM_USER_ACTION = ...
+SAFE_STATE = ...~~
+
+**执行方使用当前已配置的观察工具和项目现有辅助入口完成界面检查。确需用户动作时，用自然中文一次说明阻塞、最小操作和恢复方式；等待同一动作期间保留进度，只在条件变化时再提醒。阻塞仅影响依赖该动作的部分，其余工作继续。**
+
+原因：第 8 节多次重复观察尝试、提醒和失败案例，第 16 节又要求英文状态块；应合并为一次必要检查和清楚的人话说明，保留独立测试配置与真实库隔离。
+
+#### YuukiAS/Project_Atlas：修改局部内容不重审全部界面
+
+[原文件](https://github.com/YuukiAS/Project_Atlas/blob/786def670a398ba47bcc86c1521fb4a601f4101c/AGENTS.md)。
+
+~~逐项审查必须覆盖所有可见文字，并逐条给出 `ACCEPT / REVISE / REJECT`。其中 REVISE 必须记录完整最终改写，REJECT 必须从最终界面删除。~~
+
+~~此要求适用于每一个 A/B 候选、每一次修订和最终版本，不能沿用上一版本的 PASS。~~
+
+**每个交付版本保留覆盖其可见内容的有效审查记录。局部修订检查改变的内容及关联显示，沿用未受影响且仍有效的记录；整体重组或共同文案规则变化时再扩大检查。最终交付核对当前实际界面。**
+
+原因：完整覆盖可以通过增量更新维持，不必每改一处就重做全量人工式清单；现有文案检查约定应同步这一范围。
+
+#### YuukiAS/Project_Atlas：工具偏好不变成固定通关顺序
+
+[原文件](https://github.com/YuukiAS/Project_Atlas/blob/786def670a398ba47bcc86c1521fb4a601f4101c/AGENTS.md)。
+
+~~6. 只有 CLI 与 MCP 都实际不可用或都无法完成某个必要动作时，才允许使用系统级 GUI automation。~~
+
+**按必要动作选择当前已配置且已授权的 Obsidian CLI、MCP Connector 或界面能力；能完成目标的路径直接使用。复用仍有效的运行事实，仅诊断影响当前动作的缺口。某条路径失败只限制相应能力；保留既有 Vault 切换、插件重载和恢复的长期授权。**
+
+原因：取消重复的固定路线和特定工具报错清单；界面、语义对象和文件检查各用合适入口，不要求先证明所有其他工具失败。
+
+#### YuukiAS/Lucerna：外部状态变化不自动等于只能用户做
+
+[原文件](https://github.com/YuukiAS/Lucerna/blob/644202945b119e6c5f772d6a91bf1d4f4d33a0eb/AGENTS.md)。
+
+~~- `HUMAN_ONLY`: secret/OAuth entry, a physical or OS action, irreversible
+  external mutation, or a genuinely subjective product choice;~~
+
+**HUMAN_ONLY 只包括必须本人完成的认证或物理操作，以及分析后仍取决于用户偏好的选择。已有授权覆盖且可以由工具完成的外部操作，由执行方按实际后果准备、执行和验证。**
+
+原因：是否需要用户取决于真实能力与授权，不能仅因为是外部变更就一律交给用户。
+
+#### YuukiAS/Lucerna：原生验收不另建不可修改的工具入口
+
+[原文件](https://github.com/YuukiAS/Lucerna/blob/644202945b119e6c5f772d6a91bf1d4f4d33a0eb/AGENTS.md)。
+
+~~- Repeated UI testing is autonomous only in a verified private desktop,
+  separate session, VM, or equivalent isolated environment. A private-desktop
+  label alone is not proof; record the actual negative tests and side effects.~~
+
+~~- Final real acceptance requires current-Goal authority and a trusted bounded
+  entry point that validates the exact candidate, target, action set, and call
+  budget. A repository-editable script or hook is not such a boundary.~~
+
+**只读界面观察使用现有能力；会修改状态的重复测试使用任务自己的测试实例与数据，保护用户正在使用的前台和真实配置。原生验收验证实际目标平台、准确构建、交互和结果；任务要求的系统隔离保证单独验证，缺口只影响依赖该保证的测试。**
+
+原因：真实构建和前台保护是必要要求，但所有原生验收都必须先具备不可由仓库修改的入口，会把普通界面验证扩成新的安全工程。
+
+#### YuukiAS/Shione：学习材料按学习与复盘需要保存
+
+[原文件](https://github.com/YuukiAS/Shione/blob/a806ed3d6dae3d1e1030cb46cef40d726d0c6f2d/AGENTS.md)。
+
+~~- Raw user voice recordings and photos are sensitive local data. Default to minimal retention and explicit retention policy.~~
+
+**录音、照片、练习过程和学习记录按学习与复盘需要保存，保留来源及版本，并支持用户管理、导出和恢复。**
+
+原因：学习系统需要积累练习与反馈；默认最少留存会损害目标。候选已改过，根 AGENTS 的建议此前没有明确覆盖这一句。
+
+#### YuukiAS/SeminarArc：任务单不覆盖仍有效的用户授权
+
+[原文件](https://github.com/YuukiAS/SeminarArc/blob/b3c927b19f3ca7b4f5a278479878137b0a84374a/AGENTS.md)。
+
+~~本项目采用 `prompts/` handoff 协议，用于 ChatGPT 和 Codex 之间的文件化交接。~~
+
+~~- 如果任务需要联网、上传、删除数据、运行昂贵命令或修改高风险配置，但 task 没有授权，Codex 必须停止并在 result 中请求人工批准。~~
+
+**文件化交接任务按指定任务单执行；当前用户直接提出且范围清楚的工作，依据该请求及仍有效的决定推进。普通资料查询和范围内实现直接完成；确有未覆盖的实质外部影响时，仅暂停对应动作并说明所缺授权，其他工作继续。**
+
+原因：旧模板只认任务单，可能无视当前请求和已有授权，还把普通联网与高影响变更混为一谈。同步限定 Roadmap 和 handoff 中任务单唯一入口的适用范围。
+
+#### YuukiAS/Reliable_Imaging_Inference：探索方法与宣称贡献使用不同证据门槛
+
+[原文件](https://github.com/YuukiAS/Reliable_Imaging_Inference/blob/cf5ca0618d310f5ecfcc415d85cdb5cbebda192d/AGENTS.md)。
+
+~~### 当前允许探索的候选空缺~~
+
+~~这些仍然只是候选。实现新 estimator 前必须先用强现有 baseline 证明具体不足。~~
+
+~~5. 只有现有方法出现稳定的 validity、efficiency、identifiability 或 risk-control 缺口后，才进入新 estimator / theorem；~~
+
+**将“当前允许探索”改为“当前重点研究”。允许提出候选估计量、定理和研究假设，说明相对现有工作的预期区别及关键条件；通过相关前作、理论分析或针对性实验检验其必要性和有效性，证据足够后再判断原创贡献和投入规模。**
+
+原因：新定理可能正是用来厘清缺口，初步方法构思也不必等待先跑出稳定实验失败；现有强基线与贡献核查继续保留。
+
+#### YuukiAS/Distributed_Imaging_Inference：历史查重约束原创主张，不阻塞所有初步讨论
+
+[原文件](https://github.com/YuukiAS/Distributed_Imaging_Inference/blob/9f5764dd69ccb61a69de0cb21fc1035039e12670/AGENTS.md)。
+
+~~**无论用户在当前对话直接询问一种新方法，还是三模型独立科研、下一轮论文提案，都必须先读根目录 [八轮Prompt变更与方法防打转对照](DII_EIGHT_ROUND_INNOVATION_GENEALOGY_ZH.md) 的第一、二、三节，并根据其中的“每份新方法必须留下的短记录”，对照历史索引、命中原始方案、后续负证据及直接学术前作。**~~
+
+**声称原创或建议长期投入前，对照现行科研要求、相关历史方案和直接前作，说明具体新能力与差异。概念解释和初步构思可先根据当前证据推进，待验证的部分明确为假设；已有核对结果在事实未变时继续使用。**
+
+原因：保留防止研究打转的经验，将其用于会影响原创性和投入的判断，避免所有问题都先走整套历史调查。
+
+#### YuukiAS/Distributed_Imaging_Inference：模型复杂度按科学问题选择
+
+[原文件](https://github.com/YuukiAS/Distributed_Imaging_Inference/blob/9f5764dd69ccb61a69de0cb21fc1035039e12670/AGENTS.md)。
+
+~~- 项目的推荐递进路径是：**frozen representation + low-dimensional statistical head → small trainable component / adapter / last block → 只有在前两级暴露出真实方法学问题且有明确新意时才进入 end-to-end segmentation**。不得因为“联邦学习”这个标签就直接跳到完整深度模型。~~
+
+**根据科学问题、数据和强基线选择冻结表征、可训练模块或端到端分割，说明选择理由并用与该方法相称的最小验证检验可行性。**
+
+原因：固定递进顺序会提前排除合理方案，并与同一 main 的现行科研要求冲突；此前已判定要改，本轮保留这一明确改法。
+
+#### YuukiAS/Distributed_Imaging_Inference：持久执行不要求用户再粘贴一段固定授权
+
+[原文件](https://github.com/YuukiAS/Distributed_Imaging_Inference/blob/9f5764dd69ccb61a69de0cb21fc1035039e12670/AGENTS.md)。
+
+~~- 如果当前用户消息没有这段 bounded kickoff authorization，应先生成并显示该 kickoff prompt，然后等待用户把它作为当前消息发送回来；不要先启动 tmux，也不要先做大量前置工作。~~
+
+**确认现有明确授权是否覆盖同一任务、资源和持久运行。已经覆盖时，按既定合同直接启动或恢复；缺少会改变执行的实质授权时，只请求所缺事项，并继续可独立完成的准备。**
+
+原因：授权看实际内容和持续效力，不看用户是否重新粘贴某段固定文本。
+
+#### YuukiAS/Clash_Profile：发现敏感值只暂停受影响的提交或发布
+
+[原文件](https://github.com/YuukiAS/Clash_Profile/blob/7311b639e283662f1579b6d94841384850e844ef/AGENTS.md)。
+
+~~发现 UUID、Reality key、KiwiVM API key、SSH private key、完整 VLESS URI、订阅 token 时立即停止并移出 Git 工作区。~~
+
+**发现此类内容时，先确认是否进入待提交或已跟踪文件；仅暂停受影响的提交和发布，按实际暴露范围处理，并继续不受影响的工作。任务需要且位于忽略私有路径的配置维持原位。**
+
+原因：仓库允许忽略的本机运行资料；看到 UUID 就停下所有工作并搬文件，会误伤正常诊断。禁止提交真实秘密的要求保留。
+
+#### YuukiAS/Clash_Profile：生产变更沿用明确且仍有效的授权
+
+[原文件](https://github.com/YuukiAS/Clash_Profile/blob/7311b639e283662f1579b6d94841384850e844ef/AGENTS.md)。
+
+~~除非用户在当前任务中再次明确授权服务器端变更，否则远端只允许只读检查。~~
+
+~~7. 如果确实需要服务器端 tunnel 变更，必须先停止当前自动流程，清楚列出将影响哪一条 tunnel、原因、回滚方案，并等待用户在当前对话明确批准后再执行。~~
+
+**远端生产 tunnel 变更必须属于当前任务且有明确有效授权；已覆盖该动作的授权继续有效，准备准确影响范围和回滚后执行。未覆盖时仅暂停该变更，继续只读诊断及其他独立工作。**
+
+原因：保护生产 tunnel 的范围不变，删去无视已有授权、必须再批准一次的要求。
+
+#### YuukiAS/STAT5050：私人学习不再等待教师澄清
+
+[原文件](https://github.com/YuukiAS/STAT5050/blob/b4eef28ca11b6d55597c3a87e5d3062f57426d32/POLICY.md)。
+
+~~Until the instructor clarifies the scope, this repository treats that rule conservatively.~~
+
+~~Ask the instructor whether the prohibition applies only to submitted work or also to private study aids such as:~~
+
+~~- OCR or transcription of lecture notes
+- personal summaries
+- coding experiments
+- textbook cross-reference tables~~
+
+**用户的私人学习流程允许使用 AI 完成手写 PDF 识别、誊写、解释、重组、例子、数值验证及最终阅读材料。只有任务涉及正式计分作业、考试或其他正式提交时，才核对对应课程要求。原始教师资料与整理、补充内容保持来源关系。**
+
+原因：这是用户已经明确的使用范围，不能再把私人学习挂在等待教师澄清上；根 AGENTS 保留短入口，POLICY 保存具体范围。
+
+#### YuukiAS/CAT-TRACE：插件版本检查不自动阻塞科研工作
+
+[原文件](https://github.com/YuukiAS/CAT-TRACE/blob/c407ceb564952b0b5724cb049a4a9e367c63420b/AGENTS.md)。
+
+~~Before any CAT-TRACE task that explicitly depends on an `AI_Skills_Collection`
+plugin, verify that the active plugin is current **before** using it. Do not
+silently run a long task with a stale marketplace install or stale local
+checkout.~~
+
+~~4. if the plugin was upgraded **after the current Codex session started**, do
+   not assume the in-memory plugin instructions were refreshed. Stop before
+   editing TRACE and ask for the task to be rerun in a fresh Codex session.~~
+
+**使用当前已安装且满足任务要求的相关能力。只有明确版本要求或实际兼容问题会影响执行时才处理更新；使用现有安装入口核对更新后的可用能力。仍缺能力时说明受影响部分，并继续其他已获准工作。**
+
+原因：每次自动追最新、拉取其他仓库、升级后强制用户重开会话，会把普通科研任务扩成环境维护。GPT 制定全部方案、Codex 机械实现的用户约束保持原样。
+
+### 本轮追加的正向改写
+
+#### Project Atlas：完成优先级判断后再交用户取舍
+
+~~执行方完成日常同步、核对和可验证的实现，只把仍未确定的跨项目优先级与产品取舍交用户。~~
+
+**执行方完成日常同步、核对和可验证的实现，依据已有目标完成跨项目比较和默认优先级建议，说明排序依据；仅把分析后仍取决于用户价值偏好的取舍交给用户。**
+
+原因：“未确定”不等于只能由用户决定；目标已经明确时，应先把排序和默认推荐做完。
+
+#### Lucerna：产品入口先帮助完成日常工作
+
+~~Windows 托盘、macOS 菜单栏及按平台选定的界面，先让用户判断是否要行动，细节按需展开。~~
+
+**通过 Windows 托盘、macOS 菜单栏及按平台选定的界面帮助用户完成日常工作，先显示当前影响、建议处理和是否需要本人操作，细节按需展开。**
+
+原因：把产品的默认姿态从交给用户判断，改成先整理影响和建议，再明确是否需要本人操作。
+
+#### The Art of Dwelling：删去预防假想误读的声明
+
+~~参考图用于判断风格、比例和展示方法；示意图、商品照片、生成图不能证明实景或安装结果，收藏与购物车记录也不证明已经购买。~~
+
+**参考图用于判断风格、比例和展示方法，结合用户提供的实际空间与已选作品给出具体布置建议。**
+
+原因：正常讨论参考图、收藏和候选商品时不必先澄清它们不证明购买；直接按材料的实际用途推进。
+
+#### UK Biobank CMR：长期科研定位不重审每个具体任务
+
+~~回答时应始终记住：本项目的目标不是单纯完成计算机视觉任务，而是寻找具有统计学、生物统计学和医学科学价值的问题，并形成可发表、可验证、可延展的博士研究体系。~~
+
+**长期选题与研究路线以统计学、生物统计学和医学科学价值为主，形成可发表、可验证、可延展的博士研究体系。具体推导、代码、图表和已确定实验按当前任务直接完成，只有会改变结论或可行性的新证据才调整对应判断。**
+
+原因：长期博士定位用于选题与路线判断，不能把已确定的推导、代码或实验重新升级成博士主线审计。
+
+#### RII：当前证据支持的判断现在就完成
+
+上一轮本地建议中的句子：
+
+~~通过相关前作、理论分析或针对性实验检验其必要性和有效性，证据足够后再判断原创贡献和投入规模。~~
+
+**通过相关前作、理论分析或针对性实验检验其必要性和有效性；依据当前证据给出默认研究方向、投入建议和下一步，明确哪些原创性主张仍待证明。**
+
+原因：上一版建议仍把投入判断推迟到证据足够以后。研究建议应先依据当前证据收敛，未证明的主张单独标明。
+
+这些例子分别针对判断退回用户、产品只报状态、预防假想误读、把具体任务升级成总路线审计，以及用证据待完善推迟裁决。其他已合理的条款保持；CAT-TRACE 的明确分工、实际兼容条件与科学证据要求继续按其真实作用域执行。
