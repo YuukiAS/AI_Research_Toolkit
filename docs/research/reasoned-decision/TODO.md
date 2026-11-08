@@ -169,3 +169,102 @@ GPT Work、Codex、Asteria Blueprint、CAT-TRACE 是本案例的具体载体，�
 通用问题是：
 
 > **在收到新的局部证据或反例后，先保持原决策问题与成功标准稳定，判断新证据到底要求“改结论”还是“补一层”，避免通过静默换题制造看似合理的摇摆。**
+
+
+## 2026-11-08：GPT-6 过度挑战调优暴露 Action Surface / Research Completeness 缺口
+
+status: NEW  
+owner: Reasoned Decision  
+primary area: Action Surface Integrity（候选内部能力）  
+related area: Decision Frame Integrity / Task State Integrity / Judgment Integrity / Solution Design  
+source: 2026-11-08 ChatGPT thread，围绕 GPT-6 / Challenger 过度审计、个性化设置与 Reasoned Decision 调优。  
+evidence: 当前 thread 的完整多轮记录；相关社区与公开项目证据已补入 docs/examples/ANTI_OVERCAUTIOUS_WRITING_PROJECT_SETTINGS_2026-11-08_ZH.md。
+
+### problem
+
+用户真正的问题不是“设计一个理想的多智能体红队系统”，而是：
+
+> 现在 ChatGPT 用户实际能从哪里改，才能让过度挑战更多地攻击模型自己的防御思考和表述，而不是把总任务重新审计一遍？
+
+随后用户进一步明确要求：
+
+- 按 Reasoned Decision 查清楚；
+- 给现实可操作入口；
+- 给依据；
+- 查别人实际上怎么做；
+- 最后判断应该做插件还是改个性化表述。
+
+模型却把一个本应在一次完整调查中闭环的问题拆成了多轮由用户纠正的链条：
+
+1. **先设计了用户根本没有入口接入的多智能体架构。**  
+   提出了 Challenger、Judge、defense packet、结构化评分等方案，却没有先核实用户当前真正拥有的 ChatGPT 控制面。
+
+2. **用户指出“我只有个性化设置能改”后，才退回现实入口。**  
+   这说明第一轮 Solution Design 在未核实 action surface 前就开始设计，属于方案可实施性前置条件缺失。
+
+3. **随后又直接推荐个性化文案，但证据链不足。**  
+   用户再次要求“按照 Reasoned Decision 去查”后，模型仍主要给内部判断，没有先完成“别人怎么做、哪些写法反复出现、什么证据支持”的开放式社区与项目检索。
+
+4. **用户第三次追问“依据呢？别人是怎么做的？”后，才完成本应首轮自动完成的调查。**  
+   最终才检索 Reddit、Linux.do、公开 GitHub 项目，并识别出反复出现的共同做法：
+   - 只有问题会实质改变结论时才挑战；
+   - 不要为了显得批判而制造分歧；
+   - 不要重构用户原意成更容易反驳的版本；
+   - 不要无请求地 reframe 总任务；
+   - 当前任务、假设和已确认决定应持续有效，除非有新证据改变它们；
+   - 正向规定协作方式通常比堆大量“不许说 X”更稳定。
+
+5. **最终推荐实际上并不需要新插件。**  
+   调查完成后才能稳定判断：即时修复应进入全局个性化 / Project 通用基线；Reasoned Decision 吸收其决策框架与回归能力；当前没有充分理由再造一个职责重叠的“反挑战插件”。
+
+用户为得到这个完整答案，被迫连续提供：
+- “怎么落实”；
+- “我就个性化能改”；
+- “按照 reasoned decision 去查”；
+- “依据呢”；
+- “别人怎么做的”。
+
+这正是 Reasoned Decision 应消除的人工研究编排成本。
+
+### why this is not only writing or web research
+
+这个失败不能只归因于“没搜够网页”。
+
+如果第一步没有锁定真实 action surface，即使搜索很多，也可能给出不可实施的架构；如果只知道设置入口、却不建立证据门槛，又会把模型自己的直觉写成“推荐”；如果只找别人 prompt 而不保留任务框架，又可能把“减少过度挑战”误写成“不要反驳用户”，破坏必要纠错能力。
+
+因此这里需要一个通用的 **Action Surface Integrity**：
+
+> 在给现实配置、工具、产品、工作流或系统修改方案前，先确认用户实际能控制什么；只比较能通过真实入口落地的方案。随后根据决策所需证据完成调查，再给唯一默认建议。
+
+### minimum contract to evaluate
+
+Reasoned Decision 在这类“怎么落实 / 该改哪里 / 用插件还是设置”的任务中，至少应维护：
+
+- **DECISION_QUESTION**：当前是在决定哪种实现路径，而不是泛泛讨论原理。
+- **AVAILABLE_CONTROL_SURFACES**：用户现实可操作的设置、项目说明、插件、仓库或工具入口。
+- **UNAVAILABLE_ASSUMPTIONS**：不得假设存在未证实的内部开关、Challenger 配置或系统权限。
+- **EVIDENCE_NEEDED**：哪些事实会改变“插件 vs 个性化 vs 项目规则”的排序。
+- **PEER_PRACTICE**：当用户要求“别人怎么做”或任务明显依赖真实使用经验时，主动查独立社区/项目实践。
+- **DEFAULT_RECOMMENDATION**：完成证据比较后给一个默认方案，不让用户自己拼答案。
+- **WHY_NOT_ALTERNATIVES**：说明主要替代路线为什么当前不值得选。
+- **STOP_CRITERION**：在回答已经能让用户直接行动前，不得因为找到一个“看起来合理”的中间方案而提前停止。
+
+### regression requirements
+
+后续 Reasoned Decision 回放必须覆盖本案例，并至少满足：
+
+1. 首轮不得先设计用户无权接入的 Challenger / Judge / runtime 架构。
+2. 必须先查清用户现实控制面，再讨论如何落实。
+3. 当用户明确要求“按 Reasoned Decision 去查”时，不能只引用内部框架；必须主动完成会改变推荐的外部证据调查。
+4. 若问题涉及“别人怎么做”，应主动覆盖多个独立真实用户社区或公开项目，而不是等用户再次追问“依据呢”。
+5. 必须把“减少过度挑战”与“取消独立纠错”分开，不能用“永远相信用户 / 不要反驳”作为默认解决方案。
+6. 必须比较“通用个性化基线 / Project 规则 / 专门插件”等现实候选，并给唯一默认建议。
+7. 当前证据若只支持“先改个性化并把机制吸收到 Reasoned Decision”，不得为了架构完整性再造一个新插件。
+8. 最终答复应一次包含：实际入口、证据、别人怎么做、推荐方案、主要替代方案为什么不选。
+9. 用户不应再通过连续追问“怎么落实 → 入口在哪 → 按 RD 查 → 依据呢 → 别人怎么做”来完成本应由 Agent 自己完成的研究流程。
+
+### project-specific context
+
+GPT-6、Challenge/Mainline、ChatGPT 个性化、Project Instructions 是本案例的具体载体。通用问题是：
+
+> **现实决策必须先确认用户真正可用的行动面，再完成足以改变排序的证据调查，并在首轮把“可实施方案 + 依据 + 默认推荐”闭环交付，而不是让用户逐轮替 Agent 补研究计划。**
