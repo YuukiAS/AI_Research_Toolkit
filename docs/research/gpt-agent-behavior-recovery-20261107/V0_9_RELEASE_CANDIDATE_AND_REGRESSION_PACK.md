@@ -1,12 +1,12 @@
-# GPT Work / Codex 行为修复 v0.9：部署候选与黑盒回归包
+# GPT Work / Codex 行为修复 v0.9：接受版本与黑盒回归包
 
 Status: ACCEPTED_CURRENT
-Date: 2026-11-07
+Date: 2026-11-08
 Scope: 本机 ChatGPT Work + Codex Desktop
 Out of scope: GPT Chat / Web Project instructions
 
 本文件是本轮唯一工作入口，包含：
-1. 准备部署的全局 Codex 指令 v0.9 完整候选；
+1. 已接受的全局 Codex 指令 v0.9 完整正文；
 2. 三条一轮黑盒回归 Prompt；
 3. 改前 / 改后测试协议与当前校准状态。
 
@@ -42,7 +42,7 @@ Karabiner 事故发生时已经确认：
 
 因此 Karabiner 的目标漂移、过早阻塞和复杂度失控属于通用判断失败，不能归因于旧英文规则或未读 Local AGENTS。
 
-## 二、准备部署的 v0.9 完整候选
+## 二、已接受的 v0.9 完整正文
 
 # Codex 全局协作规范
 
