@@ -1,6 +1,6 @@
 # GPT / Work / Codex 行为修复研究 — 当前判断
 
-Status: ANALYSIS_BASELINE  
+Status: CLOSED / V0.9 ACCEPTED
 Date: 2026-11-07  
 Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项目路由。当前只研究和设计修复，不修改生产 AI 设置。
 
@@ -117,10 +117,15 @@ Agent 没有先穷尽自身可读状态、自动验证、现有日志、官方�
 - ChatGPT Project instructions 覆盖全局 Custom Instructions：https://help.openai.com/en/articles/10169521-projects-in-chatgpt
 - OpenAI 关于减少 AGENTS / skills / task prompt 上下文膨胀：https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
 
-## 7. 当前候选
+## 7. 当前版本
 
-当前冻结候选仍为 **v0.8**：
+当前接受并作为正式来源同步的版本为 **v0.9**：
 
-`docs/research/gpt-agent-behavior-recovery-20261107/V0_8_RELEASE_CANDIDATE_AND_REGRESSION_PACK.md`
+`docs/research/gpt-agent-behavior-recovery-20261107/V0_9_RELEASE_CANDIDATE_AND_REGRESSION_PACK.md`
 
-R1 已通过，R3 先前已通过。旧 R2 因 Prompt 自己预设“一页决定单/审批入口”而退休，当前活跃回归改为短版 R2 v2。下一步先在 **不改 v0.8 AGENTS** 的情况下运行 R2 v2；如果仍然把复杂内部材料直接倒给用户，再把默认交付规则升级为 v0.9，并使用完全相同的 R2 v2 重跑。
+最终黑盒回归：
+- R1：PASS
+- R2 v2：PASS
+- R3：PASS
+
+v0.9 已同步到 `YuukiAS/AI_Instruction_Configuration/codex/global/AGENTS.md`。本轮研究结束；后续如有新的真实失败，作为新案例单独进入下一轮，不继续修改本轮冻结测试。
