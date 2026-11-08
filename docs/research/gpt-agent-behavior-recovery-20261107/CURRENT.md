@@ -1,8 +1,8 @@
 # GPT / Work / Codex 行为修复研究 — 当前判断
 
 Status: CLOSED / V0.9 ACCEPTED
-Date: 2026-11-07  
-Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项目路由。当前只研究和设计修复，不修改生产 AI 设置。
+Date: 2026-11-08  
+Scope: ChatGPT Work、Codex Desktop、AI Instruction Configuration 与本地项目路由。研究已收口；v0.9 已通过最终回归并同步到正式配置仓库。
 
 ## 1. 为什么这次不是三个孤立 bug
 
