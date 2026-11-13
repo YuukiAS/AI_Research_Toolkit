@@ -268,3 +268,152 @@ Reasoned Decision 在这类“怎么落实 / 该改哪里 / 用插件还是设�
 GPT-6、Challenge/Mainline、ChatGPT 个性化、Project Instructions 是本案例的具体载体。通用问题是：
 
 > **现实决策必须先确认用户真正可用的行动面，再完成足以改变排序的证据调查，并在首轮把“可实施方案 + 依据 + 默认推荐”闭环交付，而不是让用户逐轮替 Agent 补研究计划。**
+
+## 2026-11-13：Mac mini 本地 Agent 选型连续改口暴露 Parameter Evidence / Failure Attribution / Solution-Space Discovery 缺口
+
+status: NEW  
+owner: Reasoned Decision  
+primary area: Judgment Integrity / Solution Design  
+related area: Task State Integrity / Decision Frame Integrity / Research Completeness  
+source: 2026-11-12 至 2026-11-13 的真实 ChatGPT thread，目标是在 32GB Mac mini 上为两个此前失败的长 Agent 任务收敛可交付的本地方案。  
+evidence: 当前 thread 的完整多轮记录；相关本机实测、canonical 配置与历史淘汰记录位于用户的 Local_Compute_Infrastructure；公开调查覆盖当前版本 OpenCode、DeepSeek Harness、MLX、模型官方说明、GitHub Issues/Discussions 与社区实测。本文只记录决策行为缺口，不冻结任何具体模型或参数结论。
+
+### problem
+
+用户的目标一直很简单：
+
+> 在 32GB Mac mini 上，找到一套本地 Agent 方案，至少能把两个此前失败的真实任务做完并留下可用 Markdown；用户愿意让 Codex 半夜跑 2 个模型 × 2 个软件做真实验收。
+
+前几轮模型却反复在没有完成证据调查的情况下直接给出“最终方案”：
+
+1. **先把一个已经被本机真实淘汰并删除的模型重新推荐为长 Agent 主模型。**  
+   旧线程和 canonical repo 已经记录该模型在同机长任务中速度慢、工具循环、零文件交付，并因此被替换。模型却只因为型号更新、公开 benchmark 强，就把它重新提升为默认主模型，没有提供任何合法 Decision Delta，也没有先检查 DO_NOT_REVIVE。
+
+2. **把一组参数直接写成部署值，却没有证明它们最优或甚至合理。**  
+   例如 context、output、buffer、keep、headroom 等数值被直接列为“下一步就部署”的参数。用户追问后才发现：
+   - 某个更高 output 上限其实已经在本机真实试过，仍然失败；
+   - DSH 官方明确写明部分默认压缩比例“尚未决定”，没有语料支持的最优值；
+   - 不同 Harness 的压缩公式根本不同，不能用同一组数字类比；
+   - 不同模型的官方 Agent / non-thinking 采样参数也不同，不能默认共用一套 temperature / top-p / penalty。
+
+3. **在没有因果证据时，把失败归因为插件 / 交付机制。**  
+   早期回答把“没有提前落盘”“planning-with-files 没启用”提升为主要根因，并据此设计强制落盘协议。但后续调查发现：
+   - 两个当前 Harness 都已经自带原生的长任务目标持续机制；
+   - OpenCode 当前版本自带 /goal、逐轮 reviewer 和继续执行逻辑；
+   - DSH 当前版本自带 persisted goal、round driver、session checkpoint、tool-result pruning 和 repeat-tool reminder；
+   - planning-with-files 的公开评测虽然证明它能强化文件化计划与恢复，但没有直接证明它就是用户这两个失败任务的缺失环节，而且其公开宿主兼容验证版本与用户当前 DSH 版本并不完全一致。
+   
+   因此“插件问题”最多是候选假设，不能在 Gap Proof 之前写成根因。
+
+4. **没有先做完整的现实解空间调查，就开始设计 2×2 实验。**  
+   第一版夜跑矩阵只比较手头两只模型和两个 Harness，没有先检查：
+   - 32GB Apple Silicon 当前还有哪些真正可行的本地 Agent 模型；
+   - 哪些候选因为权重、KV、工具调用协议或当前 MLX 兼容性应直接淘汰；
+   - 当前安装的软件版本是否已经新增原生能力，足以替代第三方插件；
+   - 旧 Issue 是否仍适用于当前版本，还是已经发生实现变化。
+
+5. **把“找到一个可能解释失败的机制”误写成“已经找到根因”。**  
+   实际失败可能同时来自：
+   - 模型工具调用与规划能力；
+   - Harness 的 goal / continuation 行为；
+   - context / compaction 策略；
+   - output truncation；
+   - thinking / reasoning 模式；
+   - 采样参数；
+   - 本机内存与 swap；
+   - 网页 / GitHub 工具循环；
+   - 最终文件写入与完成判定。
+   
+   如果没有做最小区分实验，任何单层归因都只是 hypothesis。
+
+6. **用户必须连续追问，才迫使调查质量逐轮提升。**  
+   用户依次追问：
+   - “为什么这个参数就是最好的？”
+   - “为什么相信是插件问题？”
+   - “有没有彻底网上搜清楚？”
+   - “按 Reasoned Decision 一步步走了吗？”
+   
+   这些本来都应该由 Reasoned Decision 在第一次强推荐前自动完成。
+
+### what improved in the later round
+
+后续一轮的研究行为明显改善，但**该轮技术结论本身仍只是更有依据的候选，不自动升级为正确答案**。
+
+改善点包括：
+
+- 重新读取 Reasoned Decision 自身的 Task State / Judgment / Solution Design 规则；
+- 回读用户 canonical repo，而不是只相信上一轮聊天总结；
+- 发现并执行 DO_NOT_REVIVE：确认已淘汰模型不能因新 benchmark 无证据复活；
+- 查当前软件版本的源码、Release、Issues，而不是把旧版本故障直接套到新版本；
+- 发现两个 Harness 自带的原生 goal / continuation / compaction / checkpoint 能力，先考虑 Adopt，再讨论是否需要第三方插件；
+- 对每个参数追问来源：官方推荐、软件默认、本机实测、数学推导还是仍待验证候选；
+- 开放搜索其它 32GB 可行模型，并按内存、工具调用兼容、当前运行栈复杂度淘汰，而不是只比较已安装候选；
+- 明确把“当前有更强证据”与“已经 Production-worthy”分开。
+
+这个差异正是本案例要保留的重点：**Reasoned Decision 的价值不是让最后一轮显得更复杂，而是让推荐在出现之前就有可追溯依据，并保持“仍未知”这一合法状态。**
+
+### why this matters
+
+这类失败会制造一种很危险的“工程确定感”：
+
+- 参数表看起来非常具体；
+- 模型、Harness、插件都有名字；
+- 甚至给出了完整夜跑 prompt；
+- 但每个关键选择的来源和推翻条件都没有被证明。
+
+用户看到的是一套可以执行的方案，却无法知道：
+
+- 这是官方推荐、现场实测，还是模型临时猜的；
+- 哪一层证据支持“根因”；
+- 哪个参数只是保守候选；
+- 为什么不是另一个模型 / Harness；
+- 如果失败，结果能否真正区分原因。
+
+对于会消耗数小时本机运行时间、下载几十 GB 模型或修改长期配置的任务，这种“精确但无依据”的回答成本很高。
+
+### minimum contract to evaluate
+
+Reasoned Decision 在软件 / 模型 / Agent / 基础设施调优任务中，至少应维护：
+
+- **SUCCESS_CRITERION**：最终必须解决什么现实问题；benchmark 或中间能力不能替代最终交付。
+- **CURRENT_CONTROL_SURFACE**：当前真实安装版本、配置、硬件、现有插件和原生能力。
+- **ELIMINATED_ROUTES / DO_NOT_REVIVE**：已被现场证据淘汰的模型、参数和架构；没有合法 Decision Delta 不得复活。
+- **SOLUTION_SPACE_DISCOVERY**：在设计实验前，开放调查现实可行候选，而不是只验证模型最先想到的两三个名字。
+- **FAILURE_LAYER_MAP**：把可能失败层分开，例如模型、推理服务、Harness、压缩、工具、资源、交付，不允许从共现直接跳到单一根因。
+- **PARAMETER_PROVENANCE**：每个关键参数必须标明它属于：
+  1. 官方明确推荐；
+  2. 软件默认；
+  3. 用户机器真实验证；
+  4. 根据明确公式 / 约束推导；
+  5. 仍需实验裁决的候选。
+- **VERSION_APPLICABILITY**：Issue、源码、文档与用户实际版本必须对齐；旧版本故障不能自动继承到当前版本。
+- **NATIVE_BEFORE_PLUGIN**：加入第三方插件前，先证明当前产品 / Harness 的原生能力不能覆盖该需求。
+- **GAP_PROOF**：若要增加插件、改运行栈或下载新模型，必须说明现有能力具体缺哪一块，为什么 Compose / Extend 仍不够。
+- **DISCRIMINATING_TEST**：真实实验必须能区分关键假设；不得同时改模型、参数、Harness、插件后仅凭成功 / 失败猜原因。
+- **CONFIDENCE_STATE**：区分 Candidate、Conditionally Recommended、Recommended、Production-worthy，不因回答变长或资料更多自动升级置信度。
+
+### regression requirements
+
+后续 Reasoned Decision 应加入本案例回放，至少满足：
+
+1. 给出 2×2 本地 Agent 验收方案前，必须先读取当前硬件、真实配置、历史失败和已淘汰路线。
+2. 已经被本机长任务证据淘汰并删除的模型，不得只因最新 benchmark 强就重新推荐；必须给合法 Decision Delta。
+3. 不得把任何 context / output / buffer / keep / headroom 数值称为“最佳”或直接冻结为部署值，除非有相应强度的证据。
+4. 每个关键参数都应能回答“这个数字从哪里来、为什么适用于当前模型和 Harness、什么证据会推翻它”。
+5. 某次失败同时可能由模型、Harness、压缩或资源造成时，不得直接写“根因是插件 / 输出长度 / 模型”；必须先列出可区分的 failure layers，并找最小裁决实验。
+6. 在推荐第三方 planning / memory / guardrail 插件前，必须先检查当前版本是否已经有原生 goal、checkpoint、compaction、continuation 或相似能力。
+7. 旧版 GitHub Issue 与当前版本实现不一致时，必须重新核当前源码 / Release，而不是沿用旧结论。
+8. 模型候选必须来自开放式现实调查；不得只比较“已经安装的两个”或“模型先想到的两个”。
+9. 新候选若会要求新推理运行栈、补协议适配或显著增加维护成本，复杂度本身必须进入排序。
+10. 真实夜跑前，应先裁决那些会使整晚实验失去解释力的前置未知，例如工具调用是否正常、goal 是否能持续和关闭、压缩策略是否真的按预期触发。
+11. 用户不应再通过连续追问“参数凭什么 → 为什么是插件 → 有没有网上查 → 按 RD 重做”来替 Agent 补研究流程。
+12. 最终即使形成了一个更有依据的新候选，也必须允许明确写：**当前研究行为比上一轮可靠，但结论仍待真实环境验证。**
+
+### project-specific context
+
+Mac mini、GLM、Qwen、OpenCode、OpenChamber、DeepSeek Harness、MLX、planning-with-files、具体 context / output 数值是本案例的载体，不应直接变成 Reasoned Decision 的永久偏好。
+
+通用问题是：
+
+> **在复杂工程选型与调优中，不能把“具体的名字和参数”当成证据。推荐前必须先建立现实解空间、继承历史淘汰状态、区分故障层、追溯参数来源，并把实验设计成能真正裁决关键未知；证据不足时，保持 Candidate / Unknown 比拍出一套可执行但无法解释的方案更可靠。**
+
