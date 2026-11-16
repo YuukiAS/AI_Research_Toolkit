@@ -417,3 +417,89 @@ Mac mini、GLM、Qwen、OpenCode、OpenChamber、DeepSeek Harness、MLX、planni
 
 > **在复杂工程选型与调优中，不能把“具体的名字和参数”当成证据。推荐前必须先建立现实解空间、继承历史淘汰状态、区分故障层、追溯参数来源，并把实验设计成能真正裁决关键未知；证据不足时，保持 Candidate / Unknown 比拍出一套可执行但无法解释的方案更可靠。**
 
+## 2026-11-16：Mac mini 本地语音栈选型反复改口，暴露“能力分解 / 候选层级 / 推荐稳定性”缺口
+
+status: NEW  
+owner: Reasoned Decision  
+primary area: Decision Frame Integrity / Judgment Integrity  
+related area: Task State Integrity / Solution Design / Research Completeness  
+source: 2026-11-16 ChatGPT thread，围绕 Mac mini 上“视频生成翻译字幕、粤语/日语语音识别、粤语/日语语音生成”的本地方案选型。  
+evidence: 当前 thread 的完整多轮记录；本 TODO 只记录决策行为缺口，不冻结具体模型为永久结论。
+
+### problem
+
+用户的真实目标一直是三项明确能力：
+
+1. 从视频提取音频，识别语音，生成带时间轴并翻译后的中文字幕；
+2. 识别粤语、日语语音，并可后续用于 Shione 的语音输入；
+3. 根据文字生成粤语、日语语音。
+
+模型却在没有出现足以改变排序的新证据时，连续给出互相冲突的安装建议：
+
+- 先说“FFmpeg + whisper.cpp + Whisper large-v3-turbo”，Qwen3-ASR 暂不装；
+- 随后又改成“FFmpeg + Qwen3-ASR 1.7B + ForcedAligner + CosyVoice3”，Whisper 暂不装；
+- 对 ASR 一词的解释也晚于安装建议，导致用户甚至无法知道“ASR 是任务类别，Whisper 与 Qwen3-ASR 都是具体 ASR 实现”；
+- 在“视频字幕”和“实时听写”两个不同目标之间来回切换评价标准，却没有先把能力链拆开、明确每个组件解决哪一段问题；
+- 推荐变化时没有给出合法的 Decision Delta：没有说明哪条旧事实失效、哪条新证据足以推翻原推荐，而只是随着最新追问重新组织一套看似合理的方案。
+
+结果是用户需要多轮追问“ASR 是干嘛的”“Whisper 和 ASR 什么关系”“到底装不装”“分别负责什么”，才能逼近原本应该首轮完成的能力分解。
+
+### decision-frame failure
+
+本案例里至少混淆了三个层级：
+
+- **能力类别**：音视频预处理、ASR、时间对齐、翻译、TTS；
+- **具体实现**：FFmpeg、Whisper / whisper.cpp、Qwen3-ASR、ForcedAligner、Qwen/GLM、Qwen3-TTS、CosyVoice；
+- **产品目标**：离线视频字幕、Shione 实时听写、粤语/日语语音生成。
+
+如果不先固定这三个层级，就很容易把“ASR”误当成“Qwen3-ASR”，或把“Whisper 是否更适合视频字幕”误扩展成“Whisper 是否应该承担所有语音识别”。
+
+### minimum contract to evaluate
+
+遇到“我要一套本地能力栈，到底装什么”这类任务时，Reasoned Decision 至少应先维护：
+
+- **USER_CAPABILITIES**：用户真正要实现的能力清单；
+- **PIPELINE_STAGES**：每项能力需要经过哪些功能阶段；
+- **CATEGORY_VS_IMPLEMENTATION**：先区分类别与具体实现，避免拿“ASR”与“Whisper”这种不同层级概念直接比较；
+- **SHARED_COMPONENTS**：哪些组件可以跨多个目标复用；
+- **ROLE_OF_EACH_COMPONENT**：每个候选到底负责哪一段，不允许只给型号名；
+- **PRIMARY_PATH**：当前默认整套方案；
+- **WHY_NOT_ALTERNATIVES**：主要替代实现为什么当前不作为默认；
+- **DECISION_DELTA**：如果后续改推荐，必须指出哪条新证据或新约束改变了排序；
+- **NO_DRIFT_WITHOUT_EVIDENCE**：用户追问原理、要求解释、表达不满本身都不能成为改口理由；
+- **INSTALL_NOW_VS_LATER**：明确哪些现在安装、哪些只有实测失败后才作为备用。
+
+### research requirements
+
+如果默认方案取决于平台成熟度、语言覆盖、时间戳能力或 Apple Silicon 支持，必须在首次强推荐前查清至少：
+
+1. 官方模型/项目是否明确支持粤语、日语；
+2. 是否原生提供时间戳，还是需要独立 forced alignment；
+3. macOS / Apple Silicon 上的官方或成熟实现是什么；
+4. 视频字幕与实时听写是否需要不同运行路径；
+5. TTS 是否真的支持粤语、日语，而不是只支持“中文”；
+6. 是否有重复安装同类模型的必要；
+7. 现有本地 Qwen/GLM 能否直接承担字幕翻译，避免额外模型。
+
+### regression requirements
+
+后续 Reasoned Decision 回放必须覆盖本案例，并至少满足：
+
+1. 首轮先用人话解释 ASR/TTS/对齐/翻译分别是什么，再比较具体模型；
+2. 必须把三项用户目标拆成独立能力链，并说明哪些组件复用；
+3. 不得把 Whisper 与“ASR”作为同层级候选；正确比较应是 Whisper 与 Qwen3-ASR 等具体 ASR 实现；
+4. 给出一套唯一默认方案，并标清“现在装 / 备用 / 以后按需”；
+5. 如果视频字幕和 Shione 实时听写适合不同 ASR 实现，可以明确采用双引擎，但必须证明双引擎的收益足以抵消重复维护；
+6. 如果一个 ASR 能同时覆盖两个目标，应优先评估统一方案，再讨论是否需要第二引擎；
+7. 推荐变化时必须写出 Decision Delta；没有新事实时不得因为用户追问“确定吗”而改口；
+8. 最终答案必须能让用户直接知道每个组件“输入什么、输出什么、服务哪个需求”，而不是只看到模型名列表；
+9. 用户不应再通过连续追问“ASR 是什么 → Whisper 和 ASR 什么区别 → 到底装哪个 → 每个负责什么”来完成本应由 Agent 首轮完成的决策分解。
+
+### project-specific context
+
+FFmpeg、Whisper、Qwen3-ASR、ForcedAligner、Qwen3-TTS、CosyVoice、Shione 是本案例的具体载体，不应直接固化为 Reasoned Decision 的通用规则。
+
+通用问题是：
+
+> **复杂工具栈选型必须先把用户目标拆成稳定的能力链，再在每个能力层选择具体实现；类别、实现和产品目标不能混在一起比较。推荐只有在新证据真正改变同一评价标准下的排序时才能变化。**
+
